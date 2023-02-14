@@ -15,7 +15,7 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), Mobility Optimized Networking (MON). HCX Enterprise is now automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/install-vmware-hcx).
 
-**Log analytics**
+**Log analytics - monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
@@ -25,7 +25,7 @@ The AV36P is now available in the West US Region.  This node size is used for 
 
 AV52 is now available in the East US 2 Region. This node size is used for intensive workloads with higher physical core count, additional memory, and larger capacity NVME based SSDs.
 
-**Customer-managed keys**
+**Customer-managed keys using Azure Key Vault**
 
 You can use customer-managed keys to bring and manage your master encryption keys to encrypt van. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
