@@ -50,7 +50,7 @@ If there are any connection issues, a disconnection message is shown in the **Ge
     :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
 
-## Download software for OT sensor
+## Download software for OT sensors
 
 You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
