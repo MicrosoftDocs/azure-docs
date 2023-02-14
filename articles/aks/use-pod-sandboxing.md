@@ -25,13 +25,8 @@ This article helps you understand this new feature, and how to implement it.
 
 - Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
 
-- If you want to run `kubectl` locally on your Windows system, you can install it using the `Install-AzAksKubectl` cmdlet:
+- To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
-    ```azurepowershell
-    Install-AzAksKubectl
-    ```
-
-   To install it locally on your Linux system, see [Install and setup Kubectl on Linux][install-kubectl-linux].
 
 ### Install the aks-preview Azure CLI extension
 
@@ -145,7 +140,7 @@ To use this feature with an existing AKS cluster, if the cluster is running vers
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
-### Deploy a trusted application
+## Deploy a trusted application
 
 To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
 
@@ -175,7 +170,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
     pod/trusted created
     ```
 
-### Deploy an untrusted application
+## Deploy an untrusted application
 
 To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
 
@@ -287,9 +282,9 @@ kubectl delete pod pod-name
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[install-kubectl-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
 [kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
@@ -313,3 +308,4 @@ kubectl delete pod pod-name
 [azure-dedicated-hosts]: use-azure-dedicated-hosts.md
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
+[az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
