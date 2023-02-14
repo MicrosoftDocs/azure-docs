@@ -11,7 +11,7 @@ ms.date: 02/09/2023
 
 Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview). Pod Sandboxing provides an isolation boundary between the container application, and the shared kernel and compute resources of the container host. For example CPU, memory, and networking.
 
-Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+Pod Sandboxing complements other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
 This article helps you understand this new feature, and how to implement it.
 
@@ -145,7 +145,7 @@ To use this feature with an existing AKS cluster, if the cluster is running vers
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
-## Deploy a trusted application
+### Deploy a trusted application
 
 To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
 
@@ -175,7 +175,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
     pod/trusted created
     ```
 
-## Deploy an untrusted application
+### Deploy an untrusted application
 
 To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
 
@@ -208,7 +208,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     pod/untrusted created
     ```
 
-## Verify isolation configuration
+### Verify isolation configuration
 
 1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example we are accessing the container inside the *untrusted* pod. 
 
