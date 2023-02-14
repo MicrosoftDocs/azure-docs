@@ -16,7 +16,7 @@ The following extensions are currently available for use with Arc-enabled Kubern
 
 ## Azure Monitor Container Insights
 
-**Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
 
 Azure Monitor Container Insights provides visibility into the performance of workloads deployed on the Kubernetes cluster. Use this extension to collect memory and CPU utilization metrics from controllers, nodes, and containers.
 
@@ -30,7 +30,7 @@ For more information, see [Understand Azure Policy for Kubernetes clusters](../.
 
 ## Azure Key Vault Secrets Provider
 
-**Supported distributions**: AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
+- **Supported distributions**: AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a CSI volume. For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
@@ -48,7 +48,7 @@ For more information, see [Enable Microsoft Defender for Containers](../../defen
 
 ## Azure Arc-enabled Open Service Mesh
 
-**Supported distributions**: AKS, AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
+- **Supported distributions**: AKS, AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -56,7 +56,7 @@ For more information, see [Azure Arc-enabled Open Service Mesh](tutorial-arc-ena
 
 ## Azure Arc-enabled Data Services
 
-**Supported distributions**: AKS, AKS on Azure Stack HCI, Azure Red Hat OpenShift, Google Kubernetes Engine, Canonical Kubernetes Distribution, OpenShift Container Platform, Amazon Elastic Kubernetes Service
+- **Supported distributions**: AKS, AKS on Azure Stack HCI, Azure Red Hat OpenShift, Google Kubernetes Engine, Canonical Kubernetes Distribution, OpenShift Container Platform, Amazon Elastic Kubernetes Service
 
 Makes it possible for you to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. This extension enables the *custom locations* feature, providing a way to configure Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings.
 
@@ -64,7 +64,7 @@ For more information, see [Azure Arc-enabled Data Services](../data/create-data-
 
 ## Azure App Service on Azure Arc
 
-**Supported distributions**: AKS, AKS on Azure Stack HCI, Azure Red Hat OpenShift, Google Kubernetes Engine, OpenShift Container Platform
+- **Supported distributions**: AKS, AKS on Azure Stack HCI, Azure Red Hat OpenShift, Google Kubernetes Engine, OpenShift Container Platform
 
 Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters.
 
@@ -86,7 +86,7 @@ For more information, see [Event Grid on Kubernetes with Azure Arc (Preview)](..
 
 ## Azure API Management on Azure Arc
 
-**Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters.
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters.
 
 With the integration between Azure API Management and Azure Arc on Kubernetes, you can deploy the API Management gateway component as an extension in an Azure Arc-enabled Kubernetes cluster. This extension is [namespace-scoped](conceptual-extensions.md#extension-scope), not cluster-scoped.
 
@@ -98,7 +98,7 @@ For more information, see [Deploy an Azure API Management gateway on Azure Arc (
 
 ## Azure Arc-enabled Machine Learning
 
-**Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
 
 The AzureML extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
 
@@ -106,7 +106,7 @@ For more information, see [Introduction to Kubernetes compute target in AzureML]
 
 ## Flux (GitOps)
 
-**Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
 
 [GitOps on AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md) uses [Flux v2](https://fluxcd.io/docs/), a popular open-source tool set, to help manage cluster configuration and application deployment. GitOps is enabled in the cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` cluster extension resource.
 
