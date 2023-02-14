@@ -60,27 +60,28 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Choose an empty folder location for your project and choose **Select**.
 
-1. Following the prompts, provide the following information:
 ::: zone pivot="node-model-v3"
+1. Following the prompts, provide the following information:
 
- | Prompt | Value | Description |
- | ------ | ----- | ----------- |
- | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
- | Select a JavaScript programming model | Model V3 | Choose the V3 programming model. |
- | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
- | Select a template for your project's first function | Skip for now | |
- | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a JavaScript programming model | Model V3 | Choose the V3 programming model. |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a template for your project's first function | Skip for now | |
+    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
 ::: zone-end
 ::: zone pivot="node-model-v4"
+1. Following the prompts, provide the following information:
 
- | Prompt | Value | Description |
- | ------ | ----- | ----------- |
- | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
- | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
- | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
- | Select a template for your project's first function | Skip for now | |
- | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a template for your project's first function | Skip for now | |
+    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
 ::: zone-end
 
