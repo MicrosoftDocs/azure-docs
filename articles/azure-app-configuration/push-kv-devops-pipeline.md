@@ -33,11 +33,11 @@ Assign the proper App Configuration role assignments to the credentials being us
 1. In the left menu, select **Access control (IAM)**.
 1. In the right pane, select **Add role assignments**.
 
-    <kbd>![Screenshot shows the Add role assignments button.](./media/azure-app-configuration-role-assignment/add-role-assignment-button.png)</kbd>
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-button.png" alt-text="Screenshot shows the Add role assignments button.":::
 1. For **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store.
 1. Select the service principal associated with the service connection that you created in the previous section.
 
-    <kbd>![Screenshot shows the Add role assignment dialog.](./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png)</kbd>
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png" alt-text="Screenshot shows the Add role assignment dialog.":::
 
 ## Use in builds
 
