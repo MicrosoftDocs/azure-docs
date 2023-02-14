@@ -91,6 +91,10 @@
       href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
+    - name: Deploy confidential containers using the Azure portal (preview)
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md
+    - name: Deploy confidential containers using ARM (preview)
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
