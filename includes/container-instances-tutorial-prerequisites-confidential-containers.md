@@ -23,7 +23,7 @@ You must satisfy the following requirements to complete this tutorial:
 
 **Docker**: To complete this tutorial, you need Docker installed locally. Docker provides packages that configure the Docker environment on [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux].
 
-**Azure CLI Confcom extension**: You must have the Azure CLI concom extension version 0.30+ to generate confidential computing enforcement policies. 
+**Azure CLI Confcom extension**: You must have the Azure CLI Confcom extension version 0.30+ to generate confidential computing enforcement policies. 
    
 ```bash
    az extension add confcom

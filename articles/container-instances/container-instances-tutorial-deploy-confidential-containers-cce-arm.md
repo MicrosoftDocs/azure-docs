@@ -197,11 +197,11 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 
     Review the terms and conditions. If you agree, select **I agree to the terms and conditions stated above**.
 
-    ![Template properties](media/container-instances-quickstart-template/template-properties.png)
+    ![Screenshot of Linux container with public IP template properties, PNG.](media/container-instances-quickstart-template/template-properties.png)
 
  3. After the instance has been created successfully, you get a notification:
 
-    ![Portal notification](media/container-instances-quickstart-template/deployment-notification.png)
+    ![Screenshot of portal notification for successful deployment, PNG.](media/container-instances-quickstart-template/deployment-notification.png)
 
  The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -213,11 +213,11 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 1. On the **Overview** page, note the **Status** of the instance and its **IP address**.
 
-    ![Instance overview](media/container-instances-quickstart-template/aci-overview.png)
+    ![Screenshot of overview page for container group instance, PNG.](media/container-instances-quickstart-template/aci-overview.png)
 
 2. Once its status is *Running*, navigate to the IP address in your browser. 
 
-    ![App deployed using Azure Container Instances viewed in browser](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
+    ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
 
 ## Next steps
 
