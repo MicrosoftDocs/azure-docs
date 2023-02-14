@@ -14,7 +14,7 @@ This Document lists steps that must be followed to set up connectivity between V
 1. Create two different VNets where HDInsight Kafka cluster and VM will be hosted respectively. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
 
    > [!Note]
-   > These two  VNetTs must be peered, so that IP addresses of their subnets must not overlap with each other. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
+   > These two  VNets must be peered, so that IP addresses of their subnets must not overlap with each other. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
 1. Make sure that the peering status shows as connected.
   
@@ -22,7 +22,7 @@ This Document lists steps that must be followed to set up connectivity between V
    
 1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more information, see [Create an Apache Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster)
 
-1. Create a Virtual Machine in the second VNet. While creating the VM specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
+1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 
     > [!Note]
     > Once the above steps are completed and Kafka cluster and VM are in running state, make sure to add your local machine IP address in the NSG rule of both the subnets.
@@ -113,7 +113,9 @@ This Document lists steps that must be followed to set up connectivity between V
    
    Make sure to create the topic inside the Kafka cluster using the command
      
-   `java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS` 
+   ```
+   java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
+   ```
 
 1. After creating the topic, we can use the commands to produce and consume. The $KAFKABROKERS must be replaced appropriately with the broker worker node FQDN and port as mentioned in the documentation. 
     
@@ -122,7 +124,7 @@ This Document lists steps that must be followed to set up connectivity between V
    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS 
    ```
    
-1. After this you get an output as 
+1. After this step you get an output as 
     
    1. Producer output:
    
