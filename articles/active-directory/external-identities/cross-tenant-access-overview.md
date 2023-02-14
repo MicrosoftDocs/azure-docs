@@ -66,7 +66,7 @@ You can configure organization-specific settings by adding an organization and m
 ### Automatic redemption setting
 
 > [!IMPORTANT]
-> Automatic redemption is currently in PREVIEW.
+> Automatic redemption is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
