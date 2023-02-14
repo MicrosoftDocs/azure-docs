@@ -82,11 +82,13 @@ To achieve this functionality on AKS, [Kata Containers][kata-containers-overview
 
 The solution architecture is based on the following components:
 
-* Mariner AKS Container Host
-* Azure-tuned Dom0 Linux Kernel
-* Open-source Cloud-Hypervisor Virtual Machine Monitor (VMM)
+* [Mariner](https://learn.microsoft.com/EN-us/azure/aks/use-mariner) AKS Container Host
 * Microsoft Hyper-V Hypervisor
-* Integration with Kata Container framework
+* Azure-tuned Dom0 Linux Kernel
+* Open-source [Cloud-Hypervisor](https://www.cloudhypervisor.org/) Virtual Machine Monitor (VMM)
+* Integration with [Kata Container](https://katacontainers.io/) framework
+
+![image](https://user-images.githubusercontent.com/50749048/218833321-007248c5-dc05-4816-97f4-6781a1d88a15.png)
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
 
