@@ -62,27 +62,26 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 1. Choose an empty folder location for your project and choose **Select**.
 
 1. Following the prompts, provide the following information:
-
 ::: zone pivot="node-model-v3"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | Select a language for your function app project | TypeScript | Create a local Node.js Functions project using TypeScript. |
-    | Select a JavaScript programming model | Model V3 | Choose the V3 programming model. |
-    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Select a template for your project's first function | Skip for now | |
-    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+ | Prompt | Value | Description |
+ | ------ | ----- | ----------- |
+ | Select a language for your function app project | TypeScript | Create a local Node.js Functions project using TypeScript. |
+ | Select a JavaScript programming model | Model V3 | Choose the V3 programming model. |
+ | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+ | Select a template for your project's first function | Skip for now | |
+ | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
 ::: zone-end
 ::: zone pivot="node-model-v4"
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | Select a language for your function app project | TypeScript | Create a local Node.js Functions project using TypeScript. |
-    | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
-    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Select a template for your project's first function | Skip for now | |
-    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+ | Prompt | Value | Description |
+ | ------ | ----- | ----------- |
+ | Select a language for your function app project | TypeScript | Create a local Node.js Functions project using TypeScript. |
+ | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
+ | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+ | Select a template for your project's first function | Skip for now | |
+ | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
 ::: zone-end
 
@@ -202,8 +201,8 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 1. To test your function, set a breakpoint in the `durableHello1` activity function code (*src/functions/durableHello1.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 ::: zone-end
 
-    > [!NOTE]
-    > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
+ > [!NOTE]
+ > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
 1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
 
