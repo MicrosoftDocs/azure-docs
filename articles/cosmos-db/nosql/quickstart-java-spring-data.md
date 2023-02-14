@@ -79,7 +79,7 @@ Before you can create a document database, you need to create an API for NoSQL a
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it's to work with data programmatically. 
+Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/azure-spring-boot-samples.git
 ### [Password](#tab/password)
 
 ```bash
-git clone git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started.git
+git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started.git
 ```
 
 ---
@@ -140,22 +140,22 @@ Now go back to the Azure portal to get your connection string information and la
     cd azure-spring-boot-samples/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample
     ```
 
-2. In the git terminal window, use the following command to install the required Spring Data Azure Cosmos DB packages.
+1. In the git terminal window, use the following command to install the required Spring Data Azure Cosmos DB packages.
 
     ```bash
     mvn clean package
     ```
 
-3. In the git terminal window, use the following command to start the Spring Data Azure Cosmos DB application:
+1. In the git terminal window, use the following command to start the Spring Data Azure Cosmos DB application:
 
     ```bash
     mvn spring-boot:run
     ```
 
-4. The app loads **application.yml** and connects the resources in your Azure Cosmos DB account.
-5. The app will perform point CRUD operations described above.
-6. The app will perform a derived query.
-7. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
+1. The app loads **application.yml** and connects the resources in your Azure Cosmos DB account.
+1. The app will perform point CRUD operations described above.
+1. The app will perform a derived query.
+1. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
 
 ## [Password](#tab/password)
 
@@ -237,5 +237,5 @@ Now go back to the Azure portal to get your connection string information and la
 In this quickstart, you've learned how to create an Azure Cosmos DB for NoSQL account, create a document database and container using the Data Explorer, and run a Spring Data app to do the same thing programmatically. You can now import more data into your Azure Cosmos DB account. 
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of scores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

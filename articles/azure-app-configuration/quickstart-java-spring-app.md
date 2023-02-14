@@ -22,7 +22,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
-- If you don't have a Spring Boot application, create a **Maven project** with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and select Java version 8 or higher.
+- A Spring Boot application. If you don't have, create a **Maven project** with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and select Java version 8 or higher.
 
 ## Create an App Configuration store
 
@@ -105,7 +105,7 @@ To use the Spring Cloud Azure Config starter to have your application communicat
     }
     ```
 
-1. In the main application Java file, and add `@EnableConfigurationProperties` to enable this feature.
+1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MessageProperties.java* configuration class to take effect and register it with the Spring container.
 
     ```java
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
