@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -29,11 +29,6 @@ The studio supports Form Recognizer v3.0 models and v3.0 model training. Previou
     * **Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
     * **Cognitive Services or Form Recognizer resource**. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal to get your key and endpoint. Use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-    > [!TIP]
-    >
-    > * Create a Cognitive Services (multi-service) resource if you plan to access multiple cognitive services under a single endpoint and key.
-    > * Create a single-service resource for Form Recognizer access only. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
 

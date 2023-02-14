@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 02/14/2023
 ---
 
 # Create a Translator resource
@@ -27,9 +27,6 @@ The Translator service can be accessed through two different resource types:
 * [**Single-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource types enable access to a single service API key and endpoint.
 
 * [**Multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource types enable access to multiple Cognitive Services using a single API key and endpoint.
-
-> [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Translator Service access only, create a Translator single-service resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 ## Complete your project and instance details
 
