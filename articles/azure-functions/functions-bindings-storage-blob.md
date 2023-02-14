@@ -226,7 +226,7 @@ The isolated worker process supports parameter types according to the table belo
 
 <sup>2</sup> Blobs containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-<sup>3</sup> The `BlobPath` configuration for an input binding to [BlobContainerClient] currently requires the presence of a blob name. It is not sufficient to provide just the container name. A placeholder value may used and will not change the behavior. For example, setting `[BlobInput("samples-workitems/placeholder.txt")] BlobContainerClient containerClient` does not consider whether any `placeholder.txt` exists or not, and the client will work with the overall "samples-workitems" container.
+<sup>3</sup> The `BlobPath` configuration for an input binding to [BlobContainerClient] currently requires the presence of a blob name. It is not sufficient to provide just the container name. A placeholder value may be used and will not change the behavior. For example, setting `[BlobInput("samples-workitems/placeholder.txt")] BlobContainerClient containerClient` does not consider whether any `placeholder.txt` exists or not, and the client will work with the overall "samples-workitems" container.
 
 <sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
 
