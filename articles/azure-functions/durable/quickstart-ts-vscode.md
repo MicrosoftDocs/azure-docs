@@ -88,7 +88,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-A `package.json` and a `tsconfig.json` files are also created in the root folder.
+A `package.json` and a `tsconfig.json` file are also created in the root folder.
 
 ## Install the Durable Functions npm package
 
