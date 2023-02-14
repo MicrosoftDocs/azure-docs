@@ -100,7 +100,7 @@ az spring app create \
 
 ## Clone and build the Spring Boot sample project
 
-Use the following steps to clone the Spring Boot sample project.
+Use the following steps to clone the Spring Boot sample project (version 2.7).
 
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
