@@ -233,7 +233,13 @@
     {
       "path_to_root": "azure-functions-durable-js",
       "url": "https://github.com/Azure/azure-functions-durable-js",
-      "branch": "main",
+      "branch": "v2.x",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js-v3",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "v3.x",
       "branch_mapping": {}
     },
     {
