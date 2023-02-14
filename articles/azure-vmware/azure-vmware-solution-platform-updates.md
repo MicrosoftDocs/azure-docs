@@ -33,7 +33,7 @@ You can use customer-managed keys to bring and manage your master encryption key
 
 You can use Azure NetApp Files volumes as a file share for Azure VMware Solution workloads using Network File System (NFS) or Server Message Block (SMB).
 
-**Stretched clusters**
+**Stretched clusters - increase uptime with Stretched Clusters (Preview)**
 
 Stretched clusters for Azure VMware Solution, provides 99.99% uptime for mission critical applications that require the highest availability.
 
