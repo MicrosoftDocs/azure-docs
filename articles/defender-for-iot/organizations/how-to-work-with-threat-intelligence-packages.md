@@ -14,9 +14,9 @@ Microsoft Defender for IoT regularly delivers threat intelligence package update
 
 Threat intelligence packages contain signatures, such as malware signatures, CVEs, and other security content.
 
-We recommend ensuring that your OT network sensors always have the latest threat intelligence package installed so that you always have the full context of a threat before an environment is affected, and increased relevancy, accuracy, and actionable recommendations.
-
 > [!TIP]
+> We recommend ensuring that your OT network sensors always have the latest threat intelligence package installed so that you always have the full context of a threat before an environment is affected, and increased relevancy, accuracy, and actionable recommendations.
+>
 > Announcements about new packages are available from our [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT).
 
 ## Permissions
@@ -27,11 +27,11 @@ To perform the procedures in this article, make sure that you have:
 
 - Relevant permissions on the Azure portal and any OT network sensors or on-premises management console you want to update.
 
-    - **To download threat intelligence packages from the Azure portal**, you'll need access to the Azure portal as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
+    - **To download threat intelligence packages from the Azure portal**, you need access to the Azure portal as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
-    - **To push threat intelligence updates to cloud-connected OT sensors from the Azure portal**, you'll need access to Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
+    - **To push threat intelligence updates to cloud-connected OT sensors from the Azure portal**, you need access to Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
-    - **To manually upload threat intelligence packages to OT sensors or on-premises management consoles**, you'll need access to the OT sensor or on-premises management console as an **Admin** user. 
+    - **To manually upload threat intelligence packages to OT sensors or on-premises management consoles**, you need access to the OT sensor or on-premises management console as an **Admin** user. 
 
 For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -66,7 +66,7 @@ Ensure automatic package update by onboarding your cloud connected sensor with t
 
 ### Manually push updates to cloud-connected sensors
 
-Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it's required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
+Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it's required. Pushing updates manually gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
 
 **To manually push updates to a single OT sensor**:
 
@@ -84,7 +84,7 @@ The **Threat Intelligence update status** field displays the update progress for
 
 ### Manually update locally managed sensors
 
-If you're working with locally managed OT sensors, you'll need to download the updated threat intelligence packages and upload them manually on your sensors.
+If you're working with locally managed OT sensors, you need to download the updated threat intelligence packages and upload them manually on your sensors.
 
 If you're also working with an on-premises management console, we recommend that you upload the threat intelligence package to the on-premises management console and push the update from there.
 

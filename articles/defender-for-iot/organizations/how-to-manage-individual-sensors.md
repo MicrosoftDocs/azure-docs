@@ -62,6 +62,8 @@ In Defender for IoT in the Azure portal, use one of the following options:
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ## Manage sensor activation files
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.

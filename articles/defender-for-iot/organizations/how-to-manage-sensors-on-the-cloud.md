@@ -34,7 +34,7 @@ Details about each sensor are listed in the following columns:
 |**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on an OT sensor. The name of the version is based on the day the package was built by Defender for IoT. |
-|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on all OT, cloud-connected sensors. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages are automatically installed on all OT, cloud-connected sensors. |
 |**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package on an OT sensor. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
@@ -66,7 +66,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |Task |Description  |
 |---------|---------|
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-update.png" border="false"::: **Sensor update (Preview)** | OT sensors only. <br><br>Run remote updates on OT sensors directly from the Azure portal, or download update packages to update manually. <br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md). |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Push threat intelligence updates**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Threat intelligence update (Preview)**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-prepare-to-update.png" border="false"::: **Prepare an OT sensor to update to software version 22.x or higher**     |   Individual, OT sensors only. <br><br>Available from the **Sites and sensors** toolbar, the **...** options menu, or a sensor details page. <br><br>For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).   |
 
@@ -86,14 +86,14 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 
 |Task |Description  |
 |---------|---------|
-| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Define OT network sensor settings** (Preview) | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
 
 ## Retrieve forensics data stored on the sensor
 
-Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
@@ -101,7 +101,7 @@ Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data fr
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
+Each type of data has a different retention period and maximum capacity. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Reactivate an OT sensor
 
