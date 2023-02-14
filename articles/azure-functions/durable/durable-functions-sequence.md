@@ -92,7 +92,7 @@ The `context` object lets you call other *activity* functions and pass input par
 
 #### function.json
 
-[!code-json[dajusto/add-v2-samples](~/samples-durable-functions-python/samples-v2/function_app.py)]
+[!code-json[Main](~/samples-durable-functions-python/samples-v2/function_app.py)]
 
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
