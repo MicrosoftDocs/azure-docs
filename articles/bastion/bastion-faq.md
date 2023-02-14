@@ -29,7 +29,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub), default 0.0.0.0/0 route must not be overwritten. 
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), default 0.0.0.0/0 route must not be overwritten. 
 
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -166,6 +166,10 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 To establish the correct key mappings for your target language, you must set the keyboard layout on your local computer to your target language *and* the keyboard layout inside the target VM to your target language. Both keyboards must be set to your target language to establish the correct key mappings inside the target VM. 
 
 To set your target language as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add your target language. You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
+
+### <a name="shortcut"></a>Is there a keyboard solution to toggle focus between a VM and browser?
+
+Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser. 
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
