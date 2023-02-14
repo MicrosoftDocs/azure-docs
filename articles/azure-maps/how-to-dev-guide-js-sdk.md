@@ -202,7 +202,7 @@ main().catch((err) => {
 
 ```
 
-The code snippet above shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends a HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult][FuzzySearchResult] object and writes them to the console. For more details, see the [FuzzySearchRequest][FuzzySearchRequest] documentation.
+The code snippet above shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult][FuzzySearchResult] object and writes them to the console. For more details, see the [FuzzySearchRequest][FuzzySearchRequest] documentation.
  
 Run `search.js` with Node.js:
 
