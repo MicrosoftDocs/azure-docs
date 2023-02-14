@@ -26,7 +26,7 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 ## Availability
 
 * GraphQL APIs are supported in all API Management service tiers
-* Synthetic GraphQL APIs aren't supported in a self-hosted gateway
+* Passthrough and synthetic GraphQL APIs currently aren't supported in a self-hosted gateway
 * GraphQL subscription support in synthetic GraphQL APIs is currently in preview
 
 ## What is GraphQL?

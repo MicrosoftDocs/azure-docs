@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy reference - publish-event | Microsoft Docs
-description: Reference for the set-graphql-resolver policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+description: Reference for the publish-event policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
