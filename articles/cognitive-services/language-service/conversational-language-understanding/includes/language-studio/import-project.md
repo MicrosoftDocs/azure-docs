@@ -15,7 +15,7 @@ ms.author: aahi
     :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../media/select-custom-clu.png"::: 
     
 
-2. This will bring you to the **Conversational language understanding projects** page. From the dropdown next to Create new project select **Import**.
+2. This will bring you to the **Conversational language understanding projects** page. Next to the **Create new project** button select **Import**.
 
     :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
     
