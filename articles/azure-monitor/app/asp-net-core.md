@@ -28,9 +28,7 @@ A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!NOTE]
-> This article uses the Microsoft.ApplicationInsights.AspNetCore package. The logging provider is included as a dependency of Microsoft.ApplicationInsights.AspNetCore, which is the package that provides all available telemetry for ASP.NET Core. If you use this package, you don't have to install the provider package.
->
-> If you want to implement the logging provider without the rest of Application Insights telemetry, use the standalone package Microsoft.Extensions.Logging.ApplicationInsights. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [ASP.NET Core applications](ilogger.md#aspnet-core-applications) or [Console application](ilogger.md#console-application).
+> If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
 
 ## Supported scenarios
 

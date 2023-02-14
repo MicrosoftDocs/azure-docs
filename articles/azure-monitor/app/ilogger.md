@@ -15,7 +15,7 @@ In this article, you'll learn how to capture logs with Application Insights in .
 [nuget-ai-ws]: https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService
 
 > [!NOTE]
-> If you want to implement the full range of Application Insights telemetry along with logging, see [Configure Application Insights for your ASP.NET website](./asp-net.md) or [Application Insights for ASP.NET Core applications](./asp-net-core.md).
+> If you want to implement the full range of Application Insights telemetry along with logging, see [Configure Application Insights for your ASP.NET websites](./asp-net.md) or [Application Insights for ASP.NET Core applications](./asp-net-core.md).
 
 > [!TIP]
 > The [`Microsoft.ApplicationInsights.WorkerService`][nuget-ai-ws] NuGet package, used to enable Application Insights for background services, is out of scope. For more information, see [Application Insights for Worker Service apps](./worker-service.md).
@@ -29,8 +29,6 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
 1. Add `ApplicationInsightsLoggerProvider`:
 
     ### [ASP.NET Core 6 and later](#tab/netcorenew)
-
-    <!--DEV: The code below is copied from the "Example Program.cs" section in the published ilogger.md article (https://learn.microsoft.com/en-us/azure/azure-monitor/app/ilogger#example-programcs). If I understand correctly from our meeting, it needs to be updated to not talk about startup anymore - correct? If so, can you please make this update or send me the updated code? -->
 
     ```csharp
     using Microsoft.AspNetCore.Hosting;
@@ -61,18 +59,10 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
                     })
                     .ConfigureLogging((context, builder) =>
                     {
-                        // Providing a connection string is required if you're using the
-                        // standalone Microsoft.Extensions.Logging.ApplicationInsights package,
-                        // or when you need to capture logs during application startup, such as
-                        // in Program.cs or Startup.cs itself.
                         builder.AddApplicationInsights(
                             configureTelemetryConfiguration: (config) => config.ConnectionString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"],
                             configureApplicationInsightsLoggerOptions: (options) => { }
                         );
-    
-                        // Capture all log-level entries from Program
-                        builder.AddFilter<ApplicationInsightsLoggerProvider>(
-                            typeof(Program).FullName, LogLevel.Trace);
     
                         // Capture all log-level entries from Startup
                         builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -84,7 +74,6 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
 
    ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
-    <!--DEV: Can you add this code or send it to me to add it myself?-->
 
     ```csharp
     ```
@@ -182,33 +171,45 @@ namespace ConsoleApp
 
 ```
 
-## Frequently asked questions
+The previous example demonstrates the default behavior for a console application. As the following example shows, you can override this default behavior.
 
-### Why are some ILogger logs shown twice in Application Insights?
+Required packages:
 
-Duplication can occur if you have the older (now obsolete) version of `ApplicationInsightsLoggerProvider` enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your `Configure` method has the following code, and remove it:
-
-```csharp
- public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
- {
-     loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Warning);
-     // ..other code.
- }
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.ApplicationInsights.Channel" Version="" />
+</ItemGroup>
 ```
 
-If you experience double logging when you debug from Visual Studio, set `EnableDebugLogger` to `false` in the code that enables Application Insights, as follows. This duplication and fix are relevant only when you're debugging the application.
+The following section shows how to override the default TelemetryConfiguration setup.
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.Extensions.Logging;
+
+var channel = new InMemoryChannel();
+
+using var loggerFactory = LoggerFactory.Create(builder =>
 {
-    var options = new ApplicationInsightsServiceOptions
-    {
-        EnableDebugLogger = false
-    }
-    services.AddApplicationInsightsTelemetry(options);
-    // ...
-}
+    builder.AddApplicationInsights(
+        (tc) => 
+            {
+            tc.ConnectionString = "";
+            tc.TelemetryChannel = channel;
+            },
+        (opt) => 
+            {
+                opt.IncludeScopes = true;
+            });
+});
+
+ILogger logger = loggerFactory.CreateLogger<Program>();
+logger.LogInformation("Example log message");
+channel.Flush();
+
 ```
+
+## Frequently asked questions
 
 ### Why do some ILogger logs not have the same properties as others?
 
