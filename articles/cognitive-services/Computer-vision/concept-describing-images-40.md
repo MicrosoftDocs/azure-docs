@@ -29,11 +29,15 @@ Try out the image captioning features quickly and easily in your browser using V
 
 The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
 
-![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png)
-
+![Photo of a man pointing at a screen](./Media/quickstarts/presentation.png)
 
 ```json
-tbd
+"captions": [
+    {
+        "text": "a man pointing at a screen",
+        "confidence": 0.4891590476036072
+    }
+]
 ```
 
 ## Use the API
@@ -41,7 +45,7 @@ tbd
 > [!IMPORTANT]
 > Image captioning is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. You need to create a resource in one of these regions in order to use the feature.
 
-The image captioning feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Description` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
+The image captioning feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Caption` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"caption"` section.
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
 
