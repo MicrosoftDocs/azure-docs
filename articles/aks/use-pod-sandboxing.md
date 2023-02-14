@@ -19,7 +19,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the Mariner 2.0 operating system SKU.
+- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the Mariner operating system SKU.
 
 - The `KataVMIsolationPreview` feature is registered in your Azure subscription.
 
