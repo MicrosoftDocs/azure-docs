@@ -60,6 +60,7 @@ ledger_client = ConfidentialLedgerClient(
     )
 
 # Add a user with the contributor role
+# Other possible roles are Contributor and Administrator
 user_id = "PEM certficate fingerprint"
 user = ledger_client.create_or_update_user(
 user_id, {"assignedRole": "Contributor"}
@@ -102,9 +103,10 @@ internal class ACLUserManagement
         string userId = "PEM certficate fingerprint";
 
         // Add the user with the Reader role
+		// Other supported roles are Contributor and Administrator
         ledgerClient.CreateOrUpdateUser(
             userId,
-            RequestContent.Create(new { assignedRole = "Reader" })); // Other possible roles are Contributor and Administrator
+            RequestContent.Create(new { assignedRole = "Reader" }));
 
         // Get the user and print their properties
         Azure.Response response = ledgerClient.GetUser(userId);
@@ -167,6 +169,8 @@ import io.netty.handler.ssl.SslContextBuilder;
 public class CreateOrUpdateUserSample {
 	public static void main(String[] args) {
 		try {
+			// Download the service identity certificate of the ledger from the well-known identity service endpoint.
+         	// Do not change the identity endpoint.
 			ConfidentialLedgerCertificateClientBuilder confidentialLedgerCertificateClientbuilder = new ConfidentialLedgerCertificateClientBuilder()
 					.certificateEndpoint("https://identity.confidential-ledger.core.azure.com")
 					.credential(new DefaultAzureCredentialBuilder().build()).httpClient(HttpClient.createDefault());

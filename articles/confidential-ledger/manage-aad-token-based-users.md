@@ -64,6 +64,7 @@ ledger_client = ConfidentialLedgerClient(
     )
 
 # Add a user with the contributor role
+# Other supported roles are Contributor and Administrator
 user_id = "AAD object id of the user"
 user = ledger_client.create_or_update_user(
 user_id, {"assignedRole": "Contributor"}
@@ -90,8 +91,6 @@ dotnet add Azure.Security
 
 ### Create a client and manage the users
 
-To create a client, get the Confidential Ledger's id and the endpoint from the Azure Portal. Replace instances of ```contoso``` and  ```https://contoso.confidential-ledger.azure.com``` in the following code with the respective values.
-
 ```Dotnet
 using Azure.Core;
 using Azure.Identity;
@@ -108,7 +107,7 @@ internal class ACLUserManagement
       string userId = "AAD object id of the user";
 
       // Add the user with the Reader role
-      // Other possible roles are Contributor and Administrator
+      // Other supported roles are Contributor and Administrator
       ledgerClient.CreateOrUpdateUser(
          userId,
          RequestContent.Create(new { assignedRole = "Reader" })); 
@@ -175,8 +174,8 @@ import io.netty.handler.ssl.SslContextBuilder;
 public class CreateOrUpdateUserSample {
 	public static void main(String[] args) {
 		try {
-         // Download the service identity certificate of the ledger from the well-known identity service endpoint.
-         // Do not change the identity endpoint.
+         	// Download the service identity certificate of the ledger from the well-known identity service endpoint.
+         	// Do not change the identity endpoint.
 			ConfidentialLedgerCertificateClientBuilder confidentialLedgerCertificateClientbuilder = new ConfidentialLedgerCertificateClientBuilder()
 					.certificateEndpoint("https://identity.confidential-ledger.core.azure.com")
 					.credential(new DefaultAzureCredentialBuilder().build()).httpClient(HttpClient.createDefault());
@@ -199,7 +198,7 @@ public class CreateOrUpdateUserSample {
 					.secure(sslContextSpec -> sslContextSpec.sslContext(sslContext));
 			HttpClient httpClient = new NettyAsyncHttpClientBuilder(reactorClient).wiretap(true).build();
 
-         // The DefaultAzureCredentialBuilder will use the current Azure context to authenticate to Azure
+         	// The DefaultAzureCredentialBuilder will use the current Azure context to authenticate to Azure
 			ConfidentialLedgerClient confidentialLedgerClient = new ConfidentialLedgerClientBuilder()
 					.credential(new DefaultAzureCredentialBuilder().build()).httpClient(httpClient)
 					.ledgerEndpoint("https://contoso.confidential-ledger.azure.com").buildClient();
