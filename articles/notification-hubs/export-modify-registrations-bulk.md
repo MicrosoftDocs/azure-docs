@@ -35,7 +35,7 @@ This section assumes you have the following entities:
 
 - A provisioned notification hub.
 - An Azure Storage blob container.
-- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs)) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### Create input file and store it in a blob
 
