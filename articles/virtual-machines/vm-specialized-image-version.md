@@ -146,6 +146,24 @@ New-AzVM `
    -VM $vmConfig
 
 ```
+
+### [Portal](#tab/portal)
+
+Now you can create one or more new VMs. This example creates a VM named *myVM*, in the *myResourceGroup*, in the *East US* datacenter.
+
+1. Go to your image definition. You can use the resource filter to show all image definitions available.
+1. On the page for your image definition, select **Create VM** from the menu at the top of the page.
+1. For **Resource group**, select **Create new** and type *myResourceGroup* for the name.
+1. In **Virtual machine name**, type *myVM*.
+1. For **Region**, select *East US*.
+1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
+1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
+1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
+1. Under **Administrator account**, the username will be greyed out because the username and credentials from the source VM are used.
+1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. When you're finished, select the **Review + create** button at the bottom of the page.
+1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+
 ---
 ## RBAC - within your organization
 
