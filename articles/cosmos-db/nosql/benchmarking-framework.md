@@ -304,7 +304,7 @@ You can expect to see the following latencies for all the read and write recipes
 
 - **Write latency**
 
-    :::image type="content" source="media\benchmarking-framework\typical-write-latency.png" lightbox="media\benchmarking-framework\typical-write-latency.png" alt-text="Diagram of the typical wrtite latency averaging around 4 milliseconds.":::
+    :::image type="content" source="media\benchmarking-framework\typical-write-latency.png" lightbox="media\benchmarking-framework\typical-write-latency.png" alt-text="Diagram of the typical write latency averaging around 4 milliseconds.":::
 
 ## Common issues
 
@@ -312,19 +312,19 @@ This section includes the common errors that may occur when running the benchmar
 
 :::image type="content" source="media/benchmarking-framework/storage-diagnostic-results.png" alt-text="Screenshot of container and blobs in a storage account.":::
 
-1. If the logs are not available in the storage account, this is typically caused by an incorrect or missing storage connection string. In this case, this error will appear in the **agent.out** file within the **/home/benchmarking** folder of the client virtual machine.
+1. If the logs aren't available in the storage account, this issue is typically caused by an incorrect or missing storage connection string. In this case, this error is listed in the **agent.out** file within the **/home/benchmarking** folder of the client virtual machine.
 
     ```output
     Error while accessing storage account, exiting from this machine in agent.out on the VM
     ```
 
-1. This error will appear in the **agent.out** file both in the client VM and the storage account if the Azure Cosmos DB endpoint URI is incorrect or unreachable.
+1. This error is listed in the **agent.out** file both in the client VM and the storage account if the Azure Cosmos DB endpoint URI is incorrect or unreachable.
 
     ```output
     Caused by: java.net.UnknownHostException: rtcosmosdbsss.documents.azure.com: Name or service not known 
     ```
 
-1. This error will appear in the **agent.out** file both in the client VM and the storage account if the Azure Cosmos DB key is incorrect.
+1. This error is listed in the **agent.out** file both in the client VM and the storage account if the Azure Cosmos DB key is incorrect.
 
     ```output
     The input authorization token can't serve the request. The wrong key is being used….
