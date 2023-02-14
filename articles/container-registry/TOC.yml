@@ -157,7 +157,7 @@
           href: container-registry-auth-service-principal.md
         - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
-        - name: Authenticate with token (preview)
+        - name: Authenticate with token 
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md

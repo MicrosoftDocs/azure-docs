@@ -222,7 +222,7 @@ If you need to repair the cloud sync service account, you can use the `Repair-AA
       Connect-AADCloudSyncTools
       ```
 
-   1. Enter your Azure AD global admin credentials.
+   1. Enter your Azure AD Global Administrator credentials.
 
    1. Type, or copy and paste, the following:
 

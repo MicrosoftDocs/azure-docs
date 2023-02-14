@@ -31,8 +31,8 @@ Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on
 ## Create an application in Azure Active Directory
 
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID**,**tenant ID**, and **object ID**, and note down these values that you use later in this tutorial.
-1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
+1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application), get the **application ID**,**tenant ID**, and **object ID**, and note down these values that you use later in this tutorial.
+1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
 1. [assign the application to these roles:](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 
   | | Azure Storage Account Roles | Microsoft Purview Collection Roles |
@@ -398,7 +398,7 @@ var assetMapping = await assetMappingsClient.CreateAsync(WaitUntil.Completed, re
 
 ## Clean up resources
 
-To clean up the resources created for the quick start, follow the steps below: 
+To clean up the resources created for the quick start, use the following guidelines: 
 
 1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-a-sent-share).
 1. Also [delete your received share](how-to-receive-share.md#delete-received-share).

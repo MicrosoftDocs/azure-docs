@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
+description: In this tutorial, learn how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer

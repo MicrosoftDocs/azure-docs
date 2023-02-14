@@ -47,13 +47,15 @@ Blob client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can create a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
+To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+
+You can authorize a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
 
 ## [Azure AD](#tab/azure-ad)
 
-To authorize with Azure AD, you'll need to use a [security principal](/azure/active-directory/develop/app-objects-and-service-principals). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+To authorize with Azure AD, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
@@ -64,9 +66,21 @@ To authorize with Azure AD, you'll need to use a [security principal](/azure/act
 
 #### Authorize access using DefaultAzureCredential
 
-The easiest way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
+An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
+
+The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_DAC":::
+
+## [SAS token](#tab/sas-token)
+
+To use a shared access signature (SAS) token, provide the token as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
+
+To learn more about generating and managing SAS tokens, see the following article:
+
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 
 ## [Account key](#tab/account-key)
 
@@ -80,13 +94,8 @@ You can also create a `BlobServiceClient` object using a connection string.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
-## [SAS token](#tab/sas-token)
-
-To use a shared access signature (SAS) token, provide the token as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
-
-To generate and manage SAS tokens, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json).
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
@@ -109,3 +118,21 @@ Each type of resource is represented by one or more associated Python classes. T
 | [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
 | [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
 | [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
+
+The following guides show you how to use each of these classes to build your application.
+
+| Guide | Description |
+|--|---|
+| [Create a container](storage-blob-container-create-python.md) | Create containers. |
+| [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list-python.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-python.md) | Get and set properties and metadata for containers. |
+| [Create and manage container leases](storage-blob-container-lease-python.md) | Establish and manage a lock on a container. |
+| [Create and manage blob leases](storage-blob-lease-python.md) | Establish and manage a lock on a blob. |
+| [Upload blobs](storage-blob-upload-python.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+| [Download blobs](storage-blob-download-python.md) | Download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
+| [List blobs](storage-blobs-list-python.md) | List blobs in different ways. |
+| [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |

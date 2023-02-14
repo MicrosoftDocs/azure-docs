@@ -3,7 +3,7 @@ title: Overview of upgrading Azure Kubernetes Service (AKS) clusters and compone
 description: Learn about the various upgradeable components of an Azure Kubernetes Service (AKS) cluster and how to maintain them.
 author: nickomang
 ms.author: nickoman
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: conceptual
 ms.date: 11/11/2022
 ---

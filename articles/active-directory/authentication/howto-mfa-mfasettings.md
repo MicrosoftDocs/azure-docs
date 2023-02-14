@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 02/13/2023
 
 ms.author: justinha
 author: justinha
@@ -144,7 +144,11 @@ Depending on the size of the CSV file, it might take a few minutes to process. S
 
 After any errors are addressed, the administrator can activate each key by selecting **Activate** for the token and entering the OTP displayed in the token.
 
-Users can have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time.
+Users can have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. 
+
+>[!IMPORTANT]
+>Make sure to only assign each token to a single user.
+>In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
 ## Phone call settings
 

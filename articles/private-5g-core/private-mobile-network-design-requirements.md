@@ -1,7 +1,7 @@
 ---
 title: Private mobile network design requirements
-titleSuffix: Azure Private 5G Core Preview
-description: Learn how to design a private mobile network for Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: Learn how to design a private mobile network for Azure Private 5G Core.
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core

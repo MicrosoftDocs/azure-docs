@@ -120,7 +120,7 @@ We need to ensure that only one Sync Server is syncing changes at any given time
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Staging Mode highlighted in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-menu.png)
 
-2. You will need to sign into Azure AD with Global Admin or Hybrid Identity Admin credentials:  
+2. You will need to sign into Azure AD with Global Administrator or Hybrid Identity Admin credentials:  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot shows Sign in prompt in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sign-in.png)
