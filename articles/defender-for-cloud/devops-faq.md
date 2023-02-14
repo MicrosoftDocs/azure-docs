@@ -40,9 +40,9 @@ Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quick
 
 ### Secret scan didn't run on my code 
 
-To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Defender for Cloud. 
+To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
 
-In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
+In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](./azure-devops-extension.md?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
 
 If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
 
@@ -81,6 +81,8 @@ Data Defender for DevOps connects to your source code management system, for exa
 Data is stored within the region your connector is created in. You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
+
+Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
