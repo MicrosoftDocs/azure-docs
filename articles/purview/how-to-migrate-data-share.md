@@ -19,7 +19,7 @@ If you're a new user of data sharing in Microsoft Purview, you'll receive update
 
 ## Feature comparison
 
-| | **Classic Data Sharing** | **Updated Data Sharing** |
+| **Feature** | **Classic Data Sharing** | **Updated Data Sharing** |
 |---|---|---|
 |Microsoft Purview Permissions|Data Share Contributor|None to use data sharing SDK. Minimum of Data Reader for data sharing user experience in Microsoft Purview compliance portal.|
 |User experience|Share center for creating and managing shares|ADLS Gen2 and Blob storage assets in the Microsoft Purview Catalog for creating and managing shares from the respective accounts|
