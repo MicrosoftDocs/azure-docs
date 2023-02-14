@@ -12,7 +12,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
-This tutorial will walk you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. It will show how to use [Kalypso](https://github.com/microsoft/kalypso) GitHub repositories setup and toolings from the perspective of the `Platform Team` and `Application Dev Team` personas in their daily activities. 
+This tutorial will walk you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. It will show how to use GitHub repositories setup and toolings from the perspective of the `Platform Team` and `Application Dev Team` personas in their daily activities. 
 
 ## Installation options and requirements
  
