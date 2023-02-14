@@ -12,16 +12,17 @@ ms.topic: how-to
 
 For certificate based users, their user id is the fingerprint of their PEM certificate. Users with Administrator privileges can manage users of the Confidential Ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
-The following client libraries can be used to manage users. Learn more about each by following the links below:
+The following client libraries are available to manage users. Learn about each by following the links below:
 
-- Python
-- .NET
-- Java
+- [Python](#python-client-library)
+- [.NET](#.net-client-library)
+- [Java](#java-client-library)
 
-> [!NOTE]
-> Login to Azure using either the Azure CLI or Azure PowerShell. The instructions are available at [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) or [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps) respectively.
+## Sign in to Azure
 
-Get the Confidential Ledger's id and the endpoint from the Azure Portal as it is needed to create a client to manage the users. This image shows the appropriate properties in the Azure portal.
+[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+
+Get the Confidential Ledger's name and the identity service URI from the Azure Portal as it is needed to create a client to manage the users. The image below shows the appropriate properties in the Azure portal.
 
 :::image type="content" source="./media/ledger-properties.png" alt-text="Ledger Properties":::
 
