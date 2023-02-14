@@ -403,6 +403,8 @@ items:
       href: creator-facility-ontology.md
   - name: REST
     items:
+    - name: Overview
+      href: /rest/api/maps
     - name: Data service
       href: /rest/api/maps/data
     - name: Data service V2
@@ -427,35 +429,39 @@ items:
       href: /rest/api/maps/timezone
     - name: Traffic service
       href: /rest/api/maps/traffic
-    - name: Weather services
+    - name: Weather service
       href: /rest/api/maps/weather
-    - name: Maps Creator service
+    - name: Maps Creator
       items:
-      - name: Alias service
-        href: /rest/api/maps/v2/alias
-      - name: Conversion service
-        href: /rest/api/maps/v2/conversion
-      - name: Dataset service
-        href: /rest/api/maps/v2/dataset
-      - name: Feature State service
-        href: /rest/api/maps/v2/feature-state
-      - name: Tileset service
-        href: /rest/api/maps/v2/tileset
-      - name: WFS service
-        href: /rest/api/maps/v2/wfs
+      - name: V2
+        items:
+          - name: Overview
+            href: /rest/api/maps-creator/
+          - name: Alias service
+            href: /rest/api/maps/v2/alias
+          - name: Conversion service
+            href: /rest/api/maps/v2/conversion
+          - name: Dataset service
+            href: /rest/api/maps/v2/dataset
+          - name: Feature State service
+            href: /rest/api/maps/v2/feature-state
+          - name: Tileset service
+            href: /rest/api/maps/v2/tileset
+          - name: WFS service
+            href: /rest/api/maps/v2/wfs
       - name: V20220901Preview
         items:
-        - name: Dataset
+        - name: Dataset service
           href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
+        - name: Map configuration service
           href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
+        - name: Routeset service
           href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
+        - name: Style service
           href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
+        - name: Tileset service
           href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
+        - name: Wayfinding service
           href: /rest/api/maps/v20220901preview/wayfinding
     - name: Maps account management
       href: /rest/api/maps-management/
