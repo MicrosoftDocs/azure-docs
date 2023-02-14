@@ -111,7 +111,11 @@ Analyze color usage within an image. Computer Vision can determine whether an im
 
 ### Get the area of interest / smart crop
 
-Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0 preview)](concept-generating-thumbnails-40.md)
+Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. 
+
+The version 4.0 smart cropping model is a more advanced implementation. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+[Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0 preview)](concept-generating-thumbnails-40.md)
 
 :::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
 
