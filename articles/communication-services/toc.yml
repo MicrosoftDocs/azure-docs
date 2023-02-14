@@ -19,12 +19,20 @@ items:
       href: concepts/sdk-options.md
     - name: Designing your architecture
       href: concepts/client-and-server-architecture.md
+  - name: Services
+    items:
+    expanded:true
+    - name: SMS
+    - name: Voice and Video Calling
+    - name: Chat
+    - name: Email
+    - name: TURN
   - name: Common Scenarios
     items:
-      - name: Virtual visit scenarios
-        href: tutorials/virtual-visits.md
-      - name: Virtual event scenarios
-        href: tutorials/events-playbook.md
+    - name: Virtual visit scenarios
+      href: tutorials/virtual-visits.md
+    - name: Virtual event scenarios
+      href: tutorials/events-playbook.md
   - name: Service limits
     href: concepts/service-limits.md
   - name: Troubleshooting
@@ -35,6 +43,7 @@ items:
   items:
   - name: SMS
     items:
+    expanded: true
     - name: Get a phone numbers
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
@@ -50,7 +59,7 @@ items:
         href: quickstarts/voice-video-calling/getting-started-with-calling.md
       - name: Add video calling to your app
         href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Connect to Teams
+    - name: Connect to a Teams call
       items:
       - name: Use an external identity
         items:
@@ -64,7 +73,7 @@ items:
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to you app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
-    - name: Connect to a Room
+    - name: Connect to a Room call
       items:
       - name: Create a room 
         href: quickstarts/rooms/get-started-rooms.md
@@ -75,10 +84,11 @@ items:
   - name: Chat
     items:
     - name: Connect to a chat 
-    - name: Create and manage access tokens
-      href: quickstarts/access-tokens.md
-    - name: Add chat to your app
-      href: quickstarts/chat/get-started.md 
+      items:
+      - name: Create and manage access tokens
+        href: quickstarts/access-tokens.md
+      - name: Add chat to your app
+        href: quickstarts/chat/get-started.md 
     - name: Connect to Teams
       items:
       - name: Use an external identity
