@@ -1,7 +1,7 @@
 ---
 title: Create your first durable function in Azure using TypeScript
 description: Create and publish an Azure Durable Function in TypeScript using Visual Studio Code.
-author: hossamnasr
+author: hossam-nasr
 ms.topic: quickstart
 ms.date: 02/13/2023
 ms.reviewer: azfuncdf
