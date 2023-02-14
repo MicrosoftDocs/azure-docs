@@ -256,6 +256,7 @@ Use the following steps to build and deploy your app.
 ## [Visual Studio Code](#tab/VS-Code)
 
 ## Prerequisites
+
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
