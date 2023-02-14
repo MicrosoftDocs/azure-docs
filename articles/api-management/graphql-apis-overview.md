@@ -21,14 +21,13 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 |---------|---------|
 | ▪️ Passthrough API to existing GraphQL API endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy HTTP APIs     |
 
-
-[!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=modernize-your-api-stack-with-graphql-and-azure-api-management]
+[!VIDEO https://learn.microsoft.com/shows/azure-friday/modernize-your-api-stack-with-graphql-and-azure-api-management/player]
 
 ## Availability
 
 * GraphQL APIs are supported in all API Management service tiers
 * Synthetic GraphQL APIs aren't supported in a self-hosted gateway
-* GraphQL subscription support is currently in preview
+* GraphQL subscription support in synthetic GraphQL APIs is currently in preview
 
 ## What is GraphQL?
 
@@ -63,24 +62,23 @@ type User {
 }
 ```
 
-API Management supports the following operation types in GraphQL schemas. 
+API Management supports the following operation types in GraphQL schemas. For more information about these operation types, see the [GraphQL specification](https://spec.graphql.org/October2021/#sec-Subscription-Operation-Definitions).
 
 * **Query** - Fetches data, similar to a `GET` operation in REST
 *  **Mutation** - Modifies server-side data, similar to a `PUT` or `PATCH` operation in REST
 * **Subscription** - Enables notifying subscribed clients in real time about changes to data on the GraphQL service
 
-    For example, when data is modified via a GraphQL mutation, subscribed clients could be automatically notified about the change. API Management supports subscriptions implemented using the WebSocket protocol.
+    For example, when data is modified via a GraphQL mutation, subscribed clients could be automatically notified about the change. 
 
-
-> [!NOTE]
-> A GraphQL subscription must be implemented using the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
+> [!IMPORTANT]
+> API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
 > 
 
 ## Resolvers
 
 *Resolvers* take care of mapping the GraphQL schema to backend data, producing the data for each field in an object type. The data source could be an API, a database, or another service. For example, a resolver function would be responsible for returning data for the `users` query in the preceding example. 
 
-In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You need to configure resolvers for Synthetic GraphQL API schemas, but you can also configure them to override the default resolvers used by passthrough GraphQL APIs.
+In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields Synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by passthrough GraphQL APIs.
 
 ### Resolver example
 
@@ -102,7 +100,7 @@ For example, a resolver for the preceding `users` query might map to a `GET` ope
 ## Manage GraphQL APIs
 
 * Secure GraphQL APIs by applying both existing access control policies and a [GraphQL validation policy](validate-graphql-request-policy.md) to secure and protect against GraphQL-specific attacks.
-* Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals.
+* Explore the GraphQL schema and run test queries against the GraphQL APIs in the Azure and developer portals.
 
 
 ## Next steps
