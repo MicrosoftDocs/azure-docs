@@ -54,13 +54,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 10. Select on **Save** 
 
-11. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
-
-```azurecli-interactive
-az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permissions get
-```
-
-12. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+11. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
 
 ## Next steps
 
@@ -68,4 +62,3 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
-[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy.md#assign-an-access-policy

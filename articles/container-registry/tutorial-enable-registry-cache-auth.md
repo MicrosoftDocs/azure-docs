@@ -86,8 +86,6 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 
 1. For the  **Select from Key Vault** option, Learn more about [creating credentials using key vault][create-and-store-keyvault-credentials]. 
 
-1. For the **Enter secret URI's** option, type in the Secret URI for the Username and Password. 
-
 1. Select on **Create**
 
 ## Next steps

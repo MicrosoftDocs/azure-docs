@@ -50,7 +50,7 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
-    - name: Caching for ACR
+    - name: Caching for ACR (preview)
       items:
       - name: Caching for ACR - Overview
         href: tutorial-registry-cache.md
