@@ -1115,7 +1115,7 @@ items:
           - name: Java
             href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
           - name: Node.js
-            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview
+            href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
       - name: Conversation summarization
         items:
         - name: .NET
