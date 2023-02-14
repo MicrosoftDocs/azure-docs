@@ -4,7 +4,7 @@ description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics
 author: veyalla
 
 ms.author: veyalla
-ms.date: 03/18/2022
+ms.date: 2/14/2023
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
