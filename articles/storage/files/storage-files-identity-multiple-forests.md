@@ -105,12 +105,12 @@ For example, when users in a domain in **Forest 1** want to reach a file share w
 
 You can configure domain suffixes using one of the following methods:
 
-- [Modify storage account suffix and add a CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) (recommended)
-- [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule)
+- [Modify storage account suffix and add a CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) (recommended - will work with two or more forests)
+- [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule) (won't work with more than two forests)
 
 ### Modify storage account name suffix and add CNAME record
 
-You can solve the domain routing issue by modifying the suffix of the storage account name associated with the Azure file share, and then adding a CNAME record to route the new suffix to the endpoint of the storage account. 
+You can solve the domain routing issue by modifying the suffix of the storage account name associated with the Azure file share, and then adding a CNAME record to route the new suffix to the endpoint of the storage account. With this configuration, domain-joined clients can access storage accounts joined to any forest. This works for environments that have two or more forests.
 
 In our example, we have the domains **onpremad1.com** and **onpremad2.com**, and we have **onprem1sa** and **onprem2sa** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. We want to allow access to both storage accounts from clients who belong to each forest. To do this, we need to modify the SPN suffixes of the storage account:
  
@@ -122,24 +122,37 @@ This will allow clients to mount the share with `net use \\onprem1sa.onpremad1.c
 
 To use this method, complete the following steps:
 
-1. Modify the SPN of the storage account using the setspn tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
+1. Make sure you've [established trust](#establish-and-configure-trust) between the two forests and [set up identity-based authentication and hybrid user accounts](#set-up-identity-based-authentication-and-hybrid-user-accounts) as described in the previous sections.
+
+2. Modify the SPN of the storage account using the setspn tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
 
    ```
    setspn -s cifs/<storage-account-name>.<DomainDnsRoot> <storage-account-name>
    ```
 
-2. Add a CNAME entry
+3. Add a CNAME entry using Active Directory DNS Manager and follow the steps below for each storage account in the domain that the storage account is joined to.
 
+   1. Open Active Directory DNS Manager.
+   1. Go to your domain (for example, **onpremad1.com**).
+   1. Go to "Forward Lookup Zones".
+   1. Select the node named after your domain (for example, **onpremad1.com**) and right-click **New Alias (CNAME)**.
+   1. For the alias name, enter your storage account name.
+   1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **mystorageaccount.onpremad1.com**.
+   1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
+   1. Select **OK**.
 
+      :::image type="content" source="media/storage-files-identity-multiple-forests/add-cname-record.png" alt-text="Screenshot showing how to add a CNAME record for suffix routing using Active Directory DNS Manager." border="true":::
+
+Now, from domain-joined clients, you should be able to use storage accounts joined to any forest.
 
 ### Add custom name suffix and routing rule
 
 If you've already modified the storage account name suffix and added a CNAME record as described in the previous section, you can skip this step. If you'd rather not make DNS changes or modify the storage account name suffix, you can configure a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
 
-> [!NOTE]
-> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
+> [!IMPORTANT]
+> This method will only work in environments with two forests. If you have more than two forests, use the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method instead.
 
-First, you must add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've [established trust](#establish-and-configure-trust) between the two forests. Then follow these steps:
+First, add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've [established trust](#establish-and-configure-trust) between the two forests. Then follow these steps:
 
 1. Log on to a machine or VM that's joined to a domain in **Forest 2**.
 1. Open the **Active Directory Domains and Trusts** console.
@@ -156,6 +169,9 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 1. Select **Properties** and then **Name Suffix Routing**.
 1. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
 1. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
+
+> [!NOTE]
+> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 ## Validate that the trust is working
 
