@@ -1,4 +1,4 @@
-# Bring Your Own Machine Learning (ML) / Advanced Analytics to Analyze Log Data in Azure Monitor 
+# Bring your own machine learning/advanced analytics to analyze log data in Azure Monitor 
 
 Machine learning offers powerful methods of processing, analyzing, and acting on log data you collect in Azure Monitor Logs. 
 
@@ -6,17 +6,17 @@ Machine Learning can be used for various data-driven tasks, including detection 
 
 Azure Monitor provides multiple built-in features using machine learning capabilities as well as tools to write and run your own ML. 
 
-## Writing Your Own ML
+## Write your own machine learning
 
-You can write your own ML by: 
-- Running Built-in Kusto plugins and functions 
-- Implementing Custom ML models 
+You can write your own machine learning by: 
+- Running built-in Kusto Query Language (KQL) plugins and functions (detect anomalies, identify outliers, detect patterns, and time series forecasting)
+- Implementing custom machine learning models 
 
-## Kusto Query Language (KQL) Time Series Analysis and Machine Learning Functions
+## Kusto Query Language (KQL) time series analysis and machine learning functions
 
-Azure Monitor Logs are based on Azure Data Explorer (ADX), a high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real-time. Kusto Query Language (KQL), used by ADX, offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
+Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
 
-## Built-In Templated Queries 
+## Built-in templated queries 
 
 Another option is to use built-in templated queries, which are part of the MSTICPY Python library. The queries invoke native KQL functions. 
 
