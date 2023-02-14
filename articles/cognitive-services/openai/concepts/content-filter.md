@@ -42,9 +42,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example", 
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -78,9 +78,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example",
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -145,9 +145,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -180,9 +180,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -215,9 +215,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 1
-    , "stream": false
+    "prompt":"Text example",
+    "n": 1,
+    "stream": false
 }
 ```
 
