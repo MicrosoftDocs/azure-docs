@@ -334,7 +334,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ---
 
 > [!NOTE]
-> Cross-tenant doesn't work across the clouds. Cross- tenant import over private endpoints is also not supported.
+> Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
 
 
 ## Import from a non-Azure private container registry
