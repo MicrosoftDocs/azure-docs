@@ -125,6 +125,25 @@ To download the worker logs for an Azure Load Testing test run, follow these ste
 
 ## Diagnose failing tests using test results
 
+To diagnose load tests that have failed requests, for example because the application endpoint is not available, the worker logs don't provide request details. You can use the test results to get detailed information about the individual application requests.
+
+1. Follow these steps to [download the test results for a load test run](./how-to-export-test-results.md).
+
+1. Open the test results `.csv` file in an editor of your choice.
+
+1. Use the information in the `responseCode` and `responseMessage` fields to determine the root cause of failing application requests.
+
+    In the following example, the test run failed because the application endpoint was not available (`java.net.UnknownHostException`):
+
+    ```output
+    timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+    1676471293632,13,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com: Name does not resolve,172.18.44.4-Thread Group 1-1,text,false,,2470,0,1,1,https://backend.contoso.com/blabla,0,0,13
+    1676471294339,0,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com,172.18.44.4-Thread Group 1-1,text,false,,2201,0,1,1,https://backend.contoso.com/blabla,0,0,0
+    1676471294346,0,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com,172.18.44.4-Thread Group 1-1,text,false,,2201,0,1,1,https://backend.contoso.com/blabla,0,0,0
+    1676471294350,0,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com,172.18.44.4-Thread Group 1-1,text,false,,2201,0,1,1,https://backend.contoso.com/blabla,0,0,0
+    1676471294354,0,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com,172.18.44.4-Thread Group 1-1,text,false,,2201,0,1,1,https://backend.contoso.com/blabla,0,0,0
+    ```
+
 ## Diagnose failing testing using server-side metrics
 
 ## Next steps
