@@ -55,7 +55,7 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
 For policy XML examples, see [API Management policy samples](./policies/index.md). 
 
 ### Error handling
-
+an
 If an error occurs during the processing of a request:
 * Any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped.
 * Execution jumps to the statements in the `on-error` section.
@@ -98,6 +98,18 @@ When configuring a policy, you must first select the scope at which the policy a
 * When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
 
 For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
+
+### GraphQL resolver policies
+
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a GraphQL schema.
+
+<!-- Link to GraphQL API overview -->
+
+*  Currently, GraphQL resolver policies specify HTTP data sources to retrieve or set data for a GraphQL field. The policy definition for a resolver contains a single `http-data-source` element to specify a request to (and optionally response from) an HTTP data source.
+* The `http-data-source` element is unique to resolver policies. You can't include it in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* Resolver-scoped policies are evaluated *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 ## Examples
 

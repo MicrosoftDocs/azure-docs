@@ -12,14 +12,14 @@ ms.author: danlep
 
 # Configure a GraphQL resolver
 
-Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API) and resolver-scoped policies. 
+Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API) specified using resolver-scoped policies. 
 
 <!-- link to GQL overview topic -->
 
 
 * A resolver is invoked only when a matching object type and field is executed. 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
-* Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes.
+* Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
 
 
 
@@ -89,11 +89,12 @@ The `<http-data-source>` element consists of a required `<http-request>` element
 
 * The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
   * `context.ParentResult` is set to the parent object for the current resolver execution.
+  * `context.GraphQL` properties are set to the arguments (`Arguments`) and parent object (`Parent`) for the current resolver execution.
   * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
   * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
-The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with `<set-graphql-resolver>` policies.
+The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with a GraphQL resolver.
 
-### ParentResult
+### context.ParentResult or context.GraphQL.parent
 
 The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
 
@@ -148,7 +149,19 @@ If you set a resolver for `parent-type="Blog" field="comments"`, you will want t
 </http-data-source>
 ```
 
-### Arguments
+Alternatively, use `context.GraphQL.Parent["id"]` as shown in the following resolver:
+
+``` xml
+<http-data-source>
+    <http-request>
+        <set-method>GET</set-method>
+        <set-url>@($"https://data.contoso.com/api/blog/{context.GraphQL.Parent["id"]}";
+        }</set-url>
+    </http-request>
+</http-data-source>
+```
+
+### context.GraphQL.Arguments
 
 The arguments for a parameterized GraphQL query are added to the body of the request.  For example, consider the following two queries:
 
@@ -185,10 +198,7 @@ When the resolver is executed, the `arguments` property is added to the body.  Y
 <http-data-source>
     <http-request>
         <set-method>GET</set-method>
-        <set-url>@{
-            var commentId = context.Request.Body.As<JObject>(true)["arguments"]["id"];
-            return $"https://data.contoso.com/api/comment/{commentId}";
-        }</set-url>
+        <set-url>@($"https://data.contoso.com/api/comment/{context.GraphQL.Arguments["id"]}")</set-url>
     </http-request>
 </http-data-source>
 ```
