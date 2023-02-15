@@ -22,6 +22,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2023-13-02
 
+
 ### Azure Machine Learning SDK for Python v1.49.0
   + **azureml-automl-dnn-nlp**
     + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
@@ -75,7 +76,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-mlflow**
     + AZUREML_ARTIFACTS_DEFAULT_TIMEOUT can be used to control the timeout for artifact upload
   + **azureml-train-automl-runtime**
-    + Many Models and Hierarchical Time Series training now enforces check on timeout parameters to detect conflict before submitting the experiment for run. This will prevent experiment failure during the run by raising exception before submitting experiment.
+    + Many Models and Hierarchical Time Series training now enforces check on timeout parameters to detect conflict before submitting the experiment for run. This prevents experiment failure during the run by raising exception before submitting experiment.
     + Customers can now control the step size while using rolling forecast in Many Models inference.
     + ManyModels inference with unpartitioned tabular data now supports forecast_quantiles.
 
@@ -83,7 +84,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.46.0 
   + **azureml-automl-dnn-nlp**
-    + Customers will no longer be allowed to specify a line in CoNLL which only comprises with a token. The line must always either be an empty newline or one with exactly one token followed by exactly one space followed by exactly one label.
+    + Customers will no longer be allowed to specify a line in CoNLL, which only comprises with a token. The line must always either be an empty newline or one with exactly one token followed by exactly one space followed by exactly one label.
   + **azureml-contrib-automl-dnn-forecasting**
     + There is a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
   + **azureml-core**
