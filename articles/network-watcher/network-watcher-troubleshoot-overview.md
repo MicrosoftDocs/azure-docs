@@ -54,7 +54,7 @@ The following list is the values returned with the troubleshoot API:
       * **actionUri** - This value provides the URI to documentation on how to act.
       * **actionUriText** - This value is a short description of the action text.
 
-The following tables show the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
+The following tables show the different fault types (ID under results from the preceding list) that are available and if the fault creates logs.
 
 ### Gateway
 
