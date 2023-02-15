@@ -84,10 +84,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-* Be sure to have enough quota (at least 4 cores) available for the compute resources you'll use in this tutorial.
-
-    > [!NOTE]
-    > For managed online endpoints, AzureML reserves 20% of your compute resources for performing upgrades. For example, a general-purpose type `Standard_DS2_v2` compute instance comes with 4 cores. If you request 2 instances of this compute type in a deployment, you'll have 8 cores available. However, to avoid receiving an error, you must have a minimum quota for 10 cores—8 to use for the deployment and 2 to reserve for upgrades. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+    * Be sure to have enough quota (at least 3 cores) available for the compute resources you'll use in this tutorial.
+    
+        > [!NOTE]
+        > For managed online endpoints, AzureML reserves 20% of your compute resources for performing upgrades. For example, a general-purpose type [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series.md#dsv2-series)compute instance comes with 2 cores. If you request 2 instances of this compute type in a deployment, you'll have 4 cores available. However, to avoid receiving an error, you must have a minimum quota for 5 cores (4 to use for the deployment and 1 to reserve for upgrades). To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 ---
 
