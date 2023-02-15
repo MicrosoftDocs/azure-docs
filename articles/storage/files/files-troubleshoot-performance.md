@@ -30,7 +30,7 @@ If your client virtual machine (VM) is running Windows 8.1 or Windows Server 201
 
 # [Windows](#tab/windows)
 
-## Considerations for Windows 8.1 and Windows Server 2012 R2
+### Considerations for Windows 8.1 and Windows Server 2012 R2
 
 Clients that are running Windows 8.1 or Windows Server 2012 R2 might see higher than expected latency when accessing Azure file shares for I/O-intensive workloads. Make sure that the [KB3114025](https://support.microsoft.com/help/3114025) hotfix is installed. This hotfix improves the performance of create and close handles.
 
@@ -48,13 +48,13 @@ If hotfix is installed, the following output is displayed:
 
 # [Linux](#tab/linux)
 
-## Low IOPS on CentOS Linux or RHEL
+### Low IOPS on CentOS Linux or RHEL
 
-### Cause
+#### Cause
 
 An I/O depth of greater than 1 isn't supported on older versions of CentOS Linux or RHEL.
 
-### Workaround
+#### Workaround
 
 - Upgrade to CentOS Linux 8.2+ or RHEL 8.2+.
 - Change to Ubuntu.
@@ -71,7 +71,91 @@ To understand the limits for standard and premium file shares, see [File share a
 
 To learn more about how throttling at the share level or storage account level can cause high latency, low throughput, and general performance issues, see [Share or account is being throttled](#cause-1-share-or-account-is-being-throttled).
 
-To receive alerts, see ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) and [How to create alerts if a premium file share is close to being throttled](#how-to-create-alerts-if-a-premium-file-share-is-close-to-being-throttled).
+## Create throttling alerts
+
+### How to create an alert if a file share is throttled
+
+1. Go to your **storage account** in the **Azure portal**.
+2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
+3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
+4. Click **Add condition** to add a condition.
+5. You'll see a list of signals supported for the storage account, select the **Transactions** metric.
+6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
+7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
+
+    For standard file shares that don't have large file shares enabled, select the following response types (requests are throttled at the share level):
+
+    - SuccessWithThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
+
+    For standard file shares that have large file shares enabled, select the following response types (requests are throttled at the storage account level):
+
+    - ClientAccountRequestThrottlingError
+    - ClientAccountBandwidthThrottlingError
+
+    For premium file shares, select the following response types (requests are throttled at the share level):
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+   > [!NOTE]
+   > If the response types aren't listed in the **Dimension values** drop-down, this means the resource hasn't been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the response type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
+
+8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
+
+   > [!NOTE]
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend having only one file share per storage account.
+
+9. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and select **Done**.
+
+    > [!TIP]
+    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+
+11. Select **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+13. Select **Create alert rule** to create the alert.
+
+### How to create alerts if a premium file share is close to being throttled
+
+1. In the Azure portal, go to your storage account.
+2. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
+3. Select **Edit resource**, select the **File resource type** for the storage account, and then select **Done**. For example, if the storage account name is *contoso*, select the contoso/file resource.
+4. Select **Select Condition** to add a condition.
+5. In the list of signals that are supported for the storage account, select the **Egress** metric.
+
+   > [!NOTE]
+   > You have to create three separate alerts to be alerted when the ingress, egress, or transaction values exceed the thresholds you set. This is because an alert is triggered only when all conditions are met. For example, if you put all the conditions in one alert, you would be alerted only if ingress, egress, and transactions exceed their threshold amounts.
+
+6. Scroll down. In the **Dimension name** drop-down list, select **File Share**.
+7. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
+8. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
+
+   Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp; MiB/s and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
+   - For **Threshold value**: *75497472* 
+   - For **Operator**: *greater than or equal to*
+   - For **Aggregation type**: *average*
+   
+   Depending on how noisy you want your alert to be, you can also select values for **Aggregation granularity** and **Frequency of evaluation**. For example, if you want your alert to look at the average ingress over the time period of 1 hour, and you want your alert rule to be run every hour, select the following:
+   - For **Aggregation granularity**: *1 hour*
+   - For **Frequency of evaluation**: *1 hour*
+
+9. Select **Add action groups**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new one.
+10. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
+11. Select **Create alert rule** to create the alert.
+
+    > [!NOTE]
+    > - To be notified that your premium file share is close to being throttled *because of provisioned ingress*, follow the preceding instructions, but with the following change:
+    >    - In step 5, select the **Ingress** metric instead of **Egress**.
+    >
+    > - To be notified that your premium file share is close to being throttled *because of provisioned IOPS*, follow the preceding instructions, but with the following changes:
+    >    - In step 5, select the **Transactions** metric instead of **Egress**.
+    >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
 
 ## High latency, low throughput, or low IOPS
 
@@ -80,7 +164,7 @@ To receive alerts, see ["How to create an alert if a file share is throttled"](#
 To confirm whether your share or storage account is being throttled, you can access and use Azure metrics in the portal.
 
 > [!IMPORTANT]
-> For standard storage accounts with large file shares (LFS) enabled, throttling occurs at the account level, not the share level.
+> For standard storage accounts with large file shares (LFS) enabled, throttling occurs at the account level. For premium files shares and standard file shares without LFS enabled, throttling occurs at the share level.
 
 1. In the Azure portal, go to your storage account.
 
@@ -169,23 +253,23 @@ If you're using SMB MultiChannel and the number of channels you have exceeds fou
 Set the Windows per NIC setting for SMB so that the total channels don't exceed four. For example, if you have two NICs, you can set the maximum per NIC to two using the following PowerShell cmdlet: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
 
-### Very high latency for requests
+## Very high latency for requests
 
-#### Cause
+### Cause
 
 The client VM could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
 
-#### Solution
+### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
 - For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
-### Client unable to achieve maximum throughput supported by the network
+## Client unable to achieve maximum throughput supported by the network
 
-#### Cause
-One potential cause is a lack of SMB multi-channel support for standard file shares. Currently, Azure Files supports only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+### Cause
+One potential cause is a lack of SMB multi-channel support for standard file shares. Currently, Azure Files supports only single channel for standard file shares, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
-#### Workaround
+### Workaround
 
 - For premium file shares, [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 - Obtaining a VM with a bigger core might help improve throughput.
@@ -193,118 +277,29 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 - Use REST APIs where possible.
 - For NFS file shares, nconnect is available, in preview. Not recommended for production workloads.
 
-### Throughput on Linux clients is significantly lower than that of Windows clients
+## Throughput on Linux clients is lower than that of Windows clients
 
-#### Cause
+### Cause
 
 This is a known issue with the implementation of the SMB client on Linux.
 
-#### Workaround
+### Workaround
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with a `nosharesock` option, and spread the load across these mount points.
 - On Linux, try mounting with a `nostrictsync` option to avoid forcing an SMB flush on every `fsync` call. For Azure Files, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (`ls -l` command). Directly querying file metadata by using the `stat` command will return the most up-to-date file metadata.
 
-### High latencies for metadata-heavy workloads involving extensive open/close operations
+## High latencies for metadata-heavy workloads involving extensive open/close operations
 
-#### Cause
+### Cause
 
 Lack of support for directory leases.
 
-#### Workaround
+### Workaround
 
 - If possible, avoid using an excessive opening/closing handle on the same directory within a short period of time.
 - For Linux VMs, increase the directory entry cache timeout by specifying `actimeo=<sec>` as a mount option. By default, the timeout is 1 second, so a larger value, such as 3 or 5 seconds, might help.
 - For CentOS Linux or Red Hat Enterprise Linux (RHEL) VMs, upgrade the system to CentOS Linux 8.2 or RHEL 8.2. For other Linux distros, upgrade the kernel to 5.0 or later.
-
-
-## Create alerts
-
-### How to create an alert if a file share is throttled
-
-1. Go to your **storage account** in the **Azure portal**.
-2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
-3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
-4. Click **Add condition** to add a condition.
-5. You'll see a list of signals supported for the storage account, select the **Transactions** metric.
-6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
-7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
-
-    For standard file shares that don't have large file shares enabled, select the following response types (requests are throttled at the share level):
-
-    - SuccessWithThrottling
-    - SuccessWithShareIopsThrottling
-    - ClientShareIopsThrottlingError
-
-    For standard file shares that have large file shares enabled, select the following response types (requests are throttled at the storage account level):
-
-    - ClientAccountRequestThrottlingError
-    - ClientAccountBandwidthThrottlingError
-
-    For premium file shares, select the following response types (requests are throttled at the share level):
-
-    - SuccessWithShareEgressThrottling
-    - SuccessWithShareIngressThrottling
-    - SuccessWithShareIopsThrottling
-    - ClientShareEgressThrottlingError
-    - ClientShareIngressThrottlingError
-    - ClientShareIopsThrottlingError
-
-   > [!NOTE]
-   > If the response types aren't listed in the **Dimension values** drop-down, this means the resource hasn't been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the response type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
-
-8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
-
-   > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend having only one file share per storage account.
-
-9. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and select **Done**.
-
-    > [!TIP]
-    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
-
-11. Select **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
-13. Select **Create alert rule** to create the alert.
-
-### How to create alerts if a premium file share is close to being throttled
-
-1. In the Azure portal, go to your storage account.
-2. In the **Monitoring** section, select **Alerts**, and then select **New alert rule**.
-3. Select **Edit resource**, select the **File resource type** for the storage account, and then select **Done**. For example, if the storage account name is *contoso*, select the contoso/file resource.
-4. Select **Select Condition** to add a condition.
-5. In the list of signals that are supported for the storage account, select the **Egress** metric.
-
-   > [!NOTE]
-   > You have to create three separate alerts to be alerted when the ingress, egress, or transaction values exceed the thresholds you set. This is because an alert is triggered only when all conditions are met. For example, if you put all the conditions in one alert, you would be alerted only if ingress, egress, and transactions exceed their threshold amounts.
-
-6. Scroll down. In the **Dimension name** drop-down list, select **File Share**.
-7. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
-8. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
-
-   Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp; MiB/s and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
-   - For **Threshold value**: *75497472* 
-   - For **Operator**: *greater than or equal to*
-   - For **Aggregation type**: *average*
-   
-   Depending on how noisy you want your alert to be, you can also select values for **Aggregation granularity** and **Frequency of evaluation**. For example, if you want your alert to look at the average ingress over the time period of 1 hour, and you want your alert rule to be run every hour, select the following:
-   - For **Aggregation granularity**: *1 hour*
-   - For **Frequency of evaluation**: *1 hour*
-
-9. Select **Add action groups**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new one.
-10. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
-11. Select **Create alert rule** to create the alert.
-
-    > [!NOTE]
-    > - To be notified that your premium file share is close to being throttled *because of provisioned ingress*, follow the preceding instructions, but with the following change:
-    >    - In step 5, select the **Ingress** metric instead of **Egress**.
-    >
-    > - To be notified that your premium file share is close to being throttled *because of provisioned IOPS*, follow the preceding instructions, but with the following changes:
-    >    - In step 5, select the **Transactions** metric instead of **Egress**.
-    >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
-
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 
 ## Slow enumeration of files and folders
@@ -326,13 +321,12 @@ For example, you can set it to `0x100000` and see if performance improves.
 
 ## Slow file copying to and from Azure file shares
 
+You might see slow performance when you try to transfer files to the Azure Files service. If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+
 # [Windows](#tab/windows)
 
 ### Slow file copying to and from Azure Files in Windows
 
-You might see slow performance when you try to transfer files to the Azure Files service.
-
-- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 -	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
     -	Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
@@ -343,13 +337,12 @@ You might see slow performance when you try to transfer files to the Azure Files
 <a id="slowfilecopying"></a>
 ### Slow file copying to and from Azure Files in Linux
 
-- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 - Use the right copy method:
     - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
     - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
     - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
-    - Open source third party tools such as:
+    - Open source third-party tools such as:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
@@ -372,7 +365,7 @@ If the number of **DirectoryOpen/DirectoryClose** calls is among the top API cal
 - A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
 
-## SMB Multichannel is not being triggered
+## SMB Multichannel isn't being triggered
 
 ### Cause
 
@@ -390,7 +383,7 @@ Depending on the exact compression method and unzip operation used, decompressio
 
 ### Cause
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is set up for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and the issue worsens with the number of changes. This can cause share throttling and thus result in higher client-side latency.
 
 To confirm, you can use Azure Metrics in the portal.
 
@@ -412,6 +405,7 @@ To confirm, you can use Azure Metrics in the portal.
 
 
 ## See also
+- [Troubleshoot Azure Files](files-troubleshoot.md)
 - [Understand Azure Files performance](understand-performance.md)
 - [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
 - [Azure Files FAQ](storage-files-faq.md)
