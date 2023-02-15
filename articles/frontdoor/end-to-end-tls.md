@@ -129,8 +129,8 @@ When using custom domains with TLS 1.0 and 1.1 enabled, the following cipher sui
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 * TLS_RSA_WITH_AES_256_CBC_SHA
 * TLS_RSA_WITH_AES_128_CBC_SHA
-* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (see note)
-* TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (see note)
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
 
