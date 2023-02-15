@@ -1,7 +1,7 @@
 ---
-title: Network connections performance optimization and NVAs
+title: Accelerated connections network performance optimization and NVAs
 description: Learn how Accelerated Connections improves Network Virtual Appliance (NVA) performance.
-author: cherylmc
+author: steveesp
 ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 02/01/2023

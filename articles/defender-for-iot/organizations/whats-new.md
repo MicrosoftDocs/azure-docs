@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 01/03/2023
+ms.date: 02/09/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -15,11 +15,58 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## February 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Cloud features**: <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
+### Download updates from the Sites and sensors page (Public preview)
+
+If you're running a local software update on your OT sensor or on-premises management console, the **Sites and sensors** page now provides a new wizard for downloading your update packages, accessed via the **Sensor update (Preview)** menu.
+
+For example:
+
+:::image type="content" source="media/update-ot-software/local-update-wizard.png" alt-text="Screenshot of the new Local update pane on the Sites and sensors page." lightbox="media/update-ot-software/local-update-wizard.png":::
+
+- Threat intelligence updates are also now available only from the **Sites and sensors** page > **Threat intelligence update (Preview)** option.
+
+- Update packages for the on-premises management console are also available from the **Getting started** > **On-premises management console** tab.
+
+For more information, see:
+
+- [Update Defender for IoT OT monitoring software](update-ot-software.md)
+- [Update threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#update-threat-intelligence-packages)
+- [OT monitoring software versions](release-notes.md)
+
+### Configure OT sensor settings from the Azure portal (Public preview)
+
+For sensor versions 22.2.3 and higher, you can now configure selected settings for cloud-connected sensors using the new **Sensor settings (Preview)** page, accessed via the Azure portal's **Sites and sensors** page. For example:
+
+:::image type="content" source="media/configure-sensor-settings-portal/view-settings.png" alt-text="Screenshot of the OT sensor settings on the Azure portal.":::
+
+For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
+
+### Alerts GA in the Azure portal
+
+The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events detected in your network. Alerts are triggered when OT or Enterprise IoT network sensors, or the [Defender for IoT micro agent](../device-builders/index.yml), detect changes or suspicious activity in network traffic that need your attention.
+
+Specific alerts triggered by the Enterprise IoT sensor currently remain in public preview.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Investigate and respond to an OT network alert](respond-ot-alert.md)
+- [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
 ## January 2023
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+|**OT networks**     |**Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br><br>**Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)  |
+
+
 
 ### Update sensor software from the Azure portal (Public preview)
 
@@ -27,7 +74,7 @@ For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, 
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 
-For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors).
 
 ### Azure connectivity status shown on OT sensors
 
