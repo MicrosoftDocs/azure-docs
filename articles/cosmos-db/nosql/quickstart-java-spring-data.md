@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 08/26/2021
+ms.date: 02/15/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022

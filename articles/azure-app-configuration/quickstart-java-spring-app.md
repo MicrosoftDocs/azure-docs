@@ -8,7 +8,7 @@ editor: ''
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/02/2022
+ms.date: 02/15/2023
 ms.custom: devx-track-java, mode-api
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
