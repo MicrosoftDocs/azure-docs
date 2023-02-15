@@ -11,7 +11,7 @@ ms.author: jordanselig
 
 Many applications consist of more than just a single component. For example, you may have a frontend that is publicly accessible that connects to a backend database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up what's known as an n-tier application. It's important that applications like this are architected so that access is limited to privileged individuals. Any component that isn't intended for public consumptions should be locked down to the greatest extent available for your use case.
 
-In this tutorial, you'll learn how to deploy a secure n-tier web app with network-isolated communication to a backend web app. All traffic is isolated within your virtual network using [virtual network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more information on n-tier applications including more scenarios and multi-region considerations, see [Multi-region N-tier application](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server).
+In this tutorial, you'll learn how to deploy a secure n-tier web app with network-isolated communication to a backend web app. All traffic is isolated within your virtual network using [virtual network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more information on n-tier applications including more scenarios and multi-region considerations, see [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md).
 
 The following architecture diagram shows the infrastructure you'll create during this tutorial.
 
@@ -123,11 +123,11 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 Repeat the same steps for your backend web app. The inputs for the continuous deployment settings are given in the table.
     
-    |Setting       |Value                        |
-    |--------------|-----------------------------|
-    |Organization  |`<your-GitHub-organization>` |
-    |Repository    |nodejs-backend               |
-    |Branch        |main                         |
+|Setting       |Value                        |
+|--------------|-----------------------------|
+|Organization  |`<your-GitHub-organization>` |
+|Repository    |nodejs-backend               |
+|Branch        |main                         |
 
 ## Create network infrastructure
 
