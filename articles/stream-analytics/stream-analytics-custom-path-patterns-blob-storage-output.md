@@ -36,7 +36,7 @@ Suppose a job takes input data from live user sessions connected to an external 
 Similarly, if the job input was sensor data from millions of sensors where each sensor had a **sensor_id**, the Path Pattern would be **{sensor_id}** to partition each sensor data to different folders.  
 
 
-Using the REST API, the output section of a JSON file used for that request may look like the following image:  
+When you use the REST API, the output section of a JSON file used for that request may look like the following image:  
 
 ![REST API output](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 

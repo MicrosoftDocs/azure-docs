@@ -146,7 +146,7 @@ There are several resources that can easily be deployed in a resource group toge
    - Two Web Apps
 
 ## Examine the sample TollApp job
-1. Starting from the resource group in the previous section, select the Stream Analytics streaming job starting with the name **tollapp** (name contains random characters for uniqueness).
+1. Starting from the resource group in the previous section, select the Stream Analytics streaming job starting with the name `tollapp` (name contains random characters for uniqueness).
 
 2. On the **Overview** page of the job, notice the **Query** box to view the query syntax.
 
@@ -189,9 +189,9 @@ Follow these steps to start the streaming job:
 
 5. In the list of IDs, several docs are shown once the output is available.
 
-6. Select each ID to review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
+6. Select each ID to review the JSON document. Notice each `tollid`, `windowend time`, and the `count of cars` from that window.
 
-7. After an additional three minutes, another set of four documents is available, one document per tollid.
+7. After an additional three minutes, another set of four documents is available, one document per `tollid`.
 
 
 ## Report total time for each car
@@ -227,7 +227,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ### Review the total time in the output
 Repeat the steps in the preceding section to review the Azure Cosmos DB output data from the streaming job. Review the latest JSON documents.
 
-For example, this document shows an example car with a certain license plate, the entrytime and exit time, and the DATEDIFF calculated durationinminutes field showing the toll booth duration as two minutes:
+For example, this document shows an example car with a certain license plate, the `entrytime` and `exit time`, and the DATEDIFF calculated `durationinminutes` field showing the toll booth duration as two minutes:
 ```JSON
 {
     "tollid": 4,
@@ -301,7 +301,7 @@ To scale up the streaming job to more streaming units:
 
 4. Slide the **Streaming units** slider from 1 to 6. Streaming units define the amount of compute power that the job can receive. Select **Save**.
 
-5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause.
+5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieves better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause.
 
 ## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
@@ -318,6 +318,6 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Conclusion
-This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
+This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. By using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
 
 Although this solution provides a good introduction, it isn't complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
