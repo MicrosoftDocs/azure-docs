@@ -18,7 +18,7 @@ The following table lists the functional limits of Azure Digital Twins.
 | Digital twins | Number of digital twins that can be imported in a single [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs) job | 2,000,000 | No |
 | Digital twins | Number of incoming relationships to a single twin | 50,000 | No |
 | Digital twins | Number of outgoing relationships from a single twin | 50,000 | No |
-| Digital twins | Total number of relationships in an Azure Digital Twins instance | 2,000,000 | No |
+| Digital twins | Total number of relationships in an Azure Digital Twins instance | 20,000,000 | Yes |
 | Digital twins | Number of relationships that can be imported in a single [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs) job | 10,000,000 | No |
 | Digital twins | Maximum size (of JSON body in a PUT or PATCH request) of a single twin | 32 KB | No |
 | Digital twins | Maximum request payload size | 32 KB | No | 
