@@ -1,7 +1,7 @@
 ---
-title: Create a service SAS for a container or blob
+title: Create a service SAS for a container or blob with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library.
+description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library for .NET.
 author: pauljewellmsft
 
 ms.service: storage
@@ -14,11 +14,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, engagement-fy23
 ---
 
-# Create a service SAS for a container or blob
+# Create a service SAS for a container or blob with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use the storage account key to create a service SAS for a container or blob with the Azure Storage client library for Blob Storage.
+This article shows how to use the storage account key to create a service SAS for a container or blob with the Blob Storage client library for .NET.
 
 ## Create a service SAS for a blob container
 
@@ -97,12 +97,6 @@ private static string GetContainerSasUri(CloudBlobContainer container,
     return container.Uri + sasContainerToken;
 }
 ```
-
-# [JavaScript v12 SDK](#tab/javascript)
-
-A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateblobsasqueryparameters) function providing the required parameters to get the SAS token string.
-
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
 
 ---
 
@@ -189,12 +183,6 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 }
 ```
 
-# [JavaScript v12 SDK](#tab/javascript)
-
-To create a service SAS for a blob, call the [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#@azure-storage-blob-generateblobsasqueryparameters) function providing the required parameters.
-
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
-
 ---
 
 ## Create a service SAS for a directory
@@ -206,8 +194,6 @@ The following example shows how to create a service SAS for a directory with the
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
-
-[!INCLUDE [storage-blob-javascript-resources-include](../../../includes/storage-blob-javascript-resources-include.md)]
 
 ## Next steps
 
