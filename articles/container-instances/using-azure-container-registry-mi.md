@@ -172,7 +172,7 @@ To deploy a container group in a vnet using managed identity to authenticate ima
 az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVnetResourceGroup/providers/ --subnet mySubnetName
 ```
 
-For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet).
+For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet.md).
 
 ## Deploy a multi-container group in a virtual network using YAML and the Azure CLI
 
@@ -222,7 +222,7 @@ properties:
 az container create --name my-containergroup --resource-group myResourceGroup --file my-YAML-file.yaml
 ```
 
-For more info on how to deploy to a multi-container group see [Deploy a multi-container group](./container-instances-multi-container-yaml).
+For more info on how to deploy to a multi-container group see [Deploy a multi-container group](./container-instances-multi-container-yaml.md).
 
 ## Clean up resources
 
