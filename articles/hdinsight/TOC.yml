@@ -662,7 +662,7 @@ items:
     - name: Use Apache Spark structured streaming
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
     - name: Connect Kafka cluster with VM in different VNet
-      href: ./connect-kafka-cluster-with-vm-in-different-vnet.md         
+      href: ./kahfa/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
     - name: Migrate Kafka workloads to 4.0
