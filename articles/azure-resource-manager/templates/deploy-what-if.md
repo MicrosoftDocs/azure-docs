@@ -91,7 +91,7 @@ To preview changes before deploying a template, use [New-AzResourceGroupDeployme
 
 - `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 
-* `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+- `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
