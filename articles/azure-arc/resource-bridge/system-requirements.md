@@ -32,18 +32,57 @@ Because the management machine needs these specific requirements to manage Arc r
 
 The management machine must have the following:
 
-- [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
-- Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command)
-- Open communication to Appliance VM IP (`k8snodeippoolstart` parameter in `createconfig` command)
-- Open communication to the reserved Appliance VM IP for upgrade (`k8snodeippoolend` parameter in `createconfig` command)
+- [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed.
+- Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command).
+- Open communication to Appliance VM IP (`k8snodeippoolstart` parameter in `createconfig` command).
+- Open communication to the reserved Appliance VM IP for upgrade (`k8snodeippoolend` parameter in `createconfig` command).
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
-- If using a proxy, the proxy server configuration on the management machine must allow the machine to have internet access and to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.  
+- If using a proxy, the proxy server configuration on the management machine must allow the machine to have internet access and to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.
 
 ## Appliance VM requirements
 
 Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for availability in Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command.  
 
 The appliance VM must have the following:
+
+- Open communication with the management machine, vCenter endpoint (for VMware), MOC cloud agent service endpoint (for Azure Stack HCI), or other control center for the on-premises environment.
+- The appliance VM needs to be able to resolve the management machine and vice versa.
+- Internet access.
+- Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
+- Static IP assigned, used for the `k8snodeippoolstart` in configuration command. (If using DHCP, then the address must be reserved.)
+- Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
+- If using a proxy, the proxy server configuration is provided when running the `createconfig` command, which is used to create the configuration files of the appliance VM. The proxy should allow internet access on the appliance VM to connect to [required URLs](network-requirements.md#outbound-connectivity) needed for deployment, such as the URL to download OS images.
+
+## Reserved appliance VM IP requirements
+
+Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade. During upgrade, a new appliance VM is created with the reserved appliance VM IP. Once the new appliance VM is created, the old appliance VM is deleted, and its IP address becomes reserved for a future upgrade. The reserved appliance VM IP is assigned an IP address from the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command.  
+
+The reserved appliance VM IP must have the following:  
+
+- Open communication with the management machine, vCenter endpoint (for VMware), MOC cloud agent service endpoint (for Azure Stack HCI), or other control center for the on-premises environment.
+- The appliance VM needs to be able to resolve the management machine and vice versa.
+- Internet access.
+- Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
+- Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
+- Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
+
+## Control plane IP requirements
+
+The appliance VM hosts a management Kubernetes cluster with a control plane that should be given a static IP. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command.
+
+The control plane IP must have the following:
+
+- Open communication with the management machine.
+- The control plane needs to be able to resolve the management machine and vice versa.
+- Static IP address outside the DHCP range but still available on the network segment. This IP address can'’'t be assigned to any other machine on the network. If you are using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid deployment options) and installing resource bridge, then the control plane IP for the resource bridge can't be used for AKS hybrid deployment options. Please check the Deployment Overview page for specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI.
+
+## User account and credentials
+
+Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere or Arc-enabled SCVMM). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
+
+If the user account is set to periodically change passwords, the credentials must be immediately updated on the resource bridge. This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials are not updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
+
+For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the credentials for the user account change, then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the management machine. Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, resulting in a lockout of the account.
 
 ## Next steps
 
