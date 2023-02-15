@@ -1,6 +1,6 @@
 ---
-title: View metrics for workflow runs
-description: View metrics to check the health and performance for workflows in Azure Logic Apps.
+title: View workflow health and performance metrics
+description: View health and performance metrics for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: kewear
@@ -8,7 +8,7 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/18/2023
-# As a developer, I want to review the health metrics for workflows in Azure Logic Apps.
+# As a developer, I want to review the health and performance metrics for workflows in Azure Logic Apps.
 ---
 
 # View metrics for workflow health and performance in Azure Logic Apps
@@ -23,7 +23,7 @@ This guide shows how you can check the health and performance for both Consumpti
 
 * A Consumption workflow or Standard workflow that is running or has run at least once
 
-## Find metrics
+## Find and view metrics
 
 ### [Consumption](#tab/consumption)
 
