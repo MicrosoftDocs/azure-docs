@@ -66,6 +66,22 @@ In order to enable telemetry collection with Application Insights, only the foll
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
+## Troubleshooting
+
+Use our step-by-step guide to troubleshoot Java-based applications running on Azure App Services.
+
+1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2" on Windows, "~3" on Linux
+1. Examine the log file to see that the agent has started successfully: browse to `https://yoursitename.scm.azurewebsites.net/, under SSH change to the root directory, the log file is located under LogFiles/ApplicationInsights. 
+  
+    :::image type="content"source="./media/azure-web-apps-java/app-insights-java-status.png" alt-text="Screenshot of the link above results page."::: 
+
+1. After enabling application monitoring for your Java app, you can validate that the agent is working by looking at the live metrics - even before you deploy and app to App Service you'll see some requests from the environment. Remember that the full set of telemetry is only available when you have your app deployed and running. 
+1. Set APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL environment variable to 'debug' if you don't see any errors and there's no telemetry
+
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Manually deploy the latest Application Insights Java version
 
 The Application Insights Java version is updated automatically as part of App Services updates.
@@ -90,22 +106,6 @@ To manually update, follow these steps:
 
 > [!NOTE]
 > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the `JAVA_OPTS` variable in App Service configurations settings. 
-
-## Troubleshooting
-
-Use our step-by-step guide to troubleshoot Java-based applications running on Azure App Services.
-
-1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2" on Windows, "~3" on Linux
-1. Examine the log file to see that the agent has started successfully: browse to `https://yoursitename.scm.azurewebsites.net/, under SSH change to the root directory, the log file is located under LogFiles/ApplicationInsights. 
-  
-    :::image type="content"source="./media/azure-web-apps-java/app-insights-java-status.png" alt-text="Screenshot of the link above results page."::: 
-
-1. After enabling application monitoring for your Java app, you can validate that the agent is working by looking at the live metrics - even before you deploy and app to App Service you'll see some requests from the environment. Remember that the full set of telemetry is only available when you have your app deployed and running. 
-1. Set APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL environment variable to 'debug' if you don't see any errors and there's no telemetry
-
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
-
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 
