@@ -18,17 +18,21 @@ show_latex: true
 
 This article focuses on the deep learning methods for time series forecasting in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Deep learning has made a major impact in fields ranging from [language modeling](../cognitive-services/openai/concepts/models.md) to [protein folding](https://www.deepmind.com/research/highlighted-research/alphafold), among many others. Time series forecasting has likewise benefitted from recent advances in deep learning technology. For example, deep learning models feature prominently in the top performing models from the [fourth](https://www.uber.com/blog/m4-forecasting-competition/) and [fifth](https://www.sciencedirect.com/science/article/pii/S0169207021001874) iterations of the high-profile Makridakis forecasting competition.
+Deep learning has made a major impact in fields ranging from [language modeling](../cognitive-services/openai/concepts/models.md) to [protein folding](https://www.deepmind.com/research/highlighted-research/alphafold), among many others. Time series forecasting has likewise benefitted from recent advances in deep learning technology. For example, deep neural network (DNN) models feature prominently in the top performing models from the [fourth](https://www.uber.com/blog/m4-forecasting-competition/) and [fifth](https://www.sciencedirect.com/science/article/pii/S0169207021001874) iterations of the high-profile Makridakis forecasting competition.
 
-In this article, we go over deep learning approaches to forecasting in AutoML. We'll describe model structure and operation within AutoML to help you best apply these methods to your scenario. 
+In this article, we'll describe the structure and operation of the TCNForecaster model in AutoML to help you best apply the model to your scenario. 
 
-## ForecastTCN
+## TCNForecaster
 
-ForecastTCN is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a deep neural network architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up-to a given horizon. The following image shows the major components of the ForecastTCN architecture:
+TCNForecaster is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a DNN architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up to a given horizon. The following image shows the major components of the TCNForecaster architecture:
 
-:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
+:::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's TCNForecaster.":::
 
-ForecastTCN has three main components: a **pre-mix** layer, a stack of **dilated convolution** layers, and a collection of **forecast head** units that each give a horizon of forecasts for a quantile of the prediction distribution. The pre-mix layer mixes the input time series and feature data into an array of signal **channels** that the convolutional stack will process. The stack processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output contains a mixture of convolution-filtered signals from the input channels. Finally, the forecast heads coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. 
+TCNForecaster has the following main components: 
+
+* A **pre-mix** layer that mixes the input time series and feature data into an array of signal **channels** that the convolutional stack will process.
+* A stack of **dilated convolution** layers that processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output contains a mixture of convolution-filtered signals from the input channels. 
+* A collection of **forecast head** units that coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. Each head unit produces a horizon of forecasts for a quantile of the prediction distribution.
 
 ### Dilated causal convolution
 
@@ -40,13 +44,13 @@ Stacking dilated convolutions gives the TCN the ability to model correlations ov
 
 The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of look-back in a convolutional network is called the **receptive field** and it is determined completely by the TCN architecture.   
 
-### ForecastTCN architecture
+### TCNForecaster architecture
 
-The core of the ForecastTCN architecture is the stack of convolutional layers between the pre-mix and the forecast heads. The stack is logically divided into repeating units called **blocks** that are, in turn, composed of **residual cells**. A residual cell applies causal convolutions at a set dilation along with normalization and nonlinear activation. Importantly, each residual cell adds its output to its input using a so-called residual connection. These connections have been shown to benefit DNNs, perhaps because they facilitate more efficient information flow through the network. The following image shows the architecture of the convolutional layers for an example network with two blocks and three residual cells in each block:
+The core of the TCNForecaster architecture is the stack of convolutional layers between the pre-mix and the forecast heads. The stack is logically divided into repeating units called **blocks** that are, in turn, composed of **residual cells**. A residual cell applies causal convolutions at a set dilation along with normalization and nonlinear activation. Importantly, each residual cell adds its output to its input using a so-called residual connection. These connections [have been shown to benefit DNN training](https://arxiv.org/abs/1512.03385), perhaps because they facilitate more efficient information flow through the network. The following image shows the architecture of the convolutional layers for an example network with two blocks and three residual cells in each block:
 
-:::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-detail.png" alt-text="Diagram showing block and cell structure for ForecastTCN convolutional layers.":::
+:::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-detail.png" alt-text="Diagram showing block and cell structure for TCNForecaster convolutional layers.":::
 
-The number of blocks and cells, along with the number of signal channels in each layer, control the size of the network.  The architectural parameters of ForecastTCN are summarized in the following table:
+The number of blocks and cells, along with the number of signal channels in each layer, control the size of the network.  The architectural parameters of TCNForecaster are summarized in the following table:
 
 |Parameter|Description|
 |--|--|
@@ -58,9 +62,9 @@ The **receptive field** depends on the depth parameters and is given by the form
 
 $t_{\text{rf}} = 4n_{b}\left(2^{n_{c}} - 1\right) + 1.$
 
-We can give a more precise definition of the ForecastTCN architecture in terms of formulas. Let $X$ be an input array where each row contains feature values from the input data. We can divide $X$ into numeric and categorical feature arrays, $X_{\text{num}}$ and  $X_{\text{cat}}$. Then, the ForecastTCN is given by the formulas,
+We can give a more precise definition of the TCNForecaster architecture in terms of formulas. Let $X$ be an input array where each row contains feature values from the input data. We can divide $X$ into numeric and categorical feature arrays, $X_{\text{num}}$ and  $X_{\text{cat}}$. Then, the TCNForecaster is given by the formulas,
  
-:::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-equations.png" alt-text="Equations describing ForecastTCN operations.":::
+:::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-equations.png" alt-text="Equations describing TCNForecaster operations.":::
 
 where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with-embeddings) matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the dimensions of the these variables are in the following table:
 
@@ -70,13 +74,13 @@ where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with
 |$H_{i}$|Hidden layer output for $i=0,1,\ldots,n_{l}$|$n_{\text{ch}} \times t_{\text{rf}}$|
 |$f_{q}$|Forecast output for quantile $q$|$h$|
 
-In the table, $n_{\text{input}} = n_{\text{features}} + 1$, the number of predictor/feature variables plus the target quantity. The forecast heads generate all forecasts up to the maximum horizon, $h$, in a single pass, so ForecastTCN is a [direct forecaster](./concept-automl-forecasting-methods.md).
+In the table, $n_{\text{input}} = n_{\text{features}} + 1$, the number of predictor/feature variables plus the target quantity. The forecast heads generate all forecasts up to the maximum horizon, $h$, in a single pass, so TCNForecaster is a [direct forecaster](./concept-automl-forecasting-methods.md).
 
-### ForecastTCN in AutoML
+### TCNForecaster in AutoML
 
-ForecastTCN is an optional model in AutoML. To learn how to use it, see [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).
+TCNForecaster is an optional model in AutoML. To learn how to use it, see [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).
 
-In this section, we'll describe how AutoML builds ForecastTCN models with your data, including explanations of data preprocessing, training, and model search. 
+In this section, we'll describe how AutoML builds TCNForecaster models with your data, including explanations of data preprocessing, training, and model search. 
 
 #### Data preprocessing steps
 
@@ -84,7 +88,7 @@ AutoML executes several preprocessing steps on your data to prepare for model tr
 
 |Step|Description|
 |--|--|
-Fill missing data|[Impute missing values and observation gaps](./concept-automl-forecasting-methods.md#missing-data-handling) and optionally [pad short time series](./how-to-auto-train-forecast.md#short-series-handling)|
+Fill missing data|[Impute missing values and observation gaps](./concept-automl-forecasting-methods.md#missing-data-handling) and optionally [pad/drop short time series](./how-to-auto-train-forecast.md#short-series-handling)|
 |Create calendar features|Augment the input data with [features derived from the calendar](./concept-automl-forecasting-calendar-features.md) like day of the week and, optionally, holidays for a specific region or country.|
 |Encode categorical data|[Label encode](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) strings and other categorical types; this includes all [time series ID columns](./how-to-auto-train-forecast.md#configuration-settings).|
 |Target transform|Optionally apply the natural logarithm function to the target depending on the results of certain statistical tests.|
@@ -94,14 +98,15 @@ These steps are included in AutoML's transform pipelines, so they are automatica
 
 #### Training
 
-The ForecastTCN follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into **examples** that are shuffled and combined into **batches**. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a **loss function**. Training may require many passes through the full training data; each pass is called an **epoch**.
+The TCNForecaster follows DNN training best practices common to other applications in images and language. Preprocessed training data is divided into **examples** that are shuffled and combined into **batches**. The network processes the batches sequentially, using back propagation and stochastic gradient descent to optimize the network weights with respect to a **loss function**. Training may require many passes through the full training data; each pass is called an **epoch**.
 
-The following table lists and describes input settings and parameters for ForecastTCN training:
+The following table lists and describes input settings and parameters for TCNForecaster training:
 
 |Training input|Description|Value|
 |--|--|--|
 |Validation data|A portion of data that is held out from training to guide the network optimization and mitigate over fitting.| Provided by the user or automatically created from training data if not provided.|
 |Primary metric|Metric computed from median-value forecasts on the validation data at the end of each training epoch; used for early stopping and model selection.|Chosen by the user; normalized root mean squared error or normalized mean absolute error.|
+|Training epochs|Maximum number of epochs to run for network weight optimization.|100; early stopping logic can terminate training at a smaller number. 
 |Early stopping patience|Number of epochs to wait for primary metric improvement before training is stopped.|20|
 |Loss function|The objective function for network weight optimization.|[Quantile loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html) averaged over 10th, 25th, 50th, 75th, and 90th percentile forecasts.|
 |Batch size|Number of examples in a batch. Each example has dimensions $n_{\text{input}} \times t_{\text{rf}}$ for input and $h$ for output.|Determined from the total number of examples in the training data; maximum value of 1024.|
@@ -117,7 +122,7 @@ Inputs marked with an asterisk (*) are determined by a hyper-parameter search th
 
 AutoML uses model search methods to find values for the following hyper-parameters:
 
-* Network depth, or the number of [convolutional blocks](#forecasttcn-architecture),
+* Network depth, or the number of [convolutional blocks](#TCNForecaster-architecture),
 * Number of cells per block,
 * Number of channels in each hidden layer,
 * Dropout ratio for network regularization,
