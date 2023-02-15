@@ -27,8 +27,7 @@ Implementing Caching for ACR provides the following benefits:
 
 ***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Docker Rate Limit:***  Docker has updated their terms of services to rate limit pulls for customers. The rate limit of the pull depends on the  type of account in use. Caching for ACR allows users to pull images from the cache. Container images pulled from the cache ***do not*** count toward Docker's pull limit. Learn more Docker Hub rate limit [here][docker-rate-limit]. 
-
+***Ensuring upstream content is delivered***: All registries, especially public ones like Docker Hub and others, have anonymous pull limits in order to ensure they can provide services to everyone. Caching for ACR allows users to pull images from the local ACR instead of the upstream registry. This will ensure the content is delivered from upstream and users gets the benefit of pulling the container images from the cache without counting to the pull limits.
  
 ## Terminology 
 

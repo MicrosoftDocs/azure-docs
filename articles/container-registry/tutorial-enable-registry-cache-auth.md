@@ -38,7 +38,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 4. A window for **New cache rule** appears.
 
 
-    :::image type="content" source="./media/container-registry-registry-cache/new-cache-rule-03.png" alt-text="Screenshot for new Cache Rule.":::
+    :::image type="content" source="./media/container-registry-registry-cache/new-cache-rule-auth-03.png" alt-text="Screenshot for new Cache Rule.":::
 
 
 5. Enter the **Rule name**.
