@@ -217,6 +217,8 @@
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
         href: dplsv5-dpldsv5-series.md
+      - name: Dlsv5 and Dldsv5-series
+        href: dlsv5-dldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
