@@ -73,11 +73,11 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 
     - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-certification-faq.yml#locked-down-or-ssh-disabled-offer). Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. During validation checks, Locked down VMs might not allow execution of certain certification commands.
 
-    - Image does not support sampleuser while deploying.
+    - Image doesn't support sampleuser while deploying.
     - Image has limited access.
-    - Image does not comply with the Certification Test Tool.
+    - Image doesn't comply with the Certification Test Tool.
     - Image requires setup during initial login which causes automation to not connect to the virtual machine.
-    - Image does not support port 22.
+    - Image doesn't support port 22.
 
 - **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
 Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
@@ -92,7 +92,7 @@ Below are examples (non-exhaustive) that might require custom templates for depl
 
 Generations of a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both. To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
-When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select **+Add image type**. You will need to provide a SKU ID for each new image type that is added.
+When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select **+Add image type**. You'll need to provide a SKU ID for each new image type that is added.
 
 > [!NOTE]
 > A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page. Learn more about [deprecating plans](./deprecate-vm.md).
@@ -100,10 +100,10 @@ When creating a new plan, select an Image type from the drop-down menu. You can 
 
 ## VM images
 
-To add a new image version, click **+Add VM image**. This will open a panel in which you will then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
+To add a new image version, click **+Add VM image**. This will open a panel in which you'll then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
 
 > [!IMPORTANT]
-> You can now provide more than one VM image per image type within a given submission. By adding multiple images at a time, you will not need to publish each image sequentially as part of separate submissions.   
+> You can now provide more than one VM image per image type within a given submission. By adding multiple images at a time, you won't need to publish each image sequentially as part of separate submissions.   
 
 Keep in mind the following when publishing VM images:
 
