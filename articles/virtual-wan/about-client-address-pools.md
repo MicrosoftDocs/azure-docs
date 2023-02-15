@@ -9,7 +9,7 @@ ms.date: 02/15/2023
 ms.author: cherylmc
 
 ---
-# About client address pools for point-to-site configurations
+# About client address pools for Virtual WAN point-to-site configurations
 
 This article describes Virtual WAN guidelines and requirements for allocating client address spaces. Point-to-site VPN gateways in a Virtual WAN hub are deployed with one or more highly available gateway instances. Each instance of a point-to-site VPN gateway can support up to 10,000 concurrent connections. As a result, for scale units greater than 40 (support for more than 10,000 concurrent connections), Virtual WAN deploys an extra gateway instance to service every 10,000 additional connecting users.
 
