@@ -323,8 +323,6 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data sharing
     items:
-    - name: Migrate to new share experience
-      href: how-to-migrate-data-share.md
     - name: Share data
       href: how-to-share-data.md
     - name: Receive share
