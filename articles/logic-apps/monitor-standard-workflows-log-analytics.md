@@ -3,6 +3,8 @@ title: Monitor Standard workflows with Azure Monitor Logs
 description: Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps (Standard).
 services: logic-apps
 ms.suite: integration
+author: kewear
+ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/18/2023
