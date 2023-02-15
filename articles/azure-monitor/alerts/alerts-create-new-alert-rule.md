@@ -73,7 +73,7 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
 
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
         If you select more than one dimension value, each time series that results from the combination will trigger its own alert and be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
@@ -132,6 +132,9 @@ Then you define these elements for the resulting alert actions by using:
         If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
         You can select up to six more splittings for any columns that contain text or numbers.
+        
+        > [!NOTE]
+        > Dimensions can **only** be number or string columns. If for example you want to use a dynamic column as a dimension, you need to convert it to a string first.
 
         You can also decide *not* to split when you want a condition applied to multiple resources in the scope. An example would be if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80 percent.
 
@@ -286,14 +289,28 @@ Then you define these elements for the resulting alert actions by using:
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. Enter values for the **Alert rule name** and the **Alert rule description**.
-     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for resource health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
     
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for service health alerts.
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
+        
     ---
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.

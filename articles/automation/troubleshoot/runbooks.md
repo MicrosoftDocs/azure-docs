@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 09/16/2021
+ms.date: 02/06/2022
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,29 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+Code that was introduced in [1.9.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid.
+
+### Workaround
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
+
+### Resolution
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 

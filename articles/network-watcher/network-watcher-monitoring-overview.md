@@ -1,30 +1,26 @@
 ---
-title: Azure Network Watcher | Microsoft Docs
+title: Azure Network Watcher
 description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
 services: network-watcher
-documentationcenter: na
 author: halkazwini
-
-# Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
-
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2022
+ms.date: 01/23/2023
 ms.author: halkazwini
-ms.custom: mvc
+ms.custom: template-overview, mvc, engagement-fy23
+# Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products including Virtual Machines (VM), Virtual Networks, Application Gateways, Load balancers, etc. 
+Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products including virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. 
 
 > [!Note] 
-> It is not intended for and will not work for PaaS monitoring or Web analytics. 
+> Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics. 
 
-For information about analyzing traffic from a network security group, see [Network Security Group](network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](traffic-analytics.md).
+For information about analyzing traffic from a network security group, see [Network security group flow logging](network-watcher-nsg-flow-logging-overview.md) and [Traffic analytics](traffic-analytics.md).
 
 ## Monitoring
 
@@ -42,8 +38,7 @@ Connection monitor also provides the minimum, average, and maximum latency obser
 
 As resources are added to a virtual network, it can become difficult to understand what resources are in a virtual network and how they relate to each other. The *topology* capability enables you to generate a visual diagram of the resources in a virtual network and the relationships between the resources. The following image shows an example topology diagram for a virtual network that has three subnets, two VMs, network interfaces, public IP addresses, network security groups, route tables, and the relationships between the resources:
 
-![Topology view](./media/network-watcher-monitoring-overview/topology.png)
-
+:::image type="content" source="./media/network-watcher-monitoring-overview/topology.png" alt-text="Screenshot showing Topology feature of Network Watcher in Azure portal.":::
 You can download an editable version of the picture in SVG format. Learn more about [topology view](view-network-topology.md).
 
 ## Diagnostics
@@ -66,7 +61,7 @@ Advanced filtering options and fine-tuned controls, such as the ability to set t
 
 ### Diagnose problems with an Azure Virtual network gateway and connections
 
-Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication are not broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs you whether a gateway and gateway connections are available. If the gateway or connection is not available, VPN diagnostics tells you why, so you can resolve the problem. Learn more about VPN diagnostics by completing the [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md) tutorial.
+Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication aren't broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs you whether a gateway and gateway connections are available. If the gateway or connection isn't available, VPN diagnostics tells you why, so you can resolve the problem. Learn more about VPN diagnostics by completing the [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md) tutorial.
 
 ### Determine relative latencies between Azure regions and internet service providers
 
@@ -78,9 +73,9 @@ The effective security rules for a network interface are a combination of all se
 
 ## Metrics
 
-There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *network subscription limit* capability provides a summary of how many of each network resource you have deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
+There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *Usage + quotas* capability provides a summary of how many of each network resource you've deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
 
-![Subscription limits](./media/network-watcher-monitoring-overview/subscription-limit.png)
+:::image type="content" source="./media/network-watcher-monitoring-overview/subscription-limit.png" alt-text="Screenshot showing Networking subscription limits.":::
 
 The information is helpful when planning future resource deployments.
 
@@ -90,9 +85,9 @@ The information is helpful when planning future resource deployments.
 
 Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
-![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+:::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
-Learn more about NSG flow logs by completing the [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) tutorial and how to implement [traffic analytics](traffic-analytics.md).
+To learn more about NSG flow logs, see [Tutorial: Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) and [traffic analytics](traffic-analytics.md).
 
 ### View diagnostic logs for network resources
 
@@ -100,10 +95,11 @@ You can enable diagnostic logging for Azure networking resources such as network
 
 ## Network Watcher automatic enablement
 
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
+When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
 
 ## Next steps
 
-* You now have an overview of Azure Network Watcher. To get started using Network Watcher, diagnose a common communication problem to and from a virtual machine using IP flow verify. To learn how, see the [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) quickstart.
-
-* [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
+- [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- [Tutorial: Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
+- [Tutorial: Monitor network communication between two virtual machines](connection-monitor.md).
+- [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

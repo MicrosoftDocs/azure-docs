@@ -3,7 +3,7 @@ title: AWS ECR coverage in Defender for Containers | Defender for Cloud in the f
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about AWS ECR coverage in Defender for Containers
 ms.topic: reference
-ms.date: 01/18/2023
+ms.date: 01/24/2023
 ---
 
 # AWS ECR Coverage in Defender for Containers | Defender for Cloud in the field
@@ -38,4 +38,4 @@ ms.date: 01/18/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Governance capability improvements in Defender for Cloud](episode-twenty-six.md)

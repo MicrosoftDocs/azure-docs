@@ -11,7 +11,7 @@ ms.custom: seo-lt-2019
 ms.date: 02/15/2022
 ---
 
-# Quickstart: Transform data using Apache Spark job definition.
+# Quickstart: Transform data using Apache Spark job definition
 
 In this quickstart, you'll use Azure Synapse Analytics to create a pipeline using Apache Spark job definition.
 

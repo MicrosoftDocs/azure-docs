@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2022
+ms.date: 02/06/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
@@ -96,6 +96,7 @@ These Microsoft applications support Azure AD's shared device mode:
 - [Microsoft Teams](/microsoftteams/platform/)
 - [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) app for Android Enterprise
 - [Microsoft Edge](/microsoft-edge) (in Public Preview)
+- [Outlook](/mem/intune/apps/app-configuration-policies-outlook) (in Public Preview)
 - [Microsoft Power Apps](/power-apps) (in Public Preview)
 - [Yammer](/yammer) (in Public Preview)
 
