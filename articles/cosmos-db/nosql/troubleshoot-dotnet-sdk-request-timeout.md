@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.date: 09/15/2023
+ms.date: 02/15/2023
 ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -57,7 +57,7 @@ These exceptions are safe to retry on and can be treated as [timeouts](conceptua
 
 #### Solution
 
-Verify the configured time in your `CancellationToken`, make sure that it's greater than your [RequestTimeout](#requesttimeout) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you're using [Direct mode](sdk-connection-modes.md)). 
+Verify the configured time in your `CancellationToken`, make sure that it's greater than your [RequestTimeout](#request-level-timeouts) and the [CosmosClientOptions.OpenTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.opentcpconnectiontimeout) (if you're using [Direct mode](sdk-connection-modes.md)). 
 If the available time in the `CancellationToken` is less than the configured timeouts, and the SDK is facing [transient connectivity issues](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503), the SDK won't be able to retry and will throw `CosmosOperationCanceledException`.
 
 ### High CPU utilization
