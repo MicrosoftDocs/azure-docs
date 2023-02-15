@@ -114,6 +114,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
+| Resource Management Private Links | Microsoft.Authorization/resourceManagementPrivateLinks | ResourceManagement |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 
 > [!NOTE]
