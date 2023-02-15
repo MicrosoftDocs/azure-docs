@@ -57,9 +57,9 @@ For more information, see the [site recovery processes](/azure/site-recovery/sit
 
 ### Zone down experience
 
-During a zone-wide outage, the customer should expect brief degradation of performance, until the virtual machine service self-healing re-balances underlying capacity to adjust to healthy zones. This is not dependent on zone restoration; it is expected that the Microsoft-managed service self-healing state will compensate for a lost zone, leveraging capacity from other zones.
+During a zone-wide outage, the customer should expect brief degradation of performance, until the virtual machine service self-healing re-balances underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; it is expected that the Microsoft-managed service self-healing state will compensate for a lost zone, leveraging capacity from other zones.
 
-Customers should also prepare for the possibility that there is an outage of an entire region. If there is a service disruption for an entire region, the locally redundant copies of your data would temporarily be unavailable. If geo-replication is enabled, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
+Customers should also prepare for the possibility that there's an outage of an entire region. If there's a service disruption for an entire region, the locally redundant copies of your data would temporarily be unavailable. If geo-replication is enabled, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region isn't recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
 
 
 
@@ -69,7 +69,7 @@ Customers should also prepare for the possibility that there is an outage of an 
 The following guidance is provided for Azure virtual machines in the case of a service disruption of the entire region where your Azure virtual machine application is deployed:
 
 - Configure [Azure Site Recovery](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance#option-1-initiate-a-failover-by-using-azure-site-recovery) for your VMs
-- Check the [Azure Service Health Dashboard](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance#option-2-wait-for-recovery) status if Azure Site Recovery has not been configured
+- Check the [Azure Service Health Dashboard](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance#option-2-wait-for-recovery) status if Azure Site Recovery hasn't been configured
 - Review how the [Azure Backup service](/azure/backup/backup-azure-vms-introduction) works for VMs
     - See the [support matrix](/azure/backup/backup-support-matrix-iaas) for Azure VM backups
 - Determine which [VM restore option and scenario](/azure/backup/about-azure-vm-restore) will work best for your environment
@@ -157,9 +157,9 @@ For more information, see [Azure VMs architectural components](/azure/site-recov
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), the customer must address DR for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated.
+Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), the customer must address DR for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated.
 
-For deploying virtual machines, customers can use [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets (VMSS). All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone.
+For deploying virtual machines, customers can use [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone.
 
 ## Additional guidance
 
