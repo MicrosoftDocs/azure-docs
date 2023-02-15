@@ -154,7 +154,7 @@ To complete the configuration modification, do the following steps:
            
    1. If you are setting up encryption only, then the screenshot will look like   
       
-      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Editing kafka-env template property in Ambari for encryption only" border="true":::
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Screenshot showing how to edit kafka-env template property field in Ambari for encryption only" border="true":::
  
 
 1. Restart all Kafka brokers.
