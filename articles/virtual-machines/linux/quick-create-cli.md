@@ -66,7 +66,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 <!--expected_similarity=0.18-->
-```output
+```json
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -114,16 +114,15 @@ Use a web browser of your choice to view the default NGINX welcome page. Use the
 
 ![Screenshot showing the N G I N X default web page.](./media/quick-create-cli/nginix-welcome-page-debian.png)
 
-Or Run the following command to see the NGINX welcome page in terminal
+Alternatively, run the following command to see the NGINX welcome page in the terminal
 
 ```azurecli-interactive
  curl $IP_ADDRESS
 ```
-
-The following example shows the successful the default NGINX web site in HTML as successful output:
-
+ 
+The following example shows the default NGINX web site in the terminal as successful output:
 <!--expected_similarity=0.8-->
-```output
+```html
 <!DOCTYPE html>
 <html>
 <head>
