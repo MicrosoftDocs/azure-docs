@@ -74,6 +74,9 @@ This sample code does the following:
 * Registers to events and begins transcription.
 * If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
+> [!NOTE]
+> If speaker identification or differentiate is enabled, even you have received `transcribed` results, service is still evaluating them by accumulated audio information. When service finds any previous result assigned a wrong `speakerId`, it will send out an almost same `transcribed` result again, but only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if current `transcribed` result is going to correct previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or just ignore the current one.
+
 ```javascript
 (function() {
     "use strict";
