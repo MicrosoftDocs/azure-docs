@@ -110,15 +110,10 @@ For TLS 1.2 the following cipher suites are supported:
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-> [!IMPORTANT]
-> As a part of our ongoing platform improvement processes, we will deprecate the weak DHE ciphers, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, by the end of June 2023.
->
-> If your clients experience TLS handshake issues, consider temporarily allowing legacy TLS versions (TLS 1.0 and TLS 1.1) in your Azure Front Door profile, until your clients are able to support the more secure TLS 1.2 cipher suites.
-
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE cipher suites for better security. CBC ciphers are enabled to support Windows 8.1, 8, and 7 operating systems.  The DHE cipher suites are disabled. Hence connections coming from clients supporting only DHE ciphers will result in SSL Handshake failure. Workaround is to enable TLS 1.0 for the Hosts/Domains where clients connect with DHE ciphers. 
 
-Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
+When using custom domains with TLS 1.0 and 1.1 enabled, the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -132,10 +127,15 @@ Using custom domains with TLS1.0/1.1 enabled the following cipher suites are sup
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 * TLS_RSA_WITH_AES_256_CBC_SHA
 * TLS_RSA_WITH_AES_128_CBC_SHA
-* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (see note)
+* TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (see note)
 
-Azure Front Door doesn’t support configuring specific cipher suites.
+> [!IMPORTANT]
+> As a part of our ongoing platform improvement processes, we will deprecate the weak DHE ciphers, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, by the end of June 2023.
+>
+> If your clients experience TLS handshake issues, consider temporarily allowing legacy TLS versions (TLS 1.0 and TLS 1.1) in your Azure Front Door profile, until your clients are able to support the more secure TLS 1.2 cipher suites.
+
+Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
 
 ## Next steps
 
