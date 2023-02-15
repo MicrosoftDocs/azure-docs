@@ -82,7 +82,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
 1. On the **Logic Apps Management** tile, from the **Create** list, select **Logic Apps Management**.
 
-   :::image type="content" source="./media/monitor-consumption-workflows-log-analytics/create-logic-apps-management-solution.png" alt-text="Screenshot showing the Azure portal, the Marketplace page, the 'Logic Apps Management' tile, with the Create list open, and Logic Apps Management (Preview)selected.":::
+   :::image type="content" source="./media/monitor-consumption-workflows-log-analytics/create-logic-apps-management-solution.png" alt-text="Screenshot showing the Azure portal, the Marketplace page, the 'Logic Apps Management' tile, with the Create list open, and Logic Apps Management (Preview) selected.":::
 
 1. On the **Create Logic Apps Management (Preview) Solution** pane, select the Log Analytics workspace where you want to install the solution. Select **Review + create**, review your information, and select **Create**.
 
@@ -106,7 +106,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
 1. Under **Logs** > **Categories**, select **Workflow runtime diagnostic events**. Under **Metrics**, select **AllMetrics**.
 
-1. Under **Destination details**, select the one or more destinations, based on where you want to send the logs.
+1. Under **Destination details**, select one or more destinations, based on where you want to send the logs.
 
    | Destination | Directions |
    |-------------|------------|
@@ -147,7 +147,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-consumption-workflows-log-analytics/logic-app-runs-summary.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace with Consumption logic app workflow run status and count.":::
 
-   The summary page shows logic app workflow runs grouped by name or by execution status. The page also shows details about failures in actions or triggers for those workflow runs.
+   The summary page shows logic app workflow runs grouped by name or by execution status. The page also shows details about failures in the actions or triggers for the workflow runs.
 
    :::image type="content" source="./media/monitor-consumption-workflows-log-analytics/logic-app-runs-summary-details.png" alt-text="Screenshot showing status summary for Consumption logic app workflow runs.":::
 

@@ -47,7 +47,7 @@ This how-to guide shows how to enable diagnostic data collection on your Standar
 
 1. Under **Logs** > **Categories**, select **Workflow Runtime Logs**. Under **Metrics**, select **AllMetrics**.
 
-1. Under **Destination details**, select the one or more destinations, based on where you want to send the logs.
+1. Under **Destination details**, select one or more destinations, based on where you want to send the logs.
 
    | Destination | Directions |
    |-------------|------------|
