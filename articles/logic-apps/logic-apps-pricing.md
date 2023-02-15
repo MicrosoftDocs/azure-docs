@@ -71,7 +71,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 * Consider the possible number of messages or events that might arrive on any given day, rather than base your calculations on only the polling interval.
 
-* When an event or message meets the trigger criteria, many triggers immediately try to read any other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
+* When an event or message meets the trigger criteria, many triggers immediately try to read any other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hubs.
 
   For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
@@ -81,7 +81,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier, which differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
-When you create or deploy logic apps with the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions. You also have the option to select an existing **App Service Environment v3** resource as your deployment location, but you can only use the App Service plan with this option. If you choose this option, you're charged for the instances used by the App Service plan and for running your logic app workflows. No other charges apply.
+When you create or deploy logic apps with the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions. You also have the option to select an existing **App Service Environment v3** resource as your deployment location, but you can only use the [App Service plan](../app-service/overview-hosting-plans.md) with this option. If you choose this option, you're charged for the instances used by the App Service plan and for running your logic app workflows. No other charges apply.
 
 > [!IMPORTANT]
 > The following plans and resources are no longer available or supported with the public release of the **Logic App (Standard)** resource type in Azure regions: 
