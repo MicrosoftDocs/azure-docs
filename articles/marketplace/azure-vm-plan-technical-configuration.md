@@ -102,11 +102,13 @@ When creating a new plan, select an Image type from the drop-down menu. You can 
 
 To add a new image version, click **+Add VM image**. This will open a panel in which you will then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
 
+> [!IMPORTANT]
+> You can now provide more than one VM image per image type within a given submission. By adding multiple images at a time, you will not need to publish each image sequentially as part of separate submissions.   
+
 Keep in mind the following when publishing VM images:
 
-1.	Provide only one new VM image per image type in a given submission.
-2.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about [deprecating VM images](./deprecate-vm.md).
-3.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
+1.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about [deprecating VM images](./deprecate-vm.md).
+1.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
 
 > [!NOTE]
 > If you provide your images using the SAS URI method and you are adding data disks, you also need to provide them in the form of a SAS URI. Data disks are also VHD shared access signature URIs that are stored in your Azure storage accounts. If you are using a gallery image, the data disks are captured as part of your image in Azure Compute Gallery.
@@ -126,3 +128,4 @@ For VM offers with more than one plan, you can change the order that your plans 
 
 - [Learn more about how to reorder plans](azure-vm-plan-reorder-plans.md)
 - [Resell through CSPs](azure-vm-resell-csp.md)
+
