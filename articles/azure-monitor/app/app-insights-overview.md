@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 01/24/2023
+ms.date: 02/14/2023
 ---
 
 # Application Insights overview
