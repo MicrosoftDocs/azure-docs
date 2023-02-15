@@ -73,7 +73,7 @@ sections:
       - question: |
           How do I leave a tenant when I'm added as a collaborator?
         answer: |
-         Information on how to leaving organizations is documented in [Leave an organization as an external user](../external-identities/leave-the-organization.md)
+         Information on how to leave tenants where you are a collaborator  is documented in [Leave an organization as an external user](../external-identities/leave-the-organization.md)
           
           
           
