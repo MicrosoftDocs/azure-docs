@@ -38,7 +38,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 5. Select the **Private endpoint connections** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
-    :::image type="content" source="./media/private-link-service/add-private-endpoint-button.png" alt-text="Screenshot showing the selection of the **Add private endpoint** button on the **Private endpoint connections** tab of the **Networking** page.":::
+    :::image type="content" source="./media/private-link-service/add-private-endpoint-button.png" alt-text="Screenshot showing the selection of the Add private endpoint button on the Private endpoint connections tab of the Networking page.":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
@@ -47,20 +47,20 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
     1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the Azure Relay namespace that you're connecting to. 
     1. Select **Next: Resource >** button at the bottom of the page.
 
-        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the **Basics** page of the **Create a private endpoint** wizard.":::
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
 8. Review settings on the **Resource** page, and select **Next: Virtual Network**. 
 
-    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the **Resource** page of the **Create a private endpoint** wizard.":::
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint wizard.":::
 9. On the **Virtual Network** page, select the **virtual network** and the **subnet** where you want to deploy the private endpoint. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
 
-    :::image type="content" source="./media/private-link-service/create-private-endpoint-virtual-network-page.png" alt-text="Screenshot showing the **Virtual Network** page of the **Create a private endpoint** wizard.":::
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-virtual-network-page.png" alt-text="Screenshot showing the Virtual Network page of the Create a private endpoint wizard.":::
 
     You can configure whether you want to **dynamically** allocate an IP address or **statically** allocate an **IP address** to the private endpoint
 
     You can also associate a new or existing **application security group** to the private endpoint. 
 3. Select **Next: DNS** to navigate to the **DNS** page of the wizard. On the **DNS** page, **Integrate with private DNZ zone** setting is enabled by default (recommended). You have an option to disable it. 
 
-    :::image type="content" source="./media/private-link-service/create-private-endpoint-dns-page.png" alt-text="Screenshot showing the **DNS** page of the **Create a private endpoint** wizard.":::
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-dns-page.png" alt-text="Screenshot showing the DNS page of the Create a private endpoint wizard.":::
 
     To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). 
 3. Select **Next: Tags >** button at the bottom of the page. 
@@ -68,11 +68,11 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
 12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you're the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
-    :::image type="content" source="./media/private-link-service/private-endpoint-page.png" alt-text="Screenshot showing the **Private endpoint** page in the Azure portal.":::
+    :::image type="content" source="./media/private-link-service/private-endpoint-page.png" alt-text="Screenshot showing the Private endpoint page in the Azure portal.":::
 13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections** tab. You should see the private endpoint that you created. 
 
 
-    :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="Screenshot showing the **Private endpoint connections** tab of the **Networking** page with the private endpoint you just created.":::
+    :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="Screenshot showing the Private endpoint connections tab of the Networking page with the private endpoint you just created.":::
 
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to an Azure Relay namespace.
