@@ -1,7 +1,7 @@
 ---
 title: Monitor OT networks with Zero Trust principles - Microsoft Defender for IoT
 description: Learn how to use Microsoft Defender for IoT to monitor your operational technology (OT) networks with Zero Trust principles.
-ms.date: 02/05/2023
+ms.date: 02/15/2023
 ms.topic: tutorial
 ms.collection:
   -       zerotrust-services
@@ -17,7 +17,7 @@ ms.collection:
 
 <!--replace with include file-->
 
-Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each sub-system separate and secure.
+Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 
 This tutorial describes how to monitor your OT network with Defender for IoT and Zero Trust principles.
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To perform the tasks in this tutorial, you'll need:
+To perform the tasks in this tutorial, you need:
 
 - A [Defender for IoT OT plan](how-to-manage-subscriptions.md) on your Azure subscription
 
@@ -50,9 +50,9 @@ To perform the tasks in this tutorial, you'll need:
 
 Cross-subnet traffic is traffic that moves between sites and zones.
 
-Cross-subnet traffic might be legitimate, such as when an internal system sends notification messages to other systems. However, if an internal system is sending communications to external servers, you'll want to verify that the communication is all legitimate. If there are messages going out, do they include information that can be shared? If there's traffic coming in, is it coming from secure sources?
+Cross-subnet traffic might be legitimate, such as when an internal system sends notification messages to other systems. However, if an internal system is sending communications to external servers, you want to verify that the communication is all legitimate. If there are messages going out, do they include information that can be shared? If there's traffic coming in, is it coming from secure sources?
 
-You've separated your network in to sites and zones to keep each sub-system separate and secure, and may expect most traffic in a specific site or zone to stay internal to that site or zone. If you see cross-subnet traffic, it might indicate that your network is at risk.
+You've separated your network in to sites and zones to keep each subsystem separate and secure, and may expect most traffic in a specific site or zone to stay internal to that site or zone. If you see cross-subnet traffic, it might indicate that your network is at risk.
 
 **To search for cross-subnet traffic**:
 
@@ -72,7 +72,7 @@ Do you know what devices are on your network, and who they're communicating with
 Unknown devices might include *transient* devices, which move between networks. For example, transient devices might include a technician's laptop, which they connect to the network when maintaining servers, or a visitor's smartphone, which connects to a guest network at your office.
 
 > [!IMPORTANT]
-> Once you've identified unknown devices, make sure to investigate any further alerts being triggered by those devices, as any suspicous traffic on unknown devices creates an added risk. 
+> Once you've identified unknown devices, make sure to investigate any further alerts being triggered by those devices, as any suspicious traffic on unknown devices creates an added risk. 
 > 
 
 **To check for unauthorized/unknown devices and risky sites and zones**:
@@ -84,7 +84,7 @@ Unknown devices might include *transient* devices, which move between networks. 
 
     Perform each filter action separately. For each filter action, do the following to identify risky sites and zones in your network, which  may require refreshed security policies:
 
-    1. Group your alerts by **Site** to see if you have a specific site that's generating a lot of alerts for unknown devices.
+    1. Group your alerts by **Site** to see if you have a specific site that's generating many alerts for unknown devices.
 
     1. Add the **Zone** filter to the alerts displayed to narrow your alerts down to specific zones.
 
@@ -116,7 +116,7 @@ If you have devices on your network with outdated software or firmware, they mig
 
     The workbook is populated with data from across your entire network.
 
-1. Scroll down to view the lists of **Vulnerable devices** and **Vulnerable components**. These are the devices and components in your network that require attention, such as a firmware or software update, or replacement if no more updates are available.
+1. Scroll down to view the lists of **Vulnerable devices** and **Vulnerable components**. These devices and components in your network require attention, such as a firmware or software update, or replacement if no more updates are available.
 
 1. In the **SiteName** select at the top of the page, select one or more sites to filter the data by site. Filtering data by site can help you identify concerns at specific sites, which may require site-wide updates or device replacements.
 
@@ -149,8 +149,8 @@ To verify the security posture of a specific device, run an **Attack vector** re
     
     |Vulnerability  |Description  |
     |---------|---------|
-    |**Devices exposed to the internet**     |  For example, these might be shown with a message of **Exposed to external threats due to internet connectivity**.       |
-    |**Devices with open ports**     |   Open ports might legitimately be used for remote access, but can also be a risk. <br><br>For example, these might be shown with a message similar to **Allowed remote access using TeamViewer Allowed remote access using Remote Desktop**      |
+    |**Devices exposed to the internet**     |  For example, these vulnerabilities might be shown with a message of **Exposed to external threats due to internet connectivity**.       |
+    |**Devices with open ports**     |   Open ports might legitimately be used for remote access, but can also be a risk. <br><br>For example, these vulnerabilities might be shown with a message similar to **Allowed remote access using TeamViewer Allowed remote access using Remote Desktop**      |
     |**Connections between devices that cross subnets**     |  For example, you might see a message of **Direct connection between devices**, which might be acceptable on its own, but risky in the context of crossing subnets.       |
 
 ## Monitor detected data per site or zone
@@ -167,7 +167,7 @@ In the Azure portal, view Defender for IoT data by site and zone from the follow
 
 ### View data in air-gapped environments
 
-Use the following procedure to view additional data for each site and zone on an on-premises management console. We recommend using an on-premises management console in air-gapped environments to centrally manage and monitor OT devices across your network.
+Use the following procedure to view more data for each site and zone on an on-premises management console. We recommend using an on-premises management console in air-gapped environments to centrally manage and monitor OT devices across your network.
 
 1. Sign into your on-premises management console and select **Site Management**.
 
@@ -190,7 +190,7 @@ When monitoring for Zero Trust, the following list is an example of important De
 :::row:::
     :::column:::
     - Unauthorized device connected to the network
-    - Known malware detected (e.g., EternalBlue)
+    - Known malware detected
     - Unauthorized connection to the internet
     - Unauthorized remote access
     - Network scanning operation detected
@@ -210,20 +210,14 @@ When monitoring for Zero Trust, the following list is an example of important De
 
 ## Next steps
 
-Connect your Defender for IoT data to Microsoft Sentinel to have your security operation center (SOC) team continuously monitor your network and mitigate threats.
+You may need to make changes in your network segmentation based on the results of your monitoring, or as people and systems in your organization change over time.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
+Modify the structure of your sites and zones, and reassign site-based access policies to ensure that they always match your current network realities.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
+In addition to using the built-in Defender for IoT **Vulnerabilities** workbook, create more, custom workbooks to optimize your continuous monitoring.
 
-Continue checking the Defender for IoT [**Vulnerabilities** workbook](workbooks.md#view-workbooks) to check for new vulnerabilities in your network.
+For more information, see:
 
-> [!div class="nextstepaction"]
-> [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
-
-
-create custom workbooks
-
-go back and modify your segments as needed
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Manage on-premises sites and zones](ot-deploy/sites-and-zones-on-premises.md#manage-sites-and-zones)
+- [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)

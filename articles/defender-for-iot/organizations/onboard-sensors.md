@@ -1,7 +1,7 @@
 ---
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
-ms.date: 06/02/2022
+ms.date: 02/15/2023
 ms.topic: how-to
 ---
 
@@ -16,13 +16,11 @@ This article describes how to onboard sensors with [Defender for IoT in the Azur
 
 ## Prerequisites
 
-To perform the procedures in this article, you'll need:
+To perform the procedures in this article, you need:
 
 - An [OT plan added](how-to-manage-subscriptions.md) in Defender for IoT in the Azure portal.
 
-- A clear understanding of where your OT network sensors are placed in your network, and how you'll want to [segment your network into sites and zones](../concept-zero-trust.md).
-
-- An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
+- A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](../concept-zero-trust.md).
 
 ## Purchase sensors or download software for sensors
 
@@ -67,7 +65,7 @@ This procedure describes how to *onboard*, or register, an OT network sensor wit
 
     1. In the **Sensor name** field, enter a meaningful name for your OT sensor.  
 
-        We recommend including your OT sensor's IP address as part of the name, or using another easily identifiable name. You'll want to keep track of the registration name in the Azure portal and the IP address of the sensor shown in the OT sensor console.
+        We recommend including your OT sensor's IP address as part of the name, or using another easily identifiable name. You want to keep track of the registration name in the Azure portal and the IP address of the sensor shown in the OT sensor console.
 
     1. In the **Subscription** field, select your Azure subscription.
 
@@ -99,7 +97,7 @@ This procedure describes how to *onboard*, or register, an OT network sensor wit
 
 A success message appears and your activation file is automatically downloaded, and your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
 
-Until you activate your sensor, the sensor's status will show as **Pending Activation**.
+Until you activate your sensor, the sensor's status shows as **Pending Activation**.
 
 Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor.
 

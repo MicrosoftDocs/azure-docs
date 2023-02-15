@@ -1,28 +1,28 @@
 ---
 title: Create OT sites and zones on an on-premises management console - Microsoft Defender for IoT
 description: Learn how to create OT networking sites and zones on an on-premises management console to support Zero Trust principles while monitoring OT networks.
-ms.date: 01/08/2023
+ms.date: 02/15/2023
 ms.topic: how-to
 ---
 
 # Create OT sites and zones on an on-premises management console
 
-This article describes how to create sites and zones on an on-premises management console, as part of an OT network monitoring deployment that follows [Zero Trust](/security/zero-trust/zero-trust-overview) principles.
+This article describes how to create sites and zones on an on-premises management console, based on the network segments you've identified across your OT environments.
 
-Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md). Assinging sensors to specific sites and zones will help you monitor for unauthorized traffic crossing segments. 
+Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md), and assigning sensors to specific sites and zones helps you monitor for unauthorized traffic crossing segments.
 
-Data ingested from sensors in the same site or zone can be viewed together, segemented out from other data in your system. 
+Data ingested from sensors in the same site or zone can be viewed together, segmented out from other data in your system. 
 
 If there's sensor data that you want to view grouped together in the same site or zone, make sure to assign sensor sites and zones accordingly.
 
-An on-premises management console adds the additional layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network. 
+An on-premises management console adds the extra layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network. 
 
 > [!NOTE]
 > Sites and zones created in on an on-premises management console aren't synchronized with sites and zones created in the Azure portal when [onboarding OT sensors](../onboard-sensors.md#onboard-an-ot-sensor).
 
 ## Prerequisites
 
-- A clear understanding of where your OT network sensors are placed in your network, and how you'll want to [segment your network into sites and zones](../concept-zero-trust.md).
+- A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](../concept-zero-trust.md).
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
 
@@ -30,13 +30,13 @@ An on-premises management console adds the additional layers of *business units*
 
 By default, the on-premises management console shows a blank world map for you to build and monitor your business units, regions, sites, and zones.
 
-For example, you may want countries and cities highlighted in more detail, or you may want to show only a specific area of the world so that you can zoom in farther.
+For example, you may want to highlight specific countries/regions or cities in more detail so that you can zoom in farther.
 
 **To change the default map to one of your own**:
 
 1. Sign into the on-premises management console and select **System Settings** > **Change Site Map**.
 
-1. Select **UPLOAD SITE MAP** and then browse to and select the image you want to want to use instead.
+1. Select **UPLOAD SITE MAP** and then browse to and select the image you want to use instead.
 
 ## Create business units
 
