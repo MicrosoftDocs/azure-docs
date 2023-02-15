@@ -120,10 +120,10 @@ This Document lists steps that must be followed to set up connectivity between V
    
 1. After this step you get an output as 
     
-   1. Producer output:
+   **Producer output:**
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-producer-output.png" alt-text="Screenshot showing Kafka producer output VM." border="true":::
      
-   1. Consumer output: 
+   **Consumer output:**
     
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-consumer-output.png" alt-text="Screenshot showing Kafka producer output." border="true"::: 
