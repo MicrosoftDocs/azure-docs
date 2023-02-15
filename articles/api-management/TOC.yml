@@ -88,6 +88,8 @@
         href: devops-api-development-templates.md  
       - name: APIs
         items:
+            - name: GraphQL APIs
+              href: graphql-apis-overview.md
             - name: API design ebook
               href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: RESTful web API design

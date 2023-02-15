@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 02/14/2023
 ms.author: danlep
 ---
 
@@ -19,9 +19,9 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 
 |GraphQL passthrough  |Synthetic GraphQL  |
 |---------|---------|
-| ▪️ Passthrough API to existing GraphQL API endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy HTTP APIs     |
+| ▪️ Passthrough API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
 
-[!VIDEO https://learn.microsoft.com/shows/azure-friday/modernize-your-api-stack-with-graphql-and-azure-api-management/player]
+> [!VIDEO https://learn.microsoft.com/shows/azure-friday/modernize-your-api-stack-with-graphql-and-azure-api-management/player]
 
 ## Availability
 
@@ -38,7 +38,6 @@ GraphQL is a protocol specification that explicitly solves common issues experie
 * It can take a large number of requests to fulfill the data needs for a single page
 * REST APIs often return more data than needed the page being rendered
 * The client app needs to poll to get new information
-
 
 Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also receive data updates pushed from the GraphQL service in real time.
 
@@ -78,11 +77,9 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
 *Resolvers* take care of mapping the GraphQL schema to backend data, producing the data for each field in an object type. The data source could be an API, a database, or another service. For example, a resolver function would be responsible for returning data for the `users` query in the preceding example. 
 
-In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields Synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by passthrough GraphQL APIs.
+In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields in synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by passthrough GraphQL APIs.
 
-### Resolver example
-
-API Management currently supports HTTP-based resolvers to REST or SOAP endpoints to return the data for fields in a GraphQL schema. The resolver is a policy definition inside an `http-data-source` element that transforms the API request (and optionally the response) into an HTTP request/response.
+API Management currently supports HTTP-based resolvers to return the data for fields in a GraphQL schema. A resolver is a policy definition inside an `http-data-source` element that transforms the API request (and optionally the response) into an HTTP request/response.
 
 For example, a resolver for the preceding `users` query might map to a `GET` operation in a backend REST API:
 

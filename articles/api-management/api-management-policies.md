@@ -76,6 +76,7 @@ More information about policies:
 ## GraphQL API policies
 - [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
 - [Set GraphQL resolver](set-graphql-resolver-policy.md) (deprecated) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
+- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. 
 
 ## Transformation policies
 -   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.
