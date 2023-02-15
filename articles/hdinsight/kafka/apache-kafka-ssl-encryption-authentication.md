@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/14/2023
+ms.date: 02/16/2023
 ---
 
 # Set up TLS encryption and authentication for Non ESP Apache Kafka cluster in Azure HDInsight
@@ -128,7 +128,7 @@ To complete the configuration modification, do the following steps:
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari." border="true":::
 
 1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. 
 
@@ -136,7 +136,7 @@ To complete the configuration modification, do the following steps:
    > [!Note] 
    > Note: This step is only required if you're setting up authentication and encryption.
    
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari." border="true":::
 
 1. Here's the screenshot that shows Ambari configuration UI with these changes.
    
@@ -150,7 +150,7 @@ To complete the configuration modification, do the following steps:
     
    1. If you're setting up authentication and encryption, then the screenshot looks like
 
-      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four." border="true":::
            
    1. If you are setting up encryption only, then the screenshot looks like   
       
