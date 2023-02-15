@@ -20,7 +20,7 @@ To perform the procedures in this article, you need:
 
 - An [OT plan added](how-to-manage-subscriptions.md) in Defender for IoT in the Azure portal.
 
-- A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](../concept-zero-trust.md).
+- A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](concept-zero-trust.md).
 
 ## Purchase sensors or download software for sensors
 

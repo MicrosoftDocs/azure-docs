@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes how to create sites and zones on an on-premises management console, based on the network segments you've identified across your OT environments.
 
-Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md), and assigning sensors to specific sites and zones helps you monitor for unauthorized traffic crossing segments.
+Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](../concept-zero-trust.md), and assigning sensors to specific sites and zones helps you monitor for unauthorized traffic crossing segments.
 
 Data ingested from sensors in the same site or zone can be viewed together, segmented out from other data in your system. 
 

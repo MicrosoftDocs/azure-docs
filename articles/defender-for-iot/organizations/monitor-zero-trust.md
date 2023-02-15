@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * [Look for alerts on unknown devices](#look-for-alerts-on-unknown-devices)
-> * [Look for vulnerable systems](#look-for-vulnerable-devices)
+> * [Look for vulnerable systems](#look-for-vulnerable-systems)
 > * [Look for alerts on cross-subnet traffic](#look-for-alerts-on-cross-subnet-traffic)
 > * [Simulate traffic to test your network](#simulate-traffic-to-test-your-network)
 
