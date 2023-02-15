@@ -58,13 +58,13 @@ ledger_client = ConfidentialLedgerClient(
     endpoint="https://contoso.confidential-ledger.azure.com",
     credential=credential,
     ledger_certificate_path=ledger_tls_cert_file_name
-    )
+)
 
 # Add a user with the contributor role
 # Other possible roles are Contributor and Administrator
 user_id = "PEM certficate fingerprint"
 user = ledger_client.create_or_update_user(
-user_id, {"assignedRole": "Contributor"}
+    user_id, {"assignedRole": "Contributor"}
 )
 
 # Get the user and check their properties
@@ -125,24 +125,24 @@ internal class ACLUserManagement
 ### Install the packages
 
 ```Java
-   <!-- https://mvnrepository.com/artifact/com.azure/azure-security-confidentialledger -->
-   <dependency>
-         <groupId>com.azure</groupId>
-         <artifactId>azure-security-confidentialledger</artifactId>
-         <version>1.0.6</version>
-   </dependency>
-   <!-- https://mvnrepository.com/artifact/com.azure/azure-identity -->
-      <dependency>
-         <groupId>com.azure</groupId>
-         <artifactId>azure-identity</artifactId>
-         <version>1.8.0</version>
-      </dependency>
-   <!-- https://mvnrepository.com/artifact/com.azure/azure-core -->
-   <dependency>
-         <groupId>com.azure</groupId>
-         <artifactId>azure-core</artifactId>
-         <version>1.36.0</version>
-   </dependency>
+<!-- https://mvnrepository.com/artifact/com.azure/azure-security-confidentialledger -->
+<dependency>
+	<groupId>com.azure</groupId>
+	<artifactId>azure-security-confidentialledger</artifactId>
+	<version>1.0.6</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.azure/azure-identity -->
+<dependency>
+	<groupId>com.azure</groupId>
+	<artifactId>azure-identity</artifactId>
+	<version>1.8.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.azure/azure-core -->
+<dependency>
+	<groupId>com.azure</groupId>
+	<artifactId>azure-core</artifactId>
+	<version>1.36.0</version>
+</dependency>
 ```
 
 ### Create a client and manage the users
