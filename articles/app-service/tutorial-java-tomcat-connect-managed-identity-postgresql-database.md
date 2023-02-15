@@ -166,7 +166,7 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
 
 Next, connect the database using [Service Connector](../service-connector/overview.md).
 
-Install the Service Connector passwordless extension for the Azure CLI::
+Install the Service Connector passwordless extension for the Azure CLI:
 
 ```azurecli
 az extension add --name serviceconnector-passwordless --upgrade

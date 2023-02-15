@@ -75,26 +75,26 @@ Use the following steps to bind your app.
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
-    ```azurecli
-    az extension add --name serviceconnector-passwordless --upgrade
-    ```
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
+   ```
 
 1. Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
     > [!NOTE]  
     > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
-    ```azurecli
-    az spring connection create postgres-flexible \
-        --resource-group $SPRING_APP_RESOURCE_GROUP \
-        --service $Spring_APP_SERVICE_NAME \
-        --app $APP_NAME \
-        --deployment $DEPLOYMENT_NAME \
-        --target-resource-group $POSTGRES_RESOURCE_GROUP \
-        --server $POSTGRES_SERVER_NAME \
-        --database $DATABASE_NAME \
-        --system-identity
-    ```
+   ```azurecli
+   az spring connection create postgres-flexible \
+       --resource-group $SPRING_APP_RESOURCE_GROUP \
+       --service $Spring_APP_SERVICE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $POSTGRES_RESOURCE_GROUP \
+       --server $POSTGRES_SERVER_NAME \
+       --database $DATABASE_NAME \
+       --system-identity
+   ```
 
 ### [Using a passwordless connection with a managed identity for single server](#tab/Passwordlesssingle)
 

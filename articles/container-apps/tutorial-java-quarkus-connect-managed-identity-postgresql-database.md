@@ -347,9 +347,9 @@ Next, create a PostgreSQL Database and configure your container app to connect t
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
-    ```azurecli
-    az extension add --name serviceconnector-passwordless --upgrade
-    ```
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
+   ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
 
