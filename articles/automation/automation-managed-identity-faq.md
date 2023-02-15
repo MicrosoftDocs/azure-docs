@@ -15,7 +15,7 @@ The following FAQ can help you migrate from a Run As account to a Managed identi
 
 ## How long will you support a Run As account?
  
-Automation Run As accounts will be supported until *30 September 2023*. Moreover, starting 01 April 2023, creation of **new** Run As accounts in Azure Automation isn't possible. Renewing of certificates for existing Run As accounts would be possible only till the end of support.
+Automation Run As accounts will be supported until *30 September 2023*. Moreover, starting 01 April 2023, creation of **new** Run As accounts in Azure Automation will not be possible. Renewing of certificates for existing Run As accounts would be possible only till the end of support.
 
 ## Will existing runbooks that use the Run As account be able to authenticate?
 Yes, they'll be able to authenticate. There will be no impact to existing runbooks that use a Run As account. After 30 September 2023, all runbook executions using RunAs accounts, including Classic Run As accounts wouldn't be supported. Hence, you must migrate all runbooks to use Managed identities before that date.
@@ -49,9 +49,6 @@ Run As accounts also have a management overhead that involves creating a service
 
 ## Can a managed identity be used for both cloud and hybrid jobs?
 Azure Automation supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](./automation-security-overview.md) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
-
-## Can I use a Run As account for new Automation account?
-Yes, but only in a scenario where managed identities aren't supported for specific on-premises resources. We'll allow the creation of a Run As account through a [PowerShell script](./create-run-as-account.md#create-account-using-powershell).
 
 ## How can I migrate from an existing Run As account to a managed identity?
 Follow the steps in [Migrate an existing Run As account to a managed identity](./migrate-run-as-accounts-managed-identity.md).
