@@ -11,11 +11,6 @@ Use the **Device inventory** page in the Azure portal to manage all network devi
 
 For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
 
-> [!NOTE]
-> The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> Alternately, view device inventory from a [specific sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
-
 ## View the device inventory
 
 To view detected devices in the **Device inventory** page in the Azure portal, go to **Defender for IoT** > **Device inventory**.
