@@ -141,7 +141,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
    | `Azure Location`   | The Azure location where your resources will be deployed. |
    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
@@ -308,7 +308,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
    | `Azure Location`   | The Azure location where your resources will be deployed. |
    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
@@ -475,7 +475,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
    | `Azure Location`   | The Azure location where your resources will be deployed. |
    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
