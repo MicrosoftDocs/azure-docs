@@ -441,6 +441,8 @@
       items: 
       - name: RBAC
         href: share-gallery.md
+      - name: App registration
+        href: share-using-app-registration.md
       - name: Direct share
         href: share-gallery-direct.md
       - name: Community gallery
@@ -672,6 +674,9 @@
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
+      - name: Image Builder Reliability
+        displayName: Image builder, images, building, reliability, resiliency, recovery
+        href: image-builder-reliability.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -979,14 +984,6 @@
         href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Diagnostics extension
         href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
-      - name: Log Analytics
-        items:
-        - name: Linux
-          displayName: Log Analytics, extension
-          href: ./extensions/oms-linux.md
-        - name: Windows
-          displayName: Log Analytics, extension
-          href: ./extensions/oms-windows.md
       - name: VM insights
         items:
         - name: Linux Dependency agent
@@ -995,6 +992,16 @@
         - name: Windows Dependency agent
           displayName: Azure Monitor
           href: ./extensions/agent-dependency-windows.md
+      - name: Legacy extensions
+        items:
+        - name: Log Analytics
+          items:
+          - name: Linux
+            displayName: Log Analytics, extension
+            href: ./extensions/oms-linux.md
+          - name: Windows
+            displayName: Log Analytics, extension
+            href: ./extensions/oms-windows.md
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
@@ -1834,129 +1841,38 @@
     href: monitor-vm.md?context=/azure/virtual-machines/context/context
   - name: Monitor virtual machine reference
     href: monitor-vm-reference.md?context=/azure/virtual-machines/context/context
+  - name: Availability with Resource Graph
+    href: resource-graph-availability.md
   - name: Tutorials
     items:
-    - name: Enable monitoring
-      href: ../azure-monitor/vm/tutorial-monitor-vm-enable.md?context=/azure/virtual-machines/context/context
-    - name: Alert on machine down
-      href: ../azure-monitor/vm/tutorial-monitor-vm-alert.md?context=/azure/virtual-machines/context/context
+    - name: Enable recommended alerts
+      href: ../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md?context=/azure/virtual-machines/context/context
+    - name: Create availability alert
+      href: ../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md?context=/azure/virtual-machines/context/context
+    - name: Enable VM insights
+      href: ../azure-monitor/vm/tutorial-monitor-vm-enable-insights.md?context=/azure/virtual-machines/context/context
     - name: Collect guest logs and metrics
       href: ../azure-monitor/vm/tutorial-monitor-vm-guest.md?context=/azure/virtual-machines/context/context
-  - name: Agents
+  - name: Monitor virtual machines guide
     items:
-    - name: Agents overview
-      href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
-    - name: FAQ
-      displayName: Agents
-      href: ../azure-monitor/faq.yml
-    - name: Azure Monitor Agent
-      items:
-      - name: Overview
-        href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=/azure/virtual-machines/context/context
-        displayname: Azure Monitor agent
-      - name: Install and manage
-        href: ../azure-monitor/agents/azure-monitor-agent-manage.md?context=/azure/virtual-machines/context/context
-        displayname: Azure Monitor agent
-      - name: Data collection
-        href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=/azure/virtual-machines/context/context
-        displayname: data collection rule,Azure Monitor agent
-      - name: Migrate from legacy agents
-        href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=/azure/virtual-machines/context/context
-        displayname: Migrate to Azure Monitor agent
-      - name: FAQ
-        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
-        displayname: Azure Monitor agent FAQ
-    - name: Log Analytics agent
-      items:
-      - name: Overview
-        displayName: Log Analytics Agent
-        href: ../azure-monitor/agents/log-analytics-agent.md?context=/azure/virtual-machines/context/context
-      - name: Linux agents
-        href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
-      - name: Log Analytics gateway
-        href: ../azure-monitor/agents/gateway.md?context=/azure/virtual-machines/context/context
-      - name: Agent management
-        href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
-      - name: Agent Health
-        href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
-      - name: Data sources
-        items:
-        - name: Overview
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/agent-data-sources.md?context=/azure/virtual-machines/context/context
-        - name: Custom JSON data
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
-        - name: collect performance data
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
-        - name: Syslog
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-syslog.md?context=/azure/virtual-machines/context/context
-        - name: Performance counters
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
-        - name: Linux application performance
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
-        - name: Custom logs
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
-        - name: Custom fields
-          displayName: Data sources, log Analytics
-          href: ../azure-monitor/logs/custom-fields.md?context=/azure/virtual-machines/context/context
-    - name: Troubleshoot
-      items:
-      - name: Log Analytics VM Extension
-        href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
-      - name: Log Analytics Linux agent
-        href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-    - name: VM insights
-      items:
-      - name: Overview
-        displayName: VM insights
-        href: ../azure-monitor/vm/vminsights-overview.md?context=/azure/virtual-machines/context/context
-      - name: FAQ
-        displayName: VM insights
-        href: ../azure-monitor/faq.yml?context=/azure/virtual-machines/context/context
-      - name: Enable monitoring
-        items:
-        - name: Enable monitoring overview
-          displayName: Azure monitor, monitoring
-          href: ../azure-monitor/vm/vminsights-enable-overview.md?context=/azure/virtual-machines/context/context
-        - name: Enable for single Azure VM
-          displayName: Azure monitor, monitoring
-          href: ../azure-monitor/vm/vminsights-enable-portal.md?context=/azure/virtual-machines/context/context
-        - name: Enable using Azure Policy
-          displayName: Azure monitor, monitoring
-          href: ../azure-monitor/vm/vminsights-enable-policy.md?context=/azure/virtual-machines/context/context
-        - name: Enable using Azure PowerShell
-          displayName: Azure monitor, monitoring
-          href: ../azure-monitor/vm/vminsights-enable-powershell.md?context=/azure/virtual-machines/context/context
-        - name: Enable for Hybrid environment
-          displayName: Azure monitor, monitoring
-          href: ../azure-monitor/vm/vminsights-enable-hybrid.md?context=/azure/virtual-machines/context/context
-      - name: Map dependencies
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-maps.md?context=/azure/virtual-machines/context/context
-      - name: Monitor performance
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-performance.md?context=/azure/virtual-machines/context/context
-      - name: Analyze data with log queries
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-log-query.md
-      - name: Visualize data with workbooks
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-workbooks.md?context=/azure/virtual-machines/context/context
-      - name: Create alert rules
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=/azure/virtual-machines/context/context
-      - name: Upgrade Dependency agent
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-dependency-agent-maintenance.md?context=/azure/virtual-machines/context/context
-      - name: Disable monitoring
-        displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-optout.md?context=/azure/virtual-machines/context/context
+    - name: Overview
+      href: ../azure-monitor/vm/monitor-virtual-machine.md
+    - name: Deploy agents
+      href: ../azure-monitor/vm/monitor-virtual-machine-agent.md
+    - name: Collect data
+      href: ../azure-monitor/vm/monitor-virtual-machine-data-collection.md
+    - name: Analyze data
+      href: ../azure-monitor/vm/monitor-virtual-machine-analyze.md
+    - name: Create alerts
+      href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md
+    - name: Migrate management pack logic
+      href: ../azure-monitor/vm/monitor-virtual-machine-management-packs.md
+  - name: VM insights
+    href: ../azure-monitor/vm/vminsights-overview.md
+  - name: Azure Monitor Agent
+    href: ../azure-monitor/agents/agents-overview.md
+  - name: Analyze availability
+    href: resource-graph-availability.md
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
