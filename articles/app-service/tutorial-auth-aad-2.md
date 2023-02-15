@@ -65,13 +65,13 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
 
 ### Clone the sample application 
 
-1. Run the following command to clone the sample repository.
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository.
 
     ```bash
     git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
     
-1. View the local frontend app in Visual Studio Code.
+1. Optionally, view the local frontend app in Visual Studio Code.
 
     ```bash
     cd frontend && code .
@@ -86,7 +86,7 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
     }
     ```
 
-1. View the local backend app in Visual Studio Code.
+1. Optionally, view the local backend app in Visual Studio Code.
 
     ```bash
     cd ../backend && code .
@@ -130,6 +130,12 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
     }
     ```
 
+1. Return to the root of the sample repo.
+
+    ```bash
+    cd ..
+    ```
+
 ## Create resource group and app plan
 
 1. Create a resource group to manage related resources. 
@@ -138,11 +144,25 @@ In this step, use the Cloud Shell (Bash) available in the Azure portal to view a
     az group create --name myAuthResourceGroup --location "West Europe"
     ```
 
+::: zone pivot="platform-windows"  
+
 1. Create an App Service plan to manage to web apps.
     
     ```azurecli-interactive
-    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
+    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --location "West Europe"
     ```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+1. Create an App Service plan to manage to web apps.
+    
+    ```azurecli-interactive
+    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --is-linux --location "West Europe"
+    ```
+
+::: zone-end
 
 ## Deploy apps to Azure
 
@@ -150,12 +170,12 @@ In this step, use the Cloud Shell from the Azure portal to create App Service we
 
 ::: zone pivot="platform-windows"  
 
-In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
+In the Cloud Shell, edit and run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
-az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
+az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Windows --runtime "NODE:18-lts" --sku B1 --plan myAuthAppServicePlan --location "West Europe"
 cd ../backend
-az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Windows --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
+az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Windows --runtime "NODE:18-lts" --sku B1 --plan myAuthAppServicePlan --location "West Europe"
 ```
 
 ::: zone-end
@@ -166,15 +186,15 @@ In the Cloud Shell, run the following commands to create two web apps. Replace _
 
 ```azurecli-interactive
 cd frontend
-az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
+az webapp up --resource-group myAuthResourceGroup --name <FRONTEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan --location "West Europe"
 cd ../backend
-az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan
+az webapp up --resource-group myAuthResourceGroup --name <BACKEND-APP-NAME> --os-type Linux --runtime NODE:18LTS --sku B1 --plan myAuthAppServicePlan --location "West Europe"
 ```
 
 ::: zone-end
 
 > [!NOTE]
-> Save the URLs of the Git remotes for your front-end app and back-end app, which are shown in the output from `az webapp create`.
+> Save the URLs of the Git remotes for your front-end app and back-end app, which are shown in the output from `az webapp up`.
 >
 
 ## Configure authentication
@@ -194,9 +214,7 @@ For more information, see [Configure Azure Active Directory authentication for y
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
-
-    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app.
 
 1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
 
