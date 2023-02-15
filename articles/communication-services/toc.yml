@@ -79,6 +79,8 @@ items:
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Add video calling to your WebView client app
       href: quickstarts/voice-video-calling/get-started-webview.md
+    - name: Add voice & video using UI Library
+      href: quickstarts/ui-library/get-started-composites.md
     - name: Record calls
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
@@ -223,6 +225,8 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: UI Library overview
+        href: concepts/ui-library/ui-library-overview.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
       - name: Call recording

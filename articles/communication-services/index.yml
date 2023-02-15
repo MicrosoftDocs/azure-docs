@@ -59,6 +59,8 @@ landingContent:
             url: quickstarts/voice-video-calling/get-started-with-video-calling.md
           - text: Add video calling to your WebView app
             url: quickstarts/voice-video-calling/get-started-webview.md
+          - text: Add video calling with the UI Library
+            url: quickstarts/ui-library/get-started-composites.md
       - linkListType: concept
         links:
           - text: Voice and video concepts

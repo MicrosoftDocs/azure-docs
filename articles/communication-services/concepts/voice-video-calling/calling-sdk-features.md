@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the Calling SDK.
+description: Provides an overview of the Calling SDK capabilities limitations features for video and audio.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -14,23 +14,20 @@ ms.subservice: calling
 ---
 # Calling SDK overview
 
-The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
+The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To start immediately, please check out [the Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or t[the Calling hero sample](../../samples/calling-hero-sample.md).
 
-Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
+## Key features
 
-Key features of the Calling SDK:
-
+- **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
+- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
-- **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
-- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane. 
-- **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
+- **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
 
-## Detailed capabilities 
+## Detailed capabilities
 
 The following list presents the set of features that are currently available in the Azure Communication Services Calling SDKs.
-
 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------- | ----------------- |
@@ -50,8 +47,8 @@ The following list presents the set of features that are currently available in 
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌       | ❌              | ❌                 |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌       | ❌              | ❌                 |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️       | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -67,19 +64,25 @@ The following list presents the set of features that are currently available in 
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set camera                                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌              | ❌                 |
-|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌              | ❌                 |
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌              | ❌                 |
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌              | ❌                 |
-|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌              | ❌                 |
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌              | ❌                 |
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
+## UI Library
+
+UI Library makes it easy for you to build modern communications user experiences using Azure Communication Services. It provides a library of production-ready UI components to drop into your application.
+
+With this set of prebuilt controls, you can create beautiful designs using [the fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and audio/video communication experiences. If you want to learn more about the UI Library, you can visit [the overview site](../ui-library/ui-library-overview.md), where you find details about web and mobile platforms.
 
 ## Calling SDK streaming support
-The Communication Services Calling SDK supports the following streaming configurations:
+
+The Azure Communication Services Calling SDK supports the following streaming configurations:
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
@@ -102,9 +105,9 @@ The following timeouts apply to the Communication Services Calling SDKs:
 | PSTN call establishment timeout                                             | 115                |
 | Promote 1:1 call to a group call timeout                                    | 115                |
 
-## Maximum call duration:
-The maximum call duration is 30 hours, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
+## Maximum call duration
 
+**The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
 
 ## JavaScript Calling SDK support by OS and browser
 
@@ -118,25 +121,25 @@ The following table represents the set of supported browsers which are currently
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
-* Outgoing Screen Sharing is not supported on iOS or Android.
-* Firefox support is in public preview.
-* ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+- Outgoing Screen Sharing is not supported on iOS or Android.
+- Firefox support is in public preview.
+- ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms is not actively tested, it may or may not work.
-* [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
+- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 
-* Support for Android API Level 21 or Higher
+- Support for Android API Level 21 or Higher
 
-* Support for Java 7 or higher
+- Support for Java 7 or higher
 
-* Support for Android Studio 2.0
+- Support for Android Studio 2.0
 
 ## iOS Calling SDK support
 
-* Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
 
-* Xcode 12.0+
+- Xcode 12.0+
 
 ## Calling client - browser security model
 
@@ -158,12 +161,17 @@ For example, this iframe allows both camera and microphone access:
 <iframe allow="camera *; microphone *">
 ```
 
+## Known issues
+
+Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
+
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
 - [Plan your PSTN solution](../telephony/plan-solution.md)

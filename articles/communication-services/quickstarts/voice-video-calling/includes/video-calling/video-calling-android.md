@@ -15,13 +15,7 @@ If you want to get started with sample code, you can [download the sample app](h
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [user access token](../../../access-tokens.md) for Communication Services. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
-
-  ```azurecli-interactive
-  az communication identity token issue --scope voip --connection-string "yourConnectionString"
-  ```
-
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+- A [user access token](../../../access-tokens.md) for Communication Services. Also you can [use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Create an Android app with an empty activity
 
@@ -33,7 +27,7 @@ Under **Phone and Tablet**, select the **Empty Activity** project template.
 
 :::image type="content" source="../../media/android/studio-blank-activity.png" alt-text="Screenshot showing the Empty Activity option selected in the Project Template Screen.":::
 
-For the **Minimum SDK**, select **API 26: Android 8.0 (Oreo)**, or later.
+For the **Minimum SDK**, select **API 26: Android 8.0 (Oreo)**, or later. [See SDK support versions](../../../../concepts/voice-video-calling/calling-sdk-features.md?#android-calling-sdk-support).
 
 :::image type="content" source="../../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the API option selected.":::
 
@@ -123,7 +117,9 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 ### Set up the layout for the app
 
-You need a text input for the callee ID or group call ID, a button for placing the call, and another button for hanging up the call. You also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these through the designer, or by editing the layout XML.
+You need a text input for the caller ID or group call ID, a button for placing the call, and extra button for hanging up the call.
+
+Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these through the designer, or by editing the layout XML.
 
 Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following:
 
@@ -238,7 +234,7 @@ With the layout created, you can add the bindings, as well as the basic scaffold
 
 The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent`, as well as add the bindings for the call button. This occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
-Go to *MainActivity.java*, and replace the content with the following code:
+Go to *MainActivity.java* file, and replace the content with the following code:
 
 ```java
 package com.example.videocallingquickstart;
@@ -831,7 +827,7 @@ Completed application             |  1:1 call
 :-------------------------:|:-------------------------:
 :::image type="content" source="../../media/android/video-quickstart-1-1-screen.png" alt-text="Screenshot showing the completed application.":::  |  :::image type="content" source="../../media/android/video-quickstart-1-1-call.png" alt-text="Screenshot showing the application on a call.":::
 
-## Add group call capability 
+## Add group call capability
 
 Now you can update your app to let the user choose between 1:1 calls or group calls.
 

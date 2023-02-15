@@ -13,30 +13,29 @@ Get started with Azure Communication Services by using the Communication Service
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
 
 ## Prerequisites
+
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). You'll need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
-
-  ```azurecli-interactive
-  az communication identity token issue --scope voip --connection-string "yourConnectionString"
-  ```
-
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also [use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
+
 ### Creating the Xcode project
+
 In Xcode, create a new iOS project and select the Single View App template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the Language to Swift and the User Interface to SwiftUI. You're not going to create tests during this quick start. Feel free to uncheck Include Tests.
 
 :::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
 ### Installing CocoaPods
-Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac. 
+
+Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac.
 
 ### Install the package and dependencies with CocoaPods
-1. To create a Podfile for your application, open the terminal and navigate to the project folder and run pod init.
 
-2. Add the following code to the Podfile and save:
+1. To create a `Podfile` for your application, open the terminal and navigate to the project folder and run pod init.
+
+2. Add the following code to the `Podfile` and save. [See SDK support versions](../../../../concepts/voice-video-calling/calling-sdk-features.md?#ios-calling-sdk-support).
 
 ```
 platform :ios, '13.0'
@@ -51,8 +50,8 @@ end
 
 4. Open the `.xcworkspace` with Xcode.
 
-
 ### Request access to the microphone and camera
+
 To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
@@ -65,6 +64,7 @@ Right-click the `Info.plist` entry of the project tree and select Open As > Sour
 ```
 
 ### Set up the app framework
+
 Open your project's `ContentView.swift` file and add an import declaration to the top of the file to import the `AzureCommunicationCalling` library and `AVFoundation`. AVFoundation is used to capture audio permission from code.
 
 ```Swift
@@ -73,17 +73,19 @@ import AVFoundation
 ```
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
 
 | Name                         | Description                                                                                                                                                                        |
 | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                   | The CallClient is the main entry point to the Calling SDK.                                                                                                                         |
-| CallAgent                    | The CallAgent is used to start and manage calls.                                                                                                                                   |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.                                                                                     |
-| CommunicationIdentifier      | The CommunicationIdentifier is used to represent the identity of the user, which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient`                   | The `CallClient` is the main entry point to the Calling SDK.                                                                                                                         |
+| `CallAgent`                  | The `CallAgent` is used to start and manage calls.                                                                                                                                   |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.                                                                                     |
+| `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ## Create the Call Agent
-Replace the implementation of the ContentView struct with some simple UI controls that enable a user to initiate and end a call. We'll attach business logic to these controls in this quickstart.
+
+Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We'll attach business logic to these controls in this quickstart.
 
 ```Swift
 struct ContentView: View {
@@ -227,7 +229,8 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ### Authenticate the client
-In order to initialize a CallAgent instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
+
+In order to initialize a `CallAgent` instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You'll need to replace `<USER ACCESS TOKEN>` with a valid user access token** for your resource:
 
@@ -242,7 +245,8 @@ do {
 ```
 
 ### Initialize the CallAgent and access Device Manager
-To create a CallAgent instance from a CallClient, use the `callClient.createCallAgent` method that asynchronously returns a CallAgent object once it's initialized. DeviceManager lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. 
+
+To create a CallAgent instance from a CallClient, use the `callClient.createCallAgent` method that asynchronously returns a CallAgent object once it's initialized. DeviceManager lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera.
 
 ```Swift
 self.callClient = CallClient()
@@ -269,7 +273,8 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 ```
 
 ### Ask for permissions
-We need to add the following code to the `onAppear` callback to ask for permissions for audio and video. 
+
+We need to add the following code to the `onAppear` callback to ask for permissions for audio and video.
 
 ```Swift
 AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
@@ -282,9 +287,10 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 ```
 
 ## Display local video
-Before starting a call, you can manage settings related to video. In this quickstart we'll introduce the implementation of toggling local video before or during a call. 
 
-First we need to access local cameras with `deviceManager`. Once the desired camera is selected, we can construct `LocalVideoStream` and create a `VideoStreamRenderer` and then attach it to `previewView`. During the call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants. This function also works with handling incoming calls. 
+Before starting a call, you can manage settings related to video. In this quickstart we'll introduce the implementation of toggling local video before or during a call.
+
+First we need to access local cameras with `deviceManager`. Once the desired camera is selected, we can construct `LocalVideoStream` and create a `VideoStreamRenderer` and then attach it to `previewView`. During the call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants. This function also works with handling incoming calls.
 
 ```Swift
 func toggleLocalVideo() {
@@ -363,6 +369,7 @@ func toggleLocalVideo() {
 ```
 
 ## Place an outgoing call
+
 The `startCall` method is set as the action that will be performed when the Start Call button is tapped. In this quickstart, outgoing calls are audio only by default. To start a call with video, we need to set `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call.
 
 ```Swift
@@ -383,7 +390,7 @@ func startCall() {
     }
 ```
 
-`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We'll set the observers in the `setCallAndOberserver` function. 
+`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We'll set the observers in the `setCallAndOberserver` function.
 
 ```Swift
 func setCallAndObersever(call:Call!, error:Error?) {
@@ -399,7 +406,8 @@ func setCallAndObersever(call:Call!, error:Error?) {
 ```
 
 ## Answer an incoming call
-To answer an incoming call, implement an `IncomingCallHandler` to display the incoming call banner in order to answer or decline the call. Put the following implementation in `IncomingCallHandler.swift`. 
+
+To answer an incoming call, implement an `IncomingCallHandler` to display the incoming call banner in order to answer or decline the call. Put the following implementation in `IncomingCallHandler.swift`.
 
 ```Swift
 final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate {
@@ -445,7 +453,7 @@ Set a delegate to the CallAgent after the CallAgent being successfully created:
 self.callAgent!.delegate = incomingCallHandler
 ```
 
-Once there's an incoming call, the `IncomingCallHandler` will call the function `showIncomingCallBanner` to display `answer` and `decline` button. 
+Once there's an incoming call, the `IncomingCallHandler` will call the function `showIncomingCallBanner` to display `answer` and `decline` button.
 
 ```Swift
 func showIncomingCallBanner(_ incomingCall: IncomingCall?) {
@@ -454,7 +462,7 @@ func showIncomingCallBanner(_ incomingCall: IncomingCall?) {
 }
 ```
 
-The actions attached to `answer` and `decline` are implemented as below. In order to answer the call with video, we need to turn the local video on and set the options of `AcceptCallOptions` with `localVideoStream`. 
+The actions attached to `answer` and `decline` are implemented as below. In order to answer the call with video, we need to turn the local video on and set the options of `AcceptCallOptions` with `localVideoStream`.
 
 ```Swift
 func answerIncomingCall() {
@@ -487,7 +495,8 @@ func declineIncomingCall(){
 ```
 
 ## Remote participant video streams
-We can create a `RemoteVideoStreamData` class to handle rendering video streams of remote participant. 
+
+We can create a `RemoteVideoStreamData` class to handle rendering video streams of remote participant.
 
 ```Swift
 public class RemoteVideoStreamData : NSObject, RendererDelegate {
@@ -519,7 +528,8 @@ public class RemoteVideoStreamData : NSObject, RendererDelegate {
 ```
 
 ## Subscribe to events
-We can implement a `CallObserver` class to subscribe to a collection of events to be notified when values change during the call. 
+
+We can implement a `CallObserver` class to subscribe to a collection of events to be notified when values change during the call.
 
 ```Swift
 public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
@@ -581,8 +591,10 @@ public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
 ```
 
 ## Remote participant Management
-All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance. 
-We can implement a `RemoteParticipantObserver` class to subscribe to the updates on remote video streams of remote participants. 
+
+All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
+
+We can implement a `RemoteParticipantObserver` class to subscribe to the updates on remote video streams of remote participants.
 
 ```Swift
 public class RemoteParticipantObserver : NSObject, RemoteParticipantDelegate {
@@ -616,4 +628,5 @@ public class RemoteParticipantObserver : NSObject, RemoteParticipantDelegate {
 ```
 
 ## Run the code
+
 You can build and run your app on iOS simulator by selecting Product > Run or by using the (⌘-R) keyboard shortcut.
