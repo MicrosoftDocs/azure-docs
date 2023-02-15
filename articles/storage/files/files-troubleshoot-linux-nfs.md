@@ -15,7 +15,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 This article lists some common problems and known issues related to NFS Azure file shares and provides potential causes and workarounds.
 
 > [!IMPORTANT]
-> The content of this article only applies to NFS shares. To troubleshoot SMB issues on Linux, see [Troubleshoot Azure Files problems in Linux (SMB)](files-troubleshoot-linux-smb.md). NFS Azure file shares aren't supported for Windows clients.
+> The content of this article only applies to NFS shares. To troubleshoot SMB issues in Linux, see [Troubleshoot Azure Files problems in Linux (SMB)](files-troubleshoot-linux-smb.md). NFS Azure file shares aren't supported for Windows clients.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -27,10 +27,10 @@ This article lists some common problems and known issues related to NFS Azure fi
 ## chgrp "filename" failed: Invalid argument (22)
 
 ### Cause 1: idmapping is not disabled
-Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled. 
+Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled.
 
 ### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
-Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, an NFS 4.1 Linux client decides to re-enable idmapping, and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters. 
+Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, an NFS 4.1 Linux client decides to re-enable idmapping, and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
 
 ### Workaround
 Check that idmapping is disabled and nothing is re-enabling it. Then perform the following steps:
@@ -70,7 +70,7 @@ Unlike SMB, NFS doesn't have user-based authentication. The authentication for a
 
 The following diagram depicts connectivity using public endpoints.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg":::
+:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg":::
 
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
@@ -78,7 +78,7 @@ The following diagram depicts connectivity using public endpoints.
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
     - Private endpoints can be used with ExpressRoute, point-to-site VPNs, and site-to-site VPNs.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### Cause 2: Secure transfer required is enabled
 
