@@ -21,7 +21,7 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 |---------|---------|
 | ▪️ Passthrough API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
 
-> [!VIDEO https://learn.microsoft.com/shows/azure-friday/modernize-your-api-stack-with-graphql-and-azure-api-management/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=modernize-your-api-stack-with-graphql-and-azure-api-management]
 
 ## Availability
 
