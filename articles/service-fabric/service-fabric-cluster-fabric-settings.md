@@ -921,6 +921,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|BlockAccessToWireServer|bool, default is FALSE| Static |Blocks access to ports of the WireServer endpoint from Docker containers deployed as Service Fabric applications. This parameter is supported for Service Fabric clusters deployed on Azure Virtual Machines, Windows and Linux, and defaults to 'false' (access is permitted).|
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
 |ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
 |FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab (Only for Standalone Deployments)|
