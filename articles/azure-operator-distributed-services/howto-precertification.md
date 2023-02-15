@@ -1,13 +1,12 @@
 ---
-Title: How to pre-certify network functions on Azure Operator Distributed Services
-Description: Overview of the pre-certification process for network function workloads on Azure Operator Distributed Services
-Author: vatsal-parikh 
+title: How to pre-certify network functions on Azure Operator Distributed Services
+description: Overview of the pre-certification process for network function workloads on Azure Operator Distributed Services
+author: vatsal-parikh 
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
 ms.service: Azure Operator Distributed Services
 ---
-
 
 # How to pre-certify network functions on Azure Operator Distributed Services
 

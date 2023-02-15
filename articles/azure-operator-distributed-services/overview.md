@@ -1,7 +1,7 @@
 ---
-Title: Introduction to Azure Operator Distributed Services (AODS)
-Description: High level information about the Azure Operator Distributed Services (AODS) product.
-Author: scottsteinbrueck
+title: Introduction to Azure Operator Distributed Services (AODS)
+description: High level information about the Azure Operator Distributed Services (AODS) product.
+author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 01/30/2023
 ms.topic: overview
@@ -18,8 +18,8 @@ AODS meets operators' security, resiliency, observability and performance requir
 The platform seamlessly integrates compute, network, and storage.
 The user can operate and deploy the platform end-to-end via Azure portal, CLI, or APIs.
 
-<!--- IMG ![Azure Operator Distributed Services Overview diagram](CDocs/media/AODS-Platform-for Operator-Core-ORAN.png) IMG --->
-:::image type="content" source="media/AODS-Platform-for Operator-Core-ORAN.png" alt-text="Azure Operator Distributed Services Overview diagram":::
+<!--- IMG ![Azure Operator Distributed Services Overview diagram](Docs/media/architecture-overview.png) IMG --->
+:::image type="content" source="media/architecture-overview.png" alt-text="Azure Operator Distributed Services Overview diagram":::
 Figure: Azure Operator Distributed Services Overview
 
 ## Key benefits
@@ -112,5 +112,5 @@ Log Analytics has a rich analytical tool-set that operators can use for troubles
 
 ## Next steps
 
-* Learn more about AODS [resource models](concepts-resource-types.md)
-* Review [AODS deployment prerequisites and steps](quickstarts-platform-prerequisities.md)
+* Learn more about AODS [resource models](./concepts-resource-types.md)
+* Review [AODS deployment prerequisites and steps](./quickstarts-platform-prerequisites.md)

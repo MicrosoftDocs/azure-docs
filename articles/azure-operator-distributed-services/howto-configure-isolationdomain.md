@@ -24,10 +24,10 @@ This how-to describes how you can manage your Layer 2 and Layer 3 Isolation Doma
 
 Sign-in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID used across all AODS resources.
 
-    ```azurecli
+```azurecli
     az login
     az account set --subscription ********-****-****-****-*********
-    ```
+```
 
 ### Register providers for Managed Network Fabric
 

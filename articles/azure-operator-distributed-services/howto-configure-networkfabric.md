@@ -32,11 +32,11 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 | Parameter | Description  |  Example |  Required|  Type|
 |-----------------------------------------------|---| ---|----|------------|
-| resource-group | Name of the resource group |  "NFResourceGroup" |True | String
-| location | Location of Azure region | "eastus" |True | String
-| resource-name | Name of the FabricResource | Austin-Fabric |True | String
-|  nf-sku  |Fabric SKU ID, should be based on the SKU of the BoM that was ordered. Contact AFO team for specific SKU value for the BoM | att |True | String|
-|nfc-id|Network Fabric Controller ARM resource ID||True | String |
+| resource-group | Name of the resource group |  "NFResourceGroup" |True | String |
+| location | Location of Azure region | "eastus" |True | String |
+| resource-name | Name of the FabricResource | Austin-Fabric |True | String |
+| nf-sku  |Fabric SKU ID, should be based on the SKU of the BoM that was ordered. Contact AFO team for specific SKU value for the BoM | att |True | String|
+| nfc-id |Network Fabric Controller ARM resource ID| |True | String |
 ||
 |**managed-network-config**| Details of management network ||True ||
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True | String |
@@ -62,11 +62,11 @@ This article describes how to create a Network Fabric by using the Azure Command
 |portCount| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|2||Integer|
 |mtu| Maximum transmission unit between CE and PE. |1500||Integer|
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True||
-|primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String
-|secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String
-|fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||Integer
-|peerAsn|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as fabricAsn, for eBGP the value should be different from fabricAsn |65048|True|Integer
-|vlanid| VLAN identifier used for connectivity between PE/CE. The value should be between 10 to 20| 10-20||Integer||
+|primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
+|secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String|
+|fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||Integer|
+|peerAsn|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as fabricAsn, for eBGP the value should be different from fabricAsn |65048|True|Integer|
+|vlan-id| VLAN identifier used for connectivity between PE/CE. The value should be between 10 to 20| 10-20||Integer|
 ||
 
 ## Create a Network Fabric

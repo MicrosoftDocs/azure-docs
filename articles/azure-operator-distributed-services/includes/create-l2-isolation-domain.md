@@ -16,18 +16,6 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --subscription "<YourSubscription>" \
     --nf-id "<NetworkFabricResourceId>" \
     --location "<ClusterAzureRegion>" \
-    --vlan <YourNetworkVlan> \
+    --vlan-id <YourNetworkVlan> \
     --mtu "<MtuOfThisNetwork>
 ```
-
-- Enable the L2 isolation domain after it's created
-
-```azurecli
-  az managednetworkfabric l2isolationdomain update-administrative-state \
-    --name "<YourL2IsolationDomainName>" \
-    --resource-group "<YourResourceGroupName>" \
-    --subscription "<YourSubscription>" \
-    --state Enable
-```
-
-- (Optional) Repeat, as needed, to create other L2 isolation domain(s)

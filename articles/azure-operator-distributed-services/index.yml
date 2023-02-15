@@ -22,17 +22,17 @@ landingContent:
   # Card
   - title: AODS Overview
     linkLists:
-     - linkListType: overview
-       links:
-          - text: What is Azure Operator Distributed Services?
-            url: introduction.md
-     - linkListType: concept
+#     - linkListType: overview
+#       links:
+#          - text: What is Azure Operator Distributed Services?
+#            url: overview.md
+      - linkListType: concept
 #       links:
 #          - text: Resource Types
 #            url: concepts-resource-types.md
-       links:
-          - text: Observability
-            url: concepts-observability.md
+        links:
+           - text: Observability
+             url: concepts-observability.md
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Deploy agents and monitoring
@@ -118,7 +118,7 @@ landingContent:
 #            url: howto-configure-isolutiondomain.md
 #        links:
 #          - text: Install CLI extensions
-#            url: howto-install-networkcloud-cli-extensions.md            
+#            url: howto-install-cli-extensions.md            
 #
  # Card
 # - title: References and resources
@@ -129,7 +129,7 @@ landingContent:
           #  url: #### <TBD>
 #       links:
 #          - text: APIs
-#            url: https://learn.microsoft.com/rest/api/azure/
+#            url: /rest/api/azure/
 #       links:
 #          - text: Monitor metrics
-#            url: https://../azure-monitor/essentials/data-platform-metrics
+#            url: https:///azure/azure-monitor/essentials/data-platform-metrics

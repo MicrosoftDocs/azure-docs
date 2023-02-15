@@ -218,10 +218,10 @@ Update the VM template with proper information:
 
 Run this command, update with your resource group and subscription info
 
-    * subscription
-    * resource group
-    * deployment name
-    * layer 3 network template
+- subscription
+- resource group
+- deployment name
+- layer 3 network template
 
 ```azurecli
 az deployment group create --resource-group _RESOURCE_GROUP_ --subscription=_SUBSCRIPTION_ --name _DEPLOYMENT_NAME_ --template-file _VM_TEMPLATE_
@@ -338,7 +338,7 @@ At a minimum, you need to create a "Default CNI network" and a "Cloud Services n
 
 ##### Create an L2 Network for AKS-Hybrid Cluster
 
-You'll need the resourceId of the [L2 Isolation Domain](./quickstarts-tenant-prerequisites.md#l2-isolation-domain) you created earlier that configures the VLAN for this network.
+You'll need the resourceId of the [L2 Isolation Domain](#l2-isolation-domain-1) you created earlier that configures the VLAN for this network.
 
 For your network, the valid values for
 `hybrid-aks-plugin-type` are `OSDevice`, `SR-IOV`, `DPDK`; the default value is `SR-IOV`.

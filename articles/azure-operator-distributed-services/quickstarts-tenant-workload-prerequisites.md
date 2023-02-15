@@ -62,9 +62,9 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 ## AODS Workload Images
 
 These images will be used when creating your workload VMs. Make sure each is a
-containerized image in either qcow or raw disk format and is uploaded to an Azure Container
+containerized image in either `qcow2` or `raw` disk format and is uploaded to an Azure Container
 Registry. If your Azure Container Registry is password protected, you can supply this info when creating your VM.
-Refer to [AODS VM disk image build procedure](#aods-vm-disk-image-builds-procedure) for an example for pulling from an anonymous Azure Container Registry.
+Refer to [AODS VM disk image build procedure](#aods-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
 
 ### AODS VM disk image build procedure
 

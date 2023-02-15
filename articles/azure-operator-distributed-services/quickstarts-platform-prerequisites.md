@@ -58,7 +58,7 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
     - HTTP access is enabled
   - Terminal Server Interface is connected to your on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
-- For the [Network Fabric configuration](./quickstarts-platform-deployment.md#step-3-create-network-fabric) (to be performed later)
+- For the [Network Fabric configuration](./quickstarts-platform-deployment.md#step-1-create-network-fabric) (to be performed later)
   you'll need to provide:
   - ExpressRoute credentials and information
   - Terminal Server IPs and credentials

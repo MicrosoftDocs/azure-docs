@@ -8,26 +8,14 @@ ms.topic: include #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ---
 
-- Create a L2 isolation domain
-
-```azurecli
-  az nf l2domain create --resource-name "<YourL2IsolationDomainName>" \
-    --resource-group "<YourResourceGroupName>" \
-    --subscription "<YourSubscription>" \
-    --nf-id "<NetworkFabricResourceId>" \
-    --location "<ClusterAzureRegion>" \
-    --vlan <YourNetworkVlan> \
-    --mtu "<MtuOfThisNetwork>
-```
-
 - Enable the L2 isolation domain after it's created
 
 ```azurecli
-  az managednetworkfabric l2isolationdomain update-administrative-state \
+  az nf l2domain update-administrative-state \
     --name "<YourL2IsolationDomainName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
     --state Enable
 ```
 
-- (Optional) Repeat, as needed, to create other L2 isolation domain(s)
+- (Optional) Repeat `create` and `enable` Isolation Domain, as needed, to create other L2 isolation domain(s)
