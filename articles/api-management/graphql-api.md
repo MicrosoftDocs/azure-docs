@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 02/15/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -16,7 +16,6 @@ ms.custom: event-tier1-build-2022
 
 In this article, you'll:
 > [!div class="checklist"]
-> * Learn more about the benefits of using GraphQL APIs.
 > * Add a GraphQL API to your API Management instance.
 > * Test your GraphQL API.
 > * Learn the limitations of your GraphQL API in API Management.
@@ -52,10 +51,11 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
     |----------------|-------|
     | **Display name** | The name by which your GraphQL API will be displayed. |
     | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common "Star Wars" GraphQL endpoint such as `https://swapi-graphql.azure-api.net/graphql` as a demo. |
+    | **GraphQL type** | Select **Pass-through GraphQL** to import from an existing GraphQL API endpoint.  |
+    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common "swapi" GraphQL endpoint such as `https://swapi-graphql.azure-api.net/graphql` as a demo. |
     | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema retrieved from the GraphQL endpoint (if available).  |
     | **Description** | Add a description of your API. |
-    | **URL scheme** | Select **HTTP**, **HTTPS**, or **Both**. Default selection: *Both*. |
+    | **URL scheme** | Select **HTTP**, **HTTPS**, or **HTTP(S)**. Default selection: *HTTP(S)*. |
     | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
     | **Base URL** | Uneditable field displaying your API base URL |
     | **Tags** | Associate your GraphQL API with new or existing tags. |
