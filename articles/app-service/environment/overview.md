@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 02/15/2023
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -81,6 +81,7 @@ A few features that were available in earlier versions of App Service Environmen
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Perform a backup and restore operation on a storage account behind a firewall.
 - Access the FTPS endpoint using a custom domain suffix.
+- App Service Environment v3 doesn't fall back to Azure DNS if your configured custom DNS servers in the virtual network aren't able to resolve a given name. If this behavior is required, ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers.
 
 ## Pricing
 
