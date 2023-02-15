@@ -156,31 +156,33 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    **Expected output:**
    
    ```azdeveloper
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
+   Initializing a new project (azd init)
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
    
-   Created Resource group: <resource-group>
-   Created Application Insights: <app-insights-resource>
-   Created Portal dashboard: <azure-portal-dashboard>
-   Created Log Analytics workspace: <log-analytics-workspace>
-   Created Container Apps Environment: <container-apps-environment>
-   Created Container App: <container-app-name>
+   Provisioning Azure resources (azd provision)
+   Provisioning Azure resources can take some time
    
-   Azure resource provisioning completed successfully
+     You can view detailed progress in the Azure Portal:
+     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview
    
-   Deploying service batch...
+     (✓) Done: Resource group: resource-group-name
+     (✓) Done: Log Analytics workspace: log-analytics-name
+     (✓) Done: Application Insights: app-insights-name
+     (✓) Done: Portal dashboard: dashboard-name
+     (✓) Done: Azure Database for PostgreSQL flexible server: postgres-server
+     (✓) Done: Key vault: key-vault-name
+     (✓) Done: Container Apps Environment: container-apps-env-name
+     (✓) Done: Container App: container-app-name
    
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
+   Deploying services (azd deploy)
    
-   Created Application Insights: <app-insights-resource>
-   Created Container App: <container-app-name>
+     (✓) Done: Deploying service api
+     - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
+   
+   SUCCESS: Your Azure app has been deployed!
+   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
 ### Confirm successful deployment 
@@ -323,31 +325,33 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    **Expected output:**
    
    ```azdeveloper
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
+   Initializing a new project (azd init)
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
    
-   Created Resource group: <resource-group>
-   Created Application Insights: <app-insights-resource>
-   Created Portal dashboard: <azure-portal-dashboard>
-   Created Log Analytics workspace: <log-analytics-workspace>
-   Created Container Apps Environment: <container-apps-environment>
-   Created Container App: <container-app-name>
+   Provisioning Azure resources (azd provision)
+   Provisioning Azure resources can take some time
    
-   Azure resource provisioning completed successfully
+     You can view detailed progress in the Azure Portal:
+     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview
    
-   Deploying service batch...
+     (✓) Done: Resource group: resource-group-name
+     (✓) Done: Log Analytics workspace: log-analytics-name
+     (✓) Done: Application Insights: app-insights-name
+     (✓) Done: Portal dashboard: dashboard-name
+     (✓) Done: Azure Database for PostgreSQL flexible server: postgres-server
+     (✓) Done: Key vault: key-vault-name
+     (✓) Done: Container Apps Environment: container-apps-env-name
+     (✓) Done: Container App: container-app-name
    
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
+   Deploying services (azd deploy)
    
-   Created Application Insights: <app-insights-resource>
-   Created Container App: <container-app-name>
+     (✓) Done: Deploying service api
+     - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
+   
+   SUCCESS: Your Azure app has been deployed!
+   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
 ### Confirm successful deployment 
@@ -490,31 +494,33 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    **Expected output:**
    
    ```azdeveloper
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
+   Initializing a new project (azd init)
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
    
-   Created Resource group: <resource-group>
-   Created Application Insights: <app-insights-resource>
-   Created Portal dashboard: <azure-portal-dashboard>
-   Created Log Analytics workspace: <log-analytics-workspace>
-   Created Container Apps Environment: <container-apps-environment>
-   Created Container App: <container-app-name>
+   Provisioning Azure resources (azd provision)
+   Provisioning Azure resources can take some time
    
-   Azure resource provisioning completed successfully
+     You can view detailed progress in the Azure Portal:
+     https://portal.azure.com/#blade/HubsExtension/DeploymentDetailsBlade/overview
    
-   Deploying service batch...
+     (✓) Done: Resource group: resource-group-name
+     (✓) Done: Log Analytics workspace: log-analytics-name
+     (✓) Done: Application Insights: app-insights-name
+     (✓) Done: Portal dashboard: dashboard-name
+     (✓) Done: Azure Database for PostgreSQL flexible server: postgres-server
+     (✓) Done: Key vault: key-vault-name
+     (✓) Done: Container Apps Environment: container-apps-env-name
+     (✓) Done: Container App: container-app-name
    
-   Infrastructure provisioning plan completed successfully
-   Provisioning Azure resources can take some time.
    
-   You can view detailed progress in the Azure Portal:
-   https://portal.azure.com/
+   Deploying services (azd deploy)
    
-   Created Application Insights: <app-insights-resource>
-   Created Container App: <container-app-name>
+     (✓) Done: Deploying service api
+     - Endpoint: https://your-container-app-endpoint.region.azurecontainerapps.io/
+   
+   SUCCESS: Your Azure app has been deployed!
+   You can view the resources created under the resource group rg-hh-azd-test in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/your-subscription-ID/resourceGroups/your-resource-group/overview
    ```
 
 ### Confirm successful deployment 
