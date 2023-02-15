@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/15/2023
 ---
 
-# Azure Arc resource bridge (preview) network requirements
+# Azure Arc resource bridge (preview) system requirements
 
 This article describes the system requirements for deploying Azure Arc resource bridge (preview).
 
@@ -30,7 +30,7 @@ The machine used to run the commands to deploy Arc resource bridge, and maintain
 
 Because the management machine needs these specific requirements to manage Arc resource bridge, once the machine is setup, it should continue to be the primary machine used to maintain Arc resource bridge.  
 
-The management machine should have the following:
+The management machine must have the following:
 
 - [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
 - Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command)
@@ -41,7 +41,9 @@ The management machine should have the following:
 
 ## Appliance VM requirements
 
+Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for availability in Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command.  
 
+The appliance VM must have the following:
 
 ## Next steps
 
