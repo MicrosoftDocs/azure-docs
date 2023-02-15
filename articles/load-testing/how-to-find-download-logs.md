@@ -19,8 +19,8 @@ Azure Load Testing runs your Apache JMeter script on the [test engine instances]
 Azure Load Testing provides different sources of information to diagnose these errors:
 
 - [Download the Apache JMeter worker logs](#download-apache-jmeter-worker-logs) to investigate issues with JMeter and the test script execution.
-- [Diagnose failing tests using test results](./how-to-export-test-results.md) and analyze the response code and response message of each HTTP request.
-- [Diagnose failing testing using server-side metrics](./how-to-monitor-server-side-metrics.md) to identify issues with specific Azure application components.
+- [Diagnose failing tests using test results](#diagnose-failing-tests-using-test-results) and analyze the response code and response message of each HTTP request.
+- [Diagnose failing testing using server-side metrics](#diagnose-failing-testing-using-server-side-metrics) to identify issues with specific Azure application components.
 
 ## Prerequisites  
 
