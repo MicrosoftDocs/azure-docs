@@ -24,21 +24,21 @@ Some common scenarios include:
 
 ### Full view of datasets shared in and out of your organization
 
-Data officers can see a list of all datasets that are bi-directionally shared with their partner organizations. They can search and discover the datasets by organization name and see a complete view of all outgoing and incoming shares.
+Data officers can see a list of all bi-directionally shared datasets with their partner organizations. They can search and discover the datasets by organization name and see a complete view of all outgoing and incoming shares.
 
-See the [Azure Active Directory share lineage](#azure-active-directory-share-lineage) section below to see a full view of outgoing and incoming shares.
+See the [Azure Active Directory share lineage](#azure-active-directory-share-lineage) section to see a full view of outgoing and incoming shares.
 
 ### Root cause analysis for upstream dataset dependencies
 
-A report has incorrect information because of upstream data issues from an external Microsoft Purview Data Sharing activity. The data engineers can understand upstream failures, be informed about the reasons, and further contact the owner of the share to fix the issues causing their data discrepancy.
+A report has incorrect information because of upstream data issues from an external Microsoft Purview Data Sharing activity. The data engineers can understand upstream failures, understand possible cause, and further contact the owner of the share to fix the issues causing their data discrepancy.
 
-See the [lineage of a share](#lineage-of-a-share) or [Azure Active Directory share lineage](#azure-active-directory-share-lineage) sections below to see the upstream dependencies for your assets.
+See the [lineage of a share](#lineage-of-a-share) or [Azure Active Directory share lineage](#azure-active-directory-share-lineage) sections to see the upstream dependencies for your assets.
 
 ### Impact analysis for shared datasets
 
-Data producers want to know who will be impacted upon making a change to their dataset. Using lineage, a data producer can easily understand the impact of the downstream internal or external partners who are consuming data using Microsoft Purview Data Sharing.
+Data producers want to know who will be impacted when they make a change to their datasets. With a lineage map, a data producer can easily understand the impact of the downstream internal or external partners who are consuming data using Microsoft Purview Data Sharing.
 
-See the [lineage of a share](#lineage-of-a-share) or [Azure Active Directory share lineage](#azure-active-directory-share-lineage) sections below to see downstream dependencies of your shared assets.
+See the [lineage of a share](#lineage-of-a-share) or [Azure Active Directory share lineage](#azure-active-directory-share-lineage) sections to see downstream dependencies of your shared assets.
 
 ## Lineage of a share
 
@@ -77,16 +77,16 @@ To see the data sharing lineage for your sent share or received share asset, you
 
 Here are some common issues when viewing data sharing lineage and their possible resolutions.
 
-### Can't see the recipient AAD tenant on the sent share lineage
+### Can't see the recipient Azure Active Directory tenant on the sent share lineage
 
-If you're unable to see the recipient AAD tenant on the sent share lineage, it means the recipient has not attached the share yet.
+If you're unable to see the recipient Azure Active Directory tenant on the sent share lineage, it means the recipient hasn't attached the share yet.
 
 ### Can't find a sent share or received share asset in the Catalog
 
-Sent shares or received shares are ingested into the collection to which the storage accounts they belong to are registered.
+Sent or received share assets are housed in the same collection as their registered storage account assets.
 
-* If the storage accounts the share assets belong to are not registered, the share assets will not be discoverable. I
-* If the storage accounts the share assets belong to are registered to a collection which you don't have a minimum of Data Reader permission to, the share assets are not discoverable.
+* If the storage accounts the share assets belong to aren't registered, the share assets won't be discoverable.
+* If you don't have a minimum of Data Reader permission to the collection where the share asset is housed, the share assets aren't discoverable.
 
 ## Next steps
 
