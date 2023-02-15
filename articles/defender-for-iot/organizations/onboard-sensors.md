@@ -9,6 +9,21 @@ ms.topic: how-to
 
 This article describes how to onboard sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
+> [!TIP]
+> As part of the onboarding process, you'll assign your sensor to a site and zone. Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md). Assinging sensors to specific sites and zones will help you monitor for unauthorized traffic crossing segments. 
+> 
+> Data ingested from sensors in the same site or zone can be viewed together, segemented out from other data in your system. If there's sensor data that you want to view grouped together in the same site or zone, make sure to assign sensor sites and zones accordingly.
+
+## Prerequisites
+
+To perform the procedures in this article, you'll need:
+
+- An [OT plan added](how-to-manage-subscriptions.md) in Defender for IoT in the Azure portal.
+
+- A clear understanding of where your OT network sensors are placed in your network, and how you'll want to [segment your network into sites and zones](../concept-zero-trust.md).
+
+- An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
+
 ## Purchase sensors or download software for sensors
 
 This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances.
@@ -89,9 +104,6 @@ Until you activate your sensor, the sensor's status will show as **Pending Activ
 Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
-> [!NOTE]
-> Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and an on-premises management console to manage locally-managed sensors.
 
 ## Next steps
 

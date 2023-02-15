@@ -9,18 +9,20 @@ ms.topic: how-to
 
 This article describes how to create sites and zones on an on-premises management console, as part of an OT network monitoring deployment that follows [Zero Trust](/security/zero-trust/zero-trust-overview) principles.
 
-When deploying Microsoft Defender for IoT to secure OT networks, use *sites*, and *zones* to segment your network in such a way to support [Zero Trust principles](../concept-zero-trust.md), so that each sensor covers only specific areas of the network, and data isn't passed unauthorized across those sites or zones.
+Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md). Assinging sensors to specific sites and zones will help you monitor for unauthorized traffic crossing segments. 
 
-An on-premises management console adds the additional layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network.
+Data ingested from sensors in the same site or zone can be viewed together, segemented out from other data in your system. 
+
+If there's sensor data that you want to view grouped together in the same site or zone, make sure to assign sensor sites and zones accordingly.
+
+An on-premises management console adds the additional layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network. 
 
 > [!NOTE]
-> While you must first create at least one site before creating a zone, business units and regions are not required before creating sites or zones.
->
-> Sites and zones created in on an on-premises management console aren't synchronized with sites and zones created in the Azure portal.
+> Sites and zones created in on an on-premises management console aren't synchronized with sites and zones created in the Azure portal when [onboarding OT sensors](../onboard-sensors.md#onboard-an-ot-sensor).
 
 ## Prerequisites
 
-- A clear understanding of where your OT network sensors are placed in your network, how you'll want to [segment your network into sites and zones](../concept-zero-trust.md).
+- A clear understanding of where your OT network sensors are placed in your network, and how you'll want to [segment your network into sites and zones](../concept-zero-trust.md).
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
 
@@ -154,11 +156,7 @@ For each site or zone, select the options menu on the right to make changes, or 
 
 :::image type="content" source="../media/sites-and-zones/edit-delete-site-zone.png" alt-text="Screenshot of the options menu for editing or deleting a site or zone.":::
 
-
-
 ## Next steps
-
-For more information, see .
 
 > [!div class="next-steps"]
 > [Tutorial: Monitor your network with Zero Trust principles](../monitor-zero-trust.md)

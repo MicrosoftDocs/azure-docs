@@ -27,14 +27,14 @@ Implement Zero Trust principles across your operational technology (OT) networks
 
 ## Unique risks and challenges for OT networks
 
-OT network architectures often differ from traditional IT infrastructure.  OT devices use unique technology with proprietary protocols, and may have aging platforms and limited connectivity and power. OT networks also may have specific safety requirements and unique exposures to physical or local attacks, such as via external contractors signing into your network.
+OT network architectures often differ from traditional IT infrastructure.  OT systems use unique technology with proprietary protocols, and may have aging platforms and limited connectivity and power. OT networks also may have specific safety requirements and unique exposures to physical or local attacks, such as via external contractors signing into your network.
 
-Since OT devices often support critical network infrastructures, they are often designed to prioritize physical safety or availability over secure access and monitoring. For example, your OT networks might function separately from other enterprise network traffic to avoid downtime for regular maintenance or to mitigate specific security issues.
+Since OT systems often support critical network infrastructures, they are often designed to prioritize physical safety or availability over secure access and monitoring. For example, your OT networks might function separately from other enterprise network traffic to avoid downtime for regular maintenance or to mitigate specific security issues.
 
 As more and more OT networks migrate to cloud-based environments, applying Zero Trust principles may present specific challenges. For example:
 
-- OT devices may not be designed for multiple users and role-based access policies, and may only have simple authentication processes.
-- OT devices may not have the processing power available to fully apply secure access policies, and instead trust all traffic received as safe.
+- OT systems may not be designed for multiple users and role-based access policies, and may only have simple authentication processes.
+- OT systems may not have the processing power available to fully apply secure access policies, and instead trust all traffic received as safe.
 - Aging technology presents challenges in retaining organizational knowledge, applying updates, and using standard security analytics tools to get visibility and drive threat detection.
 
 However, a security compromise in your mission critical systems can lead to real-world consequences beyond traditional IT incidents, and non-compliance can impact your organization's ability to conform to government and industry regulations.
@@ -43,17 +43,19 @@ However, a security compromise in your mission critical systems can lead to real
 
 Continue to apply the same Zero Trust principles in your OT networks as you would in traditional IT networks, but with some logistical modifications as needed. For example:
 
-- **Make sure that all connections between networks and devices are identified and managed**. Since some OT devices may not support all of the security practices you need, we recommend limiting connections between networks and devices to a limited number of jump hosts, which can be used to start remote sessions with other devices.
+- **Make sure that all connections between networks and devices are identified and managed**, preventing unknown interdependencies between systems and containing any unexepected downtime during maintenance procedures.
+
+    Since some OT systems may not support all of the security practices you need, we recommend limiting connections between networks and devices to a limited number of jump hosts, which can be used to start remote sessions with other devices.
 
     Make sure those jump hosts have stronger security measures and authentication practices, such as multi-factor authentication and privileged access management systems.
 
-- **Segment your network to limit data access** and ensure that all communication between devices and segments is encrypted and secured. For example, you may decide the use unidirectional gateways for data leaving a specific segment.
+- **Segment your network to limit data access**, ensuring that all communication between devices and segments is encrypted and secured, and preventing lateral movement between systems. For example, make sure that all devices that access the network are pre-authorized and secured according to your organization's policies.
 
-    While you may need to trust communication across your entire industrial control system (ICS), you can often further segment your network into smaller areas, making it easier to monitor for security and maintenance.
-
-- **Provision renewable credentials and device registries** for your OT devices, ensuring that the users with access to each device are only those users who need access at any given time. Request users to attest authentication regularly.
+    While you may need to trust communication across your entire industrial control systems (ICS) and safety instrumentation systems (SIS), you can often further segment your network into smaller areas, making it easier to monitor for security and maintenance.
 
 - **Evaluate signals like device location, health, and behavior**, using health data to gate access or flag for remediation. Require that devices must be up-to-date for access, and use analytics to get visibility and scale defenses with automated responses.
+
+- **Continue to monitor security metrics**, such as authorized devices and your network traffic baseline, to ensure that your security permieter retains its integrity and changes in your organization happen over time. For example, you may need to modify your segments and access policies as people, devices, and systems change.
 
 ## Zero Trust with Defender for IoT
 
@@ -64,7 +66,9 @@ When [deploying OT network sensors](onboard-sensors.md), use *sites*, and *zones
 - **Sites** reflect many devices grouped by a specific geographical location, such the office at a specific address.
 - **Zones** reflect a logical segment within a site to define a functional area, such as a specific production line. 
 
-Assigning each OT sensor to a specific site and zone ensures that each OT sensor covers a specific area of the network, and helps you monitor for any traffic passing between segments and enforce security policies for each zone. Defender for IoT also supports [site-based access policies](roles-azure.md#roles-and-permissions-reference) so that you can provide least-privileged access to Defender for IoT data and activities.
+Assigning each OT sensor to a specific site and zone ensures that each OT sensor covers a specific area of the network, and helps you monitor for any traffic passing between segments and enforce security policies for each zone. 
+
+Make sure to assign [site-based access policies](roles-azure.md#roles-and-permissions-reference) so that you can provide least-privileged access to Defender for IoT data and activities.
 
 For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
 
@@ -77,7 +81,7 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 
 ### Zero Trust and air-gapped environments
 
-If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring.
+If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all all connected OT sensors.
 
 > [!NOTE]
 > Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. 
@@ -86,7 +90,13 @@ If you're working with a large, air-gapped environment, we recommend that you [d
 
 ## Next steps
 
-Create sites and zones as you onboard OT sensors in the Azure portal. If you're working in an air-gapped environment with an on-premises management console, create OT site and zones directly on the on-premises management console.
+Create sites and zones as you onboard OT sensors in the Azure portal, and assign site-based access policies to your Azure users. 
+
+If you're working in an air-gapped environment with an on-premises management console, create OT site and zones directly on the on-premises management console.
+
+Use built-in Defender for IoT workbooks and create custom workbooks of your own to monitor your security perimeter over time.
+
+For more information, see:
 
 - [Create sites and zones when onboarding an OT sensor](onboard-sensors.md)
 - [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md)

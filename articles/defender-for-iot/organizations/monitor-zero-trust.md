@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * [Look for alerts on unknown devices](#look-for-alerts-on-unknown-devices)
-> * [Look for vulnerable devices](#look-for-vulnerable-devices)
+> * [Look for vulnerable systems](#look-for-vulnerable-devices)
 > * [Look for alerts on cross-subnet traffic](#look-for-alerts-on-cross-subnet-traffic)
 > * [Simulate traffic to test your network](#simulate-traffic-to-test-your-network)
 
@@ -46,13 +46,36 @@ To perform the tasks in this tutorial, you'll need:
     - Access to your sensors as an **Admin** or **Security Analyst** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 
+## Look for alerts on cross-subnet traffic
+
+Cross-subnet traffic is traffic that moves between sites and zones.
+
+Cross-subnet traffic might be legitimate, such as when an internal system sends notification messages to other systems. However, if an internal system is sending communications to external servers, you'll want to verify that the communication is all legitimate. If there are messages going out, do they include information that can be shared? If there's traffic coming in, is it coming from secure sources?
+
+You've separated your network in to sites and zones to keep each sub-system separate and secure, and may expect most traffic in a specific site or zone to stay internal to that site or zone. If you see cross-subnet traffic, it might indicate that your network is at risk.
+
+**To search for cross-subnet traffic**:
+
+1. Sign into an OT network sensor that you want to investigate and select **Device map** on the left.
+
+1. Expand the **Groups** pane on the left of the map, and then select **Filter** > **Cross Subnet Connection**.
+
+1. On the map, zoom in far enough so that you're able to view the connections between devices. Select specific devices to show a device details pane on the right where you can investigate the device further.
+
+    For example, in the device details pane, select **Activity Report** to create an activity report and learn more about specific traffic patterns.
+
+
 ## Look for alerts on unknown devices
 
 Do you know what devices are on your network, and who they're communicating with? Defender for IoT triggers alerts for any new, unknown device detected on your network so that you can identify it and ensure both the device security and your network security.
 
-Unknown devices might included *transient* devices, which move between networks. For example, transient devices might include a technician's laptop, which they connect to the network when maintaining servers, or a visitor's smartphone, which connects to a guest network at your office.
+Unknown devices might include *transient* devices, which move between networks. For example, transient devices might include a technician's laptop, which they connect to the network when maintaining servers, or a visitor's smartphone, which connects to a guest network at your office.
 
-**To check for unknown devices and risky sites and zones**:
+> [!IMPORTANT]
+> Once you've identified unknown devices, make sure to investigate any further alerts being triggered by those devices, as any suspicous traffic on unknown devices creates an added risk. 
+> 
+
+**To check for unauthorized/unknown devices and risky sites and zones**:
 
 1. In Defender for IoT on the Azure portal, select **Alerts** to view the alerts triggered by all of your cloud-connected sensors. To find alerts for unknown devices, filter for alerts with the following names:
 
@@ -81,11 +104,11 @@ Specific sites or zones that generate many alerts for unknown devices are at ris
     - Learn the alert if the device is legitimate so that the alert isn't triggered again for the same device. On the alert details page, select **Learn**.
     - Block the device if it's not legitimate.
 
-## Look for vulnerable devices
+## Look for vulnerable systems
 
 If you have devices on your network with outdated software or firmware, they might be vulnerable to attack. Devices that are end-of-life, and have no more security updates are especially vulnerable.
 
-**To search for vulnerable devices**:
+**To search for vulnerable systems**:
 
 1. In  Defender for IoT on the Azure portal, select **Workbooks** > **Vulnerabilities** to open the **Vulnerabilities** workbook.
 
@@ -96,24 +119,6 @@ If you have devices on your network with outdated software or firmware, they mig
 1. Scroll down to view the lists of **Vulnerable devices** and **Vulnerable components**. These are the devices and components in your network that require attention, such as a firmware or software update, or replacement if no more updates are available.
 
 1. In the **SiteName** select at the top of the page, select one or more sites to filter the data by site. Filtering data by site can help you identify concerns at specific sites, which may require site-wide updates or device replacements.
-
-## Look for alerts on cross-subnet traffic
-
-Cross-subnet traffic is traffic that moves between sites and zones.
-
-Cross-subnet traffic might be legitimate, such as when an internal system sends notification messages to other systems. However, if an internal system is sending communications to external servers, you'll want to verify that the communication is all legitimate. If there are messages going out, do they include information that can be shared? If there's traffic coming in, is it coming from secure sources?
-
-You've separated your network in to sites and zones to keep each sub-system separate and secure, and may expect most traffic in a specific site or zone to stay internal to that site or zone. If you see cross-subnet traffic, it might indicate that your network is at risk.
-
-**To search for cross-subnet traffic**:
-
-1. Sign into an OT network sensor that you want to investigate and select **Device map** on the left.
-
-1. Expand the **Groups** pane on the left of the map, and then select **Filter** > **Cross Subnet Connection**.
-
-1. On the map, zoom in far enough so that you're able to view the connections between devices. Select specific devices to show a device details pane on the right where you can investigate the device further.
-
-    For example, in the device details pane, select **Activity Report** to create an activity report and learn more about specific traffic patterns.
 
 ## Simulate traffic to test your network
 
@@ -217,3 +222,8 @@ Continue checking the Defender for IoT [**Vulnerabilities** workbook](workbooks.
 
 > [!div class="nextstepaction"]
 > [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
+
+
+create custom workbooks
+
+go back and modify your segments as needed
