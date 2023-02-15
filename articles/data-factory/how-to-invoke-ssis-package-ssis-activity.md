@@ -13,7 +13,7 @@ ms.date: 08/09/2022
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity in Azure Data Factory and Synapse Pipelines portal. 
 
