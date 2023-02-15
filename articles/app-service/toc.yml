@@ -44,6 +44,8 @@
       href: tutorial-secure-domain-certificate.md
     - name: Multi-region app
       href: tutorial-multi-region-app.md
+    - name: N-tier app
+      href: tutorial-secure-ntier-app.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
