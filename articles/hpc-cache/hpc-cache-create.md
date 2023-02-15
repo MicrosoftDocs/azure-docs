@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 2/15/2023
 ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
