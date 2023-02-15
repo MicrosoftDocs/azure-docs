@@ -177,7 +177,9 @@ The following regions are available for public preview.  Provisioning in regions
 - East Asia
 - East US
 - East US 2
+- France Central
 - Japan East
+- Korea Central
 - North Central US
 - North Europe
 - Southeast Asia
