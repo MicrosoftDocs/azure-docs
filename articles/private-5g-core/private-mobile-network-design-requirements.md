@@ -46,6 +46,47 @@ You may have existing IP networks at the enterprise site that the private cellul
 
 You'll need to document the IPv4 subnets that will be used for the deployment and agree on the IP addresses to use for each element in the solution, as well as on the IP addresses that will be allocated to UEs when they attach. You'll need to deploy (or configure existing) routers and firewalls at the enterprise site to permit traffic. You should also agree how and where in the network any NAPT or MTU changes are required and plan the associated router/firewall configuration. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
+### Topology
+
+Designing and implementing your local network is a foundational part of your Edge AP5GC deployment. You'll need to make networking design decisions to properly support your Private 5G Core and any Edge workloads.
+In this section we outline some decisions you should consider when designing your network and provide some sample network topologies. The diagram below shows a standard network topology.
+
+:::image type="content" source="media/private-mobile-network-design-requirements/standard-network-topology.png" alt-text="Diagram of a standard network topology." lightbox="media/private-mobile-network-design-requirements/standard-network-topology.png":::
+
+#### Design considerations
+
+- Azure Private 5G Core Packet Core supports deployments with or without L3 routers on ports 5 and 6. This is particularly useful for avoiding extra hardware at small Edge sites.
+
+  - It is possible to connect the N2/N3 reference points (ASE port 5) to RAN nodes directly (back-to-back) or via an L2 switch. We recommend configuring the xNodeB address as a gateway on the ASE side.
+  - Similarly, it is possible to connect the N6 reference point (ASE port 6) to your core network via an L2 switch. We recommend setting up an application or an arbitrary address on the subnet as gateway on the ASE side.  
+  - Alternatively, you can combine these approaches. For example: using a router on N6 (ASE port 6) with a flat L2 network on N2/3 (ASE port 5). If a L3 router is present in local network topology, then this will be set as the gateway in ASE configuration.
+- If your AP5GC Packet Core does not have NAT enabled or an L3 router on the N6 link (ASE port 6) is used, static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network must be configured in the DN router.
+- Layer 2 network separation can be achieved by using VLANs. This has a few key benefits in simplifying L3 network management and improving network security via traffic isolation. VLANs can be configured on ASE port 5 and port 6 independently to separate the following traffic:
+
+  - N2 and N3 traffic on ASE port 5
+  - N6 traffic for each Data Network on ASE port 6
+
+#### Sample network topologies
+
+There are multiple ways to setup your network for use with AP5GC packet core. The exact setup will vary depending on your own needs and hardware. This section outlines some decisions to be considered when designing a solution and provides some sample network topologies.
+
+- Layer 3 network with N6 Network Address Translation (NAT)  
+  The basic setup has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used as it supports L3 routing when required.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
+
+- Layer 3 network without Network Address Translation (NAT)  
+  This topology is a similar solution to Layer 3 network with N6 Network Address Translation (NAT). UE IP address ranges must be configured as static routing in the DN router.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
+
+- Flat layer 2 network  
+  The packet core does not require L3 routers or any router-like functionality. An alternative topology would be to forgo the use of L3 gateway routers entirely and instead construct a layer 2 network in which the ASE is in the same subnet as your data and access networks. This network topology can be a cheaper alternative when you don’t require L3 routing. This solution can be used for networks where NAPT is enabled.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
+
+- Layer 3 network with multiple DNs
+  - Packet Core can support multiple Attached Data Networks, each with its own configuration for DNS, UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more DN and apply DN-specific policy and QoS.
+  - This topology requires that the N6 is split into subnets per-DN or that all DNs exist in the same subnet. This requires careful planning and configuration to prevent overlapping DN IP ranges or UE IP ranges that result in routing problems.  
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of L3 network topology with multiple D N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
+
 ### Network access
 
 Your design must reflect the enterprise’s rules on what networks and assets should be reachable by the RAN and UEs on the private 5G network. For example, they might be permitted to access local Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP), the internet, or Azure, but not a factory operations local area network (LAN). You may need to arrange for remote access to the network so that you can troubleshoot issues without requiring a site visit. You also need to consider how the enterprise site will be connected to upstream networks such as Azure, for management and/or for access to other resources and applications outside of the enterprise site.
