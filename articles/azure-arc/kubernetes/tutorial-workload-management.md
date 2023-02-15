@@ -67,7 +67,9 @@ Created AKS clusters in kalypso-rg resource group:
 
 First of all, let's explore what we have deployed. The deployment script created an infrastructure, shown on the following diagram:
 
+
 ![Infrastructure Diagram](media/tutorial-workload-management/infra-diagram.png)
+
 
 There are a few `Platform Team` repositories:
 
