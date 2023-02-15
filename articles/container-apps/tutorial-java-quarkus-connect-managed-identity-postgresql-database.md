@@ -32,7 +32,7 @@ What you will learn:
 
 ## 1. Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
@@ -344,6 +344,12 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --server-name $DB_SERVER_NAME \
        --name fruits
    ```
+
+1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
+
+    ```azurecli
+    az extension add --name serviceconnector-passwordless --upgrade
+    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
 
