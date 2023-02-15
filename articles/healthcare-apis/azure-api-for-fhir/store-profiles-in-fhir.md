@@ -202,6 +202,15 @@ You'll be returned with a `CapabilityStatement` that includes the following info
         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
     ],
 ```
+### Bindings in Profiles
+In profiles, code systems defines codes (symbols and/or expressions) and Value sets specify set of codes defined by code systems. Value sets link between CodeSystem definitions and their use in coded elements. Azure API for FHIR provide capability to validate ValueSets resources that carry definitons of local codes. 
+
+The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. Uploading the value set enables FHIR server to validate that codes within a resource meet the constraints. 
+
+> [!NOTE]
+> Azure API for FHIR does not support Terminology service. There is no support for External code systems, operations and translations listed under [Terminology Service FHIR specification](https://www.hl7.org/fhir/terminology-service.html#:~:text=A%20FHIR%20terminology%20service%20is%20simply%20a%20set,the%20basic%20principles%20for%20using%20terminologies%20in%20FHIR)
+
+
 ## Next steps
 
 In this article, you've learned about FHIR profiles. Next, you'll learn how you can use $validate to ensure that resources conform to these profiles.
