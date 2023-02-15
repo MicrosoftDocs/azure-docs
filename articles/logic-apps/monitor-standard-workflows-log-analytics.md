@@ -6,16 +6,22 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/18/2023
-# As a developer, I want to collect diagnostics telemetry about my Standard logic app workflows to specific destinations, such as a Log Analytics workspace, storage account or event hub, for further analysis.
+# As a developer, I want to collect diagnostics telemetry about my Standard logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further analysis.
 ---
 
 # Monitor Standard logic app workflows with Azure Monitor Logs (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
+> [!NOTE]
+> This guide applies only to Standard workflows. For information about monitoring Consumption workflows, see 
+> [Monitor Consumption workflows with Azure Monitor Logs](monitor-standard-workflows-log-analytics.md).
+
 To get more telemetry and richer information to debug your Standard workflows while they run, you can set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) to monitor your workflow runs and send information about runtime data and events, such as trigger events, run events, and action events to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). If you prefer, you can also send this information to an Azure storage account, Azure Event Hubs, another partner destination, or all these destinations.
 
 After you collect diagnostic data, you can review that data in your Log Analytics workspace and create [queries](../azure-monitor/logs/log-query-overview.md) to find specific information.
+
+This how-to guide shows how to enable diagnostic data collection on your Standard logic app resource, find the collected data in your Log Analytics workspace, create custom queries to find specific data, and add custom tracking properties to include in the collected data.
 
 ## Prerequisites
 
@@ -24,6 +30,8 @@ After you collect diagnostic data, you can review that data in your Log Analytic
 * A [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). If you don't have a workspace, learn [how to create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 * A [Standard logic app resource with at least one workflow](create-single-tenant-workflows-azure-portal.md)
+
+<a name="add-diagnostic-setting"></a>
 
 ## Add a diagnostic setting
 
@@ -35,13 +43,15 @@ After you collect diagnostic data, you can review that data in your Log Analytic
 
 1. For **Diagnostic setting name**, provide the name that you want for the setting.
 
-1. Under **Logs** > **Categories**, select **Workflow Runtime Logs**. Under **Destination details**, select the one or more destinations, based on where you want to send the logs.
+1. Under **Logs** > **Categories**, select **Workflow Runtime Logs**. Under **Metrics**, select **AllMetrics**.
+
+1. Under **Destination details**, select the one or more destinations, based on where you want to send the logs.
 
    | Destination | Directions |
    |-------------|------------|
-   | **Send to Log Analytics workspace** | Select your Azure subscription and your Log Analytics workspace. |
-   | **Archive to a storage account** | Select your Azure subscription and your Azure storage account. |
-   | **Stream to an event hub** | Select your Azure subscription, your event hub namespace, event hub, and event hub policy name. For more information, see [Azure Monitor partner integrations](../azure-monitor/partners.md). |
+   | **Send to Log Analytics workspace** | Select the Azure subscription for your Log Analytics workspace and the workspace. |
+   | **Archive to a storage account** | Select the Azure subscription for your Azure storage account and the storage account. |
+   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Azure Monitor partner integrations](../azure-monitor/partners.md). |
    | **Send to partner solution** | Select your Azure subscription and the destination. For more information, see [Azure Native ISV Services overview](../partner-solutions/overview.md). |
 
    The following example selects a Log Analytics workspace as the destination:
@@ -50,7 +60,7 @@ After you collect diagnostic data, you can review that data in your Log Analytic
 
 1. Optionally, to include telemetry for events such as **Host.Startup**, **Host.Bindings**, and **Host.LanguageWorkerConfig**, select **Function Application Logs**. For more information, see [Monitor Azure Functions with Azure Monitor Logs](../azure-functions/functions-monitor-log-analytics.md).
 
-1. To finish setting up your diagnostic setting, select **Save**.
+1. To finish adding your diagnostic setting, select **Save**.
 
 Azure Logic Apps now sends telemetry about your Standard logic app workflow runs to your Log Analytics workspace.
 
@@ -114,15 +124,18 @@ In your workflow, triggers and actions have the capability for you to add the fo
 
   :::image type="content" source="media/monitor-standard-workflows-log-analytics/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
 
+  If you don't specify this custom tracking ID, Azure automatically generates this ID and correlates events across a workflow run, including any nested workflows that are called from the parent workflow. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a Request trigger, HTTP trigger, or webhook-based trigger.
+
 * Tracked properties
 
-  Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value, for example:
+  Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value to track specific inputs or outputs, for example:
 
   :::image type="content" source="media/monitor-standard-workflows-log-analytics/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
 
-The following example shows where these custom properties appear in your Log Analytics workspace:
+The following example shows where these custom properties appear in your Log Analytics workspace where the custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column:
 
   :::image type="content" source="media/monitor-standard-workflows-log-analytics/custom-tracking-properties-workspace.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace, and captured telemetry for Standard workflow run with custom tracking properties.":::
 
 ## Next steps
 
+* [Monitor B2B messages with Azure Monitor Logs](monitor-b2b-messages-log-analytics.md)

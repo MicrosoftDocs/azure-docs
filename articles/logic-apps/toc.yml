@@ -414,8 +414,10 @@
     items:
       - name: Monitor logic apps
         href: monitor-logic-apps.md
-      - name: Monitor logic apps with Azure Monitor logs
+      - name: Monitor Consumption workflows with Azure Monitor Logs
         href: monitor-logic-apps-log-analytics.md
+      - name: Monitor Standard workflows with Azure Monitor Logs
+        href: monitor-standard-workflows-log-analytics.md
       - name: Monitor logic apps in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
