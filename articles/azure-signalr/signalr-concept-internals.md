@@ -22,6 +22,7 @@ The differences from self-hosted ASP.NET Core SignalR application are discussed 
 ![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## Application server connections
+
 A self-hosted ASP.NET Core SignalR application server listens to and connects clients directly.
 
 With SignalR Service, the application server no longer accepts persistent client connections, instead:
@@ -98,6 +99,6 @@ The Azure SignalR Service acts as a logical transport layer between  application
 
 To learn more about Azure SignalR SDKs, see:
 
-- [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)
-- [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr)
+- [ASP.NET Core SignalR](/aspnet/core/signalr/introduction)
+- [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr)
 - [ASP.NET code samples](https://github.com/aspnet/AzureSignalR-samples)

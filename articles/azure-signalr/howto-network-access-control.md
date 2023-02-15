@@ -16,7 +16,7 @@ Azure SignalR Service enables you to secure and control the level of access to y
 
 Azure SignalR Service has a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your Azure SignalR Service](howto-private-endpoints.md). Private Endpoint assigns a private IP address from your VNet to the Azure SignalR Service, and secures all traffic between your VNet and the Azure SignalR Service over a private link. The Azure SignalR Service network access control provides access control for both public endpoint and private endpoints.
 
-Optionally, you can choose to allow or deny certain types of requests for public endpoint and each private endpoint. For example, you can block all [Server Connections](signalr-concept-internals.md#server-connections) from public endpoint and make sure they only originate from a specific VNet.
+Optionally, you can choose to allow or deny certain types of requests for public endpoint and each private endpoint. For example, you can block all [Server Connections](signalr-concept-internals.md#application-server-connections) from public endpoint and make sure they only originate from a specific VNet.
 
 An application that accesses an Azure SignalR Service when network access control rules are in effect still requires proper authorization for the request.
 

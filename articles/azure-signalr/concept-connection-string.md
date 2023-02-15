@@ -196,7 +196,7 @@ Then app server will return the right endpoint url in negotiate response for cli
 > [!NOTE]
 > For more information about how clients get service url through negotiate, see this [article](signalr-concept-internals.md#client-connections).
 
-Similarly, when server wants to make [server connections](signalr-concept-internals.md#server-connections) or call [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to service, SignalR service may also be behind another service like Application Gateway. In that case, you can use `ServerEndpoint` to specify the actual endpoint for server connections and REST APIs:
+Similarly, when server wants to make [server connections](signalr-concept-internals.md#azure-signalr-service-internals) or call [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to service, SignalR service may also be behind another service like Application Gateway. In that case, you can use `ServerEndpoint` to specify the actual endpoint for server connections and REST APIs:
 
 ```
 Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;ServerEndpoint=https://<url_to_app_gateway>;Version=1.0;
