@@ -140,7 +140,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 ## Run the console app
 
-1. Start in a terminal window in the root of the folder where you cloned the sample app. If you are using VS Code, you can open a terminal window by selecting **Terminal** > **New Terminal**. Typically, you'll create a virtual environment to run the code. For more information, see [Python virtual environments](https://docs.python.org/3/tutorial/venv.html).
+1. Start in a terminal window in the root of the folder where you cloned the sample app. If you are using Visual Studio Code, you can open a terminal window by selecting **Terminal** > **New Terminal**. Typically, you'll create a virtual environment to run the code. For more information, see [Python virtual environments](https://docs.python.org/3/tutorial/venv.html).
 
     ```bash
     cd azure-cosmos-db-graph-python-getting-started
@@ -188,7 +188,7 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
     key|value|Notes
     ----|----|----
     pk|/pk| 
-    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    id|ashley|The unique identifier for the vertex. If you don't specify an ID, one is generated for you.
     gender|female| 
     tech | java | 
 
