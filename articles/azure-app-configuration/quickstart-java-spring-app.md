@@ -59,12 +59,6 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 
 To use the Spring Cloud Azure Config starter to have your application communicate with the App Configuration store that you create, configure the application by using the following steps.
 
-1. Configure the App Configuration store credentials in the configuration file `application.properties`.
-
-    ```properties
-    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
-    ```
-
 1. Create a new Java file named *MessageProperties.java*, and add the following lines:
 
     ```java
@@ -105,7 +99,7 @@ To use the Spring Cloud Azure Config starter to have your application communicat
     }
     ```
 
-1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MessageProperties.java* configuration class to take effect and register it with the Spring container.
+1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MessageProperties.java* configuration properties class to take effect and register it with the Spring container.
 
     ```java
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -133,6 +127,12 @@ To use the Spring Cloud Azure Config starter to have your application communicat
         }
 
     }
+    ```
+
+1. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following line to the file.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
