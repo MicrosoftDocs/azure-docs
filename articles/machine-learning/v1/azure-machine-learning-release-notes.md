@@ -177,14 +177,14 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-contrib-automl-pipeline-steps**
     + Many Models now provide the capability to generate prediction output in csv format as well. - Many Models prediction will now include column names in the output file in case of **csv** file format.
   + **azureml-core**
-    + ADAL authentication is now deprecated and all authentication classes now use MSAL authentication. Please install azure-cli>=2.30.0 to utilize MSAL based authentication when using AzureCliAuthentication class.
+    + ADAL authentication is now deprecated and all authentication classes now use MSAL authentication. Install azure-cli>=2.30.0 to utilize MSAL based authentication when using AzureCliAuthentication class.
     + Added fix to force environment registration when `Environment.build(workspace)`. The fix solves confusion of the latest environment built instead of the asked one when environment is cloned or inherited from another instance.
     + SDK warning message to restart Compute Instance before May 31, 2022, if it was created before September 19, 2021
   + **azureml-interpret**
     + Updated azureml-interpret package to interpret-community 0.26.*
     + In the azureml-interpret package, add ability to get raw and engineered feature names from scoring explainer. Also, add example to the scoring notebook to get feature names from the scoring explainer and add documentation about raw and engineered feature names.
   + **azureml-mlflow**
-    + azureml-core as a dependency of azureml-mlflow has been removed. - MLflow projects and local deployments will require azureml-core and needs to be installed separately.
+    + azureml-core as a dependency of azureml-mlflow has been removed. - MLflow projects and local deployments require azureml-core and needs to be installed separately.
     + Adding support for creating endpoints and deploying to them via the MLflow client plugin.
   + **azureml-responsibleai**
     + Updated azureml-responsibleai package and environment images to latest responsibleai and raiwidgets 0.19.0 release
@@ -203,7 +203,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 **Breaking change warning**
 
-This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release (v0.9.0), Python 3.6 support will be dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change will be propagated to `azureml-defaults`. If you are not using `azureml-defaults` for inference, feel free to use `azureml-core` or any other AzureML SDK packages directly instead of install `azureml-defaults`.
+This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release (v0.9.0), Python 3.6 support is dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change is propagated to `azureml-defaults`. If you are not using `azureml-defaults` for inference, feel free to use `azureml-core` or any other AzureML SDK packages directly instead of install `azureml-defaults`.
 
   + **azureml-automl-dnn-nlp**
     + Turning on long range text feature by default.
@@ -224,7 +224,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 ### Azure Machine Learning SDK for Python v1.40.0
   + **azureml-automl-dnn-nlp**
     + We're making the Long Range Text feature optional and only if the customers explicitly opt in for it, using the kwarg "enable_long_range_text"
-    + Adding data validation layer for multi-class classification scenario which leverages the same base class as multilabel for common validations, and a derived class for additional task specific data validation checks.
+    + Adding data validation layer for multi-class classification scenario, which applies the same base class as multilabel for common validations, and a derived class for more task specific data validation checks.
   + **azureml-automl-dnn-vision**
     + Fixing KeyError while computing class weights.
   + **azureml-contrib-reinforcementlearning**
@@ -253,7 +253,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 ### Azure Machine Learning SDK for Python v1.39.0
   + **azureml-automl-core**
     +  Fix incorrect form displayed in PBI for integration with AutoML regression models
-    +  Adding min-label-classes check for both classification tasks (multi-class and multi-label). It will throw an error for the customer's run if the unique number of classes in the input training dataset is fewer than 2. It is meaningless to run classification on fewer than two classes.
+    +  Adding min-label-classes check for both classification tasks (multi-class and multi-label). It throws an error for the customer's run if the unique number of classes in the input training dataset is fewer than 2. It is meaningless to run classification on fewer than two classes.
   + **azureml-automl-runtime**
     +  Converting decimal type y-test into float to allow for metrics computation to proceed without errors.   
     +  AutoML training now supports numpy version 1.8.    
@@ -267,7 +267,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-synapse**
     +  Fix the issue that magic widget is disappeared.
   + **azureml-train-automl-runtime**
-    +  Updating AutoML dependencies to support Python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
+    +  Updating AutoML dependencies to support Python 3.8. This change breaks compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
     +  AutoML training now supports numpy version 1.19
     +  Fix AutoML reset index logic for ensemble models in automl_setup_model_explanations API
     +  In AutoML, use lightgbm surrogate model instead of linear surrogate model for sparse case after latest lightgbm version upgrade
@@ -279,7 +279,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 ### Azure Machine Learning SDK for Python v1.38.0 
   + **azureml-automl-core**
     + Tabnet Regressor and Tabnet Classifier support in AutoML
-    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset which was used during the experiment run
+    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset, which was used during the experiment run
     + Supporting getting primary metrics for Forecasting task in get_primary_metrics API.
     + Renamed second optional parameter in v2 scoring scripts as GlobalParameters
   + **azureml-automl-dnn-vision**
@@ -287,7 +287,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-automl-runtime**
     + Bug fix for cases where the algorithm name for NimbusML models may show up as empty strings, either on the ML Studio, or on the console outputs.
   + **azureml-core**
-    + Added parameter blobfuse_enabled in azureml.core.webservice.aks.AksWebservice.deploy_configuration. When this parameter is true, models and scoring files will be downloaded with blobfuse instead of the blob storage API.
+    + Added parameter blobfuse_enabled in azureml.core.webservice.aks.AksWebservice.deploy_configuration. When this parameter is true, models and scoring files are downloaded with blobfuse instead of the blob storage API.
   + **azureml-interpret**
     + Updated azureml-interpret to interpret-community 0.24.0
     + In azureml-interpret update scoring explainer to support latest version of lightgbm with sparse TreeExplainer
@@ -299,7 +299,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-train-automl-client**
     + Tabnet Regressor and Tabnet Classifier support in AutoML
   + **azureml-train-automl-runtime**
-    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset which was used during the experiment run
+    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset, which was used during the experiment run
   + **azureml-train-core**
     + Enable support for early termination for Bayesian Optimization in Hyperdrive
     + Bayesian and GridParameterSampling objects can now pass on properties
