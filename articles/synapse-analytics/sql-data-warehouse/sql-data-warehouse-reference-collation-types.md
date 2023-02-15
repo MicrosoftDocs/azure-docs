@@ -4,16 +4,18 @@ description: Collation types supported for dedicated SQL pool (formerly SQL DW) 
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 02/15/2023
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
-ms.reviewer: sngun
-ms.custom: seo-lt-2019, azure-synapse
+ms.reviewer: sngun, kecona
+ms.custom: azure-synapse
 ---
 
 # Database collation support for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
 
 You can change the default database collation from the Azure portal when you create a new dedicated SQL pool (formerly SQL DW). This capability makes it even easier to create a new database using one of the 3800 supported database collations.
+
+This article applies to dedicated SQL pools (formerly SQL DW), for more information on dedicated SQL pools in Azure Synapse workspaces, see [Collation types supported for Synapse SQL](../sql/reference-collation-types.md).
 
 Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
@@ -22,9 +24,9 @@ Collations provide the locale, code page, sort order and character sensitivity r
 
 ## Changing collation
 
-To change the default collation, update to the Collation field in the provisioning experience.
+To change the default collation, update to the **Collation** field in the provisioning experience.
 
-For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS.
+For example, if you wanted to change the default collation to case sensitive, change the collation from `SQL_Latin1_General_CP1_CI_AS` to `SQL_Latin1_General_CP1_CS_AS`.
 
 ## Collation support
 
@@ -47,4 +49,13 @@ To check the current collation for the database, you can run the following T-SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+
+
+## Next steps
+
+Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
+
+- [Best Practices for dedicated SQL pool](./best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md)
+
