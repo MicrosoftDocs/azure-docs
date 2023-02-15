@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/14/2023
+ms.date: 02/15/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -22,6 +22,7 @@ You can run as many rounds of device configuration as necessary. You can also us
 - You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file.
 - To manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You can't change device authentication using this method. To change device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
+- Cluster formation is not supported using PowerShell cmdlets. For more information about Azure Stack Edge clusters, see [Install a two-node cluster](azure-stack-edge-gpu-deploy-install.md?pivots=two-node).  
 
 ## About device setup and configuration
 
@@ -52,8 +53,8 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |*To-json* |A utility command that formats the cmdlet response in a JSON file. |
 |*Get-DeviceLogConsent* |Fetch the proactive log consent setting for the device. |
 |*Set-DeviceLogConsent* |Set the proactive log consent setting for the device. |
-|*Get-DeviceVip* |Fetch the VIP settings on an ACS or NFS multi-node cluster. |
-|*Set-DeviceVip* |Set the VIP settings on an ACS or NFS multi-node cluster. |
+|*Get-DeviceVip* |Fetch the virtual IP settings on an ACS or NFS two-node cluster. |
+|*Set-DeviceVip* |Set the virtual IP settings on an ACS or NFS two-node cluster. |
 
 ## Prerequisites
 
@@ -411,7 +412,9 @@ Use the following steps to sign in to the device, fetch the status of the `WebPr
 
 ## Enable proactive log consent
 
-Use the following steps to fetch and then enable or disable proactive logging for your device. 
+Proactive log collection gathers system health indicators on your Azure Stack Edge device to help you efficiently troubleshoot any device issues. Proactive log collection is enabled by default. For more information, see [Proactive log collection](azure-stack-edge-gpu-proactive-log-collection.md).
+
+Use the following steps to fetch the current setting and then enable or disable proactive logging for your device.
 
 1.	Sign in to the device.
 
@@ -450,6 +453,8 @@ Use the following steps to fetch and then enable or disable proactive logging fo
     ```
 
 ## Run device diagnostics
+
+To diagnose and troubleshoot any device errors, you can run the diagnostics tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
 
 Use the following steps to sign in to the device and run device diagnostics to verify status after you apply a device configuration package.
 
@@ -592,11 +597,15 @@ Use the following steps to sign in to the device and run device diagnostics to v
 
    ```
 
-## Set the VIP configuration on a multi-node device
+## Set the virtual IP configuration on a two-node device
 
-Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device. 
+For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. 
 
-You can set either an Azure Consistent Services (ACS) or a Network File System (NFS) configuration. Additional options include static or DHCP network settings. The example below shows a static ACS configuration. 
+You can set either an ACS or an NFS configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md&pivots=two-node#configure-virtual-ips).
+
+Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
+
+The example below shows a static ACS configuration. 
 
 1. Sign in to the device.
 
