@@ -408,13 +408,8 @@
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
     - name: vCPU quotas
-      items:
-      - name: CLI
-        displayName: vCPU, quota, limit
-        href: ./linux/quotas.md
-      - name: PowerShell
-        displayName: vCPU, quota, limit
-        href: ./windows/quotas.md
+      displayName: vCPU, quota, limit
+      href: quotas.md
     - name: Virtual machines selector tool
       href: https://aka.ms/vm-selector
     - name: Change the VM size
