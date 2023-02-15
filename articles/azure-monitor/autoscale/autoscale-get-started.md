@@ -4,15 +4,15 @@ description: "Learn how to scale your resource web app, cloud service, virtual m
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 02/16/2022
 ms.subservice: autoscale
 ms.reviewer: akkumari
 ---
 # Get started with autoscale in Azure
 
-This article describes how to set up your autoscale settings for your resource in the Azure portal.
+This article describes how to configure the autoscale settings for your resource in the Azure portal.
 
-Azure Monitor autoscale applies only to [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [Azure App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [Azure API Management](../../api-management/api-management-key-concepts.md).
+Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
 ## Discover the autoscale settings in your subscription
 
@@ -20,7 +20,7 @@ Azure Monitor autoscale applies only to [Azure Virtual Machine Scale Sets](https
 
 To discover all the resources for which autoscale is applicable in Azure Monitor, follow these steps.
 
-1. Open the [Azure portal.][1]
+1. Open the [Azure portal.](https://portal.azure.com)
 1. Select the Azure Monitor icon at the top of the page.
 
    [![Screenshot that shows how to open Azure Monitor.](./media/autoscale-get-started/click-on-monitor-1.png)](./media/autoscale-get-started/click-on-monitor-1.png#lightbox)
@@ -51,7 +51,7 @@ To discover all the resources for which autoscale is applicable in Azure Monitor
 
 Let's now go through a step-by-step walkthrough to create your first autoscale setting.
 
-1. Open the **Autoscale** pane in Azure Monitor and select a resource that you want to scale. The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][5]
+1. Open the **Autoscale** pane in Azure Monitor and select a resource that you want to scale. The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.](../../app-service/quickstart-dotnetcore.md)
 1. The current instance count is 1. Select **Custom autoscale**.
 
    [![Screenshot that shows scale setting for a new web app.](./media/autoscale-get-started/manual-scale-04.png)](./media/autoscale-get-started/manual-scale-04.png#lightbox)
@@ -108,7 +108,7 @@ You can set your scale differently for specific dates.
 
 Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the scale history of your resource for the past 24 hours by switching to the **Run history** tab.
 
-![Screenshot that shows a Run history screen.][12]
+![Screenshot that shows a Run history screen.](./media/autoscale-get-started/scale-history.png)
 
 To view the complete scale history for up to 90 days, select **Click here to see more details**. The activity log opens, with autoscale preselected for your resource and category.
 
@@ -155,21 +155,3 @@ To learn more about moving resources between regions and disaster recovery in Az
 - [Create an activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 
-<!--Reference-->
-[1]:https://portal.azure.com
-[2]: ./media/autoscale-get-started/click-on-monitor-1.png
-[3]: ./media/autoscale-get-started/click-on-autoscale-2.png
-[4]: ./media/autoscale-get-started/view-all-resources-3.png
-[5]: ../../app-service/quickstart-dotnetcore.md
-[6]: ./media/autoscale-get-started/manual-scale-04.png
-[7]: ./media/autoscale-get-started/custom-scale-add-rule-05.png
-[8]: ./media/autoscale-get-started/scale-in-recommendation.png
-[9]: ./media/autoscale-get-started/custom-scale-results-06.png
-[10]: ./media/autoscale-get-started/scale-same-based-on-condition-07.png
-[11]: ./media/autoscale-get-started/scale-different-based-on-time-08.png
-[12]: ./media/autoscale-get-started/scale-history.png
-[13]: ./media/autoscale-get-started/view-scale-definition-09.png
-[14]: ./media/autoscale-get-started/disable-autoscale.png
-[15]: ./media/autoscale-get-started/set-manualscale.png
-[16]: ./media/autoscale-get-started/choose-all-resources.png
-[17]: ./media/autoscale-get-started/scaling-page.png
