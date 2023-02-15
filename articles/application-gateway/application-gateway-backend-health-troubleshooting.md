@@ -383,8 +383,8 @@ This behavior can occur for one or more of the following reasons:
 2. Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
 
    a.	Follow steps 1a and 1b to determine your subnet.
-   b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
-   c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the internet destination without modifying the packet.
+   b.	Check to see if a UDR is configured. If there is, search for the resource on the search bar or under **All resources**.
+   c.	Check to see if there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the Internet destination without modifying the packet. If probes are routed through a virtual appliance and modified, the backend resource will display a **200** status code and the Application Gateway health status can display as **Unknown**. This doesn't indicate an error. Traffic should still be routing through the Application Gateway without issue.
    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
 3. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:

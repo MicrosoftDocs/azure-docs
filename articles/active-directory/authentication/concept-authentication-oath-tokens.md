@@ -63,7 +63,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 .[!IMPORTANT]
 >Make sure to only assign each token to a single user.
-In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
+>In the future, support for the assignment of a single token to multiple users will stop to prevent a security risk.
 
 
 ## Determine OATH token registration type in mysecurityinfo 
