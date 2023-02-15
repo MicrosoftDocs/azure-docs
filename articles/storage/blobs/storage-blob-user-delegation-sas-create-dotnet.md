@@ -18,13 +18,76 @@ ms.devlang: csharp
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Blob Storage client library for .NET version 12.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Blob Storage client library for .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## Assign Azure roles for access to data
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+
+## Set up your project
+
+To work with the code examples in this article, follow these steps to set up your project.
+
+### Install packages
+
+For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following packages:
+
+### [.NET CLI](#tab/packages-dotnetcli)
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Storage.Blobs
+```
+
+### [PowerShell](#tab/packages-powershell)
+
+```powershell
+Install-Package Azure.Identity
+Install-Package Azure.Storage.Blobs
+```
+---
+
+For the [directory](#get-a-user-delegation-sas-for-a-directory) code examples, add the following packages:
+
+### [.NET CLI](#tab/packages-dotnetcli)
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Storage.Files.DataLake
+```
+
+### [PowerShell](#tab/packages-powershell)
+
+```powershell
+Install-Package Azure.Identity
+Install-Package Azure.Storage.Files.DataLake
+```
+---
+
+### Set up the app code
+
+For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following `using` directives:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+using Azure.Storage.Sas;
+```
+
+For the [directory](#get-a-user-delegation-sas-for-a-directory) code example, add the following `using` directives:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Files.DataLake;
+using Azure.Storage.Files.DataLake.Models;
+using Azure.Storage.Sas;
+```
 
 ## Get an authenticated token credential
 
