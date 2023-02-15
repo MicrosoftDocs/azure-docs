@@ -11,6 +11,14 @@ This article describes the system requirements for deploying Azure Arc resource 
 
 Arc resource bridge is used with other partner products, such as [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), [Arc-enabled VMware vSphere](../vmware-vsphere/index.yml), and [Arc-enabled System Center Virtual Machine Manager (SCVMM)](../system-center-virtual-machine-manager/index.yml). These products may have additional requirements.  
 
+## Management tool requirements
+
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
+
+If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
+
+If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+
 ## Minimum resource requirements
 
 Arc resource bridge has the following minimum resource requirements:
@@ -22,7 +30,7 @@ Arc resource bridge has the following minimum resource requirements:
 These minimum requirements enable most scenarios. However, a partner product may support a higher resource connection count to Arc resource bridge, which requires the bridge to have higher resource requirements. Failure to provide sufficient resources may result in a number of errors during deployment, such as disk copy errors. Review the partner product's documentation for specific resource requirements.
 
 > [!NOTE]
-> To use Arc resource bridge with Azure Kubernetes Service (AKS) on Azure Stack HCI, the AKS clusters must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS clusters can't be installed unless you delete Arc resource bridge first. Once your AKS clusters are deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
+> To [use Arc resource bridge with Azure Kubernetes Service (AKS) on Azure Stack HCI](#aks-and-arc-resource-bridge-on-azure-stack-hci), the AKS clusters must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS clusters can't be installed unless you delete Arc resource bridge first. Once your AKS clusters are deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
 
 ## Management machine requirements
 
@@ -104,7 +112,51 @@ The appliance VM hosts a management Kubernetes cluster. The `kubeconfig` is a lo
 
 Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line#set-up-arc-vm-management) (kvatoken.tok) to interact with Azure Stack HCI. Tje KVA token is generated with the appliance configuration files when deploying Arc resource bridge. This token is also used when collecting logs for Arc resource bridge, so it should be saved in a secure location with the rest of the appliance configuration files. This file is saved in the directory provided during configuration file creation or the default CLI directory.
 
-  
+## AKS and Arc Resource Bridge on Azure Stack HCI
+
+To use AKS clusters and Arc resource bridge together on Azure Stack HCI, the AKS clusters must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS clusters can't be installed unless you delete Arc resource bridge first. Once your AKS clusters are deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
+
+The following example shows a network configuration setup for Arc resource bridge and AKS clusters when deployed on Azure Stack HCI. Key details are that Arc resource bridge and AKS share the same switch and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`.
+
+### Hybrid AKS
+
+```
+azurestackhciprovider: 
+   virtualnetwork: 
+      name: "mgmtvnet" 
+      vswitchname: "Default Switch" 
+      type: "Transparent" 
+      macpoolname:  
+      vlanid: 0 
+      ipaddressprefix: 172.16.0.0/16 
+      gateway: 17.16.1.1  
+      dnsservers: 17.16.1.1 
+      vippoolstart: 172.16.255.0 
+      vippoolend: 172.16.255.254 
+      k8snodeippoolstart: 172.16.10.0 
+      k8snodeippoolend: 172.16.10.254  
+```
+
+### Arc resource bridge
+
+```
+azurestackhciprovider: 
+   virtualnetwork: 
+      name: "mgmtvnet" 
+      vswitchname: "Default Switch" 
+      type: "Transparent" 
+      macpoolname:  
+      vlanid: 0 
+      ipaddressprefix: 172.16.0.0/16 
+      gateway: 17.16.1.1 
+      dnsservers: 17.16.0.1 
+      vippoolstart: 172.16.250.0 
+      vippoolend: 172.16.250.254 
+      k8snodeippoolstart: 172.16.30.0 
+      k8snodeippoolend: 172.16.30.254 
+```
+
+For instructions for how to deploy Arc resource bridge on Hybrid AKS, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
 
 ## Next steps
 
