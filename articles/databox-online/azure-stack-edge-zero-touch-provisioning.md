@@ -594,7 +594,7 @@ Use the following steps to sign in to the device and run device diagnostics to v
 
 ## Set the VIP configuration on a multi-node device
 
-Use the following steps to set the VIP configuration on a two-node Azure Stack Edge device.
+Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
 1. Sign in to the device.
 
@@ -608,19 +608,19 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     Get-DeviceConfiguration | To-json
     ```
 
-1. Fetch the device VIP configuration.
+1. Fetch the `DeviceVIP` configuration.
 
     ```azurepowershell
     Get-DeviceVip | to-json
     ```
 
-1. Set the VIP property with a static ACS configuration. 
+1. Set the `DeviceVIP` property with a static ACS configuration. 
 
     ```azurepowershell
     $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
     ```
 
-1. Update the device with the VIP property.
+1. Update the device with the `DeviceVIP` property.
 
     ```azurepowershell
     Set-DeviceVip -vip $acsVip
@@ -634,7 +634,7 @@ Use the following steps to set the VIP configuration on a two-node Azure Stack E
     @{type=ACS; name=Azure Consistent Services; address=192.168.181.10; network=; isDhcpEnabled=False} @{type=NFS; name=Network File Syst...
     ```
 
-1. Fetch the updated device VIP configuration.
+1. Fetch the updated `DeviceVIP` configuration.
 
     ```azurepowershell
     Get-DeviceVip | to-json
