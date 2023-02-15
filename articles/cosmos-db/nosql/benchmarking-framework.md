@@ -305,11 +305,11 @@ You can expect to see the following latencies for all the read and write recipes
 
 - **Read latency**
 
-    :::image type="content" source="media\benchmarking-framework\typical-read-latency.png" lightbox="media\benchmarking-framework\typical-read-latency.png" alt-text="Diagram of the typical read latency averaging around one to two milliseconds.":::
+    :::image type="content" source="media\benchmarking-framework\typical-read-latency.png" lightbox="media\benchmarking-framework\typical-read-latency.png" alt-text="Diagram of the typical read latency averaging around 1 millisecond to 2 milliseconds.":::
 
 - **Write latency**
 
-    :::image type="content" source="media\benchmarking-framework\typical-write-latency.png" lightbox="media\benchmarking-framework\typical-write-latency.png" alt-text="Diagram of the typical write latency averaging around four milliseconds.":::
+    :::image type="content" source="media\benchmarking-framework\typical-write-latency.png" lightbox="media\benchmarking-framework\typical-write-latency.png" alt-text="Diagram of the typical write latency averaging around 4 milliseconds.":::
 
 ## Common issues
 
