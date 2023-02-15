@@ -49,29 +49,7 @@ Use the following steps to prepare your project.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
-### [Using admin credentials](#tab/Secrets)
-
-Use the following steps to bind your app.
-
-1. Note the admin username and password of your Azure Database for PostgreSQL account.
-
-1. Connect to the server, create a database named **testdb** from a PostgreSQL client, and then create a new non-admin account.
-
-1. Run the following command to connect to the database with admin username and password.
-
-   ```azurecli
-   az spring connection create postgres \
-       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-       --app $APP_NAME \
-       --deployment $DEPLOYMENT_NAME \
-       --target-resource-group $POSTGRES_RESOURCE_GROUP \
-       --server $POSTGRES_SERVER_NAME \
-       --database testdb \
-       --secret name=$USERNAME secret=$PASSWORD
-   ```
-
-### [Using a passwordless connection with a managed identity for flexible server](#tab/Passwordlessflex)
+### [Using a passwordless connection with a managed identity for flexible server (Recommended)](#tab/Passwordlessflex)
 
 Configure Azure Spring Apps to connect to the PostgreSQL Database with a system-assigned managed identity using the `az spring connection create` command.
 
@@ -105,6 +83,28 @@ az spring connection create postgres \
     --database $DATABASE_NAME \
     --system-identity
 ```
+
+### [Using admin credentials](#tab/Secrets)
+
+Use the following steps to bind your app.
+
+1. Note the admin username and password of your Azure Database for PostgreSQL account.
+
+1. Connect to the server, create a database named **testdb** from a PostgreSQL client, and then create a new non-admin account.
+
+1. Run the following command to connect to the database with admin username and password.
+
+   ```azurecli
+   az spring connection create postgres \
+       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $POSTGRES_RESOURCE_GROUP \
+       --server $POSTGRES_SERVER_NAME \
+       --database testdb \
+       --secret name=$USERNAME secret=$PASSWORD
+   ```
 
 ---
 
