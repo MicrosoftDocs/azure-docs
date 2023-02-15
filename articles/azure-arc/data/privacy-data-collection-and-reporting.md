@@ -198,8 +198,16 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 - Last uploaded date from on-premises cluster.
    - `System.DateTime: LastUploadedDate` 
 - Data controller state
-   - `string: ProvisioningState` 
+- `string: ProvisioningState` 
+   
 
+The following JSON document is an example of the SQL Server - Azure Arc resource. 
+
+
+
+```json
+
+```
 
 
 ### PostgreSQL server - Azure Arc
@@ -222,7 +230,7 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 - Username and password for basic authentication
    - `public: BasicLoginInformation BasicLoginInformation` 
 - The raw Kubernetes information (`kubectl get postgres12`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
+- `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
 - Last uploaded date from on premises cluster. 
    - `System.DateTime: LastUploadedDate` 
 - Group provisioning state
@@ -375,4 +383,5 @@ In support situations, you may be asked to provide database instance logs, Kuber
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
+
 
