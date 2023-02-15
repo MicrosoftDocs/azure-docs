@@ -227,4 +227,4 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [az-container-show]: /cli/azure/container#az_container_show
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
-[available-regions]: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=container-instances
+[available-regions]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances
