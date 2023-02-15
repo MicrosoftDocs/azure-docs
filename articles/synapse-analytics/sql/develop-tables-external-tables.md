@@ -29,7 +29,7 @@ The key differences between Hadoop and native external tables are presented in t
 | [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. For more information on collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).|
 | Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` for Parquet or CSV formats. Custom folder paths are not available in Delta Lake. In the serverless SQL pool you can also use recursive wildcards `/logs/**` to reference Parquet or CSV files in any sub-folder beneath the referenced folder. |
 | Recursive folder scan | Yes | Yes. In serverless SQL pools must be specified `/**` at the end of the location path. In Dedicated pool the folders are always scanned recursively. |
-| Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [AAD passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
+| Storage authentication | Storage Access Key(SAK), Azure Active Directory passthrough, Managed identity, custom application Azure Active Directory identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [Azure Active Directory passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
 | Column mapping | Ordinal - the columns in the external table definition are mapped to the columns in the underlying Parquet files by position. | Serverless pool: by name. The columns in the external table definition are mapped to the columns in the underlying Parquet files by column name matching. <br/> Dedicated pool: ordinal matching. The columns in the external table definition are mapped to the columns in the underlying Parquet files by position.|
 | CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You cannot use the dedicated SQL pools to export data using native tables. |
 
@@ -269,7 +269,7 @@ If you're retrieving data from the text file, store each missing value by using 
 
 - 0 if the column is defined as a numeric column. Decimal columns aren't supported and will cause an error.
 - Empty string ("") if the column is a string column.
-- 1900-01-01 if the column is a date column.
+- "1900-01-01" if the column is a date column.
 
 FALSE -
 Store all missing values as NULL. Any NULL values that are stored by using the word NULL in the delimited text file are imported as the string 'NULL'.

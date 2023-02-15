@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 02/15/2023
 ms.author: stefanazaric
 ms.reviewer: sngun 
 ---
@@ -36,7 +36,8 @@ Make sure that you can access this file. If your file is protected with SAS key 
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
 > A mismatch between the text encoding in the PARQUET file and the collation may cause unexpected conversion errors.
 > You can easily change the default collation of the current database using the following T-SQL statement:
->   `alter database current collate Latin1_General_100_BIN2_UTF8`'
+> `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
+> For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 
 If you use the `Latin1_General_100_BIN2_UTF8` collation you will get an additional performance boost compared to the other collations. The `Latin1_General_100_BIN2_UTF8` collation is compatible with parquet string sorting rules. The SQL pool is able to eliminate some parts of the parquet files that will not contain data needed in the queries (file/column-segment pruning). If you use other collations, all data from the parquet files will be loaded into Synapse SQL and the filtering is happening within the SQL process. The `Latin1_General_100_BIN2_UTF8` collation has additional performance optimization that works only for parquet and CosmosDB. The downside is that you lose fine-grained comparison rules like case insensitivity.
 
@@ -75,9 +76,10 @@ from openrowset(
 > Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_BIN2_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
->   `alter database current collate Latin1_General_100_BIN2_UTF8`
-> You can easily set collation on the colum types using the following definition:
+> `ALTER DATABASE CURRENT COLLATE Latin1_General_100_BIN2_UTF8;`
+> You can easily set collation on the colum types, for example:
 >    `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
+> For more information on collations, see [Collation types supported for Synapse SQL](../sql/reference-collation-types.md).
 
 In the following sections you can see how to query various types of PARQUET files.
 

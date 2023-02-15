@@ -56,6 +56,5 @@ When passed 'Collation' as the property parameter, the DatabasePropertyEx functi
 
 Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
 
-- [Best Practices for dedicated SQL pool](./best-practices-dedicated-sql-pool.md)
-- [Best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md)
-
+- [Best Practices for dedicated SQL pool](../sql/best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool](../sql/best-practices-serverless-sql-pool.md)

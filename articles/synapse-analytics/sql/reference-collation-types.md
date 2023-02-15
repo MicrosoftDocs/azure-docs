@@ -44,6 +44,7 @@ The following table shows which collation types are supported by which service.
 
 
 ## Check the current collation
+
 To check the current collation for the database, you can run the following T-SQL snippet:
 
 ```sql
