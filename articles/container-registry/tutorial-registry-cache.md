@@ -71,4 +71,4 @@ Implementing Caching for ACR provides the following benefits:
 
 <!-- LINKS - External -->
 
-[docker-rate-limit]:http://aka.ms/docker-rate-limit
+[docker-rate-limit]:https://aka.ms/docker-rate-limit
