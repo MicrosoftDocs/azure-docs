@@ -126,8 +126,6 @@
           href: tutorial-auth-aad.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
-    - name: Secure deployment
-      href: tutorial-secure-deployment.md
     - name: Host a RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: Add CDN
