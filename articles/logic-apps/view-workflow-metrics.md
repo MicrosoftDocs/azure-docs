@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/18/2023
+ms.date: 02/15/2023
 # As a developer, I want to review the health and performance metrics for workflows in Azure Logic Apps.
 ---
 
