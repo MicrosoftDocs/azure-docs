@@ -4,9 +4,8 @@ description: View your container app's log stream.
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 02/16/2023
 ms.author: v-bcatherine
 ---
 
@@ -14,8 +13,7 @@ ms.author: v-bcatherine
 
 While developing and troubleshooting your container app, it's essential to see the [application logs](logging.md) for your container app in real time. Azure Container Apps lets you stream:
 
-- [system logs](logging.md#system-logs) from the Container Apps environment and your container app. 
-- container [console logs](logging.md#container-console-logs) from your container app.
+- [system logs](logging.md#system-logs) from the Container Apps environment and your container app. - container [console logs](logging.md#container-console-logs) from your container app.
 
 Log streams are accessible through the Azure portal or the Azure CLI.
 
