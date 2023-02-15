@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/15/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -130,7 +130,7 @@ To use this method, complete the following steps:
    setspn -s cifs/<storage-account-name>.<DomainDnsRoot> <storage-account-name>
    ```
 
-3. Add a CNAME entry using Active Directory DNS Manager and follow the steps below for each storage account in the domain that the storage account is joined to.
+3. Add a CNAME entry using Active Directory DNS Manager and follow the steps below for each storage account in the domain that the storage account is joined to. If you're using a private endpoint, add the CNAME entry to map to the private endpoint name.
 
    1. Open Active Directory DNS Manager.
    1. Go to your domain (for example, **onpremad1.com**).
@@ -149,8 +149,8 @@ Now, from domain-joined clients, you should be able to use storage accounts join
 
 If you've already modified the storage account name suffix and added a CNAME record as described in the previous section, you can skip this step. If you'd rather not make DNS changes or modify the storage account name suffix, you can configure a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
 
-> [!IMPORTANT]
-> This method will only work in environments with two forests. If you have more than two forests, use the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method instead.
+> [!NOTE]
+> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 First, add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've [established trust](#establish-and-configure-trust) between the two forests. Then follow these steps:
 
@@ -169,9 +169,6 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 1. Select **Properties** and then **Name Suffix Routing**.
 1. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
 1. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
-
-> [!NOTE]
-> Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
 
 ## Validate that the trust is working
 
@@ -195,7 +192,7 @@ Kdc Called: onprem2.onpremad2.com
 ```
 
 1. Log on to a machine or VM that's joined to a domain in **Forest 2** and open a Windows command prompt.
-1. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 1**: `klist get cifs/onprem2sa.file.core.windows.net` **[Is this correct, or should it be onprem1sa?]**
+1. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 1**: `klist get cifs/onprem1sa.file.core.windows.net`
 1. You should see output similar to the following:
 
 ```
@@ -224,6 +221,9 @@ Kdc Called: onpremad1.onpremad1.com
 ```
 
 If you see the above output, you're done. If you don't, follow these steps to provide alternative UPN suffixes to make multi-forest authentication work.
+
+> [!IMPORTANT]
+> This method will only work in environments with two forests. If you have more than two forests, use one of the other methods to configure domain suffixes.
 
 First, add a new custom suffix on **Forest 1**.
 
