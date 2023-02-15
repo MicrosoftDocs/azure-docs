@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 02/14/2017
+ms.date: 02/15/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -67,7 +67,7 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2022-11-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
