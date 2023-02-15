@@ -20,7 +20,7 @@ Azure Load Testing provides different sources of information to diagnose these e
 
 - [Download the Apache JMeter worker logs](#download-apache-jmeter-worker-logs) to investigate issues with JMeter and the test script execution.
 - [Diagnose failing tests using test results](#diagnose-failing-tests-using-test-results) and analyze the response code and response message of each HTTP request.
-- [Diagnose failing testing using server-side metrics](#diagnose-failing-testing-using-server-side-metrics) to identify issues with specific Azure application components.
+- [Diagnose failing tests using server-side metrics](#diagnose-failing-tests-using-server-side-metrics) to identify issues with specific Azure application components.
 
 ## Prerequisites  
 
@@ -144,7 +144,13 @@ To diagnose load tests that have failed requests, for example because the applic
     1676471294354,0,Home page,Non HTTP response code: java.net.UnknownHostException,Non HTTP response message: backend.contoso.com,172.18.44.4-Thread Group 1-1,text,false,,2201,0,1,1,https://backend.contoso.com/blabla,0,0,0
     ```
 
-## Diagnose failing testing using server-side metrics
+## Diagnose failing tests using server-side metrics
+
+For Azure-hosted applications, you can configure your load test to monitor resource metrics for your Azure application components. For example, a load test run might produce failed requests because an application component, such as a database, is throttling requests.
+
+Learn how you can [monitor server-side application metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
+
+For application endpoints that you host on Azure App Service, you can [use App Service Insights to get additional insights](./how-to-appservice-insights.md) about the application behavior.
 
 ## Next steps
 
