@@ -19,7 +19,6 @@ In this artticle, you learn how to:
 > * Use the run command to create and configure the tools-repo directory
 > * Login to [VMware's Customer Connect](https://customerconnect.vmware.com/) -- You might need to create an account
 > * Find and download the version of Tools that you want
-> * Remove any existing Tools files
 > * Upload new files
 
 ## Prerequisites
