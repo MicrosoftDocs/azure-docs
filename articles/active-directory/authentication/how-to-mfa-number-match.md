@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/10/2023
+ms.date: 02/15/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -16,8 +16,8 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. We will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023.<br> 
->We highly recommend enabling number matching in the near term for improved sign-in security. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. We will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting May 8, 2023.<br> 
+>We highly recommend enabling number matching in the near term for improved sign-in security. Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ After Feb 27, 2023, when number matching is enabled for all users, anyone who pe
 
 Users must have an OTP authentication method registered to see this behavior. Without an OTP method registered, users continue to see **Approve**/**Deny**. 
  
-Prior to the release of NPS extension version 1.2.2216.1 after February 27, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
+Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
 
 - 1.2.2131.2
 - 1.2.1959.1
@@ -305,7 +305,9 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 ### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
 
-Number match will be enabled for all users of Microsoft Authenticator push notifications after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
+Number match will be enabled for all users of Microsoft Authenticator push notifications after May 8, 2023. We had previously announced that we will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we will extend the availability of the rollout controls for a few more weeks. 
+
+Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
 ### Will the changes after February 27th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
 
@@ -349,9 +351,9 @@ They'll see a prompt to supply a verification code. They must select their accou
 
 ### Can I opt out of number matching?
 
-Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. To protect the ecosystem and mitigate these threats, Microsoft will enable number matching for all tenants starting February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. To protect the ecosystem and mitigate these threats, Microsoft will enable number matching for all tenants starting May 8, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
-Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
+Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
