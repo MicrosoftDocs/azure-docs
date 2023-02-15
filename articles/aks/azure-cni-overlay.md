@@ -93,7 +93,7 @@ The overlay solution has the following limitations:
 
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
-* Windows2019 nodepools are not supported for overlay.
+* Windows Server 2019 node pools are not supported for overlay.
 
 ## Install the aks-preview Azure CLI extension
 
