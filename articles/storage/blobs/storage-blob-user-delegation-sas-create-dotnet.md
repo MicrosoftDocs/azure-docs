@@ -97,11 +97,11 @@ The following code snippet shows how to get the authenticated token credential a
 
 ```csharp
 // Construct the blob endpoint from the account name.
-string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
+string blobEndpoint = $"https://{accountName}.blob.core.windows.net";
 
-// Create a new Blob service client with Azure AD credentials.
-BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
-                                                     new DefaultAzureCredential());
+// Create a blob service client object using DefaultAzureCredential
+BlobServiceClient blobClient = new(new Uri(blobEndpoint),
+                                   new DefaultAzureCredential());
 ```
 
 To learn more about authorizing access to Blob Storage from your applications with the .NET SDK, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication).
@@ -120,19 +120,19 @@ Use one of the following methods to request the user delegation key:
 The following code snippet gets the user delegation key and writes out its properties:
 
 ```csharp
-// Get a user delegation key for the Blob service that's valid for seven days.
-// You can use the key to generate any number of shared access signatures over the lifetime of the key.
+// Get a user delegation key for the Blob service that's valid for seven days
+// You can use the key to generate any number of shared access signatures over the lifetime of the key
 UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
                                                                    DateTimeOffset.UtcNow.AddDays(7));
 
-// Read the key's properties.
+// Read the key's properties
 Console.WriteLine("User delegation key properties:");
-Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
-Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
-Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
-Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
-Console.WriteLine("Key signed service: {0}", key.SignedService);
-Console.WriteLine("Key signed version: {0}", key.SignedVersion);
+Console.WriteLine($"Key signed start: {key.SignedStartsOn}");
+Console.WriteLine($"Key signed expiry: {key.SignedExpiresOn}");
+Console.WriteLine($"Key signed object ID: {key.SignedObjectId}");
+Console.WriteLine($"Key signed tenant ID: {key.SignedTenantId}");
+Console.WriteLine($"Key signed service: {key.SignedService}");
+Console.WriteLine($"Key signed version: {key.SignedVersion}");
 ```
 
 ## Get a user delegation SAS for a blob
