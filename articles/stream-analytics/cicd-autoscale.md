@@ -116,7 +116,7 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     To learn more about defining autoscale rules, see [Understand autoscale settings](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings).
 
-5. Deploy to Azure:
+5. Deploy to Azure.
 
     1. Connect to your Azure account:
 
