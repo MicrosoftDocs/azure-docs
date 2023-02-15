@@ -675,7 +675,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
       conda_file: mlflow/sklearn-diabetes/environment/conda.yml
     code_configuration:
-      source: mlflow/sklearn-diabetes/src
+      code: mlflow/sklearn-diabetes/src
       scoring_script: score.py
     instance_type: Standard_F2s_v2
     instance_count: 1
