@@ -23,7 +23,7 @@ Based on the type of subscription that you use, options to download your usage a
 
 If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 
-## Download usage from the Azure portal (.csv)
+## Download usage for MOSP billing accounts
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
