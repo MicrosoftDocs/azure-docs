@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Linux. See general issues r
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/13/2023
+ms.date: 02/15/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -145,6 +145,14 @@ For a permanent fix, upgrade your client OS to a Linux distro version with accou
 
 [dns: Apply a default TTL to records obtained from getaddrinfo()](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=75e7568dc516db698093b33ea273e1b4a30b70be)
 
-## Need help? Contact support.
+## Need help?
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
+
+## See also
+- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files performance](files-troubleshoot-performance.md)
+- [Troubleshoot Azure Files connectivity (SMB)](files-troubleshoot-smb-connectivity.md)
+- [Troubleshoot Azure Files authentication and authorization (SMB)](files-troubleshoot-smb-authentication.md)
+- [Troubleshoot Azure Files general NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Troubleshoot Azure File Sync issues](../file-sync/file-sync-troubleshoot.md)

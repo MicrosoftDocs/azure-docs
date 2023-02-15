@@ -322,3 +322,11 @@ Once you've reconfigured Azure AD Kerberos, the new experience will auto-create 
 
 ## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
+
+## See also
+- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files performance](files-troubleshoot-performance.md)
+- [Troubleshoot Azure Files connectivity (SMB)](files-troubleshoot-smb-connectivity.md)
+- [Troubleshoot Azure Files general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Troubleshoot Azure Files general NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Troubleshoot Azure File Sync issues](../file-sync/file-sync-troubleshoot.md)

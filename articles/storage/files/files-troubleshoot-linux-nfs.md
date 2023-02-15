@@ -4,7 +4,7 @@ description: Troubleshoot NFS Azure file share problems.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/13/2023
+ms.date: 02/15/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
@@ -132,5 +132,12 @@ The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anythi
 #### Workaround: Downgrading or upgrading the kernel
 Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue.
 
-## Need help? Contact support.
+## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
+
+## See also
+- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files performance](files-troubleshoot-performance.md)
+- [Troubleshoot Azure Files connectivity (SMB)](files-troubleshoot-smb-connectivity.md)
+- [Troubleshoot Azure Files authentication and authorization (SMB)](files-troubleshoot-smb-authentication.md)
+- [Troubleshoot Azure Files general SMB issues on Linux](files-troubleshoot-linux-smb.md)
