@@ -38,7 +38,10 @@ ms.custom: Include file
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 | Maximum number of active WebSocket connections per unit | 200<sup>12</sup> |
 | Maximum number of tags supported by an API Management resource|15|
-[!INCLUDE [api-management-authorization-limits](api-management-authorization-limits.md)]
+| Maximum number of authorization providers per service instance| 1,000 |
+| Maximum number of authorizations per authorization provider| 10,000 |
+| Maximum number of access policies per authorization | 100 |
+| Maximum number of authorization requests per minute per authorization | 250 |
 
 <sup>1</sup> Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>2</sup> Per unit cache size depends on the pricing tier. To see the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
