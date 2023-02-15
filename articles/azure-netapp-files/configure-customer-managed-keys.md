@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/13/2023
 ms.author: anfdocs
 ---
 
@@ -33,7 +33,7 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 * MSI Automatic certificate renewal is not currently supported.  
 * The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, you will get an error message stating when the account will be eligible for renewal. 
-    * Version 2.42 or later of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-renew-credentials). For example:
+    * Version 2.42 or later of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account#az-netappfiles-account-renew-credentials). For example:
     
     `az netappfiles account renew-credentials –-account-name myaccount –resource-group myresourcegroup`
 
@@ -82,7 +82,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
     :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
 
 1. Select the identity type that will be used for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options will be available. Otherwise, only user-assigned will only be available.
-    * If you choose **System-assigned**, select the **Save** button. No other configuration is required. The Azure Portal will configure the NetApp account automatically with the following process: A system-assigned identity will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
+    * If you choose **System-assigned**, select the **Save** button. The Azure Portal will configure the NetApp account automatically with the following process: A system-assigned identity will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
     * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** will open a context pane prompting you to select a user-assigned managed identity. 
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
