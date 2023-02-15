@@ -47,7 +47,7 @@ If an unexpected process termination (like power failure) happens during a blob 
 **deviceAutoDelete** is a configurable functionality. This function automatically deletes your blobs from the local storage when the specified duration (measured in minutes) expires. It allows you to:
 
 * Turn ON/OFF the deviceAutoDelete feature.
-* Specify the time in minutes (deleteAfterMinutes) after which the blobs is automatically deleted.
+* Specify the time in minutes (deleteAfterMinutes) after which the blobs are automatically deleted.
 * Choose the ability to retain the blob while it's uploading if the deleteAfterMinutes value expires.
 
 ## Prerequisites
