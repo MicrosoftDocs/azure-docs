@@ -358,6 +358,8 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
 - Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
+---
+
 ## Configure SMTP settings
 
 Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers.
