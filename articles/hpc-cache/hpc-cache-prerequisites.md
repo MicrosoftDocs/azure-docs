@@ -169,8 +169,6 @@ Check these permission-related prerequisites before starting to create your cach
 
 The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers. Add storage targets after you create the cache.
 
-The size of your cache determines the number of storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Size your cache correctly to support your storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for details.
-
 Each storage type has specific prerequisites.
 
 ### Blob storage requirements
