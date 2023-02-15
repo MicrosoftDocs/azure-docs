@@ -281,9 +281,9 @@ export const keyVaultConfig = {
 
 Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) with a [Configuration](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration) object. The minimum required configuration property is the `clientID` of the application.
 
-Use [SecretClient()](https://learn.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest) to get the test username and password secrets from Azure Key Vault.
+Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
 
-[DefaultAzureCredential()](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest) content.
+[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/@azure/identity/defaultazurecredential) content.
 
 Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
 
