@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Registry Cache
-description: Learn how to troubleshoot the most common problems for a registry that's enabled with the Registry Cache feature.
+description: Learn how to troubleshoot the most common problems for a registry enabled with the caching for ACR feature.
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
