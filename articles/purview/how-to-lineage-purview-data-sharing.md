@@ -66,9 +66,18 @@ To see the data sharing lineage for your sent share or received share asset, you
 
 1. Select your Azure Active Directory, then select the **Lineage** tab to see a lineage graph with either upstream or downstream dependencies.
 
+    :::image type="content" source="./media/how-to-lineage-purview-data-sharing/active-directory-lineage.png" alt-text="Screenshot of the Azure Active Directory asset with the lineage tab selected, showing the lineage map." border="true":::
+
 1. If you're seeing all sent shares, or all received shares, you can select the button to switch the view to see the other.
 
+    :::image type="content" source="./media/how-to-lineage-purview-data-sharing/switch-shares.png" alt-text="Screenshot of the Azure Active Directory shares lineage map, showing the Switch to received shares button highlighted." border="true":::
+
+    >[!NOTE]
+    >If you do not see this button it may be because your Azure Active Directory does not have any sent/received shares, or that you do not have permission on the collection where the sent/received shares are housed.
+
 1. You can also select any file or folder in the lineage canvas and see the data sharing lineage for those assets.
+
+    :::image type="content" source="./media/how-to-lineage-purview-data-sharing/switch-to-asset.png" alt-text="Screenshot of the Azure Active Directory shares lineage map, showing an asset selected and the Switch to asset button highlighted." border="true":::
 
 >[!Important]
 >For Data Share assets to show in Microsoft Purview, the ADLS Gen2 or Blob Storage account that the shares (sent share or received share) belong to should be registered with Microsoft Purview and the user needs Reader permission on the collection where they are housed.
