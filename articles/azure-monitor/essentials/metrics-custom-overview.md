@@ -251,7 +251,7 @@ There is a limit of 64 KB on the combined length of all custom metrics names, as
 
 When the limit has been exceeded, reduce the number of metrics you're sending or shorten the length of their names. It then takes up to two days for the new metrics' names to appear. 
 
-To avoid reaching the limit, don't include dimensional aspects in your metric names.
+To avoid reaching the limit, don't include variable or dimensional aspects in your metric names.
 For example, the metrics for server CPU usage,`CPU_server_12345678-319d-4a50-b27e-1234567890ab` and `CPU_server_abcdef01-319d-4a50-b27e-abcdef012345` should be defined as metric `CPU` and with a `Server` dimension.
 
 ## Design limitations and considerations
