@@ -27,7 +27,7 @@ Implementing Caching for ACR provides the following benefits:
 
 ***Private networks:*** Cached registries are available on private networks. Therefore, users can configure their firewall to meet compliance standards. 
 
-***Ensuring upstream content is delivered***: All registries, especially public ones like Docker Hub and others, have anonymous pull limits in order to ensure they can provide services to everyone. Caching for ACR allows users to pull images from the local ACR instead of the upstream registry. This will ensure the content is delivered from upstream and users gets the benefit of pulling the container images from the cache without counting to the pull limits.
+***Ensuring upstream content is delivered***: All registries, especially public ones like Docker Hub and others, have anonymous pull limits in order to ensure they can provide services to everyone. Caching for ACR allows users to pull images from the local ACR instead of the upstream registry. Caching for ACR ensures the content delivery from upstream and users gets the benefit of pulling the container images from the cache without counting to the pull limits.
  
 ## Terminology 
 
@@ -43,11 +43,11 @@ Implementing Caching for ACR provides the following benefits:
         4. New ACR Repository Namespace - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
 
 - Credentials
-    - Credentials are a set of username and password for the source registry. Credentials are needed if you wish to authenticate with a public or private repository. Credentials contain four parts
+    - Credentials are a set of username and password for the source registry. You require Credentials to authenticate with a public or private repository. Credentials contain four parts
 
         1. Credentials  - The name of your credentials.
 
-        2. Source registry Login Server - The login server of your source registry. Only `docker.io` is supported currently. 
+        2. Source registry Login Server - The login server of your source registry. Currently, we only support `docker.io`. 
 
         3. Source Authentication - The key vault locations to store credentials. 
         
@@ -55,15 +55,15 @@ Implementing Caching for ACR provides the following benefits:
 
 ## Preview Limitations
 
-- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but aren't included in this release.
+- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.
 
-- Caching will only occur after the container image is requested at least once. For every new image available, a new pull request must be made. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but isn't supported in this release. 
+- Caching will only occur after at least one pull request is complete on the available container image. For every new image available, a new pull request must be complete. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but not supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
 - Caching for ACR only supports 50 cache rules.
 
-- Caching for ACR is only available by using the Azure portal. The Azure CLI will be released in the coming weeks.  
+- Caching for ACR is only available by using the Azure portal. The Azure CLI is in target for the coming weeks.  
 
 ## Next steps
 
