@@ -1228,8 +1228,8 @@ Configuring the shutdown fault:
 
 | Property | Value |
 | --- | --- |
-| Capability name | DisaleAutoscaleCapability |
-| Target type | AutoscaleSettings |
+| Capability name | DisaleAutoscale |
+| Target type | Microsoft-AutoscaleSettings |
 | Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources aren't automatically added or removed based on the load of the application.
 | Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
 | Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
