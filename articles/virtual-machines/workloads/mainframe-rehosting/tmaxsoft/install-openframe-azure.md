@@ -148,8 +148,7 @@ When giving new individuals access the VM:
 - The administrator pastes the contents of the public key to the \~/.ssh/authorized\_keys file.
 - The new individual connects via OpenSSH.
 
-For more information about creating SSH key pairs, see [Create and use an SSH public-private key pair for Linux VMs in Azure](../../linux/mac-create-ssh-keys).
-
+For more information about creating SSH key pairs, see [Create and use an SSH public-private key pair for Linux VMs in Azure](../../../linux/mac-create-ssh-keys).
 
 
 ### Configure VM features
