@@ -34,18 +34,6 @@ The following capabilities must be present to allow user equipment (UEs) to atta
 
 The following sections describe elements of the network you'll need to consider and the design decisions you'll need to make in preparation for deploying the network.
 
-### Subnets and IP addresses
-
-You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
-
-- Selecting IP subnets and IP addresses for the Azure Private 5G Core that match existing subnets without clashing addresses.
-- Segregating the new network via IP routers or using the private RFC1918 address space for subnets.
-- Assigning a special pool of IP addresses specifically for use by UEs when they attach to the network.
-- Using network address and port translation (NAPT), either on the packet core itself, or on an upstream network device such as a border router.
-- Optimizing the network for performance by choosing a maximum transmission unit (MTU) that minimizes fragmentation.
-
-You'll need to document the IPv4 subnets that will be used for the deployment and agree on the IP addresses to use for each element in the solution, as well as on the IP addresses that will be allocated to UEs when they attach. You'll need to deploy (or configure existing) routers and firewalls at the enterprise site to permit traffic. You should also agree how and where in the network any NAPT or MTU changes are required and plan the associated router/firewall configuration. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-
 ### Topology
 
 Designing and implementing your local network is a foundational part of your Edge AP5GC deployment. You'll need to make networking design decisions to properly support your Private 5G Core and any Edge workloads.
@@ -86,6 +74,18 @@ There are multiple ways to setup your network for use with AP5GC packet core. Th
   - Packet Core can support multiple Attached Data Networks, each with its own configuration for DNS, UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more DN and apply DN-specific policy and QoS.
   - This topology requires that the N6 is split into subnets per-DN or that all DNs exist in the same subnet. This requires careful planning and configuration to prevent overlapping DN IP ranges or UE IP ranges that result in routing problems.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of L3 network topology with multiple D N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
+
+### Subnets and IP addresses
+
+You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
+
+- Selecting IP subnets and IP addresses for the Azure Private 5G Core that match existing subnets without clashing addresses.
+- Segregating the new network via IP routers or using the private RFC1918 address space for subnets.
+- Assigning a special pool of IP addresses specifically for use by UEs when they attach to the network.
+- Using network address and port translation (NAPT), either on the packet core itself, or on an upstream network device such as a border router.
+- Optimizing the network for performance by choosing a maximum transmission unit (MTU) that minimizes fragmentation.
+
+You'll need to document the IPv4 subnets that will be used for the deployment and agree on the IP addresses to use for each element in the solution, as well as on the IP addresses that will be allocated to UEs when they attach. You'll need to deploy (or configure existing) routers and firewalls at the enterprise site to permit traffic. You should also agree how and where in the network any NAPT or MTU changes are required and plan the associated router/firewall configuration. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 ### Network access
 
