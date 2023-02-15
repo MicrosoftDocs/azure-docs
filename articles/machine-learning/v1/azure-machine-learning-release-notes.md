@@ -27,10 +27,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
   + **azureml-contrib-automl-dnn-forecasting**
     + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
-    + Forecast horizon visuals for train-set as well as test-set are now available while running the TCN training experiment.
-    + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we will raise exception when we face inf/nan validation loss for more than 2 times consecutively with a message "Invalid Model, TCN training did not converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
+    + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
+    + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than 2 times consecutively with a message "Invalid Model, TCN training did not converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
   + **azureml-core**
-    + AzureML workspace creation will make use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an AzureML workspace.
+    + AzureML workspace creation makes use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an AzureML workspace.
   + **azureml-interpret**
     + updated azureml-interpret package to interpret-community 0.28.*
   + **azureml-mlflow**
