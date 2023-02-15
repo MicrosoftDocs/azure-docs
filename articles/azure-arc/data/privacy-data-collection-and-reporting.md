@@ -201,12 +201,153 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 - `string: ProvisioningState` 
    
 
-The following JSON document is an example of the SQL Server - Azure Arc resource. 
+The following JSON document is an example of the Azure Arc Data Controller resource. 
 
 
 
 ```json
-
+{
+    "id": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/dataControllers/contosodc",
+    "name": "contosodc",
+    "type": "microsoft.azurearcdata/datacontrollers",
+    "location": "eastus",
+    "extendedLocation": {
+        "name": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+        "type": "CustomLocation"
+    },
+    "tags": {},
+    "systemData": {
+        "createdBy": "contosouser@contoso.com",
+        "createdByType": "User",
+        "createdAt": "2023-01-03T21:35:36.8412132Z",
+        "lastModifiedBy": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+        "lastModifiedByType": "Application",
+        "lastModifiedAt": "2023-02-15T17:13:26.6429039Z"
+    },
+    "properties": {
+        "infrastructure": "azure",
+        "onPremiseProperty": {
+            "id": "4eb0a7a5-5ed6-4463-af71-12590b2fad5d",
+            "publicSigningKey": "MIIDWzCCAkOgAwIBAgIIA8OmTJKpD8AwDQYJKoZIhvcNAQELBQAwKDEmMCQGA1UEAxMdQ2x1c3RlciBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjMwMTAzMjEzNzUxWhcNMjgwMTAyMjEzNzUxWjAaMRgwFgYDVQQDEw9iaWxsaW5nLXNpZ25pbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3rAuXaXIeaipFiqGW5rtkdq/1+S58CRMEkANHvwFnimXEWIt8VnbG9foIm20r0RK+6XeRpn5r92jrOl/3R4Q9AAiF3Tgzy3NF9Dg9OsKo1bnrfWHMxmyX2w8TxyZSvWKEUVpVhjhqyhy/cqSJA5ASjEtthMx4Q1HTVcEDSTfnPHPz9EhfZqZ6ES3Yqun2D9MIatkSUpjHJbqYwRTzzrsPG84hJX7EGAWntvEzzCjmTUsouShEwUhi8c05CLBwzF5bxDNLhTdy+tj2ZyUzL7R+BmifwPR9jvOziYPlrbgIIs77sPbNlZjZvMeeBaJHktWZ0s8/UpUpV1W69m7hT2gbAgMBAAGjgZYwgZMwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDBfBgNVHREEWDBWgg5jb250cm9sbGVyLXN2Y4IoY29udHJvbGxlci1zdmMuY29udG9zby5zdmMuY2x1c3Rlci5sb2NhbIIaY29udHJvbGxlci1zdmMuY29udG9zby5zdmMwDQYJKoZIhvcNAQELBQADggEBADcZNIZcDDUC79ElbRrXdbHo9bUUv/NJfY7Dx226jc8j0AdDq8MbHAnt+JiMH6+GDb88avleA448yZ9ujBP9zC8v8IyaWu4vQpPT7MagzlsAhb6VEWU0FQfM6R14WwbATWSOIwDlMn4I33mZULyJdZhk4TqzqTQ8F0I3TavHh8TWBbjnwg1IhR/8TQ9HfgceoI80SBE3BDI5at/CzYgoWcWS2pzfd3QYwD8DIPVLCdcx1LNSDjdlQCQTKal0yKMauGIzMuYpCF1M6Z0LunPU/Ns96T9mqLXJHu+wmAoJ2CwdXa4FruwTSgrQlY3pokjTMwGaP3uzpnCSI7ykvi5kp4Q=",
+            "signingCertificateThumbprint": "8FB48D0DD44DCFB25ECC13B9CB5F493F5438D38C"
+        },
+        "k8sRaw": {
+            "kind": "DataController",
+            "spec": {
+                "credentials": {
+                    "dockerRegistry": "arc-private-registry",
+                    "domainServiceAccount": "domain-service-account-secret",
+                    "serviceAccount": "sa-arc-controller"
+                },
+                "security": {
+                    "allowDumps": true,
+                    "allowNodeMetricsCollection": true,
+                    "allowPodMetricsCollection": true
+                },
+                "services": [
+                    {
+                        "name": "controller",
+                        "port": 30080,
+                        "serviceType": "LoadBalancer"
+                    }
+                ],
+                "settings": {
+                    "ElasticSearch": {
+                        "vm.max_map_count": "-1"
+                    },
+                    "azure": {
+                        "autoUploadMetrics": "true",
+                        "autoUploadLogs": "false",
+                        "subscription": "7894901a-dfga-rf4d-85r4-cc1234459df2",
+                        "resourceGroup": "contoso-rg",
+                        "location": "eastus",
+                        "connectionMode": "direct"
+                    },
+                    "controller": {
+                        "logs.rotation.days": "7",
+                        "logs.rotation.size": "5000",
+                        "displayName": "contosodc"
+                    }
+                },
+                "storage": {
+                    "data": {
+                        "accessMode": "ReadWriteOnce",
+                        "className": "managed-premium",
+                        "size": "15Gi"
+                    },
+                    "logs": {
+                        "accessMode": "ReadWriteOnce",
+                        "className": "managed-premium",
+                        "size": "10Gi"
+                    }
+                },
+                "infrastructure": "azure",
+                "docker": {
+                    "registry": "mcr.microsoft.com",
+                    "imageTag": "v1.14.0_2022-12-13",
+                    "repository": "arcdata",
+                    "imagePullPolicy": "Always"
+                }
+            },
+            "metadata": {
+                "namespace": "contoso",
+                "name": "contosodc",
+                "annotations": {
+                    "management.azure.com/apiVersion": "2022-03-01-preview",
+                    "management.azure.com/cloudEnvironment": "AzureCloud",
+                    "management.azure.com/correlationId": "aa531c88-6dfb-46c3-af5b-d93f7eaaf0f6",
+                    "management.azure.com/customLocation": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                    "management.azure.com/location": "eastus",
+                    "management.azure.com/operationId": "265b98a7-0fc2-4dce-9cef-26f9b6dd000c*705EDFCA81D01028EFA1C3E9CB3CEC2BF472F25894ACB2FFDF955711236F486D",
+                    "management.azure.com/resourceId": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/dataControllers/contosodc",
+                    "management.azure.com/systemData": "{\"createdBy\":\"9c1a17be-338f-4b3c-90e9-55eb526c5aef\",\"createdByType\":\"User\",\"createdAt\":\"2023-01-03T21:35:36.8412132Z\",\"resourceUID\":\"74087467-4f98-4a23-bacf-a1e40404457f\"}",
+                    "management.azure.com/tenantId": "123488bf-8asd-41wf-91ab-211kl345db47",
+                    "traceparent": "00-197d885376f938d6138babf8ed4d809c-1a584b84b3c8f5df-01"
+                },
+                "creationTimestamp": "2023-01-03T21:35:42Z",
+                "generation": 2,
+                "resourceVersion": "15446366",
+                "uid": "4eb0a7a5-5ed6-4463-af71-12590b2fad5d"
+            },
+            "apiVersion": "arcdata.microsoft.com/v5",
+            "status": {
+                "observedGeneration": 2,
+                "state": "Ready",
+                "azure": {
+                    "uploadStatus": {
+                        "logs": {
+                            "lastUploadTime": "0001-01-01T00:00:00Z",
+                            "message": "Automatic upload of logs is disabled. Execution time: 02/15/2023 17:07:57"
+                        },
+                        "metrics": {
+                            "lastUploadTime": "2023-02-15T17:00:57.047934Z",
+                            "message": "Success"
+                        },
+                        "usage": {
+                            "lastUploadTime": "2023-02-15T17:07:53.843439Z",
+                            "message": "Success. Records uploaded: 1."
+                        }
+                    }
+                },
+                "lastUpdateTime": "2023-02-15T17:07:57.587925Z",
+                "runningVersion": "v1.14.0_2022-12-13",
+                "arcDataServicesK8sExtensionLatestVersion": "v1.16.0",
+                "registryVersions": {
+                    "available": [
+                        "v1.16.0_2023-02-14",
+                        "v1.15.0_2023-01-10"
+                    ],
+                    "behind": 2,
+                    "current": "v1.14.0_2022-12-13",
+                    "latest": "v1.16.0_2023-02-14",
+                    "next": "v1.15.0_2023-01-10",
+                    "previous": "v1.13.0_2022-11-08"
+                }
+            }
+        },
+        "provisioningState": "Succeeded"
+    }
+}
 ```
 
 
@@ -291,7 +432,7 @@ The following JSON document is an example of the SQL Managed Instance - Azure Ar
     },
     "tags": {},
     "systemData": {
-        "createdBy": "someuser@someemail.com",
+        "createdBy": "contosouser@contoso.com",
         "createdByType": "User",
         "createdAt": "2023-01-04T01:33:57.5232885Z",
         "lastModifiedBy": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
