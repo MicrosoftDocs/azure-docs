@@ -3456,6 +3456,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/share-images-across-tenants.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_document_id": false
+        },         {
+            "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-cli.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-cli",
             "redirect_document_id": false
@@ -3463,16 +3472,6 @@
         {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-powershell.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/windows/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/azure-compute-gallery#sharing",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/azure-compute-gallery#sharing",
             "redirect_document_id": false
         },
         {
