@@ -17,6 +17,7 @@ The following client libraries are available to manage users. Learn about each b
 - [Python](#python-client-library)
 - [.NET](#net-client-library)
 - [Java](#java-client-library)
+- [TypeScript](#typescript-client-library)
 
 ## Sign in to Azure
 
