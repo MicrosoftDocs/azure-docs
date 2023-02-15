@@ -3,7 +3,7 @@ title: Governance capability improvements in Defender for Cloud | Defender for C
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the need for governance and new at scale governance capability
 ms.topic: reference
-ms.date: 02/14/2023
+ms.date: 02/15/2023
 ---
 
 # Governance capability improvements in Defender for Cloud | Defender for Cloud in the field
@@ -13,11 +13,11 @@ ms.date: 02/14/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=b1581d03-6575-4f13-b2ed-5b0c22d80c63" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:13](/shows/mdc-in-the-field/aws-ecr#time=01m13s) - Reviewing the need for cloud security governance
-- [04:10](/shows/mdc-in-the-field/aws-ecr#time=04m10s) - Governance at scale
-- [07:03](/shows/mdc-in-the-field/aws-ecr#time=07m03s) - Deployment options
-- [07:45](/shows/mdc-in-the-field/aws-ecr#time=07m45s) - Demonstration
-- [19:00](/shows/mdc-in-the-field/aws-ecr#time=19m00s) - Learn more about governance
+- [01:13](/shows/mdc-in-the-field/governance-improvements#time=01m13s) - Reviewing the need for cloud security governance
+- [04:10](/shows/mdc-in-the-field/governance-improvements#time=04m10s) - Governance at scale
+- [07:03](/shows/mdc-in-the-field/governance-improvements#time=07m03s) - Deployment options
+- [07:45](/shows/mdc-in-the-field/governance-improvements#time=07m45s) - Demonstration
+- [19:00](/shows/mdc-in-the-field/governance-improvements#time=19m00s) - Learn more about governance
 
 
 ## Recommended resources
