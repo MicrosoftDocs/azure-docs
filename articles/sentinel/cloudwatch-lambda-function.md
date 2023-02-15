@@ -20,7 +20,7 @@ The Lambda function uses Python 3.9 runtime and x86_64 architecture.
 1. In the AWS Management Console, select the Lambda service.
 1. Select **Create function**. 
 
-    :::image type="content" source="media/cloudwatch-lambda-function/lambda-basic-information.png" alt-text="Screenshot of the AWS Management Console Basic information screen. lightbox="media/cloudwatch-lambda-function/lambda-basic-information.png":::
+    :::image type="content" source="media/cloudwatch-lambda-function/lambda-basic-information.png" alt-text="Screenshot of the AWS Management Console Basic information screen." lightbox="media/cloudwatch-lambda-function/lambda-basic-information.png":::
 
 1. Type a name for the function and select **Python 3.9** as the runtime and **x86_64** as the architecture. 
 1. Select **Create function**. 
