@@ -256,7 +256,7 @@ Run the following cmdlets in PowerShell:
 
 Use the following steps to activate an Azure Stack Edge device. Note that activation can't be undone, and a device activation key can't be reused or applied to a different device.
 
-1. Retrieve the `ActivationKey` for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
+1. Retrieve the `ActivationKey` for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
 
 1. Sign in to the device.
 
@@ -594,7 +594,9 @@ Use the following steps to sign in to the device and run device diagnostics to v
 
 ## Set the VIP configuration on a multi-node device
 
-Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
+Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device. 
+
+You can set either an Azure Consistent Services (ACS) or a Network File System (NFS) configuration. Additional options include static or DHCP network settings. The example below shows a static ACS configuration. 
 
 1. Sign in to the device.
 
