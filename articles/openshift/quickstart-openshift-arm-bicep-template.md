@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 02/15/2023
 keywords: azure, openshift, aro, red hat, arm, bicep
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
@@ -574,6 +574,9 @@ This section provides information on deploying the azuredeploy.json template.
 ### azuredeploy.json parameters
 
 The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
+
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
 
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
