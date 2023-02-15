@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 02/14/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -139,7 +139,7 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
 > [!NOTE]
 > Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA).
 
-1. [Configure your application with the Java agent](java-in-process-agent.md#get-started).
+1. [Configure your application with the Java agent.](opentelemetry-enable.md?tabs=java#get-started)
 
     > [!IMPORTANT]
     > Use the full connection string, which includes `IngestionEndpoint`, when you configure your app with the Java agent. For example, use `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
