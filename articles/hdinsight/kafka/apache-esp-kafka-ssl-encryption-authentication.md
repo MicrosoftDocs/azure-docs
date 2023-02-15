@@ -16,13 +16,13 @@ This article shows you how to set up Transport Layer Security (TLS) encryption, 
 
 ## Apache Kafka broker setup
 
-The Kafka TLS broker setup will use four HDInsight cluster VMs in the following way:
+The Kafka TLS broker setup uses four HDInsight cluster VMs in the following way:
 
 * headnode 0 - Certificate Authority (CA)
 * worker node 0, 1, and 2 - brokers
 
 > [!Note] 
-> This guide will use self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
+> This guide uses self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
 
 The summary of the broker setup process is as follows:
 
@@ -42,7 +42,7 @@ Use the following detailed instructions to complete the broker setup:
 > [!Important]
 > In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
 
-1. Perform initial setup on head node 0, which for HDInsight will fill the role of the Certificate Authority (CA).
+1. Perform initial setup on head node 0, which for HDInsight fills the role of the Certificate Authority (CA).
 
     ```bash
     # Create a new directory 'ssl' and change into it
@@ -76,7 +76,7 @@ Use the following detailed instructions to complete the broker setup:
     wn0-espkaf.securehadooprc.onmicrosoft.com
     wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net
     ```
-    :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts file  output." border="true":::
+    :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing host file  output." border="true":::
  
 1. On the CA machine, run the following command to create ca-cert and ca-key files:
 
@@ -134,7 +134,7 @@ To complete the configuration modification, do the following steps:
 
    
    > [!Note] 
-   > This step is only required if you are setting up authentication and encryption.
+   > This step is only required if you're setting up authentication and encryption.
    
     :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Screenshot showing how to edit Kafka ssl configuration properties in Ambari." border="true":::
 
@@ -147,11 +147,11 @@ To complete the configuration modification, do the following steps:
    
    For HDI version 4.0 or 5.0
    
-	a. If you are setting up authentication and encryption, then the screenshot will look like
+	a. If you're setting up authentication and encryption, then the screenshot looks like
 
      :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-required.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as required." border="true":::
      
-	b. If you are setting up encryption only, then the screenshot will look like  
+	b. If you are setting up encryption only, then the screenshot looks like  
    
      :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/properties-file-authentication-as-none.png" alt-text="Screenshot showing how to edit Kafka-env template property in Ambari authentication as none." border="true":::
 
@@ -282,7 +282,7 @@ The details of each step are given.
     cd ssl
     ```
 
-1. Create client store with signed cert, and import ca cert into the keystore and truststore on client machine (hn1):
+1. Create client store with signed cert, and import CA  certificate into the keystore and truststore on client machine (hn1):
 
     ```bash
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
@@ -292,7 +292,7 @@ The details of each step are given.
     keytool -keystore kafka.client.keystore.jks -import -file client-signed-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Create a file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
+1. Create a file `client-ssl-auth.properties` on client machine (hn1). It should have the following lines:
 
     ```bash
     security.protocol=SASL_SSL
