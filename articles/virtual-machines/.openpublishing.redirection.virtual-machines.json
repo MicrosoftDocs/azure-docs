@@ -1587,17 +1587,17 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
-            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-powershell.md",
-            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-powershell",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
-            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
             "redirect_document_id": true
         },
         {
