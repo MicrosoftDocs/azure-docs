@@ -136,6 +136,7 @@ landingContent:
             url: deploy-run-package.md
 
   - title: Monitor your app
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Troubleshoot an App Service app with Azure Monitor
