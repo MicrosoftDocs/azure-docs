@@ -122,6 +122,5 @@ In the following scenario, users `user4` and `user5` are members of `group2`. Th
 ## Next steps
 
 * [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)
-* [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Security identifiers](/windows-server/identity/ad-ds/manage/understand-security-identifiers)
