@@ -1591,16 +1591,7 @@
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports to a VM
-    items:
-    - name: CLI
-      displayName: port nsg network security group
-      href: ./linux/nsg-quickstart.md
-    - name: PowerShell
-      displayName: nsg network security group
-      href: ./windows/nsg-quickstart-powershell.md
-    - name: Portal
-      displayName: port nsg network security group
-      href: ./windows/nsg-quickstart-portal.md
+    href: nsg-quickstart.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address

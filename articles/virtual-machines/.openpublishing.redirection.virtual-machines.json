@@ -1586,6 +1586,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
+            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-powershell.md",
+            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
+            "redirect_url": "/azure/virtual-machines/nsg-quickstart",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
             "redirect_url": "/azure/virtual-machines/linux/reset-password",
             "redirect_document_id": false
