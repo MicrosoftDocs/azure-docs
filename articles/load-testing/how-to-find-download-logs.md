@@ -99,7 +99,7 @@ You can identify errors in your load test in the following ways:
 
 When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. During the load test, Apache JMeter stores detailed logging in the worker node logs. You can download these JMeter worker logs for each test run in the Azure portal. Azure Load Testing generates a worker log for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 
-For example, if there's a problem with your JMeter script, the load test status will be **Failed**. In the worker logs you might find additional information about the cause of the problem.
+For example, if there's a problem with your JMeter script, the load test status is **Failed**. In the worker logs you might find additional information about the cause of the problem.
 
 To download the worker logs for an Azure Load Testing test run, follow these steps:
 
