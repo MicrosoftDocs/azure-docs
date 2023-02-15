@@ -20,25 +20,7 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster man
 
 For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-## Uptime SLA
-
-> [!IMPORTANT]
->
-> Uptime SLA has been repositioned as a default feature included with the Standard tier.
->
-> The repositioning will result in the following API changes:
->
-> |         |Prior to 2023-01-01 API|Starting from 2023-01-01 API| Starting from 2023-07-01 API|
-> |----------|-----------|------------|------------|
-> |ManagedClusterSKUName|"Basic"|"Basic" <br> "Base"|"Base"|
-> |ManagedClusterSKUTier|"Free" <br> "Paid"|"Free" <br> "Paid" <br> "Standard"|"Free" <br> "Standard"|
->
-> "Basic" and "Paid" will be removed in the 2023-07-01 API version, and this will be a breaking change in API version 2023-07-01 or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to make the necessary changes before upgrading to the 2023-07-01 or newer API version. From API version 2023-01-01 and newer, you can start transitioning to the new API parameters "Base" and "Standard".
->
-
-For more information, see [SLA for AKS](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
-
-### Uptime SLA terms and conditions
+## Uptime SLA terms and conditions
 
 The Uptime SLA feature is included in the Standard tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
@@ -66,15 +48,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --no-uptime-s
 
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
-
-> [!NOTE]
->
-> The outputs to `--no-uptime-sla` and `--uptime-sla` correspond to API properties prior to the 2023-01-01 API version. Starting in Azure CLI 2.46.0:
->
-> * `--tier free` will correspond to the existing `--no-uptime-sla` parameter.
-> * `--tier standard` will correspond to the existing `--uptime-sla` parameter.
-> * The CLI output "Basic" for ManagedClusterSKUName will correspond to the API property: "Base".
-> * The CLI output "Free" or "Paid" for ManagerClusterSKUTier will correspond to the API properties: "Free" or "Standard".
 
 Once the deployment completes, it returns JSON-formatted information about your cluster:
 
