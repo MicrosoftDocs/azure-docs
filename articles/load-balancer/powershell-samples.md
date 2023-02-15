@@ -8,9 +8,9 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 12/10/2018
+ms.date: 02/28/2023
 ms.author: mbender
-ms.custom: seodec18
+ms.custom: seodec18, engagement-fy23
 ---
 
 # Azure PowerShell Samples for Load Balancer
