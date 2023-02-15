@@ -14,8 +14,25 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-[!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
+You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or a VM network interface. You place these filters, which control both inbound and outbound traffic, on a network security group attached to the resource that receives the traffic.
 
+The example in this article demonstrates how to create a network filter that uses the standard TCP port 80 (it's assumed you've already started the appropriate services and opened any OS firewall rules on the VM).
+
+After you've created a VM that's configured to serve web requests on the standard TCP port 80, you can:
+
+1. Create a network security group.
+
+2. Create an inbound security rule allowing traffic and assign values to the following settings:
+
+   - **Destination port ranges**: 80
+
+   - **Source port ranges**: * (allows any source port)
+
+   - **Priority value**: Enter a value that is less than 65,500 and higher in priority than the default catch-all deny inbound rule.
+
+3. Associate the network security group with the VM network interface or subnet.
+
+Although this example uses a simple rule to allow HTTP traffic, you can also use network security groups and rules to create more complex network configurations.
 
 
 ### [CLI](#tab/cli)
@@ -28,7 +45,7 @@ To create a Network Security Group and rules you need the latest [Azure CLI](/cl
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
 
-## Quickly open a port for a VM
+**Quickly open a port for a VM**
 If you need to quickly open a port for a VM in a dev/test scenario, you can use the [az vm open-port](/cli/azure/vm) command. This command creates a Network Security Group, adds a rule, and applies it to a VM or subnet. The following example opens port *80* on the VM named *myVM* in the resource group named *myResourceGroup*.
 
 ```azurecli
@@ -38,7 +55,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 80
 For more control over the rules, such as defining a source IP address range, continue with the additional steps in this article.
 
 
-## Create a Network Security Group and rules
+**Create a Network Security Group and rules** 
 Create the network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup* in the *eastus* location:
 
 ```azurecli
@@ -81,14 +98,8 @@ az network vnet subnet update \
 ```
 
 
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](tutorial-virtual-network.md#secure-network-traffic).
-
-For highly available web applications, you should place your VMs behind an Azure Load Balancer. The load balancer distributes traffic to VMs, with a Network Security Group that provides traffic filtering. For more information, see [How to load balance Linux virtual machines in Azure to create a highly available application](tutorial-load-balancer.md).
-
 
 ### [PowerShell](#tab/poweshell)
-
-To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](/powershell/azure/). You can also [perform these steps using the Azure portal](nsg-quickstart-portal.md).
 
 Log in to your Azure account:
 
@@ -203,6 +214,6 @@ Your final step is to associate your network security group with a subnet or a s
 ---
 ## Next steps
 
-- The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](tutorial-virtual-network.md#secure-network-traffic).
+The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. For more information, see [Filter network traffic with a network security group](../virtual-network/tutorial-filter-network-traffic.md).
 
-- For highly available web applications, you should place your VMs behind an Azure Load Balancer. The load balancer distributes traffic to VMs, with a Network Security Group that provides traffic filtering. For more information, see [How to load balance virtual machines in Azure to create a highly available application](tutorial-load-balancer.md).
+For highly available web applications, you should place your VMs behind an Azure Load Balancer. The load balancer distributes traffic to VMs, with a Network Security Group that provides traffic filtering. For more information, see [Create a public load balancer to load balance VMs](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
