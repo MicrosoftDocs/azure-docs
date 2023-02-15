@@ -230,8 +230,6 @@ Once you have verified that you have at least one custom environment, use the fo
 
 The `az acr` command will automatically upload your docker-context folder - that contains the artifacts to build the image - to the cloud where the image will be built and hosted in an Azure Container Registry.
 
-> [!TIP]
-> 
 
 ## Deploy model
 

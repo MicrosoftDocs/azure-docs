@@ -244,8 +244,6 @@ mlflow_log_model(
 
 mlflow_log_param(<key-name>, <value>)
 
-mlflow_end_run()
-
 ## END OF R SCRIPT
 ```
 
