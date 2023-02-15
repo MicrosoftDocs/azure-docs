@@ -63,7 +63,7 @@ To begin the configuration, you'll create a dev center to enable you to manage y
  
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
-   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box Preview](https://aka.ms/devbox_acom).
+   The currently supported Azure locations with capacity are: **Australia East, Europe West, Japan East, Canada Central, UK South, US East, US East 2, US South Central, and US West 3**.
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 
@@ -182,11 +182,15 @@ To provide networking configuration information for dev boxes, you need to assoc
  
 1. In the **Add network connection** pane, select the network connection you created earlier, and then select **Add**. 
 
-After creation, several health checks are run on the network. You can view the status of the checks on the resource overview page. Network connections that pass all the health checks can be added to a dev center and used in the creation of dev box pools. The dev boxes within the dev box pools will be created and domain joined in the location of the vnet assigned to the network connection.
+After creation, several health checks are run on the network. You don't need for all health checks to complete to move on with the deployment, after selecting **Add** you can then view the status of the checks on the resource overview page under **status**. Network connections that pass all the health checks can be added to a dev center and used in the creation of dev box pools. The dev boxes within the dev box pools will be created and domain joined in the location of the vnet assigned to the network connection.
+
+The current supported health checks are listed here: [Azure network connections health checks](https://learn.microsoft.com/en-us/windows-365/enterprise/health-checks)
 
 :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot showing the status of a network connection.":::
 
 To resolve any errors, refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
+
+After attaching the network connection to the dev center a new resource group will be created with the name "NI_<network-connection-name>_<network-connection-region>. This name is not possible to customize at the moment. 
 
 ## Create a dev box definition
 
