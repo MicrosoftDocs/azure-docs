@@ -4,7 +4,7 @@ description: Learn about how Azure SignalR Service and Azure Functions together 
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 02/14/2023
 ms.author: lianwei
 ---
 
@@ -52,7 +52,7 @@ An example of how to use the SignalR Service bindings is using Azure Functions t
 
 1. A change is made in an Azure Cosmos DB collection.
 2. The change event is propagated to the Azure Cosmos DB change feed.
-3. An Azure Functions is triggered by the change event using the Azure Cosmos DB trigger. <!-- Is there a function in this scenario, or is there a function in this scenario? -->
+3. An Azure Functions is triggered by the change event using the Azure Cosmos DB trigger.
 4. The SignalR Service output binding publishes a message to SignalR Service.
 5. The SignalR Service publishes the message to all connected clients.
 
