@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 02/15/2023
 ms.author: franlanglois
 
 ---
@@ -21,11 +21,19 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 
 ## Scope of availability
 
-|Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
-|---------|---------|---------|---------|
-|Available  | No         | No       |  Yes  |
+|Tier      | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
+|--------- |:------------------:|:----------:|:---------:|
+|Available | No          | No       |  Yes  |
 
-The Premium tier of Azure Cache for Redis offers a version of geo-replication called [_passive geo-replication_](cache-how-to-geo-replication.md) which only supports an active-passive configuration.
+<!-- What do you think of this table?  -->
+|Tier	| Available|
+|:---|:---:|
+|Basic, Standard	| No |
+|Premium | No |
+|Enterprise, Enterprise Flash| Yes  |
+
+
+The Premium tier of Azure Cache for Redis offers a version of geo-replication called [_passive geo-replication_](cache-how-to-geo-replication.md). Passive geo-replication provides an active-passive configuration.
 
 ## Active geo-replication prerequisites
 
