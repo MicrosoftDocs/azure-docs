@@ -21,7 +21,7 @@ Network architects are faced with the following challenges:
 - Provide reliable and secure connectivity to more employees of their company and customers.
 - Provide connectivity to remote locations across the globe.
 
-Not all networks (for example, private WAN and corporate core networks) experience congestion from peak loads of remote workers. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
+Not all networks (for example, private WAN and corporate core networks) experience congestion from peak loads of remote workers. The bottlenecks are commonly reported only in home broadband networks and in VPN gateways of on-premises networks of corporations.
 
 Network planners can help ease bottlenecks and alleviate network congestion by keeping in mind that different traffic types need different network treatment priorities. Some traffic requires smart load redirection or redistribution.
 
@@ -29,7 +29,7 @@ For example, real-time telemedicine traffic of doctor/patient interaction has a 
 
 ## Elasticity and high availability in the Microsoft network
 
-Azure is designed to withstand sudden changes in resource utilization and to keep systems operating during periods of peak utilization.
+Azure is designed to withstand sudden changes in resource utilization and to keep systems running during periods of peak utilization.
 
 Microsoft maintains and operates one of the world's largest networks. The Microsoft network has been designed for high availability to withstand various types of failures, from failure of a single network element to failure of an entire region.
 
@@ -44,7 +44,7 @@ Azure VPN Gateway supports both point-to-site (P2S) and site-to-site (S2S) VPN c
 
 If you're using Secure Socket Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md).
 
-To access your resources deployed in Azure, remote developers can use Azure Bastion instead of a VPN connection. That solution can provide secure shell access (RDP or SSH) without requiring public IPs on the VMs that are being accessed. For more information, see [Enable remote work by using Azure Bastion](../bastion/work-remotely-support.md).
+To access your resources deployed in Azure, remote developers can use Azure Bastion instead of a VPN connection. That solution can provide secure shell access (RDP or SSH) without requiring public IP addresses on the VMs that are being accessed. For more information, see [Enable remote work by using Azure Bastion](../bastion/work-remotely-support.md).
 
 You can use Azure Virtual WAN to:
 

@@ -24,6 +24,6 @@ Azure Bastion is deployed per virtual network. Companies can configure and manag
 
 ## Next steps
 
-* Configure Azure Bastion by using the [Azure portal](./tutorial-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md), or the Azure CLI.
+* Configure Azure Bastion by using the [Azure portal](tutorial-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md), or the [Azure CLI](create-host-cli.md).
 
-* Read the [Azure Bastion FAQ](bastion-faq.md) for additional information.
+* Read the [Azure Bastion FAQ](bastion-faq.md).
