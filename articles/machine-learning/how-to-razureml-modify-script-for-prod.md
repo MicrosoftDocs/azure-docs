@@ -160,7 +160,7 @@ To log a model, and/or parameter:
 
 1. Start the run with `mlflow_start_run()`
 1. Log artifacts with `mlflow_log_model`, `mlflow_log_param`, or `mlflow_log_batch`
-1. End the run with `mlflow_end_run()`
+1. Do **not** end the run with `mlflow_end_run()`.  Skip this call, as it currently causes an error.  
 
 For example, to log the `crated_model` object as created in the [previous section](#crate-your-models-with-the-carrier-package), you would include the following code in your R script:
 
@@ -177,7 +177,7 @@ mlflow_log_model(
 
 mlflow_log_param(<key-name>, <value>)
 
-mlflow_end_run()
+# mlflow_end_run() - causes an error, do not include mlflow_end_run()
 ```
 
 ## Script structure and example
@@ -244,6 +244,7 @@ mlflow_log_model(
 
 mlflow_log_param(<key-name>, <value>)
 
+# mlflow_end_run() - causes an error, do not include mlflow_end_run()
 ## END OF R SCRIPT
 ```
 
