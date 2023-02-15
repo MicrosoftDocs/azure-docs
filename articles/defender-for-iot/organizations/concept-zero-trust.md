@@ -68,7 +68,7 @@ When [deploying OT network sensors](onboard-sensors.md), use *sites*, and *zones
 
 Assign each OT sensor to a specific site and zone to ensure that each OT sensor covers a specific area of the network. Segmenting your sensor across sites and zones helps you monitor for any traffic passing between segments and enforce security policies for each zone.
 
-Make sure to assign [site-based access policies](roles-azure.md#roles-and-permissions-reference) so that you can provide least-privileged access to Defender for IoT data and activities.
+Make sure to assign [site-based access policies](manage-users-portal.md#manage-site-based-access-control-public-preview) so that you can provide least-privileged access to Defender for IoT data and activities.
 
 For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
 
