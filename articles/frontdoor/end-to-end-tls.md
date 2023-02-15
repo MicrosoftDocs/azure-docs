@@ -132,11 +132,6 @@ When using custom domains with TLS 1.0 and 1.1 enabled, the following cipher sui
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (see note)
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (see note)
 
-> [!IMPORTANT]
-> As a part of our ongoing platform improvement processes, we will deprecate the weak DHE ciphers, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, by the end of June 2023.
->
-> If your clients experience TLS handshake issues, consider temporarily allowing legacy TLS versions (TLS 1.0 and TLS 1.1) in your Azure Front Door profile, until your clients are able to support the more secure TLS 1.2 cipher suites.
-
 Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
 
 ## Next steps
