@@ -220,4 +220,5 @@ For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage on-premises sites and zones](ot-deploy/sites-and-zones-on-premises.md#manage-sites-and-zones)
+- [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
