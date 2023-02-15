@@ -99,7 +99,8 @@ A BackendAddressPool is used to define a backend pool with WebSocket enabled ser
 }]
 ```
 
-> Ensure that your **timeout value** is greater than your server defined ping/pong interval to avoid experiencing timeout errors before a ping is sent from the client. A typical value for a websocket is 20 seconds, so, for example, a timeout value of 40 seconds will ensure that the gateway does not send a timeout error before the client sends a ping; otherwise this would throw a 1006 error on the client side.
+> [!NOTE]
+> Ensure that your **timeout value** is greater than your server-defined ping/pong interval to avoid experiencing timeout errors before a ping is sent from the client. A typical value for a WebSocket is 20 seconds, so, for example, a timeout value of 40 seconds will ensure that the gateway does not send a timeout error before the client sends a ping; otherwise, this would throw a 1006 error on the client side.
 
 ## WebSocket enabled backend
 
