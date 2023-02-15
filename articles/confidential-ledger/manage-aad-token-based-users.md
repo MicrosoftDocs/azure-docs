@@ -19,6 +19,7 @@ The following client libraries are available to manage users. Learn about each b
 - [Python](#python-client-library)
 - [.NET](#net-client-library)
 - [Java](#java-client-library)
+- [TypeScript](#typescript-client-library)
 
 ## Sign in to Azure
 
@@ -245,4 +246,103 @@ public class CreateOrUpdateUserSample {
 		}
 	}
 }
+```
+
+## TypeScript Client Library
+
+### Install the packages
+
+```
+ "dependencies": {
+    "@azure-rest/confidential-ledger": "^1.0.0",
+    "@azure/identity": "^3.1.3",
+    "typescript": "^4.9.5"
+  }
+```
+### Create a client and manage the users
+
+```TypeScript
+import ConfidentialLedger, { getLedgerIdentity } from "@azure-rest/confidential-ledger";
+import { DefaultAzureCredential } from "@azure/identity";
+
+export async function main() {
+  // Get the signing certificate from the Confidential Ledger Identity Service
+  const ledgerIdentity = await getLedgerIdentity("contoso");
+
+  // Create the Confidential Ledger Client
+  const confidentialLedger = ConfidentialLedger(
+    "https://contoso.confidential-ledger.azure.com",
+    ledgerIdentity.ledgerIdentityCertificate,
+    new DefaultAzureCredential()
+  );
+
+  // AAD object id of the user
+  const userId = "AAD Object id"
+
+  // Other supported roles are Reader and Contributor
+  const createUserParams: CreateOrUpdateUserParameters = {
+    contentType: "application/merge-patch+json",
+    body: {
+        assignedRole: "Contributor",
+        userId: `${userId}`
+      }
+  }
+
+  // Add the user
+  var response = await confidentialLedger.path("/app/users/{userId}", userId).patch(createUserParams)
+  
+  // Check for a non-success response
+  if (response.status !== "200") {
+    throw response.body.error;
+  }
+
+  // Print the response
+  console.log(response.body);
+
+  // Get the user
+  response = await confidentialLedger.path("/app/users/{userId}", userId).get()
+
+  // Check for a non-success response
+  if (response.status !== "200") {
+    throw response.body.error;
+  }
+
+  // Print the response
+  console.log(response.body);
+
+  // Set the user role to Reader
+  const updateUserParams: CreateOrUpdateUserParameters = {
+    contentType: "application/merge-patch+json",
+    body: {
+        assignedRole: "Reader",
+        userId: `${userId}`
+      }
+  }
+
+  // Update the user
+  response = await confidentialLedger.path("/app/users/{userId}", userId).patch(updateUserParams)
+
+  // Check for a non-success response
+  if (response.status !== "200") {
+    throw response.body.error;
+  }
+
+  // Print the response
+  console.log(response.body);
+
+  // Delete the user
+  await confidentialLedger.path("/app/users/{userId}", userId).delete()
+
+  // Get the user to make sure it is deleted
+  response = await confidentialLedger.path("/app/users/{userId}", userId).get()
+
+  // Check for a non-success response
+  if (response.status !== "200") {
+    throw response.body.error;
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+});
 ```
