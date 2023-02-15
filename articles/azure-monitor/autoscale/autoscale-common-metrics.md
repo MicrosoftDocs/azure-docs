@@ -4,7 +4,7 @@ description: Learn which metrics are commonly used for autoscaling your cloud se
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 02/22/2023
 ms.subservice: autoscale 
 ms.custom: devx-track-azurepowershell
 ms.reviewer: akkumari
@@ -13,11 +13,12 @@ ms.reviewer: akkumari
 
 # Azure Monitor autoscaling common metrics
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data, also known as metrics. This article describes common metrics that you might want to use. In the Azure portal, you can choose the metric of the resource to scale by. You can also choose any metric from a different resource to scale by.
+Azure Monitor autoscaling allows you to scale the number of running instances in or out, based on telemetry data or metrics. Scaling can be based on any metric, even metrics form a different resource. For example, scale a Virtual Machine Scale Set based on the amount of traffic on a firewall.
 
-Azure Monitor autoscale applies only to [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [Azure App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [Azure API Management](../../api-management/api-management-key-concepts.md). Other Azure services use different scaling methods.
+This article describes metrics that are commonly used to trigger scale events. 
+
+Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
 ## Compute metrics for Resource Manager-based VMs
 
