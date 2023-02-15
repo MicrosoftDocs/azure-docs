@@ -18,9 +18,9 @@ Azure Load Testing runs your Apache JMeter script on the [test engine instances]
 
 Azure Load Testing provides different sources of information to diagnose these errors:
 
--  [Download the Apache JMeter worker logs](#download-apache-jmeter-worker-logs) to investigate issues with JMeter and the test script execution.
-- [Export the load test result](./how-to-export-test-results.md) and analyze the response code and response message of each HTTP request.
-- [Configure and analyze server-side monitoring](./how-to-monitor-server-side-metrics.md) to identify issues with specific Azure application components.
+- [Download the Apache JMeter worker logs](#download-apache-jmeter-worker-logs) to investigate issues with JMeter and the test script execution.
+- [Diagnose failing tests using test results](./how-to-export-test-results.md) and analyze the response code and response message of each HTTP request.
+- [Diagnose failing testing using server-side metrics](./how-to-monitor-server-side-metrics.md) to identify issues with specific Azure application components.
 
 ## Prerequisites  
 
@@ -97,7 +97,7 @@ You can identify errors in your load test in the following ways:
 
 ## Download Apache JMeter worker logs
 
-When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. During the load test, Apache JMeter stores detailed logging in the worker node logs. You can download these JMeter worker logs for each test run in the Azure portal.
+When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. During the load test, Apache JMeter stores detailed logging in the worker node logs. You can download these JMeter worker logs for each test run in the Azure portal. Azure Load Testing generates a worker log for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 
 For example, if there's a problem with your JMeter script, the load test status will be **Failed**. In the worker logs you might find additional information about the cause of the problem.
 
@@ -105,32 +105,27 @@ To download the worker logs for an Azure Load Testing test run, follow these ste
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
-1. Select **Tests** to view the list of tests, and then select your load test.
+1. Select **Tests** to view the list of tests, and then select your load test from the list.
 
     :::image type="content" source="media/how-to-find-download-logs/test-list.png" alt-text="Screenshot that shows the list of load tests for an Azure Load Test resource.":::  
 
-   >[!TIP]
-   > To limit the number of tests, use the search box and the **Time range** filter.
-
 1. Select a test run from the list to view the test run dashboard.
-
-    :::image type="content" source="media/how-to-find-download-logs/test-run.png" alt-text="Screenshot that shows a list of test runs for the selected load test.":::  
 
 1. On the dashboard, select **Download**, and then select **Logs**.
 
+    The browser should now start downloading a zipped folder that contains the JMeter worker node log file for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
+
     :::image type="content" source="media/how-to-find-download-logs/logs.png" alt-text="Screenshot that shows how to download the test log files from the test run details page.":::  
 
-    The browser should now start downloading the JMeter worker node log file *worker.log*.
+1. You can use any zip tool to extract the folder and access the log files.
 
-1. You can use a text editor to open the log file.
+    The *worker.log* file can help you diagnose the root cause of a failing load test. In the screenshot, you can see that the test failed because of a missing file.
 
     :::image type="content" source="media/how-to-find-download-logs/jmeter-log.png" alt-text="Screenshot that shows the JMeter log file content.":::  
 
-    The *worker.log* file can help you diagnose the root cause of a failing load test. In the previous screenshot, you can see that the test failed because a file is missing.
-
 ## Diagnose failing tests using test results
 
-## Use server-side metrics
+## Diagnose failing testing using server-side metrics
 
 ## Next steps
 
