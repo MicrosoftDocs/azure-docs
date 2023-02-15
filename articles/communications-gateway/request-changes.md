@@ -12,7 +12,7 @@ ms.date: 01/08/2023
 
 If you notice problems with Azure Communications Gateway or you need Microsoft to make changes, you can raise a support request (also known as a support ticket). This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. We recommend you have at least a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
+Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
 ## Pre-requisites
 

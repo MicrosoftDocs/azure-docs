@@ -30,7 +30,7 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
 
-When you shorten an existing retention policy, it takes 30 days for Azure Monitor to remove data, to prevent data loss in error configuration, and let you revert it. You can [purge data](#purge-retained-data) immediately when required. 
+When you shorten an existing retention policy, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
 
 ## Configure the default workspace retention policy
 
