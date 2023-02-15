@@ -77,7 +77,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Select **Connect**.
 
-1. Select <kbd>CMD/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> to open the *Severs* window.
+1. Select <kbd>CMD/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> to open the *Servers* window.
 
 1. Select <kbd>CMD/CTRL</kbd> + <kbd>N</kbd> to open a new query window.
 
@@ -210,7 +210,7 @@ Before moving on to the next step, review the following table that explains diff
 | **Database connection** | The database connection string is pulled from an environment variable named `DATABASE_CONNECTION_STRING`. |
 | **API endpoint** | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed through `/data-api/graphql`. |
 | **API Security** | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
-| **Entity model** | Entities are defined according to the document or table names. The setting `entity.<NAME>.source` points to the entity name. Note how the API endpoint name doesn't need to be identical to the table name. |
+| **Entity model** | Entities are what will be exposed as routes in the REST API, or as types in the GraphQL schema. The name, e.g. **People**, is the name that will be exposed while `entities.<NAME>.source` is the database schema and table (or database and collection in Cosmos DB) mapping. Note how the API endpoint name doesn't need to be identical to the table name. |
 | **Entity security** | Entity permissions are defined in `entity.<NAME>.permissions` array. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
 
 With the static web app configured to connect to the database, you can now verify the connection.
