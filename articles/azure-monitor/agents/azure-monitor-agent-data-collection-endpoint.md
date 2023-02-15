@@ -4,7 +4,7 @@ description: Define network settings and enable network isolation for Azure Moni
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 10/14/2022
+ms.date: 12/19/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -23,7 +23,7 @@ Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-
 |------|------|------|---------|--------|--------|------|
 | Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes | - |
 | Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes | westus2.handler.control.monitor.azure.com |
-| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opsinsights.azure.com
+| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
 | Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
 | Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
@@ -47,44 +47,42 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
     > [!NOTE]
-    > Azure Monitor Agent for Linux doesn't support system proxy via environment variables such as `http_proxy` and `https_proxy`.
+    > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above.
 
 1. After you determine the `Settings` and `ProtectedSettings` parameter values, provide these other parameters when you deploy Azure Monitor Agent. Use PowerShell commands, as shown in the following examples:
 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-$settingsString = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
-$protectedSettingsString = @{"proxy" = @{username = "[username]"; password = "[password]"}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
+$protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settingsString -ProtectedSetting $protectedSettingsString
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 ---
@@ -104,11 +102,11 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ## Enable network isolation for Azure Monitor Agent
 
-By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for your agents, you can create [data collection endpoints](../essentials/data-collection-endpoint-overview.md) and add them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
+By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for your agents, create [data collection endpoints](../essentials/data-collection-endpoint-overview.md) and add them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
 
 ### Create a data collection endpoint
 
-To use network isolation, you must create a data collection endpoint for each of your regions so that agents can connect instead of using the public endpoint. For information on how to create a DCE, see [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
+[Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for each of your regions so that agents can connect instead of using the public endpoint. An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
 
 ### Create a private link
 
@@ -132,5 +130,5 @@ Associate the data collection endpoints to the target resources by editing the d
 
 ## Next steps
 
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
-- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).

@@ -47,12 +47,8 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 - Log Analytics
 - Site Recovery
 
-[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation into Azure Monitor described above. 
-
-
-
+[New pricing has been introduced for these services](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), and the OMS bundling is no longer available for new customers. None of the services that were part of OMS have changed, except for the consolidation into Azure Monitor described above. The OMS portal was retired and is no longer available. 
 
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](./logs/oms-portal-transition.md).

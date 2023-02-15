@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
 description: How to use the IoT Central REST API to manage data export in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -34,7 +34,7 @@ Each data export definition can send data to one or more destinations. Create th
 Use the following request to create or update a destination definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
+PUT https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
 * destinationId - Unique ID for the destination.
@@ -53,11 +53,11 @@ The following example shows a request body that creates a blob storage destinati
 The request body has some required fields:
 
 * `displayName`: Display name of the destination.
-* `type`:  Type of destination object which can be one of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
+* `type`:  Type of destination object. One of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
 * `connectionString`: The connection string for accessing the destination resource.
 * `containerName`: For a blob storage destination, the name of the container where data should be written.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -75,7 +75,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a destination from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
+GET https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
 The response to this request looks like the following example:
@@ -96,10 +96,10 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of destinations from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=2022-06-30-preview
+GET https://{your app subdomain}/api/dataExport/destinations?api-version=2022-10-31-preview
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -119,7 +119,7 @@ The response to this request looks like the following example:
             "id": "9742a8d9-c3ca-4d8d-8bc7-357bdc7f39d9",
             "displayName": "Webhook destination",
             "type": "webhook@v1",
-            "url": "http://requestbin.net/r/f7x2i1ug",
+            "url": "https://eofnjsh68jdytan.m.pipedream.net",
             "headerCustomizations": {},
             "status": "error",
         }
@@ -131,10 +131,10 @@ The response to this request looks like the following example:
 ### Patch a destination
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
+PATCH https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
 
 ```json
 {
@@ -163,7 +163,7 @@ The response to this request looks like the following example:
 Use the following request to delete a destination:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
+DELETE https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
 ### Create or update an export definition
@@ -171,7 +171,7 @@ DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destination
 Use the following request to create or update a data export definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=2022-06-30-preview
+PUT https://{your app subdomain}/api/dataExport/exports/{exportId}?api-version=2022-10-31-preview
 ```
 
 The following example shows a request body that creates an export definition for device telemetry:
@@ -203,10 +203,10 @@ The request body has some required fields:
 
 There are some optional fields you can use to add more details to the export.
 
-* `enrichments`: Additional pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
+* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
 * `filter`: Query defining which events from the source should be exported.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -233,7 +233,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an export definition from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=2022-06-30-preview
+GET https://{your app subdomain}/api/dataExport/exports/{exportId}?api-version=2022-10-31-preview
 ```
 
 The response to this request looks like the following example:
@@ -254,10 +254,10 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of export definitions from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=2022-06-30-preview
+GET https://{your app subdomain}/api/dataExport/exports?api-version=2022-10-31-preview
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -303,10 +303,10 @@ The response to this request looks like the following example:
 ### Patch an export definition
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=2022-06-30-preview
+PATCH https://{your app subdomain}/dataExport/exports/{exportId}?api-version=2022-10-31-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
 
 ```json
 {
@@ -353,7 +353,7 @@ The response to this request looks like the following example:
 Use the following request to delete an export definition:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
+DELETE https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
 ## Next steps

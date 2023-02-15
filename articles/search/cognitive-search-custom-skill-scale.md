@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 12/01/2022
 ---
 
 # Efficiently scale out a custom skill

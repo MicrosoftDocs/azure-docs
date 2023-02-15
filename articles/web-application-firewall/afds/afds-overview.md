@@ -51,6 +51,7 @@ WAF customers can choose to run from one of the actions when a request matches a
 - **Block:** The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
 - **Log:**  Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
 - **Redirect:** WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the **Redirect** action will be sent to that URI.
+- **Anomaly score:** This is the default action for Default Rule Set (DRS) 2.0 or later and is not applicable for the Bot Manager ruleset. The total anomaly score is increased incrementally when a rule with this action is matched.
 
 ## WAF rules
 

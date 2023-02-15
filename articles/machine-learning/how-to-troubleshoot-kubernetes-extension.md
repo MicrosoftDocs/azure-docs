@@ -31,25 +31,25 @@ kubectl get events -n azureml --sort-by='.lastTimestamp'
 
 ## Troubleshoot AzureML extension deployment error
 
-### Error: cannot reuse a name that is still in use
-This means the extension name you specified already exists. If the name is used by Azureml extension, you need to wait for about an hour and try again. If the name is used by other helm charts, you need to use another name. Run ```helm list -Aa``` to list all helm charts in your cluster. 
+### Error: can't reuse a name that is still in use
+This error means the extension name you specified already exists. If the name is used by Azureml extension, you need to wait for about an hour and try again. If the name is used by other helm charts, you need to use another name. Run ```helm list -Aa``` to list all helm charts in your cluster. 
 
 ### Error: earlier operation for the helm chart is still in progress
 You need to wait for about an hour and try again after the unknown operation is completed.
 
-### Error: unable to create new content in namespace azureml because it is being terminated
-This happens when an uninstallation operation isn't finished and another installation operation is triggered. You can run ```az k8s-extension show``` command to check the provisioning status of the extension and make sure the extension has been uninstalled before taking other actions.
+### Error: unable to create new content in namespace azureml because it's being terminated
+This error happens when an uninstallation operation isn't finished and another installation operation is triggered. You can run ```az k8s-extension show``` command to check the provisioning status of the extension and make sure the extension has been uninstalled before taking other actions.
 
 ### Error: failed in download the Chart path not found 
-This happens when you specify a wrong extension version. You need to make sure the specified version exists. If you want to use the latest version, you don't need to specify ```--version```  .
+This error happens when you specify a wrong extension version. You need to make sure the specified version exists. If you want to use the latest version, you don't need to specify ```--version```  .
 
-### Error: cannot be imported into the current release: invalid ownership metadata 
-This error means there is a conflict between existing cluster resources and AzureML extension. A full error message could be like this: 
+### Error: can't be imported into the current release: invalid ownership metadata 
+This error means there's a conflict between existing cluster resources and AzureML extension. A full error message could be like the following text: 
 ```
 CustomResourceDefinition "jobs.batch.volcano.sh" in namespace "" exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key "meta.helm.sh/release-name": must be set to "amlarc-extension"; annotation validation error: missing key "meta.helm.sh/release-namespace": must be set to "azureml"
 ```
 
-Follow the steps below to mitigate the issue.
+Use the following steps to mitigate the issue.
 
 * Check who owns the problematic resources and if the resource can be deleted or modified. 
 * If the resource is used only by AzureML extension and can be deleted, you can manually add labels to mitigate the issue. Taking the previous error message as an example, you can run commands as follows,
@@ -59,7 +59,7 @@ Follow the steps below to mitigate the issue.
     kubectl annotate crd jobs.batch.volcano.sh "meta.helm.sh/release-namespace=azureml" "meta.helm.sh/release-name=<extension-name>"
     ``` 
     By setting the labels and annotations to the resource, it means the resource is managed by helm and owned by AzureML extension. 
-* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings) to see if there is a configuration setting to disable the conflict resource. 
+* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings) to see if there's a configuration setting to disable the conflict resource. 
 
 ## HealthCheck of extension
 When the installation failed and didn't hit any of the above error messages, you can use the built-in health check job to make a comprehensive check on the extension. Azureml extension contains a `HealthCheck` job to pre-check your cluster readiness when you try to install, update or delete the extension. The HealthCheck job will output a report, which is saved in a configmap named `arcml-healthcheck` in `azureml` namespace. The error codes and possible solutions for the report are listed in [Error Code of HealthCheck](#error-code-of-healthcheck). 
@@ -74,7 +74,7 @@ The health check is triggered whenever you install, update or delete the extensi
 - If the extension is updated failed, you should look into `pre-upgrade` and `pre-rollback`.
 - If the extension is deleted failed, you should look into `pre-delete`.
 
-When you request support, we recommend that you run the following command below and send the```healthcheck.logs``` file to us, as it can facilitate us to better locate the problem.
+When you request support, we recommend that you run the following command and send the```healthcheck.logs``` file to us, as it can facilitate us to better locate the problem.
 ```bash
 kubectl logs healthcheck -n azureml
 ```
@@ -85,11 +85,11 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 |Error Code |Error Message | Description |
 |--|--|--|
 |E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure the load balancer in your cluster or consider to  set `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
-|E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you have fewer than three nodes. |
+|E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you've fewer than three nodes. |
 |E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, internal load balancer is only supported by AKS. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster.|
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
-|E45002 | PROMETHEUS_CONFLICT | The Prometheus Operator installed is conflict with your existing Prometheus Operator. For more information, refer to [Prometheus operator](#prometheus-operator) |
-|E45003 | BAD_NETWORK_CONNECTIVITY | You need to meet [network-requirements](./how-to-access-azureml-behind-firewall.md#kubernetes-compute).|
+|E45002 | PROMETHEUS_CONFLICT | The Prometheus Operator installed is conflict with your existing Prometheus Operator. For more information, see [Prometheus operator](#prometheus-operator) |
+|E45003 | BAD_NETWORK_CONNECTIVITY | You need to meet [network-requirements](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).|
 |E45004 | AZUREML_FE_ROLE_CONFLICT |AzureML extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install AzureML extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
 |E45005 | AZUREML_FE_DEPLOYMENT_CONFLICT | AzureML extension isn't supported in the [legacy AKS](./how-to-attach-kubernetes-anywhere.md#kubernetescompute-and-legacy-akscompute). To install AzureML extension, you need to [delete the legacy azureml-fe components](v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources).|
 
@@ -140,11 +140,11 @@ In this case, all Prometheus instances will be managed by the existing prometheu
     ```
 
 ### DCGM exporter
-[Dcgm-exporter](https://github.com/NVIDIA/dcgm-exporter) is the official tool recommended by NVIDIA for collecting GPU metrics. We have integrated it into Azureml extension. But, by default, dcgm-exporter is not enabled, and no GPU metrics are collected. You can specify ```installDcgmExporter``` flag to ```true``` to enable it. As it's NVIDIA's official tool, you may already have it installed in your GPU cluster. If so, you can set ```installDcgmExporter```  to ```false``` and follow the steps below to integrate your dcgm-exporter into Azureml extension. Another thing to note is that dcgm-exporter allows user to config which metrics to expose. For Azureml extension, make sure ```DCGM_FI_DEV_GPU_UTIL```, ```DCGM_FI_DEV_FB_FREE``` and ```DCGM_FI_DEV_FB_USED``` metrics are exposed. 
+[Dcgm-exporter](https://github.com/NVIDIA/dcgm-exporter) is the official tool recommended by NVIDIA for collecting GPU metrics. We've integrated it into Azureml extension. But, by default, dcgm-exporter isn't enabled, and no GPU metrics are collected. You can specify ```installDcgmExporter``` flag to ```true``` to enable it. As it's NVIDIA's official tool, you may already have it installed in your GPU cluster. If so, you can set ```installDcgmExporter```  to ```false``` and follow the steps below to integrate your dcgm-exporter into Azureml extension. Another thing to note is that dcgm-exporter allows user to config which metrics to expose. For Azureml extension, make sure ```DCGM_FI_DEV_GPU_UTIL```, ```DCGM_FI_DEV_FB_FREE``` and ```DCGM_FI_DEV_FB_USED``` metrics are exposed. 
 
 1. Make sure you have Aureml extension and dcgm-exporter installed successfully. Dcgm-exporter can be installed by [Dcgm-exporter helm chart](https://github.com/NVIDIA/dcgm-exporter) or [Gpu-operator helm chart](https://github.com/NVIDIA/gpu-operator)
 
-1. Check if there is a service for dcgm-exporter. If it doesn't exist or you don't know how to check, run the command below to create one.
+1. Check if there's a service for dcgm-exporter. If it doesn't exist or you don't know how to check, run the following command to create one.
     ```bash
     cat << EOF | kubectl apply -f -
     apiVersion: v1
@@ -225,6 +225,47 @@ volcano-scheduler.conf: |
         - name: nodeorder
         - name: binpack
 ```
-You need to use the same config settings as above, and disable `job/validate` webhook in the volcano admission, so that AzureML training workloads can perform properly.
+You need to use the same config settings as above, and you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**, so that AzureML training workloads can perform properly.
+
+#### Volcano scheduler integration supporting cluster autoscaler
+As discussed in this [thread](https://github.com/volcano-sh/volcano/issues/2558) , the **gang plugin** is not working well with the cluster autoscaler(CA) and also the node autoscaler in AKS. 
+
+If you use the volcano that comes with the AzureML extension via setting `installVolcano=true`, the extension will have a scheduler config by default, which configures the **gang** plugin to prevent job deadlock. Therefore, the cluster autoscaler(CA) in AKS cluster will not be supported with the volcano installed by extension.
+
+For the case above, if you prefer the AKS cluster autoscaler could work normally, you can configure this `volcanoScheduler.schedulerConfigMap` parameter through updating extension, and specify a custom config of **no gang** volcano scheduler to it, for example:
+
+```yaml
+volcano-scheduler.conf: |
+    actions: "enqueue, allocate, backfill"
+    tiers:
+    - plugins:
+      - name: sla 
+        arguments:
+        sla-waiting-time: 1m
+    - plugins:
+      - name: conformance
+    - plugins:
+        - name: overcommit
+        - name: drf
+        - name: predicates
+        - name: proportion
+        - name: nodeorder
+        - name: binpack
+```
+
+To use this config in your AKS cluster, you need to follow the steps below:  
+1. Create a configmap file with the above config in the azureml namespace. This namespace will generally be created when you install the AzureML extension.
+1. Set `volcanoScheduler.schedulerConfigMap=<configmap name>` in the extension config to apply this configmap. And you need to skip the resource validation when installing the extension by configuring `amloperator.skipResourceValidation=true`. For example:
+    ```azurecli
+    az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config volcanoScheduler.schedulerConfigMap=<configmap name> amloperator.skipResourceValidation=true --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+    ```
+
+> [!NOTE]
+> Since the gang plugin is removed, there's potential that the deadlock happens when volcano schedules the job. 
+> 
+> * To avoid this situation, you can **use same instance type across the jobs**.
+>
+> Note that you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**.
+
 
 

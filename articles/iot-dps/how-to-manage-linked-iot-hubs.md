@@ -3,7 +3,7 @@ title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
 author: kgremban
 ms.author: kgremban
-ms.date: 10/24/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -37,6 +37,12 @@ When you link an IoT hub to your DPS instance, it becomes available to participa
 * For enrollments that don't explicitly set the IoT hubs to apply allocation policy to, a newly linked IoT hub immediately begins participating in allocation.
 
 * For enrollments that do explicitly set the IoT hubs to apply allocation policy to, you'll need to manually or programmatically add the new IoT hub to the enrollment settings for it to participate in allocation.
+
+### Limitations
+
+* There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
+
+* The linked IoT Hub must have [Connect using shared access policies](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md#azure-ad-access-and-shared-access-policies) set to **Allow**.
 
 ### Use the Azure portal to link an IoT hub
 
@@ -140,7 +146,7 @@ DPS also supports deleting linked IoT Hubs from the DPS instance using the [Crea
 
 ## Update keys for linked IoT hubs
 
-It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting in DPS for the linked IoT hub. Note that provisioning to an IoT hub will fail during the interim between updating a key on the IoT hub and updating your DPS instance with the new connections string based on that key.
+It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting in DPS for the linked IoT hub. Note that provisioning to an IoT hub will fail during the interim between updating a key on the IoT hub and updating your DPS instance with the new connections string based on that key. For this reason, we recommend [using the Azuer CLI to update your keys](#use-the-azure-cli-to-update-keys) because you can update the connnection string on the linked hub direcctly. With the Azure portal, you have to delete the IoT hub from your DPS instance and then relink it in order to update the connection string.
 
 ### Use the Azure portal to update keys
 
@@ -214,10 +220,6 @@ To update symmetric keys for a linked IoT hub with Azure CLS:
     ```azurecli
     az iot dps update --name MyExampleDps --set properties.iotHubs[0].connectionString="HostName=MyExampleHub-2.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=NewTokenValue"
     ```
-
-## Limitations
-
-There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
 
 ## Next steps
 

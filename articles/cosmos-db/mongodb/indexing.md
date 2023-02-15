@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
@@ -63,7 +63,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
-:::image type="content" source="/media/indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
+![Add wildcard index in indexing policy editor](./media/indexing/add-wildcard-index.png)
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
@@ -229,7 +229,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 }
 ```
 
-For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
+For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the shard key. The first field in the order should be the shard key.
 
 The following commands create a sharded collection ```coll``` (the shard key is ```university```) with a unique index on the fields `student_id` and `university`:
 
@@ -269,7 +269,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 ### TTL indexes
@@ -378,7 +378,7 @@ Regardless of the value specified for the **Background** index property, index u
 
 There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
 
-When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+When removing indexes and immediately running queries that have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
 
 > [!NOTE]
 > You can [track index progress](#track-index-progress).

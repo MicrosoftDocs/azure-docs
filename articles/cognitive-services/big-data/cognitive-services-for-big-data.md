@@ -44,7 +44,7 @@ Cognitive Services for big data can use resources from any [supported region](ht
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Anomaly Detector](../anomaly-detector/index.yml "Anomaly Detector") | The Anomaly Detector (Preview) service allows you to monitor and detect abnormalities in your time series data.|
+|[Anomaly Detector](../anomaly-detector/index.yml "Anomaly Detector") | The Anomaly Detector service allows you to monitor and detect abnormalities in your time series data.|
 
 ### Language
 

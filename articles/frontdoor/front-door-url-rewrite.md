@@ -1,5 +1,6 @@
 ---
-title: Azure Front Door - URL Rewrite
+title: URL Rewrite
+titleSuffix: Azure Front Door
 description: This article helps you understand how URL rewrites works in Azure Front Door.
 services: front-door
 author: duongau
@@ -40,12 +41,12 @@ You can define the destination path to use in the rewrite. The destination path 
 Preserve unmatched path allows you to append the remaining path after the source pattern to the new path.
 
 For example, if I set **Preserve unmatched path to Yes**.
-* If the incoming request is `www.contoso.com/sub/1.jpg`, the source pattern gets set to `/`, the destination get set to `/foo/`, and the content get served from `/foo/sub/1`.jpg from the origin.
+* If the incoming request is `www.contoso.com/sub/1.jpg`, the source pattern gets set to `/`, the destination gets set to `/foo/`, and the content gets served from `/foo/sub/1.jpg` from the origin.
 
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/`, the content get served from `/foo/image/1.jpg` from the origin.
+* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination gets set to `/foo/`, and the content gets served from `/foo/image/1.jpg` from the origin.
 
 For example, if I set **Preserve unmatched path to No**.
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/2.jpg`, the content will always be served from `/foo/2.jpg` from the origin no matter what paths followed in `wwww.contoso.com/sub/`.
+* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination gets set to `/foo/2.jpg`, and the content will always be served from `/foo/2.jpg` from the origin no matter what paths followed in `wwww.contoso.com/sub/`.
 
 ::: zone-end
 

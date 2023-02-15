@@ -68,5 +68,5 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
- * [Connect from Windows 10 or Windows 7](connect-windows-7-10-2019.md)
- * [Connect from a web browser](connect-web-2019.md)
+ - [Connect from the Windows Desktop client](connect-windows-2019.md)
+ - [Connect from a web browser](connect-web-2019.md)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 09/29/2022
+ms.date: 11/02/2022
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -135,7 +135,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Azure Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
-- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
+- **Recommendation**: Log in to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ### Error code: DF-Cosmos-IdPropertyMissed
 
@@ -194,6 +194,12 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The short data type is not supported in the Azure Cosmos DB instance.
 - **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
+### Error code: DF-CSVWriter-InvalidQuoteSetting 
+
+- **Message**: Job failed while writing data with error: Quote character and escape character cannot be empty if column value contains column delimiter 
+- **Cause**: Both quote characters and escape characters are empty when the column value contains column delimiter. 
+- **Recommendation**: Set your quote character or escape character. 
+
 ### Error code: DF-Delimited-ColumnDelimiterMissed
 
 - **Message**: Column delimiter is required for parse.
@@ -229,6 +235,17 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Key column(s) should be specified for non-insertable operations.
 - **Cause**: Key column(s) are missed for non-insertable operations.
 - **Recommendation**: Specify key column(s) on delta sink to have non-insertable operations.
+
+### Error code: DF-Dynamics-InvalidNullAlternateKeyColumn 
+
+- **Message**: Any column value of alternate Key can't be NULL. 
+- **Cause**: Your alternate key column value can't be null. 
+- **Recommendation**: Confirm that your column value of your alternate key is not NULL. 
+
+### Error code: DF-Dynamics-TooMuchAlternateKey 
+
+- **Cause**: One lookup field with more than one alternate key reference is not valid. 
+- **Recommendation**: Check your schema mapping and confirm that each lookup field has a single alternate key. 
 
 ### Error code: DF-Excel-DifferentSchemaNotSupport
 
@@ -479,6 +496,27 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
 - **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
 
+### Error code: DF-Executor-UnauthorizedStorageAccess 
+
+- **Cause**: You are not permitted to access the storage account either due to missing roles for managed identity/service principal authentication or network firewall settings. 
+- **Recommendation**: When using managed identity/service principal authentication, 
+    1. For source: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Reader** role. 
+    2. For sink: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Contributor** role. <br>
+
+    Also please ensure that the network firewall settings in the storage account are configured correctly, as turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. 
+
+### Error code: DF-Executor-UnreachableStorageAccount 
+
+- **Message**: System is not able to resolve the IP address of the host. Please verify that your host name is correct or check if your DNS server is able to resolve the host to an IP address successfully 
+- **Cause**: Unable to reach the given storage account. 
+- **Recommendation**: Check the name of the storage account and make sure the storage account exists. 
+
+### Error code: DF-Executor-UserError 
+
+- **Message**: Job Failed due to reason: GetjobStatus, Job Failed - com.microsoft.dataflow.issues: DF-MICROSOFT365-CONSENTPENDING 
+- **Cause**: Privileged access approval is needed to copy data. It's a user configuration issue.
+- **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privileged access management (PAM) module.
+
 ### Error code: DF-File-InvalidSparkFolder
 
 - **Message**: Failed to read footer for file.
@@ -602,8 +640,6 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: SQL server configuration error.
 - **Recommendations**: Install a trusted certificate on your SQL server, or change `encrypt` connection string setting to false and `trustServerCertificate` connection string setting to true.
 
-
-
 ### Error code: DF-PGSQL-InvalidCredential
 
 - **Message**: User/password should be specified.
@@ -630,6 +666,17 @@ This section lists common error codes and messages reported by mapping data flow
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | Your context value can't be empty when reading data. | Specify the context. |
     | Your context value can't be empty when browsing object names. | Specify the context. |
+
+### Error code: DF-SAPODP-DataflowSystemError 
+
+- **Recommendation**: Reconfigure the activity and run it again. If the issue persists, you can contact Microsoft support for further assistance. 
+
+### Error code: DF-SAPODP-DataParsingFailed 
+
+- **Cause**: Mostly you have hidden column settings in your SAP table. When you use SAP mapping data flow to read data from SAP server, it returns all the schema (columns, including hidden ones), but returned data do not contain related values. So, data misalignment happened and led to parse value issue or wrong data value issue.  
+- **Recommendation**: There are two recommendations for this issue： 
+    1. Remove hidden settings from the related column(s) through SAP GUI.   
+    2. If you want to keep existed SAP settings unchanged, use hidden feature (manually add DSL property `enableProjection:true` in script) in SAP mapping data flow to filter the hidden column(s) and continue to read data.  
 
 ### Error code: DF-SAPODP-ObjectInvalid
 
@@ -751,7 +798,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-OOM
 
 - **Message**: No more memory available to add rows to an internal table
-- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when we extracting big tables.
+- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when extracting big tables.
 - **Recommendation**: Use SAP CDC connector to do full load directly from your source system, then move delta to SAP Landscape Transformation Replication Server (SLT) after init without delta is released.
 
 ### Error code: DF-SAPODP-SourceNotSupportDelta

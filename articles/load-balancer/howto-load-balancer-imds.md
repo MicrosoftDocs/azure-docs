@@ -8,8 +8,9 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: mbender
-
+ms.custom: template-how-to
 ---
+
 # Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)
 
 ## Prerequisites

@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 01/26/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -39,7 +39,7 @@ For shared premium SSD disks, in addition to cost of the disk's tier, there's an
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Normally, an ultra disk has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two additional throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
+The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
 
 Once you've determined your total provisioned IOPS and total provisioned throughput, you can use them in the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
@@ -72,7 +72,7 @@ Azure shared disks are supported on:
     - [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/)
 
-Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
+Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](https://manpages.ubuntu.com/manpages/kinetic/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
 
 ## Persistent reservation flow
 
@@ -100,9 +100,9 @@ The flow is as follows:
 1. This reservation is enforced on your Azure disk.
 1. All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
 
-### Ultra disks reservation flow
+### Ultra Disk and Premium SSD v2 reservation flow
 
-Ultra disks offer two extra throttles, for a total of four throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Both Ultra disks and Premium SSD v2 managed disks offer two extra throttles, giving each of them a total of four throttles. Due to this, the reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
@@ -112,29 +112,35 @@ Ultra disks offer two extra throttles, for a total of four throttles. Due to thi
 
 With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a P30 is 5000. This value remains whether the disk is shared across 2 VMs or 5 VMs. The disk limits can be reached from a single VM or divided across two or more VMs. 
 
-### Ultra disk performance throttles
+### Ultra Disk and Premium SSD v2 performance throttles
 
-Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two more attributes.
+Both Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
 
 
 |Attribute  |Description  |
 |---------|---------|
-|DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
-|DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
-|DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
-|DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
+|DiskIOPSReadWrite (Read/write disk IOPS)     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
+|DiskMBpsReadWrite (Read/write disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
+|DiskIOPSReadOnly* (Read-only disk IOPS)    |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
+|DiskMBpsReadOnly* (Read-only disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
 
-\* Applies to shared ultra disks only
+\* Applies to shared Ultra Disks and shared Premium SSD v2 managed disks only
 
 The following formulas explain how the performance attributes can be set, since they're user modifiable:
 
-- DiskIOPSReadWrite/DiskIOPSReadOnly: 
-    - IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk
-    - Minimum of 100 IOPS
-    - DiskIOPSReadWrite  + DiskIOPSReadOnly is at least 2 IOPS/GiB
-- DiskMBpsRead    Write/DiskMBpsReadOnly:
-    - The throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk
-    - The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps
+- DiskIOPSReadWrite (Read/write disk IOPS):
+    - Has a baseline minimum IOPS of 100, for disks 100 GiB and smaller.
+        - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+- DiskMBpsReadWrite (Read/write disk throughput)
+    - The minium throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minium MB/s you can set is 1.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+- DiskIOPSReadOnly (Read-only disk IOPS)
+    - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+- DiskMBpsReadOnly (Read-only disk throughput)
+    - The minimum throughput (MB/s) for this attribute is 1. For DiskMBpsReadOnly, the baseline doesn't increase with IOPS.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
 
 #### Examples
 
@@ -158,9 +164,9 @@ The following is an example of a 4-node Linux cluster with a single writer and t
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
 
-##### Ultra pricing
+##### Shared Ultra Disk and Premium SSD v2 pricing
 
-Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There's no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
+Both shared Ultra Disks and shared Premium SSD v2 managed disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There's no extra charge for each additional VM mount. For example, a shared Ultra Disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
 
 ## Next steps
 

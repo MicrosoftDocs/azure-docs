@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 01/24/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
@@ -27,15 +27,14 @@ To learn how to view your account access keys and copy a connection string, see 
 
 ## Store a connection string
 
-Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your connection string:
+Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your account access keys or connection string:
 
+- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](../../key-vault/secrets/about-managed-storage-account-keys.md).
 - You can store your connection string in an environment variable.
-- An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
-- An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](/previous-versions/azure/reference/ee758710(v=azure.100)). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
+- An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 
-Storing your connection string in a configuration file makes it easy to update the connection string to switch between the [Azurite storage emulator](../common/storage-use-azurite.md) and an Azure storage account in the cloud. You only need to edit the connection string to point to your target environment.
-
-You can use the [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) to access your connection string at runtime regardless of where your application is running.
+> [!WARNING]
+> Storing your account access keys or connection string in clear text presents a security risk and is not recommended. Store your account keys in an encrypted format, or migrate your applications to use Azure AD authorization for access to your storage account.
 
 ## Configure a connection string for Azurite
 
@@ -56,7 +55,7 @@ For example, your connection string might look similar to:
 Although Azure Storage supports both HTTP and HTTPS in a connection string, *HTTPS is highly recommended*.
 
 > [!TIP]
-> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
+> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **Security + networking** > **Access keys** in your storage account's settings to see connection strings for both primary and secondary access keys.
 >
 
 ## Create a connection string using a shared access signature
@@ -131,11 +130,16 @@ AccountKey=<account-key>;
 EndpointSuffix=core.chinacloudapi.cn;
 ```
 
-## Parsing a connection string
+## Authorizing access with Shared Key
 
-[!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
+To learn how to authorize access to Azure Storage with the account key or with a connection string, see one of the following articles:
+
+- [Authorize access and connect to Blob Storage with .NET](../blobs/storage-blob-dotnet-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with Java](../blobs/storage-blob-java-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with JavaScript](../blobs/storage-blob-javascript-get-started.md#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with Python](../blobs/storage-blob-python-get-started.md#authorize-access-and-connect-to-blob-storage)
 
 ## Next steps
 
-- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
+- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)

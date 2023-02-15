@@ -67,7 +67,7 @@ After selecting **Save** you'll see an Object ID that has been assigned to your 
 
 The SharePoint indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
 
-+ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the user has access. To support deleted permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
++ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the user has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 8/19/2022
+ms.date: 2/8/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory integrations with authentication and synchronization protocols
+# Azure Active Directory integrations with authentication protocols
 
-Microsoft Azure Active Directory (Azure AD) enables integration with many authentication and synchronization protocols. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods. The synchronization integrations enable you to sync user and group data to Azure AD, and then user Azure AD management capabilities. Some sync patterns also enable automated provisioning.
+Microsoft Azure Active Directory (Azure AD) enables integration with many authentication protocols. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods.
 
 ## Legacy authentication protocols
 
@@ -50,26 +50,6 @@ The following table presents authentication Azure AD integration with legacy aut
 | [Windows Authentication - Kerberos Constrained Delegation](auth-kcd.md)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 
 
- 
-## Synchronization patterns
-
-The following table presents Azure AD integration with synchronization patterns and their capabilities. Select the name of a pattern to see
-
-* A detailed description
-
-* When to use it
-
-* Architectural diagram
-
-* Explanation of system components
-
-* Links for how to implement the integration
 
 
-
-| Synchronization pattern| Directory synchronization| User provisioning |
-| - | - | - |
-| [Directory synchronization](sync-directory.md)| ![check mark](./media/authentication-patterns/check.png)|  |
-| [LDAP Synchronization](sync-ldap.md)| ![check mark](./media/authentication-patterns/check.png)|  |
-| [SCIM synchronization](sync-scim.md)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 

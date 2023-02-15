@@ -3,7 +3,7 @@ title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/04/2022
+ms.date: 11/29/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -41,7 +41,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -53,26 +53,23 @@ The process for installing the extension varies depending on the extension versi
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 3.x.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/3.0.10), version 3.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
-This preview version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 This version also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](../cosmos-db/sql/migrate-dotnet-v3.md), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
 
-This extension version is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview3).
-
-> [!NOTE]
-> Authentication with an identity instead of a secret using the 4.x preview extension is currently only available for Elastic Premium plans.
+This extension version is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 4.x.
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-This preview version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
@@ -80,15 +77,15 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
-This extension version is available from the preview extension bundle v4 by adding the following lines in your `host.json` file:
+This extension version is available from the extension bundle v4 by adding the following lines in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[4.0.0, 5.0.0)"
   }
 }
@@ -110,9 +107,9 @@ You can install this version of the extension in your function app by registerin
 
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
-# [Bundle v4.x (Preview)](#tab/extensionv4)
+# [Bundle v4.x](#tab/extensionv4)
 
-This version of the bundle contains a preview version of the Azure Cosmos DB bindings extension (version 4.x) that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
+This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"   
@@ -173,7 +170,7 @@ To learn more, see [Update your extensions].
 |**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). |
 |**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 ```json
 {

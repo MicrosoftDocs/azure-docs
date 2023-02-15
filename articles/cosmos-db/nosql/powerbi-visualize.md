@@ -122,7 +122,7 @@ To build a Power BI report/dashboard:
 
 10. Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
-11. There are two ways to refresh data: ad hoc and scheduled. Simply click **Refresh Now** to refresh the data. For a scheduled refresh, go to **Settings**, open the **Datasets** tab. Click on **Scheduled Refresh** and set your schedule.
+11. There are two ways to refresh data: ad hoc and scheduled. Simply click **Refresh Now** to refresh the data. Check Power BI documentation for more information about the scheduled refresh option.
                            
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).

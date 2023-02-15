@@ -6,15 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 08/26/2022
-
-ms.author: jricketts
-author: janicericketts
+ms.date: 01/30/2023
+ms.author: billmath
+author: jricketts
 manager: amycolannino
-
 ms.collection: M365-identity-device-management
 ---
-# Migrate from federation to cloud authentication 
+# Migrate from federation to cloud authentication  
 
 In this article, you learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies to other on premises systems as well.
 
@@ -42,7 +40,7 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
-For staged rollout, you need to be a global administrator on your tenant. 
+For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
 To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
 
@@ -76,7 +74,7 @@ Although this deployment changes no other relying parties in your AD FS farm, yo
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -191,6 +189,8 @@ The members in a group are automatically enabled for staged rollout. Nested and 
 The version of SSO that you use is dependent on your device OS and join state.
 
 - **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) and [Azure AD registered devices](../devices/concept-azure-ad-register.md). 
+
+- **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
 - **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
 
@@ -353,21 +353,24 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 >[!IMPORTANT]
 > You don't have to convert all domains at the same time. You might choose to start with a test domain on your production tenant or start with your domain that has the lowest number of users.
 
-**Complete the conversion by using the Azure AD PowerShell module:**
+**Complete the conversion by using the Microsoft Graph PowerShell SDK:**
 
 1. In PowerShell, sign in to Azure AD by using a Global Administrator account.
+   ```powershell
+    Connect-MGGraph -Scopes "Domain.ReadWrite.All", "Directory.AccessAsUser.All"
+    ```
 
 2. To convert the first domain, run the following command:
    ```powershell
-    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
+    Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
+    See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
 
 3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
 
 4. Verify that the domain has been converted to managed by running the following command:
     ```powershell
-    Get-MsolDomain -DomainName <domain name>
+    Get-MgDomainFederationConfiguration -DomainId yourdomain.com
     ```
 ## Complete your migration
 
@@ -402,7 +405,7 @@ To learn how to verify or turn on this feature, see [Sync userPrincipalName upda
 
 We recommend that you roll over the Kerberos decryption key at least every 30 days to align with the way that Active Directory domain members submit password changes. There is no associated device attached to the AZUREADSSO computer account object, so you must perform the rollover manually.
 
-See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso.md).
+See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso-faq.yml#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-).
 
 ### Monitoring and logging
 
@@ -426,6 +429,8 @@ Your support team should understand how to troubleshoot any authentication issue
 
 Migration requires assessing how the application is configured on-premises, and then mapping that configuration to Azure AD.
 
+> [!VIDEO https://www.youtube.com/embed/D0M-N-RQw0I]
+
 If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you'll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
 
 You can move SaaS applications that are currently federated with ADFS to Azure AD. Reconfigure to authenticate with Azure AD either via a built-in connector from the [Azure App gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), or by [registering the application in Azure AD](../develop/quickstart-register-app.md).
@@ -440,6 +445,10 @@ For more information, see –
 If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
 If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
+
+### Remove AD FS
+
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 

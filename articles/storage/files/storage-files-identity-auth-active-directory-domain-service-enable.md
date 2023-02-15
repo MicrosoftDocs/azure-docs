@@ -1,19 +1,20 @@
 ---
 title: Use Azure Active Directory Domain Services (Azure AD DS) to authorize user access to Azure Files over SMB
-description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services (Azure AD DS). Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
+description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services (Azure AD DS). Your domain-joined Windows VMs can then access Azure file shares by using Azure AD credentials.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+recommendations: false
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
+This article focuses on enabling and configuring Azure AD DS for identity-based authentication with Azure file shares.
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the AD source you choose.
 
@@ -22,7 +23,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 > [!NOTE]
 > Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC and AES-256 encryption. We recommend using AES-256.
 >
-> Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
+> Azure Files supports authentication for Azure AD DS with full or partial (scoped) synchronization with Azure AD. For environments with scoped synchronization present, administrators should be aware that Azure Files only honors Azure RBAC role assignments granted to principals that are synchronized. Role assignments granted to identities not synchronized from Azure AD to Azure AD DS will be ignored by the Azure Files service.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -49,10 +50,10 @@ Before you enable Azure AD DS over SMB for Azure file shares, make sure you've c
 
 1.  **Domain-join an Azure VM with Azure AD DS.**
 
-    To access a file share by using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD DS. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md).
+    To access an Azure file share by using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD DS. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md). Azure AD DS authentication over SMB with Azure file shares is supported only on Azure VMs running on OS versions above Windows 7 or Windows Server 2008 R2.
 
     > [!NOTE]
-    > Azure AD DS authentication over SMB with Azure file shares is supported only on Azure VMs running on OS versions above Windows 7 or Windows Server 2008 R2.
+    > Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS. Usually this requires either site-to-site or point-to-site VPN.
 
 1.  **Select or create an Azure file share.**
 
@@ -97,10 +98,10 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
     :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Screenshot of the File shares pane in your storage account, Active directory is highlighted." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
 
-1. Select **Azure Active Directory Domain Services** then switch the toggle to **Enabled**.
+1. Select **Azure Active Directory Domain Services** then enable the feature by ticking the checkbox.
 1. Select **Save**.
 
-    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -151,12 +152,12 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 By default, Azure AD DS authentication uses Kerberos RC4 encryption. We recommend configuring it to use Kerberos AES-256 encryption instead by following these instructions.
 
-The action requires running an operation on the Active Directory domain that's managed by Azure AD DS to reach a domain controller to request a property change to the domain object. The cmdlets below are Windows Server Active Directory PowerShell cmdlets, not Azure PowerShell cmdlets. Because of this, these PowerShell commands must be run from a machine that's domain-joined to the Azure AD DS domain.
+The action requires running an operation on the Active Directory domain that's managed by Azure AD DS to reach a domain controller to request a property change to the domain object. The cmdlets below are Windows Server Active Directory PowerShell cmdlets, not Azure PowerShell cmdlets. Because of this, these PowerShell commands must be run from a client machine that's domain-joined to the Azure AD DS domain.
 
 > [!IMPORTANT]
-> The Windows Server Active Directory PowerShell cmdlets in this section must be run in Windows PowerShell 5.1. PowerShell 7.x and Azure Cloud Shell won't work in this scenario.
+> The Windows Server Active Directory PowerShell cmdlets in this section must be run in Windows PowerShell 5.1 from a client machine that's domain-joined to the Azure AD DS domain. PowerShell 7.x and Azure Cloud Shell won't work in this scenario.
 
-As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), execute the following PowerShell commands.
+Log into the domain-joined client machine as an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions). Open a normal (non-elevated) PowerShell session and execute the following commands.
 
 ```powershell
 # 1. Find the service account in your managed domain that represents the storage account.
@@ -181,9 +182,9 @@ Get-ADUser $userObject -properties KerberosEncryptionType
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You've now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in [Assign share-level permissions to an identity](#assign-share-level-permissions-to-an-identity) and [Configure Windows ACLs](#configure-windows-acls).
-
 ## Next steps
+
+To grant additional users access to your file share, follow the instructions in [Assign share-level permissions](#assign-share-level-permissions) and [Configure Windows ACLs](#configure-windows-acls).
 
 For more information about identity-based authentication for Azure Files, see these resources:
 

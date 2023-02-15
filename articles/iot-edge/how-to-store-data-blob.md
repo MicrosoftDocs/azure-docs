@@ -12,7 +12,7 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
@@ -196,6 +196,8 @@ The following quickstart samples use languages that are also supported by IoT Ed
 You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
 
 1. Download and install Azure Storage Explorer
+
+1. The latest version of Azure Storage Explorer uses a newer storage API version not supported by the blob storage module. Start Azure Storage Explorer. Select the **Edit** menu. Verify the **Target Azure Stack Hub APIs** is selected. If it isn't, select **Target Azure Stack Hub**. Restart Azure Storage Explorer for the change to take effect. This configuration is required for compatibility with your IoT Edge environment.
 
 1. Connect to Azure Storage using a connection string
 
