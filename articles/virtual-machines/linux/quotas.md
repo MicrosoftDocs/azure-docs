@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/31/2018
+ms.date: 02/15/2023
 ms.author: cynthn
 
 ---
@@ -54,6 +54,7 @@ Standard F Family vCPUs                        0      100
 Standard FS Family vCPUs                       0      100
 Standard Storage Managed Disks                 5    10000
 Premium Storage Managed Disks                  5    10000
+...
 ```
 
 ## Reserved VM Instances
