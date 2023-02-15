@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Create and list blob versions in .NET
 
-Blob versioning automatically creates a previous versions of a blob anytime it is modified or deleted. When blob versioning is enabled, then you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
+Blob versioning automatically creates a previous version of a blob anytime it is modified or deleted. When blob versioning is enabled, then you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 For optimal data protection, Microsoft recommends enabling both blob versioning and blob soft delete for your storage account. For more information, see [Blob versioning](versioning-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
 
