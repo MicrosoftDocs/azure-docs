@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/13/2023
+ms.date: 02/15/2023
 ms.author: alkohli
 ---
 
@@ -29,7 +29,7 @@ This release corresponds to the software version:
 This release contains the following bug fixes:
 
 - **Update Azure agent SDK** - Update to SaaS agent SDK enables certificate rotation.
-- **MSRC fixes** - Critical security fixes for MSRC issues listed in CVE-2023-21703.
+- **MSRC fixes** - Critical security fixes for MSRC issues listed in [CVE-2023-21703](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21703).
 
 This release also contains the following updates:
 
