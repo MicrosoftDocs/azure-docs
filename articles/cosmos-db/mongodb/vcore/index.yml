@@ -13,6 +13,7 @@ metadata:
   ms.collection: collection
   author: gahl-levy
   ms.author: gahllevy
+  ms.reviewer: nayakshweta
   ms.date: 02/07/2023
 landingContent:
   - title: Use Azure Cosmos DB for MongoDB (vCore)
