@@ -28,7 +28,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 1. Select **Review + create**, then **Create**.
 
-1. Select your newly-created container registry from the **Resources** section of your Azure portal home page to open it.
+1. Select your new container registry from the **Resources** section of your Azure portal home page to open it.
 
 1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**.
 
