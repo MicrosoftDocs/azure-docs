@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/11/2023
+ms.date: 02/15/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -90,9 +90,6 @@ Create a sample table and seed it with sample data to match the tutorial.
     );
     ```
 
-    > [!NOTE]
-    > The `Id` field is auto-incremented.
-
 1. Run the following script to add data into the *MyTestPeopleTable* table.
 
     ```sql
@@ -138,7 +135,7 @@ The rest this tutorial focuses on working with local files in your static web ap
     git checkout main
     ```
 
-1. Ensure your local version is synchronized with what's on GitHub by synchronizing with the server.
+1. Synchronize your local version with what's on GitHub by using `git pull`.
 
     ```bash
     git pull origin main
@@ -156,9 +153,15 @@ Next, create a configuration file that your static web app uses to interface wit
 
     Make sure to replace `<YOUR_CONNECTION_STRING>` with the connections string value you set aside in a text editor.
 
-1. In the local repository of your static web app, create a new folder named **db-config**.
+1. Use the `swa db init` command to generate a database configuration file.
 
-1. Create a file named **staticwebapp.database.config.json** and paste in the following sample configuration file.
+    ```bash
+    swa db init --database-type mssql
+    ```
+
+    The `init` command creates the *staticwebapp.database.config.json* file in the *swa-db-connections* folder.
+
+1. Paste in this sample into file *staticwebapp.database.config.json* you generated.
 
     ```json
     { 
@@ -207,25 +210,13 @@ Before moving on to the next step, review the following table that explains diff
 
 | Feature | Explanation |
 |---|---|
-| **Database connection** | The database connection string is pulled from an environment variable named `DATABASE_CONNECTION_STRING`. |
-| **API endpoint** | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is exposed through `/data-api/graphql`. |
-| **API Security** | The `runtime.host.cors` settings allow you to define which origins are allowed to make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
-| **Entity model** | Entities are what will be exposed as routes in the REST API, or as types in the GraphQL schema. The name, e.g. **People**, is the name that will be exposed while `entities.<NAME>.source` is the database schema and table (or database and collection in Cosmos DB) mapping. Note how the API endpoint name doesn't need to be identical to the table name. |
-| **Entity security** | Entity permissions are defined in `entity.<NAME>.permissions` array. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
+| **Database connection** | In development, the runtime reads the connection string from an environment variable named `DATABASE_CONNECTION_STRING`. |
+| **API endpoint** | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is available through `/data-api/graphql`. |
+| **API Security** | The `runtime.host.cors` settings allow you to define allowed origins that can make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
+| **Entity model** | Defines the entities exposed via routes in the REST API, or as types in the GraphQL schema. In this case, the name *People*, is the name exposed to the endpoint while `entities.<NAME>.source` is the database schema and table mapping. Notice how the API endpoint name doesn't need to be identical to the table name. |
+| **Entity security** | Permissions rules listed in the `entity.<NAME>.permissions` array control the authorization settings for an entity. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
 
 With the static web app configured to connect to the database, you can now verify the connection.
-
-## Update build configuration
-
-1. From the *.github/workflows* folder, open the workflow YAML file.
-
-1. On a new line after the `output_location` entry, add the following line:
-
-    ```yml
-    data_api_location: "db-config"
-    ```
-
-1. Save and close the file.
 
 ## Start the application locally
 
@@ -248,16 +239,16 @@ Now you can run your website and manipulate data in the database directly.
 1. Start the static web app with the database configuration.
 
     ```bash
-    swa start /. --data-api-location db-config
+    swa start /. --data-api-location swa-db-connections
     ```
 
 ## Manipulate data
 
-The following commands are implemented as framework-agnostic code.
+The following framework-agnostic commands demonstrate how to do full CRUD operations on your database.
 
-To run each command, open the developer tools and paste in each command into the browser's developer console window.
+To run each command, open the browser developer tools and paste in each command into the console window.
 
-### Return all items
+### List all items
 
 Run the following code in the browser's console window to select all items.
 
@@ -620,6 +611,24 @@ The browser's console window now displays a table showing the response from the 
 |---|---|
 | 2 | Dheeraj |
 | 3 | Pedro |
+
+## Deploy your site
+
+To deploy this site to production, you just need to commit the configuration file and push your changes to the server.
+
+1. Commit the configuration changes.
+
+    ```bash
+    git commit -am "Add database configuration"
+    ```
+
+1. Push your changes to the server.
+
+    ```bash
+    git push origin main
+    ```
+
+Now wait for your web app to build, and then send a request to [list all items](#return-all-items) to verify a production connection to the database.
 
 ## Clean up resources
 

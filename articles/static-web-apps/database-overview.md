@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 02/15/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -28,15 +28,18 @@ Features supported by database connections include:
 
 ## Supported databases
 
-The following relational and NoSQL databases are supported:
+The following table shows support for different relational and NoSQL databases.
 
-| Name | Type | Description |
-|---|---|---|
-| [Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale.  |
-| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. |
-| [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition |
-| [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. |
-| [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | Fully managed PostgreSQL database. |
+| Name | Type | Description | REST | GraphQL |
+|---|---|---|---|---|
+| [Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale. | | ✔ |
+| [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. | ✔ | ✔ |
+| [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition | ✔ | ✔ |
+| [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. | ✔ | ✔ |
+| [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | Fully managed PostgreSQL database. | ✔ | ✔ |
+
+> [!NOTE]
+> Azure Cosmos DB does not support REST endpoints.
 
 You can use the following connection types for database access:
 
@@ -45,13 +48,13 @@ You can use the following connection types for database access:
 - System-assigned Managed Identity
 
 > [!NOTE]
-> If you use a connection string to authenticate, use the `env()` function to read a connection string from an environment variable.
+> In development, if you use a connection string to authenticate, use the `env()` function to read a connection string from an environment variable.
 
 ## Endpoint location
 
 Access to data endpoints are available off the `/data-api` path.
 
-The following table shows you how requests are routed to different parts of a static web app:
+The following table shows you how requests route to different parts of a static web app:
 
 | Path | Description |
 |---|---|
