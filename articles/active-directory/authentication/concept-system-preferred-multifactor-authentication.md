@@ -8,7 +8,7 @@ ms.date: 02/15/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: vimrang
+ms.reviewer: msft-poulomi
 ms.collection: M365-identity-device-management
 
 
@@ -21,6 +21,10 @@ Intro - what is system-preferred multifactor authentication?
 ## How does system-preferred multifactor authentication work?
 
 ## Enable system-preferred multifactor authentication
+
+## Known issues
+
+
 
 ## Common questions
 
