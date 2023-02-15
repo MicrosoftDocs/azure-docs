@@ -52,7 +52,7 @@ Resources in these regions can still use federated identity credentials created 
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but have not been tested.
+Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but haven't been tested.
 
 ## Azure Active Directory issuers aren't supported
 
@@ -87,7 +87,7 @@ When you use automation or Azure Resource Manager templates (ARM templates) to c
 
 If federated identity credentials are provisioned in a loop, you can [provision them serially](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources#serial-or-parallel) by setting *"mode": "serial"*.
 
-You can also provision multiple new federated identity credential sequentially using the *dependsOn* property. The following Azure Resource Manager template (ARM template) example creates three new federated identity credentials sequentially on a user-assigned managed identity by using the *dependsOn* property:
+You can also provision multiple new federated identity credentials sequentially using the *dependsOn* property. The following Azure Resource Manager template (ARM template) example creates three new federated identity credentials sequentially on a user-assigned managed identity by using the *dependsOn* property:
 
 ```json
 { 
@@ -162,7 +162,7 @@ You can also provision multiple new federated identity credential sequentially u
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-It is possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
+It's possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
 
 ```json
 { 
@@ -200,7 +200,7 @@ The following error codes may be returned when creating, updating, getting, list
 | HTTP code         | Error message    | Comments    |
 |-------------------|----------------|----------------|
 | 405 | The request format was unexpected: Support for federated identity credentials not enabled. | Federated identity credentials aren't enabled in this region. Refer to “Currently Supported regions”. |
-| 400 | Federated identity credentials must have exactly 1 audience.| Currently, federated identity credentials support a single audience “api://AzureADTokenExchange”.| 
+| 400 | Federated identity credentials must have exactly one audience.| Currently, federated identity credentials support a single audience “api://AzureADTokenExchange”.| 
 | 400 | Federated Identity Credential from HTTP body has empty properties | All federated identity credential properties are mandatory. |
 | 400 | Federated Identity Credential name '{ficName}' is invalid. | Alphanumeric, dash, underscore, no more than 3-120 symbols. First symbol is alphanumeric. |
 | 404 | The parent user-assigned identity doesn't exist. | Check user assigned identity name in federated identity credentials resource path. |
