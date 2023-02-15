@@ -26,7 +26,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
 
    For more information about permissions and how to check access, see [Troubleshoot Azure Native Qumulo Service](qumulo-troubleshoot.md).
 
-1. Create a [delegated subnet](/azure/virtual-network/subnet-delegation-overview) to the Qumulo service:
+1. Create a [delegated subnet](../../virtual-network/subnet-delegation-overview.md) to the Qumulo service:
         
     1. Identify the region where you want to subscribe to the Qumulo service.
     1. Create a new virtual network, or select an existing virtual network in the same region where you want to create the Qumulo service.
@@ -59,7 +59,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    | **Property** | **Description** |
    |--|--|
    |**Subscription** | From the dropdown list, select the Azure subscription where you have **Owner** access. |
-   |**Resource group** | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure resource group overview](/azure/azure-resource-manager/management/overview). |
+   |**Resource group** | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure resource group overview](../../azure-resource-manager/management/overview.md). |
    |**Resource name** | Enter the name of the Qumulo file system. The resource name should have fewer than 15 characters, and it can contain only alphanumeric characters and the hyphen symbol.|
    |**Region** | Select one of the available regions from the dropdown list. |
    |**Availability Zone** | Select an availability zone to pin the Qumulo file system resources to that zone in a region. |
