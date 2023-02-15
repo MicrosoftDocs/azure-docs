@@ -80,6 +80,8 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
       href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
+    - name: Azure compliance offerings
+      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     
 
 
