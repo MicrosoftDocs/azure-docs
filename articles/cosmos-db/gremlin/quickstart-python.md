@@ -169,7 +169,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 After the vertices and edges are inserted, you can now go back to Data Explorer and see the vertices added to the graph, and add more data points.
 
-1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Execute Gremlin Query**. 
+1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-database**, expand **sample-graph**, select **Graph**, and then select **Execute Gremlin Query**. 
 
    :::image type="content" source="./media/quickstart-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Execute Gremlin Query.":::
 
