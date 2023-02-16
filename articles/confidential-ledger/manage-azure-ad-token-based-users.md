@@ -351,8 +351,5 @@ main().catch((err) => {
 
 ## Next steps
 
-
-## Next steps
-
 - [Register an ACL app with Azure AD](register-application.md)
 - [Manage certificate-based users](manage-certificate-based-users.md)
