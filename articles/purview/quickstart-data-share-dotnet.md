@@ -47,8 +47,8 @@ To set up a service principal, follow these instructions:
 1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
 1. [assign the application to these roles:](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 
-  | Azure Storage Account Roles | Microsoft Purview Collection Roles |
-  |:--- |:--- |
+  |User| Azure Storage Account Roles | Microsoft Purview Collection Roles |
+  |:--- |:--- |:--- |
   | **Data Provider** |Owner OR Blob Storage Data Owner|Data Share Contributor|
   | **Data Consumer** |Contributor OR Owner OR Storage Blob Data Contributor OR Blob Storage Data Owner|Data Share Contributor|
 
