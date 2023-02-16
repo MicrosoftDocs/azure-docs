@@ -12,7 +12,8 @@ Event Hubs clusters offer **single-tenant deployments** for customers with the m
 Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase up to 10 CUs for a cluster in the Azure portal. If you need a cluster larger than 10 CU, you can submit an Azure support request to scale up your cluster after its creation. In this quickstart, we'll walk you through creating a 1 CU Event Hubs cluster through the Azure portal.
 
 > [!NOTE]
-> This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+> - The dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
+> - This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 
 ## Prerequisites

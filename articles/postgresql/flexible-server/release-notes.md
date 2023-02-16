@@ -20,7 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.
 *  Support for [extension](concepts-extensions.md) semver with new servers<sup>$</sup> 
 *  Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
-
+*  Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-customer-managed-key-work) feature. 
 ## Release: January 2023
 * General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
 * General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
