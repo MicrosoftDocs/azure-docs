@@ -312,15 +312,15 @@ You can also apply one of several layout algorithms to the model graph from the 
 
 ### Filter and highlight model graph elements
 
-You can filter the types of connections that appear in the Model Graph. Turning off one of the connection types via the switches in this menu will prevent that connection type from displaying in the graph.
+You can filter the types of model references that appear in the Model Graph. Turning off one of the reference types via the switches in this menu will prevent that reference type from displaying in the graph.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-references.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-references.png":::
 
-You can also filter the models and connections that appear in the graph by text, by selecting this **Filter** icon:
+You can also filter the models and references that appear in the graph by text, by selecting this **Filter** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png":::
 
-You can highlight the models and connections that appear in the graph by text, by selecting this **Highlight** icon:
+You can highlight the models and references that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png":::
 

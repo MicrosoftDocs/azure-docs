@@ -47,11 +47,6 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > 
 > The IP addresses may change periodically.
 
-> [!IMPORTANT]
-> When using a compute cluster that is configured for __no public IP address__, you must allow the following traffic:
-> * **Inbound** from source of **VirtualNetwork** and any port source, to destination of **VirtualNetwork**, and destination port of **29876, 29877**.
-> * **Inbound** from source **AzureLoadBalancer** and any port source to destination **VirtualNetwork** and port **44224** destination.
-
 You may also need to allow __outbound__ traffic to Visual Studio Code and non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
 | Host name | Purpose |

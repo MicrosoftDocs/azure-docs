@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperf-fy21q1
+ms.custom: template-concept, contperf-fy21q1
 ms.date: 03/01/2022
 ms.author: mbender
 ---
