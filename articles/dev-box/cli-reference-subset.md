@@ -55,7 +55,7 @@ az devcenter admin gallery create -g demo-rg
 ```azurecli
 az devcenter admin devcenter create -g demo-rg
 -n contoso-devcenter --identity-type UserAssigned
---user-assigned-identity ` "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managedIdentityName}"
+--user-assigned-identity "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managedIdentityName}"
 --location {regionName}
 ```
 
@@ -264,7 +264,7 @@ az devcenter dev dev-box stop
 az devcenter dev dev-box start
 --devcenter {devCenterName}
 --project-name {projectName}
---user-id "me" `
+--user-id "me"
 -n {devBoxName}
 ```
 
