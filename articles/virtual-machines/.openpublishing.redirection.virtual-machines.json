@@ -1601,6 +1601,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/a8-a9-a10-a11-specs.md",
             "redirect_url": "/azure/virtual-machines/linux/sizes-hpc",
             "redirect_document_id": false
