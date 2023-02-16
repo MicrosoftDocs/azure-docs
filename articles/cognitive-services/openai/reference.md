@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI REST API reference
+title: Azure OpenAI Service REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use the Azure OpenAI REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
@@ -14,7 +14,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI REST API reference
+# Azure OpenAI Service REST API reference
 
 This article provides details on the REST API endpoints for the Azure OpenAI Service, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
 
