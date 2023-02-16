@@ -1,11 +1,11 @@
 ---
 title: Recognize Action
 titleSuffix: An Azure Communication Services concept document
-description: Conceptual information about using Media Streaming APIs with Call Automation.
+description: Conceptual information about playing audio in a call using Call Automation and Azure Cognitive Services
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 10/25/2022
+ms.date: 02/15/23
 ms.author: kpunjabi
 ms.custom: private_preview
 ---
