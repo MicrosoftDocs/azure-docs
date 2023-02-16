@@ -222,8 +222,7 @@ To deploy an Azure Spring Apps instance in the virtual network:
 
 1. Verify your specifications, and select **Create**.
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/verify-specifications.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
-
+   :::image type="content" source="./media/spring-cloud-v-net-injection/verify-specifications.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking section of the Review and create tab.":::
 
 #### [CLI](#tab/azure-CLI)
 
