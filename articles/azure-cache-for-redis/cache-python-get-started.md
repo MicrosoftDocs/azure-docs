@@ -79,7 +79,7 @@ print("GET Message returned : " + result.decode("utf-8"))
 result = r.client_list()
 print("CLIENT LIST returned : ")
 for c in result:
-    print("id : " + c['id'] + ", addr : " + c['addr'])
+    print(f"id : {c['id']}, addr : {c['addr']}")
 ```
 
 Run `PythonApplication1.py` with Python. You should see results like the following example:
