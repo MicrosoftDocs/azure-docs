@@ -26,6 +26,8 @@
       - name: Create an instance - ARM template
         displayName: Resource Manager
         href: quickstart-arm-template.md
+      - name: Create an instance - Terraform
+        href: quickstart-terraform.md
 - name: Tutorials
   items:
       - name: 1 - Import your first API
