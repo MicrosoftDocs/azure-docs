@@ -88,21 +88,21 @@ The template already exists.
 
 If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
 
-### Updating or resetting MSI on image templates
+### Reassigning MSI on image templates
 
 #### Error
 
 ```text
-The assigned managed identity cannot be used. Please re-assign an identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts
+The assigned managed identity cannot be used. Please remove the existing one and re-assign a new identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts.
 ```
 
 #### Cause
 
 There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
 
-1. MSI is deleted before the image template is deleted (custom rg scenario) 
-1. MSI credentials URL is lost and therefore can't get credentials for the MSI
-1. Other cases where the assigned MSI doesn't work 
+1. MSI is deleted before the image template is deleted ([staging resource group](/azure/virtual-machines/linux/image-builder-json?#properties-stagingresourcegroup) scenario) 
+1. The Image Builder template uses a customer provided staging resource group
+1. The identity is deleted and attempted to recreate the identity with the same name, but without re-assigning the MSI. Though the resource ids are the same, the underlying service principal has been changed.
 
 
 #### Solution
@@ -112,13 +112,13 @@ Use Azure CLI to reset identity on the image template. Ensure you [update](/azur
 Remove the managed identity from the target image builder template
 
 ```azurecli-interactive
-az image bulider identity remove -g <template rg> -n <template name> -- user-assigned <identity resource id>
+az image builder identity remove -g <template resource group> -n <template name> --user-assigned <identity resource id>
 ```
 
 Re-assign identity to the target image builder template
 
 ```azurecli-interactive
-az image bulider identity assign -g <template rg> -n <template name> -- user-assigned <identity resource id>
+az image builder identity assign -g <template rg> -n <template name> --user-assigned <identity resource id>
 ```
 
 ### The resource operation finished with a terminal provisioning state of "Failed"
