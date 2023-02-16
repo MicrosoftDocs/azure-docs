@@ -23,7 +23,7 @@ You can have multiple Azure AD admin users with Azure Database for PostgreSQL - 
 ## Prerequisites
 
 
-**Configure network requirements
+**Configure network requirements**
 
 Azure AD is a multitenant application. It requires outbound connectivity to perform certain operations, like adding Azure AD admin groups. Additionally, you need network rules for Azure AD connectivity to work, depending on your network topology:
 
