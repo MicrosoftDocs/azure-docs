@@ -106,6 +106,10 @@ This section describes speech translation quotas and limits per Speech resource.
 | Concurrent request limit - base model endpoint | 1 | 100 (default value) |
 | Concurrent request limit - custom endpoint | 1 | 100 (default value) |
 
+### Speaker recognition quotas and limits per resource
+
+Speaker recognition is limited to 20 transactions per second (TPS).
+
 ## Detailed description, quota adjustment, and best practices
 
 Some of the Speech service quotas are adjustable. This section provides additional explanations, best practices, and adjustment instructions. 
