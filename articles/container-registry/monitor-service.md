@@ -56,12 +56,12 @@ The following image shows the options when you enable diagnostic settings for a 
 
 The metrics and logs you can collect are discussed in the following sections.
 
-## Analyzing metrics (preview)
+## Analyzing metrics
 
 You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
 
 > [!TIP]
-> You can also go to the metrics explorer by navigating to your registry in the portal. In the menu, select **Metrics (preview)** under **Monitoring**.
+> You can also go to the metrics explorer by navigating to your registry in the portal. In the menu, select **Metrics** under **Monitoring**.
 
 For a list of the platform metrics collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference metrics](monitor-service-reference.md#metrics)  
 
@@ -183,7 +183,7 @@ The following table lists common and recommended alert rules for Azure Container
 ### Example: Send email alert when registry storage used exceeds a value
 
 1. In the Azure portal, navigate to your registry.
-1. Select **Metrics (preview)** under **Monitoring**.
+1. Select **Metrics** under **Monitoring**.
 1. In the metrics explorer, in **Metric**, select **Storage used**.
 1. Select **New alert rule**.
 1. In **Scope**, confirm the registry resource for which you want to create an alert rule.
