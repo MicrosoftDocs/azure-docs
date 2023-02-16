@@ -21,13 +21,38 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 
 ## Review the Bicep file
 
-The Bicep file used in this tutorial is:
-
-:::code language="bicep" source="~/media-services-video-indexer/Deploy-Samples/ArmTemplates/avam.template.bicep":::
-
 One Azure resource is defined in the bicep file:
 
-* [Microsoft.videoIndexer/accounts](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep)
+```bicep
+param location string = resourceGroup().location
+
+@description('The name of the AVAM resource')
+param accountName string
+
+@description('The managed identity Resource Id used to grant access to the Azure Media Service (AMS) account')
+param managedIdentityResourceId string
+
+@description('The media Service Account Id. The Account needs to be created prior to the creation of this template')
+param mediaServiceAccountResourceId string
+
+@description('The AVAM Template')
+resource avamAccount 'Microsoft.VideoIndexer/accounts@2022-08-01' = {
+  name: accountName
+  location: location
+  identity:{
+    type: 'UserAssigned'
+    userAssignedIdentities : {
+      '${managedIdentityResourceId}' : {}
+    }
+  }
+  properties: {
+    mediaServices: {
+      resourceId: mediaServiceAccountResourceId
+      userAssignedIdentity: managedIdentityResourceId
+    }
+  }
+}
+```
 
 Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) for more updated Bicep samples.
 
