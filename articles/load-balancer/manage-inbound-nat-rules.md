@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/15/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
+
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal
 
 An inbound NAT rule is used to forward traffic from a load balancer frontend to one or more instances in the backend pool. 
@@ -26,7 +27,7 @@ In this article, you'll learn how to add and remove an inbound NAT rule for both
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

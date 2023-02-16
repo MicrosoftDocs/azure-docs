@@ -6,6 +6,7 @@ description: Explains the annotation syntax and how to reference inputs and outp
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---
@@ -19,7 +20,7 @@ Paths to an annotation are specified in the "context" and "source" properties of
 
 :::image type="content" source="media/cognitive-search-annotations-syntax/content-source-annotation-path.png" alt-text="Screenshot of a skillset definition with context and source elements highlighted.":::
 
-The example in the screenshot illustrates the path for an item in a Cosmos DB collection.
+The example in the screenshot illustrates the path for an item in an Azure Cosmos DB collection.
 
 + "context" path is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field.
 
@@ -44,7 +45,7 @@ All paths start with `/document`. An enriched document is created in the "docume
 The following list includes several common examples:
 
 + `/document` is the root node and indicates an entire blob in Azure Storage, or a row in a SQL table.
-+ `/document/{key}` is the syntax for a document or item in a Cosmos DB collection, where `{key}` is the actual key, such as `/document/HotelId` in the previous example.
++ `/document/{key}` is the syntax for a document or item in an Azure Cosmos DB collection, where `{key}` is the actual key, such as `/document/HotelId` in the previous example.
 + `/document/content` specifies the "content" property of a JSON blob. 
 + `/document/{field}` is the syntax for an operation performed on a specific field, such as translating the `/document/Description` field, seen in the previous example.
 + `/document/pages/*` or `/document/sentences/*` become the context if you're breaking a large document into smaller chunks for processing. If "context" is `/document/pages/*`, the skill executes once over each page in the document. Because there might be more than one page or sentence, you'll append `/*` to catch them all.

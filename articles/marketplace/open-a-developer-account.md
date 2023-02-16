@@ -38,7 +38,7 @@ We’ll verify this information during the account creation process.
 You can create an account in one of two ways:
 
 - If you're new to Partner Center and don't have a Microsoft Network Account, [create an account using the Partner Center enrollment page](#create-an-account-using-the-partner-center-enrollment-page).
-- If you're already enrolled in the Microsoft Partner Network, [create an account directly from Partner Center using existing Microsoft Partner Center enrollments](#create-an-account-using-an-existing-partner-center-enrollment).
+- If you're already enrolled in the Microsoft Cloud Partner Program, [create an account directly from Partner Center using existing Microsoft Partner Center enrollments](#create-an-account-using-an-existing-partner-center-enrollment).
 
 ### Create an account using the Partner Center enrollment page
 If you're new to Partner Center, follow the instructions in this section to create your account. 

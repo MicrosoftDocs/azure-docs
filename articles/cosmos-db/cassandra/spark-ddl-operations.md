@@ -1,24 +1,25 @@
 ---
-title: DDL operations in Azure Cosmos DB Cassandra API from Spark
-description: This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
+title: DDL operations in Azure Cosmos DB for Apache Cassandra from Spark
+description: This article details keyspace and table DDL operations against Azure Cosmos DB for Apache Cassandra from Spark.
 author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
 ms.devlang: scala
+ms.custom: ignite-2022
 ---
 
-# DDL operations in Azure Cosmos DB Cassandra API from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# DDL operations in Azure Cosmos DB for Apache Cassandra from Spark
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
+This article details keyspace and table DDL operations against Azure Cosmos DB for Apache Cassandra from Spark.
 
 ## Spark context
 
- The connector for Cassandra API requires the Cassandra connection details to be initialized as part of the spark context. When you launch a notebook, the spark context is already initialized, and it isn't advisable to stop and reinitialize it. One solution is to add the Cassandra API instance configuration at a cluster level, in the cluster spark configuration. It's one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
+ The connector for API for Cassandra requires the Cassandra connection details to be initialized as part of the spark context. When you launch a notebook, the spark context is already initialized, and it isn't advisable to stop and reinitialize it. One solution is to add the API for Cassandra instance configuration at a cluster level, in the cluster spark configuration. It's one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -37,7 +38,7 @@ This article details keyspace and table DDL operations against Azure Cosmos DB C
   spark.cassandra.connection.keep_alive_ms  600000000  
   ```
 
-## Cassandra API-related configuration 
+## API for Cassandra-related configuration 
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -51,7 +52,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 ```
 
 > [!NOTE]
-> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.x, you do not need to install the Azure Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
 
 > [!WARNING]
 > The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.1**. Later versions of Spark and/or the Cassandra connector may not function as expected.

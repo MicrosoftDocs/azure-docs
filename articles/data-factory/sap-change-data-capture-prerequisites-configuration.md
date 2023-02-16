@@ -1,35 +1,31 @@
 ---
-title: Prerequisites and setup for the SAP CDC connector (preview)
+title: Prerequisites and setup for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: Learn about the prerequisites and setup for the SAP CDC connector (preview) in Azure Data Factory.
+description: Learn about the prerequisites and setup for the SAP CDC connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 11/17/2022
 ms.author: ulrichchrist
 ---
 
-# Prerequisites and setup for the SAP CDC connector (preview)
+# Prerequisites and setup for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn about the prerequisites for the SAP CDC connector (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
+Learn about the prerequisites for the SAP CDC connector in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 
 ## Prerequisites
 
-To preview the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
+To use the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
 
-- In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
-- Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, and triggers.
-- Set up a self-hosted integration runtime to use for the connector.
-- Set up an SAP CDC (preview) linked service.
-- Set up the Data Factory copy activity with an SAP CDC (preview) source dataset.
-- Debug Data Factory copy activity issues by sending self-hosted integration runtime logs to Microsoft.
-- Be able to run an SAP data replication pipeline frequently.
-- Be able to recover a failed SAP data replication pipeline run.
-- Be familiar with monitoring data extractions on SAP systems.
+- [Set up a self-hosted integration runtime for the SAP CDC connector](sap-change-data-capture-shir-preparation.md).
+- [Set up an SAP CDC linked service](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-a-linked-service).
+- [Debug issues with the SAP CDC connector by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md) to Microsoft.
+- Be familiar with [monitoring data extractions on SAP systems](sap-change-data-capture-management.md#monitor-data-extractions-on-sap-systems).
 
 ## Set up SAP systems to use the SAP ODP framework
 
@@ -58,17 +54,7 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 - Ensure that DataSources are activated on your SAP source systems. This requirement applies only to DataSources that are delivered by SAP or its partners. DataSources that are created by customers are automatically activated. If DataSources have been or are being extracted by SAP BW or BW/4HANA, the DataSources have already been activated. For more information about DataSources and their activations, see [Installing BW Content DataSources](https://help.sap.com/saphelp_nw73/helpdata/en/4a/1be8b7aece044fe10000000a421937/frameset.htm).
 
-- Make sure that DataSources are released for extractions via ODP. This requirement applies only to DataSources that customers create. DataSources that are delivered by SAP or its partners are automatically released. For more information, see the following SAP support notes:
-
-  - [1560241 - To release DataSources for ODP API](https://launchpad.support.sap.com/#/notes/1560241)
-  
-    Combine this task with running the following programs:
-
-    - RODPS_OS_EXPOSE to release DataSources for external use
-
-    - BS_ANLY_DS_RELEASE_ODP to release BW extractors for the ODP API
-
-  - [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584) for a list of all SAP-delivered DataSources (more than 7,400) that have been released
+- Make sure that DataSources are released for extraction via ODP. This requirement applies to DataSources that customers create as well as DataSources created by SAP in older releases of SAP ECC. For more information, see the following SAP support note [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584).
 
 ### Set up the SAP Landscape Transformation Replication Server
 
@@ -86,7 +72,7 @@ SAP Landscape Transformation Replication Server (SLT) is a database trigger-enab
 
       1. In **Scenario for RFC Communication**, select **Operational Data Provisioning (ODP)**.
 
-      1. In **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT-<your queue alias>`.
+      1. In **Queue Alias**, enter the queue alias to use to select the context of your data extractions via ODP in Data Factory. Use the format  `SLT~<your queue alias>`.
 
    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-slt-configurations.png" alt-text="Screenshot of the SAP SLT configuration dialog.":::
 

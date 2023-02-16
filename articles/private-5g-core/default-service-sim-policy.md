@@ -1,6 +1,6 @@
 ---
 title: Default service and SIM policy
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: Information on the default service and SIM policy that can be created as part of deploying a private mobile network.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Default service and SIM policy
 
-You're given the option of creating a default service and SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
+You're given the option of creating a default service and SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
 
 - The default service allows all traffic in both directions. 
 - The default SIM policy is automatically assigned to all SIMs you provision as part of creating the private mobile network, and applies the default service to these SIMs. 
@@ -72,11 +72,11 @@ The following tables provide the settings for the default SIM policy and its ass
 |The default 5G QoS identifier (5QI) or QoS class identifier (QCI) value for this data network. The 5QI or QCI identifies a set of 5G or 4G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
 |The default QoS Flow Allocation and Retention Policy (ARP) priority level for this data network. Flows with a higher ARP priority level preempt those with a lower ARP priority level.      | *1*        |
 |The default QoS Flow preemption capability for QoS Flows on this data network. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level.     | *May not preempt*        |
-|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptable*        |
+|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptible*        |
 
 ## Next steps
 
 Once you've decided whether the default service and SIM policy are suitable, you can start deploying your private mobile network. 
 
 - [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md)
-- [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
+- [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)

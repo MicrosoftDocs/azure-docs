@@ -1,8 +1,8 @@
 ---
 title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator | Microsoft Docs'
 description: Follow a Contoso Virtual Vacuum example to implement your own component enumerator by using proxy update.
-author: valls
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 08/25/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
@@ -72,9 +72,9 @@ Here are the responsibilities of each part of the proxy update flow:
 
 - **Child steps handler**
 
-  - Iterate through a list of component instances that are compatible with the child update content. For more information, see [Steps handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler).
+  - Iterate through a list of component instances that are compatible with the child update content. For more information, see [Steps handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers).
 
-In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom handler that invokes any installer needed for an over-the-air update. For more information, see [Implement a custom update content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
+In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/inc/aduc/content_handler.hpp) or implement a custom handler that invokes any installer needed for an over-the-air update. For more information, see [Implement a custom update content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
 
 ## Virtual Vacuum components
 
@@ -480,8 +480,8 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 The example in this article used C. To explore C++ example source codes, see:
 
-- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/CMakeLists.txt)
-- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/contoso-component-enumerator.cpp)
+- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/CMakeLists.txt)
+- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/contoso_component_enumerator.cpp)
 - [inc/aduc/component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
 
-For various sample updates for components connected to the Contoso Virtual Vacuum device, see [Proxy update demo](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/README.md).
+For various sample updates for components connected to the Contoso Virtual Vacuum device, see [Proxy update demo](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/demo/README.md).

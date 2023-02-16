@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,6 +71,7 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
 | [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
 | [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
+| [Configure cross-tenant synchronization (preview)](../multi-tenant-organizations/cross-tenant-synchronization-configure.md) | For multi-tenant organization scenarios, enable users to collaborate across tenants. (Currently in preview.) | Azure AD Premium P1 |
 
 ## Phase 3: Manage applications
 
@@ -88,7 +89,7 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
-| [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day-to-day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from approvers. | Azure AD Premium P2 |
+| [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day-to-day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, provide a business justification, or request approval from approvers. | Azure AD Premium P2 |
 | [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
 | [Implement dynamic group membership policies](../enterprise-users/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. | Azure AD Premium P1 |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. | Azure AD Premium P1 |

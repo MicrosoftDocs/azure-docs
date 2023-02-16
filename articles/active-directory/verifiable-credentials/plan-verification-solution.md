@@ -16,6 +16,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 Microsoft’s Microsoft Entra Verified ID (Azure AD VC) service enables you to trust proofs of user identity without expanding your trust boundary. With Azure AD VC, you create accounts or federate with another identity provider. When a solution implements a verification exchange using verifiable credentials, it enables applications to request credentials that aren't bound to a specific domain. This approach makes it easier to request and verify credentials at scale.
 
 If you haven’t already, we suggest you review the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md). You may also want to review [Plan your Microsoft Entra Verified ID issuance solution](plan-issuance-solution.md).

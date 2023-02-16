@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
@@ -23,7 +23,7 @@ Create a Language resource with following details.
 |Azure subscription| **Your Azure subscription**|
 |Azure resource group| **Your Azure resource group**|
 |Azure resource name| **Your Azure resource name**|
-|Location | Learn more about [supported regions](../service-limits.md#regional-support).        |
+|Location | Learn more about [supported regions](../service-limits.md#regional-availability).        |
 |Pricing tier     | Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).        |
 
 > [!IMPORTANT]

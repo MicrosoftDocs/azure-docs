@@ -12,13 +12,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 04/08/2019
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Upgrade from a previous version to the latest
+
+[!INCLUDE [Choose cloud sync](../../../includes/choose-cloud-sync.md)]
+
 This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release. Microsoft recommends using the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change or upgrade from older 1.x versions.
 
 >[!NOTE]
@@ -49,7 +52,7 @@ This method is preferred when you have a single server and less than about 100,0
 
 ![In-place upgrade](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
 
-If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](how-to-connect-sync-best-practices-changing-default-configuration.md). If you already changed the default sync rules, please see how to [Fix modified default rules in Azure AD Connect](/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration), before starting the upgrade process.
+If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](how-to-connect-sync-best-practices-changing-default-configuration.md). If you already changed the default sync rules, please see how to [Fix modified default rules in Azure AD Connect](./how-to-connect-sync-best-practices-changing-default-configuration.md), before starting the upgrade process.
 
 During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed after upgrade completes. To defer such activities, refer to section [How to defer full synchronization after upgrade](#how-to-defer-full-synchronization-after-upgrade).
 
@@ -87,7 +90,7 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 > It's important to fully decommission old Azure AD Connect servers as these may cause synchronization issues, difficult to troubleshoot, when an old sync server is left on the network or is powered up again later by mistake. Such “rogue” servers tend to overwrite Azure AD data with its old information because, they may no longer be able to access on-premises Active Directory (for example, when the computer account is expired, the connector account password has changed, etcetera), but can still connect to Azure AD and cause attribute values to continually revert in every sync cycle (for example, every 30 minutes). To fully decommission an Azure AD Connect server, make sure you completely uninstall the product and its components or permanently delete the server if it is a virtual machine.
 
 ### Move a custom configuration from the active server to the staging server
-If you have made configuration changes to the active server, you need to make sure that the same changes are applied to the new staging server. To help with this move, you can use the feature for [exporting and importing synchronization settings](/azure/active-directory/hybrid/how-to-connect-import-export-config). With this feature you can deploy a new staging server in a few steps, with the exact same settings as another Azure AD Connect server in your network.
+If you have made configuration changes to the active server, you need to make sure that the same changes are applied to the new staging server. To help with this move, you can use the feature for [exporting and importing synchronization settings](./how-to-connect-import-export-config.md). With this feature you can deploy a new staging server in a few steps, with the exact same settings as another Azure AD Connect server in your network.
 
 For individual custom sync rules that you have created, you can move them by using PowerShell. If you must apply other changes the same way on both systems, and you cannot migrate the changes, then you might have to manually do the following configurations on both servers:
 

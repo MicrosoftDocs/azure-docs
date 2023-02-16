@@ -18,7 +18,7 @@ To call the Speech service by using the Speech SDK, you need to create a [`Speec
 Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 ```
 
 You can initialize `SpeechConfig` in a few other ways:
@@ -44,7 +44,7 @@ To recognize speech from an audio file, create an `AudioConfig` instance by usin
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
 function fromFile() {
     let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
@@ -69,7 +69,7 @@ For many use cases, your audio data will likely come from blob storage. Or it wi
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
 function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
@@ -189,7 +189,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
 
 ## Use a custom endpoint
 

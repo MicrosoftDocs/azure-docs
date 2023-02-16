@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: xunwan
 author: xunwan
 ms.reviewer: larryfr
-ms.date: 05/24/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 
 # Customer intent: As an administrator, I need to administrate data access and set up authentication method for data scientists.
 ---
@@ -44,6 +45,7 @@ In general, data access from studio involves the following checks:
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
 * What operation is being performed?
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
+    - Archive operation on data assets in the Studio requires the following RBAC operation: Microsoft.MachineLearningServices/workspaces/datasets/registered/delete
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
 * Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
     - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
@@ -68,7 +70,7 @@ The following table lists what identities should be used for specific scenarios:
 Data access is complex and it's important to recognize that there are many pieces to it. For example, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you're directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Studio relies on the workspace to access data on your behalf.
 
 > [!TIP]
-> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, *user* identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
+> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, *user* identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Setup authentication between AzureML and other services](how-to-identity-based-service-authentication.md).
 
 ## Azure Storage Account
 

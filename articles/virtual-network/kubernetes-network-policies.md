@@ -1,22 +1,15 @@
 ---
-title: Azure Kubernetes network policies | Microsoft Docs
+title: Azure Kubernetes network policies
 description: Learn about Kubernetes network policies to secure your Kubernetes cluster.
 services: virtual-network
-documentationcenter: na
-author: aanandr
+author: asudbring
 manager: NarayanAnnamalai
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 9/25/2018
-ms.author: aanandr
-ms.custom: 
-
+ms.author: allensu
 ---
 
 # Azure Kubernetes Network Policies 
@@ -26,7 +19,7 @@ Network Policies provides micro-segmentation for pods just like Network Security
 
 ![Kubernetes network policies overview](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
 
-Azure NPM implementation works with the Azure CNI that provides VNet integration for containers. NPM is supported only on Linux today. The implementation enforces traffic filtering by configuring allow and deny IP rules in Linux IPTables based on the defined policies. These rules are grouped together using Linux IPSets.
+Azure NPM implementation works with the Azure CNI that provides VNet integration for containers. NPM is supported on Linux and Windows Server 2022. The implementation enforces traffic filtering by configuring allow and deny IP rules based on the defined policies in Linux IPTables or Host Network Service(HNS) ACLPolicies for Windows Server 2022.
 
 ## Planning security for your Kubernetes cluster
 When implementing security for your cluster, use network security groups (NSGs) to filter traffic entering and leaving your cluster subnet (North-South traffic). Use Azure NPM for traffic between pods in your cluster (East-West traffic).

@@ -7,12 +7,17 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 02/09/2023
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Managed identities for Form Recognizer
+
+:::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
@@ -24,6 +29,7 @@ Managed identities for Azure resources are service principals that create an Azu
 
 > [!TIP]
 > Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. Managed identities are a safer way to grant access to data without having credentials in your code.
+
 
 ## Private storage account access
 
@@ -37,13 +43,13 @@ Managed identities for Azure resources are service principals that create an Azu
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You'll create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You also need to create containers to store and organize your blob data within your storage account.
 
   * If your storage account is behind a firewall, **you must enable the following configuration**: </br></br>
 
@@ -64,9 +70,9 @@ There are two types of managed identity: **system-assigned** and **user-assigned
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
-* The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+* The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity is deleted as well.
 
-In the following steps, we'll enable a system-assigned managed identity and grant Form Recognizer limited access to your Azure blob storage account.
+In the following steps, we enable a system-assigned managed identity and grant Form Recognizer limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity
 
@@ -92,7 +98,7 @@ You need to grant Form Recognizer access to your storage account before it can c
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
 
-1. An Azure role assignments page will open. Choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
+1. On the Azure role assignments page that opens, choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
 
     :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 

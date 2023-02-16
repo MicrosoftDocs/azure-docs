@@ -32,7 +32,7 @@ This article introduces you to the architecture of the Azure IoT device SDK for 
 
 ## SDK architecture
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://github.com/Azure/azure-iot-sdk-c/).
 
 The latest version of the libraries can be found in the **main** branch of the repository:
 
@@ -72,7 +72,7 @@ There are several open-source tools to help you manage your IoT hub.
 
 * A Windows application called [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
-* A cross-platform Visual Studio Code extension called [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* A cross-platform Visual Studio Code extension called [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 * A cross-platform Python CLI called [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 

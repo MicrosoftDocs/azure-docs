@@ -8,7 +8,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
@@ -16,12 +16,6 @@ ms.date: 02/20/2020
 # Troubleshoot common Azure Database Migration Service issues and errors
 
 This article describes some common issues and errors that Azure Database Migration Service users can come across. The article also includes information about how to resolve these issues and errors.
-
-> [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
->
 
 ## Migration activity in queued state
 
@@ -87,7 +81,7 @@ When you try to connect to source in the Azure Database Migration service projec
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](./tutorial-sql-server-to-azure-sql.md) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Azure Cosmos DB endpoint)<br><br><br><br><br> | [Enable](./tutorial-sql-server-to-azure-sql.md) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## Lock wait timeout error when migrating a MySQL database to Azure DB for MySQL
 

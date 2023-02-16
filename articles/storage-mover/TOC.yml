@@ -41,6 +41,9 @@ items:
   expanded: true
 - name: Resources
   items:
+  - name: Collect a support bundle
+    href: troubleshooting.md
   - name: Release notes
     href: release-notes.md
+
   

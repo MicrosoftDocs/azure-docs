@@ -4,7 +4,8 @@ description: How to create a role/policy in the Remediation dashboard in Permiss
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -22,6 +23,9 @@ This article describes how you can use the **Remediation** dashboard in Permissi
 > Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Create a policy for AWS
+
+> [!NOTE]
+> For information on AWS service quotas, and to request an AWS service quota increase, visit [the AWS documentation](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
 
 1. On the Entra home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.

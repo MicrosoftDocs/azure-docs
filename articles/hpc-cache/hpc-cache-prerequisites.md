@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 12/30/2022
 ms.author: v-erinkelly
 ---
 
@@ -147,6 +147,12 @@ A successful connection gives this response:
 ```bash
 OCSP Response Status: successful (0x0)
 ```
+
+### Event server access
+
+Azure HPC Cache uses Azure event server endpoints to monitor cache health and send diagnostic information.
+
+Make sure that the cache can securely access hosts in the domain events.data.microsoft.com - that is, open TCP port 443 for traffic to `*.events.data.microsoft.com`.
 
 ## Permissions
 

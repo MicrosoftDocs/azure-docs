@@ -3,7 +3,7 @@ title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 09/27/2022
 author: palma21
 ms.author: jpalma
 
@@ -11,9 +11,10 @@ ms.author: jpalma
 
 # Access and identity options for Azure Kubernetes Service (AKS)
 
-You can authenticate, authorize, secure, and control access to Kubernetes clusters in a variety of ways. 
-* Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need. 
-* With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure via Azure Active Directory and Azure RBAC. 
+You can authenticate, authorize, secure, and control access to Kubernetes clusters in a variety of ways:
+
+* Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need.
+* With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure using Azure Active Directory and Azure RBAC.
 
 Kubernetes RBAC and AKS help you secure your cluster access and provide only the minimum required permissions to developers and operators.
 
@@ -22,6 +23,7 @@ This article introduces the core concepts that help you authenticate and assign 
 ## Kubernetes RBAC
 
 Kubernetes RBAC provides granular filtering of user actions. With this control mechanism:
+
 * You assign users or user groups permission to create and modify resources or view logs from running application workloads. 
 * You can scope permissions to a single namespace or across the entire AKS cluster. 
 * You create *roles* to define permissions, and then assign those roles to users with *role bindings*.
@@ -31,7 +33,8 @@ For more information, see [Using Kubernetes RBAC authorization][kubernetes-rbac]
 ### Roles and ClusterRoles
 
 #### Roles
-Before assigning permissions to users with Kubernetes RBAC, you'll define user permissions as a *Role*. Grant permissions within a namespace using roles. 
+
+Before assigning permissions to users with Kubernetes RBAC, you'll define user permissions as a *Role*. Grant permissions within a namespace using roles.
 
 > [!NOTE]
 > Kubernetes roles *grant* permissions; they don't *deny* permissions.
@@ -82,7 +85,8 @@ With Azure RBAC, you create a *role definition* that outlines the permissions to
 
 For more information, see [What is Azure role-based access control (Azure RBAC)?][azure-rbac]
 
-There are two levels of access needed to fully operate an AKS cluster: 
+There are two levels of access needed to fully operate an AKS cluster:
+
 * [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). 
   * Control scaling or upgrading your cluster using the AKS APIs.
   * Pull your `kubeconfig`.
@@ -178,6 +182,7 @@ The following permissions are needed by the identity creating and operating the 
 > | `Microsoft.Network/virtualNetworks/subnets/join/action` | Required to configure the Network Security Group for the subnet when using a custom VNET.|
 > | `Microsoft.Network/publicIPAddresses/join/action` <br/> `Microsoft.Network/publicIPPrefixes/join/action` | Required to configure the outbound public IPs on the Standard Load Balancer. |
 > | `Microsoft.OperationalInsights/workspaces/sharedkeys/read` <br/> `Microsoft.OperationalInsights/workspaces/read` <br/> `Microsoft.OperationsManagement/solutions/write` <br/> `Microsoft.OperationsManagement/solutions/read` <br/> `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` | Required to create and update Log Analytics workspaces and Azure monitoring for containers. |
+> | `Microsoft.Network/virtualNetworks/joinLoadBalancer/action` | Required to configure the IP-based Load Balancer Backend Pools. |
 
 ### AKS cluster identity permissions
 
@@ -227,19 +232,22 @@ By default Node Access is not required for AKS.  The following access is needed 
 
 | Access | Reason |
 |---|---|
-| `kubelet` | Required for customer to grant MSI access to ACR. |
+| `kubelet` | Required to grant MSI access to ACR. |
 | `http app routing` | Required for write permission to "random name".aksapp.io. |
-| `container insights` | Required for customer to grant permission to the Log Analytics workspace. |
+| `container insights` | Required to grant permission to the Log Analytics workspace. |
 
 ## Summary
 
 View the table for a quick summary of how users can authenticate to Kubernetes when Azure AD integration is enabled. In all cases, the user's sequence of commands is:
+
 1. Run `az login` to authenticate to Azure.
 1. Run `az aks get-credentials` to download credentials for the cluster into `.kube/config`.
-1. Run `kubectl` commands. 
+1. Run `kubectl` commands.
+
    * The first command may trigger browser-based authentication to authenticate to the cluster, as described in the following table.
 
 In the Azure portal, you can find:
+
 * The *Role Grant* (Azure RBAC role grant) referred to in the second column is shown on the **Access Control** tab. 
 * The Cluster Admin Azure AD Group is shown on the **Configuration** tab.
   * Also found with parameter name `--aad-admin-group-object-ids` in the Azure CLI.

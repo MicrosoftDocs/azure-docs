@@ -1,7 +1,7 @@
 ---
 title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
-ms.custom: subject-moving-resources
+ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 04/11/2022
@@ -304,7 +304,7 @@ To this point, you've migrated the workloads to the target environment. These ap
 
 - Published through the public IP feature in vWAN.
 
-Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-internet-access.md).
+Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-ip-nsx-edge.md).
 
 >[!NOTE]
 >SNAT is by default configured in Azure VMware Solution, so you must enable SNAT from Azure VMware Solution private cloud connectivity settings under the Manage tab.

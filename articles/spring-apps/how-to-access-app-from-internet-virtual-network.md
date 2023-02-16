@@ -25,7 +25,7 @@ If you don't want to use Application Gateway for advanced operations, you can ex
 
 - An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
-## Assign a public fully qualified domain name (FQDN) for your application in a VNet injection instance
+## Assign a public fully qualified domain name (FQDN) for your application in a virtual network injection instance
 
 
 ### [Azure portal](#tab/azure-portal)
@@ -65,10 +65,10 @@ You can use a public URL to access your application both inside and outside the 
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you couldn't access your application in VNet injection instance from internet after you have assigned a public FQDN, check your network security group first to see whether you have allowed such inbound traffic.
+> If you couldn't access your application in a virtual network injection instance from internet after you have assigned a public FQDN, check your network security group first to see whether you have allowed such inbound traffic.
 
 ## Next steps
 
 - [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
 - [Troubleshooting Azure Spring Apps in virtual networks](./troubleshooting-vnet.md)
-- [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)
+- [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md)

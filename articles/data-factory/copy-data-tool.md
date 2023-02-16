@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.author: yexu
 ---
 
@@ -28,7 +28,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 | You want to easily build a data loading task without learning about entities (linked services, datasets, pipelines, etc.) | You want to implement complex and flexible logic for loading data into lake. |
 | You want to quickly load a large number of data artifacts into a data lake. | You want to chain Copy activity with subsequent activities for cleansing or processing data. |
 
-To start the Copy Data tool, click the **Ingest** tile on the home page of your the Data Factory or Synapse Studio UI.
+To start the Copy Data tool, click the **Ingest** tile on the home page of the Data Factory or Synapse Studio UI.
 
 # [Azure Data Factory](#tab/data-factory)
 :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the home page - link to Copy Data tool.":::
@@ -108,6 +108,6 @@ A one-time copy operation enables data movement from a source to a destination o
 ## Next steps
 Try these tutorials that use the Copy Data tool:
 
-- [Quickstart: create a data factory using the Copy Data tool](quickstart-create-data-factory-copy-data-tool.md)
-- [Tutorial: copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
-- [Tutorial: copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)
+- [Quickstart: Create a data factory using the Copy Data tool](quickstart-hello-world-copy-data-tool.md)
+- [Tutorial: Copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
+- [Tutorial: Copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)

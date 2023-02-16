@@ -16,6 +16,11 @@ items:
 - name: How-to guides
   expanded: true
   items:
+  - name: Develop Applications
+    expanded: false
+    items:
+    - name: Using DICOM Service for digital pathology
+      href: dicom-digital-pathology.md
   - name: Access DICOM service
     expanded: false
     items:
@@ -40,6 +45,8 @@ items:
   - name: Operations
     expanded: false
     items:
+    - name: Export DICOM Files
+      href: export-dicom-files.md
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
   - name: Using Azure Active Directory (Azure AD) for DICOM service

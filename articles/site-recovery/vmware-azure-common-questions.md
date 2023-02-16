@@ -1,8 +1,12 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 11/14/2019
+ms.date: 12/28/2022
 ms.topic: conceptual
+ms.service: site-recovery
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 # Common questions about VMware to Azure replication
 
@@ -15,7 +19,6 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-
 A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
 
 
@@ -24,7 +27,7 @@ To change the experience -
 1. Open the vault on Azure portal. 
 2. Click on **Site Recovery** in the **Getting started** section. 
 3. Click on the banner on top of this page. 
-    
+
     [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
@@ -34,6 +37,9 @@ To change the experience -
 > [!NOTE]
 > Note that once the experience type has been switched to classic from modernized, it cannot be switched again in the same Recovery Services vault. Ensure that the desired experience is selected, before saving this change.
 
+### Can I migrate to the modernized experience? 
+
+All VMware VMs or Physical servers which are being replicated using the classic experience can be migrated to the modernized experience. Check the details [here](move-from-classic-to-modernized-vmware-disaster-recovery.md) and follow the [tutorial](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
 ### What do I need for VMware VM disaster recovery?
 
@@ -110,7 +116,7 @@ You will typically see an increase in the transactions cost incurred on GPv2 sto
 
 The installers are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder on the configuration server.
 
-## How do I install the Mobility service?
+### How do I install the Mobility service?
 
 On each VM that you want to replicate, install the service by one of several methods:
 
@@ -208,6 +214,18 @@ No, Site Recovery doesn't support replication to Azure Storage on virtual networ
 ### What is the frequency of generation of crash-consistent recovery points?
 
 Site Recovery generates crash-consistent recovery points every 5 minutes.
+
+### Can I change an already replicating machine from one to another another Recovery Services vault?
+
+Switching Recovery Services vaults, when the replication is already ongoing, is not supported. To do so, replication will need to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, will need to be unconfigured so that it can be configured to a new vault. Use the below commands to perform the unregistration - 
+
+For Windows machines - 
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe /Unconfigure true`
+
+For Linux machines - 
+
+`/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -q -U true -c CSPrime`
 
 ## Component upgrade
 

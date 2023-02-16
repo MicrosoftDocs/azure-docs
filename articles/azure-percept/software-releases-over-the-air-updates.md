@@ -1,16 +1,20 @@
 ---
 title: Software releases for Azure Percept DK OTA updates
 description: Information and download links for the Azure Percept DK over-the-air update packages
-author: nkhuyent
+author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 02/08/2023
 ms.custom: template-concept
+ROBOTS: NOINDEX
 ---
 
 
 # Software releases for OTA updates
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 
 >[!CAUTION]
 >**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**

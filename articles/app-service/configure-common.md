@@ -192,6 +192,14 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 -----
 
+### Configure arrays in app settings
+
+You can also configure arrays in app settings as shown in the table below.
+
+|App setting name | App setting value |
+|-----------------|-------------------|
+|MY_ENV_VAR | ['entry1', 'entry2', 'entry3'] |
+
 ## Configure connection strings
 
 In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.

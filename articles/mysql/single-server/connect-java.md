@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: java
 author: jdubois
 ms.author: judubois
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
 ms.date: 08/15/2022
 ---
 
@@ -43,7 +43,8 @@ First, set up some environment variables. In [Azure Cloud Shell](https://shell.a
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
+export AZ_DATABASE_NAME=demo
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_MYSQL_AD_NON_ADMIN_USERNAME=demo-non-admin
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
@@ -53,15 +54,16 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
+export AZ_DATABASE_NAME=demo
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_MYSQL_ADMIN_USERNAME=demo
 export AZ_MYSQL_ADMIN_PASSWORD=<YOUR_MYSQL_ADMIN_PASSWORD>
@@ -72,7 +74,7 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
 - `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
@@ -97,7 +99,7 @@ The first thing you'll create is a managed MySQL server.
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -110,7 +112,7 @@ Then, run the following command to create the server:
 ```azurecli
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
@@ -122,7 +124,7 @@ Next, run the following command to set the Azure AD admin user:
 ```azurecli
 az mysql server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_NAME \
+    --server-name $AZ_DATABASE_SERVER_NAME \
     --display-name $CURRENT_USERNAME \
     --object-id $CURRENT_USER_OBJECTID
 ```
@@ -137,7 +139,7 @@ This command creates a small MySQL server and sets the Active Directory admin to
 ```azurecli
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
@@ -159,8 +161,8 @@ Because you configured your local IP address at the beginning of this article, y
 ```azurecli
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip \
-    --server $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_SERVER_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     --output tsv
@@ -185,8 +187,8 @@ Then, use the following command to open the server's firewall to your WSL-based 
 ```azurecli
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
+    --server $AZ_DATABASE_SERVER_NAME \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
     --output tsv
@@ -194,24 +196,24 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that you created earlier is empty. Use the following command to create a new database called `demo`:
+The MySQL server that you created earlier is empty. Use the following command to create a new database.
 
 ```azurecli
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name demo \
-    --server-name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_NAME \
+    --server-name $AZ_DATABASE_SERVER_NAME \
     --output tsv
 ```
 
 ### Create a MySQL non-admin user and grant permission
 
-Next, create a non-admin user and grant all permissions on the `demo` database to it.
+Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
+> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -223,7 +225,7 @@ SET aad_auth_validate_oids_in_tenant = OFF;
 
 CREATE AADUSER '$AZ_MYSQL_AD_NON_ADMIN_USERNAME' IDENTIFIED BY '$AZ_MYSQL_AD_NON_ADMIN_USERID';
 
-GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_AD_NON_ADMIN_USERNAME'@'%';
+GRANT ALL PRIVILEGES ON $AZ_DATABASE_NAME.* TO '$AZ_MYSQL_AD_NON_ADMIN_USERNAME'@'%';
 
 FLUSH privileges;
 
@@ -233,7 +235,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -251,7 +253,7 @@ cat << EOF > create_user.sql
 
 CREATE USER '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%' IDENTIFIED BY '$AZ_MYSQL_NON_ADMIN_PASSWORD';
 
-GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%';
+GRANT ALL PRIVILEGES ON $AZ_DATABASE_NAME.* TO '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%';
 
 FLUSH PRIVILEGES;
 
@@ -261,7 +263,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -276,7 +278,7 @@ rm create_user.sql
 
 Using your favorite IDE, create a new Java project using Java 8 or above. Create a *pom.xml* file in its root directory and add the following contents:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -302,8 +304,8 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
-            <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-            <version>1.0.0-beta.1</version>
+            <artifactId>azure-identity-extensions</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
@@ -343,27 +345,39 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Run the following script in the project root directory to create a *src/main/resources/application.properties* file and add configuration details:
+Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
-user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+cat << EOF > src/main/resources/database.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
 
+
+> [!NOTE]
+> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
+
+```bash
+mkdir -p src/main/resources && touch src/main/resources/database.properties
+
+cat << EOF > src/main/resources/database.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+EOF
+```
 #### [Password](#tab/password)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
-user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+cat << EOF > src/main/resources/database.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
+user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
 EOF
 ```
@@ -415,7 +429,7 @@ public class DemoApplication {
     public static void main(String[] args) throws Exception {
         log.info("Loading application properties");
         Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("database.properties"));
 
         log.info("Connecting to the database");
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
@@ -444,12 +458,12 @@ public class DemoApplication {
 }
 ```
 
-This Java code will use the *application.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
+This Java code will use the *database.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data. You'll implement those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
-> The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
+> The database credentials are stored in the *user* and *password* properties of the *database.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 > [!NOTE]
 > The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver command to destroy an internal thread when shutting down the application. You can safely ignore this line.

@@ -9,6 +9,9 @@ ms.date: 10/20/2020
 
 # Use Cognitive Services with natural language processing (NLP) to enrich chat bot conversations
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 [!INCLUDE [QnA and LUIS - concepts](../includes/luis-qnamaker-shared-concept.md)]
 
 ## Next steps

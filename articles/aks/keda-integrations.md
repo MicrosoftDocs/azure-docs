@@ -56,7 +56,7 @@ However, these external scalers aren't supported as part of the add-on and rely 
 [aks-support-policy]: support-policies.md
 [keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 
 <!-- LINKS - external -->
 [keda-scalers]: https://keda.sh/docs/latest/scalers/

@@ -83,7 +83,7 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 
 ## Rate limiting
 
-In general, requests to IMDS are limited to 5 requests per second (on a per VM basis). Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
+In general, requests to IMDS are limited to 5 requests per second (on a per VM basis). Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests (on a per VM basis).
 
 ## HTTP verbs
 
@@ -254,7 +254,11 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2021-02-01
 - 2021-03-01
 - 2021-05-01
+- 2021-08-01
 - 2021-10-01
+- 2021-11-01
+- 2021-11-15
+- 2021-12-13
 
 ### Swagger
 

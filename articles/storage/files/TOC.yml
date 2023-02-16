@@ -35,6 +35,8 @@
     href: storage-snapshots-files.md
   - name: Performance and scale
     items:
+    - name: Understanding performance
+      href: understand-performance.md
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
     - name: Scalability and performance targets
@@ -109,9 +111,11 @@
         href: storage-files-identity-ad-ds-mount-file-share.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid accounts (preview)
+    - name: Enable Azure AD Kerberos authentication for hybrid accounts
       href: storage-files-identity-auth-azure-active-directory-enable.md
   - name: Manage
     items:
@@ -289,13 +293,13 @@
     - name: REST API
       href: /rest/api/storagerp/
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/storage/management
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK
-      href: /python/api/overview/azure/storage/management
+      href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
-      href: /javascript/api/overview/azure/storage/management
+      href: /javascript/api/overview/azure/storage#management
   - name: Spring Cloud Azure
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference

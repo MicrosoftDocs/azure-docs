@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 10/25/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,7 +16,7 @@ The Azure Container Apps application lifecycle revolves around [revisions](revis
 
 When you deploy a container app, the first revision is automatically created. [More revisions are created](revisions.md) as [containers](containers.md) change, or any adjustments are made to the `template` section of the configuration.
 
-A container app flows through three phases: deployment, update, and deactivation.
+A container app flows through four phases: deployment, update, deactivation, and shutdown.
 
 ## Deployment
 
@@ -26,9 +26,18 @@ As a container app is deployed, the first revision is automatically created.
 
 ## Update
 
-As a container app is updated with a [revision scope-change](revisions.md#revision-scope-changes), a new revision is created. You can choose whether to [automatically deactivate old revisions, or allow them to remain available](revisions.md).
+As a container app is updated with a [revision scope-change](revisions.md#revision-scope-changes), a new revision is created. You can [choose](revisions.md#revision-modes) whether to automatically deactivate old revisions (single revision mode), or allow them to remain available (multiple revision mode).
 
 :::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-update.png" alt-text="Azure Container Apps: Update phase":::
+
+### Zero downtime deployment
+
+In single revision mode, Container Apps automatically ensures your app does not experience downtime when creating a new revision. The existing active revision is not deactivated until the new revision is ready. If ingress is enabled, the existing revision will continue to receive 100% of the traffic until the new revision is ready.
+
+> [!NOTE]
+> A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
+
+In multiple revision mode, you control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic does not switch to the latest revision until it is ready.
 
 ## Deactivate
 

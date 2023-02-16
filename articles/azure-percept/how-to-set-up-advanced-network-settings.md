@@ -1,15 +1,18 @@
 ---
 title: Set up advanced network settings on the Azure Percept DK
 description: This article walks user through the Advanced Network Settings during the Azure Percept DK setup experience
-author: nkhuyent
+author: yvonne-dq
 ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 7/19/2021
+ms.date: 02/07/2023
 ms.custom: template-how-to 
+ROBOTS: NOINDEX
 ---
 
 # Set up advanced network settings on the Azure Percept DK
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 The Azure Percept DK allows you to control various networking components on the dev kit. This is done via the Advanced Networking Settings in the setup experience. To access these settings, you must [start the setup experience](./quickstart-percept-dk-set-up.md) and select **Access advanced network settings** on the **Network connection** page.
 
