@@ -45,7 +45,7 @@ The diagram below shows the basic network interconnectivity established at the t
 > When connecting **production** Azure VMware Solution private clouds to an Azure virtual network, an ExpressRoute virtual network gateway with the Ultra Performance Gateway SKU should be used with FastPath enabled to achieve 10Gbps connectivity. Less critical environments can use the Standard or High Performance Gateway SKUs for slower network performance.
 
 > [!NOTE]
-> If connecting more than four Azure VMware Solution private clouds in the same Azure region to the same Azure virtual network is a requirement, use [Azure VMware Solution Interconnect](../connect-multiple-private-clouds-same-region.md) to aggregate private cloud connectivity within the Azure region.
+> If connecting more than four Azure VMware Solution private clouds in the same Azure region to the same Azure virtual network is a requirement, use [Azure VMware Solution Interconnect](connect-multiple-private-clouds-same-region.md) to aggregate private cloud connectivity within the Azure region.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Diagram showing the basic network interconnectivity established at the time of an Azure VMware Solution private cloud deployment." border="false":::
 
