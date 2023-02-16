@@ -35,12 +35,6 @@ Before enabling the feature, verify that your Azure Cosmos DB account(s) meet al
 
 :::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure Portal.":::
 
-To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Burst Capacity**. Run the **Check eligibility for burst capacity preview** diagnostic.
-
-:::image type="content" source="media/burst-capacity/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
-
-:::image type="content" source="media/burst-capacity/burst-capacity-eligibility-check.png" alt-text="Burst capacity eligibility check with table of all preview eligibility criteria":::
-
 ## Limitations (preview eligibility criteria)
 
 To enroll in the preview, your Azure Cosmos DB account must meet all the following criteria:
