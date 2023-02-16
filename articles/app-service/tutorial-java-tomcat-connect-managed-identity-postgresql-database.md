@@ -172,9 +172,9 @@ Install the Service Connector passwordless extension for the Azure CLI:
 az extension add --name serviceconnector-passwordless --upgrade
 ```
 
-### [Flexible Server](#tab/flexible)
-
 Then, connect your app to a Postgres database with a system-assigned managed identity using Service Connector.
+
+### [Flexible Server](#tab/flexible)
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
