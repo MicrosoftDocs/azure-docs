@@ -8,7 +8,7 @@ author: suzizuber
 ms.author: v-szuber
 ---
 
-<!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management -->
+<!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management and introduction#vmware-software-versions-->
 
 
 The VMware solution software versions used in new deployments of Azure VMware Solution private cloud clusters are:
