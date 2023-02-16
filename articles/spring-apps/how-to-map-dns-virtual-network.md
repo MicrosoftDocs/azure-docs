@@ -327,7 +327,7 @@ Use the [IP address](#find-the-ip-for-your-applications) to create the A record 
 After the assignment, you can access all those application's private FQDN in the private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then, on that jumpbox or virtual machine, the private FQDN of those applications are all accessible.
 
 ![Access private endpoint in vnet custom domain 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-1.png)
-![Access private endpoint in vnet custom domain 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-2.png)
+![Access private endpoint in vnet custom domain 2](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-2.png)
 
 ## Clean up resources
 
