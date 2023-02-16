@@ -118,7 +118,7 @@ TcpTestSucceeded : True
 #### Solutions for cause 1
 
 **Solution 1 — Use Azure File Sync as a QUIC endpoint**
-You can use Azure File Sync as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
+You can use Azure File Sync as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This configuration uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
 **Solution 2 — Use VPN or ExpressRoute**
 By setting up a VPN or ExpressRoute from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
@@ -158,14 +158,14 @@ Use one of the following solutions:
 
 -	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
 - Pass the storage account name and key in the user name and password parameters of the `net use` command.
-- Use the `cmdkey` command to add the credentials into Credential Manager. Perform this from a command line under the service account context, either through an interactive login or by using `runas`.
+- Use the `cmdkey` command to add the credentials into Credential Manager. Perform this action from a command line under the service account context, either through an interactive login or by using `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
-- Map the share directly without using a mapped drive letter. Some applications may not reconnect to the drive letter properly, so using the full UNC path might more reliable. 
+- Map the share directly without using a mapped drive letter. Some applications might not reconnect to the drive letter properly, so using the full UNC path might more reliable. 
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
+After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this error appears, make sure that the username that's passed to `net use` includes domain information (for example: "[storage account name].file.core.windows.net").
 
 <a id="shareismissing"></a>
 ### No folder with a drive letter in "My Computer" or "This PC"
@@ -241,7 +241,7 @@ If virtual network (VNET) and firewall rules are configured on the storage accou
 
 ### Solution for cause 2
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules are causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 <a id="error115"></a>
 ## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.x
@@ -252,9 +252,9 @@ Some Linux distributions don't yet support encryption features in SMB 3.x. Users
 
 ### Solution
 
-The encryption feature for SMB 3.x for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.x with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md).
+The encryption feature for SMB 3.x for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel that they maintain. To help determine if your version of Linux supports SMB 3.x with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md).
 
-If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from a Linux VM in Azure that's in the same datacenter as the file share. Verify that the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account.
+If your Linux SMB client doesn't support encryption, mount Azure Files using SMB 2.1 from a Linux VM that's in the same Azure datacenter as the file share. Verify that the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account.
 
 <a id="error112"></a>
 ## "Mount error(112): Host is down" because of a reconnection time-out
