@@ -9,6 +9,9 @@ ms.date: 02/07/2023
 
 Event Hubs dedicated clusters are designed to meet the needs of most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on AMQP(Event Hubs SDK) or Apache Kafka APIs. 
 
+> [!NOTE]
+> The dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
+
 ## Why Dedicated cluster? 
 The dedicated tier of Event Hubs offers several benefits to customers who need run mission-critical workloads at enterprise-level capacity. 
 
@@ -77,7 +80,7 @@ With Legacy cluster, you can purchase up to 20 CUs.
 
 ## Determining cluster type 
 
-You can determine the cluster type that you are using the following methods. 
+You can determine the cluster type that you're using the following methods. 
 
 | Method | Action | Self-serve scalable clusters | Legacy clusters | Notes |
 | -------------| ------------- | --------- | --------- | --------- | 
