@@ -167,6 +167,12 @@ pip install flask opencensus opencensus-ext-flask opencensus-ext-azure
 
 ```
 
+You will need to add your Application Insights connection string to the environment variable.
+
+```shell
+APPLICATION_INSIGHTS_CONNECTION_STRING=<appinsights-connection-string>
+```
+
 **Sample Flask Application**
 
 ```python
