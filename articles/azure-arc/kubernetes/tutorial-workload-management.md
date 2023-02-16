@@ -39,7 +39,7 @@ chmod 700 deploy.sh
 ./deploy.sh -c -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
 ```
 
-Since AKS clusters provisioning is not the fastest process in the world, the script will really take its time. Once it's done, it will report the execution result in the output like this:
+Since AKS clusters provisioning is not the fastest process in the world, the script really takes its time. Once it's done, it reports the execution result in the output like this:
 
 ```azurecli-interactive
 Depoyment is complete!
@@ -86,8 +86,8 @@ And a couple of the Application Team repositories:
 The script created the following AKS clusters:
 
 - `control-plane` - This cluster doesn't run any workloads. It's a management cluster. It hosts [Kalypso Scheduler](https://github.com/microsoft/kalypso-scheduler) operator that transforms high level abstractions from the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repository to the raw Kubernetes manifests in the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
-- `drone` - This is a sample workload cluster. It's Azure Arc enabled and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
-- `large` - This is a sample workload cluster. It has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `drone` - It's a sample workload cluster. It's Azure Arc enabled and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `large` - It's a sample workload cluster. It has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 
 
 ### Explore Control Plane
@@ -100,7 +100,7 @@ The `main` branch:
 |------|-----------|
 |.github/workflows| GitHub workflows that implement the promotional flow|
 |.environments| Contains a list of environments with the pointers to the branches with the environment configurations|
-|templates| Contains manifest templates for various reconcilers (for example, Flux and ArgoCD) as well as a template for the workload namespace| 
+|templates| Contains manifest templates for various reconcilers (for example, Flux and ArgoCD) and a template for the workload namespace| 
 |workloads| Contains a list of onboarded applications and services with the pointers to the corresponding GitOps repositories|  
 
 The `dev` and `stage` branches:
@@ -160,7 +160,7 @@ spec:
 
 The file contains a list of three deployment targets. They are marked with custom labels and point to the folders in [Application GitOps](https://github.com/microsoft/kalypso-app-gitops) repository where the Application Team generates application manifests for each deployment target.
 
-With this file Application Team requests Kubernetes compute resources from the Platform Team. In response, the Platform Team registers the application in the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repo. Let's open a terminal and do that with the following script: 
+With this file, Application Team requests Kubernetes compute resources from the Platform Team. In response, the Platform Team registers the application in the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repo. Let's open a terminal and do that with the following script: 
 
 ```azurecli-interactivet
 export org=<github org>
@@ -334,11 +334,11 @@ spec:
 
 ### Promote application to Stage
 
-Once we have approved and merged the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters, that represent corresponding cluster types, will start fetching the assignment manifests. The `drone` cluster has Azure Arc GitOps configuration installed, that points to the `Platform GitOps` repository. So, it will report up to the cloud its `compliance` status: 
+Once we have approved and merged the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters, that represent corresponding cluster types, start fetching the assignment manifests. The `drone` cluster has Azure Arc GitOps configuration installed, that points to the `Platform GitOps` repository. So, it reports up to the cloud its `compliance` status: 
 
 ![drone compliance state](media/tutorial-workload-management/drone-compliance-state.png)
 
-The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository that will wait until all Azure Arc enabled clusters looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial setup we have only one cluster like that - `drone`. 
+The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository that waits until all Azure Arc enabled clusters looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial setup we have only one cluster like that - `drone`. 
 
 ![Promoting to dev](media/tutorial-workload-management/checkpromote-to-dev.png)
 
