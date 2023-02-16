@@ -36,14 +36,14 @@ You can manage network access control for Azure SignalR Service through the Azur
 
 1. Go to the Azure SignalR Service you want to secure.
 
-1. Click on the settings menu called **Network access control**.
+1. Select on the settings menu called **Network access control**.
 
     ![Network ACL on portal](media/howto-network-access-control/portal.png)
 
 1. To edit default action, toggle the **Allow/Deny** button.
 
     > [!TIP]
-    > Default action is the action we take when there is no ACL rule matches. For example, if the default action is **Deny**, then request types that are not explicitly approved below will be denied.
+    > The default action is the action the service takes when there is no ACL rule matches. For example, if the default action is **Deny**, then the request types that are not explicitly approved will be denied.
 
 1. To edit public network rule, select allowed types of requests under **Public network**.
 
@@ -53,7 +53,7 @@ You can manage network access control for Azure SignalR Service through the Azur
 
     ![Edit private endpoint ACL on portal ](media/howto-network-access-control/portal-private-endpoint.png)
 
-1. Click **Save** to apply your changes.
+1. Select **Save** to apply your changes.
 
 ## Next steps
 

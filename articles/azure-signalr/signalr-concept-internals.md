@@ -28,7 +28,7 @@ A self-hosted ASP.NET Core SignalR application server listens to and connects cl
 With SignalR Service, the application server no longer accepts persistent client connections, instead:
 
 1. A `negotiate` endpoint is exposed by Azure SignalR Service SDK for each hub.
-1. The endpoint will respond to client's negotiation requests and redirect clients to SignalR Service.
+1. The endpoint responds to client's negotiation requests and redirect clients to SignalR Service.
 1. The clients connect to SignalR Service.
 
 For more information, see [Client connections](#client-connections).
@@ -82,14 +82,14 @@ To learn more about ASP.NET Core SignalR's, see [Transport Protocols](https://gi
 
 ## Data transmission between client and server
 
-When a client is connected to the SignalR Service, the service runtime will find a server connection to serve this client.
+When a client is connected to the SignalR Service, the service runtime finds a server connection to serve this client.
 
 - This step happens only once, and is a one-to-one mapping between the client and server connection.
 - The mapping is maintained in SignalR Service until the client or server disconnects.
 
 At this point, the application server receives an event with information from the new client. A logical connection to the client is created in the application server. The data channel is established from client to application server, via SignalR Service.
 
-SignalR Service transmits data from the client to the pairing application server. Data from the application server will be sent to the mapped clients.
+SignalR Service transmits data from the client to the pairing application server. Data from the application server is sent to the mapped clients.
 
 SignalR Service doesn't save or store customer data, all customer data received is transmitted to target server or clients in real-time.
 

@@ -9,12 +9,13 @@ ms.custom: devx-track-csharp
 ms.date: 07/18/2022
 ms.author: lianwei
 ---
-# How to scale SignalR Service with multiple instances?
+# Scale SignalR Service with multiple instances
+
 SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
 ## For ASP.NET Core
 
-### How to add multiple endpoints from config?
+### Add multiple endpoints from config
 
 Config with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
@@ -28,9 +29,9 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <Co
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
 ```
 
-### How to add multiple endpoints from code?
+### Add multiple endpoints from code
 
-A `ServicEndpoint` class is introduced to describe the properties of an Azure SignalR Service endpoint.
+A `ServicEndpoint` class describes the properties of an Azure SignalR Service endpoint.
 You can configure multiple instance endpoints when using Azure SignalR Service SDK through:
 ```cs
 services.AddSignalR()
@@ -49,23 +50,25 @@ services.AddSignalR()
         });
 ```
 
-### How to customize endpoint router?
+### Customize endpoint router
 
 By default, the SDK uses the [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) to pick up endpoints.
 
 #### Default behavior 
-1. Client request routing
+
+1. Client request routing:
 
     When client `/negotiate` with the app server. By default, SDK **randomly selects** one endpoint from the set of available service endpoints.
 
-2. Server message routing
+2. Server message routing:
 
-    When sending a message to a specific *connection* and the target connection is routed to current server, the message goes directly to that connected endpoint. Otherwise, the messages are broadcasted to every Azure SignalR endpoint.
+    When sending a message to a specific *connection* and the target connection is routed to the current server, the message goes directly to that connected endpoint. Otherwise, the messages are broadcasted to every Azure SignalR endpoint.
 
 #### Customize routing algorithm
+
 You can create your own router when you have special knowledge to identify which endpoints the messages should go to.
 
-A custom router is defined below as an example when groups starting with `east-` always go to the endpoint named `east`:
+The following example defines a custom router that routes messages with a group starting with `east-` to the endpoint named `east`:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -83,12 +86,11 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Another example below, that overrides the default negotiate behavior, to select the endpoints depends on where the app server is located.
+The following example overrides the default negotiate behavior and selects the endpoint depending on the location of the app server.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
-{
-    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
+{    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
         // Override the negotiate behavior to get the endpoint from query string
         var endpointName = context.Request.Query["endpoint"];
@@ -125,7 +127,7 @@ services.AddSignalR()
 
 ## For ASP.NET
 
-### How to add multiple endpoints from config?
+### Add multiple endpoints from config
 
 Config with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
@@ -146,9 +148,9 @@ You can add multiple instance connection strings to `web.config`:
 </configuration>
 ```
 
-### How to add multiple endpoints from code?
+### Add multiple endpoints from code
 
-A `ServicEndpoint` class is introduced to describe the properties of an Azure SignalR Service endpoint.
+A `ServicEndpoint` class describes the properties of an Azure SignalR Service endpoint.
 You can configure multiple instance endpoints when using Azure SignalR Service SDK through:
 
 ```cs
@@ -167,11 +169,11 @@ app.MapAzureSignalR(
         });
 ```
 
-### How to customize router?
+### Customize a router
 
 The only difference between ASP.NET SignalR and ASP.NET Core SignalR is the http context type for `GetNegotiateEndpoint`. For ASP.NET SignalR, it is of [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) type.
 
-Below is the custom negotiate example for ASP.NET SignalR:
+The following code is a custom negotiate example for ASP.NET SignalR:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -211,15 +213,15 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 ## Service Endpoint Metrics
 
-To enable advanced router, SignalR server SDK provides multiple metrics to help server do smart decision. The properties are under `ServiceEndpoint.EndpointMetrics`.
+To enable an advanced router, SignalR server SDK provides multiple metrics to help server make smart decisions. The properties are under `ServiceEndpoint.EndpointMetrics`.
 
 | Metric Name | Description |
-| -- | -- |
-| `ClientConnectionCount` | Total concurrent connected client connection count on all hubs for the service endpoint |
-| `ServerConnectionCount` | Total concurrent connected server connection count on all hubs for the service endpoint |
+|--|--|
+| `ClientConnectionCount` | Total count concurrent client connections on all hubs for the service endpoint |
+| `ServerConnectionCount` | Total count of concurrent server connections on all hubs for the service endpoint |
 | `ConnectionCapacity` | Total connection quota for the service endpoint, including client and server connections |
 
-Below is an example to customize router according to `ClientConnectionCount`.
+The following code is an example of customizing a router according to `ClientConnectionCount`.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -247,29 +249,27 @@ From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NE
 
 The `ServiceEndpoint` object has an `EndpointType` property with value `primary` or `secondary`.
 
-`primary` endpoints are preferred endpoints to receive client traffic, and are considered to have more reliable network connections; `secondary` endpoints are considered to have less reliable network connections and are used only for taking server to client traffic, for example, broadcasting messages, not for taking client to server traffic.
+`primary` endpoints are preferred endpoints to receive client traffic because they've have more reliable network connections. `secondary` endpoints have less reliable network connections and are used only for server to client traffic.  For example, secondary endpoints are used for broadcasting messages instead of client to server traffic.
 
-In cross-region cases, network can be unstable. For one app server located in *East US*, the SignalR Service endpoint located in the same *East US* region can be configured as `primary` and endpoints in other regions marked as `secondary`. In this configuration, service endpoints in other regions can **receive** messages from this *East US* app server, but there will be no **cross-region** clients routed to this app server. The architecture is shown in the diagram below:
+In cross-region cases, the network can be unstable. For an app server located in *East US*, the SignalR Service endpoint located in the same *East US* region is `primary` and endpoints in other regions marked as `secondary`. In this configuration, service endpoints in other regions can **receive** messages from this *East US* app server, but no **cross-region** clients are routed to this app server. The following diagram shows the architecture:
 
 ![Cross-Geo Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-When a client tries `/negotiate` with the app server, with the default router, SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint isn't available, SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
+When a client tries `/negotiate` with the app server with a default router, the SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint isn't available, the SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
 
-In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints aren't available, the client is redirected to endpoints in other regions. Fail over section below describes the scenario in detail.
+In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints aren't available, the router redirects the client to endpoints in other regions. The following [failover](#failover) section describes the scenario in detail.
 
 ![Normal Negotiate](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
-## Fail-over
+## Failover
 
-When all `primary` endpoints aren't available, client's `/negotiate` picks from the available `secondary` endpoints. This fail-over mechanism requires that each endpoint should serve as `primary` endpoint to at least one app server.
+When no `primary` endpoint is available, the client's `/negotiate` picks from the available `secondary` endpoints. This failover mechanism requires that each endpoint serves as a `primary` endpoint to at least one app server.
 
-![Fail-over](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![Failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## Next steps
 
-In this guide, you learned about how to configure multiple instances in the same application for scaling, sharding, and cross-region scenarios.
-
-Multiple endpoints supports can also be used in high availability and disaster recovery scenarios.
+You can use multiple endpoints in high availability and disaster recovery scenarios.
 
 > [!div class="nextstepaction"]
 > [Setup SignalR Service for disaster recovery and high availability](./signalr-concept-disaster-recovery.md)
