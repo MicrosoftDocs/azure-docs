@@ -77,7 +77,7 @@ If you get the same username/password error, this means that the Pass-through Au
 
 If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Entra admin center](https://entra.microsoft.com/).
 
-![Screenshot shows Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)
+[![Screenshot shows Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png#lightbox)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
