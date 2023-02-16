@@ -59,7 +59,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_RestoreBlobVersion":::
 
-## Restore soft deleted blobs and directories (hierarchical namespace)
+## Restore soft-deleted blobs and directories (hierarchical namespace)
 
 > [!IMPORTANT]
 > This section applies only to accounts that have a hierarchical namespace.
@@ -80,7 +80,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
    Put imports here
    ```
 
-3. The following snippet restores a soft deleted file named `my-file`.
+3. The following snippet restores a soft-deleted file named `my-file`.
 
    This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
 
@@ -108,7 +108,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
    ```
 
-   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
+   If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
 
 ## Resources
 

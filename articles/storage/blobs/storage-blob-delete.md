@@ -115,7 +115,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
 }
 ```
 
-## Restore soft deleted blobs and directories (hierarchical namespace)
+## Restore soft-deleted blobs and directories (hierarchical namespace)
 
 > [!IMPORTANT]
 > This section applies only to accounts that have a hierarchical namespace.
@@ -145,7 +145,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
     using System.Threading.Tasks;
     ```
 
-4. The following code deletes a directory, and then restores a soft deleted directory.
+4. The following code deletes a directory, and then restores a soft-deleted directory.
 
    This method assumes that you've created a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance. To learn how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
 
@@ -181,7 +181,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
 
    ```
 
-   If you rename the directory that contains the soft deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft deleted items.
+   If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
 
 ## Resources
 
