@@ -92,9 +92,8 @@ The following are limitations when using the migration feature:
 
 App Service Environment v3 doesn't support the following features that you may be using with your current App Service Environment v1 or v2.
 
-- Monitoring your traffic with Network Watcher or NSG Flow.
 - Configuring an IP-based TLS/SSL binding with your apps.
-- Unlike on App Service Environment v2, to meet customer security concerns, App Service Environment v3 doesn't fall back to Azure DNS if your configured custom DNS servers in the virtual network aren't able to resolve a given name. If this behavior is required, ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers.
+- App Service Environment v3 doesn't fall back to Azure DNS if your configured custom DNS servers in the virtual network aren't able to resolve a given name. If this behavior is required, ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers.
 
 The following scenarios aren't supported by the migration feature. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into one of these categories.
 

@@ -126,7 +126,7 @@ To configure DNS in Azure DNS private zones:
 1. Create an A record in that zone that points * to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.
 
-In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.NET*.
+In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.nET*.
 
 ### DNS configuration for FTP access
 
@@ -140,9 +140,6 @@ In addition to setting up DNS, you also need to enable it in the [App Service En
 ### DNS configuration from your App Service Environment
 
 The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there's no response from the primary DNS server.
-
-> [!NOTE]
-- Unlike on App Service Environment v2, to meet customer security concerns, App Service Environment v3 doesn't fall back to Azure DNS if your configured custom DNS servers in the virtual network aren't able to resolve a given name. If this behavior is required, ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers.
 
 ## More resources
 
