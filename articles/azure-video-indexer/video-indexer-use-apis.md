@@ -105,6 +105,7 @@ When you're uploading videos by using the API, you have the following options:
 * Upload your video from a URL (preferred).
 * Send the video file as a byte array in the request body.
 * Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
+* There is an API request limit of 10 requests per second or 60 requests per minute.
 
 ### Getting JSON output
 
