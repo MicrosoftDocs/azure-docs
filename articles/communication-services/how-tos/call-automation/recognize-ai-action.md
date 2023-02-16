@@ -17,11 +17,11 @@ zone_pivot_groups: acs-csharp-java
 This guide will help you get started recognizing user input in the forms of DTMF or voice input provided by participants throuhg Azure Communication Services Call Automation SDK.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Recognize action using AI with .NET]()]
+[!INCLUDE [Recognize action using AI with .NET](./includes/recognize-ai-action-how-to-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Recognize action using AI with Java]()]
+[!INCLUDE [Recognize action using AI with Java](./includes/recognize-ai-action-how-to-java.md)]
 ::: zone-end
 
 ## Event codes
@@ -34,11 +34,10 @@ This guide will help you get started recognizing user input in the forms of DTMF
 |RecognizeCompleted|400|8508|Action failed, the operation was canceled.|
 |RecognizeFailed|400|8510|Action failed, initial silence timeout reached|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
-|RecognizeFailed|500|8512|Unknown internal server error.|
 |RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
 |RecognizeFailed|400|8547|Action failed, speech option not matched.|
 |RecognizeFailed|500|8534|Action failed, incorrect tone entered.|
-|RecognizeFailed|500|999|Unspecified error.|
+|RecognizeFailed|500|9999|Unspecified error.|
 
 ## Clean up resources
 
