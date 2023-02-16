@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
-ms.custom: passwordless-java
+ms.custom: passwordless-java, devx-track-java
 ---
 
 # Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps
@@ -61,8 +61,8 @@ Use the following steps to prepare your project.
 
    ```azurecli
    az spring connection create postgres-flexible \
-       --resource-group $SPRING_APPS_RESOURCE_GROUP \
-       --service $SPRING_APPS_SERVICE_NAME \
+       --resource-group $AZ_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZ_SPRING_APPS_SERVICE_INSTANCE_NAME \
        --app $APP_NAME \
        --deployment $DEPLOYMENT_NAME \
        --target-resource-group $POSTGRES_RESOURCE_GROUP \
@@ -83,8 +83,8 @@ Use the following steps to prepare your project.
 
    ```azurecli
    az spring connection create postgres \
-       --resource-group $SPRING_APPS_RESOURCE_GROUP \
-       --service $SPRING_APPQ_SERVICE_NAME \
+       --resource-group $AZ_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZ_SPRING_APPS_SERVICE_INSTANCE_NAME \
        --app $APP_NAME \
        --deployment $DEPLOYMENT_NAME \
        --target-resource-group $POSTGRES_RESOURCE_GROUP \
@@ -105,13 +105,13 @@ Use the following steps to bind your app.
 
    ```azurecli
    az spring connection create postgres \
-       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --resource-group $AZ_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZ_SPRING_APPS_SERVICE_INSTANCE_NAME \
        --app $APP_NAME \
        --deployment $DEPLOYMENT_NAME \
        --target-resource-group $POSTGRES_RESOURCE_GROUP \
        --server $POSTGRES_SERVER_NAME \
-       --database testdb \
+       --database $DATABASE_NAME \
        --secret name=$USERNAME secret=$PASSWORD
    ```
 
