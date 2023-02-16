@@ -3,7 +3,7 @@ title: "Network Fabric Controller and Cluster Manger creation"
 description: Learn the steps for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
+ms.service: AFOI-Network Cloud #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 02/08/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.

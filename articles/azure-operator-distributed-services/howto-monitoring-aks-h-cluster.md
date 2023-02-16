@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Monitoring of AKS-Hybrid cluster"
 description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: Operator Nexus  #Required
+ms.service: AFOI-Network Cloud  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -49,10 +49,10 @@ This how-to guide provides steps and utility scripts to [Arc connect](/azure/azu
 
 To support these steps, the following resources are provided:
 
-- [arc-connect.env](includes/arc-connect.env) - Template file that can be used to create environment variables needed by included scripts.
-- [dcr.sh](includes/dcr.sh) - Script used to create a Data Collection Rule (DCR) that can be used to configure syslog collection.
-- [assign.sh](includes/assign.sh) - Script used to create a policy that will associate the DCR to all Arc-enabled servers in a resource group.
-- [install.sh](includes/install.sh) - Script used to Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each.
+- [arc-connect.env](media/arc-connect.env) - Template file that can be used to create environment variables needed by included scripts.
+- [dcr.sh](media/dcr.sh) - Script used to create a Data Collection Rule (DCR) that can be used to configure syslog collection.
+- [assign.sh](media/assign.sh) - Script used to create a policy that will associate the DCR to all Arc-enabled servers in a resource group.
+- [install.sh](media/install.sh) - Script used to Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each.
 
 ### Prerequisites-VM
 
@@ -152,11 +152,11 @@ This association can be done in the Azure portal by selecting the Assign button 
 For convenience, the **assign.sh** script is provided, which will assign the built-in policy to the specified resource group and DCR created with the **dcr.sh** script.
 
 1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal to do policy and role assignments.
-2. Ensure the DCR is created in the resource group using **dcr.sh** scripts as described in [Adding a Data Collection Rule](NEED VALID LINK) section.
+2. Ensure the DCR is created in the resource group using **dcr.sh** scripts as described in [Adding a Data Collection Rule](/azure/azure-monitor/essentials/data-collection-endpoint-overview?tabs=portal#create-a-data-collection-endpoint) section.
 3. Run the **assign.sh** script. It will create the policy assignment and necessary role assignments.
 
 ```bash
-./assign.sh
+./media/assign.sh
 ```
 
 #### Connecting Arc-enabled servers and Installing Azure Monitoring Agent
@@ -183,7 +183,7 @@ The script will deploy the daemonSet to the cluster. Connection progress can be 
 
 ```bash
 # Run the install script and observe results
-./install.sh
+./media/install.sh
 kubectl get pod --selector='name=haks-vm-telemetry'
 kubectl logs <podname>
 ```
