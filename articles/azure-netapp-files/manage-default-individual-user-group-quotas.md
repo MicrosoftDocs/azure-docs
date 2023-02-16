@@ -15,26 +15,26 @@ This article explains the considerations and steps for managing user and group q
 
 ## Quotas in cross-region replication relationships
 
-Quota rules will be synced from cross-region replication (CRR) source to destination volumes. Quota rules created, deleted, or updated on a CRR source volume will automatically be applied on CRR destination volume.
+Quota rules is synced from cross-region replication (CRR) source to destination volumes. Quota rules that you create, delete, or update on a CRR source volume automatically applies to the CRR destination volume.
 
-Quota rules will only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and the CRR destination volume is created at the same time as the source volume, all the quota rules will be created on destination volume.
+Quota rules only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and the CRR destination volume is created at the same time as the source volume, all the quota rules is created on destination volume.
 
 ## Considerations 
 
 * A quota rule is specific to a volume and is applied to an existing volume.  
 * Deleting a volume results in deleting all the associated quota rules for that volume. 
 * You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
-* Individual group quota and default group quota aren't supported for SMB and dual protocol volumes.
+* Azure NetApp Files doesn't support individual group quota and default group quota for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
-* Auxiliary groups only help in permission checks and cannot be used to restrict the quota (disk space) for a file.
+* Auxiliary groups only help in permission checks and can't be used to restrict the quota (disk space) for a file.
 * In a cross-region replication setting:
-    * Currently, syncing quota rules to the destination (data protection) volume isn't supported. 
+    * Currently, Azure NetApp Files doesn't support syncing quota rules to the destination (data protection) volume. 
     * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
     * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the replication is deleted.
-    * If a quota rule is in the error state after you delete the replication relationship, it must be deleted and recreated on the destination volume. 
+    * If a quota rule is in the error state after you delete the replication relationship, you need to delete and re-create the quota rule on the destination volume. 
     * During sync or reverse resync operations:
         * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
-        * Any new rule that is created or existing rule that is updated or deleted on a destination volume following the deletion of the replication relationship will be reverted to keep the  source and destination volumes in sync. 
+        * If you create, update, or delete a rule on a destination volume after the deletion of the replication relationship, the rule will be reverted to keep the source and destination volumes in sync.
 
 ## Register the feature  
 
@@ -94,11 +94,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-delete-edit.png) 
 
-    1. If you are editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
+    1. If you're editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
     
         ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-edit-rule.png) 
 
-    1. If you are deleting a quota rule, confirm the deletion by selecting **Yes**.  
+    1. If you're deleting a quota rule, confirm the deletion by selecting **Yes**.  
     
         ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-confirm-delete.png) 
 
