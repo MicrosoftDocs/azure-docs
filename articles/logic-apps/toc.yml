@@ -416,6 +416,8 @@
     items:
       - name: Monitor logic apps
         href: monitor-logic-apps.md
+      - name: View health and performance metrics
+        href: view-workflow-metrics.md
       - name: Monitor logic apps with Azure Monitor logs
         href: monitor-logic-apps-log-analytics.md
       - name: Monitor logic apps in Microsoft Defender for Cloud
