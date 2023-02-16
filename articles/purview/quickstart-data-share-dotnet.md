@@ -15,9 +15,17 @@ ms.custom: mode-api, references-regions
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this quickstart, you'll use the .NET SDK provides to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts. The article includes code snippets that allow you to share and receive data using Microsoft Purview Data Sharing.
+In this quickstart, you'll use the .NET SDK to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts. The article includes code snippets that allow you to create, accept, and manage shares using Microsoft Purview Data Sharing.
 
 For an overview of how data sharing works, watch this short [demo](https://aka.ms/purview-data-share/overview-demo).
+
+>[!NOTE]
+>This feature has been updated in February 2023, and the SDK and permissions needed to view and manage data shares in Microsoft Purview have changed.
+>
+>- No permissions are now required in Microsoft Purview to use the SDK to create and manage shares. (Reader permissions are needed to use the Microsoft Purview Governance Portal for sharing data.)
+>- Permissions are still required on storage accounts.
+>
+> See the updated [NuGet package](#install-nuget-packages) and [updated code snippets](#create-a-sent-share) to use the updated SDK.
 
 [!INCLUDE [data-share-quickstart-prerequisites](includes/data-share-quickstart-prerequisites.md)]
 
@@ -39,7 +47,7 @@ To set up a service principal, follow these instructions:
 1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
 1. [assign the application to these roles:](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 
-  | | Azure Storage Account Roles | Microsoft Purview Collection Roles |
+  |User| Azure Storage Account Roles | Microsoft Purview Collection Roles |
   |:--- |:--- |:--- |
   | **Data Provider** |Owner OR Blob Storage Data Owner|Data Share Contributor|
   | **Data Consumer** |Contributor OR Owner OR Storage Blob Data Contributor OR Blob Storage Data Owner|Data Share Contributor|
@@ -65,7 +73,7 @@ Next, create a C# .NET console application in Visual Studio:
 
 ## Create a sent share
 
-The below code creates a data share that you can send to internal or external users.
+This script creates a data share that you can send to internal or external users.
 To use it, be sure to fill out these variables:
 
 - **SenderTenantId** - the Azure Tenant ID for the sender's identity.
@@ -664,7 +672,7 @@ public static class PurviewDataSharingQuickStart
 
 ## Create a received share
 
-The below code allows you to receive a data share.
+This script allows you to receive a data share.
 To use it, be sure to fill out these variables:
 
 - **ReceiverTenantId** - the Azure Tenant ID for the user/service that is receiving the shared data.
@@ -789,7 +797,7 @@ public static class PurviewDataSharingQuickStart
 
 ## List all received shares
 
-The below code lists all received shares on a storage account.
+This script lists all received shares on a storage account.
 To use it, be sure to fill out these variables:
 
 - **ReceiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data has been shared.
@@ -842,7 +850,7 @@ public static class PurviewDataSharingQuickStart
 
 ## Update received share
 
-The below code allows you to update the storage location for a received share. Just like creating a received share, you add the information for the storage account where you want the data to be housed.
+This script allows you to update the storage location for a received share. Just like creating a received share, you add the information for the storage account where you want the data to be housed.
 To use it, be sure to fill out these variables:
 
 - **ReceiverTenantId** - the Azure Tenant ID for the user/service that is receiving the shared data.
@@ -962,7 +970,7 @@ public static class PurviewDataSharingQuickStart
 
 ## Delete received share
 
-The below code deletes a received share.
+This script deletes a received share.
 To use it, be sure to fill out these variables:
 
 - **ReceivedShareDisplayName** - The display name for your received share.
