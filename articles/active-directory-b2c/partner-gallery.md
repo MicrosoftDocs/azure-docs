@@ -45,6 +45,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 |:-------------------------|:--------------|
 | ![Screenshot of a asignio logo](./media/partner-gallery/asignio-logo.png) | [Asignio](./partner-asignio.md) is a passwordless, soft biometric, and MFA solution. Asignio uses a combination of the patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature eliminates passwords, fraud, phishing, and credential reuse through omni-channel authentication. |
 | ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
+| ![Screenshot of a grit biometric authentication logo.](./media/partner-gallery/grit-logo.png) | [Grit biometric authentication](./partner-grit-authentication.md) provides users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0) for enhanced security. 
 | ![Screenshot of a haventec logo](./media/partner-gallery/haventec-logo.png) | [Haventec](./partner-haventec.md) is a passwordless authentication provider, which provides decentralized identity platform that eliminates passwords, shared secrets, and friction. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a idemia logo](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md) is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. |
@@ -111,7 +112,7 @@ Microsoft partners with the following ISVs for tools that can help with implemen
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) provides a low code/no code experience for developers to create sophisticated authentication user journeys. The tool comes with integrated debugger and templates for the most used scenarios.|
-| ![Screenshot of a grit biometric authentication logo.](./media/partner-gallery/grit-logo.png) | [Grit biometric authentication](./partner-grit-authentication.md) provides users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0) for enhanced security. 
+
 
 ## Additional information
 

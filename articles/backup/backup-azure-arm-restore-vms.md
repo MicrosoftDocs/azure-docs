@@ -3,10 +3,10 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 12/06/2022
-author: v-amallick
+ms.date: 02/14/2023
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -225,7 +225,6 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 
 >[!NOTE]
 >
->- You can cancel the restore job till the data transfer phase. Once it enters VM creation phase, you can't cancel the restore job.
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 >- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
@@ -249,7 +248,7 @@ In summary, the **Availability Zone** will only appear when
 ![Choose availability zone](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 >[!Note]
->Cross-region restore jobs can't be canceled.
+>Cross region restore jobs once triggered, can't be canceled.
 
 ### Monitoring secondary region restore jobs
 

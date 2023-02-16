@@ -35,6 +35,8 @@
     href: diagnostic-logging.md
   - name: Manage resources
     href: manage-resources.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
   - name: Deploy
     items:
     - name: Containers
@@ -43,8 +45,6 @@
         href: containers/index.yml
       - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
-      - name: Container image tags and releases notes
-        href: ./containers/container-image-tags.md
       - name: General container FAQ
         href: ./containers/container-faq.yml
       - name: Use containers in disconnected environments

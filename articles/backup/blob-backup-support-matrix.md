@@ -4,6 +4,8 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.custom: references_regions
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Blobs backup

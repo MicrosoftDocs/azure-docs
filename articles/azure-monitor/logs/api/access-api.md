@@ -118,7 +118,7 @@ Use the `https://api.loganalytics.azure.com` endpoint.
 ##### Client Credentials Token URL (POST request)
 
 ```http
-    POST /<your-tenant-id>/oauth2/v2.0/token
+    POST /<your-tenant-id>/oauth2/token
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     

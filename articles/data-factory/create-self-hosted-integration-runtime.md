@@ -75,7 +75,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-  - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
+  - Java Runtime (JRE) version 8 from a JRE provider such as [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=8). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
   >[!NOTE]
   >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
   
@@ -453,6 +453,8 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
+
+If all your data source and sink and self-hosted integration runtime are in on-premises environment, then the copied data will not go to cloud but strictly remain within on-premises.
 
 ## Credentials store
 There are two ways to store the credentials when using self-hosted integration runtime:
