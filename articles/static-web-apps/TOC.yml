@@ -155,7 +155,7 @@
             href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
-    - name: Add a database
+    - name: Add a database connection
       href: database-add.md
     - name: Add a database with Mongoose.js and Azure Cosmos DB
       href: add-mongoose.md
