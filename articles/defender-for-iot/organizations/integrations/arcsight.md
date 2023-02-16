@@ -22,7 +22,7 @@ To configure your ArcSight server settings so that it can receive Defender for I
 1. Sign in to your ArcSight server.
 1. Configure your receiver type as a **CEF UDP Receiver**.
 
-For more information, see the [ArcSight SmartConnectors Documentation](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/#gsc.tab=0).
+For more information, see the [ArcSight SmartConnectors Documentation](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.4/#gsc.tab=0).
 
 ## Create a Defender for IoT forwarding rule
 
