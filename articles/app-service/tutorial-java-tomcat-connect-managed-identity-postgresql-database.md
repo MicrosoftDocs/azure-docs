@@ -174,9 +174,6 @@ az extension add --name serviceconnector-passwordless --upgrade
 
 ### [Flexible Server](#tab/flexible)
 
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
-
 Then, connect your app to a Postgres database with a system-assigned managed identity using Service Connector.
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
