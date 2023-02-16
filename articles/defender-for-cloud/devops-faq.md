@@ -24,6 +24,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
 - [I am not able to configure Pull Request Annotations](#i-am-not-able-to-configure-pull-request-annotations)
 - [What are the programing languages that are supported by Defender for DevOps?](#what-are-the-programing-languages-that-are-supported-by-defender-for-devops) 
+- [I'm getting an error in Azure DevOps saying there's no CLI tool](#im-getting-an-error-in-azure-devops-saying-theres-no-cli-tool)
 
 
 ### I'm getting an error while trying to connect
@@ -108,6 +109,11 @@ The following languages are supported by Defender for DevOps:
 - Java Script
 - Type Script
 
+### I'm getting an error in Azure DevOps saying there's no CLI tool
+If when running the pipeline in Azure DevOps, you receive the following error: 
+"no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'".
+
+This error is because you are missing the dependency of dotnet6 in the pipeline's yaml file. DotNet6 is a requirement in order for the Microsoft Security DevOps extension to run, so you should include this as a task in your yaml file. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 
 
 ## Next steps
