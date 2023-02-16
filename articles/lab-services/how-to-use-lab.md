@@ -46,8 +46,6 @@ You can view all your assigned lab virtual machines to you in the Azure Lab Serv
 
 1. Go to the [Azure Lab Services website](https://labs.azure.com).
 
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
-
 1. The page has a tile for each lab VM that you have access to. The VM tile shows the VM details and provides access to functionality for controlling the lab VM:
 
     - In the top-left, notice the name of the lab. The lab creator specifies the lab name when creating the lab.
@@ -57,7 +55,7 @@ You can view all your assigned lab virtual machines to you in the Azure Lab Serv
     - In the bottom-right, you have the control to [connect to the lab VM](./connect-virtual-machine.md) with remote desktop (RDP) or secure shell (SSH).
     - Also in the bottom-right, you can [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md), if you experience problems with the VM.
 
-    :::image type="content" source="./media/how-to-use-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
+    :::image type="content" source="./media/how-to-use-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the VM tile sections.":::
 
 ## Start or stop the VM
 
