@@ -2,7 +2,7 @@
 title: Common alert schema for Azure Monitor alerts
 description: Understand the common alert schema, why you should use it, and how to enable it.
 ms.topic: conceptual
-ms.date: 12/22/2022
+ms.date: 02/16/2023
 ms.reviewer: ofmanor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -113,30 +113,30 @@ For sample alerts that use the common schema, including see
 
 |Field  |Description  |
 |---------|---------|
-|properties     |         |
-|conditionType     |         |
-|condition     |         |
-|windowSize     |         |
-|allOf     |         |
-|alertSensitivity    |         |
-|failingPeriods     |         |
-|numberOfEvaluationPeriods     |         |
-|minFailingPeriodsToAlert     |         |
-|ignoreDataBefore     |         |
-|metricName     |         |
-|metricNamespace     |         |
-|operator     |         |
-|threshold     |         |
-|timeAggregation     |         |
-|dimensions     |         |
-|name     |         |
-|value     |         |
-|metricValue     |         |
-|webTestName     |         |
-|windowStartTime     |         |
-|windowEndTime     |         |
+|properties           |(Optional.) A collection of customer-defined properties. |
+|conditionType        |The type of condition selected for the alert rule:<br> - static threshold<br> - dynamic threshold<br> - webtest         |
+|condition            |         |
+|windowSize           |The time period analyzed by the alert rule.|
+|allOf                |Indicates that all conditions defined in the alert rule must be met to trigger an alert.|
+|alertSensitivity     |In an alert rule with a dynamic threshold, indicates how sensitive the rule is, or how much the value can deviate from the upper or lower threshold.|
+|failingPeriods       |In an alert rule with a dynamic threshold, the number of evaluation periods that do not meet the alert threshold that trigger an alert. For example, you can indicate that an alert is triggered when 3 out of the last 5 evaluation periods are not within the alert thresholds. |
+|numberOfEvaluationPeriods|The total number of evaluations.         |
+|minFailingPeriodsToAlert|The minimum number of evaluations that do no meet the alert rule conditions.|
+|ignoreDataBefore     |(Optional.) In an alert rule with a dynamic threshold, the date from which the threshold is calculated. Use this value to indicate that the rule should not calculate the dynamic threshold using data from before the specified date. |
+|metricName           |The name of the metric monitored by the alert rule.         |
+|metricNamespace      |The namespace of the metric monitored by the alert rule.         |
+|operator             |The logical operator of the alert rule.         |
+|threshold            |The threshold defined in the alert rule. For an alert rule with a dynamic threshold, this value is the calculated threshold. |
+|timeAggregation      |The aggregation type of the alert rule. |
+|dimensions           |The metric dimension that triggered the alert.         |
+|name                 |The dimension name.         |
+|value                |The dimension value.         |
+|metricValue          |The metric value at the time that it violated the threshold.         |
+|webTestName          |If the condition type is `webtest`, the name of the webtest.         |
+|windowStartTime      |The start time of the evaluation window in which the alert fired.       |
+|windowEndTime        |The end time of the evaluation window in which the alert fired.         |
 
-### Sample metric alert with a static threshold and the monitoringService = `Platform`
+### Sample metric alert with a static threshold when the monitoringService = `Platform`
 
 ```json
 {
@@ -168,7 +168,7 @@ For sample alerts that use the common schema, including see
 }
 ```
 
-### Sample metric alert with a dynamic threshold and the monitoringService = Platform
+### Sample metric alert with a dynamic threshold when the monitoringService = `Platform`
 
 ```json
 {
@@ -200,7 +200,7 @@ For sample alerts that use the common schema, including see
     }
 }
 ```
-### Sample metric alert for availability tests and the monitoringService = Platform
+### Sample metric alert for availability tests when the monitoringService = `Platform`
 
 ```json
 {
@@ -237,34 +237,34 @@ For sample alerts that use the common schema, including see
 
 |Field  |Description  |
 |---------|---------|
-|SearchQuery     |         |
-|SearchIntervalStartTimeUtc     |         |
-|SearchIntervalEndTimeUtc     |         |
-|ResultCount     |         |
-|LinkToSearchResults     |         |
-|LinkToFilteredSearchResultsUI    |         |
-|LinkToSearchResultsAPI     |         |
-|LinkToFilteredSearchResultsAPI     |         |
-|SearchIntervalDurationMin     |         |
-|SearchIntervalInMin     |         |
-|Threshold     |         |
-|Operator     |         |
-|ApplicationID     |         |
-|Dimensions     |         |
-|name     |         |
-|value     |         |
-|SearchResults     |         |
-|table     |         |
-|name     |         |
-|columns     |         |
-|name     |         |
-|type     |         |
-|rows     |         |
-|DataSources     |         |
-|resourceID     |         |
-|tables     |         |
-|IncludedSearchResults     |         |
-|AlertType     |         |
+|SearchQuery     |The query defined in the alert rule.         |
+|SearchIntervalStartTimeUtc     |The start time of the evaluation window in which the alert fired in UTC.        |
+|SearchIntervalEndTimeUtc     |The end time of the evaluation window in which the alert fired in UTC.         |
+|ResultCount     |The number of records returned by the query. For metric measurement rules, this is the number or records that match the specific dimension combination.          |
+|LinkToSearchResults     |A link to the search results.         |
+|LinkToFilteredSearchResultsUI    |For metric measurement rules, the link to the search results after they are filtered by the dimension combinations for which the alert is fired.         |
+|LinkToSearchResultsAPI     |A link to the query results using the Log Analytics API.          |
+|LinkToFilteredSearchResultsAPI     |For metric measurement rules, the link to the search results using the Log Analytics API after they are filtered by the dimension combinations for which the alert is fired.         |
+|SearchIntervalDurationMin     |The total number of minutes in the search interval.          |
+|SearchIntervalInMin     |The total number of minutes in the search interval.         |
+|Threshold     |The threshold defined in the alert rule.        |
+|Operator     |The operator defined in the alert rule.         |
+|ApplicationID     |The Application Insigths ID on which the alert was triggered.        |
+|Dimensions     |For metric measurement rules, the metric dimensions on which the alert was triggered.         |
+|name     |The dimension name.        |
+|value     |The dimesnion value.         |
+|SearchResults     |The complete search results.         |
+|table     |The table of results in the search results.         |
+|name     |The name of the table in the search results.         |
+|columns     |The columns in the table.         |
+|name     |The name of the column.         |
+|type     |The type of the column.         |
+|rows     |The rows in the table.         |
+|DataSources     |The data sources on which the alert was triggered.         |
+|resourceID     |The resource Id affected by the alert.         |
+|tables     |The draft response tables included in the query.         |
+|IncludedSearchResults     | Flag that indicates if the payload should contain the results.        |
+|AlertType     |The alert type:<br> - Metric Measurement<br> - Number Of Results |
 
 
 
