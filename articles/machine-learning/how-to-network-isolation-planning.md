@@ -23,7 +23,7 @@ In this article, you learn how to plan your network isolation for Azure Machine 
 
 Azure Machine Learning's network isolation involves both Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) components. PaaS services, such as the Azure Machine Learning workspace, storage, key vault, container registry, and monitor, can be isolated using Private Link. IaaS computing services, such as compute instances/clusters for AI model training, and Azure Kubernetes Service (AKS) or managed online endpoints for AI model scoring, can be injected into your virtual network and communicate with PaaS services using Private Link. The following diagram is an example of this architecture.
 
-:::image type="content" source="media/how-to-network-isolation-planning/iaas-paas-network-diagram.png" alt-text="Diagram if IaaS and PaaS components.":::
+:::image type="content" source="media/how-to-network-isolation-planning/iaas-paas-network-diagram.png" alt-text="Diagram of IaaS and PaaS components.":::
 
 In this diagram, the compute instances, compute clusters, and AKS Clusters are located within your virtual network. They can access the Azure Machine Learning workspace or storage using a private endpoint. Instead of a private endpoint, you can use a service endpoint for Azure Storage and Azure Key Vault. The other services don't support service endpoint.
 
