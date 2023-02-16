@@ -93,6 +93,14 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
+In this section, neither the configurations nor the code have any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
+
+`DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. For more information, see the [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) section of [Authenticate Azure-hosted Java applications](/azure/developer/java/sdk/identity-azure-hosted-auth).
+
+To use Azure CLI, Visual Studio Code, PowerShell or other methods to complete the authentication in local development environments, see [Azure authentication in Java development environments](/azure/developer/java/sdk/identity-dev-env-auth). To complete the authentication in Azure hosting environments, we recommend using managed identity. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
+
+[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+
 ### Application configuration file
 
 Configure the Azure Database for MySQL credentials in the `application.yml` configuration file in the `cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample` directory. Replace the values of `${AZURE_COSMOS_ENDPOINT}` and `${COSMOS_DATABASE}`.
@@ -108,17 +116,40 @@ spring:
 
 After creating the Azure Cosmos DB account, database and container, Spring Boot/Spring Data will connect to the database and container for `delete`, `add` and `find` operations.
 
-> [!TIP]
-> In this section, neither the configurations nor the code have any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
->
-> `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. For more information, see the [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) section of [Authenticate Azure-hosted Java applications](/azure/developer/java/sdk/identity-azure-hosted-auth).
->
-> To use Azure CLI, Visual Studio Code, PowerShell or other methods to complete the authentication in local development environments, see [Azure authentication in Java development environments](/azure/developer/java/sdk/identity-dev-env-auth). To complete the authentication in Azure hosting environments, we recommend using managed identity. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
-
 ### Java source
 
-The sample code has already been added, you don't need to add any code.
+The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Datan Azure Cosmos DB.
 
+* Item creation and updates by using the `save` method.
+
+    ```java
+    // Save the User class to Azure Cosmos DB database.
+    final Mono<User> saveUserMono = repository.save(testUser);
+    ```
+
+* Point-reads using the derived query method defined in the repository. The `findById` performs point-reads for `repository`. The fields mentioned in the method name cause Spring Data to execute a point-read defined by the `id` field:
+
+    ```java
+    //  Nothing happens until we subscribe to these Monos.
+    //  findById will not return the user as user is not present.
+    final Mono<User> findByIdMono = repository.findById(testUser.getId());
+    final User findByIdUser = findByIdMono.block();
+    Assert.isNull(findByIdUser, "User must be null");
+    ```
+
+* Item deletes using `deleteAll`:
+
+    ```java
+    repository.deleteAll().block();
+    LOGGER.info("Deleted all data in container.");
+    ```
+
+* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
+
+    ```java
+    final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
+    ```
+  
 ## [Password](#tab/password)
 
 ### Application configuration file
@@ -139,17 +170,43 @@ Once you create an Azure Cosmos DB account, database, and container, just fill-i
 
 ### Java source
 
-The sample code has already been added, you don't need to add any code.
+The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Datan Azure Cosmos DB.
+
+* Item creation and updates by using the `save` method.
+
+    ```java
+    // Save the User class to Azure Cosmos DB database.
+    final Mono<User> saveUserMono = repository.save(testUser);
+    ```
+
+* Point-reads using the derived query method defined in the repository. The `findById` performs point-reads for `repository`. The fields mentioned in the method name cause Spring Data to execute a point-read defined by the `id` field:
+
+    ```java
+    //  Nothing happens until we subscribe to these Monos.
+    //  findById will not return the user as user is not present.
+    final Mono<User> findByIdMono = repository.findById(testUser.getId());
+    final User findByIdUser = findByIdMono.block();
+    Assert.isNull(findByIdUser, "User must be null");
+    ```
+
+* Item deletes using `deleteAll`:
+
+    ```java
+    repository.deleteAll().block();
+    LOGGER.info("Deleted all data in container.");
+    ```
+
+* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
+
+    ```java
+    final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
+    ```
 
 ---
-
 
 ## Run the app
 
 Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
-
->[!TIP]
-> Before starting the following sections, replace the variables in *application.yml* with real values. If you use Passwordless authentication, [create the custom role](/azure/cosmos-db/nosql/quickstart-java?tabs=passwordlesssync%2Csign-in-azure-cli#create-the-custom-role) and use Azure CLI, Visual Studio Code, PowerShell, or other methods to complete the authentication.
 
 1. In the git terminal window, `cd` to the sample code folder.
 
