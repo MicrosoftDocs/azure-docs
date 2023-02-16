@@ -192,7 +192,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Create a VM from an image 
 > * Share a gallery
 
-Advance to the next tutorial to learn about highly available virtual machines.
+Advance to the next tutorial to learn about Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create highly available VMs](tutorial-availability-sets.md)
+> [Create a virtual machine scale set](tutorial-create-vmss.md)
