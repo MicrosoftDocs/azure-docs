@@ -27,6 +27,11 @@ sections:
           Worry-free self-service means that developers and testers create their own environments as needed. Administrators have the security of knowing that DevTest Labs can help set the appropriate access, minimize waste and control costs. Administrators can specify which VM sizes are allowed, the maximum number of VMs, and when VMs are started and shut down. DevTest Labs also makes it easy to monitor costs and set alerts, to help you stay aware of how lab resources are being used.
 
       - question: |
+          Can I restore my deleted lab or lab VM's?
+        answer: |
+          Unfortunatley, at this time, restoring a deleted lab or any of the associated resources is not supported.  These are a permanent hard deletion that can not be restored.
+
+      - question: |
           How can I use DevTest Labs?
         answer: |
           DevTest Labs is useful anytime you require dev or test environments, and want to reproduce them quickly, or manage them by using cost-saving policies.
