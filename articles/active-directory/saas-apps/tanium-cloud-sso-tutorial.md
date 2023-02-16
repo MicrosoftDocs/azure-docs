@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Tanium Cloud SSO
 
-In this article, you'll learn how to integrate Tanium Cloud SSO with Azure Active Directory (Azure AD). Tanium, the industry’s only provider of converged endpoint management (XEM), leads the paradigm shift in legacy approaches to managing complex security and technology environments. When you integrate Tanium Cloud SSO with Azure AD, you can:
+In this article, you learn how to integrate Tanium Cloud SSO with Azure Active Directory (Azure AD). Tanium, the industry’s only provider of converged endpoint management (XEM), leads the paradigm shift in legacy approaches to managing complex security and technology environments. When you integrate Tanium Cloud SSO with Azure AD, you can:
 
 * Control in Azure AD who has access to Tanium Cloud SSO.
 * Enable your users to be automatically signed-in to Tanium Cloud SSO with their Azure AD accounts.
@@ -77,13 +77,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-## Configure Tanium Cloud SSO SSO
+## Configure Tanium Cloud SSO
 
 To configure single sign-on on **Tanium Cloud SSO** side, you need to send the **App Federation Metadata Url** to [Tanium Cloud SSO support team](mailto:integrations@tanium.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Tanium Cloud SSO test user
 
-In this section, a user called B.Simon is created in Tanium Cloud SSO. Tanium Cloud SSO supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Tanium Cloud SSO, a new one is created after authentication.
+In this section, a user called B.Simon is created in Tanium Cloud SSO. Tanium Cloud SSO supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Tanium Cloud SSO, a new one is created after authentication.
 
 ## Test SSO 
 
