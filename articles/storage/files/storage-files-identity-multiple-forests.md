@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -175,8 +175,8 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 Now we'll validate that the trust is working by running the **klist** command to display the contents of the Kerberos credentials cache and key table.
 
 1. Log on to a machine or VM that's joined to a domain in **Forest 1** and open a Windows command prompt.
-1. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 2**: `klist get cifs/onprem2sa.file.core.windows.net`
-1. You should see output similar to the following:
+2. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 2**: `klist get cifs/onprem2sa.file.core.windows.net`
+3. You should see output similar to the following:
 
 ```
 Client: onprem1user @ ONPREMAD1.COM
@@ -191,9 +191,9 @@ Cache Flags: 0x200 -> DISABLE-TGT-DELEGATION
 Kdc Called: onprem2.onpremad2.com
 ```
 
-1. Log on to a machine or VM that's joined to a domain in **Forest 2** and open a Windows command prompt.
-1. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 1**: `klist get cifs/onprem1sa.file.core.windows.net`
-1. You should see output similar to the following:
+4. Log on to a machine or VM that's joined to a domain in **Forest 2** and open a Windows command prompt.
+5. Run the following command to display the credentials cache for the domain-joined storage account in **Forest 1**: `klist get cifs/onprem1sa.file.core.windows.net`
+6. You should see output similar to the following:
 
 ```
 Client: onprem2user @ ONPREMAD2.COM
