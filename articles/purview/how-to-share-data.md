@@ -189,11 +189,11 @@ Select **Add Recipient** again and select **User** or **App**.
 
 To share data to a user, select **User**, then enter the Azure sign-in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
-:::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the edit recipients page  with the add recipient button highlighted, default user email option shown." border="true":::  
+:::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient-inline.png" alt-text="Screenshot showing the edit recipients page  with the add recipient button highlighted, default user email option shown." border="true" lightbox="./media/how-to-share-data/create-share-add-user-recipient-large.png":::  
 
 To to share data with a service principal, select **App**. Enter the object ID and tenant ID of the recipient you want to share data with.
 
-:::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the edit app recipients page, with the add app option and required fields highlighted." border="true":::  
+:::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient-inline.png" alt-text="Screenshot showing the edit app recipients page, with the add app option and required fields highlighted." border="true" lightbox="./media/how-to-share-data/create-share-add-app-recipient-large.png":::  
 
 Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times.
 

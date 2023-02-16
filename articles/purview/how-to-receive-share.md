@@ -132,7 +132,7 @@ You can find and edit received share asset one of two ways:
 
 After you've selected your data share to edit, you can reattach the share to a new storage account or path in your current storage account by selecting a storage account, providing a path, and providing the folder.
 
-:::image type="content" source="./media/how-to-receive-share/reattach-share-inline.png" alt-text="Screenshot of the data share reattachment window, showing a new storage account selected and a path and folder added." border="true" source="./media/how-to-receive-share/reattach-share-large.png":::
+:::image type="content" source="./media/how-to-receive-share/reattach-share-inline.png" alt-text="Screenshot of the data share reattachment window, showing a new storage account selected and a path and folder added." border="true" lightbox="./media/how-to-receive-share/reattach-share-large.png":::
 
 If you're updating the target, select **Attach to target** to save your changes. Attaching can take a couple minutes to complete after the process has been started.
 
