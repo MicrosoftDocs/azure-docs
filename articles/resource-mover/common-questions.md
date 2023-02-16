@@ -35,7 +35,7 @@ Azure Resource Mover is currently available as follows:
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks
+- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
 - NICs
 - Availability sets 
 - Azure virtual networks 

@@ -21,10 +21,6 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 
 ## Review the Bicep file
 
-The Bicep file used in this tutorial is:
-
-:::code language="bicep" source="/media-services-video-indexer/ARM-Quick-Start/avam.template.bicep":::
-
 One Azure resource is defined in the bicep file:
 
 ```bicep

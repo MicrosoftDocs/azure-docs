@@ -2,7 +2,7 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Azure and download it from there.
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 02/14/2023
 ms.custom: references_regions
 ms.reviewer: mmcc
 ---
