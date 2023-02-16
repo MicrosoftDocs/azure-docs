@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/28/2022
+ms.date: 02/16/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, references_regions
 ---

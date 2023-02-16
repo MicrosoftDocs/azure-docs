@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/03/2023
+ms.date: 02/16/2023
 ms.topic: conceptual
 ms.custom: has-adal-ref, references_regions
 ---
@@ -16,7 +16,7 @@ For information on managing Python 2 packages, see [Manage Python 2 packages](./
 
 ## Default Python packages
 
-To support Python 3.8 runbooks in the Automation service, [packages are installed by default](default-python-packages.md) in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
+To support Python 3.8 runbooks in the Automation service, some Python packages are installed by default and a [list of these packages are here](default-python-packages.md). The default version can be overridden by importing Python packages into your Automation account. 
 
 Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
 
@@ -115,10 +115,14 @@ The script (`import_py3package_from_pypi.py`) requires the following parameters.
 
 | Parameter | Description |
 |---------------|-----------------|
-|subscription_id | Subscription ID of the Automation account |
+| subscription_id | Subscription ID of the Automation account |
 | resource_group | Name of the resource group that the Automation account is defined in |
 | automation_account | Automation account name |
 | module_name | Name of the module to import from `pypi.org` |
+| module_version | Version of the module |
+
+Parameter value should be provided as a single string in the below format:
+-s <subscription_id> -g <resource_group> -a<automation_account> -m <module_name> -v <module_version>
 
 For more information on using parameters with runbooks, see [Work with runbook parameters](start-runbooks.md#work-with-runbook-parameters).
 
