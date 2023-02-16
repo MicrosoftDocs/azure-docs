@@ -41,7 +41,7 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.json_ and save it.
 
-Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and storage account for the application. This storage account isn't for the managed application definition.
+Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and a storage account for the managed application. This storage account isn't for the managed application definition.
 
 ```json
 {
@@ -142,7 +142,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 
 ## Define your create experience
 
-As a publisher, you define the portal experience for creating the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
+As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
 Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
 
@@ -244,9 +244,9 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 ## Package the files
 
-Add the two files to a file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
+Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload the package to an accessible location from where it can be consumed. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -393,31 +393,31 @@ If you're running CLI commands with Git Bash for Windows, you might get an `Inva
 
 ---
 
-The _Appliance Resource Provider_ is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
+The _Appliance Resource Provider_ is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it isn't found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ## Create an Azure Active Directory user group or application
 
-The next step is to select a user group, user, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+The next step is to select a user, group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor. To create a new Azure Active Directory user group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 This example uses a user group, so you need the object ID of the user group to use for managing the resources. Replace the placeholder `mygroup` with your group's name.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$groupID=(Get-AzADGroup -DisplayName mygroup).Id
+$principalid=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-groupid=$(az ad group show --group mygroup --query id --output tsv)
+principalid=$(az ad group show --group mygroup --query id --output tsv)
 ```
 
 ---
 
 ## Get the role definition ID
 
-Next, you need the role definition ID of the Azure built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner, Contributor, or Reader role. The following command shows how to get the role definition ID for the Owner role:
+Next, you need the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. Typically, you use the Owner, Contributor, or Reader role. The following command shows how to get the role definition ID for the Owner role:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -433,7 +433,7 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 ---
 
-### Deploy the managed application definition with an ARM template
+## Create the managed application definition ARM template
 
 Use the following ARM template to deploy the managed application definition in your service catalog. The definition files are stored and maintained in your storage account.
 
@@ -453,7 +453,7 @@ Add the following JSON and save the file.
     "applicationName": {
       "type": "string",
       "metadata": {
-        "description": "Managed Application name."
+        "description": "Name of the managed application definition."
       }
     },
     "definitionStorageResourceID": {
@@ -465,13 +465,13 @@ Add the following JSON and save the file.
     "packageFileUri": {
       "type": "string",
       "metadata": {
-        "description": "The URI where the .zip package file is located."
+        "description": "The URI of the .zip package file."
       }
     },
     "principalId": {
       "type": "string",
       "metadata": {
-        "description": "Principal ID to access the managed resource group."
+        "description": "Principal ID with access the managed resource group."
       }
     },
     "roleId": {
@@ -518,19 +518,59 @@ For more information about the template's properties, see [Microsoft.Solutions/a
 
 Parameters used in the template:
 
-- **applicationName**: The name of the the managed application definition.
+- **applicationName**: The name of the managed application definition.
 - **definitionStorageResourceID**: The resource ID of the managed application definition.
 - **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 - **authorizations**: Describes the principal ID and the role definition ID that grant permission to the managed resource group.
 
-  - `principalId` is the object ID of the user, group, or service principal.
-  - `roleDefinitionId`: The role ID for the Owner or Contributor role.
+  - `principalId`: The object ID of the user, group, or service principal. The `principalid` variable's value.
+  - `roleDefinitionId`: The role ID for the Owner or Contributor role. The `roleid` variable's value.
 
-- **package file URI**: The location of a _.zip_ package file that contains the required files.
+- **package file URI**: The location of the _.zip_ package file that contains the managed application definition's files.
+
+## Create a parameter file
+
+The managed application defintion's template needs input for several parameters. The deployment command will prompt for the values or you can create a parameter file for the values. In this example, we use a parameter file to pass the parameter values to the deployment command.
+
+In Visual Studio Code, create a new file named _azuredeploy-parameters.json_ and save it.
+
+Add the following to your parameter file and save it. Then, replace the `{placeholder values}` including the curly braces, with your values.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "applicationName": {
+      "value": "{placeholder for managed application name}"
+    },
+    "definitionStorageResourceID": {
+      "value": "{placeholder for you storage account ID}"
+    },
+    "packageFileUri": {
+      "value": "{placeholder for the packageFileUri}"
+    },
+    "principalId": {
+      "value": "{placeholder for principalid value}"
+    },
+    "roleId": {
+      "value": "{placeholder for roleid value}"
+    }
+  }
+}
+```
+
+| Parameter | Value |
+| ---- | ---- |
+| `applicationName` | Choose a name for your managed application definition. For this example, use  _sampleManagedAppDefintion_.|
+| `definitionStorageResourceID` | Enter your storage account's resource ID. You created the `storageId` variable with this value in an earlier step. |
+| `packageFileUri` | Enter the URI to your _.zip_ package file. Use the URI for the _.zip_ [package file](#package-the-files) you created in an earlier step. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
+| `principalId` | The publishers Principal ID that needs access to manage resources in the managed resource group. Your `principalid` variable's value. |
+| `roleId` | Role ID for permissions to the managed resource group. For example Read, Contributor, Owner. Your `roleid` variable's value. |
 
 ### Deploy the definition
 
-When you deploy the definition, you're deploying only the managed application's definition so that it's available in your service catalog. This process doesn't deploy the managed application's resources.
+When you deploy the managed application's definition it becomes available in your service catalog. This process doesn't deploy the managed application's resources.
 
 Create a resource group named _byosDefinitionRG_ and deploy the managed application definition to your storage account.
 
@@ -539,11 +579,10 @@ Create a resource group named _byosDefinitionRG_ and deploy the managed applicat
 ```azurepowershell-interactive
 New-AzResourceGroup -Name byosDefinitionRG -Location eastus
 
-$storageId
-
 New-AzResourceGroupDeployment `
   -ResourceGroupName byosDefinitionRG `
-  -TemplateFile .\azuredeploy.json
+  -TemplateFile .\azuredeploy.json `
+  -TemplateParameterFile .\azuredeploy-parameters.json
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -551,24 +590,15 @@ New-AzResourceGroupDeployment `
 ```azurecli-interactive
 az group create --name byosDefinitionRG --location eastus
 
-echo $storageId
-
 az deployment group create \
   --resource-group byosDefinitionRG \
-  --template-file ./azuredeploy.json
+  --template-file ./azuredeploy.json \
+  --parameters ./azuredeploy-parameters.json
 ```
 
 ---
 
-The deployment prompts you to enter parameter values or you can use a parameter file.
 
-| Parameter | Value |
-| ---- | ---- |
-| `applicationName` | Choose a name for your managed application definition. For this example, use  _sampleManagedAppDefintion_.|
-| `definitionStorageResourceID` | Enter your storage account's resource ID. You created the `storageId` variable with this value in an earlier step. Don't wrap the resource ID with quotes. |
-| `packageFileUri` | Enter the URI to your _.zip_ package file. Use the URI for the _.zip_ [package file](#package-the-files) you created in an earlier step. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
-| `principalId` | The publishers Principal ID that needs access to manage resources in the managed resource group. |
-| `roleId` | Role ID for permissions to the managed resource group. For example Read, Contributor, Owner. |
 
 ### Verify definition files storage
 

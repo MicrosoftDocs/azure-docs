@@ -142,7 +142,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 
 ## Define your create experience
 
-As a publisher, you define the portal experience for creating the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
+As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
 Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
 
@@ -244,9 +244,9 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 ## Package the files
 
-Add the two files to a file named _app.zip_. The two files must be at the root level of the _.zip_ file. If you put the files in a folder, when you create the managed application definition, you'll receive an error that states the required files aren't present.
+Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload the package to an accessible location from where it can be consumed. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -313,27 +313,27 @@ In this section you'll get identity information from Azure Active Directory, cre
 
 ### Create an Azure Active Directory user group or application
 
-The next step is to select a user group, user, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the role that's assigned. The role can be any Azure built-in role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+The next step is to select a user, group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor. To create a new Azure Active Directory user group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 This example uses a user group, so you need the object ID of the user group to use for managing the resources. Replace the placeholder `mygroup` with your group's name.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$groupID=(Get-AzADGroup -DisplayName mygroup).Id
+$principalid=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-groupid=$(az ad group show --group mygroup --query id --output tsv)
+principalid=$(az ad group show --group mygroup --query id --output tsv)
 ```
 
 ---
 
 ### Get the role definition ID
 
-Next, you need the role definition ID of the Azure built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner, Contributor, or Reader role. The following command shows how to get the role definition ID for the Owner role:
+Next, you need the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. Typically, you use the Owner, Contributor, or Reader role. The following command shows how to get the role definition ID for the Owner role:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -385,7 +385,7 @@ New-AzManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "${groupID}:$roleid" `
+  -Authorization "${principalid}:$roleid" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
@@ -405,7 +405,7 @@ az managedapp definition create \
   --lock-level ReadOnly \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
-  --authorizations "$groupid:$roleid" \
+  --authorizations "$principalid:$roleid" \
   --package-file-uri "$blob"
 ```
 
@@ -419,8 +419,8 @@ Some of the parameters used in the preceding example are:
 - **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. When `ReadOnly` is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
 - **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
 
-  - **Azure PowerShell**: `"${groupid}:$roleid"` or you can use curly braces for each variable `"${groupid}:${roleid}"`. Use a comma to separate multiple values: `"${groupid1}:$roleid1", "${groupid2}:$roleid2"`.
-  - **Azure CLI**: `"$groupid:$roleid"` or you can use curly braces as shown in PowerShell. Use a space to separate multiple values: `"$groupid1:$roleid1" "$groupid2:$roleid2"`.
+  - **Azure PowerShell**: `"${principalid}:$roleid"` or you can use curly braces for each variable `"${principalid}:${roleid}"`. Use a comma to separate multiple values: `"${principalid1}:$roleid1", "${principalid2}:$roleid2"`.
+  - **Azure CLI**: `"$principalid:$roleid"` or you can use curly braces as shown in PowerShell. Use a space to separate multiple values: `"$principalid1:$roleid1" "$principalid2:$roleid2"`.
 
 - **package file URI**: The location of a _.zip_ package file that contains the required files.
 
