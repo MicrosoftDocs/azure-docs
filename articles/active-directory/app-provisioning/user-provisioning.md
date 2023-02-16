@@ -28,7 +28,7 @@ App provisioning lets you:
 - **Automate deprovisioning**: Automatically deactivate accounts in the right systems when people leave the team or organization.
 - **Synchronize data between systems**: Keep the identities in apps and systems up to date based on changes in the directory or human resources system.
 - **Provision groups**: Provision groups to applications that support them.
-- **Govern access**: Monitor and audit who has been provisioned into your applications.
+- **Govern access**: Monitor and audit who is provisioned in applications.
 - **Seamlessly deploy in brown field scenarios**: Match existing identities between systems and allow for easy integration, even when users already exist in the target system.
 - **Use rich customization**: Take advantage of customizable attribute mappings that define what user data should flow from the source system to the target system.
 - **Get alerts for critical events**: The provisioning service provides alerts for critical events and allows for Log Analytics integration where you can define custom alerts to suit your business needs.
