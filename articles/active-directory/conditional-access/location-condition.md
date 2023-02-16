@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 02/14/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Using the location condition in a Conditional Access policy 
 
-As explained in the [overview article](overview.md) Conditional Access policies are at their most basic an if-then statement combining signals, to make decisions, and enforce organization policies. One of those signals that can be incorporated into the decision-making process is location.
+Conditional Access policies are at their most basic an if-then statement combining signals, to make decisions, and enforce organization policies. One of those signals is location.
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
@@ -30,7 +30,7 @@ The location is determined by the public IP address a client provides to Azure A
 
 ## Named locations
 
-Locations are named in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations can be defined by IPv4/IPv6 address ranges or by countries. 
+Locations are maintained in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations can be defined by IPv4/IPv6 address ranges or by countries. 
 
 ![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
 
@@ -54,9 +54,10 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 
 #### Trusted locations
 
-Administrators can name locations defined by IP address ranges to be trusted named locations. 
+Locations such as your organization's public network ranges can be marked as trusted. This marking is consumed by services in serveral ways.
 
-Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted. Additionally, trusted named locations can be targeted in Conditional Access policies. For example, you may [restrict multifactor authentication registration to trusted locations](howto-conditional-access-policy-registration.md). 
+- Conditional Access policies can be configured to include or exclude these locations.
+- Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted.
 
 ### Countries
 
@@ -85,7 +86,7 @@ Every hour the user is accessing resources covered by the policy they will need 
 Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
 > [!NOTE]
->A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
+> A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
 
 GPS location doesn't work with [passwordless authentication methods](../authentication/concept-authentication-passwordless.md). 
 
