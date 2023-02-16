@@ -55,12 +55,12 @@ When you distribute costs proportional to total cost, the proportional percentag
 
 :::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Example showing allocation percentage" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
-Once set, the prefilled percentages defined don't change. All ongoing allocations use them. The percentages change only when you manually update the the rule.
+Once set, the prefilled percentages defined don't change. All ongoing allocations use them. The percentages change only when you manually update the rule.
 
 1. Select one of the following options in the **Prefill percentage to** list.
     - **Distribute evenly** – Each of the targets receives an even percentage proportion of the total cost.
     - **Total cost** – Creates a ratio proportional to the targets based on their total cost. It uses the ratio to distribute costs from the selected sources.
-    - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](/azure/templates/microsoft.compute/allversions) namespace. it uses the ratio to distribute costs from the selected sources.
+    - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](/azure/templates/microsoft.compute/allversions) namespace. It uses the ratio to distribute costs from the selected sources.
     - **Storage cost** - Creates a ratio proportional to the targets based on their Azure storage cost (resource types in the [Microsoft.Storage](/azure/templates/microsoft.storage/allversions) namespace). It uses the ratio to distribute costs from the selected sources.
     - **Network cost** - Creates a ratio proportional to the targets based on their Azure network cost (resource types in the [Microsoft.Network](/azure/templates/microsoft.network/allversions) namespace). It uses the ratio to distribute costs from the selected sources.
     - **Custom** – Allows you to manually specify a whole number percentage. The specified total must equal 100%.
