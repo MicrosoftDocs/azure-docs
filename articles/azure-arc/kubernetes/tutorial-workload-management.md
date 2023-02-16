@@ -445,6 +445,9 @@ Run the command below for the `large` cluster and go to `localhost:8002`:
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
+> [!NOTE]
+> It may take up to 3 minutes on the `large` cluster to reconcile the changes from the application GitOps repository. 
+
 The application instance on the `large` cluster will render the following greeting page:
 
 ![Greeting page on stage](media/tutorial-workload-management/stage-greeting-page.png)
@@ -468,7 +471,7 @@ metadata:
      region: west-us
 data:
   REGION: West US
-  DATABASE_URL: mysql://west-stage123:8806/mysql2
+  DATABASE_URL: mysql://west-stage:8806/mysql2
 EOF
 
 git add .
