@@ -17,8 +17,11 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
+| Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
-| Windows 11 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 21H1 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows 10, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |

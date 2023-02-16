@@ -46,7 +46,7 @@ Currently in general availability, this is the final iteration of the PIM API. B
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-In the current iteration, there is no API support for PIM alerts and privileged access groups.
+In the current iteration, there is no API support for PIM alerts and PIM for Groups.
 
 ## Current permissions required
 

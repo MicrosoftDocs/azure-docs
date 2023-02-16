@@ -196,7 +196,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - Rules Engine policies
 
-  A BizTalk Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common BizTalk Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The BizTalk Rules Engine caches these rules, so if you make any updates to these rules, you must restart the BizTalk Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
+  A Business Rules Engine policy is another kind of artifact that you can share across BizTalk Server applications deployed within the same [BizTalk group](/biztalk/core/biztalk-groups). If you have common Business Rules Engine rules, for example, related to message routing, you can manage these rules in one location and share them widely across installed BizTalk applications. The Business Rules Engine caches these rules, so if you make any updates to these rules, you must restart the Business Rules Engine Update Service. Otherwise, the changes are picked up in the next [Cache Timeout](/biztalk/core/rule-engine-configuration-and-tuning-parameters).
 
 #### Azure Integration Services
 
@@ -814,7 +814,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
 - Availability and redundancy
 
-  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zones), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](./set-up-zone-redundancy-availability-zones.md), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 - Isolated and dedicated environment
 
