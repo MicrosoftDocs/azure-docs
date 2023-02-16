@@ -45,9 +45,10 @@ If you haven't already done so, register the following resource providers to use
 - Microsoft.Storage
 - Microsoft.Network
 - Microsoft.VirtualMachineImages
+- Microsoft.ManagedIdentity
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network |
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network, Microsoft.ManagedIdentity |
   Where-Object RegistrationState -ne Registered |
     Register-AzResourceProvider
 ```
@@ -119,7 +120,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
    ```azurepowershell-interactive
    $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
-   $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
+   $myRoleImageCreationPath = "myRoleImageCreation.json"
 
    Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
 
@@ -224,7 +225,7 @@ Grant Azure image builder permissions to create images in the specified resource
    ```azurepowershell-interactive
    $ImgCustomParams02 = @{
      FileCustomizer = $true
-     CustomizerName = 'downloadBuildArtifacts'
+     Name = 'downloadBuildArtifacts'
      Destination = 'c:\\buildArtifacts\\index.html'
      SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
    }
