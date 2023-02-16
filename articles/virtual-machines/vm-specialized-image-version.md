@@ -159,7 +159,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
 1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, the username is greyed out because the username and credentials from the source VM are used.
+1. Under **Administrator account**, the username is grayed out because the username and credentials from the source VM are used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you're finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
@@ -169,7 +169,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 
-You'll need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
+You'll need the `imageID` of the image you want to use and make sure the image is replicated to the region where you want to create the VM.
 
 ### [CLI](#tab/cli2)
 
@@ -266,7 +266,7 @@ New-AzVM `
 
 If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to sign in to each tenant to verify you have access.
 
-You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
+You'll need the `imageID` of the image you want to use and make sure the image is replicated to the region where you want to create the VM. You'll also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
 
 ### [CLI](#tab/cli3)
 

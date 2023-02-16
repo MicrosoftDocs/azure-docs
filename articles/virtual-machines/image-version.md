@@ -13,8 +13,6 @@ ms.custom:
 
 ---
 
-
-
 # Create an image definition and an image version 
 
 A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
@@ -322,6 +320,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     }
 }
 ```
+
+---
 
 ## Create an image in one tenant using the source image in another tenant
 

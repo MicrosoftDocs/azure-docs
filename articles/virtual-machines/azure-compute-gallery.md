@@ -26,7 +26,7 @@ An Azure Compute Gallery helps you build structure and organization around your 
 
 With a gallery, you can share your resources to everyone, or limit sharing to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
 
-<sup>1</sup> The Azure Compute Gallery service isn't a global resource. For disaster recovery scenarios, it's a best practice is to have at least two galleries, in different regions.
+<sup>1</sup> The Azure Compute Gallery service isn't a global resource. For disaster recovery scenarios, the best practice is to have at least two galleries, in different regions.
 
 ## Images 
 

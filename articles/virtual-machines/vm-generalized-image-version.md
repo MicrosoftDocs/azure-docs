@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/06/2023
+ms.date: 02/16/2023
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -738,7 +738,7 @@ galleryName="1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-myDirectShared"
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
 
-Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image`` to create a VM. In this example, we are creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
+Use the `Id` from the output, appended with `/Versions/latest` to use the latest version, as the value for `--image` to create a VM. In this example, we are creating a VM from a Linux image that is directly shared to us, and creating SSH keys for authentication.
 
 ```azurecli-interactive
 imgDef="/SharedGalleries/1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f-MYDIRECTSHARED/Images/myDirectDefinition/Versions/latest"
@@ -830,7 +830,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 > [!NOTE]
 > **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
-> You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus" to see what images are shared with you in the West US region.
+> You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus` to see what images are shared with you in the West US region.
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.

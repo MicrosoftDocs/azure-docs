@@ -115,6 +115,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 >
 > You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
 
+To start sharing a direct shared gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+
 ### [Portal](#tab/portaldirect)
 
 1. Sign in to the Azure portal at https://portal.azure.com.
@@ -181,7 +183,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ---
 
-To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+
 
 <a name=community></a>
 ## Create a community gallery
