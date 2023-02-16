@@ -1,6 +1,6 @@
 ---
-title: Managed Azure AD Token Based Users in Azure confidential ledger
-description: Learn how to manage Azure AD token based users in Azure confidential ledger
+title: Manage Azure AD token-based users in Azure confidential ledger
+description: Learn how to manage Azure AD token-based users in Azure confidential ledger
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
@@ -348,3 +348,11 @@ main().catch((err) => {
   console.error(err);
 });
 ```
+
+## Next steps
+
+
+## Next steps
+
+- [Register an ACL app with Azure AD](register-application.md)
+- [Manage certificate-based users](manage-certificate-based-users.md)
