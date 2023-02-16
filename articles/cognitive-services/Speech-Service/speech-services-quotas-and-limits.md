@@ -22,7 +22,7 @@ For the free (F0) pricing tier, see also the monthly allowances at the [pricing 
 
 The following sections provide you with a quick guide to the quotas and limits that apply to Speech service.
 
-For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit). Request limits for Free (F0) Speech resources aren't adjustable. 
+For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit). The quotas and limits for Free (F0) Speech resources aren't adjustable. 
 
 ### Speech-to-text quotas and limits per resource
 
@@ -53,6 +53,8 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 #### Model customization
 
+The limits in this table apply per Speech resource when you create a Custom Speech model. 
+
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
 | REST API limit | 300 requests per minute | 300 requests per minute |
@@ -62,7 +64,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
 | Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
-### Text-to-speech quotas and limits per Speech resource
+### Text-to-speech quotas and limits per resource
 
 This section describes text-to-speech quotas and limits per Speech resource. 
 
@@ -117,7 +119,7 @@ Some of the Speech service quotas are adjustable. This section provides addition
 The following quotas are adjustable for Standard (S0) resources. The Free (F0) request limits aren't adjustable.
 
 - Speech-to-text [concurrent request limit](#online-transcription) for base model endpoint and custom endpoint
-- Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-speech-resource) for prebuilt neural voices and custom neural voices
+- Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
 - Speech translation [concurrent request limit](#speech-translation-quotas-and-limits-per-resource)
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
