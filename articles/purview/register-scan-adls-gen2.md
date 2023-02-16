@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 02/16/2023
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
