@@ -24,7 +24,7 @@ You may [trade in](../savings-plan/reservation-trade-in.md) your Azure reserved 
 
 Learn more about [Azure savings plan for compute](../savings-plan/index.yml) and how it works with reservations.
 
-:::image type="content" source="./media/reservation-exchange-policy-changes/exchange-timeline-diagram.png" alt-text="Text here." border="false" lightbox="./media/reservation-exchange-policy-changes/exchange-timeline-diagram.png":::
+:::image type="content" source="./media/reservation-exchange-policy-changes/exchange-timeline-diagram.png" alt-text="Diagram showing the exchange policy timeline." border="false" lightbox="./media/reservation-exchange-policy-changes/exchange-timeline-diagram.png":::
 
 ## Example scenarios
 
