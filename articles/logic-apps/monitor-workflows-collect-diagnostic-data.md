@@ -367,7 +367,15 @@ Tracked properties can track only a single action's inputs and outputs, but you 
 
 The following example shows where these custom properties appear in your Log Analytics workspace where the custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column:
 
+### [Consumption](#tab/consumption)
+
+**TBD**
+
+### [Standard (preview)](#tab/standard)
+
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/custom-tracking-properties-workspace.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace, and captured telemetry for Standard workflow run with custom tracking properties.":::
+
+---
 
 ## Next steps
 
