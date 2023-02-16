@@ -3,12 +3,12 @@ title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
 services: synapse-analytics 
 author: ekote
-ms.author: ekote
+ms.author: eskot
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
 ms.date: 02/10/2023
-ms.reviewer: eskotq
+ms.reviewer: eskot
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
@@ -30,7 +30,7 @@ This document is also available in notebook form, for [Python](https://github.co
 ## Setup
 
 >[!Note]
-> Hyperspace is currently supported in Azure Synapse Runtime for Apache Spark 2.4 (EOLA), Azure Synapse Runtime for Apache Spark 3.1 (EOLA) and Azure Synapse Runtime for Apache Spark 3.2 (GA).
+> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 2.4 (EOLA), Azure Synapse Runtime for Apache Spark 3.1 (EOLA), and Azure Synapse Runtime for Apache Spark 3.2 (GA). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3.
 
 To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
