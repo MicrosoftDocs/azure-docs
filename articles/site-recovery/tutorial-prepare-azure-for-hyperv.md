@@ -1,6 +1,6 @@
 ---
-title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
-description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
+title: Prepare Azure resources for Hyper-V disaster recovery by using Azure Site Recovery
+description: Learn how to prepare Azure resources for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/22/2022
@@ -10,14 +10,16 @@ author: ankitaduttaMSFT
 ---
 # Prepare Azure resources for Hyper-V disaster recovery
 
-[Azure Site Recovery](site-recovery-overview.md) helps organizations with business continuity and disaster recovery by keeping business apps running both during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+[Azure Site Recovery](site-recovery-overview.md) helps organizations with business continuity and disaster recovery by keeping business apps running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
 This tutorial is the first in a series that describes how to set up disaster recovery for on-premises Hyper-V VMs.
 
 > [!NOTE]
-> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How to* section.
+> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How to* section of the [Site Recovery documentation](./index.yml).
 
-This tutorial shows you how to prepare Azure components when you want to replicate on-premises Hyper-V VMs to Azure. You'll learn how to:
+This tutorial shows you how to prepare Azure components when you want to replicate on-premises Hyper-V VMs to Azure.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Storage account to store images of replicated machines.
