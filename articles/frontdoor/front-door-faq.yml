@@ -7,7 +7,7 @@ metadata:
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 10/31/2022
+  ms.date: 02/16/2023
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -177,6 +177,13 @@ sections:
           How does Azure Front Door support high availability and scalability?
         answer:  |
           Azure Front Door is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
+
+      - question: |
+          Why aren't ranged responses from my origin getting cached?
+        answer: |
+          Ensure that your origin sends the `Content-Range` response header, and that the value matches the actual length of the response body.
+
+          For more information, see [Delivery of large files](front-door-caching.md#delivery-of-large-files).
 
   - name: TLS configuration
     questions:
