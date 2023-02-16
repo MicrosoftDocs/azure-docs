@@ -12,7 +12,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
-This tutorial will walk you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. It will show you how to use GitHub repositories setup and toolings from the perspective of the Platform Team and Application Team personas in their daily activities. 
+This tutorial walks you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. It shows you how to use GitHub repositories setup and toolings from the perspective of the Platform Team and Application Team personas in their daily activities. 
 
 ## Installation options and requirements
  
@@ -30,7 +30,7 @@ In order to successfully deploy the sample, you need the following:
 
 ### Deployment
 
-To deploy the sample run the following script:
+To deploy the sample, run the following script:
 
 ```azurecli-interactive
 mkdir kalypso && cd kalypso
@@ -100,7 +100,7 @@ The `main` branch:
 |------|-----------|
 |.github/workflows| GitHub workflows that implement the promotional flow|
 |.environments| Contains a list of environments with the pointers to the branches with the environment configurations|
-|templates| Contains manifest templates for various reconcilers (e.g. Flux and ArgoCD) as well as a template for the workload namespace| 
+|templates| Contains manifest templates for various reconcilers (for example, Flux and ArgoCD) as well as a template for the workload namespace| 
 |workloads| Contains a list of onboarded applications and services with the pointers to the corresponding GitOps repositories|  
 
 The `dev` and `stage` branches:
@@ -158,7 +158,7 @@ spec:
         path: ./uat-test   
 ```
 
-The file contains a list of three deployment targets. They are marked with custom labels and point to the folders in [Application GitOps](https://github.com/microsoft/kalypso-app-gitops) repository where the Application Team will generate application manifests for each deployment target.
+The file contains a list of three deployment targets. They are marked with custom labels and point to the folders in [Application GitOps](https://github.com/microsoft/kalypso-app-gitops) repository where the Application Team generates application manifests for each deployment target.
 
 With this file Application Team requests Kubernetes compute resources from the Platform Team. In response, the Platform Team registers the application in the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repo. Let's open a terminal and do that with the following script: 
 
@@ -252,11 +252,11 @@ git pull --no-edit
 git push
 ```
 
-The first policy states that all deployment targets from the `kaizen-app-team` workspace, marked with labels `purpose: functional-test` and `edge: "true"` should be scheduled on all environment cluster types, that are marked with label `restricted: "true"`. You can treat a workspace as a group of applications produced by an application team.
+The first policy states that all deployment targets from the `kaizen-app-team` workspace, marked with labels `purpose: functional-test` and `edge: "true"` should be scheduled on all environment cluster types that are marked with label `restricted: "true"`. You can treat a workspace as a group of applications produced by an application team.
 
-The second policy states that all deployment targets from the `kaizen-app-team` workspace, marked with labels `purpose: performance-test` and `edge: "false"` should be scheduled on all environment cluster types, that are marked with label `size: "large"`.
+The second policy states that all deployment targets from the `kaizen-app-team` workspace, marked with labels `purpose: performance-test` and `edge: "false"` should be scheduled on all environment cluster types that are marked with label `size: "large"`.
 
-This push to the `dev` branch will trigger the scheduling process and will create a PR to the `dev` branch in the `Platform GitOps` repository:
+This push to the `dev` branch triggers the scheduling process and creates a PR to the `dev` branch in the `Platform GitOps` repository:
 
 ![PR to dev environment with application assignment](media/tutorial-workload-management/pr-to-dev-with-app-assignment.png)
 
@@ -270,7 +270,7 @@ Only `drone` and `large` cluster types were selected by the scheduling policies 
 
 Let's have a closer look at the generated assignment manifests for the `functional-test` deployment target. There are `namespace.yaml`, `config.yaml` and `reconciler.yaml` manifest files:
 
-`namespace.yaml` defines a namespace, that will be created on any `drone` cluster where the `hello-world` application will run. 
+`namespace.yaml` defines a namespace, that will be created on any `drone` cluster where the `hello-world` application runs. 
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -299,7 +299,7 @@ data:
   SOME_COMMON_ENVIRONMENT_VARIABLE: "false"
 ```
 
-`reconciler.yaml` contains Flux resources that a `drone` cluster will use to fetch application manifests, prepared by the Application Team for the `functional-test` deployment target:
+`reconciler.yaml` contains Flux resources that a `drone` cluster uses to fetch application manifests, prepared by the Application Team for the `functional-test` deployment target:
 ```yaml
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
@@ -342,7 +342,7 @@ The PR merging event starts a GitHub workflow `checkpromote` in the `control pla
 
 ![Promoting to dev](media/tutorial-workload-management/checkpromote-to-dev.png)
 
-Once the `checkpromote` is successful, it will start `cd` workflow that promotes the change (application registration) to the `Stage` environment. For the better visibility it will also update the git commit status in the `control plane` repository:
+Once the `checkpromote` is successful, it starts the `cd` workflow that promotes the change (application registration) to the `Stage` environment. For the better visibility, it also updates the git commit status in the `control plane` repository:
 
 ![Git commit status deploying to dev](media/tutorial-workload-management/dev-git-commit-status.png)
 
@@ -387,7 +387,7 @@ As in the case with the `Dev` environment, after reviewing and merging the PR to
 
 ![Promoting to stage](media/tutorial-workload-management/check-promote-to-stage.png)
 
-On successful execution it will update the commit status:
+On successful execution updates the commit status:
 
 ![Git commit status deploying to stage](media/tutorial-workload-management/stage-git-commit-status.png)
 
@@ -397,13 +397,13 @@ Application Team on a regular basis submits PRs to the `main` branch in the `App
 
 ![Run workflow button](media/tutorial-workload-management/run-workflow-button.png)
 
-The workflow will do the following:
+The workflow does the following:
 
 ![cicd workflow](media/tutorial-workload-management/cicd-workflow.png)
 
-- Build application Docker image and push it to the GitHub repository package
-- Generate manifests for the `functional-test` and `performance-test` deployment targets. It will use configuration values from the `dev-configs` branch. The generated manifests are PRed and auto-merged in the `dev` branch.
-- Generate manifests for the `uat-test` deployment target. It will use configuration values from the `stage-configs` branch. The generated manifests are PRed to the `stage` branch waiting for our approval:
+- Builds application Docker image and push it to the GitHub repository package
+- Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are PRed and auto-merged in the `dev` branch.
+- Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. The generated manifests are PRed to the `stage` branch waiting for our approval:
 
 ![PR to stage](media/tutorial-workload-management/app-pr-to-stage.png)
 
@@ -450,13 +450,13 @@ kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-worl
 > [!NOTE]
 > It may take up to 3 minutes on the `large` cluster to reconcile the changes from the application GitOps repository. 
 
-The application instance on the `large` cluster will render the following greeting page:
+The application instance on the `large` cluster renders the following greeting page:
 
 ![Greeting page on stage](media/tutorial-workload-management/stage-greeting-page.png)
 
 ## Platform Team: Provide Platform Configurations
 
-Applications in our fleet grab the data from the very same database in both `Dev` and `Stage` environments. Let's change this and configure `west-us` clusters to provide a different database url for the applications working in the `Stage` environment:
+Applications in our fleet grab the data from the very same database in both `Dev` and `Stage` environments. Let's change it and configure `west-us` clusters to provide a different database url for the applications working in the `Stage` environment:
 
 ```azurecli-interactivet
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
@@ -485,7 +485,7 @@ git push
 
 The scheduler scans all config maps in the environment and collects values for each cluster type basing on the label matching. Then, it puts a `platform-config` config map in every deployment target folder in the `Platform GitOps` repository. The `platform-config` config map contains all platform configuration values, that the workload can use on this cluster type in this environment.  
 
-In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` repository will appear:
+In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` repository appears:
 
 ![PR to update database url on stage](media/tutorial-workload-management/stage-db-url-update-pr.png)
 
@@ -510,7 +510,7 @@ You will see a web page like this one:
 
 ![argocd ui](media/tutorial-workload-management/argocd-ui.png)
 
-We're interested in the `stage` tile for this exercise. If you click on it, it will provide you with more details on the reconciliation state from the `stage` branch to this cluster. You can even click the `SYNC` buttons to force the reconciliation and speed up the process. 
+We're interested in the `stage` tile for this exercise. If you click on it, it provides you with more details on the reconciliation state from the `stage` branch to this cluster. You can even click the `SYNC` buttons to force the reconciliation and speed up the process. 
 
 Once the new configuration has arrived to the cluster, we can check the `uat-test` application instance at `localhost:8002` after 
 running the following commands:
@@ -555,7 +555,7 @@ git pull --no-edit
 git push
 ```
 
-In a few seconds, the scheduler will submit a PR to the `Platform GitOps` repository. According to the `uat-test-policy`, that we have created before, it will assign the `uat-test` deployment target to the new cluster type as it is supposed to work on all available cluster types in the environment:
+In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository. According to the `uat-test-policy`, that we have created before, it assigns the `uat-test` deployment target to the new cluster type as it is supposed to work on all available cluster types in the environment:
 
 ![Assignment for the small cluster type](media/tutorial-workload-management/small-cluster-type-assignment.png)
 
@@ -570,7 +570,7 @@ To delete the resources, created for this tutorial, run the following command:
 
 ## Next Steps
 
-In this tutorial you have gone through a few of the most common workload management scenarios in a multi-cluster Kubernetes environment. It's hard to put all the scenarios in a single tutorial. So, the suggestion is to play with this tutorial setup and see how you can implement the use-cases, that are most common in your daily activities.
+In this tutorial, you have gone through a few of the most common workload management scenarios in a multi-cluster Kubernetes environment. It's hard to put all the scenarios in a single tutorial. So, the suggestion is to play with this tutorial setup and see how you can implement the use-cases, that are most common in your daily activities.
 
 To understand the underlying concepts and mechanics deeper, refer to the following resources:
 
