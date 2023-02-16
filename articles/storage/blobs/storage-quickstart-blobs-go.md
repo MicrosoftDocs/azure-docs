@@ -57,11 +57,11 @@ This command clones the repository to your local git folder. To open the Go samp
 
 [!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../includes/storage-quickstart-passwordless-auth-intro.md)]
 
-`DefaultAzureCredential` is a class provided by the Azure Identity client library for Go. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+`DefaultAzureCredential` is a class provided by the Azure Identity client library for Go. `DefaultAzureCredential` supports multiple authentication methods and determines which method to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
-The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential).
+To learn more about the order and locations in which `DefaultAzureCredential` looks for credentials, see [Azure Identity library overview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Once it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
 
 ### Assign roles to your Azure AD user account
 
@@ -83,7 +83,7 @@ You can authorize access to data in your storage account using the following ste
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
-Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, the same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/developer/go/azure-sdk-authentication-managed-identity) tutorial.
+Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, you can use the same code to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/developer/go/azure-sdk-authentication-managed-identity) tutorial.
 
 To learn more about different authentication methods, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
@@ -190,7 +190,7 @@ handleError(err)
 
 ### List the blobs in a container
 
-The code sample lists the blobs in the specified container. This example uses [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListBlobsFlatPager), which returns a pager for blobs starting from the specified Marker. Here, we use an empty Marker to start enumeration from the beginning, and continue paging until there are no more results. Blob names are returned in lexicographic order.
+The code sample lists the blobs in the specified container. This example uses [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListBlobsFlatPager), which returns a pager for blobs starting from the specified Marker. Here, we use an empty Marker to start enumeration from the beginning, and continue paging until there are no more results. This method returns blob names in lexicographic order.
 
 The following code example lists the blobs in the specified container:
 
