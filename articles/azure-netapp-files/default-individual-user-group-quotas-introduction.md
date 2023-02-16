@@ -23,9 +23,9 @@ User and group quotas enable you to restrict the logical space that a user or gr
 
 You can restrict user capacity consumption on Azure NetApp Files volumes by setting user and/or group quotas on volumes. User and group quotas differ from volume quotas in the way that they further restrict volume capacity consumption at the user and group level.
 
-To set a [volume quota](volume-quota-introduction.md), you can use the Azure portal or the Azure NetApp Files API to specify the maximum storage capacity for a volume. Once the volume quota is set, it defines the size of the volume, and there's no restriction on how much capacity any user can consume.
+To set a [volume quota](volume-quota-introduction.md), you can use the Azure portal or the Azure NetApp Files API to specify the maximum storage capacity for a volume. Once you set the volume quota, it defines the size of the volume, and there's no restriction on how much capacity any user can consume.
 
-To restrict users’ capacity consumption, you can set a user and/or group quota. You can set default and/or individual quotas. Once user or group quotas are set, users can't store more data in the volume than the specified user or group quota limit.
+To restrict users’ capacity consumption, you can set a user and/or group quota. You can set default and/or individual quotas. Once you set user or group quotas, users can't store more data in the volume than the specified user or group quota limit.
 
 By combining volume and user quotas, you can ensure that storage capacity is distributed efficiently and prevent any single user, or group of users, from consuming excessive amounts of storage.
 
