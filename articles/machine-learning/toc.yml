@@ -78,7 +78,7 @@
       items:
         - name: Develop on a cloud workstation
           href: tutorial-cloud-workstation
-        - name: Set up a re-usable pipeline
+        - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
     - name: Build models
       items: 
@@ -708,7 +708,7 @@
                   href: how-to-deploy-mlflow-model-spark-jobs.md
     - name: Manage the ML lifecycle (MLOps)
       items:
-        - name: Setup MLOps with Azure DevOps
+        - name: Set up MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
