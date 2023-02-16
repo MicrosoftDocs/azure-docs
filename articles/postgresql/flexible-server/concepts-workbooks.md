@@ -10,7 +10,7 @@ ms.date: 02/15/2023
 ---
 # Monitor Azure Database for PostgreSQL Flexible Server by using Azure Monitor workbooks
 
-[!INCLUDE[applies-to-postgresql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL Flexible Server is now integrated with Azure Monitor workbooks. With workbooks, you get a flexible canvas for analyzing data and creating rich visual reports within the Azure portal. Workbooks allow you to tap into multiple data sources across Azure and combine them into unified interactive experiences. Workbook templates serve as curated reports that are designed for flexible reuse by multiple users and teams. 
 
