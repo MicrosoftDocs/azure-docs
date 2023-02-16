@@ -13,7 +13,7 @@ Your app uses DNS when making calls to dependent resources. Resources could be A
 
 ## How name resolution works in App Service
 
-If your app isn't integrated with a virtual network and you haven't configured custom DNS, your app will use [Azure DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution). If your app is integrated with a virtual network, your app will use the DNS configuration of the virtual network. The default for virtual network is also to use Azure DNS, but through the virtual network it's also possible to link to [Azure DNS private zones](../dns/private-dns-overview.md) and use that for private endpoint resolution or private domain name resolutions. From your virtual network, you would also inherit any custom DNS servers configured.
+If your app isn't integrated with a virtual network and you haven't configured custom DNS, your app will use [Azure DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution). If your app is integrated with a virtual network, your app will use the DNS configuration of the virtual network. The default for virtual network is also to use Azure DNS, but through the virtual network it's also possible to link to [Azure DNS private zones](../dns/private-dns-overview.md) and use that for private endpoint resolution or private domain name resolutions. From your virtual network, you would also inherit any custom DNS servers configured. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully.
 
 The individual app will also allow you to override the DNS configuration by specifying the `dnsServers` property in the `dnsConfiguration` site property object. You can specify up to five custom DNS servers. Custom DNS servers can be configured using the Azure CLI.
 
@@ -25,7 +25,9 @@ The existing `WEBSITE_DNS_SERVER` app setting can still be used, and you can add
 
 When your app needs to resolve a domain name using DNS, a name resolution request is sent to all configured DNS servers. DNS server responses will be evaluated in the order the servers are configured, however if a higher order server doesn't respond within the configured timeout, it will fall back to the next server in the list.
 
-**Note:** When using custom DNS servers from your virtual network and if your virtual network had more than two custom DNS servers configured, Windows code apps used to sort the servers, and only use the first two servers. This behavior has changed for new apps, but hasn't changed for existing apps to maintain backwards compatibility. If you would like to adopt the new behavior of using up to five servers in the order they're specified in the virtual network, you can run this CLI command:
+**Note:** When using custom DNS servers from your virtual network and if your virtual network had more than two custom DNS servers configured, Windows code apps used to sort the servers, and only use the first two servers. This behavior has changed for new apps, but hasn't changed for existing apps to maintain backwards compatibility.
+
+If you would like to adopt the new behavior of using up to five servers in the order they're specified in the virtual network for Windows code apps, you can run this CLI command:
 
 ```azurecli-interactive
 az rest --method POST --uri <app-resource-id>/disableVirtualNetworkDnsSorting?api-version=2022-03-01
@@ -39,4 +41,14 @@ az resource show --resource-group <group-name> --name <app-name> --resource-type
 
 ## Configure name resolution behavior
 
-If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. We allow you to modify retry attempts, retry timeout and cache timeout. Default timeout for retry attempts is 3 seconds, and you can configure it from 1-30 seconds. Default retry count is 1, but you can configure up to five retry attempts. DNS Cache timeout can be configured from 0-60 seconds. Default is 30 seconds and 0 means caching is disabled. Disabling cache may impact performance.
+If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. We allow you to modify retry attempts, retry timeout and cache timeout. Default timeout for retry attempts is 3 seconds, and you can configure it from 1-30 seconds. Default retry count is 1, but you can configure up to five retry attempts. DNS Cache timeout can be configured from 0-60 seconds. Default is 30 seconds and 0 means caching is disabled. Disabling or lowering cache duration may impact performance.
+
+```azurecli-interactive
+az resource update --resource-group <group-name> --name <app-name> --set properties.dnsConfiguration. --resource-type "Microsoft.Web/sites"
+```
+
+## Next steps
+
+- [Configure virtual network integration](./configure-vnet-integration-enable.md.md)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+- [General networking overview](./networking-features.md)
