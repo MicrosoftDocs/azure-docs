@@ -29,7 +29,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
-Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub), default 0.0.0.0/0 route must not be overwritten. 
+Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), default 0.0.0.0/0 route must not be overwritten. 
 
 ### <a name="dns"></a>Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -46,7 +46,7 @@ You may use a private DNS zone ending with one of the names listed above (ex: pr
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
-### <a name="dns"></a>Does Azure Bastion support Private Link?"
+### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
 
@@ -167,13 +167,17 @@ To establish the correct key mappings for your target language, you must set the
 
 To set your target language as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add your target language. You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
+### <a name="shortcut"></a>Is there a keyboard solution to toggle focus between a VM and browser?
+
+Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser. 
+
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
 Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
-Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
+Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable. Timezone settings for a VM can be manually updated after successfully connecting to the Guest OS. 
 
 ### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
 
@@ -210,6 +214,12 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### My privatelink.azure.com cannot resolve to management.privatelinke.azure.com
+
+This may be due to the Private DNS zone for privatelink.azure.com linked to the Bastion virtual network causing management.azure.com CNAMEs to resolve to management.privatelink.azure.com behind the scenes. Create a CNAME record in their privatelink.azure.com zone for management.privatelink.azure.com to arm-frontdoor-prod.trafficmanager.net to enable successful DNS resolution.
+
+
 
 ## Next steps
 
