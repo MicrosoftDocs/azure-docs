@@ -77,7 +77,7 @@ mlflow.set_experiment(experiment_name)
 
 When submitting jobs using Azure Machine Learning CLI or SDK, you can set the experiment name using the property `experiment_name` of the job. You don't have to configure it on your training script.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="9" lines="1-9":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="9" range="1-9":::
 
 ---
 
@@ -141,7 +141,7 @@ az ml job create -f job.yml --web
 
 If you want to configure the run name, you can rely on the parameter `display_name` of Azure Machine Learning jobs, that allow you to configure the name of the run.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" lines="1-9":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
 
 ---
 
