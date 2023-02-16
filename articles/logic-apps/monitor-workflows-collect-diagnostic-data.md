@@ -216,7 +216,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
 1. In the [Azure portal](https://portal.azure.com), open your Log Analytics workspace.
 
-1. On your workspace menu, under **General**, select **Workspace summary** > **Logic Apps Management**.
+1. On your workspace menu, under **Classic**, select **Workspace summary**. On the **Overview** page, select **Logic Apps Management**.
 
    > [!NOTE]
    > 
@@ -225,13 +225,13 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-runs-summary.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace with Consumption logic app workflow run status and count.":::
 
-   The summary page shows logic app workflow runs grouped by name or by execution status. The page also shows details about failures in the actions or triggers for the workflow runs.
+   The summary page shows workflows grouped by name or by execution status. The page also shows details about failures in the actions or triggers for the workflow runs.
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-runs-summary-details.png" alt-text="Screenshot showing status summary for Consumption logic app workflow runs.":::
 
-1. To view all the runs for a specific Consumption logic app workflow or status, select the row for that logic app workflow or status.
+1. To view all the runs for a specific workflow or status, select the row for that workflow or status.
 
-   This example shows all the runs for a specific logic app workflow:
+   This example shows all the runs for a specific workflow:
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-run-details.png" alt-text="Screenshot showing runs and status for a specific Consumption logic app workflow.":::
 
