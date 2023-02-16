@@ -302,4 +302,4 @@ Some additional suggestions you may want to consider:
 
 ## Next steps
 
-* [How to train R models in Azure Machine Learning](how-to-razureml-train-model.md)
+* [How to train R models in Azure Machine Learning](how-to-r-azure-ml-train-model.md)
