@@ -25,8 +25,12 @@ landingContent:
             url: overview.md
       - linkListType: whats-new
         links:
-          - text: What's new?
+          - text: What's new in Defender for IoT?
+            url: whats-new.md
+          - text: OT monitoring software release notes
             url: release-notes.md
+          - text: Microsoft Sentinel solution release notesWhat's new our Microsoft Sentinel solution?in Defender for IoT?
+            url: release-notes-sentinel.md
       - linkListType: concept
         links:
           - text: System architecture
@@ -46,8 +50,6 @@ landingContent:
         links:
           - text: Get started with OT security monitoring
             url: tutorial-onboarding.md
-          - text: Get started with Enterprise IoT security monitoring
-            url: tutorial-getting-started-eiot-sensor.md
 
   - title: How-to
     linkLists:

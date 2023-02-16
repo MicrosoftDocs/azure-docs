@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -112,6 +112,6 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 ## Next steps
 
-For more information about the native application flow, see [Native apps in Azure Active Directory](../azuread-dev/native-app.md).
+For more information about the native application flow, see [mobile](../develop/authentication-flows-app-scenarios.md#mobile-app-that-calls-a-web-api-on-behalf-of-an-interactive-user) and [desktop](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) apps in Azure Active Directory.
 
 Learn about setting up [Single sign-on to applications in Azure Active Directory](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).

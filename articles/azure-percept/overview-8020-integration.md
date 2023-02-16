@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: danoneil
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-concept, ignite-fall-2021
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept DK 80/20 integration
@@ -38,7 +39,4 @@ your local 80/20 distributor: https://8020.net/distributorlookup/
 | Arm Mounts      | ![Arm Mount Image](./media/overview-8020-integration-images/arm-mount.png) | [ ![Clamp Bracket Image](./media/overview-8020-integration-images/azure-percept-8020-clamp-bracket-mini.png) ](./media/overview-8020-integration-images/azure-percept-8020-clamp-bracket.png#lightbox)    
 
 
-## Next steps
 
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

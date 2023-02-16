@@ -91,7 +91,7 @@ The schema is identical for converting triangular meshes and point clouds. Howev
 
 ## Settings for triangular meshes
 
-For converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
+When converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
 
 ### Geometry parameters
 
@@ -127,7 +127,7 @@ If a model is defined using gamma space, then these options should be set to tru
 * `gammaToLinearVertex` - Convert :::no-loc text="vertex"::: colors from gamma space to linear space
 
 > [!NOTE]
-> For FBX, E57, PLY and XYZ files these settings are set to `true` by default. For all other file types, the default is `false`.
+> For FBX, E57, PLY, LAS, LAZ and XYZ files these settings are set to `true` by default. For all other file types, the default is `false`.
 
 ### Scene parameters
 
@@ -147,7 +147,8 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Physics parameters
 
-* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. In the worst case, the creation of a collision mesh can double the conversion time. Models with collision meshes take longer to load and when using a `dynamic` scene graph, they also have a higher runtime performance overhead. For overall optimal performance, you should disable this option on all models on which you don't need spatial queries.
+* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. Collision mesh generation does not add any extra conversion time and also does not increase the output file size. Furthermore, the loading time and runtime cost of a model with collision meshes is only insignificantly higher.
+Accordingly this flag can be left to default (enabled) unless there are strong reasons to exclude a model from spatial queries.
 
 ### Unlit materials
 
@@ -159,7 +160,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Coordinate system overriding
 
-* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handedness by inverting the Y-axis direction.
+* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting the Y-axis direction.
 
 ### Node meta data
 
@@ -203,16 +204,16 @@ By forcing a component to `NONE`, it's guaranteed that the output mesh doesn't h
 
 These formats are allowed for the respective components:
 
-| :::no-loc text="Vertex"::: component | Supported formats (bold = default) |
-|:-----------------|:------------------|
-|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
-|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
-|color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**|
-|normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
-|tangent| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
-|binormal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE |
-|texcoord0| **32_32_FLOAT**, 16_16_FLOAT, NONE |
-|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, NONE |
+| :::no-loc text="Vertex"::: component | Supported formats (bold = default) | Usage in materials |
+|:-----------------|:------------------|:------------------|
+|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT | Vertex position, must always be present. |
+|color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE | Vertex colors. See `useVertexColor` property in both [Color materials](../../overview/features/color-materials.md) and [PBR materials](../../overview/features/pbr-materials.md), and `vertexMix` in [Color materials](../../overview/features/color-materials.md). |
+|color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**| Unused, leave it to **NONE**. |
+|normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting in [PBR materials](../../overview/features/pbr-materials.md). |
+|tangent| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
+|binormal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting with normal maps in [PBR materials](../../overview/features/pbr-materials.md). |
+|texcoord0| **32_32_FLOAT**, 16_16_FLOAT, NONE | First slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
+|texcoord1| **32_32_FLOAT**, 16_16_FLOAT, NONE | Second slot of texture coordinates. Individual textures (albedo, normal map, ...) can either use slot 0 or 1, which is defined in the source file. |
 
 #### Supported component formats
 
@@ -239,7 +240,7 @@ The memory footprints of the formats are as follows:
 
 Assume you have a photogrammetry model, which has lighting baked into the textures. All that is needed to render the model are :::no-loc text="vertex"::: positions and texture coordinates.
 
-By default the converter has to assume that you may want to use PBR materials on a model at some time, so it will generate `normal`, `tangent`, and `binormal` data for you. Consequently, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices"::: resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance and you may even run out of memory.
+By default the converter has to assume that you may want to use PBR materials on a model at some time, so it will generate `normal`, `tangent`, and `binormal` data for you. So, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of :::no-loc text="vertices"::: resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance and you may even run out of memory.
 
 Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per :::no-loc text="vertex":::. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
@@ -252,9 +253,9 @@ The properties that do have an effect on point cloud conversion are:
 * `scaling` - same meaning as for triangular meshes.
 * `recenterToOrigin` - same meaning as for triangular meshes.
 * `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
-* `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY and XYZ) is true.
+* `gammaToLinearVertex` - similar to triangular meshes, this flag indicates whether point colors should be converted from gamma space to linear space. Default value for point cloud formats (E57, PLY, LAS, LAZ and XYZ) is true.
 
-* `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md). But unlike for triangular meshes, this flag doesn't incurs longer conversion times, larger output file sizes, or longer runtime loading times. So disabling this flag can't be considered an optimization.
+* `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md).
 
 ## Memory optimizations
 
@@ -277,7 +278,7 @@ A simple way to test whether instancing information gets preserved during conver
 
 #### Example: Instancing setup in 3ds Max
 
-[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regard to instancing in the exported `.fbx` file.
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently regarding instancing in the exported `.fbx` file.
 
 ![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
 
@@ -314,8 +315,6 @@ There are certain classes of use cases that qualify for specific optimizations. 
 
 * These types of scenes tend to be static, meaning they don't need movable parts. Accordingly, the `sceneGraphMode` can be set to `static` or even `none`, which improves runtime performance. With `static` mode, the scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and a table top view.
 
-* When you need to move parts around, that typically also means that you need support for raycasts or other [spatial queries](../../overview/features/spatial-queries.md), so that you can pick those parts in the first place. On the other hand, if you don't intend to move something around, chances are high that you also don't need it to participate in spatial queries and therefore can turn off the `generateCollisionMesh` flag. This switch has significant impact on conversion times, loading times, and also runtime per-frame update costs.
-
 * If the application doesn't use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain is typically 20%-30%. Cut planes can still be used, but there won't be back-faces when looking into the inner parts of objects, which looks counter-intuitive. For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### Use case: Photogrammetry models
@@ -329,7 +328,7 @@ Because lighting is already baked into the textures, no dynamic lighting is need
 
 ### Use case: Visualization of compact machines, etc.
 
-In these use cases, the models often have very high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
+In these use cases, the models often have high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
 
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.

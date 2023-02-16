@@ -1,14 +1,14 @@
 ---
 title: Store unstructured data using Azure Cosmos DB and Functions
-description: Store unstructured data using Azure Functions and Cosmos DB
+description: Store unstructured data using Azure Functions and Azure Cosmos DB
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2022
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a great way to store unstructured and JSON data. Combined with Azure Functions, Cosmos DB makes storing data quick and easy with much less code than required for storing data in a relational database.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a great way to store unstructured and JSON data. Combined with Azure Functions, Azure Cosmos DB makes storing data quick and easy with much less code than required for storing data in a relational database.
 
 > [!NOTE]
 > At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
@@ -46,11 +46,11 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Binding Type** | Azure Cosmos DB | Name of the binding type to select to create the output binding to Azure Cosmos DB. |
-    | **Document parameter name** | taskDocument | Name that refers to the Cosmos DB object in code. |
+    | **Document parameter name** | taskDocument | Name that refers to the Azure Cosmos DB object in code. |
     | **Database name** | taskDatabase | Name of database to save documents. |
     | **Collection name** | taskCollection | Name of the database collection. |
-    | **If true, creates the Cosmos DB database and collection** | Yes | The collection doesn't already exist, so create it. |
-    | **Cosmos DB account connection** | New setting | Select **New**, then choose **Azure Cosmos DB Account** and the **Database account** you created earlier, and then select **OK**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
+    | **If true, creates the Azure Cosmos DB database and collection** | Yes | The collection doesn't already exist, so create it. |
+    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose **Azure Cosmos DB Account** and the **Database account** you created earlier, and then select **OK**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
 
 1. Select **OK** to create the binding.
 
@@ -143,7 +143,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 1. In the Azure portal, search for and select **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Search for the Cosmos DB service." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Search for the Azure Cosmos DB service." border="true":::
 
 1. Choose your Azure Cosmos DB account, then select  **Data Explorer**.
 
@@ -151,12 +151,12 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verify the string values in your document." border="true":::
 
-You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB.
+You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB instance.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 
-For more information about binding to a Cosmos DB database, see [Azure Functions Cosmos DB bindings](functions-bindings-cosmosdb.md).
+For more information about binding to an Azure Cosmos DB instance, see [Azure Functions Azure Cosmos DB bindings](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps-2.md)]

@@ -50,15 +50,15 @@ Two Azure resources are defined in the template:
     |Location|The value will autopopulate with the location used for the resource group.|
     |Cluster Name|Enter a globally unique name. For this template, use only lowercase letters, and numbers.|
     |Cluster Type | Select **hadoop**. |
-    |Cluster Login User Name|Provide the username, default is **admin**.|
-    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` ). |
-    |Ssh User Name|Provide the username, default is **sshuser**|
+    |Cluster Login User Name|Provide the username, default is `admin`.|
+    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "```). |
+    |Ssh User Name|Provide the username, default is `sshuser`.|
     |Ssh Password|Provide the password.|
 
     Some properties have been hardcoded in the template.  You can configure these values from the template. For more explanation of these properties, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-    > [!NOTE]  
-    > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.  
+    > [!NOTE]
+    > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.
 
     :::image type="content" source="./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png " alt-text="HDInsight Linux gets started Resource Manager template on portal" border="true":::
 

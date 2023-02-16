@@ -1,14 +1,18 @@
 ---
 title: Connect Azure Percept DK over 5G or LTE by using a Quectel RM500 5G modem
 description: This article explains how to connect Azure Percept DK over 5G or LTE networks by using a Quectel 5G modem.
-author: nkhuyent
+author: yvonne-dq
 ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 09/03/2021
+ms.date: 02/07/2023
 ms.custom: template-how-to
+ROBOTS: NOINDEX
 ---
+
 # Connect Azure Percept DK over 5G or LTE by using a Quectel RM500-GL 5G modem  
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 This article discusses how to connect Azure Percept DK over 5G or LTE by using a Quectel RM500-GL 5G modem. 
 

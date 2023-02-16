@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-overview #Required; leave this attribute/value as-is.
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept overview
@@ -28,9 +29,6 @@ The main components of Azure Percept are:
 - [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders, and customers.
-
-        > [!div class="nextstepaction"]
-        > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 - Services and workflows that accelerate edge AI model and solution development.
 

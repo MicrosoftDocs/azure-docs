@@ -8,10 +8,11 @@ ms.subservice: enterprise-readiness
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
+ms.reviewer: lagayhar
 ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
-# Assess errors in machine learning models (preview)
+# Assess errors in machine learning models
 
 One of the biggest challenges with current model-debugging practices is using aggregate metrics to score models on a benchmark dataset. Model accuracy might not be uniform across subgroups of data, and there might be input cohorts for which the model fails more often. The direct consequences of these failures are a lack of reliability and safety, the appearance of fairness issues, and a loss of trust in machine learning altogether.
 

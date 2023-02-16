@@ -5,19 +5,16 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept Audio device overview
 
 [!INCLUDE [Retirement note](./includes/retire.md)]
 
-Azure Percept Audio is an accessory device that adds speech AI capabilities to [Azure Percept DK](./overview-azure-percept-dk.md). It contains a preconfigured audio processor and a four-microphone linear array, enabling you to use voice commands, keyword spotting, and far field speech with the help of Azure Cognitive Services. It is integrated out-of-the-box with Azure Percept DK, [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), and other Azure edge management services. Azure Percept Audio is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
-
-> [!div class="nextstepaction"]
-> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
-
+Azure Percept Audio is an accessory device that adds speech AI capabilities to [Azure Percept DK](./overview-azure-percept-dk.md). It contains a preconfigured audio processor and a four-microphone linear array, enabling you to use voice commands, keyword spotting, and far field speech with the help of Azure Cognitive Services. It is integrated out-of-the-box with Azure Percept DK, [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), and other Azure edge management services. 
 </br>
 
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
@@ -67,7 +64,3 @@ Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percep
 - [Azure Percept Audio datasheet](./azure-percept-audio-datasheet.md)
 - [Button and LED behavior](./audio-button-led-behavior.md)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept Audio device from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

@@ -33,17 +33,17 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 - [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-- [Azure Database for MySQL single server](../mysql/single-server-overview.md).
+- [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
 
 - A table or view that provides the content. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy).
 
 - Read permissions. A *full access* connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Reader** permissions on MySQL.
 
-- A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
+- A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
 
   You can also use the [Azure SDK for .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql). You can't use the portal for indexer creation, but you can manage indexers and data sources once they're created.
 
-For more information, see [Azure Database for MySQL](../mysql/overview.md).
+For more information, see [Azure Database for MySQL](../mysql/flexible-server/overview.md).
 
 ## Preview limitations
 
@@ -65,7 +65,7 @@ The data source definition specifies the data to index, credentials, and policie
     api-key: [admin key]
     
     {   
-        "name" : "hotel-mysql-ds"
+        "name" : "hotel-mysql-ds",
         "description" : "[Description of MySQL data source]",
         "type" : "mysql",
         "credentials" : { 

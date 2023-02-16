@@ -27,15 +27,13 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: What is semantic search?
             url: semantic-search-overview.md
-          - text: What are Azure Applied AI Services?
-            url: ../applied-ai-services/what-are-applied-ai-services.md
-      - linkListType: video
+      - linkListType: learn
         links:
-          - text: Use AI in search solutions
-            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+          - text: Learning module
+            url: /training/modules/intro-to-azure-search/
 
   # Card
-  - title: Get started
+  - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
@@ -63,10 +61,10 @@ landingContent:
             url: search-get-started-rest.md
       - linkListType: reference
         links:
-          - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure REST API Reference
             url: /rest/api/searchservice/
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
             url: /python/api/overview/azure/search-documents-readme
 

@@ -1,14 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium using Bicep'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - Bicep'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Bicep.
 services: front-door
-author: schaffererin
-ms.author: v-eschaffer
+author: duongau
+ms.author: duau
 ms.date: 07/08/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

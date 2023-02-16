@@ -88,9 +88,9 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
         description="Datastore pointing to a blob container using SAS token.",
         account_name="mytestblobstore",
         container_name="data-container",
-        credentials={
-            "sas_token": "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
-        },
+        credentials=SasTokenCredentials(
+            sas_token= "?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX"
+        ),
     )
     
     ml_client.create_or_update(store)
@@ -157,7 +157,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                          subscription_id=subscription_id, 
                          resource_group_name=resource_group)
     
-    datastore = ml_client.datastores.get(datastore_name='your datastore name')
+    datastore = ml_client.datastores.get(name='your datastore name')
     ```
 
 ## Mapping of key functionality in SDK v1 and SDK v2

@@ -2,9 +2,9 @@
 title: Audit and manage Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
-author: aashishb
-ms.author: aashishb 
-ms.date: 11/30/2021
+author: jhirono
+ms.author: jhirono 
+ms.date: 10/20/2022
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -54,7 +54,7 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 ## Conditional access policies
 
-To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
+You can't use [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview) to control access to Azure Machine Learning studio, as it's a client application. Azure Machine Learning does honor conditional access policies you may have created for other cloud apps or services. For example, when attempting to access approved apps from a Jupyter Notebook running on an Azure Machine Learning compute instance.
 
 ## Enable self-service using landing zones
 

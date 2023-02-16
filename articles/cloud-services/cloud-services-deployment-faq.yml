@@ -60,7 +60,7 @@ sections:
           
           You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => "Usage + quota".
           
-          Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../cost-management-billing/manage/consumption-api-overview.md).
+          Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure consumption API overview](../cost-management-billing/automate/automation-overview.md).
           
       - question: |
           How can I change the size of a deployed cloud service VM without redeploying it?

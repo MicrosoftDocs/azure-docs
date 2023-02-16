@@ -1,17 +1,17 @@
 ---
 title: Harden your Windows and Linux OS with Azure security baseline and Microsoft Defender for Cloud
-description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Azure Security Benchmark
+description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Microsoft cloud security benchmark
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/09/2021
-
 ---
 # Apply Azure security baselines to machines
 
 To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
-The Azure Security Benchmark has guidance for OS hardening which has led to security baseline documents for [Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) and [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).
+The Microsoft cloud security benchmark has guidance for OS hardening which has led to security baseline documents for [Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) and [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).
 
 Use the security recommendations described in this article to assess the machines in your environment and:
 
@@ -35,7 +35,7 @@ Microsoft Defender for Cloud includes two recommendations that check whether the
 - For **Windows** machines, [Vulnerabilities in security configuration on your Windows machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) compares the configuration with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md).
 - For **Linux** machines, [Vulnerabilities in security configuration on your Linux machines should be remediated (powered by Guest Configuration)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) compares the configuration with the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md).
 
-These recommendations use the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Azure Security Benchmark](/security/benchmark/azure/overview).
+These recommendations use the guest configuration feature of Azure Policy to compare the OS configuration of a machine with the baseline defined in the [Microsoft cloud security benchmark](/security/benchmark/azure/overview).
 
 ## Compare machines in your subscriptions with the OS security baselines
 
@@ -103,4 +103,4 @@ To learn more about these configuration settings, see:
 
 - [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md)
 - [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md)
-- [Azure Security Benchmark](/security/benchmark/azure/overview)
+- [Microsoft cloud security benchmark](/security/benchmark/azure/overview)

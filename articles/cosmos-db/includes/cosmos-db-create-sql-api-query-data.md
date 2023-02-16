@@ -8,7 +8,7 @@
  ms.date: 04/05/2019
  ms.author: sidandrews
 ms.reviewer: mjbrown
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 You can use queries in Data Explorer to retrieve and filter your data.
 
@@ -24,6 +24,6 @@ You can use queries in Data Explorer to retrieve and filter your data.
    
    :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Changed query to ORDER BY c._ts DESC and clicking Apply Filter":::
 
-If you're familiar with SQL syntax, you can enter any supported [SQL queries](../sql-query-getting-started.md) in the query predicate box. You can also use Data Explorer to create stored procedures, UDFs, and triggers for server-side business logic. 
+If you're familiar with SQL syntax, you can enter any supported [SQL queries](../nosql/query/getting-started.md) in the query predicate box. You can also use Data Explorer to create stored procedures, UDFs, and triggers for server-side business logic. 
 
 Data Explorer provides easy Azure portal access to all of the built-in programmatic data access features available in the APIs. You also use the portal to scale throughput, get keys and connection strings, and review metrics and SLAs for your Azure Cosmos DB account.

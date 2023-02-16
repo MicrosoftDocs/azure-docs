@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Solution for SAP - security content reference | Microsoft Docs
-description: Learn about the built-in security content provided by the Microsoft Sentinel Solution for SAP.
+title: Microsoft Sentinel solution for SAP® applications - security content reference | Microsoft Docs
+description: Learn about the built-in security content provided by the Microsoft Sentinel solution for SAP® applications.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
@@ -8,14 +8,14 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 04/27/2022
 ---
 
-# Microsoft Sentinel Solution for SAP: security content reference
+# Microsoft Sentinel solution for SAP® applications: security content reference
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article details the security content available for the Microsoft Sentinel Solution for SAP.
+This article details the security content available for the Microsoft Sentinel solution for SAP® applications.
 
 > [!IMPORTANT]
-> While the Microsoft Sentinel Solution for SAP is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> While the Microsoft Sentinel solution for SAP® applications is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 Available security content includes built-in workbooks and analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
@@ -32,13 +32,13 @@ Use the following built-in workbooks to visualize and monitor data ingested via 
 | **SAP - Persistency &  Data Exfiltration** | Displays data such as: <br><br>Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br><br> Insecure operations, including both function modules and programs <br><br>Direct access to sensitive tables | Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log-preview)<br><br>[ABAPSpoolLog_CL](sap-solution-log-reference.md#abap-spool-log)<br><br>[ABAPSpoolOutputLog_CL](sap-solution-log-reference.md#apab-spool-output-log)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
 
 
-For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md).
+For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md).
 
 ## Built-in analytics rules
 
 ### Built-in SAP analytics rules for monitoring the SAP audit log
 
-The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel Solution for SAP. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
+The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel solution for SAP® applications. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
 In addition, there are two analytics rules which are designed to accommodate the entire set of standard SAP audit log events (183 different events), and any other custom events you may choose to log using the SAP audit log.
 
 Both SAP audit log monitoring analytics rules share the same data sources and the same configuration but differ in one critical aspect. While the “SAP - Dynamic Deterministic Audit Log Monitor” requires deterministic alert thresholds and user exclusion rules, the “SAP - Dynamic Anomaly-based Audit Log Monitor Alerts (PREVIEW)” applies additional machine learning algorithms to filter out background noise in an unsupervised manner. For this reason, by default, most event types (or SAP message IDs) of the SAP audit log are being sent to the "Anomaly based" analytics rule, while the easier to define event types are sent to the deterministic analytics rule. This setting, along with other related settings, can be further configured to suit any system conditions. 
@@ -59,7 +59,7 @@ Learn more:
 - [Configure the rule with the SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](#available-watchlists) 
 - Learn more about how to [configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842#feedback-success) (full procedure)
 
-The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel Solution for SAP, deployed from the Microsoft Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel solution for SAP® applications, deployed from the Microsoft Sentinel Solutions marketplace.
 
 ### Built-in SAP analytics rules for initial access
 
@@ -87,6 +87,11 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Spool Takeover** |Identifies a user printing a spool request that was created by someone else. | Create a spool request using one user, and then output it in using a different user. <br><br>**Data sources**: SAPcon -  Spool Log, SAPcon -  Spool Output Log, SAPcon - Audit Log | Collection, Exfiltration, Command and Control |
 | **SAP - Dynamic RFC Destination** | Identifies the execution of RFC using dynamic destinations. <br><br>**Sub-use case**: [Attempts to bypass SAP security mechanisms](#built-in-sap-analytics-rules-for-attempts-to-bypass-sap-security-mechanisms)| Execute an ABAP report that uses dynamic destinations (cl_dynamic_destination). For example, DEMO_RFC_DYNAMIC_DEST.   <br><br>**Data sources**: SAPcon - Audit Log | Collection, Exfiltration |
 | **SAP - Sensitive Tables Direct Access By Dialog Logon** | Identifies generic table access via dialog sign-in. | Open table contents using `SE11`/`SE16`/`SE16N`. <br><br>**Data sources**: SAPcon - Audit Log | Discovery |
+| **SAP - (Preview) File Downloaded From a Malicious IP Address** | Identifies download of a file from an SAP system using an IP address known to be malicious. Malicious IP addresses are obtained from [threat intelligence services](../understand-threat-intelligence.md). | Download a file from a malicious IP. <br><br>**Data sources**: SAP security Audit log, Threat Intelligence | Exfiltration |
+| **SAP - (Preview) Data Exported from a Production System using a Transport** | Identifies data export from a production system using a transport. Transports are used in development systems and are similar to pull requests. This alert rule triggers incidents with medium severity when a transport that includes data from any table is released from a production system. The rule creates a high severity incident when the export includes data from a sensitive table. | Release a transport from a production system. <br><br>**Data sources**: SAP CR log, [SAP - Sensitive Tables](#tables) | Exfiltration |
+| **SAP - (Preview) Sensitive Data Saved into a USB Drive** | Identifies export of SAP data via files. The rule checks for data saved into a recently mounted USB drive in proximity to an execution of a sensitive transaction, a sensitive program, or direct access to a sensitive table. | Export SAP data via files and save into a USB drive. <br><br>**Data sources**: SAP Security Audit Log, DeviceFileEvents (Microsoft Defender for Endpoint), [SAP - Sensitive Tables](#tables), [SAP - Sensitive Transactions](#transactions), [SAP - Sensitive Programs](#programs) | Exfiltration |
+| **SAP - (Preview) Printing of Potentially Sensitive data** | Identifies a request or actual printing of potentially sensitive data. Data is considered sensitive if the user obtains the data as part of a sensitive transaction, execution of a sensitive program, or direct access to a sensitive table.  | Print or request to print sensitive data. <br><br>**Data sources**:  SAP Security Audit Log, SAP Spool logs, [SAP - Sensitive Tables](#tables), [SAP - Sensitive Programs](#programs) | Exfiltration |
+| **SAP - (Preview) High Volume of Potentially Sensitive Data Exported** | Identifies export of a high volume of data via files in proximity to an execution of a sensitive transaction, a sensitive program, or direct access to sensitive table. | Export high volume of data via files. <br><br>**Data sources**:  SAP Security Audit Log, [SAP - Sensitive Tables](#tables), [SAP - Sensitive Transactions](#transactions), [SAP - Sensitive Programs](#programs) | Exfiltration |
 
 
 ### Built-in SAP analytics rules for persistency
@@ -98,7 +103,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - (PREVIEW) HANA DB -User Admin actions** | Identifies user administration actions. | Create, update, or delete a database user. <br><br>**Data Sources**: Linux Agent - Syslog* |Privilege Escalation |
 | **SAP - New ICF Service Handlers** | Identifies creation of ICF Handlers. | Assign a new handler to a service using SICF.<br><br>**Data sources**: SAPcon -  Audit Log | Command and Control, Lateral Movement, Persistence |
 | **SAP - New ICF Services** | Identifies creation of ICF Services. | Create a service using SICF.<br><br>**Data sources**: SAPcon - Table Data Log | Command and Control, Lateral Movement, Persistence |
-| **SAP - (PREVIEW) Execution of Obsolete or Insecure Function Module** |Identifies the execution of an obsolete or insecure ABAP function module. <br><br>Maintain obsolete functions in the [SAP - Obsolete Function Modules](#modules) watchlist. Make sure to activate table logging changes for the `EUFUNC` table in the backend. (SE13)<br><br> **Note**: Relevant for production systems only. | Run an obsolete or insecure function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log | Discovery, Command and Control |
+| **SAP - Execution of Obsolete or Insecure Function Module** |Identifies the execution of an obsolete or insecure ABAP function module. <br><br>Maintain obsolete functions in the [SAP - Obsolete Function Modules](#modules) watchlist. Make sure to activate table logging changes for the `EUFUNC` table in the backend. (SE13)<br><br> **Note**: Relevant for production systems only. | Run an obsolete or insecure function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log | Discovery, Command and Control |
 | **SAP - Execution of Obsolete/Insecure Program** |Identifies the execution of an obsolete or insecure ABAP program. <br><br> Maintain obsolete programs in the [SAP - Obsolete Programs](#programs) watchlist.<br><br> **Note**: Relevant for production systems only. | Run a program directly using SE38/SA38/SE80, or by using a background job.  <br><br>**Data sources**: SAPcon -  Audit Log | Discovery, Command and Control |
 | **SAP - Multiple Password Changes by User** | Identifies multiple password changes by user. | Change user password <br><br>**Data sources**: SAPcon - Audit Log | Credential Access |
 
@@ -136,7 +141,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - User Creates and uses new user** | Identifies a user creating and using other users.  <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency) | Create a user using SU01, and then sign in, using the newly created user and the same IP address.<br><br>**Data sources**: SAPcon - Audit Log | Discovery, PreAttack, Initial Access |
 | **SAP - User Unlocks and uses other users** | Identifies a user being unlocked and used by other users.   <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency) | Unlock a user using SU01, and then sign in using the unlocked user and the same IP address.<br><br>**Data sources**: SAPcon -  Audit Log, SAPcon -  Change Documents Log | Discovery, PreAttack, Initial Access, Lateral Movement |
 | **SAP - Assignment of a sensitive profile** | Identifies new assignments of a sensitive profile to a user. <br><br>Maintain sensitive profiles in the [SAP - Sensitive Profiles](#profiles) watchlist. | Assign a profile to a user using `SU01`. <br><br>**Data sources**: SAPcon - Change Documents Log | Privilege Escalation |
-| **SAP - (PREVIEW) Assignment of a sensitive role** | Identifies new assignments for a sensitive role to a user.     <br><br>Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.| Assign a role to a user using `SU01` / `PFCG`. <br><br>**Data sources**: SAPcon - Change Documents Log, Audit Log | Privilege Escalation |
+| **SAP - Assignment of a sensitive role** | Identifies new assignments for a sensitive role to a user.     <br><br>Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.| Assign a role to a user using `SU01` / `PFCG`. <br><br>**Data sources**: SAPcon - Change Documents Log, Audit Log | Privilege Escalation |
 | **SAP - (PREVIEW) Critical authorizations assignment - New Authorization Value** | Identifies the assignment of a critical authorization object value to a new user.  <br><br>Maintain critical authorization objects in the [SAP - Critical Authorization Objects](#objects) watchlist. | Assign a new authorization object or update an existing one in a role, using `PFCG`. <br><br>**Data sources**: SAPcon - Change Documents Log | Privilege Escalation |
 | **SAP - Critical authorizations assignment - New User Assignment** | Identifies the assignment of a critical authorization object value to a new user. <br><br>Maintain critical authorization objects in the [SAP - Critical Authorization Objects](#objects) watchlist. | Assign a new user to a role that holds critical authorization values, using `SU01`/`PFCG`. <br><br>**Data sources**: SAPcon - Change Documents Log | Privilege Escalation |
 | **SAP - Sensitive Roles Changes** |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist. | Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log | Impact, Privilege Escalation, Persistence |
@@ -144,9 +149,9 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 
 ## Available watchlists
 
-The following table lists the [watchlists](deploy-sap-security-content.md) available for the Microsoft Sentinel Solution for SAP, and the fields in each watchlist.
+The following table lists the [watchlists](deploy-sap-security-content.md) available for the Microsoft Sentinel solution for SAP® applications, and the fields in each watchlist.
 
-These watchlists provide the configuration for the Microsoft Sentinel Solution for SAP. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
+These watchlists provide the configuration for the Microsoft Sentinel solution for SAP® applications. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
 | Watchlist name | Description and fields |
 | --------- | --------- |
@@ -175,9 +180,9 @@ These watchlists provide the configuration for the Microsoft Sentinel Solution f
 
 For more information, see:
 
-- [Deploying Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Solution for SAP logs reference](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
+- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

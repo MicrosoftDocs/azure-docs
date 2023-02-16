@@ -2,8 +2,8 @@
 title: Create an Azure Stream Analytics Cluster quickstart
 description: Learn how to create an Azure Stream Analytics cluster.
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, event-tier1-build-2022
 ms.date: 05/10/2022

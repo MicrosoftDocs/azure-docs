@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Access using Postman
 
-In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hereafter called FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
@@ -59,6 +59,8 @@ To access the FHIR service, we'll need to create or update the following variabl
 Open Postman, select the **workspace**, **collection**, and **environment** you want to use. Select the `+` icon to create a new request. 
 
 [ ![Screenshot of create a new request.](media/postman/postman-create-new-request.png) ](media/postman/postman-create-new-request.png#lightbox)
+
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select 'Send'. You should be able to see Status of FHIR service - HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
 
 ## Get capability statement
 

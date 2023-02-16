@@ -40,13 +40,7 @@ Before you can set up a relationship with Time Series Insights, you'll need to s
 
 You'll be attaching Time Series Insights to Azure Digital Twins through the following path.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
 
 ## Create Event Hubs namespace
 
@@ -92,7 +86,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 
 ### Create twins hub endpoint
 
-Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
+Create an Azure Digital Twins [endpoint](concepts-route-events.md#creating-endpoints) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
 
 ```azurecli-interactive
 az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-Event-Hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-earlier> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
@@ -102,7 +96,7 @@ az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name
 
 Azure Digital Twins instances can emit [twin update events](./concepts-event-notifications.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins event route that will direct these update events to the twins hub for further processing.
 
-Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
+Create a [route](concepts-route-events.md#creating-event-routes) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <your-twins-hub-endpoint-from-earlier> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -165,7 +159,7 @@ In this section, you'll create an Azure function that will convert twin update e
 
 2. Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger." lightbox="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png":::
 
 3. Add the following packages to your project (you can use the Visual Studio NuGet package manager, or the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in a command-line tool).
     * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)

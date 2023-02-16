@@ -3,7 +3,7 @@ title: Auto-forwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: article
 ms.date: 07/27/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Chaining Service Bus entities with autoforwarding
@@ -33,7 +33,7 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 > When autoforwarding is setup, the value for `AutoDeleteOnIdle` on the source entity is automatically set to the maximum value of the data type.
 > 
 >  - On the source side, autoforwarding acts as a receive operation, so the source that has autoforwarding enabled is never really "idle" and hence it won't be automatically deleted. 
->  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. We recommend that you don't enable `AutoDeleteOnIdle` on the destination entity because if the destination entity is deleted, the souce entity will continually see exceptions when trying to forward messages that destination. 
+>  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. We recommend that you don't enable `AutoDeleteOnIdle` on the destination entity because if the destination entity is deleted, the source entity will continually see exceptions when trying to forward messages that destination. 
 
 ## Autoforwarding considerations
 
@@ -41,7 +41,7 @@ If the destination entity accumulates too many messages and exceeds the quota, o
 
 When chaining together individual topics to obtain a composite topic with many subscriptions, it's recommended that you have a moderate number of subscriptions on the first-level topic and many subscriptions on the second-level topics. For example, a first-level topic with 20 subscriptions, each of them chained to a second-level topic with 200 subscriptions, allows for higher throughput than a first-level topic with 200 subscriptions, each chained to a second-level topic with 20 subscriptions.
 
-Service Bus bills one operation for each forwarded message. For example, sending a message to a topic with 20 subscriptions, each of them configured to autoforward messages to another queue or topic, is billed as 21 operations if all first-level subscriptions receive a copy of the message.
+Service Bus bills one operation for each forwarded message. For example, sending a message to a topic with 20 subscriptions, each of them configured to auto-forward messages to another queue or topic, is billed as 21 operations if all first-level subscriptions receive a copy of the message.
 
 To create a subscription that is chained to another queue or topic, the creator of the subscription must have **Manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **Send** permissions on the source topic.
 

@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Background
 
 > [!NOTE]

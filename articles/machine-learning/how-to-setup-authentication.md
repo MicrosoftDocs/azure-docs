@@ -10,16 +10,18 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
+
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 	
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-setup-authentication.md)
 > * [v2 (current version)](how-to-setup-authentication.md)
 
-Learn how to set up client to Azure authentication to your Azure Machine Learning workspace. Specifically, authenticating from the Azure CLI or the Azure Machine Learning SDK v2 (preview). Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
@@ -31,17 +33,10 @@ Learn how to set up client to Azure authentication to your Azure Machine Learnin
 
 Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
-Azure AD Conditional Access can be used to further control or restrict access to the workspace for each authentication workflow. For example, an admin can allow workspace access from managed devices only.
-
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
-
-    > [!IMPORTANT]
-    > SDK v2 is currently in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -268,7 +263,7 @@ You can use a service principal for Azure CLI commands. For more information, se
 
 ---
 
-The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
+The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
 > [!IMPORTANT]
 > If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support ended June 30, 2022.
@@ -319,8 +314,7 @@ print(ml_client)
 
 ## Use Conditional Access
 
-As an administrator, you can enforce [Azure AD Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
+You can't use [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview) to control access to Azure Machine Learning studio, as it's a client application. Azure Machine Learning does honor conditional access policies you may have created for other cloud apps or services. For example, when attempting to access approved apps from a Jupyter Notebook running on an Azure Machine Learning compute instance.
 
 ## Next steps
 

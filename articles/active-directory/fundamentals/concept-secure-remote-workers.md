@@ -11,7 +11,7 @@ ms.date: 04/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: davidspo
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
@@ -68,7 +68,7 @@ The following table is intended to highlight the key actions for the following l
 
 - Azure Active Directory Premium P1 (Azure AD P1)
 - Enterprise Mobility + Security (EMS E3)
-- Microsoft 365 (M365 E3, A3, F1, F3)
+- Microsoft 365 (E3, A3, F1, F3)
 
 | Recommended action | Detail |
 | --- | --- |
@@ -98,7 +98,7 @@ The following table is intended to highlight the key actions for the following l
 
 - Azure Active Directory Premium P2 (Azure AD P2)
 - Enterprise Mobility + Security (EMS E5)
-- Microsoft 365 (M365 E5, A5)
+- Microsoft 365 (E5, A5)
 
 | Recommended action | Detail |
 | --- | --- |

@@ -4,14 +4,14 @@ description: Learn how to add and manage libraries on Spark pool level in Azure 
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/21/2022
 ms.author: shuaijunye
 ms.subservice: spark
 ---
 
 # Manage libraries for Apache Spark pools in Azure Synapse Analytics
 
-Once you have identified the Scala, Java or Python packages that you would like to use or update for your Spark application, you can install or remove them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
+Once you have identified the Scala, Java, R (Preview), or Python packages that you would like to use or update for your Spark application, you can install or remove them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 
 There are two primary ways to install a library on a Spark pool:
 -  Install a workspace library that has been uploaded as a workspace package.
@@ -21,7 +21,7 @@ After the changes are saved, a Spark job will run the installation and cache the
 
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
-> - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
+> - Altering the PySpark, Python, Scala/Java, .NET, R, or Spark version is not supported.
 > - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within data exfiltration protection enabled workspaces.
 
 ## Manage packages from Synapse Studio or Azure portal
@@ -44,7 +44,7 @@ To update or add libraries to a Spark pool:
     :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png" alt-text="Screenshot that highlights the logs of library installation." lightbox="./media/apache-spark-azure-portal-add-libraries/studio-update-libraries.png":::
    
 2. For Python feed libraries, upload the environment configuration file using the file selector in the  **Packages** section of the page.
-3. You can also select additional **workspace packages** to add Jar or Wheel files to your pool.
+3. You can also select additional **workspace packages** to add Jar, Wheel, or Tar.gz files to your pool.
 4. You can also remove the deprecated packages from **Workspace packages** section, your pool will no longer attach these packages.  
 5. Once you save your changes, a system job will be triggered to install and cache the specified libraries. This process helps reduce overall session startup time.
 6. Once the job has successfully completed, all new sessions will pick up the updated pool libraries.

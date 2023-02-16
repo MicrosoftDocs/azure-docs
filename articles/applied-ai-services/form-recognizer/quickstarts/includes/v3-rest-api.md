@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ---
 
@@ -25,11 +25,11 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 * **PowerShell version 7.*+** (or a similar command-line application.):
-  * [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true)
-  * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
-  * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
+  * [Windows](/powershell/scripting/install/installing-powershell-on-windows)
+  * [macOS](/powershell/scripting/install/installing-powershell-on-macos)
+  * [Linux](/powershell/scripting/install/installing-powershell-on-linux)
 
-* To check your PowerShell version, type the following:
+* To check your PowerShell version, type the following command relative to your operating system:
   * Windows: `Get-Host | Select-Object Version`
   * macOS or Linux: `$PSVersionTable`
 
@@ -38,9 +38,12 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
 
 ## Analyze documents and get results
 
@@ -48,31 +51,34 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 
 ### Analyze document (POST Request)
 
-Before you run the cURL command, make the following changes:
+Before you run the cURL command, make the following changes to the [post request](#post-request):
 
 1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
 
 1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
-1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
+1. Using the following table as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
 
-1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature:
+1. You need a document file at a URL. For this quickstart, you can use the sample forms provided in the following table for each feature:
 
     **Sample documents**
 
     | **Feature**   | **{modelID}**   | **{your-document-url}** |
     | --- | --- |--|
-    | **General Document** | prebuilt-document | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-    | **Read** | prebuilt-read | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
-    | **Layout** | prebuilt-layout | [Sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
-    | **W-2**  | prebuilt-tax.us.w2 | [Sample W-2](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
-    | **Invoices**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
-    | **Receipts**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
-    | **ID Documents**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
-    | **Business Cards**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
+    | **General Document** | prebuilt-document | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf` |
+    | **Read** | prebuilt-read | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png` |
+    | **Layout** | prebuilt-layout | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
+    | **W-2**  | prebuilt-tax.us.w2 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png` |
+    | **Invoices**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
+    | **Receipts**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
+    | **ID Documents**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
+    | **Business Cards**  | prebuilt-businessCard | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg` |
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=post-request-analyze)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
 
 #### POST request
 
@@ -82,7 +88,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 
 #### POST response
 
-You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
 :::image type="content" source="../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
@@ -104,7 +110,10 @@ curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
 
 #### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=get-request-results)
 
 #### Sample response for prebuilt-invoice
 

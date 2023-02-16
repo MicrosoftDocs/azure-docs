@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 09/27/2022
+ms.date: 11/18/2022
 ms.topic: conceptual 
 ---
 
@@ -19,6 +19,9 @@ Azure Arc-enabled servers support the installation of the Connected Machine agen
 
 Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or on virtual machines running on Azure Stack Hub or Azure Stack Edge, as they are already modeled as Azure VMs and able to be managed directly in Azure.
 
+> [!NOTE]
+> For additional information on using Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
+
 ## Supported operating systems
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent. Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
@@ -29,10 +32,11 @@ The following versions of the Windows and Linux operating system are officially 
 * Windows IoT Enterprise
 * Azure Stack HCI
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
-* Debian 10
+* Debian 10 and 11
 * CentOS Linux 7 and 8
+* Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
-* Red Hat Enterprise Linux (RHEL) 7 and 8
+* Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
 * Oracle Linux 7 and 8
 
@@ -53,12 +57,14 @@ The following versions of the Windows and Linux operating system are officially 
 Windows operating systems:
 
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
-* Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2008 R2 SP1, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 Linux operating systems:
 
 * systemd
 * wget (to download the installation script)
+* openssl
+* gnupg
 
 ## Required permissions
 
@@ -66,13 +72,13 @@ The following Azure built-in roles are required for different aspects of managin
 
 * To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group in which the machines will be managed.
 * To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
-* To select a resource group from the drop-down list when using the **Generate script** method, you must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
+* To select a resource group from the drop-down list when using the **Generate script** method, as well as the permissions needed to onboard machines, listed above, you must additionally have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
 
 ## Azure subscription and service limits
 
-Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
+There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
 
-Before configuring your machines with Azure Arc-enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Each Azure Arc-enabled server is associated with an Azure Active Directory object and will count against your directory quota. See [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in an Azure AD directory.
 
 ## Azure resource providers
 
@@ -81,6 +87,7 @@ To use Azure Arc-enabled servers, the following [Azure resource providers](../..
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
+* **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
 
 If these resource providers are not already registered, you can register them using the following commands:
 

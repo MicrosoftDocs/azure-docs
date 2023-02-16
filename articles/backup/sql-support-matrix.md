@@ -4,9 +4,9 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 07/20/2022
 ms.custom: references_regions 
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for SQL Server Backup in Azure VMs
@@ -49,9 +49,9 @@ _*The database size limit depends on the data transfer rate that we support and 
 
 ## Backup throughput performance
 
-Azure Backup supports a consistent data transfer rate of 200 Mbps for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
+Azure Backup supports a consistent data transfer rate of 200 MBps for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
 
-- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 Mbps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](../virtual-machines/disks-performance.md) about disk throughput and performance in Azure VMs. 
+- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](../virtual-machines/disks-performance.md) about disk throughput and performance in Azure VMs. 
 - Processes, which are running in the VM, are not consuming the VM bandwidth. 
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) about how to control the number of concurrent backups.
 

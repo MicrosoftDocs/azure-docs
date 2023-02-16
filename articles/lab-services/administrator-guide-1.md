@@ -7,7 +7,7 @@ ms.date: 10/20/2020
 
 # Azure Lab Services - Administrator guide when using lab accounts
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab account for their school. After they've set up a lab account, administrators or educators create the labs that are contained within the account. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
@@ -52,7 +52,7 @@ The following list highlights scenarios where more than one lab account might be
 
   When you set up a lab account, you set policies that apply to *all* labs under the lab account, such as:
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a shared data set within a virtual network.
-  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
+  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) Azure Marketplace image.
 
     If each of your labs has unique policy requirements, it might be beneficial to create separate lab accounts for managing each lab separately.
 

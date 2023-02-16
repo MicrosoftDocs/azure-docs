@@ -5,11 +5,11 @@ description: Learn about using user groups to assign IP addresses from specific 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 10/21/2022
 ms.author: cherylmc
 
 ---
-# About user groups and IP address pools for P2S User VPNs (preview)
+# About user groups and IP address pools for P2S User VPNs - Preview
 
 You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**. This article describes the different configurations and parameters the Virtual WAN P2S VPN gateway uses to determine user groups and assign IP addresses.
 
@@ -58,6 +58,10 @@ Azure Active Directory|AADGroupID|Azure Active Directory Group Object ID	|0cf484
 #### Azure Active Directory authentication (OpenVPN only)
 
 Gateways using Azure Active Directory authentication can use **Azure Active Directory Group Object IDs** to determine which user group a user belongs to. If a user is part of multiple Azure Active Directory groups, they're considered to be part of the Virtual WAN user group that has the lowest numerical priority.
+
+However, if you plan to have users who are external (users who are not part of the Azure Active Directory domain configured on the VPN Gateway) connect to the Virtual WAN Point-to-site VPN Gateway, please make sure that the user type of the external user is "Member" and **not** "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user is not set correctly as described above or you cannot set an external member to be a "Member" of your Azure Active Directory domain, that connecting user will be assigned to the default group and assigned an IP from the default IP address pool.   
+
+You can also identify whether or not a user is external by looking at the user's "User Principal Name." External users will have **#EXT** in their "User Principal Name."
 
 :::image type="content" source="./media/user-groups-about/groups.png" alt-text="Screenshot of an Azure Active Directory group." lightbox="./media/user-groups-about/groups.png":::
 

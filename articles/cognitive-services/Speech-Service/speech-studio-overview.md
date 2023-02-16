@@ -16,6 +16,17 @@ ms.author: eur
 
 [Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
+> [!TIP]
+> You can try speech-to-text and text-to-speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
+
+## Speech Studio scenarios
+
+Explore, try out, and view sample code for some of common use cases.
+
+* [Captioning](https://aka.ms/speechstudio/captioning): Choose a sample video clip to see real-time or offline processed captioning results. Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. For more information, see the [captioning quickstart](captioning-quickstart.md).
+
+* [Call Center](https://aka.ms/speechstudio/callcenter): View a demonstration on how to use the Language and Speech services to analyze call center conversations. Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case. For more information, see the [call center quickstart](call-center-quickstart.md).
+
 ## Speech Studio features
 
 In Speech Studio, the following Speech service features are available as project types:
@@ -26,7 +37,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Pronunciation assessment](https://aka.ms/speechstudio/pronunciationassessment): Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 
-* [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a broad portfolio of [languages, voices, and variants](language-support.md?tabs=stt-tts). Bring your scenarios to life with highly expressive and human-like neural voices.
+* [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a broad portfolio of [languages, voices, and variants](language-support.md?tabs=tts). Bring your scenarios to life with highly expressive and human-like neural voices.
 
 * [Custom Voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text-to-speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](how-to-custom-voice-create-voice.md). 
 

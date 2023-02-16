@@ -53,10 +53,10 @@ You can load the Azure Maps spatial IO module using one of the two options:
     npm install azure-maps-spatial-io
     ```
 
-    Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
+    Then, use an import declaration to add the module into a source file:
 
-    ```html
-    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+    ```js
+    import * as spatial from "azure-maps-spatial-io";
     ```
 
 ## Using the Spatial IO module

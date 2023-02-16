@@ -1,13 +1,13 @@
 ---
 title: Data Factory metrics and alerts
 description: Learn about metrics available for monitoring Azure Data Factory.
-author: joshuha-msft
-ms.author: joowen
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Data Factory metrics and alerts

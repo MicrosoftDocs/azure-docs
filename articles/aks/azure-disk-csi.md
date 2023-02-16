@@ -1,11 +1,8 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disks in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 07/21/2022
-author: palma21
-
+ms.date: 01/18/2023
 ---
 
 # Use the Azure Disks Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -28,17 +25,21 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 
 - Performance improvements during concurrent disk attach and detach
   - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There's significant improvement when there are multiple disks attaching to one node.
+- Premium SSD v1 and v2 are supported.
 - Zone-redundant storage (ZRS) disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported. ZRS disk could be scheduled on the zone or non-zone node, without the restriction that disk volume should be co-located in the same zone as a given node. For more information, including which regions are supported, see [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md).
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
-- [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
+- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
+
+> [!NOTE]
+> Depending on the VM SKU that's being used, the Azure Disks CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 ## Storage class driver dynamic disks parameters
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
-|skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
+|skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `PremiumV2_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |location | Specify Azure region where Azure Disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
@@ -48,18 +49,18 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 |LogicalSectorSize | Logical sector size in bytes for Ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
 |tags | Azure Disk [tags](../azure-resource-manager/management/tag-resources.md) | Tag format: `key1=val1,key2=val2` | No | ""|
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest](../virtual-machines/windows/disk-encryption.md) | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
-|diskEncryptionType | Encryption type of the disk encryption set | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
+|diskEncryptionType | Encryption type of the disk encryption set. | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
 |writeAcceleratorEnabled | [Write Accelerator on Azure Disks](../virtual-machines/windows/how-to-enable-write-accelerator.md) | `true`, `false` | No | ""|
 |networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
-|diskAccessID | ARM ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
+|diskAccessID | Azure Resource ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
 |enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
 |useragent | User agent used for [customer usage attribution](../marketplace/azure-partner-customer-usage-attribution.md)| | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
 |enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this parameter can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
-|subscriptionID | Specify Azure subscription ID where the Azure Disks will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
+|subscriptionID | Specify Azure subscription ID where the Azure Disks is created.  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
 
 ## Use CSI persistent volumes with Azure Disks
 
-A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-disk-volume.md).
+A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-csi-disk-storage-provision.md#statically-provision-a-volume).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -280,17 +281,7 @@ outfile
 test.txt
 ```
 
-## Resize a persistent volume without downtime (Preview)
-
-> [!IMPORTANT]
-> Azure Disks CSI driver supports expanding PVCs without downtime (Preview).
-> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
-> 
-> az feature register --namespace Microsoft.Compute --name LiveResize
-> 
-> az feature show --namespace Microsoft.Compute --name LiveResize
->
-> Follow this [link][expand-pvc-with-downtime] to expand PVCs **with** downtime if you cannot try preview feature.
+## Resize a persistent volume without downtime
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -420,7 +411,7 @@ The output of the command resembles the following example:
 ## Next steps
 
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi].
-- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
+- To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-csi].
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -459,3 +450,4 @@ The output of the command resembles the following example:
 [az-on-demand-bursting]: ../virtual-machines/disk-bursting.md#on-demand-bursting
 [enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
+[general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
