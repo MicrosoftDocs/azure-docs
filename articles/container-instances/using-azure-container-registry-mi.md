@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 [Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
 
-Managed identity can also be used to deploy an Azure Container instance or group in a virtual network and authenticate with an Azure Container Registry (ACR) instance that runs behind a private endpoint.
+Managed identity can also be used to deploy an Azure Container instance or group in a virtual network and authenticate with an Azure Container Registry (ACR) that runs behind a private endpoint.
 
 ## Prerequisites
 
@@ -166,17 +166,17 @@ az container create --name my-containergroup --resource-group myResourceGroup --
 
 ## Deploy in a virtual network using the Azure CLI
 
-To deploy a container group in a vnet using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, use the following command:
+To deploy a container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, use the following command:
 
 ```azurecli-interactive
-az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVnetResourceGroup/providers/ --subnet mySubnetName
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --vnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/ --subnet mySubnetName
 ```
 
 For more info on how to deploy to a virtual network see [Deploy container instances into an Azure virtual network](./container-instances-vnet.md).
 
 ## Deploy a multi-container group in a virtual network using YAML and the Azure CLI
 
-To deploy a multi-container group in a vnet using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, you can specify the container group configuration in a YAML file. Then pass the YAML file as a parameter to the command.
+To deploy a multi-container group to a virtual network using managed identity to authenticate image pulls from an ACR that runs behind a private endpoint via the Azure CLI, you can specify the container group configuration in a YAML file. Then pass the YAML file as a parameter to the command.
 
 ```yaml
 apiVersion: '2021-10-01'
@@ -193,7 +193,7 @@ properties:
   - server: myacr.azurecr.io
     identity: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId'
   subnetIds:
-  - id: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVnetResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnetName/subnets/mySubnetName'
+  - id: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myVNetResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNetName/subnets/mySubnetName'
     name: mySubnetName
   containers:
   - name: myContainer-1
