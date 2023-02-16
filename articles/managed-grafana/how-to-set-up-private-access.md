@@ -1,6 +1,6 @@
 ---
-title: How to set up private access in Azure Managed Grafana
-description: How to disable public access to your Azure Managed Grafana instance and enable private endpoints.
+title: How to set up private access (preview) in Azure Managed Grafana
+description: How to disable public access to your Azure Managed Grafana instance and configure private endpoints.
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
@@ -9,9 +9,13 @@ ms.date: 12/12/2022
 ms.custom: template-how-to
 ---
 
-# Set up private access in Azure Managed Grafana
+# Set up private access (preview) in Azure Managed Grafana
 
 In this guide, you'll learn how to disable public access to your Azure Managed Grafana instance and set up private endpoints. Setting up private endpoints in Azure Managed Grafana increases security by limiting incoming traffic only to specific network.
+
+> [!IMPORTANT]
+> Private access is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -23,7 +27,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 Public access is enabled by default when you create an Azure Grafana workspace. Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
 
 > [!NOTE]
-> When private access is enabled, pinging charts using the *Pin to Grafana* feature is disabled.
+> When private access (preview) is enabled, pinging charts using the *Pin to Grafana* feature is disabled.
 
 To disable access to an Azure Managed Grafana instance from public network, follow these steps:
 
@@ -110,7 +114,7 @@ Once deployment is complete, you'll get a notification that your endpoint has be
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To set up your private endpoint, you need a virtual network. If you don't have one yet, create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Replace the placeholder texts `<vnet>`, `<resource-group>`, `<subnet>`, and `<vnet-location>` with the name of your new virtual network,  resource group, and name, and vnet location.
+1. To set up your private endpoint (preview), you need a virtual network. If you don't have one yet, create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Replace the placeholder texts `<vnet>`, `<resource-group>`, `<subnet>`, and `<vnet-location>` with the name of your new virtual network,  resource group, and name, and vnet location.
 
     ```azurecli-interactive
     az network vnet create --name <vnet> --resource-group <resource-group> --subnet-name <subnet> --location <vnet-location>
