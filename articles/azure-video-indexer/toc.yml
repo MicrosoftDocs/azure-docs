@@ -232,7 +232,6 @@
   - name: Logic Apps connector
     items:
     - name: with ARM-based AVI accounts
-      displayName: Logic Apps connector, ARM
       href: logic-apps-connector-arm-accounts.md
       displayName: ARM-based [Azure Video Indexer account, ARM-based AVI accounts description, Azure Video  Indexer region, Azure Video Indexer connectors, Azure Video Indexer API, first ("file upload") flow, AVI ARM accounts, classic-based AVI accounts, ARM AVI account, Azure Storage account, two different flows, latest stable version, classic AVI account, Power Automate capabilities, two flow" approach, Logic App flows, The Logic App, Logic App deployment, Logic Apps connector, Logic App connectors, file upload flow, new logic app, classic account, same region, portal.azure, Azure portal, new file, first flow, JSON file, application logic, latest `api-version, second flow, one flow, first one, new experiences, two containers, monetization opportunities, REST documentation, custom workflows, large amount, audio files, single line, easy way, larger files, callback URL, type consumption, access key, media files, following image, storage connection, Operation** blade, Microsoft.LogicApp, left side, indexing operation, server communication, second section, audio insights, title, article, Itnorman, api-portal, videoindexer, details, Operations, client, TIP, integration, logic-apps, powerautomate, code, visibility, health, example, editors, diagrams, explanations, scenario, blob, notification, Prerequisites, trial, note, videos, Screenshot, connector-arm-accounts, high, level, panel, step, tutorial, top, page, properties
     - name: with classic-based AVI accounts
@@ -276,7 +275,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Regions
-    displayName: location
     href: regions.md
     displayName: Azure region West US, Azure Video Indexer APIs, Azure region code name, az account list-locations, Azure portal, Azure regions, preview mode, top-right corner, Next steps, Language model, Juliako manager, CLI command, Brands model, Person model, location` parameter, default value, title, description, article, author, femila, topic, call, microsoft, global-infrastructure, services, trial, videoindexer, ai, website, page, image, media, line, example, json, displayName, latitude, longitude, westus2, subscriptionId
   - name: Microsoft Q&A
