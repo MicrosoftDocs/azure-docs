@@ -1,12 +1,12 @@
 ---
-title: 'Overview of myFeature (preview)' #Required; page title is displayed in search results. 60 characters max.
-description: Overview of #Required; this appears in search as the short description
-author: <iamwilliew> #Required. GitHub user alias, with correct capitalization.
-ms.author: <MICROSOFT-ALIAS> #Required. Microsoft alias of author or team alias.
+title: 'Dlsv5 and Dldsv5 (preview)' #Required; page title is displayed in search results. 60 characters max.
+description: Specifications for the Dlsv5 and Dldsv5-series VMs. #Required; this appears in search as the short description
+author: iamwilliew 
+ms.author: wwilliams 
 ms.service: virtual-machines #Required
 ms.subservice: sizes #Required
-ms.topic: conceptual #Required 
-ms.date: 01/01/2022 #Required; mm/dd/yyyy format. Date the article was created or the last time it was tested and confirmed correct 
+ms.topic: reference l #Required 
+ms.date: 02/16/2023
 
 ---
 
