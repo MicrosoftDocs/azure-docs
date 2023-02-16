@@ -169,30 +169,31 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
 
 ## Use the auditing and health monitoring workbook
 
-At the top of the screen, choose a subscription and workspace for which to display information.
+1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
 
-You can also choose a time range. The default is the past 7 days.
+1. In the **Workbooks** gallery, enter *health* in the search bar, and select **Analytics Health & Audit workbook** from among the results.
+
+1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
+
+1. Once in the workbook, first select the **subscription** and **workspace** you wish to view, then define the **TimeRange** to filter the data according to your needs. Use the **Show help** toggle to display in-place explanation of the workbook.
+
+    :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-overview.png" alt-text="Screenshot of analytics rule health workbook overview tab.":::
+
+There are three tabbed sections in this workbook:
 
 ### Overview tab
 
-- Health summary
-    - Analytics rule run by status, over time (line graph)
-    - Analytics rule run by status (pie chart)
-    - Total running unique rule (numeric display)
-    - Analytics health summary by reason (chart)
-    - Analytics rule with failure and warning occurrence (chart)
-    - Failure and warning event (table)
-
-- Audit summary
-    - Analytics rule audit by activity, over time (line graph)
-    - Analytics rule audit by activity (pie chart)
-    - Analytics rule audit by activity volume
+- The **Overview** tab shows health and audit summaries:
+    - Health summaries of the status of analytics rule runs in the selected workspace: number of runs, successes and failures, and failure event details.
+    - Audit summaries of activities on analytics rules in the selected workspace: number of activities over time, number of activities by type, and number of activities of different types by rule.
 
 ### Health tab
 
-Filters available for Status (success, failure, etc.) and Rule type (scheduled/NRT). The filters apply to the entire page.
+- The **Health** tab lets you drill down to particular health events.
+    - Filter the whole page data by **status** (success/failure) and **rule type** (scheduled/NRT).
+    - See the trends of successful and failed rule runs over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
+    - 
 
-- Analytics rule run trending over time (line graph, time brush enabled)
 
 Filter available for Reason, to apply to the remainder of the page.
 
@@ -211,20 +212,26 @@ Filter available for Reason, to apply to the remainder of the page.
     - Clear that table by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
 - Health details for analytics rule: \<name of rule selected in the previous chart> (table)
 
+
+
 ### Audit tab
 
-Filter available for rule types. The filter applies to everything on the page.
+The **Audit** tab lets you drill down to particular audit events.
 
-- Analytics rule audit trending by activity (trending?) (bar graph, time brush enabled)
-- Number of audit events by activity and rule type (chart)
+- Filter the whole page data by **audit rule type** (scheduled/Fusion).
+- See the trends of audited activity on analytics rules over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
+    :::image type="content" source="media/monitor-analytics-rule-integrity/audit-trending-by-activity.png" alt-text="Screenshot of trending audit activity in analytics health workbook.":::
+- See the numbers of audited events, broken down by **activity** and **rule type**.
     - Select an activity to filter the following charts for that activity.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Audit activity by rule name (table)
-    - Select a rule name to filter the following table for that rule, and to drill down and show a new table with all the activity on that rule (in the selected time frame).
+    :::image type="content" source="media/monitor-analytics-rule-integrity/number-audit-events-by-activity-and-type.png" alt-text="Screenshot of counts of audit events by activity and type in analytics health workbook.":::
+- See the number of audited events by **rule name**.
+    - Select a rule name to filter the following table for that rule, and to drill down and show a new table with all the activity on that rule (in the selected time frame). (See after the following screenshot.)
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Audit activity by caller (table)
-- Audit activity for rule: \<name of rule selected in the previous chart> (table)
-    - Select the value in the ExtendedProperties column to open a side panel displaying the changes made to the rule.
+    :::image type="content" source="media/monitor-analytics-rule-integrity/activity-by-rule-name-and-caller.png" alt-text="Screenshot of audited events by rule name and caller in analytics health workbook.":::
+- See the number of audited events by **caller** (the identity that performed the activity).
+- If you selected a rule name in the chart depicted above, another table will appear showing the audited **activities** on that rule. Select the value that appears as a link in the ExtendedProperties column to open a side panel displaying the changes made to the rule.
+    :::image type="content" source="media/monitor-analytics-rule-integrity/audit-activity-for-rule.png" alt-text="Screenshot of audit activity for selected rule in analytics health workbook.":::
 
 ## Next steps
 
