@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 09/29/2022
+ms.date: 02/15/2023
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -20,17 +20,19 @@ To publish a managed application to your service catalog, do the following tasks
 - Decide which user, group, or application needs access to the resource group in the user's subscription.
 - Create the managed application definition that points to the _.zip_ package and requests access for the identity.
 
-**Optional**: If you want to deploy your managed application definition with an ARM template in your own storage account, see [bring your own storage](#bring-your-own-storage-for-the-managed-application-definition).
+If your managed application definition is more than 120-MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
 > [!NOTE]
-> Bicep files can't be used in a managed application. You must convert a Bicep file to ARM template JSON with the Bicep [build](../bicep/bicep-cli.md#build) command.
+> You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.
+>
+> Bicep files can be used to deploy an existing managed application definition.
 
 ## Prerequisites
 
 To complete this quickstart, you need the following items:
 
-- An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
+- An Azure account with an active subscription and permissions to Azure Active Directory. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). If you're using Bicep, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
@@ -39,48 +41,100 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.json_ and save it.
 
-Add the following JSON and save the file. It defines the parameters for creating a storage account, and specifies the properties for the storage account.
+Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and storage account for the application. This storage account isn't used to store the managed application definition.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "appServicePlanNamePrefix": {
+      "type": "string"
+    },
+    "appServiceNamePrefix": {
+      "type": "string"
+    },
     "storageAccountNamePrefix": {
       "type": "string",
       "maxLength": 11,
       "metadata": {
-        "description": "Storage prefix must be maximum of 11 characters with only lowercase letters or numbers."
+        "description": "Storage account name prefix"
       }
     },
     "storageAccountType": {
       "type": "string"
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
-    "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+    "appServicePlanName": "[format('{0}{1}', parameters('appServicePlanNamePrefix'), uniqueString(resourceGroup().id))]",
+    "appServicePlanSku": "F1",
+    "appServicePlanCapacity": 1,
+    "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
+    "storageAccountName": "[format('{0}{1}', parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2022-03-01",
+      "name": "[variables('appServicePlanName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('appServicePlanSku')]",
+        "capacity": "[variables('appServicePlanCapacity')]"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2022-03-01",
+      "name": "[variables('appServiceName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "httpsOnly": true,
+        "siteConfig": {
+          "appSettings": [
+            {
+              "name": "AppServiceStorageConnectionString",
+              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value)]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ]
+    },
+    {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2022-09-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },
       "kind": "StorageV2",
-      "properties": {}
+      "properties": {
+        "accessTier": "Hot"
+      }
     }
   ],
   "outputs": {
-    "storageEndpoint": {
+    "appServicePlan": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2021-09-01').primaryEndpoints.blob]"
+      "value": "[variables('appServicePlanName')]"
+    },
+    "appServiceApp": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-03-01').defaultHostName]"
+    },
+    "storageAccount": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').primaryEndpoints.blob]"
     }
   }
 }
@@ -88,9 +142,9 @@ Add the following JSON and save the file. It defines the parameters for creating
 
 ## Define your create experience
 
-As a publisher, you define the portal experience for creating the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
+As a publisher, you define the portal experience for creating the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
 
 Add the following JSON to the file and save it.
 
@@ -105,13 +159,50 @@ Add the following JSON to the file and save it.
     ],
     "steps": [
       {
+        "name": "webAppSettings",
+        "label": "Web App settings",
+        "subLabel": {
+          "preValidation": "Configure the web app settings",
+          "postValidation": "Done"
+        },
+        "elements": [
+          {
+            "name": "appServicePlanName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "App service plan name prefix",
+            "placeholder": "App service plan name prefix",
+            "defaultValue": "",
+            "toolTip": "Use alphanumeric characters or hyphens with a maximum of 27 characters.",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z-]{1,27}$",
+              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a maximum of 27 characters."
+            },
+            "visible": true
+          },
+          {
+            "name": "appServiceName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "App service name prefix",
+            "placeholder": "App service name prefix",
+            "defaultValue": "",
+            "toolTip": "Use alphanumeric characters or hyphens with a maximum of 47 characters.",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z-]{1,47}$",
+              "validationMessage": "Only alphanumeric characters or hyphens are allowed, with a maximum of 47 characters."
+            },
+            "visible": true
+          }
+        ]
+      },
+      {
         "name": "storageConfig",
         "label": "Storage settings",
         "subLabel": {
           "preValidation": "Configure the infrastructure settings",
           "postValidation": "Done"
         },
-        "bladeTitle": "Storage settings",
         "elements": [
           {
             "name": "storageAccounts",
@@ -119,6 +210,10 @@ Add the following JSON to the file and save it.
             "label": {
               "prefix": "Storage account name prefix",
               "type": "Storage account type"
+            },
+            "toolTip": {
+              "prefix": "Enter maximum of 11 lowercase letters or numbers.",
+              "type": "Available choices are Standard_LRS, Standard_GRS, and Premium_LRS."
             },
             "defaultValue": {
               "type": "Standard_LRS"
@@ -135,9 +230,11 @@ Add the following JSON to the file and save it.
       }
     ],
     "outputs": {
+      "location": "[location()]",
+      "appServicePlanNamePrefix": "[steps('webAppSettings').appServicePlanName]",
+      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]",
       "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-      "storageAccountType": "[steps('storageConfig').storageAccounts.type]",
-      "location": "[location()]"
+      "storageAccountType": "[steps('storageConfig').storageAccounts.type]"
     }
   }
 }
@@ -147,7 +244,7 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 ## Package the files
 
-Add the two files to a file named _app.zip_. The two files must be at the root level of the _.zip_ file. If you put the files in a folder, you receive an error that states the required files aren't present when you create the managed application definition.
+Add the two files to a file named _app.zip_. The two files must be at the root level of the _.zip_ file. If you put the files in a folder, when you create the managed application definition, you'll receive an error that states the required files aren't present.
 
 Upload the package to an accessible location from where it can be consumed. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
@@ -168,7 +265,7 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
 Set-AzStorageBlobContent `
-  -File "D:\myapplications\app.zip" `
+  -File ".\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx
@@ -326,227 +423,6 @@ Some of the parameters used in the preceding example are:
   - **Azure CLI**: `"$groupid:$roleid"` or you can use curly braces as shown in PowerShell. Use a space to separate multiple values: `"$groupid1:$roleid1" "$groupid2:$roleid2"`.
 
 - **package file URI**: The location of a _.zip_ package file that contains the required files.
-
-## Bring your own storage for the managed application definition
-
-This section is optional. You can store your managed application definition in your own storage account so that its location and access can be managed by you for your regulatory needs. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
-
-> [!NOTE]
-> Bring your own storage is only supported with ARM template or REST API deployments of the managed application definition.
-
-### Create your storage account
-
-You must create a storage account that will contain your managed application definition for use with a service catalog. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
-
-This example creates a new resource group named `byosStorageRG`. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name byosStorageRG -Location eastus
-
-New-AzStorageAccount `
-  -ResourceGroupName byosStorageRG `
-  -Name "definitionstorage" `
-  -Location eastus `
-  -SkuName Standard_LRS `
-  -Kind StorageV2
-```
-
-Use the following command to store the storage account's resource ID in a variable named `storageId`. You'll use this variable when you deploy the managed application definition.
-
-```azurepowershell-interactive
-$storageId = (Get-AzStorageAccount -ResourceGroupName byosStorageRG -Name definitionstorage).Id
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az group create --name byosStorageRG --location eastus
-
-az storage account create \
-    --name definitionstorage \
-    --resource-group byosStorageRG \
-    --location eastus \
-    --sku Standard_LRS \
-    --kind StorageV2
-```
-
-Use the following command to store the storage account's resource ID in a variable named `storageId`. You'll use the variable's value when you deploy the managed application definition.
-
-```azurecli-interactive
-storageId=$(az storage account show --resource-group byosStorageRG --name definitionstorage --query id)
-```
-
----
-
-### Set the role assignment for your storage account
-
-Before your managed application definition can be deployed to your storage account, assign the **Contributor** role to the **Appliance Resource Provider** user at the storage account scope. This assignment lets the identity write definition files to your storage account's container.
-
-# [PowerShell](#tab/azure-powershell)
-
-In PowerShell, you can use variables for the role assignment. This example uses the `$storageId` you created in a previous step and creates the `$arpId` variable.
-
-```azurepowershell-interactive
-$arpId = (Get-AzADServicePrincipal -SearchString "Appliance Resource Provider").Id
-
-New-AzRoleAssignment -ObjectId $arpId `
--RoleDefinitionName Contributor `
--Scope $storageId
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-In Azure CLI, you need to use the string values to create the role assignment. This example gets string values from the `storageId` variable you created in a previous step and gets the object ID value for the Appliance Resource Provider. The command has placeholders for those values `arpGuid` and `storageId`. Replace the placeholders with the string values and use the quotes as shown.
-
-```azurecli-interactive
-echo $storageId
-az ad sp list --display-name "Appliance Resource Provider" --query [].id --output tsv
-
-az role assignment create --assignee "arpGuid" \
---role "Contributor" \
---scope "storageId"
-```
-
-If you're running CLI commands with Git Bash for Windows, you might get an `InvalidSchema` error because of the `scope` parameter's string. To fix the error, run `export MSYS_NO_PATHCONV=1` and then rerun your command to create the role assignment.
-
----
-
-The **Appliance Resource Provider** is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
-
-### Deploy the managed application definition with an ARM template
-
-Use the following ARM template to deploy your packaged managed application as a new managed application definition in your service catalog. The definition files are stored and maintained in your storage account.
-
-Open Visual Studio Code, create a file with the name _azuredeploy.json_ and save it.
-
-Add the following JSON and save the file.
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    },
-    "applicationName": {
-      "type": "string",
-      "metadata": {
-        "description": "Managed Application name."
-      }
-    },
-    "definitionStorageResourceID": {
-      "type": "string",
-      "metadata": {
-        "description": "Storage account's resource ID where you're storing your managed application definition."
-      }
-    },
-    "packageFileUri": {
-      "type": "string",
-      "metadata": {
-        "description": "The URI where the .zip package file is located."
-      }
-    }
-  },
-  "variables": {
-    "lockLevel": "None",
-    "description": "Sample Managed application definition",
-    "displayName": "Sample Managed application definition",
-    "managedApplicationDefinitionName": "[parameters('applicationName')]",
-    "packageFileUri": "[parameters('packageFileUri')]",
-    "defLocation": "[parameters('definitionStorageResourceID')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Solutions/applicationDefinitions",
-      "apiVersion": "2021-07-01",
-      "name": "[variables('managedApplicationDefinitionName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "lockLevel": "[variables('lockLevel')]",
-        "description": "[variables('description')]",
-        "displayName": "[variables('displayName')]",
-        "packageFileUri": "[variables('packageFileUri')]",
-        "storageAccountId": "[variables('defLocation')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
-For more information about the ARM template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template). Managed applications only use ARM template JSON.
-
-### Deploy the definition
-
-Create a resource group named _byosDefinitionRG_ and deploy the managed application definition to your storage account.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name byosDefinitionRG -Location eastus
-
-$storageId
-
-New-AzResourceGroupDeployment `
-  -ResourceGroupName byosDefinitionRG `
-  -TemplateFile .\azuredeploy.json
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az group create --name byosDefinitionRG --location eastus
-
-echo $storageId
-
-az deployment group create \
-  --resource-group byosDefinitionRG \
-  --template-file ./azuredeploy.json
-```
-
----
-
-You'll be prompted for three parameters to deploy the definition.
-
-| Parameter | Value |
-| ---- | ---- |
-| `applicationName` | Choose a name for your managed application definition. For this example, use  _sampleManagedAppDefintion_.|
-| `definitionStorageResourceID` | Enter your storage account's resource ID. You created the `storageId` variable with this value in an earlier step. Don't wrap the resource ID with quotes. |
-| `packageFileUri` | Enter the URI to your _.zip_ package file. Use the URI for the _.zip_ [package file](#package-the-files) you created in an earlier step. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
-
-### Verify definition files storage
-
-During deployment, the template's `storageAccountId` property uses your storage account's resource ID and creates a new container with the case-sensitive name `applicationdefinitions`. The files from the _.zip_ package you specified during the deployment are stored in the new container.
-
-You can use the following commands to verify that the managed application definition files are saved in your storage account's container. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Get-AzStorageAccount -ResourceGroupName byosStorageRG -Name definitionstorage |
-Get-AzStorageContainer -Name applicationdefinitions |
-Get-AzStorageBlob | Select-Object -Property *
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az storage blob list \
-  --container-name applicationdefinitions \
-  --account-name definitionstorage \
-  --query "[].{container:container, name:name}"
-```
-
-When you run the Azure CLI command, you might see a warning message similar to the CLI command in [package the files](#package-the-files).
-
----
-
-> [!NOTE]
-> For added security, you can create a managed applications definition and store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in your service catalog.
 
 ## Make sure users can see your definition
 
