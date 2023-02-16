@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Platform Functions for Bare Metal Machines"
+title: "Azure Operator Nexus: Platform Functions for Bare Metal Machines"
 description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus 
 ms.topic: how-to
 ms.date: 02/01/2023
 ms.custom: template-how-to

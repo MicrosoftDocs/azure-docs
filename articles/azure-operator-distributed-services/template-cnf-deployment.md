@@ -1,12 +1,12 @@
 ---
-title: "Azure Operator Distributed Services: Sample CNF deployment script"
-description: "Sample script to create the resources required for CNF deployment on Azure Operator Distributed Services. After the resources have been created, the Azure Network Function Manager is used to deploy the CNF."
+title: "Operator Nexus: Sample CNF deployment script"
+description: "Sample script to create the resources required for CNF deployment on Operator Nexus. After the resources have been created, the Azure Network Function Manager is used to deploy the CNF."
 author: atwumbarimah
 ms.author: atwumbarimah
 ms.date: 01/24/2023
 ms.topic: sample
 # ms.prod: used for on prem applications
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus
 ---
 
 # Sample: CNF deployment script
@@ -20,7 +20,7 @@ vNET, and finally the AKS-Hybrid cluster that will host the CNF.
 
 ## Prerequisites
 
-- fully deployed and configured Azure Operator Distributed Services cluster
+- fully deployed and configured Operator Nexus cluster
   (instance)
 - Tenant inter-fabric network (the L2 and L3 Isolation Domains) has been created
 
@@ -38,7 +38,7 @@ export myhakscustloc='******'
 
 ## Initialization
 
-Set `$mysub` as the active subscription for your AODS instance.
+Set `$mysub` as the active subscription for your Operator Nexus instance.
 
 ```azurecli
   az account set --subscription "$mysub"

@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: How to configure the Network Fabric"
+title: "Azure Operator Nexus: How to configure the Network Fabric"
 description: Learn to create, view, list, update, delete commands for Network Fabric
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -268,7 +268,7 @@ Expected output:
 
 ## Add Racks
 
-On creating NetworkFabric, one aggregate rack and two or more compute racks should be added to the Network Fabric. The number of racks should match the physical racks in the AODS instance
+On creating NetworkFabric, one aggregate rack and two or more compute racks should be added to the Network Fabric. The number of racks should match the physical racks in the Operator Nexus instance
 
 ### Add Aggregate Rack
 

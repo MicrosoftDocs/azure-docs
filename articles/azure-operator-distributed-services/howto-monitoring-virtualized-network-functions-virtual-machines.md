@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Monitoring of Virtualized Network Function Virtual Machines"
-description: How-to guide for setting up monitoring of Virtualized Network Function Virtual Machines on AODS.
+title: "Azure Operator Nexus: Monitoring of Virtualized Network Function Virtual Machines"
+description: How-to guide for setting up monitoring of Virtualized Network Function Virtual Machines on Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/01/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -25,14 +25,14 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 
 ## Arc connectivity
 
-Azure Arc-enabled servers let you manage Linux physical servers and Virtual Machines hosted outside of Azure, such as on-premises cloud environment like AODS. A hybrid machine is any machine not running in Azure. When a hybrid machine is connected to Azure, it becomes a connected machine, treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
+Azure Arc-enabled servers let you manage Linux physical servers and Virtual Machines hosted outside of Azure, such as on-premises cloud environment like Operator Nexus. A hybrid machine is any machine not running in Azure. When a hybrid machine is connected to Azure, it becomes a connected machine, treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
 ### Prerequisites
 
 Before you start, be sure to review the [prerequisites](/azure/azure-arc/servers/prerequisites) and verify that your subscription, and resources meet the requirements.
 Some of the prerequisites are:
 
-- Your VNF VM is connected to CloudServicesNetwork (the network that the VM uses to communicate with AODS services).
+- Your VNF VM is connected to CloudServicesNetwork (the network that the VM uses to communicate with Operator Nexus services).
 - You have SSH access to your VNF VM.
 - Proxies & wget install:
   - Ensure wget is installed.
@@ -96,7 +96,7 @@ If the agent fails to start after setup is finished, check the logs for detailed
 
 After you install the agent and configure it to connect to Azure Arc-enabled servers, verify that the server is successfully connected at [Azure portal](https://aka.ms/hybridmachineportal).
 
-<!--- IMG ![Sample Arc-Enrolled VM](CDocs/media/sample-arc-enrolled-vm.png) IMG --->
+<!--- IMG ![Sample Arc-Enrolled VM](Docs/media/sample-arc-enrolled-vm.png) IMG --->
 :::image type="content" source="media/sample-arc-enrolled-vm.png" alt-text="Sample Arc-Enrolled VM":::
 Figure: Sample Arc-Enrolled VM
 
@@ -119,14 +119,14 @@ won't require you to restart your server.
 
 Ensure that you configure collection of logs and metrics using the Data Collection Rule.
 
-<!--- IMG ![DCR adding source](CDocs/media/drc-adding-source.png) IMG --->
+<!--- IMG ![DCR adding source](Docs/media/drc-adding-source.png) IMG --->
 :::image type="content" source="media/drc-adding-source.png" alt-text="DCR adding source":::
 Figure: DCR adding source
 
 **Note:** The metrics configured with DCR should have destination set to Log Analytics Workspace as
 it's not supported on Azure Monitor Metrics yet.
 
-<!--- IMG ![DCR adding destination](CDocs/media/dcr-adding-destination.png) IMG --->
+<!--- IMG ![DCR adding destination](Docs/media/dcr-adding-destination.png) IMG --->
 :::image type="content" source="media/dcr-adding-destination.png" alt-text="DCR adding destination":::
 Figure: DCR adding destination
 
@@ -145,7 +145,7 @@ The following prerequisites must be met prior to installing the Azure Monitor Ag
 
 Once, the Virtual Machines are Arc connected, ensure that you create a local file from your [Azure Cloud Shell](/azure/cloud-shell/overview) with name "settings.json" to provide the proxy information:
 
-<!--- IMG ![Settings.json file](CDocs/media/ama-agent-settings.png) IMG --->
+<!--- IMG ![Settings.json file](Docs/media/ama-agent-settings.png) IMG --->
 :::image type="content" source="media/ama-agent-settings.png" alt-text="Settings.json file":::
 Figure: settings.json file
 
@@ -179,7 +179,7 @@ az monitor data-collection rule create --name \<name-for-dcr\> --resource-group 
 
 An example rules-file:
 
-<!--- IMG ![Sample DCR rule file](CDocs/media/sample-dcr-rule.png) IMG --->
+<!--- IMG ![Sample DCR rule file](Docs/media/sample-dcr-rule.png) IMG --->
 :::image type="content" source="media/sample-dcr-rule.png" alt-text="Sample DCR rule file":::
 Figure: Sample DCR rule file
 
@@ -195,5 +195,5 @@ For more information, please refer to this [link](/azure/monitor/data-collection
 
 ## Additional Resources
 
-- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use AODS telemetry [sample AODS workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
-- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample AODS Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).

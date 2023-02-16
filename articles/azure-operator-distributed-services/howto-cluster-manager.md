@@ -1,17 +1,17 @@
 ---
-title: How to guide for running commands for Cluster Manager on AODS
-description: Learn to create, view, list, update, delete commands for Cluster Manager on AODS
+title: How to guide for running commands for Cluster Manager on Azure Operator Nexus
+description: Learn to create, view, list, update, delete commands for Cluster Manager on Operator Nexus
 author: krishnaposa
 ms.author: sriposa
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus 
 ---
 
-# Manage a Cluster Manager
+# Cluster Manager: lifecycle management
 
-You'll need to upgrade or patch a Cluster Manager. You may need to examine or change its properties. When all Azure Operator Distributed Services instances have been deleted from your sites, you may need to delete the Cluster Manager.
+You'll need to upgrade or patch a Cluster Manager. You may need to examine or change its properties. When all Operator Nexus  instances have been deleted from your sites, you may need to delete the Cluster Manager.
 In this how-to guide you'll learn to manage a Cluster Manager. The `networkcloud` resource provider supports `create`, `list` (also known as read), `show`, `update` and `delete` operations on the `clustermanager` resource.
 
 ## Before you begin
@@ -22,7 +22,7 @@ You'll need:
 - **Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in your same Resource group.
 - **analytics workspace ID** - The resource ID of the Log Analytics workspace used for the logs collection.
 - **Azure Region** - The Cluster Manager should be created in the same region as the Network Fabric Controller.
-This Azure region should be used in the `Location` field of the Cluster Manager and all associated AODS instances.
+This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
 ## Prerequisites: install CLI extensions
 

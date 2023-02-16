@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure Operator Distributed Services (AODS)
-summary: AODS runs network-intensive workloads under stringent security, performance and manageability. Learn AODS with these quickstarts and how-to guides. # < 160 chars
+title: Operator Nexus  
+summary: Operator Nexus runs network-intensive workloads under stringent security, performance and manageability. Learn Operator Nexus with these quickstarts and how-to guides. # < 160 chars
 
 metadata:
-  title: Azure Operator Distributed Services (AODS) 
-  description: Azure Operator Distributed Services (AODS), the next-generation hybrid cloud platform for operators, 
+  title: Operator Nexus  
+  description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
    proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
    resiliency, observability, manageability, and performance required by telecommunication' operators. 
-   Learn how to deploy, manage and use AODS with these concepts, quickstarts, and how-to guides.
+   Learn how to deploy, manage and use Operator Nexus with these concepts, quickstarts, and how-to guides.
   ms.service: hybrid-service 
   ms.topic: landing-page
   author: jashobhit
@@ -20,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: AODS Overview
+  - title: Operator Nexus Overview
     linkLists:
 #     - linkListType: overview
 #       links:
-#          - text: What is Azure Operator Distributed Services?
+#          - text: What is Operator Nexus ?
 #            url: overview.md
       - linkListType: concept
 #       links:

@@ -1,9 +1,9 @@
 ---
 title: "Network Fabric Controller and Cluster Manger creation"
-description: Learn the steps for create the Azure Operator Distributed Services Network Fabric Controller and Cluster Manger.
+description: Learn the steps for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 02/08/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -16,13 +16,12 @@ in your target Azure region. This Azure region will be connected to your on-prem
 You'll also need to create an NFC and CM in other Azure regions to be connected to your on-premise sites.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
-The NFC/CM pair lifecycle manages up to 32 Azure Operator Distributed Services (AODS)
-instances deployed in your sites connected to this Azure region.
-Each AODS instance consists of network fabric, compute and storage infrastructure.
+The NFC/CM pair lifecycle manages up to 32 Azure Operator Nexus instances deployed in your sites connected to this Azure region.
+Each Operator Nexus instance consists of network fabric, compute and storage infrastructure.
 
 ## Prerequisites
 
-- Ensure Azure Subscription for Azure Operator Distributed Services resources has been permitted access to the
+- Ensure Azure Subscription for Operator Nexus resources has been permitted access to the
   necessary Azure Resource Providers:
   - Microsoft.NetworkCloud
   - Microsoft.ManagedNetworkFabric
@@ -41,8 +40,8 @@ Each AODS instance consists of network fabric, compute and storage infrastructur
 - Set up Key Vault to store encryption and security tokens, service principals,
   passwords, certificates, and API keys
 - Set up Log Analytics workSpace (LAW) to store logs and analytics data for
-  Azure Operator Distributed Services subcomponents (Fabric, Cluster, etc.)
-- Set up Azure Storage account to store Azure Operator Distributed Services data objects:
+  Operator Nexus subcomponents (Fabric, Cluster, etc.)
+- Set up Azure Storage account to store Operator Nexus data objects:
   - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS
   - this storage isn't for user/consumer data.
 
@@ -63,14 +62,14 @@ Fabric Controller` (NFC) in an Azure region. Bootstrapping
 and management of network fabric instances are performed from the NFC.
 
 You'll create a Network Fabric Controller (NFC) prior to the first deployment
-of an on-premises AODS instance. Each NFC can manage up to 32 AODS instances.
+of an on-premises Operator Nexus instance. Each NFC can manage up to 32 Operator Nexus instances.
 For subsequent network fabric deployments, managed by this
-Fabric Controller, an NFC won't need to be created. After 32 AODS instances
+Fabric Controller, an NFC won't need to be created. After 32 Operator Nexus instances
 have been deployed, another NFC will need to be created.
 
-An NFC manages network fabric of AODS instances deployed in an Azure region.
+An NFC manages network fabric of Operator Nexus instances deployed in an Azure region.
 You.ll need to create an NFC in every Azure region that you'll deploy
-AODS instances in.
+Operator Nexus instances in.
 
 Create the NFC:
 
@@ -144,10 +143,10 @@ NFC created logs can be viewed in:
 ## Step 2: Create a Cluster Manager
 
 A Cluster Manager (CM) represents the control-plane to manage one or more of your
-on-premises Azure Operator Distributed Services clusters (instances).
+on-premises Operator Nexus  clusters (instances).
 The Cluster Manager is served by a User Resource Provider (RP) that
 resides in an AKS cluster within your Subscription. The Cluster Manager
-is responsible for the lifecycle management of your AODS Clusters.
+is responsible for the lifecycle management of your Operator Nexus Clusters.
 The CM will appear in your subscription as a resource.
 
 A Fabric Controller is required before the Cluster Manager can be created.
@@ -155,8 +154,8 @@ There's a one-to-one dependency between the Network Fabric Controller and
 Cluster Manager. You'll need to create a Cluster Manager every time another
 NFC is created.
 
-You need to create a CM before the first deployment of an AODS instance.
-You don't need to create a CM for subsequent AODS on-premises deployments to be managed by
+You need to create a CM before the first deployment of an Operator Nexus instance.
+You don't need to create a CM for subsequent Operator Nexus on-premises deployments to be managed by
 the same Cluster Manager.
 
 Create Cluster Manager:

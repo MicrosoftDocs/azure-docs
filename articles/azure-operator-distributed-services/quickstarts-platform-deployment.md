@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Platform deployment"
-description: Learn the steps for deploying the Azure Operator Distributed Services platform software.
+title: "Operator Nexus: Platform deployment"
+description: Learn the steps for deploying the Operator Nexus platform software.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -35,10 +35,10 @@ The metrics generated from the logging data are available in [Azure Monitor metr
 ## Step 1: Create Network Fabric
 
 The network fabric instance (NF) is a collection of all network devices
-described in the previous section, associated with a single AODS instance. The NF
-instance interconnects compute servers and storage instances within an AODS
+described in the previous section, associated with a single Operator Nexus instance. The NF
+instance interconnects compute servers and storage instances within an Operator Nexus
 instance. The NF facilitates connectivity to and from your network to
-the AODS instance.
+the Operator Nexus instance.
 
 Create the Network Fabric:
 
@@ -137,7 +137,7 @@ within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
 You should have successfully created the Network Fabric for this on-premises deployment.
-Each AODS on-premises instance has a one-to-one association
+Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
 Create the Cluster:
@@ -214,7 +214,7 @@ You can instead create a Cluster with ARM template/parameter files in
 
 ### Validation
 
-A successful AODS Cluster creation will result in the creation of an AKS cluster
+A successful Operator Nexus Cluster creation will result in the creation of an AKS cluster
 inside your subscription. The cluster ID, cluster provisioning state and
 deployment state are returned as a result of a successful `cluster create`.
 
@@ -238,7 +238,7 @@ Cluster create Logs can be viewed in the following locations:
 ## Step 3: Provision Network Fabric
 
 The network fabric instance (NF) is a collection of all network devices
-associated with a single AODS instance.
+associated with a single Operator Nexus instance.
 
 Provision the Network Fabric:
 

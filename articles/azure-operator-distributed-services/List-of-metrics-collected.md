@@ -1,15 +1,15 @@
 ---
-title: List of Metrics Collected in AODS.
-description: List of metrics collected in AODS.
+title: List of Metrics Collected in Azure Operator Nexus.
+description: List of metrics collected in Azure Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 02/03/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# List of Metrics Collected in AODS
+# List of Metrics Collected in Azure Operator Nexus
 
 This section provides teh list of metrics collected from the different components.
 

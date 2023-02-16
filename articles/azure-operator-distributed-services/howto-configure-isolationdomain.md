@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: How to configure the L2 and L3 Isolation Domains in AODS instances"
-description: Learn to create, view, list, update, delete commands for Layer 2 and Layer Isolation Domains in AODS instances
+title: "Azure Operator Nexus: How to configure the L2 and L3 Isolation Domains in Operator Nexus instances"
+description: Learn to create, view, list, update, delete commands for Layer 2 and Layer Isolation Domains in Operator Nexus instances
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/02/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -22,7 +22,7 @@ This how-to describes how you can manage your Layer 2 and Layer 3 Isolation Doma
 
 ### Sign-in to your Azure account
 
-Sign-in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID used across all AODS resources.
+Sign-in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID used across all Operator Nexus resources.
 
 ```azurecli
     az login
@@ -35,10 +35,10 @@ Sign-in to your Azure account and set the subscription to your Azure subscriptio
 1. Monitor the registration process. Registration may take up to 10 minutes: `az provider show -n Microsoft.ManagedNetworkFabric -o table`
 1. Once registered, you should see the `RegistrationState` change to `Registered`: `az provider show -n Microsoft.ManagedNetworkFabric -o table`.
 
-You'll create Isolation Domains to enable layer 2 and layer 3 connectivity between AODS workloads.
+You'll create Isolation Domains to enable layer 2 and layer 3 connectivity between workloads hosted on an Operator Nexus instance.
 
 > [!NOTE]
-> AODS reserves VLANs <=500 for Platform use, and therefore VLANs in this range can't be used for your (tenant) workload networks. You should use VLAN values between 501 and 4095.
+> Operator Nexus reserves VLANs <=500 for Platform use, and therefore VLANs in this range can't be used for your (tenant) workload networks. You should use VLAN values between 501 and 4095.
 
 ## Parameters for Isolation Domain management
 
@@ -47,7 +47,7 @@ You'll create Isolation Domains to enable layer 2 and layer 3 connectivity betwe
 | vlan-id             | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The Isolation Domain must be deleted and recreated if the VLAN identifier value needs to be modified. |
 | administrativeState | Indicate administrative state of the Isolation Domain |
 | provisioningState   | Indicates provisioning state |
-| subscriptionId      | Your Azure subscriptionId for your AODS instance. |
+| subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
 | resourceGroupName   | Use the corresponding NFC resource group name |
 | resource-name       | Resource Name of the Isolation Domain |
 | nf-id               | ARM ID of the Network Fabric |
@@ -55,7 +55,7 @@ You'll create Isolation Domains to enable layer 2 and layer 3 connectivity betwe
 
 ## L2 Isolation Domain
 
-You use an L2 Isolation Domain to establish layer 2 connectivity between workloads running on AODS compute nodes.
+You use an L2 Isolation Domain to establish layer 2 connectivity between workloads running on Operator Nexus compute nodes.
 ### Create L2 Isolation Domain
 
 Create an L2 Isolation domain:
@@ -248,17 +248,17 @@ Please use show or list command to validate that isolation domain is deleted. De
 
 ## L3 Isolation Domain
 
-Layer 3 Isolation Domain enables layer 3 connectivity between workloads running on AODS compute nodes.
+Layer 3 Isolation Domain enables layer 3 connectivity between workloads running on Operator Nexus compute nodes.
 The L3 Isolation Domain enables the workloads to exchange layer 3 information with Network Fabric devices.
 
 Layer 3 isolation domain has two components: Internal and External Networks.
 At least one or more internal networks are required to be created.
-The internal networks define layer 3 connectivity between NFs running in AODS compute nodes and an optional external network.
+The internal networks define layer 3 connectivity between NFs running in Operator Nexus compute nodes and an optional external network.
 The external network provides connectivity between the internet and internal networks via your PEs.
 
 L3 isolation domain enables deploying workloads that advertise service IPs to the fabric via BGP.
 Fabric ASN refers to the ASN of the network devices on the Fabric. The Fabric ASN was specified while creating the Network Fabric.
-Peer ASN refers to ASN of the Network Functions in AODS, and it can't be the same as Fabric ASN.
+Peer ASN refers to ASN of the Network Functions in Operator Nexus, and it can't be the same as Fabric ASN.
 
 The workflow for a successful provisioning of an L3 Isolation Domain is as follows:
   - Create a L3 Isolation Domain
@@ -733,7 +733,7 @@ The Fabric ASN (created during network fabric creation) is needed for creating e
 The diagram represents an example Network Function, with three different internal networks Trust, Untrust and Management (`Mgmt`).
 Each of the internal networks is created in its own L3 Isolation Domain (`L3 ISD`).
 
-<!--- IMG ![Network Function networking diagram](CDocs/media/network-function-networking.png) IMG --->
+<!--- IMG ![Network Function networking diagram](Docs/media/network-function-networking.png) IMG --->
 :::image type="content" source="media/network-function-networking.png" alt-text="Network Function networking diagram":::
 Figure Network Function networking diagram
 

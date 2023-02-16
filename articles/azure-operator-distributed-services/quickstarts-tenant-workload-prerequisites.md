@@ -3,7 +3,7 @@ title: How to deploy tenant workloads prerequisites
 description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
 author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
 ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -11,7 +11,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 # Tenant Workloads Deployment Prerequisites
 
-<!--- IMG ![Tenant Workload Deployment Flow](CDocs//media/tenant-workload-deployment-flow.png) IMG --->
+<!--- IMG ![Tenant Workload Deployment Flow](Docs//media/tenant-workload-deployment-flow.png) IMG --->
 :::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Tenant Workload Deployment Flow":::
 Figure: Tenant Workload Deployment Flow
 
@@ -46,8 +46,8 @@ the appropriate support team(s) for help:
 
 You'll need:
 
-- your Azure account and the subscription ID of AODS cluster deployment
-- the `custom location` resource ID of your AODS cluster
+- your Azure account and the subscription ID of Operator Nexus cluster deployment
+- the `custom location` resource ID of your Operator Nexus cluster
 
 ### Review Azure Container Registry
 
@@ -59,14 +59,14 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 
 [!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
 
-## AODS Workload Images
+## Operator Nexus Workload Images
 
 These images will be used when creating your workload VMs. Make sure each is a
 containerized image in either `qcow2` or `raw` disk format and is uploaded to an Azure Container
 Registry. If your Azure Container Registry is password protected, you can supply this info when creating your VM.
-Refer to [AODS VM disk image build procedure](#aods-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
+Refer to [Operator Nexus VM disk image build procedure](#aods-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
 
-### AODS VM disk image build procedure
+### Operator Nexus VM disk image build procedure
 
 This is a paper-exercise example of an anonymous pull of an image from Azure Container Registry.  
 It assumes that you already have an existing VM instance image in `qcow2` format and that the image is set up to boot with cloud-init. A working docker build and runtime environment  is required.
@@ -102,7 +102,7 @@ docker push devtestacr.azurecr.io/your-favorite-image:v1
 
 ### Create VM using image
 
-You can now use this image when creating AODS virtual machines.
+You can now use this image when creating Operator Nexus virtual machines.
 
 ```azurecli
 az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \

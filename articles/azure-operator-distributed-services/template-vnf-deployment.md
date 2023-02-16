@@ -1,23 +1,23 @@
 ---
-title: "Azure Operator Distributed Services: Sample VNF deployment script"
-description: Sample script to create the environment for VNF deployment on Azure Operator Distributed Services.
+title: "Operator Nexus: Sample VNF deployment script"
+description: Sample script to create the environment for VNF deployment on Operator Nexus.
 author: atwumbarimah
 ms.author: atwumbarimah
 ms.date: 01/24/2023
 ms.topic: sample
 # ms.prod: used for on prem applications
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus
 ---
 
 # Sample: VNF deployment script
 
-This script creates the resources required to deploy a VNF on an Azure Operator Distributed Services cluster (instance) on your premises.
+This script creates the resources required to deploy a VNF on an Operator Nexus cluster (instance) on your premises.
 
 The first step is to create the workload L2 and L3 networks, followed by the creation of the virtual machine for the VNF.
 
 ## Prerequisites
 
-- fully deployed and configured Azure Operator Distributed Services cluster
+- fully deployed and configured Operator Nexus cluster
   (instance)
 - Tenant inter-fabric network (the L2 and L3 Isolation Domains) has been created
 
@@ -35,7 +35,7 @@ export myhakscustloc='******'
 
 ## Initialization
 
-Set `$mysub` as the active subscription for your AODS instance.
+Set `$mysub` as the active subscription for your Operator Nexus instance.
 
 ```azurecli
   az account set --subscription "$mysub"

@@ -1,27 +1,27 @@
 ---
-title: "Azure Operator Distributed Services: Platform deployment pre-requisites"
-description: Learn the prerequisite steps for deploying the Azure Operator Distributed Services platform software.
+title: "Operator Nexus: Platform deployment pre-requisites"
+description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
 author: surajmb #Required; your GitHub user alias, with correct capitalization.
 ms.author: surmb #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: Deploy Azure Operator Distributed Services platform software prerequisites
+# Quickstart: Deploy Operator Nexus platform software prerequisites
 
 You'll need to complete the prerequisites before you can deploy the
-Azure Operator Distributed Services platform software. Some of these steps may take
+Operator Nexus platform software. Some of these steps may take
 weeks to months and, thus, a review of these prerequisites may prove beneficial.
 
-In subsequent deployments of Azure Operator Distributed Services instances, you can skip to creating the on-premises
+In subsequent deployments of Operator Nexus instances, you can skip to creating the on-premises
 network fabric and the cluster. An instance of Network Fabric Controller can support up to 32
-Azure Operator Distributed Services instances.
+Operator Nexus instances.
 
 ## Prerequisites
 
-You need to be familiar with the Azure Operator Distributed Services [key features](./overview.md#key-features)
+You need to be familiar with the Operator Nexus [key features](./overview.md#key-features)
 and [platform components](./concepts-resource-types.md).
 
 The prerequisite activities have been split among activities you'll perform in Azure and on
@@ -29,16 +29,16 @@ your premises that may require some data gathering.
 
 ### Azure prerequisites
 
-- When deploying Azure Operator Distributed Services for the first time or in a new region,
+- When deploying Operator Nexus for the first time or in a new region,
 you'll first need to create a Network Fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-NFC-CM-create.md).
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
-  that will be created for Azure Operator Distributed Services platform.
+  that will be created for Operator Nexus platform.
 - Set up Key Vault to store encryption and security tokens, service principals,
   passwords, certificates, and API keys
 - Set up Log Analytics workSpace (LAW) to store logs and analytics data for
-  Azure Operator Distributed Services sub-components (Fabric, Cluster, etc.)
-- Set up Azure Storage account to store Azure Operator Distributed Services data objects:
+  Operator Nexus sub-components (Fabric, Cluster, etc.)
+- Set up Azure Storage account to store Operator Nexus data objects:
   - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS
   - this storage is not for user/consumer data.
 
@@ -65,13 +65,13 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
   - [optional] IP prefix for the Network
     Fabric Controller (NFC) subnet during its creation; the default IPv4 and IPv6
     prefix are `10.0.0.0/19` and `FC00:/59`, respectively
-  - [optional] IP prefix for the Azure Operator Distributed Services
+  - [optional] IP prefix for the Operator Nexus
     Management plane during NFC creation.
     By default, `10.1.0.0/19` and, `FC00:0000:0000:100::/59`
     IPv4 and IPv6 prefix, respectively, are used for subnets in the management plane for the first
-    Azure Operator Distributed Services instance. Prefix range `10.1.0.0/19` to `10.4.224.0/19` and
+    Operator Nexus instance. Prefix range `10.1.0.0/19` to `10.4.224.0/19` and
     `FC00:0000:0000:100::/59` to `FC00:0000:0000:4e0::/59` are used for
-    the 32 instances of Azure Operator Distributed Services supported for each NFC instance.
+    the 32 instances of Operator Nexus supported for each NFC instance.
 
 ## Set up Terminal Server
 

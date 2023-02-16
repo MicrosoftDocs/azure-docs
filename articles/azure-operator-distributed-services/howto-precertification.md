@@ -1,14 +1,14 @@
 ---
-title: How to pre-certify network functions on Azure Operator Distributed Services
-description: Overview of the pre-certification process for network function workloads on Azure Operator Distributed Services
+title: How to pre-certify network functions on Azure Operator Nexus 
+description: Overview of the pre-certification process for network function workloads on Operator Nexus 
 author: vatsal-parikh 
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus 
 ---
 
-# How to pre-certify network functions on Azure Operator Distributed Services
+# How to pre-certify network functions on Azure Operator Nexus
 
 The pre-certification of network functions accelerates deployment of network services.
 The pre-certified network functions can be managed like any other Azure resource.
@@ -19,7 +19,7 @@ In this section, we'll describe the process and the steps for network function p
 ## Pre-certification of Network Function for operators
 
 The goal is make available a catalog of network functions that
-conform to the AODS specifications. NF
+conform to the Operator Nexus specifications. NF
 partners onboarding to pre-certification program and ANFM service won't be
 required to change the commercial licensing arrangement with the operators.
 
@@ -28,14 +28,14 @@ required to change the commercial licensing arrangement with the operators.
 This section outlines the pre-certification process for Network Function deployment.
 Microsoft uses this process with Network Equipment Providers (NEP) that
 provide network function(s). This process guides the partner through
-onboarding the network function onto AODS and
+onboarding the network function onto Operator Nexus and
 certifies the network function deployment methods using Azure deployment
 services. The goal of this program is to ensure that the partner's network function
-deployment process is predictable and repeatable on the AODS platform.
+deployment process is predictable and repeatable on the Operator Nexus platform.
 Microsoft provides a pre-certification environment for the partners to validate
 the deployment of their network function. As a result, the partners'
 network functions will be published in the Microsoft catalog of
-network functions. This catalog will be available to operators using the AODS platform.
+network functions. This catalog will be available to operators using the Operator Nexus platform.
 
 If the NF partner is interested in listing their offer in the Azure Marketplace,
 Microsoft will work with the partner to enable this offering in the marketplace.
@@ -51,7 +51,7 @@ provides consistent Azure managed applications experience for network functions.
 
 Here are the steps of the NF Deployment pre-certification
 
-<!--- IMG ![Pre-Certification Process](CDocs/media/nfm-precert-process.png) IMG --->
+<!--- IMG ![Pre-Certification Process](Docs/media/nfm-precert-process.png) IMG --->
 :::image type="content" source="media/nfm-precert-process.png" alt-text="Pre-Certification Process":::
 Figure: Pre-Certification (precert) Process
 
@@ -69,7 +69,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 
 2. Microsoft will conduct several sessions on key topics with the partner:
 
-   a. Technical discussions describing the AODS architecture with focus on run time specification:
+   a. Technical discussions describing the Operator Nexus architecture with focus on run time specification:
 
    - Compute dimensions for Kubernetes master and worker nodes, memory, storage requirements, and compute capabilities
      - NUMA alignment
@@ -81,7 +81,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
    - Review `cloudinit` support for VM based network functions
    - Microsoft AKS-Hybrid support for tenant workloads, CNI versions for Calico and Cultus
 
-   b. The AODS platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft will engage with the partner and review:
+   b. The Operator Nexus platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft will engage with the partner and review:
 
    - the network fabric architecture
    - and fabric automation APIs for the creation of L2/L3 isolation domains
@@ -102,11 +102,11 @@ To ensure an efficient and effective onboarding process for the partner there ar
    - for deployment of NEP specific config management application
    - for deployment of other CNF/VNF test tools.
 
-### AODS technical specification documents provided to NF partners
+### Operator Nexus technical specification documents provided to NF partners
 
 As a part of technical engagement, the documents that Microsoft will provide to the partner are:
 
-- AODS runtime specification document and the Azure Resource Manager (ARM) API specification document for creating AKS-Hybrid clusters (CNFs) and VM instances (VNFs) on an AODS cluster
+- Operator Nexus runtime specification document and the Azure Resource Manager (ARM) API specification document for creating AKS-Hybrid clusters (CNFs) and VM instances (VNFs) on an Operator Nexus cluster
 - Azure Resource Manager API specification document for creating fabric automation components that are required for tenant networking.
 - ARM API specification document for onboarding to ANFM service. The specification will also define the customer facing APIs for deployment of network functions using the ANFM service.
 
@@ -117,8 +117,8 @@ infrastructure where multiple partners will be testing simultaneously. Based
 on the available capacity in the lab Microsoft will allocate resources for
 various partners to complete the Network Function deployment pre-certification activities in a timely and limited window.
 
-If the partner has a dedicated AODS environment in their facility, Microsoft will work with them
-to enable updated version of AODS software to complete Network Function deployment pre-certification.
+If the partner has a dedicated Operator Nexus environment in their facility, Microsoft will work with them
+to enable updated version of Operator Nexus software to complete Network Function deployment pre-certification.
 
 #### Deployment Testing
 
@@ -151,9 +151,9 @@ performed by the partners and results reviewed by Microsoft:
 6. Perform interface testing after the NF has been deployed and configured. This testing will validate that the networking is working as designed. And it validates Kubernetes cluster's internal network and connection to a source/sink (simulator).
 7. Perform a low-volume traffic simulation on the application.  
 To validate the internal routing,
-   deploy the test tool application inside the AODS cluster.
+   deploy the test tool application inside the Operator Nexus cluster.
 To test the routing across the CE, based on the  application characteristics,
-   deploy the test tool application outside the AODS cluster.
+   deploy the test tool application outside the Operator Nexus cluster.
 8. Azure PaaS integration (optional): Microsoft precert environment will be
    connected to an Azure region using ExpressRoute. The NEP partner can also integrate
    Azure PaaS services with their application. They can verify that the PaaS functionality is working as designed.
@@ -175,7 +175,7 @@ Microsoft will review the test results, provided by the partner, for the
 application being precertified. The
 objective of the Network Function Deployment Precertification process is to
 ensure that the test cases defined, and test results produced comprehensively
-validate the deployment of the application on the AODS platform. For interface
+validate the deployment of the application on the Operator Nexus platform. For interface
 testing using a test tool such as Spirent, Microsoft will work with the
 partners to identify the test scenarios. After the deployment validation and smoke
 testing are completed in the precertification lab, Microsoft will review
@@ -187,6 +187,6 @@ pre-certification/re-certification testing.
 
 #### Recertification
 
-Microsoft will enable the preview/ update versions of AODS platform and ANFM
+Microsoft will enable the preview/ update versions of Operator Nexus platform and ANFM
 service releases in precert lab. Microsoft will coordinate with partners to
 recertify.

@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Monitoring of AKS-Hybrid cluster"
-description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Azure Operator Distributed Services.
+title: "Azure Operator Nexus: Monitoring of AKS-Hybrid cluster"
+description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -17,15 +17,17 @@ Each AKS-Hybrid cluster consists of multiple layers:
 - Kubernetes layer
 - Application pods
 
-<!--- IMG ![AKS-Hybrid-Stack](CDOCS/media/sample-aks-hybrid-stack.png) IMG --->
+<!--- IMG ![AKS-Hybrid-Stack](Docs/media/sample-aks-hybrid-stack.png) IMG --->
 :::image type="content" source="media/sample-aks-hybrid-stack.png" alt-text="Sample AKS-Hybrid-Stack":::
 Figure: Sample AKS-Hybrid Stack
 
-AODS AKS-Hybrid clusters are delivered with an _optional_ observability solution, [Container Insights](/azure/azure-monitor/containers/container-insights-overview). Container Insights captures the logs and metrics from AKS-Hybrid clusters and workloads. It's solely your discretion on whether to enable this tooling or deploy your own telemetry stack.
+AKS-Hybrid clusters, on an Operator Nexus instance, are delivered with an _optional_ observability solution, [Container Insights](/azure/azure-monitor/containers/container-insights-overview).
+Container Insights captures the logs and metrics from AKS-Hybrid clusters and workloads.
+It's solely your discretion whether to enable this tooling or deploy your own telemetry stack.
 
 The AKS-Hybrid cluster with Azure monitoring tool looks like:
 
-<!--- IMG ![AKS-Hybrid with Monitoring Tools](CDOCS/media/ask-hybrid-w-monitoring-tools.png) IMG --->
+<!--- IMG ![AKS-Hybrid with Monitoring Tools](Docs/media/ask-hybrid-w-monitoring-tools.png) IMG --->
 :::image type="content" source="media/ask-hybrid-w-monitoring-tools.png" alt-text="AKS-Hybrid with Monitoring Tools":::
 Figure: AKS-Hybrid with Monitoring Tools
 
@@ -279,5 +281,5 @@ Container Insights provides end-users functionality to fine-tune the collection 
 
 ## Additional Resources
 
-- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use AODS telemetry [sample AODS workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
-- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample AODS Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).

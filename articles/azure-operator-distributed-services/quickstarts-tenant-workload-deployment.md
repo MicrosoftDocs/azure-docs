@@ -3,7 +3,7 @@ title: How to deploy tenant workloads
 description: Learn the steps for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
 author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
 ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: Azure Operator Distributed Services #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -33,7 +33,7 @@ This section explains steps to create VMs for VNF workloads
 
 ### Step V1: Create Isolation Domain for VM workloads
 
-Isolation domains enable creation of layer 2 and layer 3 connectivity between AODS and network fabric network functions.
+Isolation domains enable creation of layer 2 and layer 3 connectivity between Operator Nexus and network fabric network functions.
 This connectivity enables inter-rack and intra-rack communication between the workloads.
 You can create as many L2 and L3 Isolation Domains as needed.
 
@@ -146,14 +146,14 @@ Your VM will require one Cloud Services Network. You'll need the egress endpoint
 
 ### Step V3: Create a VM
 
-AODS Virtual Machines (VM) can be used for hosting VNF(s) within a Telco network.
-AODS provides `az networkcloud virtualmachine create` to enable users to create a customized
-VM. For creating an AODS virtual machine on your cluster, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
+Operator Nexus Virtual Machines (VM) can be used for hosting VNF(s) within a Telco network.
+Operator Nexus provides `az networkcloud virtualmachine create` to enable users to create a customized
+VM. For creating a virtual machine on your cluster, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
 #### Parameters
 
-- The `subscription`, `resource group`, `location`, and `customlocation` of the AODS cluster for deployment
+- The `subscription`, `resource group`, `location`, and `customlocation` of the Operator Nexus cluster for deployment
   - **SUBSCRIPTION**=
   - **RESOURCE_GROUP**=
   - **LOCATION**=
@@ -494,7 +494,7 @@ This section describes how to create an AKS-Hybrid Cluster
     --control-plane-count <count> \
     --location <dc-location> \
     --node-count <worker node count> \
-    --node-vm-size <AODS SKU>
+    --node-vm-size <Operator Nexus SKU>
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -536,4 +536,4 @@ returns a list of the cluster nodes.
 
 ### Step K4: Provision Tenant Workloads (CNFs)
 
-You can now deploy the CNFs either directly via AODS APIs or via Azure Network Function Manager.
+You can now deploy the CNFs either directly via Operator Nexus APIs or via Azure Network Function Manager.

@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: How to configure Network Fabric Controller"
+title: "Azure Operator Nexus : How to configure Network Fabric Controller"
 description: How to configure Network Fabric Controller
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -36,7 +36,7 @@ Check the subscriptions for the account.
 az account list
 ```
 
-Select the subscription for which you want to create a Network Fabric Controller. This subscription will be used across all AODS resources.
+Select the subscription for which you want to create a Network Fabric Controller. This subscription will be used across all Operator Nexus resources.
 
 ```azurecli
 az account set --subscription "<subscription ID>"

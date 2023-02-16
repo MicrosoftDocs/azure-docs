@@ -1,9 +1,9 @@
 ---
-title: AODS Operator PE configuration
-description: Interconnectivity parameters to configure PE for PE-CE connectivity in AODS
+title: Operator Nexus Operator PE configuration
+description: Interconnectivity parameters to configure PE for PE-CE connectivity in Operator Nexus
 author: osamazia
 ms.author: osamaz
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus
 ms.topic: reference #Required. A value that depends on the article but is usually "how-to," "tutorial," or "conceptual."
 ms.date: 02/02/2023 #Required. The publish date in mm/dd/yyyy format.
 ---
@@ -12,7 +12,7 @@ ms.date: 02/02/2023 #Required. The publish date in mm/dd/yyyy format.
 
 ## Introduction
 
-Azure Operator Distributed Services (AODS) is a two layer Clos type architecture with the CEs (Connection Endpoint) acting as the edge devices or boundary routers. All types of traffic (such as management traffic, mobile network control, and user plane traffic), to and from an AODS instance, will pass through the CE.
+Operator Nexus  is a two layer Clos type architecture with the CEs (Connection Endpoint) acting as the edge devices or boundary routers. All types of traffic (such as management traffic, mobile network control, and user plane traffic), to and from an Operator Nexus instance, will pass through the CE.
 
 On your site, the CEs will be connected to your PEs (Provider Edge or P) routers. You can configure PE-CE connectivity in multiple ways.
 
@@ -20,7 +20,7 @@ Following are the configuration areas.
 
 ### Physical Connection
 
-AODS is designed to reserve multiple ports for physical connectivity between CE and PE. These ports will be added to port channel. You don't have to connect all ports on day one. You can start with one port and add more ports on need basis.
+Operator Nexus is designed to reserve multiple ports for physical connectivity between CE and PE. These ports will be added to port channel. You don't have to connect all ports on day one. You can start with one port and add more ports on need basis.
 
 ### Port Channel
 

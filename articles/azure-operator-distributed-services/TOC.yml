@@ -1,8 +1,8 @@
-- name: AODS documentation
+- name: Azure Operator Nexus documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Operator Distributed Services?
+  - name: What is Azure Operator Nexus?
     href: overview.md
 - name: Concepts
   items:

@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Interact with AKS-Hybrid Cluster"
+title: "Azure Operator Nexus: Interact with AKS-Hybrid Cluster"
 description: Learn how to manage (view, list, update, delete) AKS-Hybrid clusters.
 author: pvapheas
 ms.author: pvapheas
-ms.service: Azure Operator Distributed Services
+ms.service: Operator Nexus 
 ms.topic: how-to
 ms.date: 02/02/2023
 ms.custom: template-how-to

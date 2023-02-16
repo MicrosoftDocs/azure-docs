@@ -1,9 +1,9 @@
 ---
-title: "Azure Operator Distributed Services: Install CLI extensions"
-description: Learn to install the needed Azure CLI extensions for Azure Operator Distributed Services
+title: "Azure Operator Nexus: Install CLI extensions"
+description: Learn to install the needed Azure CLI extensions for Operator Nexus
 author: Travisivart #Required
 ms.author: travisneely #Required
-ms.service: Azure Operator Distributed Services #Required
+ms.service: Operator Nexus #Required
 ms.topic: include
 ms.date: 01/27/2023
 # ms.custom: template-include #Required;
