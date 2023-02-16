@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
-ms.date: 01/22/2023
+ms.date: 02/16/2023
 ---
 # How to view Microsoft Purview Data Sharing lineage
 
