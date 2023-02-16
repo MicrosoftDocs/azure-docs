@@ -122,6 +122,7 @@ The script (`import_py3package_from_pypi.py`) requires the following parameters.
 | module_version | Version of the module |
 
 Parameter value should be provided as a single string in the below format:
+
 -s <subscription_id> -g <resource_group> -a<automation_account> -m <module_name> -v <module_version>
 
 For more information on using parameters with runbooks, see [Work with runbook parameters](start-runbooks.md#work-with-runbook-parameters).
