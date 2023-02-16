@@ -82,7 +82,7 @@ The control plane IP must have the following:
 
 - Open communication with the management machine.
 - The control plane needs to be able to resolve the management machine and vice versa.
-- Static IP address outside the DHCP range but still available on the network segment. This IP address can'’'t be assigned to any other machine on the network. If you are using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid deployment options) and installing resource bridge, then the control plane IP for the resource bridge can't be used for AKS hybrid deployment options. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
+- Static IP address assigned; the IP should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. If you're using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing resource bridge, then the control plane IP for the resource bridge can't be used the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
 
 ## User account and credentials
 
@@ -94,31 +94,31 @@ For example, with Arc-enabled VMware, Arc resource bridge needs a separate user 
 
 ## Configuration files
 
-Arc resource bridge consists of an appliance VM that is deployed in the on-premises infrastructure(such as Arc-enabled VMware vSphere or Arc-enabled SCVMM). To maintain the appliance VM, the configuration files generated during deployment must be saved in a secure location and made available on the management machine.
+Arc resource bridge consists of an appliance VM that is deployed in the on-premises infrastructure. To maintain the appliance VM, the configuration files generated during deployment must be saved in a secure location and made available on the management machine.
 
-There are several different types of configuration files, based on the on-premise infrastructure.
+There are several different types of configuration files, based on the on-premises infrastructure.
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid deployment): resource.yaml, appliance.yaml and infra.yaml.
+Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): resource.yaml, appliance.yaml and infra.yaml.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they are required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
 ### Kubeconfig
 
-The appliance VM hosts a management Kubernetes cluster. The `kubeconfig` is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the deployment command completes. The `kubeconfig` should be saved in a secure location to the management machine, because it is required for maintaining the appliance VM.
+The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it is required for maintaining the appliance VM.
 
-### HCI login configuration file and KVA token (Azure Stack HCI only)
+### HCI login configuration file (Azure Stack HCI only)
 
-Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line#set-up-arc-vm-management) (kvatoken.tok) to interact with Azure Stack HCI. Tje KVA token is generated with the appliance configuration files when deploying Arc resource bridge. This token is also used when collecting logs for Arc resource bridge, so it should be saved in a secure location with the rest of the appliance configuration files. This file is saved in the directory provided during configuration file creation or the default CLI directory.
+Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line#set-up-arc-vm-management) (kvatoken.tok) to interact with Azure Stack HCI. The KVA token is generated with the appliance configuration files when deploying Arc resource bridge. This token is also used when collecting logs for Arc resource bridge, so it should be saved in a secure location with the rest of the appliance configuration files. This file is saved in the directory provided during configuration file creation or the default CLI directory.
 
 ## AKS and Arc Resource Bridge on Azure Stack HCI
 
-To use AKS clusters and Arc resource bridge together on Azure Stack HCI, the AKS clusters must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS clusters can't be installed unless you delete Arc resource bridge first. Once your AKS clusters are deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
+To use AKS and Arc resource bridge together on Azure Stack HCI, the AKS cluster must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once your AKS cluster is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
 
 The following example shows a network configuration setup for Arc resource bridge and AKS clusters when deployed on Azure Stack HCI. Key details are that Arc resource bridge and AKS share the same switch and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`.
 
-### Hybrid AKS
+### AKS hybrid
 
 ```
 azurestackhciprovider: 
