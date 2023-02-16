@@ -412,13 +412,11 @@
       href: logic-apps-deploy-azure-resource-manager-templates.md
   - name: Monitor
     items:
-      - name: Monitor logic apps
+      - name: Monitor workflows
         href: monitor-logic-apps.md
-      - name: Monitor Consumption workflows with Azure Monitor Logs
-        href: monitor-consumption-workflows-log-analytics.md
-      - name: Monitor Standard workflows with Azure Monitor Logs
-        href: monitor-standard-workflows-log-analytics.md
-      - name: Monitor logic apps in Microsoft Defender for Cloud
+      - name: Monitor and collect diagnostic data for workflows
+        href: monitor-workflows-collect-diagnostic-data.md
+      - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md

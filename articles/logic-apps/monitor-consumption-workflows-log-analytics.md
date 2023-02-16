@@ -211,7 +211,7 @@ In your workflow, triggers and actions have the capability for you to add the fo
 
   Most triggers have a **Custom Tracking Id** property where you can specify a tracking ID using an expression. You can use this expression to get data from the received message payload or to generate unique values, for example:
 
-  :::image type="content" source="media/monitor-consumption-workflows-log-analytics/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
+  :::image type="content" source="media/monitor-consumption-workflows-log-analytics/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
 
   If you don't specify this custom tracking ID, Azure automatically generates this ID and correlates events across a workflow run, including any nested workflows that are called from the parent workflow. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a Request trigger, HTTP trigger, or webhook-based trigger.
 
@@ -219,7 +219,7 @@ In your workflow, triggers and actions have the capability for you to add the fo
 
   Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value to track specific inputs or outputs, for example:
 
-  :::image type="content" source="media/monitor-consumption-workflows-log-analytics/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
+  :::image type="content" source="media/monitor-consumption-workflows-log-analytics/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
 
   Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
 

@@ -13336,7 +13336,7 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/monitor-logic-apps-log-analytics.md",
-            "redirect_url": "/azure/logic-apps/monitor-consumption-workflows-log-analytics",
+            "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
             "redirect_document_id": true
         },
 
