@@ -34,7 +34,7 @@ To view full details about a specific device, select the device row. Initial det
 
 For example:
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/ss-device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/ss-device-information-window.png":::
 
 The device details page displays comprehensive device information, including the following tabs:
 
@@ -48,7 +48,7 @@ The device details page displays comprehensive device information, including the
 
 For example:
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-details-page.png" alt-text="Screenshot of the backplane tab in on the full device details page. " lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-details-page.png":::
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/ss-device-details-page.png" alt-text="Screenshot of the backplane tab in on the full device details page. " lightbox="media/how-to-manage-device-inventory-on-the-cloud/ss-device-details-page.png":::
 
 ### Identify devices that aren't connecting successfully
 
@@ -156,7 +156,7 @@ You can merge up to 10 devices at a time, if all selected devices are in the sam
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory.":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/ss-merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory." lightbox="media/how-to-manage-device-inventory-on-the-cloud/ss-merge-devices-pane.png":::
 
 A success message appears at the top right confirming that the devices have been merged into a single, unique device.
 
