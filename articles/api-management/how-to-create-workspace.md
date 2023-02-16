@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 02/15/2023
-ms.custom:\
+ms.custom:
 ---
 
 # Set up a workspace
