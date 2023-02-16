@@ -100,6 +100,24 @@ oid            | 24827
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible Server currently doesn't support [Microsoft Defender for Cloud protection](../../security-center/azure-defender.md). 
 
+
+## Row - level security
+
+[Row level security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles. Row level security is also known as *"Row Security"*, *"Virtual Private Database"*, *"Fine-grained security"*, etc Row level security is, in essence, an additional filter you can apply to a PostgreSQL database table. When a user tries to perform an action on a table, this filter is applied before the query criteria or other filtering, and the data is narrowed or rejected according to your security policy. You can create row level security policies for specific commands like *SELECT*, *INSERT*, *UPDATE*, and *DELETE*, specify it for ALL commands. Use cases fpr row level security include PCI compliant implementations, classified environments, as well as shared hosting / multi-tenant applications. 
+Only users with `SET ROW SECURITY` rights may apply row security rights to a table. The table owner may set row security on a table. Like `OVERRIDE ROW SECURITY` this is currently an implicit right. Row-level security does not override existing *GRANT* permissions, it adds a finer grained level of control. For example, setting `ROW SECURITY FOR SELECT` to allow a given user to give rows would only give that user access if the user also has *SELECT* privileges on the column or table in question.
+
+Here is an example showing how to create a policy that ensures only members of the custom created *“manager”* [role](#access-management) can access only the rows for a specific account. The code in this and the following example was shared in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/ddl-rowsecurity.html).
+
+```sql
+CREATE TABLE accounts (manager text, company text, contact_email text);
+
+ALTER TABLE accounts ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY account_managers ON accounts TO managers
+    USING (manager = current_user);
+```
+The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role cannot perform SELECT, DELETE, or UPDATE operations on rows that belong to other managers, and cannot INSERT new rows belonging to another manager.
+
 ## Updating passwords
 
 For better security, it is a good practice to periodically rotate your admin password and database user passwords. It is recommended to use strong passwords using upper and lower cases, numbers and special characters.
