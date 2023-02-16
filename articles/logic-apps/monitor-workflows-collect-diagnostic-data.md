@@ -15,9 +15,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
-
-For example, if you send the data to a Log Analytics workspace, you can create [queries](../azure-monitor/logs/log-query-overview.md) to find specific information.
+To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
