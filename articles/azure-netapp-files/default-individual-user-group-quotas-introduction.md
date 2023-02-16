@@ -54,7 +54,7 @@ A default user quota automatically applies a quota limit to *all users* accessin
 
 ### Individual user quota
 
-An individual user quota applies a quota to *individual target user* accessing the volume. The target user can be specified by a UNIX user ID (UID) or a Windows security identifier (SID), depending on volume protocol (NFS or SMB). Multiple individual user quota settings can be defined on a volume. Each user can only consume the amount of storage as defined by their individual user quota setting. No single user can exhaust the volume’s capacity, as long as the individual user quota is less than the volume quota. Individual user quotas override a default user quota, where applicable. The following diagram depicts this behavior.
+An individual user quota applies a quota to *individual target user* accessing the volume. You can specify the target user by a UNIX user ID (UID) or a Windows security identifier (SID), depending on volume protocol (NFS or SMB). You can define multiple individual user quota settings on a volume. Each user can only consume the amount of storage as defined by their individual user quota setting. No single user can exhaust the volume’s capacity, as long as the individual user quota is less than the volume quota. Individual user quotas override a default user quota, where applicable. The following diagram depicts this behavior.
 
 :::image type="content" source="../media/azure-netapp-files/individual-user-quota.png" alt-text="Diagram showing behavior of individual user quota.":::
 
@@ -72,7 +72,7 @@ A default group quota automatically applies a quota limit to *all users within a
 
 ### Individual group quota
 
-An individual group quota applies a quota to *all users within an individual target group* accessing the volume. The total consumption for all users *in that group* can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. The group is specified by a UNIX group ID (GID). Individual group quotas override default group quotas where applicable. The following diagram depicts this behavior.
+An individual group quota applies a quota to *all users within an individual target group* accessing the volume. The total consumption for all users *in that group* can't exceed the group quota limit. Group quotas aren’t applicable to SMB and dual-protocol volumes. You specify the group by a UNIX group ID (GID). Individual group quotas override default group quotas where applicable. The following diagram depicts this behavior.
 
 :::image type="content" source="../media/azure-netapp-files/individual-group-quota.png" alt-text="Diagram showing behavior of individual group quota.":::
 
