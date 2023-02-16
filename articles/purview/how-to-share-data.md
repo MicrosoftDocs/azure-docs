@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 06/28/2022
+ms.date: 02/16/2023
 ---
 # Share Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 
@@ -76,11 +76,11 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**.
 
-   :::image type="content" source="./media/how-to-share-data/select-data-share.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
 
 1. Specify a name and a description of share contents (optional). Then select **Continue**.
 
-   :::image type="content" source="./media/how-to-share-data/create-share-details.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/create-share-details-inline.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true" lightbox="./media/how-to-share-data/create-share-details-large.png":::
 
 1. Search for and add all the assets you'd like to share out at the container, folder, and file level, and then select **Continue**.
 
@@ -97,11 +97,11 @@ This registration is only needed the first time when sharing or receiving data i
 
     To share data to a user, select **User**, then enter the Azure sign-in email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true":::  
+    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient-inline.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true" lightbox="./media/how-to-share-data/create-share-add-user-recipient-large.png":::  
 
     To to share data with a service principal, select **App**. Enter the object ID and tenant ID of the recipient you want to share data with.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true":::  
+    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient-inline.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true" lightbox="./media/how-to-share-data/create-share-add-app-recipient-large.png":::  
 
 1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by selecting **Add Recipient** multiple times.
 
@@ -148,7 +148,7 @@ From either of these places you can:
 On the **Details** tab of the [edit share page](#update-a-sent-share), you can update the share name and description.
 Save any changes by selecting **Save**.
 
-:::image type="content" source="./media/how-to-share-data/edit-details.png" alt-text="Screenshot of the Details tab of the edit page, with the save button highlighted." border="true":::
+:::image type="content" source="./media/how-to-share-data/edit-details-inline.png" alt-text="Screenshot of the Details tab of the edit page, with the save button highlighted." border="true" lightbox="./media/how-to-share-data/edit-details-large.png":::
 
 ### Edit assets
 
