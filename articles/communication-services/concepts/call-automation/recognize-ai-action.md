@@ -52,11 +52,15 @@ The recognize action can be used for many reasons, below are a few examples of h
 
 - **Users can control the call** - By enabling input recognition you allow the caller to navigate your IVR menu and provide information that can be used to resolve their query. 
 - **Gather user information** - By enabling input recognition your application can gather input from the callers. This can be information such as account numbers, credit card information, etc.
+- **Transcribe caller response** - With voice recognition you can collect user input and transcribe the audio to text and analyze it to carry out specific business action.
 
 ### Interrupt audio prompts
 
 **User can exit from an IVR menu and speak to a human agent** - With DTMF interruption your application can allow users to interrupt the flow of the IVR menu and be able to chat to a human agent. 
 
+## Sample architecture for gathering user input in a call with voice recognition
+
+![Recognize AI Action](./media/recognize-ai.png)
 
 ## Sample architecture for gathering user input in a call
 
