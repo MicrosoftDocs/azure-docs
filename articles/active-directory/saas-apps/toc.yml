@@ -2367,6 +2367,8 @@
         href: tangoe-tutorial.md
       - name: Tango Reserve by AgilQuest (EU Instance)
         href: tango-reserve-tutorial.md
+      - name: Tanium Cloud SSO
+        href: tanium-cloud-sso-tutorial.md
       - name: TAP App Security
         href: tap-app-security-tutorial.md  
       - name: TargetProcess
