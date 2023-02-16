@@ -253,7 +253,7 @@ Start by running the PostgreSQL container and Python service with [Docker Compos
    pip install -r requirements.txt
    ```
 
-1. Run the JavaScript service application with Dapr.
+1. Run the Python service application with Dapr.
 
    ```bash
    dapr run --app-id batch-sdk --app-port 5001 --dapr-http-port 3500 --components-path ../components -- python3 app.py
