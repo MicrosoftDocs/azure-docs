@@ -97,6 +97,6 @@ In addition to Smart lockout, Azure AD also protects against attacks by analyzin
 
 ## Next steps
 
-To customize the experience further, you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
+- To customize the experience further, you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
 
-To help users reset or change their password from a web browser, you can [configure Azure AD self-service password reset](tutorial-enable-sspr.md).
+- To help users reset or change their password from a web browser, you can [configure Azure AD self-service password reset](tutorial-enable-sspr.md).
