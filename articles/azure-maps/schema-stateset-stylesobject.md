@@ -234,3 +234,10 @@ The following JSON illustrates a `BooleanTypeStyleRule` *state* named `occupied`
     ]
 }
 ```
+
+## Next steps
+
+Learn more about Creator for indoor maps by reading:
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps](creator-indoor-maps.md)
