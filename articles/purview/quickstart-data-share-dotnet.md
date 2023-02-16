@@ -64,7 +64,8 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/2.0.0-beta.x).
+1. In the **Package Manage Console** run the .NET cli add package command shown on this page to add the NuGet package: [Microsoft.Azure.Analytics.Purview.Share NuGet package](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/2.0.0-beta.x).
+1. In the **Package Manager Console** pane, run the following commands to install packages.
 
     ```powershell
     Install-Package Azure.Analytics.Purview.Share -IncludePrerelease
