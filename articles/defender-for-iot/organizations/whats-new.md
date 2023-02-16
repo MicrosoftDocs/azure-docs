@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Cloud features**: <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Download updates from the Sites and sensors page (Public preview)
@@ -39,6 +39,32 @@ For more information, see:
 - [Update Defender for IoT OT monitoring software](update-ot-software.md)
 - [Update threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#update-threat-intelligence-packages)
 - [OT monitoring software versions](release-notes.md)
+
+### Device inventory GA in the Azure portal
+
+The **Device inventory** page in the Azure portal is now Generally Available (GA), providing a centralized view across all your detected devices, at scale.
+
+Defender for IoT's device inventory helps you identify details about specific devices, such as manufacturer, type, serial number, firmware, and more. Gathering details about your devices helps your teams proactively investigate vulnerabilities that can compromise your most critical assets.
+
+- **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
+
+- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling
+
+- **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
+
+The **Device inventory** GA includes the following UI enhancements:
+
+|Enhancement |Description  |
+|---------|---------|
+|**Grid-level enhancements**| - **[Export the entire device inventory](how-to-manage-device-inventory-for-organizations.md#export-the-device-inventory-to-csv)** to review offline and compare notes with your teams   <br>- **[Delete irrelevant devices](how-to-manage-device-inventory-for-organizations.md#delete-a-device)** that no longer exist or are no longer functional <br>- **[Merge devices](how-to-manage-device-inventory-for-organizations.md#merge-duplicate-devices)** to fine-tune the device list if the sensor has discovered separate network entities that are associated with a single, unique device. For example. a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.<br>- **[Edit your table views](how-to-manage-device-inventory-for-organizations.md#reference-of-editable-fields)** to reflect only the data you are interested in viewing  |
+|**Device-level enhancements**| - **[Edit device details](how-to-manage-device-inventory-for-organizations.md#edit-device-details)** by annotating organization-specific contextual details, such as relative importance, descriptive tags, and business function information     |
+|**Filter and search enhancements** |  - **[Run deep searches on any device inventory field](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)** to quickly find the devices that matter most <br>- **[Filter the device inventory by any field](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)**. For example, filter by *Type* to identify *Industrial* devices, or time fields to determine active and inactive devices.|
+
+Rich security, governance and admin controls also provide the ability to assign admins, restricting who can merge, delete and edit devices on an owner’s behalf.
+
+### Device inventory grouping enhancements (Public preview)
+
+The **Device inventory** page on the Azure portal supports new grouping categories. Now you can group your device inventory by *class*, *data source*, *location*, *Purdue level*, *site*, *type*, *vendor*, and *zone*. For more information, see [View full device details](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
