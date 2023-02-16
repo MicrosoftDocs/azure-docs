@@ -28,8 +28,6 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
 
 1. Add `ApplicationInsightsLoggerProvider`:
 
-    ### [ASP.NET Core 6 and later](#tab/netcorenew)
-
     ```csharp
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
@@ -71,14 +69,6 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
         }
     }
     ```
-
-   ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
-
-
-    ```csharp
-    ```
-
----
 
 With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` will provide them. Logged messages or exceptions will be sent to Application Insights. 
 
@@ -168,44 +158,6 @@ namespace ConsoleApp
         }
     }
 }
-
-```
-
-The previous example demonstrates the default behavior for a console application. As the following example shows, you can override this default behavior.
-
-Required packages:
-
-```xml
-<ItemGroup>
-  <PackageReference Include="Microsoft.ApplicationInsights.Channel" Version="" />
-</ItemGroup>
-```
-
-The following section shows how to override the default TelemetryConfiguration setup.
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.Extensions.Logging;
-
-var channel = new InMemoryChannel();
-
-using var loggerFactory = LoggerFactory.Create(builder =>
-{
-    builder.AddApplicationInsights(
-        (tc) => 
-            {
-            tc.ConnectionString = "";
-            tc.TelemetryChannel = channel;
-            },
-        (opt) => 
-            {
-                opt.IncludeScopes = true;
-            });
-});
-
-ILogger logger = loggerFactory.CreateLogger<Program>();
-logger.LogInformation("Example log message");
-channel.Flush();
 
 ```
 
