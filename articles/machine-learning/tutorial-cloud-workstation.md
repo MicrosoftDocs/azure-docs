@@ -15,9 +15,13 @@ ms.date: 02/15/2023
 
 # Model development on a cloud workstation
  
-Learn how to get started prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. This tutorial covers the basics of setting up and configuring the cloud workstation, using cloud-based development environments, and using MLflow to track your model metrics. 
+Learn how start prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
 
-Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs. 
+* Set up and configuring the cloud workstation
+* Use cloud-based development environments
+* Use MLflow to track your model metrics
+
+Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
 
 You'll also learn how to use MLFlow to track your model development process, all from within a notebook. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
