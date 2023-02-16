@@ -316,7 +316,7 @@ You can then get real-time monitoring by using telemetry and analytics from othe
 > 
 > Retention periods apply only when you use a storage account.
 
-:::image type="content" source="media/monitor-consumption-workflows-log-analytics/diagnostics-storage-event-hub-log-analytics.png" alt-text="Screenshot showing Azure portal, Consumption logic app resource, diagnostic setting with storage account and event hub options.":::
+:::image type="content" source="media/monitor-workflows-collect-diagnostic-data/diagnostics-storage-event-hub-log-analytics.png" alt-text="Screenshot showing Azure portal, Consumption logic app resource, diagnostic setting with storage account and event hub options.":::
 
 <a name="custom-tracking-properties"></a>
 
