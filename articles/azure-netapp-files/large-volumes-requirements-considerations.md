@@ -27,14 +27,14 @@ To enroll in the preview for large volumes, use the sign-up form available at ht
 
 ## Requirements and considerations
 
-* Existing regular volumes cannot be resized over 100 TiB. You cannot convert regular Azure NetApp Files volumes to large volumes.
-* You must create a large volumes at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
-* You cannot resize a large volume to less than 100 TiB. A large volume can only be resized up to 30% of lowest provisioned size. 
+* Existing regular volumes can't be resized over 100 TiB. You can't convert regular Azure NetApp Files volumes to large volumes.
+* You must create a large volumes at a size greater than 100 TiB. A single volume can't exceed 500 TiB.  
+* You can't resize a large volume to less than 100 TiB. A large volume can only be resized up to 30% of lowest provisioned size. 
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * Large volumes are not currently supported with cross-region replication.
-* You cannot create a large volume with application volume groups.
-* Large volumes are not currently supported with cross-zone replication.
-* The SDK for large volumes is not currently available. 
+* You can't create a large volume with application volume groups.
+* Large volumes aren't currently supported with cross-zone replication.
+* The SDK for large volumes isn't currently available. 
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You'll be able to grow to 500 TiB with the throughput ceiling as per the table below. 
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |

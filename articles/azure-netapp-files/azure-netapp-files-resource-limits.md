@@ -104,7 +104,6 @@ You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at 
 >[!IMPORTANT]
 > Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
-<<<<<<< HEAD
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
 
 | Volume size (quota) | Automatic readjustment of the `maxfiles` limit |
@@ -114,9 +113,8 @@ You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at 
 You can increase the `maxfiles` limit beyond 2,550,135,120 using a support request. For every 2,550,135,120 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 120 TiB. For example, if you increase `maxfiles` limit from 2,550,135,120 to 5,100,270,240 files (or any number in between), you need to increase the volume quota to at least 240 TiB.
  
 The maximum `maxfiles` value for a 500 TiB volume is 10,625,563,000 files.
-=======
+
 You cannot set `maxfiles` limits for data protection volumes via a quota request.  Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume.  When a failover happens to a data protection volume, the `maxfiles` limit remains the last value before the failover.  In this situation, you can submit a `maxfiles` [quota request](#request-limit-increase) for the volume.
->>>>>>> cc9276b436f7f631a19b3fb1db2e9b87f8e613cd
 
 ## Request limit increase
 
