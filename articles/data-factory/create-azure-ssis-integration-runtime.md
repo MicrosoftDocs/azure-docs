@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create an Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides steps for provisioning an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) and Azure Synapse Pipelines. An Azure-SSIS IR supports:
 
