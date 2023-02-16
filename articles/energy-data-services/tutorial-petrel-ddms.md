@@ -55,19 +55,10 @@ Next, set up Postman:
 
 1. Import the following files in Postman:
 
-   - [Petrel DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
+   - [Petrel DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/PetrelDSv2.postman_collection.json)
 
-   To import the files:
 
-   1. Create two JSON files on your computer by copying the data that's in the collection and environment files.
-
-   1. In Postman, select **Import** > **Files** > **Choose Files**, and then select the two JSON files on your computer.
-
-   1. In **Import Entities** in Postman, select **Import**.
-
-       :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
-
-1. Create a Postman environment using the values you gained above. The environment should look something like this 
+1. Create a Postman environment using the values you obtained above. The environment should look something like this: 
     
     :::image type="content" source="media/tutorial-petrel-ddms/pdsv2-env-postman.png" alt-text="Screenshot that shows pdsv2 env."  lightbox="media/tutorial-petrel-ddms/pdsv2-env-postman.png":::
 
@@ -76,16 +67,13 @@ Next, set up Postman:
 
 The Postman collection for Petrel DDMS contains requests you can use to interact with your Petrel Projects. It also contains a request to query current Petrel projects and records in your Microsoft Energy Data Services instance.
 
-1. In Postman, in the left menu, select **Collections**, and then select **Petrel DDMS**. Under **Get Token**, select **Get Token**.
+1. In Postman, in the left menu, select **Collections**, and then select **Petrel DDMS**. Under **Setup**, select **Get Token**.
 
-1. In the environment dropdown in the upper-right corner, select **Petrel DDMS Environment**.
-
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-get-spn-token.png" alt-text="Screenshot that shows the Get an SPN Token setup and selecting the environment." lightbox="media/tutorial-wellbore-ddms/postman-get-spn-token.png":::
+1. In the environment dropdown in the upper-right corner, select **Petrel DDMS Environment** you created.
 
 1. To send the request, select **Send**.
 
-    :::image type="content" source="media/tutorial-wellbore-ddms/postman-request-send.png" alt-text="Screenshot that shows the Send button for a request in Postman.":::
-
+This request will generate an access token and assign it as the authorization method for future requests.
 
 You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
 
@@ -98,7 +86,7 @@ You can also generate a token by using the cURL command in Postman or a terminal
           --data-urlencode 'scope={{SCOPE}}'  
       ```
 
-In order to use this cURL generated token, you must update `access_token` in your Petrel DDMS environment with the value after `Bearer` in the response. Then, you can use the bearer token as an authorization type in other API calls.
+In order to use this cURL generated token, you must update `access_token` in your **Collection** variables with the value after `Bearer` in the response.
 
 ## Use Petrel DDMS APIs to work with Petrel Projects
 
@@ -208,3 +196,13 @@ API: **Project** > **Search Projects**
 Method: POST
 
 :::image type="content" source="media/tutorial-petrel-ddms/search-projects-pdsv2.png" alt-text="Screenshot that shows the API that deletes a well record." lightbox="media/tutorial-petrel-ddms/search-projects-pdsv2.png":::
+
+## Next Steps
+
+Visit the following DELFI links for further tutorials involving Petrel Explorer and Petrel Workflows:
+
+- Browse existing Petrel projects in Petrel - [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)
+- Open Petrel project from PDS Project Explorer - [Open a project saved in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/20AACC1C-E501-4436-9FC9-03427C21B12E)
+- In Petrel, upload seismic data to Project Oak SDMS - [Upload ZGY data from Petrel to the DELFI Data Ecosystem (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/9F76FDB2-7817-491A-995F-A18D558A191C)
+- Consume seismic data from SDMS (converted ZGY) in Petrel - [Import ZGY data from the DELFI Data Ecosystem to Petrel (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/B0B8DA1A-74B6-4109-B80D-25FF4A75C57D)
+- Upload Petrel.PET project file to PDS - [Save a Petrel project in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/C86C74BE-6FF9-4962-AEBF-887897B95D4B)
