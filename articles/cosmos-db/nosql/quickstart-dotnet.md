@@ -193,6 +193,12 @@ Use the [``CosmosClient.GetDatabase``](/dotnet/api/microsoft.azure.cosmos.cosmos
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_database" highlight="2,4":::
 
+### Get the container
+
+The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getcontainer) will return a reference to the specified container.
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_container" highlight="2,4":::
+
 ## [Connection String](#tab/connection-string)
 
 ### Create a database
@@ -203,13 +209,15 @@ Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.
 
 For more information on creating a database, see [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md).
 
----
 
 ### Get the container
 
 The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getcontainer) will return a reference to the specified container.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_container" highlight="2,4":::
+
+
+---
 
 ### Create an item
 
