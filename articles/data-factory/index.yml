@@ -25,7 +25,7 @@ landingContent:
             url: ./concepts-change-data-capture.md
           - text: Managed Airflow
             url: ./concept-managed-airflow.md
-          - text: FinOps in Azure Data Factory
+          - text: Manage data factory costs with FinOps
             url: ./applying-finops.md
   - title: About Azure Data Factory
     linkLists:
