@@ -1,6 +1,6 @@
 ---
 title: Workspaces in Azure API Management | Microsoft Docs
-description: Learn about the concept of workspaces in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
+description: Learn about the concept of workspaces in Azure API Management. Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -13,7 +13,7 @@ ms.custom:
 ---
 # Workspaces in Azure API Management
 
-In API Management, *workspaces* allow decentralized API development teams to own and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
+In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -29,23 +29,19 @@ An organization that manages APIs using Azure API Management may have multiple d
 
 The following is a sample workflow for creating and using a workspace.
 
-1. A central API platform team creates a workspace and assigns its administrators. 
+1. A central API platform team that manages the API Management instance creates a workspace and assigns its administrators. 
 
 1. A central API platform team creates a DevOps pipeline for APIs in that workspace. 
 
-1. Workspace administrators add workspace members and assign them permissions using RBAC roles - for example, workspace owner, workspace contributor, and so on.
+1. Workspace administrators add workspace members and assign them permissions using RBAC roles - for example, permissions to create or read resources in the workspace.
 
-1. Workspace members develop, publish, productize, and monitor APIs in the workspace. 
+1. Workspace members develop, publish, productize, and maintain APIs in the workspace. 
 
 1. The central API platform team manages the infrastructure of the service, such as network connectivity, monitoring, resiliency, and enforcement of all-APIs policies. 
 
 ## Workspace features
 
-### Creation and management
-
-* Create and manage workspaces by API Management instance owners or contributors.
-
-* Enable workspace members and permissions with built-in [RBAC roles](#rbac-roles). 
+Workspace collaborators can manage the following resources.
 
 ### APIs and policies
 
@@ -53,19 +49,15 @@ The following is a sample workflow for creating and using a workspace.
 
 * Apply a policy for all APIs in a workspace. 
 
-* Use `context.Api.Workspace` and `context.Product.Workspace` objects in policies in workspaces and in the all-APIs policy on the service level. 
+* Use `context.Api.Workspace` and `context.Product.Workspace` objects in workspace-scoped policies and in the all-APIs policy on the service level. 
 
 * Describe APIs with tags from the workspace level or from the service level. 
 
-* Define named values for use in workspace policies. 
-
-* Define reusable policy fragments for use in workspace policies.
-
-* Define schemas for request and response validation policies. 
+* Define named values, policy fragments, and schemas for request and response validation for use in workspace-scoped policies. 
 
 ### Users and groups
 
-* Organize users (from the service-level) into groups in a workspace. 
+* Organize users (from the service level) into groups in a workspace. 
 
 ### Products and subscriptions
 
@@ -128,6 +120,6 @@ The following resources and features aren't currently supported in workspaces:
 
 ## Next steps
 
-* Set up a workspace
+* [Create a workspace](how-to-create-workspace.md)
 
 * Migrate API Management resources to a workspace

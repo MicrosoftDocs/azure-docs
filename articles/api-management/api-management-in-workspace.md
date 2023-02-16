@@ -1,19 +1,17 @@
 ---
-title: Manage APIs in workspace in Azure API Management
-description: Learn how an API development team can use a workspace in Azure API Management to own and productize their own APIs.
+title: Use a workspace in Azure API Management
+description: Members of a workspace in Azure API Management can manage and productize their own APIs.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 02/15/2023
-ms.custom: ignite-fall-2021
+ms.custom: 
 ---
 
 # Manage APIs and other resources in your API Management workspace
 
 This article is an introduction to managing APIs, products, subscriptions, and other API Management resources in a *workspace*. A workspace is a place where a development team can own, manage, update, and productize their own APIs, while a central API platform team manages the API Management infrastructure. Learn about the [workspace features](workspaces-overview.md).
-
-
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -34,7 +32,7 @@ This article is an introduction to managing APIs, products, subscriptions, and o
 
     :::image type="content" source="media/api-management-in-workspace/workspace-in portal.png" alt-text="Screenshot of workspaces in API Management instance in the portal.":::
     
-1. The workspace appears. The resources and settings you can manage appear in the menu on the left.
+1. The workspace appears. The available resources and settings appear in the menu on the left.
 
     :::image type="content" source="media/api-management-in-workspace/workspace-menu.png" alt-text="Screenshot of API Management workspace menu in the portal.":::
 
@@ -45,9 +43,23 @@ Depending on your role in the workspace, you might have permissions to create AP
 
 To get started managing, protecting, and publishing APIs in your workspaces, see the following guidance.
 
-[Add table of links to getting started guidance for the different resources]
 
-[Add separate section for how to add members?]
+
+|Resource  |Guide  |
+|---------|---------|
+|APIs     |   [Tutorial: Import and publish your first API](import-and-publish.md)      |
+|Products     |   [Tutorial: Create and publish a product](api-management-howto-add-products.md)      |
+|Subscriptions     | [Subscriptions in Azure API Management](api-management-subscriptions.md)<br/><br/>[Create subscriptions in API Management](api-management-howto-create-subscriptions.md)        |
+|Policies     |  [Tutorial: Transform and protect your API](transform-api.md)<br/><br/>[Policies in Azure API Management](api-management-howto-policies.md)<br/><br/>[Set or edit API Management policies](set-edit-policies.md)       |
+|Named values     | [Manage secrets using named values](api-management-howto-properties.md)        |
+|Policy fragments     |  [Reuse policy configurations in your API Management policy definitions](policy-fragments.md)       |
+| Schemas | [Validate content](validate-content-policy.md) |
+| Groups | [Create and use groups to manage developer accounts](api-management-howto-create-groups.md)
+| Notifications | [How to configure notifications and notification templates](api-management-howto-configure-notifications.md)
+
+
 
 ## Next steps
+
+* Learn more about [workspaces](workspaces-overview.md)
 

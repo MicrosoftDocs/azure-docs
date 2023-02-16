@@ -1,17 +1,17 @@
 ---
 title: Set up a workspace in Azure API Management
-description: Learn how to create, manage, and use a workspace in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
+description: Learn how to create a workspace in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 02/15/2023
-ms.custom: ignite-fall-2021
+ms.custom:\
 ---
 
 # Set up a workspace
 
-Set up a workspace (preview) to ...
+Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized API development team to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. After you create a workspace, workspace members can create and manage their own APIs, products, subscriptions, and related resources.
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -36,26 +36,25 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 
 ## Assign administrator to workspace - portal
 
-After creating a workspace, assign an administrator who can add other workspace collaborators and manage the workspace's resources.
+After creating a workspace, assign an administrator who can add other workspace collaborators to manage the workspace's resources.
 
 1. In the portal, select the workspace that you created.
 1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
     :::image type="content" source="media/how-to-create-workspace/workspace-access-control.png" alt-text="Screenshot of configuring access control to a workspace in the portal.":::
 1. Assign a user the following roles to serve as the workspace administrator:
 
-    * **API Management Workspace Owner** role (workspace level)
+    * **API Management Workspace Owner** (workspace level)
     * **API Management Service Workspace API Product Manager** (service level)
 
     For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
 1. Optionally, assign roles to other workspace users to manage workspace APIs and other resources. For a list of roles, see [Use role-based access-control](api-management-role-based-access-control.md). Each user must be assigned both a workspace-level role and a service-level role.
 
-## Add resources to a workspace
-
-
 
 ## Migrate service-level resources to a workspace
 
-
+[Point to migration tool on GH?]
 
 ## Next steps
+
+* Workspace collaborators can get started [managing APIs and other resources in their API Management workspace](api-management-in-workspace.md)
 
