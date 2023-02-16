@@ -147,7 +147,7 @@ function onRequestFail(sender, args) {
 
 
 ## Next Steps
-* [Web tests](./monitor-web-app-availability.md) to monitor the availability of your site.
+* [Availability overview](./availability-overview.md) to monitor the availability of your site.
 * [Application Insights](./app-insights-overview.md) for other types of app.
 
 <!--Link references-->
