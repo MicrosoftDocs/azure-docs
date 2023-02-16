@@ -17,14 +17,13 @@ ms.reviewer: jburchel
 
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline or use the Set Variable activity to set a pipeline return value (preview).
 
-
-## Setting a variable in the Set Variable activity with UI
+## Create a Set Variable activity with UI
 
 To use a Set Variable activity in a pipeline, complete the following steps:
 
 1. Select the background of the pipeline canvas and use the Variables tab to add a variable:
 
-:::image type="content" source="media/control-flow-activities-common/add-pipeline-array-variable.png" alt-text="Screenshot shows an empty pipeline canvas with the variables tab selected having an array type variable named TestVariable.":::
+:::image type="content" source="media/control-flow-activities-common/add-pipeline-array-variable.png" alt-text="Screenshot of an empty pipeline canvas with the Variables tab selected with an array type variable named TestVariable.":::
 
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
@@ -34,7 +33,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 5. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
-:::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot shows the ui for a set variable activity.":::
+:::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot of the UI for a Set variable activity.":::
     
 ## Setting a pipeline return value in the Set Variable activity with UI
 
@@ -52,7 +51,7 @@ To set a pipeline return value, complete the following steps:
 
 5. Enter an expression to set the value for the pipeline return value. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
-:::image type="content" source="media/control-flow-set-variable-activity/set-pipeline-return-value.png" alt-text="Screenshot shows the UI for setting a pipeline return value.":::
+:::image type="content" source="media/control-flow-set-variable-activity/set-pipeline-return-value.png" alt-text="Screenshot of the UI for setting a pipeline return value.":::
 
 ## Type properties
 
