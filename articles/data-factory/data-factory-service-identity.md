@@ -287,4 +287,4 @@ See the following topics that introduce when and how to use managed identity:
 
 See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, on which managed identity in Azure Data Factory is based.
 
-See [Limitations](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations) of the managed identity when using it.
+See [Limitations](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations) of managed identities, which also apply to managed identities in Azure Data Factory.
