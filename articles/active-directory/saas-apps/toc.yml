@@ -1729,6 +1729,8 @@
         href: oracle-fusion-erp-tutorial.md
       - name: Oracle IDCS for E-Business Suite
         href: oracle-idcs-for-ebs-tutorial.md
+      - name: Oracle IDCS for JD Edwards
+        href: oracle-idcs-for-jd-edwards-tutorial.md
       - name: Oracle IDCS for PeopleSoft
         href: oracle-idcs-for-peoplesoft-tutorial.md 
       - name: OrgChart Now
@@ -2519,6 +2521,8 @@
         href: twilio-sendgrid-tutorial.md  
       - name: Uberflip
         href: uberflip-tutorial.md
+      - name: Udemy Business SAML
+        href: udemy-business-saml-tutorial.md
       - name: UKG Pro
         href: ultipro-tutorial.md
       - name: Ungerboeck Software
