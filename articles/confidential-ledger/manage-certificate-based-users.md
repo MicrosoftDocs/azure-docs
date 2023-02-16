@@ -1,6 +1,6 @@
 ---
-title: Managed Certificate Based Users in Azure Confidential Ledger
-description: Learn how to manage Certificate based users in Azure Confidential Ledger
+title: Managed Certificate Based Users in Azure confidential ledger
+description: Learn how to manage Certificate based users in Azure confidential ledger
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
@@ -8,11 +8,11 @@ ms.service: confidential-ledger
 ms.topic: how-to
 ---
 
-# Manage Certificate Based Users in Azure Confidential Ledger
+# Manage certificate-based users in Azure confidential ledger
 
-For certificate based users, their user id is the fingerprint of their PEM certificate. Users with Administrator privileges can manage users of the Confidential Ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
+For certificate based users, their user ID is the fingerprint of their PEM certificate. Users with Administrator privileges can manage users of the confidential ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
-The following client libraries are available to manage users. Learn about each by following the links below:
+The following client libraries are available to manage users:
 
 - [Python](#python-client-library)
 - [.NET](#net-client-library)
@@ -23,7 +23,7 @@ The following client libraries are available to manage users. Learn about each b
 
 [!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
 
-Get the Confidential Ledger's name and the identity service URI from the Azure Portal as it is needed to create a client to manage the users. The image below shows the appropriate properties in the Azure portal.
+Get the confidential ledger's name and the identity service URI from the Azure portal; it will be needed to create a client to manage the users. The image shows the appropriate properties in the Azure portal.
 
 :::image type="content" source="./media/ledger-properties.png" alt-text="Ledger Properties":::
 
@@ -37,7 +37,7 @@ Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.c
 pip install azure-identity azure-confidentialledger
 ```
 
-### Create a Confidential Ledger client and manage the users
+### Create a confidential ledger client and manage the users
 
 ```Python
 from azure.identity import DefaultAzureCredential
@@ -80,6 +80,7 @@ ledger_client.delete_user(user_id)
 ## .NET Client Library
 
 ### Install the packages
+
 
 ```
 dotnet add package Azure.Security.ConfidentialLedger
@@ -262,10 +263,10 @@ import ConfidentialLedger, { getLedgerIdentity } from "@azure-rest/confidential-
 import { DefaultAzureCredential } from "@azure/identity";
 
 export async function main() {
-  // Get the signing certificate from the Confidential Ledger Identity Service
+  // Get the signing certificate from the confidential ledger Identity Service
   const ledgerIdentity = await getLedgerIdentity("contoso");
 
-  // Create the Confidential Ledger Client
+  // Create the confidential ledger Client
   const confidentialLedger = ConfidentialLedger(
     "https://contoso.confidential-ledger.azure.com",
     ledgerIdentity.ledgerIdentityCertificate,

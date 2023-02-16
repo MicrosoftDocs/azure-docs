@@ -1,6 +1,6 @@
 ---
-title: Managed AAD Token Based Users in Azure Confidential Ledger
-description: Learn how to manage AAD token based users in Azure Confidential Ledger
+title: Managed Azure AD Token Based Users in Azure confidential ledger
+description: Learn how to manage Azure AD token based users in Azure confidential ledger
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
@@ -8,13 +8,13 @@ ms.service: confidential-ledger
 ms.topic: how-to
 ---
 
-# Manage AAD Token Based Users in Azure Confidential Ledger
+# Manage Azure AD token-based users in Azure confidential ledger
 
-AAD-based users are identified by their AAD object id.
+Azure AD-based users are identified by their Azure AD object ID.
 
-Users with Administrator privileges can manage users of the Confidential Ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
+Users with Administrator privileges can manage users of the confidential ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
-The following client libraries are available to manage users. Learn about each by following the links below:
+The following client libraries are available to manage users:
 
 - [Python](#python-client-library)
 - [.NET](#net-client-library)
@@ -25,7 +25,7 @@ The following client libraries are available to manage users. Learn about each b
 
 [!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
 
-Get the Confidential Ledger's name and the identity service URI from the Azure Portal as it is needed to create a client to manage the users. The image below shows the appropriate properties in the Azure portal.
+Get the confidential ledger's name and the identity service URI from the Azure portal as it is needed to create a client to manage the users. This image shows the appropriate properties in the Azure portal.
 
 :::image type="content" source="./media/ledger-properties.png" alt-text="Ledger Properties":::
 
@@ -39,7 +39,7 @@ Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.c
 pip install azure-identity azure-confidentialledger
 ```
 
-### Create a Confidential Ledger client
+### Create a confidential ledger client
 
 ```Python
 from azure.identity import DefaultAzureCredential
@@ -67,7 +67,7 @@ ledger_client = ConfidentialLedgerClient(
 
 # Add a user with the contributor role
 # Other supported roles are Contributor and Administrator
-user_id = "AAD object id of the user"
+user_id = "Azure AD object id of the user"
 user = ledger_client.create_or_update_user(
     user_id, {"assignedRole": "Contributor"}
 )
@@ -84,6 +84,7 @@ ledger_client.delete_user(user_id)
 ## .NET Client Library
 
 ### Install the packages
+
 
 ```
 dotnet add package Azure.Security.ConfidentialLedger
@@ -106,7 +107,7 @@ internal class ACLUserManagement
       // The DefaultAzureCredential will use the current Azure context to authenticate to Azure
       var ledgerClient = new ConfidentialLedgerClient(new Uri("https://contoso.confidential-ledger.azure.com"), new DefaultAzureCredential());
 
-      string userId = "AAD object id of the user";
+      string userId = "Azure AD object id of the user";
 
       // Add the user with the Reader role
       // Other supported roles are Contributor and Administrator
@@ -126,6 +127,7 @@ internal class ACLUserManagement
     }
 }
 ```
+
 ## Java Client Library
 
 ### Install the packages
@@ -209,7 +211,7 @@ public class CreateOrUpdateUserSample {
 			// Other supported roles are Contributor and Administrator
 			BinaryData userDetails = BinaryData.fromString("{\"assignedRole\":\"Reader\"}");
 			RequestOptions requestOptions = new RequestOptions();
-			String userId = "AAD object id of the user";
+			String userId = "Azure AD object id of the user";
 			Response<BinaryData> response = confidentialLedgerClient.createOrUpdateUserWithResponse(userId,
 					userDetails, requestOptions);
 
@@ -266,18 +268,18 @@ import ConfidentialLedger, { getLedgerIdentity } from "@azure-rest/confidential-
 import { DefaultAzureCredential } from "@azure/identity";
 
 export async function main() {
-  // Get the signing certificate from the Confidential Ledger Identity Service
+  // Get the signing certificate from the confidential ledger Identity Service
   const ledgerIdentity = await getLedgerIdentity("contoso");
 
-  // Create the Confidential Ledger Client
+  // Create the confidential ledger Client
   const confidentialLedger = ConfidentialLedger(
     "https://contoso.confidential-ledger.azure.com",
     ledgerIdentity.ledgerIdentityCertificate,
     new DefaultAzureCredential()
   );
 
-  // AAD object id of the user
-  const userId = "AAD Object id"
+  // Azure AD object id of the user
+  const userId = "Azure AD Object id"
 
   // Other supported roles are Reader and Contributor
   const createUserParams: CreateOrUpdateUserParameters = {
