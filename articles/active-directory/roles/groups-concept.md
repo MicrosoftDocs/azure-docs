@@ -38,7 +38,6 @@ Role-assignable groups have the following restrictions:
 - The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
 - A maximum of 500 role-assignable groups can be created in a single Azure AD organization (tenant).
-- You can't assign licenses to a role-assignable group.
 
 ## How are role-assignable groups protected?
 
@@ -53,7 +52,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
 - For Microsoft Graph, the *RoleManagement.ReadWrite.Directory* permission is required to be able to manage the membership of role-assignable groups. The *Group.ReadWrite.All* permission won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA or modify sensitive attributes for members and owners of a role-assignable group.
-- Group nesting is not supported. A group can't be added as a member of a role-assignable group.
+- Group nesting is not supported. 
 
 ## Use PIM to make a group eligible for a role assignment
 
