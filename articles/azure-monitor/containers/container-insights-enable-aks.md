@@ -385,8 +385,10 @@ AKS clusters with system-assigned identity must first disable monitoring and the
       ```
 
 ## Private link
+Use one of the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md).
 
-To enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md), your cluster must be using managed identity authentication with Azure Monitor Agent.
+### Managed identity authentication
+Use the following procedure if your cluster is using managed identity authentication with Azure Monitor Agent.
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your Azure Monitor private link service.
 
@@ -414,6 +416,35 @@ To enable network isolation by connecting your cluster to the Log Analytics work
     ```
 
 1. Enable monitoring with the managed identity authentication option by using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
+
+### Legacy authentication
+Use the following procedure if you're not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+
+1. Create a private AKS cluster.
+
+    ```cli
+    az group create --resource-group private-cluster-test-rg --location westus2
+    az network vnet create -g private-cluster-test-rg --location westus2 --name private-cluster-test-vnet-2 --address-prefixes 10.0.0.0/8
+    az network vnet subnet create -g private-cluster-test-rg --vnet-name private-cluster-test-vnet-2 --name subnet-2 --address-prefixes 10.240.0.0/16
+    az identity create -g private-cluster-test-rg -n cluster-identity
+    az aks create --resource-group private-cluster-test-rg --name private-cluster-test-2 --load-balancer-sku standard --enable-private-cluster --network-plugin azure --vnet-subnet-id /subscriptions/3b875bf3-0eec-4d8c-bdee-25c7ccc1f130/resourceGroups/private-cluster-test-rg/providers/Microsoft.Network/virtualNetworks/private-cluster-test-vnet-2/subnets/subnet-2 --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24 --assign-identity /subscriptions/3b875bf3-0eec-4d8c-bdee-25c7ccc1f130/resourcegroups/private-cluster-test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cluster-identity --node-count 1
+    ```
+
+2. Create a Log Analytics workspace with public ingestion disabled.
+
+    ```cli
+    az monitor log-analytics workspace create --resource-group private-cluster-test-rg --workspace-name private-link-la-workspace --ingestion-access Disabled
+    ```
+
+3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
+
+
+4. Enable monitoring for the AKS cluster.
+
+    ```cli
+    az aks enable-addons -a monitoring --resource-group private-cluster-test-rg --name private-cluster-test-2 --workspace-resource-id "/subscriptions/<INSERT SUBSCRIPTION ID>/resourceGroups/private-cluster-test-rg/providers/Microsoft.OperationalInsights/workspaces/private-link-la-workspace"
+    ```
+
 
 ## Limitations
 
