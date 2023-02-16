@@ -32,7 +32,7 @@ The Open-source component versions associated with HDInsight 4.0 are present in 
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 
-This table lists certain HDInsight 4.0 cluster types that have retired or will retire soon.
+This table lists certain HDInsight 4.0 cluster types that have retired or will be retiring soon.
 
 | Cluster Type                    | Framework version | Support expiration date      | Retirement date |
 |---------------------------------|-------------------|------------------------------|-----------------|
