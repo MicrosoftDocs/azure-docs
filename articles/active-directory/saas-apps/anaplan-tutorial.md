@@ -67,11 +67,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App Federation Metadata URL** and save this to use in the Anaplan SSO configuration.
 
-    ![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link.](common/copy-metadataurl.png)
 
 ## Configure Anaplan SSO
 
-1. Login to Anaplan website as an administrator.
+1. Log in to Anaplan website as an administrator.
 
 1. In the Administration page, navigate to **Security > Single Sign-On**.
 
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Perform the following steps in the **Metadata** tab:
 
-    ![Screenshot for the security page](./media/anaplan-tutorial/security.png)
+    ![Screenshot for the security page.](./media/anaplan-tutorial/security.png)
 
     a. Enter a **Connection Name**, should match the name of your connection in the identity provider interface.
 
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -116,7 +116,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Perform the following steps in the **Advanced** tab:
 
-    ![Screenshot for the Advanced page](./media/anaplan-tutorial/advanced.png)
+    ![Screenshot for the Advanced page.](./media/anaplan-tutorial/advanced.png)
 
     a. Select **Name ID Format** as Email Address from the dropdown and keep the remaining values as default.
 
@@ -124,7 +124,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **Workspaces** tab, specify the workspaces that will use the identity provider from the dropdown and Click **Save**. 
 
-    ![Screenshot for the Workspaces page](./media/anaplan-tutorial/workspaces.png)
+    ![Screenshot for the Workspaces page.](./media/anaplan-tutorial/workspaces.png)
 
     > [!NOTE]
     > Workspace connections are unique. If you have another connection already configured with a workspace, you cannot associate that workspace with a new connection.
