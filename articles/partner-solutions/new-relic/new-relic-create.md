@@ -3,7 +3,7 @@ title: Create an instance of Azure Native New Relic Service Preview
 description: Learn how to create a resource by using Azure Native New Relic Service.
 
 ms.topic: quickstart
-ms.date: 01/16/2023
+ms.date: 02/16/2023
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service Preview
@@ -113,6 +113,9 @@ You can also skip this step and go directly to the **Review and Create** tab.
 
 1. Ensure that you've passed validation, and then select **Create** to begin the resource deployment. 
 
+1. After creating resource, you must set up your account config to monitor other resources with Azure Native New Relic Service. For more information, see [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic).
+
 ## Next steps
 
 - [Manage the New Relic resource](new-relic-how-to-manage.md)
+- [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)
