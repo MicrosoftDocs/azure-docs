@@ -39,11 +39,11 @@ The Premium tier of Azure Cache for Redis offers a version of geo-replication ca
 
 There are a few restrictions when using active geo replication:
 - Only the [RediSearch](cache-redis-modules.md#redisearch) and [RedisJSON](cache-redis-modules.md#redisjson) modules are supported
-- Only the _No Eviction_ eviction policy can be used
-- Data persistence is not supported, as active geo-replication provides a superior experience.
-- An existing (i.e. running) cache cannot be added to a geo-replication group. A cache can only be added to a geo-replication group at create time.
-- All caches within a geo-replication group must have the same configuration. (e.g. same SKU, capacity, clustering policy, modules, and TLS setting.) 
-- The `FLUSHALL` and `FLUSHDB` commands are blocked within Redis when using active geo-replication to prevent unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
+- Uses only the _No Eviction_ eviction policy 
+- Data persistence isn't supported because active geo-replication provides a superior experience.
+- You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group is when you create the cache.
+- All caches within a geo-replication group must have the same configuration. (for example, same SKU, capacity, clustering policy, modules, and TLS setting.) 
+- You can't use the `FLUSHALL` and `FLUSHDB` commands Redis when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush control plane operation](#flush-operation) instead.  
 
 ## Create or join an active geo-replication group
 
@@ -91,7 +91,7 @@ You should remove the unavailable cache because the remaining caches in the repl
 
 ### Azure CLI
 
-Use the Azure CLI for creating a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create).
+Use the Azure CLI to create a new cache and geo-replication group, or to add a new cache to an existing geo-replication group. For more information, see [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create).
 
 #### Create new Enterprise instance in a new geo-replication group using Azure CLI
 
@@ -107,7 +107,7 @@ To configure active geo-replication properly, the ID of the cache instance being
 
 #### Create new Enterprise instance in an existing geo-replication group using Azure CLI
 
-This example creates a new Cache for Redis Enterprise E10 instance called _Cache2_ in the West US region. Then, the cache is added to the `replicationGroup` active geo-replication group created above. This way, it's linked in an active-active configuration with Cache1.
+This example creates a new Cache for Redis Enterprise E10 instance called _Cache2_ in the West US region. Then, the script adds the cache to the `replicationGroup` active geo-replication group create in a previous procedure. This way, it's linked in an active-active configuration with _Cache1_.
 
 ```azurecli-interactive
 az redisenterprise create --location "West US" --cluster-name "Cache2" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"
@@ -121,7 +121,7 @@ Use Azure PowerShell to create a new cache and geo-replication group, or to add 
 
 #### Create new Enterprise instance in a new geo-replication group using PowerShell
 
-This example creates a new Azure Cache for Redis Enterprise E10 cache instance called "Cache1" in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
+This example creates a new Azure Cache for Redis Enterprise E10 cache instance called _Cache1_ in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
 
 ```powershell-interactive
 New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}'
@@ -133,7 +133,7 @@ To configure active geo-replication properly, the ID of the cache instance being
 
 #### Create new Enterprise instance in an existing geo-replication group using PowerShell
 
-This example creates a new Azure Cache for Redis E10 instance called _Cache2_ in the West US region. Then, the cache is added to the "replicationGroup" active geo-replication group created above. This way, it's linked in an active-active configuration with _Cache1_.
+This example creates a new Azure Cache for Redis E10 instance called _Cache2_ in the West US region. Then, the script adds the cache to the "replicationGroup" active geo-replication group created in the previous procedure. the links the two caches, _Cache1_ and _Cache2_, in an active-active configuration.
 
 ```powershell-interactive
 New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -Location "West US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}', '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"}'
@@ -143,13 +143,13 @@ As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabas
 
 ## Flush operation
 
-Due to the potential for inadvertent data loss, the `FLUSHALL` and `FLUSHDB` Redis commands are blocked for any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** blade. 
+Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane. 
 
 > [!IMPORTANT]
 > Be careful when using the Flush Caches feature. This button will remove all data from both the current cache and from ALL caches in the geo-replication group. 
 >
 
-Access to this feature can be managed using [Azure role-based access control](../role-based-access-control/overview.md). It is recommended that only authorized users are given access to flush all caches.
+Manage access to the feature using [Azure role-based access control](../role-based-access-control/overview.md). Only authorized users should be given access to flush all caches.
 
 ## Next steps
 
