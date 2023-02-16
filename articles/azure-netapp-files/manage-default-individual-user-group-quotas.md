@@ -17,7 +17,7 @@ This article explains the considerations and steps for managing user and group q
 
 Quota rules is synced from cross-region replication (CRR) source to destination volumes. Quota rules that you create, delete, or update on a CRR source volume automatically applies to the CRR destination volume.
 
-Quota rules only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and the CRR destination volume is created at the same time as the source volume, all the quota rules is created on destination volume.
+Quota rules only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replication-delete.md#delete-volume-replications). If source volumes have quota rules and you create the CRR destination volume at the same time as the source volume, all the quota rules are created on destination volume.
 
 ## Considerations 
 
@@ -26,11 +26,11 @@ Quota rules only come into effect on the CRR destination volume after the replic
 * You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
 * Azure NetApp Files doesn't support individual group quota and default group quota for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
-* Auxiliary groups only help in permission checks and can't be used to restrict the quota (disk space) for a file.
+* Auxiliary groups only help in permission checks. You can't use auxiliary groups to restrict the quota (disk space) for a file.
 * In a cross-region replication setting:
     * Currently, Azure NetApp Files doesn't support syncing quota rules to the destination (data protection) volume. 
-    * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
-    * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the replication is deleted.
+    * You can’t create quota rules on the destination volume until you [delete the replication](cross-region-replication-delete.md).  
+    * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after you delete the replication.
     * If a quota rule is in the error state after you delete the replication relationship, you need to delete and re-create the quota rule on the destination volume. 
     * During sync or reverse resync operations:
         * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
