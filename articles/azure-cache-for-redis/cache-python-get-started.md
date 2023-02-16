@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create a Python App that uses 
 author: flang-msft
 
 ms.author: franlanglois
-ms.date: 12/15/2022
+ms.date: 02/15/2023
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
