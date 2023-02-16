@@ -11,16 +11,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
 
 NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
-<!-- 
->[!IMPORTANT]
->This topic describes how to modify the NFSv4.1 domain for Azure on both AD/LDAP-enabled volumes and volumes not enabled for LDAP. Azure NetApp Files includes an option to configure the NFSv4.1 domain for all non-LDAP volumes in a subscription; this feature is current in preview and you must [register the feature](#register-the-feature) before using it.
--->
+
 ## Default behavior of user/group mapping
 
 Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you'll see file permissions as follows:  
@@ -31,7 +28,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 ## Configure NFSv4.1 domain for server
 
-Using the Azure portal, you can update the account settings to set NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that NetApp account and region. 
+Using the Azure portal, you can update the account settings to set NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that subscription and region. 
 
 ### Register the feature
 
