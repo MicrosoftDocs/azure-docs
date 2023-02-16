@@ -14,7 +14,7 @@ ms.author: jfields
 
 # View rules in the Autopilot dashboard
 
-The **Autopilot** dashboard in Permissions Management provides a table of information about **Autopilot rules** for administrators. Creating Autopilot rules allows you to automate right-sizing policies so you can automatically remove unused roles and permissions assigned to identities in your authorization system.
+The **Autopilot** dashboard in Permissions Management provides a table of information about Autopilot rules for administrators. Creating Autopilot rules allows you to automate right-sizing policies so you can automatically remove unused roles and permissions assigned to identities in your authorization system.
 
 
 > [!NOTE]
