@@ -36,7 +36,7 @@ The Uptime SLA feature is included in the Standard tier and is enabled per clust
 
 [Azure CLI](/cli/azure/install-azure-cli) version 2.8.0 or later and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Creating a new cluster in the Free tier or Standard tier
+## Create a new cluster in the Free tier or Paid tier
 
 Use the Azure CLI to create a new cluster on an AKS pricing tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
