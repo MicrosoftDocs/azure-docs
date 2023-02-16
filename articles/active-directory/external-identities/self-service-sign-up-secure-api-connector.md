@@ -37,7 +37,7 @@ To configure an API Connector with HTTP basic authentication, follow these steps
 1. Select **All API connectors**, and then select the **API Connector** you want to configure.
 1. For the **Authentication type**, select **Basic**.
 1. Provide the **Username**, and **Password** of your REST API endpoint.
-    :::image type="content" source="media/secure-api-connector/api-connector-config.png" alt-text="Providing basic authentication configuration for an API connector.":::
+    :::image type="content" source="media/secure-api-connector/api-connector-config.png" alt-text="Screenshot of basic authentication configuration for an API connector.":::
 1. Select **Save**.
 
 ## HTTPS client certificate authentication
@@ -76,7 +76,7 @@ To configure an API Connector with client certificate authentication, follow the
 1. For the **Authentication type**, select **Certificate**.
 1. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
 1. In the **Enter Password** box, type the certificate's password.
-  :::image type="content" source="media/secure-api-connector/api-connector-upload-cert.png" alt-text="Providing certificate authentication configuration for an API connector.":::
+  :::image type="content" source="media/secure-api-connector/api-connector-upload-cert.png" alt-text="Screenshot of certificate authentication configuration for an API connector.":::
 1. Select **Save**.
 
 ### Perform authorization decisions 
@@ -88,7 +88,7 @@ It's recommended you set reminder alerts for when your certificate expires. You'
 
 To upload a new certificate to an existing API connector, select the API connector under **API connectors** and select on **Upload new certificate**. The most recently uploaded certificate that isn't expired and whose start date has passed will automatically be used by Azure AD.
 
-      :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
+  :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Screenshot of a new certificate, when one already exists.":::
 
 ## API key authentication
 
