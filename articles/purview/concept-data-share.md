@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 02/16/2023
 ---
 
 # Azure Storage in-place data sharing with Microsoft Purview (preview)
