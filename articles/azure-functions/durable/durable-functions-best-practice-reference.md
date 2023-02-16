@@ -54,7 +54,7 @@ This article details some best practices that can help you avoid common problems
 
     A single worker instance can execute multiple work items concurrently to increase efficiency. However, if a worker tries to process too many work items simultaneously, it could exhaust its resources like CPU load, network connections, etc. Usually, this shouldn’t be a concern because scaling and limiting work items are handled automatically for you. However, if you’re experiencing performance issues (such as orchestrators taking too long to finish, are stuck in pending, etc.) or are doing performance testing, you could [configure concurrency limits](durable-functions-perf-and-scale.md#configuration-of-throttles) in the host.json file.
 
-    If you find that your app still can't fulfill your performance needs even after fine tuning concurrency, you may want to consider using the Netherite storage provider instead of the default Azure Storage. Learn more about the [Netherite provider](durable-functions-storage-providers.md#a-namenetheriteanetherite). 
+    If you find that your app still can't fulfill your performance needs even after fine tuning concurrency, you may want to consider using the Netherite storage provider instead of the default Azure Storage. Learn more about the [Netherite provider](durable-functions-storage-providers.md#netherite). 
 
 ## Diagnostic tools
 
@@ -66,7 +66,7 @@ There are several tools available to help you diagnose problems.
     The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the logger (Functions 1.x) or logging (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
         
     *Durable Task Framework*
-    Starting in v2.3.0 of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection. Details on how to [enable these logs](durable-functions-diagnostics#durable-task-framework-logging.md).  
+    Starting in v2.3.0 of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection. Details on how to [enable these logs](durable-functions-diagnostics.md#durable-task-framework-logging).  
 
 - **Azure Portal**
 
