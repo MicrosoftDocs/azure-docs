@@ -136,11 +136,12 @@ API Management supports the following specification versions:
 
 #### Unsupported
 
-The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/specification/), but are not supported:
+The following fields are included in either [OpenAPI version 3.0.x](https://swagger.io/specification/) or [OpenAPI version 3.1.x](https://spec.openapis.org/oas/v3.1.0), but are not supported:
 
 | Object | Field |
 | ----------- | ----------- |
 | **OpenAPI** | `externalDocs` |
+| **Info** | `summary` |
 | **Components** | <ul><li>`responses`</li><li>`parameters`</li><li>`examples`</li><li>`requestBodies`</li><li>`headers`</li><li>`securitySchemes`</li><li>`links`</li><li>`callbacks`</li></ul> |
 | **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
 | **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
