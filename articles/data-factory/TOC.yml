@@ -1151,6 +1151,8 @@ items:
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
+    - name: FinOps in Azure Data Factory
+      href: applying-finops.md
     - name: Pricing examples     
       items:
       - name: Pricing overview
