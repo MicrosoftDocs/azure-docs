@@ -88,7 +88,7 @@ It's recommended you set reminder alerts for when your certificate expires. You'
 
 To upload a new certificate to an existing API connector, select the API connector under **API connectors** and select on **Upload new certificate**. The most recently uploaded certificate that isn't expired and whose start date has passed will automatically be used by Azure AD.
 
-  :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
+      :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
 
 ## API key authentication
 
