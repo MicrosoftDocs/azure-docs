@@ -43,7 +43,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## Sample architecture for playing audio in call using Text-To-Speech
 
-[Play with AI](./media/play-ai.png)
+![Play with AI](./media/play-ai.png)
 
 ## Sample architecture for playing audio in a call
 
