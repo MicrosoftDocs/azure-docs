@@ -66,19 +66,14 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 This section describes text-to-speech quotas and limits per Speech resource. 
 
-#### General
+#### Common text-to-speech quotas and limits
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
-| **Max number of transactions per certain time period** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) (default value)<br/><br/>The rate is adjustable up to 1000 TPS for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit). |
-| **HTTP-specific quotas** |  |  |
+| Maximum number of transactions per time period for prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) (default value)<br/><br/>The rate is adjustable up to 1000 TPS for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit). |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
-| **Websocket specific quotas** |  |  |
-| Max audio length produced per turn | 10 min | 10 min |
-| Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
-| Max SSML message size per turn | 64 KB | 64 KB |
+| Max SSML message size per turn for websocket | 64 KB | 64 KB |
 
 #### Custom Neural Voice
 
