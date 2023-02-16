@@ -174,6 +174,8 @@ Telemetry logs are retained for one and a half years. During that period, Micros
 
 + During support, this information may be used to provide quick resolution to issues and escalate product team if needed
 
+<a name="encryption"></a>
+
 ## Data protection
 
 At the storage layer, data encryption is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Service-managed encryption applies to both long-term data storage and temporary data storage.
