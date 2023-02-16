@@ -135,6 +135,6 @@ To reference the plugin JAR file in the test configuration YAML file:
 
 ## Next steps
 
-- Learn how to [Download JMeter logs to troubleshoot a load test](./how-to-find-download-logs.md).
+- Learn how to [Download JMeter logs to troubleshoot a load test](./how-to-troubleshoot-failing-test.md).
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 - Learn how to [Automate load tests with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
