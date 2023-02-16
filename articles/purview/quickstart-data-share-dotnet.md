@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-share
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 02/10/2023
+ms.date: 02/16/2023
 ms.custom: mode-api, references-regions
 ---
 

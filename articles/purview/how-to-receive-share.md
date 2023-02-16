@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 02/16/2023
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
 
@@ -83,7 +83,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. If you don't want to accept the invitation, select **Delete**.
 
-    :::image type="content" source="./media/how-to-receive-share/select-delete-invitation.png" alt-text="Screenshot showing the share attachment page with the delete button highlighted." border="true":::  
+    :::image type="content" source="./media/how-to-receive-share/select-delete-invitation-inline.png" alt-text="Screenshot showing the share attachment page with the delete button highlighted." border="true" lightbox="./media/how-to-receive-share/select-delete-invitation-large.png":::  
 
     >[!NOTE]
     > If you delete an invitation, if you want to accept the share in future it will need to be resent. To deselect the share without deleting select the **Cancel** button instead.
@@ -97,7 +97,7 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Select **Attach to target**.
 
-   :::image type="content" source="./media/how-to-receive-share/attach-shared-data.png" alt-text="Screenshot showing share invitation configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
+   :::image type="content" source="./media/how-to-receive-share/attach-shared-data-inline.png" alt-text="Screenshot showing share invitation configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true" lightbox="./media/how-to-receive-share/attach-shared-data-large.png":::  
 
 1. On the Manage data shares page, you'll see the new share with the status of **Creating** until it has completed and is attached.
 
@@ -132,7 +132,7 @@ You can find and edit received share asset one of two ways:
 
 After you've selected your data share to edit, you can reattach the share to a new storage account or path in your current storage account by selecting a storage account, providing a path, and providing the folder.
 
-:::image type="content" source="./media/how-to-receive-share/reattach-share.png" alt-text="Screenshot of the data share reattachment window, showing a new storage account selected and a path and folder added." border="true":::
+:::image type="content" source="./media/how-to-receive-share/reattach-share-inline.png" alt-text="Screenshot of the data share reattachment window, showing a new storage account selected and a path and folder added." border="true" lightbox="./media/how-to-receive-share/reattach-share-large.png":::
 
 If you're updating the target, select **Attach to target** to save your changes. Attaching can take a couple minutes to complete after the process has been started.
 
