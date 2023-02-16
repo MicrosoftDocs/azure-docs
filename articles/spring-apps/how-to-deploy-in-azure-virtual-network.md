@@ -147,7 +147,7 @@ Select the virtual network **azure-spring-apps-vnet** you previously created.
 
 1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
 
-   :::image type="content" source="media/spring-cloud-v-net-injection/access-control.png" alt-text="Screenshot of the Azure Portal showing the Access Control (IAM) page with Check access selected and Add role assignment highlighted." lightbox="media/spring-cloud-v-net-injection/access-control.png":::
+   :::image type="content" source="media/spring-cloud-v-net-injection/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/spring-cloud-v-net-injection/access-control.png":::
 
 1. Assign the *Owner* role to the Azure Spring Apps Resource Provider. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -216,13 +216,13 @@ To deploy an Azure Spring Apps instance in the virtual network:
     | Service runtime subnet             | Select **service-runtime-subnet**.  |
     | Spring apps subnet                 | Select **apps-subnet**.             |
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page with Networking and then Deploy in your own virtual network selected.":::
+   :::image type="content" source="./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
 
 1. Select **Review and create**.
 
 1. Verify your specifications, and select **Create**.
 
-   :::image type="content" source="./media/spring-cloud-v-net-injection/verify-specifications.png" alt-text=" ![Screenshot of the Azure portal showing the Azure Spring Apps Create page with the Review and create selected.":::
+   :::image type="content" source="./media/spring-cloud-v-net-injection/verify-specifications.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
 
 
 #### [CLI](#tab/azure-CLI)
@@ -257,7 +257,7 @@ The resource group named as **ap-app_{service instance name}_{service instance r
 
 Those network resources are connected to your virtual network created in the preceding image.
 
-  :::image type="content" source="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png" alt-text=" ![Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png":::
+  :::image type="content" source="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/spring-cloud-v-net-injection/vnet-with-connected-device.png":::
 
    > [!Important]
    > The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
