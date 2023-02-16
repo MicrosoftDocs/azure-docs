@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -24,18 +24,13 @@ The studio supports Form Recognizer v3.0 models and v3.0 model training. Previou
 
 ## Get started using Form Recognizer Studio
 
-1. To use Form Recognizer Studio, you'll need the following assets:
+1. To use Form Recognizer Studio, you need the following assets:
 
     * **Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
     * **Cognitive Services or Form Recognizer resource**. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal to get your key and endpoint. Use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-    > [!TIP]
-    >
-    > * Create a Cognitive Services (multi-service) resource if you plan to access multiple cognitive services under a single endpoint and key.
-    > * Create a single-service resource for Form Recognizer access only. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
-
-1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window will appear prompting you to configure your service resource. You have two options:
+1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. You have two options:
 
    **a. Access by Resource**.
 
@@ -53,7 +48,7 @@ The studio supports Form Recognizer v3.0 models and v3.0 model training. Previou
 
       :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-1. Once you've completed configuring your resource, you'll be able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using with a no-code approach.
+1. Once you've completed configuring your resource, you're able to try the different models offered by Form Recognizer Studio. From the front page, select any Form Recognizer model to try using with a no-code approach.
 
     :::image type="content" source="media/studio/form-recognizer-studio-front.png" alt-text="Screenshot of Form Recognizer Studio front page.":::
 

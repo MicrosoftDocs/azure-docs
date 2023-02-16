@@ -20,6 +20,9 @@ Azure Firewall provides automatic SNAT for all outbound traffic to public IP add
 > [!IMPORTANT]
 > If you deploy Azure Firewall inside of a Virtual WAN Hub (Secured Virtual Hub), advertising the default route over Express Route or VPN Gateway is not currently supported. A fix is being investigated.
 
+> [!IMPORTANT]
+> DNAT isn't supported with Forced Tunneling enabled. Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.
+
 ## Forced tunneling configuration
 
 You can configure Forced Tunneling during Firewall creation by enabling Forced Tunnel mode as shown below. To support forced tunneling, Service Management traffic is separated from customer traffic. An additional dedicated subnet named **AzureFirewallManagementSubnet** (minimum subnet size /26) is required with its own associated public IP address. This public IP address is for management traffic. It is used exclusively by the Azure platform and can't be used for any other purpose.
