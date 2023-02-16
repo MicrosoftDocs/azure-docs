@@ -93,7 +93,7 @@ The following device fields are supported for editing in the **Device inventory*
 |---------|---------|
 | **General information** | |
 |**Name** | Mandatory. Supported for editing only when editing a single device. |
-|**Authorized Device**     |Toggle on or off as needed as device security changes.         |
+|**Authorization**     |Toggle on or off as needed as device security changes.         |
 |**Description**     |  Enter a meaningful description for the device.       |
 |**Location**     |   Enter a meaningful location for the device.      |
 |**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
@@ -169,7 +169,7 @@ The following table describes the device properties shown in the **Device invent
 | Parameter | Description |
 |--|--|
 | **Application** | The application that exists on the device. |
-|**Authorized Device**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
+|**Authorization**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
 |**Business Function**     | Editable. Describes the device's business function.        |
 | **Class** | Editable. The class of the device. <br>Default: `IoT`|
 | **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
