@@ -25,15 +25,15 @@ Cognitive Search makes outbound requests to other Azure PaaS resources in the fo
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions
 
-For those scenarios, a search service typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a private endpoint, then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
+For those scenarios, a search service typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](/azure/private-link/private-endpoint-overview), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
 
 A shared private link is:
 
-+ Created by your search service
++ Created using Azure Cognitive Search tooling, APIs, or SDKs
 + Approved by the Azure PaaS resource owner
-+ Used internally on a connection to a specific Azure resource
++ Used internally by search on a private connection to a specific Azure resource
 
-Only your search service can use the private links that it creates, and there can be only one shared private link for each resource and sub-resource combination. 
+Only your search service can use the private links that it creates, and there can be only one shared private link created on your service for each resource and sub-resource combination.
 
 Once you set up the private link, it's used automatically whenever search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
@@ -63,7 +63,7 @@ You can create a shared private link for the following resources.
 | Resource type                     | Sub-resource (or Group ID) |
 |-----------------------------------|----------------------------|
 | Microsoft.Storage/storageAccounts <sup>1</sup> | `blob`, `table`, `dfs`, `file` |
-| Microsoft.DocumentDB/databaseAccounts <sup>2</sup>| `sql` |
+| Microsoft.DocumentDB/databaseAccounts <sup>2</sup>| `Sql` |
 | Microsoft.Sql/servers | `sqlServer` |
 | Microsoft.KeyVault/vaults | `vault` |
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
@@ -72,11 +72,11 @@ You can create a shared private link for the following resources.
 
 <sup>1</sup> If Azure Storage and Azure Cognitive Search are in the same region, the connection to storage is made over the Microsoft backbone network, which means a shared private link is redundant for this configuration. However, if you already set up a private endpoint for Azure Storage, you should also set up a shared private link or the connection is refused on the storage side. Also, if you're using multiple storage formats for various scenarios in search, make sure to create a separate shared private link for each sub-resource.
 
-<sup>2</sup> The `Microsoft.DocumentDB/databaseAccounts` resource type is used for indexer connections to Azure Cosmos DB for NoSQL.
+<sup>2</sup> The `Microsoft.DocumentDB/databaseAccounts` resource type is used for indexer connections to Azure Cosmos DB for NoSQL. The provider name and group ID are case-sensitive.
 
 <sup>3</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure Cognitive Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
 
-<sup>4</sup> Although `Microsoft.Sql/managedInstances` is listed in the search **Networking** portal page, creating a shared private link to Azure SQL Managed Instance (preview) requires using the REST API, Azure PowerShell, or the Azure CLI. The portal doesn't currently construct a valid fully qualified domain name for SQL Managed instances. Instructions for configuring a shared private link to a SQL Managed instance can be found in the Azure CLI section for [creating a shared private link](#1---create-a-shared-private-link).
+<sup>4</sup> Although `Microsoft.Sql/managedInstances` is listed in the search **Networking** portal page, creating a shared private link to Azure SQL Managed Instance (preview) requires using the REST API, Azure PowerShell, or the Azure CLI with the `az rest` command. The portal doesn't currently construct a valid fully qualified domain name for SQL Managed instances. For a workaround, see [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance).
 
 ### Private endpoint verification
 
@@ -96,11 +96,11 @@ These Private Link tutorials provide steps for creating a private endpoint for A
 
 ## 1 - Create a shared private link
 
-Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link.
+Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link. Remember to use the preview API version, either `2020-08-01-preview` or `2021-04-01-preview`, if you're using a group ID that's in preview. The following resource types are in preview and require a preview API: `managedInstance`, `mySqlServer`, `sites`.
 
 It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint, but it won't work unless the [resource has a private endpoint](#private-endpoint-verification).
 
-Recall that a shared private link to an Azure SQL Managed Instance requires the Azure CLI. The Azure CLI doesn't support a native command for creating a shared private link, but you can invoke the Management REST API to accomplish the task.
+Recall that you can't use the portal or the Azure CLI `az search` command to create a shared private link to an Azure SQL Managed Instance. See [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for instructions.
 
 When you complete these steps, you have a shared private link that's provisioned in a pending state. The resource owner needs to approve the request before it's operational.
 
@@ -176,38 +176,31 @@ Use [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/new-azs
 New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId blob -RequestMessage "Please approve"
 ```
 
+Rerun the first request to monitor the provisioning state as it transitions from updating to succeeded.
+
 ### [**Azure CLI**](#tab/cli-create)
 
-Remember to use the preview API version, either `2020-08-01-preview` or `2021-04-01-preview`, if you're using a group ID that's in preview. The following resource types are in preview and require a preview API: `managedInstance`, `mySqlServer`, `sites`.
+See [Manage with the Azure CLI](search-manage-azure-cli.md) for instructions on getting started.
 
-1. Formulate the request.
+First, use [az-search-shared-private-link-resource list](/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-list) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
 ```azurecli
-az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
+az search shared-private-link-resource list --service-name {{your-search-service-name}} --resource-group {{your-search-service-resource-group}}
 ```
 
-The definition of a shared private link is provided in a JSON file. The following is an example of what a *create-pe.json* file might contain:
+Use [az-search-shared-private-link-resource create](/cli/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-create) for the next step. This example is for Azure Cosmos DB for NoSQL.
 
-```json
-{
-      "name": "blob-pe",
-      "properties": {
-        "privateLinkResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage",
-        "groupId": "blob",
-        "requestMessage": "please approve"
-      }
-}
+The syntax is case-sensitive, so make sure that the group ID is `Sql` and the provider name is `Microsoft.DocumentDB`.
+
+```azurecli
+az search shared-private-link-resource create --name {{your-shared-private-link-name}} --service-name {{your-search-service-name}} --resource-group {{your-search-service-resource-group}} --group-id Sql --resource-id "/subscriptions/{{your-subscription-ID}}/{{your-cosmos-db-resource-group}}/providers/Microsoft.DocumentDB/databaseAccounts/{{your-cosmos-db-account-name}}" 
 ```
 
-1. Check the response. The `PUT` call to create the shared private endpoint returns an `Azure-AsyncOperation` header value that looks like the following:
+Rerun the first request to monitor the provisioning state as it transitions from updating to succeeded.
 
-`"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
+---
 
-You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value.
-
-```dotnetcli
-az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
-```
+### Shared private link creation workflow
 
 A `202 Accepted` response is returned on success. The process of creating an outbound private endpoint is a long-running (asynchronous) operation. It involves deploying the following resources:
 
@@ -215,25 +208,49 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 + A private DNS zone for the type of resource, based on the group ID. By deploying this resource, you ensure that any DNS lookup to the private resource utilizes the IP address that's associated with the private endpoint.
 
-Be sure to specify the correct group ID for the type of resource for which you're creating the private endpoint. Any mismatch results in a non-successful response message.
+### Create a shared private link for a SQL Managed Instance
 
-### Shared private link for Azure SQL Managed Instances
+Currently, you can't create a shared private link for a SQL Managed Instance using the Azure portal or the `az search` module of the Azure CLI. The URI for a SQL Managed Instance includes a DNS zone as part of it's fully qualified domain name, and currently neither the portal nor `az search` in the Azure CLI support that part. 
 
-When you're creating a shared private link to SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone. If the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the `resourceRegion` should be `a1b22c333d44`.
+As a workaround, choose an approach that provides a `resourceRegion` parameter. This parameter takes the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the SQL Managed Instance.
 
-```json
-{
-    "name": "sql-mi-pe",
-    "properties": {
-        "privateLinkResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Sql/managedInstances/contoso-sql-mi",
-        "resourceRegion": "a1b22c333d44",
-        "groupId": "managedInstance",
-        "requestMessage": "please approve",
-    }
-}
-```
+Approaches that provide `resourceRegion` include the Management REST API or the Azure CLI using the `az rest` command. This section explains how to the Azure CLI with `az rest` to create a shared private link for a SQL managed instance.
 
----
+1. Get the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) for the `resourceRegion` parameter. 
+
+   The DNS zone is part of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone.
+
+1. Create a JSON file for the body of the create shared private link request. The following is an example of what a *create-pe.json* file might contain:
+
+   ```json
+   {
+       "name": "{{shared-private-link-name}}",
+       "properties": {
+           "privateLinkResourceId": "/subscriptions/{{target-resource-subscription-ID}}/resourceGroups/{{target-resource-rg}}/providers/Microsoft.Sql/managedInstances/{{target-resource-name}}",
+           "resourceRegion": "a1b22c333d44",
+           "groupId": "managedInstance",
+           "requestMessage": "please approve",
+       }
+   }
+   ```
+
+1. Using the Azure CLI, call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure Cognitive Search. Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. You can use either `2021-04-01-preview` or `2020-08-01-preview`.
+
+   ```azurecli
+   az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2020-08-01 --body @create-pe.json
+   ```
+
+
+
+1. Check the response. The `PUT` call to create the shared private endpoint returns an `Azure-AsyncOperation` header value that looks like the following:
+
+   `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
+
+   You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value.
+
+   ```azurecli
+   az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
+   ```
 
 ## 2 - Approve the private endpoint connection
 
@@ -323,7 +340,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool. You can't use **Import data** or the Azure portal, but if you have the Postman desktop app, you can make a REST API call that invokes a search scenario for an outbound request to the private endpoint. Assuming your search service is not also configured for a private connection, the client connection to Search can be over the public internet.
+1. Choose a tool. You can't use **Import data** or the Azure portal, but if you have the Postman desktop app, you can make a REST API call that invokes a search scenario for an outbound request to the private endpoint. Assuming your search service isn't also configured for a private connection, the client connection to Search can be over the public internet.
 
 1. Set the connection string to the Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service uses the shared private link internally.
 
