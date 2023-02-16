@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 07/16/2021
+ms.date: 02/15/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to make sure that I protect my API endpoint with proper authentication. 
 ---
 
 # Secure your API used an API connector in Azure AD External Identities self-service sign-up user flows
 
-When integrating a REST API within an Azure AD external identities self-service sign-up user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD, can make calls to your endpoint. This article will explore how to secure REST API. 
+When integrating a REST API within an Azure AD external identities self-service sign-up user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD, can make calls to your endpoint. This article explores how to secure REST API. 
 
 ## Prerequisites
 Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](self-service-sign-up-add-api-connector.md) guide.
 
-You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
+You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD uses when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
 
 ## HTTP basic authentication
@@ -81,9 +83,9 @@ Your API must implement the authorization based on sent client certificates in o
 ../../api-management/api-management-howto-mutual-certificates-for-clients.md) against desired values.
 
 ### Renewing certificates
-It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above when used certificates are about to expire. To "roll" the use of a new certificate, your API service can continue to accept old and new certificates for a temporary amount of time while the new certificate is deployed. 
+It's recommended you set reminder alerts for when your certificate expires. You'll need to generate a new certificate and repeat the steps above when used certificates are about to expire. To "roll" the use of a new certificate, your API service can continue to accept old and new certificates for a temporary amount of time while the new certificate is deployed. 
 
-To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and whose start date has passed will automatically be used by Azure AD.
+To upload a new certificate to an existing API connector, select the API connector under **API connectors** and select on **Upload new certificate**. The most recently uploaded certificate that isn't expired and whose start date has passed will automatically be used by Azure AD.
 
   :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
 
@@ -91,7 +93,7 @@ To upload a new certificate to an existing API connector, select the API connect
 
 Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development by requiring the caller to include a unique key as an HTTP header or HTTP query parameter. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL** of your API connector. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
-This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can select 'basic' authentication in the API connector configuration and use temporary values for `username` and `password` that your API can disregard while you implement proper authorization.
+This isn't a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you don't wish to implement any authentication method (not recommended) for development purposes, you can select 'basic' authentication in the API connector configuration and use temporary values for `username` and `password` that your API can disregard while you implement proper authorization.
 
 ## Next steps
 - Get started with our [quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
