@@ -56,6 +56,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
   For a Consumption logic app resource, you need Azure subscription Owner or Contributor permissions so you can install the Logic Apps Management solution from the Azure Marketplace. For more information, see the following documentation:
 
   * [Permission to purchase - Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing#permission-to-purchase)
+
   * [Azure roles - Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 * The destination resource for where you want to send diagnostic data:
@@ -64,7 +65,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
   * An [Azure storage account](../storage/common/storage-account-create.md)
 
-  * An [Azure event hub](../event-hubs/event-hubs-create.md).
+  * An [Azure event hub](../event-hubs/event-hubs-create.md)
 
 * Your logic app resource and workflow
 
