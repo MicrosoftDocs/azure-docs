@@ -70,6 +70,10 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 ## Enable Log Analytics (Consumption only)
 
+### [Consumption](#tab/consumption)
+
+The following sections apply only to a Consumption logic app resource. 
+
 <a name="enable-for-new-logic-apps"></a>
 
 ### Enable Log Analytics at logic app creation
@@ -125,6 +129,12 @@ If you turned on Log Analytics when you created your logic app resource, skip th
    After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace summary pane under **Overview**.
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/workspace-summary-pane-logic-apps-management.png" alt-text="Screenshot showing the Azure portal, the workspace summary pane with Logic Apps Management solution.":::
+
+### [Standard](#tab/standard)
+
+For Standard logic apps, continue with [Add a diagnostic setting](#add-diagnostic-setting?tabs=standard)
+
+---
 
 <a name="add-diagnostic-setting"></a>
 
