@@ -16,28 +16,33 @@ ms.author: alexeyo
 
 This article contains a quick reference and a detailed description of the quotas and limits for the Speech service in Azure Cognitive Services. The information applies to all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) of the service. It also contains some best practices to avoid request throttling.
 
+For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ## Quotas and limits reference
 
 The following sections provide you with a quick guide to the quotas and limits that apply to Speech service.
 
+For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit). Request limits for Free (F0) Speech resources aren't adjustable. 
+
 ### Speech-to-text quotas and limits per resource
 
-In the following tables, the parameters without the **Adjustable** row aren't adjustable for all price tiers.
+This section describes speech-to-text quotas and limits per Speech resource. 
 
 #### Online transcription
 
 You can use online transcription with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+> [!IMPORTANT]
+> These limits apply to concurrent speech-to-text [online transcription](#online-transcription) requests and [speech translation](#speech-translation-quotas-and-limits-per-resource) requests combined. For example, if you have 50 concurrent speech-to-text requests and 50 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
+
+| Quota | Free (F0) | Standard (S0) |
 |--|--|--|
 | Concurrent request limit - base model endpoint | 1 | 100 (default value) |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 | Concurrent request limit - custom endpoint | 1 | 100 (default value) |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch transcription
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+| Quota | Free (F0) | Standard (S0) |
 |--|--|--|
 | [Speech-to-text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
@@ -48,7 +53,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 #### Model customization
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+| Quota | Free (F0) | Standard (S0) |
 |--|--|--|
 | REST API limit | 300 requests per minute | 300 requests per minute |
 | Max number of speech datasets | 2 | 500 |
@@ -57,20 +62,16 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
 | Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
-<sup>1</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
-<sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>
-
 ### Text-to-speech quotas and limits per Speech resource
 
-In the following tables, the parameters without the **Adjustable** row aren't adjustable for all price tiers.
+This section describes text-to-speech quotas and limits per Speech resource. 
 
 #### General
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
+| Quota | Free (F0) | Standard (S0) |
 |--|--|--|
 | **Max number of transactions per certain time period** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) (default value) |
-| Adjustable | No<sup>4</sup> | Yes<sup>5</sup>, up to 1000 TPS |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) (default value)<br/><br/>The rate is adjustable up to 1000 TPS for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit). |
 | **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -81,9 +82,9 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 #### Custom Neural Voice
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
+| Quota | Free (F0)| Standard (S0) |
 |--|--|--|
-| Max number of transactions per second (TPS) | Not available for F0 | See [General](#general) |
+| Max number of transactions per second (TPS) | Not available for F0 | 200 transactions per second (TPS) (default value) |
 | Max number of datasets | N/A | 500 |
 | Max number of simultaneous dataset uploads | N/A | 5 |
 | Max data file size for data import per dataset | N/A | 2 GB |
@@ -98,11 +99,27 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | File size  | 3,000 characters per file | 20,000 characters per file |
 | Export to audio library | 1 concurrent task | N/A |
 
-<sup>3</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
-<sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit).<br/>
+### Speech translation quotas and limits per resource
+
+This section describes speech translation quotas and limits per Speech resource. 
+
+> [!IMPORTANT]
+> These limits apply to concurrent speech-to-text [online transcription](#online-transcription) requests and [speech translation](#speech-translation-quotas-and-limits-per-resource) requests combined. For example, if you have 50 concurrent speech-to-text requests and 50 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
+
+| Quota | Free (F0) | Standard (S0) |
+|--|--|--|
+| Concurrent request limit - base model endpoint | 1 | 100 (default value) |
+| Concurrent request limit - custom endpoint | 1 | 100 (default value) |
 
 ## Detailed description, quota adjustment, and best practices
+
+Some of the Speech service quotas are adjustable. This section provides additional explanations, best practices, and adjustment instructions. 
+
+The following quotas are adjustable for Standard (S0) resources. The Free (F0) request limits aren't adjustable.
+
+- Speech-to-text [concurrent request limit](#online-transcription) for base model endpoint and custom endpoint
+- Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-speech-resource) for prebuilt neural voices and custom neural voices
+- Speech translation [concurrent request limit](#speech-translation-quotas-and-limits-per-resource)
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
 
