@@ -84,6 +84,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Using Private Link with IoT Edge
+      href: using-private-link.md   
     - name: Confidential computing
       href: deploy-confidential-applications.md
   - name: Offline capabilities
