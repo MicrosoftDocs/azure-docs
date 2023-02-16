@@ -59,7 +59,7 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
     |Property |  Description |
     |---|---|
     | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
-    | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
+    | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
     | **Resource name**  | Specify a name for the New Relic resource.|
     | **Region**  | Select the Azure region where the New Relic resource should be created.|
     | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
