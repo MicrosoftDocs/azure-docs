@@ -14,16 +14,16 @@ ms.subservice: calling
 ---
 # Calling SDK overview
 
-The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To start immediately, please check out [the Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or t[the Calling hero sample](../../samples/calling-hero-sample.md).
+The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To jump immediately into the Calling SDK, check out [the Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or t[the Calling hero sample](../../samples/calling-hero-sample.md).
 
 ## Key features
 
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
-- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
-- **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
-- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
+- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane.
+- **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) which are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
+- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
-- **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
+- **Notifications** - The Calling SDK provides APIs allowing clients receive a notification of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
 
 ## Detailed capabilities
 
@@ -111,7 +111,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
+The following table represents the set of supported browsers, which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
 | ------------ | ------ | ------ | ------ | ------- | ------- |
@@ -121,11 +121,11 @@ The following table represents the set of supported browsers which are currently
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
-- Outgoing Screen Sharing is not supported on iOS or Android.
+- iOS or Android not support Outgoing Screen Sharing functionality.
 - Firefox support is in public preview.
-- ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
-Running JavaScript Calling SDK on these platforms is not actively tested, it may or may not work.
-- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
+- ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
+- [An iOS app on Safari can't enumerate or select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) for example, Bluetooth; this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 

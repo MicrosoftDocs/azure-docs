@@ -18,8 +18,8 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 To complete this tutorial, you’ll need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
@@ -144,7 +144,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient | The CallClient is the main entry point to the Calling SDK.|
 | CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
 | CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ### Authenticate the client
@@ -208,7 +208,6 @@ You can build and run the code on Visual Studio. Please note that for solution p
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
-
 
 ## WinUI 3 sample code
 

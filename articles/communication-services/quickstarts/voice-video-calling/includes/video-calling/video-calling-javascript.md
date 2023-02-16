@@ -28,19 +28,25 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
+
 ### Create a new Node.js application
+
 Open your terminal or command window create a new directory for your app, and navigate to it.
 ```console
 mkdir calling-quickstart && cd calling-quickstart
 ```
+
 ### Install the package
+
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`. 
+> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`.
+
 ```console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling@1.4.4 --save
 ```
+
 ### Set up the app framework
 
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
@@ -52,6 +58,7 @@ npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-d
 Here's the code:
 
 Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -105,6 +112,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        
 
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+
 ```JavaScript
 // Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
@@ -454,6 +462,7 @@ hangUpCallButton.addEventListener("click", async () => {
 ```                                                          
 
 Create a file in the root directory of your project called `styles.css` to contain the application styling for this quickstart. Add the following code to styles.css:
+
 ```css
 /**
  * CSS for styling the loading spinner over the remote video stream
@@ -489,12 +498,15 @@ Create a file in the root directory of your project called `styles.css` to conta
 ```
 
 ## Run the code
+
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
-Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
+
+Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following:
+
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
 On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).

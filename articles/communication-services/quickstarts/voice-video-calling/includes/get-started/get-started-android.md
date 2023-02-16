@@ -269,14 +269,14 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
+| `allClient`| The `CallClient` is the main entry point to the Calling SDK.|
+| `CallAgent` | The `CallAgent` is used to start and manage calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CommunicationIdentifier` | The `CommunicationIdentifier` is used as different type of participant that would could be part of a call.|
 
 ## Create an agent from the user access token
 
-With a user token, an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
+With a user token, an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide.
 
 For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 

@@ -127,14 +127,14 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
+| `CallAgent` | The `CallAgent` is used to start and manage calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.| 
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user which can be one of the following: `CommunicationUserIdentifier`,`PhoneNumberIdentifier` or `CallingApplication.` |
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. 
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls.
 
 In the following code, you will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
 
@@ -163,8 +163,6 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
     }
 }
 ```
-
-
 
 ## Start a call
 
@@ -213,7 +211,7 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 :::image type="content" source="../../media/ios/quick-start-make-call.png" alt-text="Final look and feel of the quick start app":::
 
-You can make an outbound VOIP call by providing a user ID in the text field and tapping the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. 
+You can make an outbound VOIP call by providing a user ID in the text field and tapping the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.

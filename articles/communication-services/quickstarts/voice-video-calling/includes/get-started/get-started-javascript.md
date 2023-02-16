@@ -95,9 +95,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | The CallClient is the main entry point to the Calling SDK.                                                                       |
-| CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface, which is used to instantiate the CallAgent. |
+| `CallClient`                       | The `CallClient` is the main entry point to the Calling SDK.                                                                       |
+| `CallAgent`                        | The `CallAgent` is used to start and manage calls.                                                                                            |
+| `AzureCommunicationTokenCredential` | The `AzureCommunicationTokenCredential` class implements the `CommunicationTokenCredential` interface, which is used to instantiate the `CallAgent`. |
 
 ## Authenticate the client
 
