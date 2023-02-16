@@ -35,7 +35,7 @@ The NC-Series with Nvidia K80 GPUs do not support GRID/graphics applications.
 
 The Nvidia extension always installs the latest driver. The following links to previous versions are provided to support dependencies on older driver versions.
 
-For Windows Server 2022, Windows Server 2019, Windows 10 22H2 and Windows 11 21H2:
+For Windows Server 2022, Windows Server 2019, Windows 11 21H2 and [Windows 10 releases](https://learn.microsoft.com/en-us/windows/release-health/supported-versions-windows-client) up to 22H2:
 - [GRID 14.1 (512.78)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 - [GRID 15.1 (528.24)](https://download.microsoft.com/download/f/a/f/fafa2972-4975-482e-99e6-442d5ad864a1/528.24_grid_win10_win11_server2019_server2022_dch_64bit_international-Azure-swl.exe) (.exe) 
 
