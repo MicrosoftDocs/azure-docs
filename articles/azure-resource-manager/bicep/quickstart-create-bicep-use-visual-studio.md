@@ -11,6 +11,8 @@ ms.topic: quickstart
 
 This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio. You'll create a storage account and a virtual network. You'll also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
+Similar authoring experience is also supported in Visual Studio Code.  See [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+
 ## Prerequisites
 
 - Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.

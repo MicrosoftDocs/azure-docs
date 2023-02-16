@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/23/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp, ignite-2022
 ---
@@ -58,7 +58,7 @@ The Read OCR model is available in Computer Vision and Form Recognizer with comm
 
 The cloud APIs are the preferred option for most customers because of their ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
-For on-premises deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the Computer Vision v3.2 generally available OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
+For on-premises deployment, the [Read Docker container](./computer-vision-how-to-install-containers.md) enables you to deploy the Computer Vision v3.2 generally available OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
 ## OCR data privacy and security
 
@@ -66,6 +66,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 ## Next steps
 
-- OCR for general (non-document) images - try the [Computer Vision 4.0 preview Image Analysis REST API quickstart](./concept-ocr.md).
-- OCR for PDF, Office and HTML documents and document images, start with [Form Recognizer Read](../../applied-ai-services/form-recognizer/concept-read.md).
+- OCR for general (non-document) images: try the [Computer Vision 4.0 preview Image Analysis REST API quickstart](./concept-ocr.md).
+- OCR for PDF, Office and HTML documents and document images: start with [Form Recognizer Read](../../applied-ai-services/form-recognizer/concept-read.md).
 - Looking for the previous GA version? Refer to the [Computer Vision 3.2 GA SDK or REST API quickstarts](./quickstarts-sdk/client-library.md).

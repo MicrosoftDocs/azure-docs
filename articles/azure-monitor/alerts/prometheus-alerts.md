@@ -7,7 +7,7 @@ ms.custom: ignite-2022
 ms.date: 09/15/2022
 ---
 
-# Prometheus metric alerts in Azure Monitor
+# Prometheus alerts in Azure Monitor
 Prometheus alert rules allow you to define alert conditions, using queries which are written in Prometheus Query Language (Prom QL) that are applied on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Whenever the alert query results in one or more time series meeting the condition, the alert counts as pending for these metric and label sets. A pending alert becomes active after a user-defined period of time during which all the consecutive query evaluations for the respective time series meet the alert condition. Once an alert becomes active, it is fired and would trigger your actions or notifications of choice, as defined in the Azure Action Groups configured in your alert rule.
 
 > [!NOTE]
@@ -16,19 +16,17 @@ Prometheus alert rules allow you to define alert conditions, using queries which
 ## Create Prometheus alert rule
 Prometheus alert rules are created as part of a Prometheus rule group which is stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). See [Azure Monitor managed service for Prometheus rule groups](../essentials/prometheus-rule-groups.md) for details.
 
-## View Prometheus metric alerts
-View fired and resolved Prometheus alerts in the Azure portal with other alert types. Use the following steps to filter on only Prometheus metric alerts.
-
+## View Prometheus alerts
+View fired and resolved Prometheus alerts in the Azure portal with other alert types. Use the following steps to filter on only Prometheus alerts.
 1. From the **Monitor** menu in the Azure portal, select **Alerts**.
 2. If **Monitoring Service** isn't displayed as a filter option, then select **Add Filter** and add it.
 3. Set the filter **Monitoring Service** to **Prometheus** to see Prometheus alerts.
 
-:::image type="content" source="media/prometheus-metric-alerts/view-alerts.png" lightbox="media/prometheus-metric-alerts/view-alerts.png" alt-text="Screenshot of a list of alerts in Azure Monitor with a filter for Prometheus metric alerts.":::
-
+:::image type="content" source="media/prometheus-metric-alerts/view-alerts.png" lightbox="media/prometheus-metric-alerts/view-alerts.png" alt-text="Screenshot of a list of alerts in Azure Monitor with a filter for Prometheus alerts.":::
 4. Click the alert name to view the details of a specific fired/resolved alert.
 
-:::image type="content" source="media/prometheus-metric-alerts/alert-details.png" lightbox="media/prometheus-metric-alerts/alert-details.png" alt-text="Screenshot of detail for a Prometheus metric alert in Azure Monitor.":::
-
+:::image type="content" source="media/prometheus-metric-alerts/alert-details.png" lightbox="media/prometheus-metric-alerts/alert-details.png" alt-text="Screenshot of detail for a Prometheus alert in Azure Monitor.":::
 ## Next steps
 
-- [Create a Prometheus rule groups](../essentials/prometheus-rule-groups.md).
+- [Create a Prometheus rule group](../essentials/prometheus-rule-groups.md).
+

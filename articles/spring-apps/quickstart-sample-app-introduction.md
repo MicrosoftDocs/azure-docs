@@ -13,6 +13,9 @@ zone_pivot_groups: programming-languages-spring-apps
 # Introduction to the sample app
 
 > [!NOTE]
+> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
+
+> [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
@@ -69,7 +72,7 @@ The instructions in the following quickstarts refer to the source code as needed
 
 ::: zone pivot="programming-language-java"
 
-In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Apps service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Apps capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
+In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Apps service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You'll see how to deploy services to Azure with Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Apps deployment examples, you only need the location of the source code, which is provided as needed.
 
@@ -87,7 +90,7 @@ PetClinic is decomposed into 4 core Spring apps. All of them are independently d
 * **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
 * **Visits service**: Stores and shows visits information for each pets' comments.
 * **Vets service**: Stores and shows Veterinarians' information, including names and specialties.
-* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering one complex webpage.
+* **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow quickly with system complexity. Hundreds of services might be involved in rendering one complex webpage.
 
 ## Infrastructure services hosted by Azure Spring Apps
 

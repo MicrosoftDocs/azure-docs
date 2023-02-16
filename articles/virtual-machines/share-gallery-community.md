@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 # Share images using a community gallery (preview)
 
-To share a gallery with all Azure users, you can create a community gallery (preview). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a [community gallery (preview)](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
 Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md#community). In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
@@ -43,10 +43,13 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 
 There are some limitations for sharing your gallery to the community:
 - Encrypted images aren't supported.
+- TrustedLaunch and TVMSupported Image is not supported
+- CVMSuppored image is not supported
 - For the preview, image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - For the preview, you can't share [VM Applications](vm-applications.md) to the community.
-- The gallery must be created as a community gallery. For the preview, there is no way to migrate an existing gallery to be a community gallery.
-- To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images.
+- The gallery must be created as a community gallery. For the preview, there is no way to migrate an existing private gallery to be a community gallery
+- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
+- To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.

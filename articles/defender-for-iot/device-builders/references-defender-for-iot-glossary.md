@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT glossary for device builder
 description: The glossary provides a brief description of important Defender for IoT platform terms and concepts.
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ms.topic: article
 ---
 

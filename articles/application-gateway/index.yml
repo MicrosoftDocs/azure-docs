@@ -39,6 +39,11 @@ landingContent:
             url: /training/modules/intro-to-azure-application-gateway
           - text: Load balance your web service traffic with Application Gateway
             url: /training/modules/load-balance-web-traffic-with-application-gateway/
+      - linkListType: deploy
+        links: 
+          - text: Provision and configure Azure Firewall and Application Gateway
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%204
+
   # Card
   - title: Support high traffic volumes
     linkLists:

@@ -7,19 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 10/20/2022
+ms.date: 01/23/2023
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
 
 # Form Recognizer container image tags and release notes
 
-> [!IMPORTANT]
->
-> * **Form Recognizer v2.1 containers** are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. 
->
-> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 ## Feature containers
 
@@ -35,13 +31,11 @@ Form Recognizer features are supported by seven containers:
 | **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
 | **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
 
-## Microsoft container registry
+## Microsoft container registry (MCR)
 
-Form Recognizer container images can be found on the Microsoft Container Registry **mcr.microsoft.** **<span></span>com** container registry syndicate, the primary registry for all Microsoft Published Docker images.
+Form Recognizer container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
 
-* The discovery experience for MCR is provided through [docker hub](https://hub.docker.com/publishers/microsoftowner).
-
-* You can also query [the list of repositories within mcr](https://mcr.microsoft.com/v2/_catalog).
+  :::image type="content" source="../media/containers/microsoft-container-registry-catalog.png" alt-text="Screenshot of the Microsoft Container Registry (MCR) catalog list.":::
 
 ## Form Recognizer tags
 
@@ -49,12 +43,12 @@ The following tags are available for Form Recognizer:
 
 ### [Latest version](#tab/current)
 
-Release notes for `v2.1` (gated preview):
+Release notes for `v2.1`:
 
 | Container | Tags | Retrieve image |
 |------------|:------|------------|
-| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout)`|
-| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
+| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout`|
+| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard` |
 | **ID Document** | &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document`|
 | **Receipt**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
 | **Invoice**| &bullet; `latest` </br> &bullet; `2.1-preview`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
@@ -73,3 +67,5 @@ Release notes for `v2.1` (gated preview):
 > [!div class="nextstepaction"]
 > [Install and run Form Recognizer containers](form-recognizer-container-install-run.md)
 >
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)

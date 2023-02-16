@@ -42,14 +42,15 @@ Run the below curl command in Azure Cloud Bash to create a legal tag for a given
 ```
 
 ### Sample request
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
 
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer  <access_token>' \
+    curl --location --request POST 'https://medstest.energy.azure.com/api/legal/v1/legaltags' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer  eyxxxxxxx.........................' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "name": "<instance>-<data-partition-name>-legal-tag",
+        "name": "medstest-dp1-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
             "contractId": "A1234",
@@ -69,7 +70,7 @@ Run the below curl command in Azure Cloud Bash to create a legal tag for a given
 
 ```JSON
     {
-        "name": "<instance>-<data-partition-name>-legal-tag",
+        "name": "medsStest-dp1-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
@@ -91,9 +92,9 @@ The country of origin should follow [ISO Alpha2 format](https://www.nationsonlin
 The Create Legal Tag api, internally appends data-partition-id to legal tag name if it isn't already present. For instance, if request has name as: ```legal-tag```, then the create legal tag name would be ```<instancename>-<data-partition-id>-legal-tag``` 
 
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer  <access_token>' \
+    curl --location --request POST 'https://medstest.energy.azure.com/api/legal/v1/legaltags' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer  eyxxxxxxx.........................' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "name": "legal-tag",
@@ -116,7 +117,7 @@ The sample response will have data-partition-id appended to the legal tag name a
 
 ```JSON
     {
-        "name": "<instance>-<data-partition-name>-legal-tag",
+        "name": "medstest-dp1-legal-tag",
         "description": "Microsoft Energy Data Services Preview Legal Tag",
         "properties": {
         "countryOfOrigin": [
@@ -143,18 +144,19 @@ Run the below curl command in Azure Cloud Bash to get the legal tag associated w
 ```
 
 ### Sample request
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
 
 ```bash
-    curl --location --request GET 'https://<instance>.energy.azure.com/api/legal/v1/legaltags/<instance>-<data-partition-name>-legal-tag' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer <access_token>'
+    curl --location --request GET 'https://medstest.energy.azure.com/api/legal/v1/legaltags/medstest-dp1-legal-tag' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer eyxxxxxxx.........................'
 ```
 
 ### Sample response
 
 ```JSON
     {
-    "name": "<instance>-<data-partition-name>-legal-tag",
+    "name": "medstest-dp1-legal-tag",
     "description": "Microsoft Energy Data Services Preview Legal Tag",
     "properties": {
         "countryOfOrigin": [

@@ -22,10 +22,9 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). We will follow up within 5 business days after submitting the form. No additional access required to consume images, Creating VMs from a direct shared gallery is open to all Azure users in the target subscription or tenant the gallery is shared with.
+> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Please submit the form and share your use case, We will evaluate the request and follow up in 10 business days after submitting the form. No additional access required to consume images, Creating VMs from a direct shared gallery is open to all Azure users in the target subscription or tenant the gallery is shared with. In most scenarios RBAC/Cross-tenant sharing using service principal is sufficient, request access to this feature only if you wish to share images widely with all users in the subscription/tenant.
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-
 
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
@@ -47,6 +46,7 @@ During the preview:
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 - TrustedLaunch and ConfidentialVM are not supported
 - PowerShell, Ansible, and Terraform aren't supported at this time.
+- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - Not available in Government clouds
 - For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.

@@ -110,15 +110,18 @@ The maximum call duration is 30 hours, participants that reach the maximum call 
 
 The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge (Chromium)  |
-| ------------ | ------ | ------ | --------------   |
-| Android      | ✔️      | ❌      | ❌           | 
-| iOS          | ❌      | ✔️      | ❌           |
-| macOS        | ✔️      | ✔️      | ❌           | 
-| Windows      | ✔️      | ❌      | ✔️           |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
+| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
+| ------------ | ------ | ------ | ------ | ------- | ------- |
+| Android      | ✔️      | ❌      | ❌           | ❌      | ✔️ *    |
+| iOS          | ❌      | ✔️      | ❌           | ❌      | ✔️      |
+| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
+| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
 * Outgoing Screen Sharing is not supported on iOS or Android.
+* Firefox support is in public preview.
+* ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+Running JavaScript Calling SDK on these platforms is not actively tested, it may or may not work.
 * [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support

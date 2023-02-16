@@ -238,7 +238,7 @@ For general information about Azure Storage service principal authentication, se
 
 To use service principal authentication, follow these steps:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -849,7 +849,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Change data capture 
 
-Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](https://learn.microsoft.com/azure/data-factory/concepts-change-data-capture) for detials.
+Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for detials.
  
 . 
 

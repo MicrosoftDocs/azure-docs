@@ -1,8 +1,8 @@
 ---
 title: Asset normalization
 description: Learn how Microsoft Purview prevents duplicate assets in your data map through asset normalization
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual

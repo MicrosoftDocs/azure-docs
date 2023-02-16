@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/17/2022
 ms.author: anfdocs
 ---
 # Use availability zones for high availability in Azure NetApp Files (preview)
@@ -29,6 +29,8 @@ The use of high availability (HA) architectures with availability zones are now 
 :::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="../media/azure-netapp-files/availability-zone-diagram.png":::
 
 Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in availability zones of your choice, in alignment with Azure compute and other services in the same zone.  
+
+[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
 All Virtual Machines within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). Virtual Machines accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
 
@@ -51,3 +53,5 @@ For a list of regions that that currently support availability zones, refer to [
 ## Next steps
 
 * [Manage availability zone volume placement](manage-availability-zone-volume-placement.md)
+* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
+* [Create cross-zone replication](create-cross-zone-replication.md)

@@ -26,7 +26,7 @@ These features include:
 |[Azure Monitor alerts](alerts.md) | Create and manage alerts to notify you of events and conditions based on metric and log data.|
 
 >[!NOTE]
-> While not a built-in feature, [Azure Monitor's Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.  Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
+> While not a built-in feature, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications.  Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs.  
 
 ## Application lifecycle observability
 

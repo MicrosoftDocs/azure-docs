@@ -70,14 +70,6 @@ You will also need sufficient Azure Active Directory permissions (either a membe
     az provider register -n Microsoft.Authorization --wait
     ```
     
-    1. Azure Red Hat Openshift is now available as a public preview in Azure government. If you are looking to deploy there, please follow these instructions: 
-
-> [!IMPORTANT]
-> ARO preview features are available on a self-service, opt-in basis. Preview features are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Preview features are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.RedHatOpenShift --name preview
-```
 
 ### Get a Red Hat pull secret (optional)
 
@@ -195,8 +187,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
      --resource-group $RESOURCEGROUP \
      --vnet-name aro-vnet \
      --name master-subnet \
-     --address-prefixes 10.0.0.0/23 \
-     --service-endpoints Microsoft.ContainerRegistry
+     --address-prefixes 10.0.0.0/23
    ```
 
 4. **Add an empty subnet for the worker nodes.**
@@ -206,18 +197,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
      --resource-group $RESOURCEGROUP \
      --vnet-name aro-vnet \
      --name worker-subnet \
-     --address-prefixes 10.0.2.0/23 \
-     --service-endpoints Microsoft.ContainerRegistry
-   ```
-
-5. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required for the service to be able to connect to and manage the cluster.
-
-   ```azurecli-interactive
-   az network vnet subnet update \
-     --name master-subnet \
-     --resource-group $RESOURCEGROUP \
-     --vnet-name aro-vnet \
-     --disable-private-link-service-network-policies true
+     --address-prefixes 10.0.2.0/23
    ```
 
 ## Create the cluster

@@ -2,7 +2,7 @@
 title: Sign in with resource owner password credentials grant
 description: Support browser-less authentication flows using the resource owner password credential (ROPC) grant.
 services: active-directory
-author: nickludwig
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/26/2022
-ms.author: ludwignick
+ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.custom: aaddev
 ---

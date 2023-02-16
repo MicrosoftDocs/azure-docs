@@ -3,11 +3,12 @@ title: Azure Gateway Load Balancer partners
 description: Learn about partners offering their network appliances for use with this service.
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: mbender
-ms.custom: 
+ms.custom: template-concept
 ---
+
 # Gateway Load Balancer partners
 
 Azure has a growing ecosystem of partners offering their network appliances for use with Gateway Load Balancer.
@@ -18,7 +19,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 :::image type="content" source="./media/gateway-partners/a10.png" alt-text="Screenshot of A10 Networks logo.":::
 
-“Protecting enterprise workloads from DDoS attacks has become a must as organizations are migrating to the cloud alongside a rise in complexity, intensity, and frequency of attacks. With Azure Gateway Load Balancer, customers can now inject A10’s Thunder Virtual Appliance, on top of Azure’s DDoS Protection Standard to offer improved L3-7 protection for latency sensitive workloads. Azure Gateway Load Balancer is setting a new precedent by simplifying the injection of L7 DDoS appliances in the path, providing transparent flow (bump in the wire) using an overlay network with low latency, preserving the health of the host as well as the NVAs during the DDoS attacks.” 
+“Protecting enterprise workloads from DDoS attacks has become a must as organizations are migrating to the cloud alongside a rise in complexity, intensity, and frequency of attacks. With Azure Gateway Load Balancer, customers can now inject A10’s Thunder Virtual Appliance, on top of Azure’s DDoS Protection to offer improved L3-7 protection for latency sensitive workloads. Azure Gateway Load Balancer is setting a new precedent by simplifying the injection of L7 DDoS appliances in the path, providing transparent flow (bump in the wire) using an overlay network with low latency, preserving the health of the host as well as the NVAs during the DDoS attacks.” 
 
 **John Hofdahl - Area Vice President, Cloud Service Provider Team**
 

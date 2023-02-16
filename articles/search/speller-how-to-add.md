@@ -80,7 +80,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with semantic search
 
-This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
+This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Configure semantic ranking](semantic-how-to-query-request.md).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview     

@@ -4,6 +4,8 @@ description: This article provides an overview of disaster recovery of VMware VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About disaster recovery of VMware VMs to Azure

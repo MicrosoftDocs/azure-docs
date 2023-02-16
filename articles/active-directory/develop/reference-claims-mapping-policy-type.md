@@ -9,9 +9,9 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/16/2022
+ms.date: 01/06/2023
 ms.author: davidmu
-ms.reviewer: paulgarn, ludwignick, jeedes, luleon
+ms.reviewer: ludwignick, jeedes
 ---
 
 # Claims mapping policy type

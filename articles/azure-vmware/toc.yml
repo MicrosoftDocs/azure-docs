@@ -4,7 +4,7 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
-  - name: Platform updates
+  - name: What's new
     href: azure-vmware-solution-platform-updates.md
 - name: Get started
   items:
@@ -14,10 +14,12 @@
     href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install the VMware HCX Connector
+  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -54,8 +56,12 @@
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
-  - name: Security recommendations
-    href: concepts-security-recommendations.md
+  - name: Security
+    items:
+    - name: Security recommendations
+      href: concepts-security-recommendations.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -152,14 +158,14 @@
     href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy disaster recovery using JetStream DR software
-      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
     - name: Deploy Zerto disaster recovery
       href: deploy-zerto-disaster-recovery.md
+    - name: Deploy disaster recovery using JetStream DR software
+      href: deploy-disaster-recovery-using-jetstream.md
   - name: Deploy virtual desktops
     items:
     - name: Deploy Horizon on Azure VMware Solution
@@ -210,12 +216,12 @@
       href: deploy-vm-content-library.md
     - name: Enable HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
+    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade the VMware HCX appliance
-      href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
+    - name: Upgrade HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
 - name: Resources
   items:
   - name: Learning paths
@@ -261,7 +267,7 @@
   - name: Pricing
     items:
       - name: Azure VMware Solution pricing        
-        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
+        href: https://azure.microsoft.com/pricing/details/azure-vmware/
       - name: Azure pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
@@ -275,31 +281,7 @@
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
-    items:
-    - name: General
-      href: ./faq.yml
-    - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
-    - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
-    - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
-    - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+    href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

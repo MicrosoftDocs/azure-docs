@@ -31,6 +31,16 @@ Azure Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
+<<<<<<< HEAD
+||||||| dd6164f9628c
+* Private endpoints are currently not available in Azure Managed Grafana.
+
+=======
+* Private endpoints are currently not available in Grafana.
+
+* Reporting is currently not supported.
+
+>>>>>>> 066a6197dcf4b19186deaedde4d5ded6acc040a6
 ## Next steps
 
 > [!div class="nextstepaction"]

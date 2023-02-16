@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
@@ -52,8 +52,8 @@ You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f8
 You can set your Spot Priority Mix in the Scaling tab of the Virtual Machine Scale Sets creation process in the Azure portal. The following steps will instruct you on how to access this feature during that process. 
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, search for and select **Virtual machine scale sets**.
-1. Select **Create** on the **Virtual machine scale sets** page.
+1. In the search bar, search for and select **Virtual Machine Scale Sets**.
+1. Select **Create** on the **Virtual Machine Scale Sets** page.
 1. In the **Basics** tab, fill out the required fields and select **Flexible** as the **Orchestration** mode.
 1. Fill out the **Disks** and **Networking** tabs.
 1. In the **Scaling** tab, select the check-box next to *Scale with VMs and Spot VMs* option under the **Scale with VMs and discounted Spot VMs** section.

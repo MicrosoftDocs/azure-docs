@@ -43,7 +43,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
-* Python 3.6 or 3.7 are supported for this feature
+* Python 3.7 or 3.8 are supported for this feature
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
