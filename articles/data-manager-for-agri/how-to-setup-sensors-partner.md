@@ -3,10 +3,11 @@ title: Sensor partner integration
 description: Provides guidance to set-up your sensors as a partner
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
+
 # Sensor partner integration
 
 The below section of this document talks about the onboarding steps needed to integrate with Data Manager for Agriculture, the APIs used to create models & sensors, telemetry format to push the data and finally the IOTHub based data ingestion.

@@ -3,10 +3,11 @@ title: Ingesting Sensor Data
 description: Provides step by step guidance to ingest Sensor data as a customer
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
+
 # Sensor integration in Data Manager for Agriculture
 
 Follow the below steps to integrate with a sensor partner to enable the partner to start pushing the data into your Data Manager for Agriculture instance.
