@@ -16,9 +16,9 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+- Obtain the [NuGet](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1) package.
 - Create and connect Azure Cognitive Services to your Azure Communication Services resource.
-- Create a custom subdomain for your Azure Cognitive Services resource. 
+- Create a [custom subdomain](../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Technical specifications
 
@@ -26,11 +26,11 @@ The following parameters are available to customize the Recognize function:
 
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
-| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TTS | Not set |This will be the message you wish to play before recognizing input. | Optional |
+| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
-| RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf, choices, speechAndDtmf | Required |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
+| RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf and choices. | Required |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
@@ -54,7 +54,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+The NuGet package can be obtained by configuring your package manager to use feed from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1).
 
 ## Establish a call
 
@@ -64,6 +64,7 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
 
+### DTMF 
 ``` csharp
 var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
                 var recognizeOptions = new CallMediaRecognizeDtmfOptions(targetParticipant, maxTonesToCollect)
@@ -77,9 +78,9 @@ var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
                 };
                 await _callConnection.GetCallMedia().StartRecognizingAsync(recognizeOptions).ConfigureAwait(false);
 ```
+**Note:** If parameters aren't set, the defaults will be applied where possible.
 
-
-Speech-To-Text (Choices) 
+### Speech-To-Text (Choices) 
 ``` csharp
 var choices = new List<RecognizeChoice>
             {
@@ -117,7 +118,7 @@ var choices = new List<RecognizeChoice>
 
 Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the previously mentioned events occurs. 
 
-Example of DTMF *RecognizeCompleted* event:
+### Example of DTMF *RecognizeCompleted* event:
 ``` json
 [
     {
@@ -153,7 +154,7 @@ Example of DTMF *RecognizeCompleted* event:
     }
 ]
 ```
-Example of Choices *RecognizeCompleted* event:
+### Example of Choices *RecognizeCompleted* event:
 ``` json
 [
     {
@@ -185,7 +186,7 @@ Example of Choices *RecognizeCompleted* event:
 ]
 ```
 
-Example of how you can deserialize the *RecognizeCompleted* event:
+### Example of how you can deserialize the *RecognizeCompleted* event:
 ``` csharp
 app.MapPost("<WEB_HOOK_ENDPOINT>", async (
     [FromBody] CloudEvent[] cloudEvents,
@@ -202,7 +203,7 @@ app.MapPost("<WEB_HOOK_ENDPOINT>", async (
     }
 ```
 
-Example of DTMF *RecognizeFailed* event:
+### Example of DTMF *RecognizeFailed* event:
 ``` json
 [
     {
@@ -229,7 +230,7 @@ Example of DTMF *RecognizeFailed* event:
 ]
 ```
 
-Example of Choices *RecognizeFailed* event: 
+### Example of Choices *RecognizeFailed* event: 
 ``` json
 [
     {
@@ -256,7 +257,7 @@ Example of Choices *RecognizeFailed* event:
 ]
 ```
 
-Example of how you can deserialize the *RecognizeFailed* event:
+### Example of how you can deserialize the *RecognizeFailed* event:
 ``` csharp
 app.MapPost("<WEB_HOOK_ENDPOINT>", async (
     [FromBody] CloudEvent[] cloudEvents,
