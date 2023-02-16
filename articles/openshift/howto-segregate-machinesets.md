@@ -75,7 +75,7 @@ openshift-machine-api   simon-aro-st5rm-worker-useast3   1         1         1  
 
 ### Step 3: Retrieve the machine sets in the `openshift-machine-api project/namespace`
 
-Retrieving the machines sets allows you to get all of the relevant parameters into the machineSet template used in the following step.
+Retrieving the machine sets allows you to get all of the relevant parameters into the machineSet template used in the following step.
 
 `oc describe machineSet simon-aro-st5rm-worker-useast1 > aro-worker-az1.yaml`
 
