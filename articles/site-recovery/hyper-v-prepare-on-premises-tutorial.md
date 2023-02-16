@@ -13,7 +13,7 @@ author: ankitaduttaMSFT
 
 This article describes how to prepare your on-premises Hyper-V infrastructure for disaster recovery to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises Hyper-V VMs. In the first tutorial, you [set up the Azure components](tutorial-prepare-azure.md) that are required for Hyper-V disaster recovery to Azure.
+This tutorial is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises Hyper-V VMs. In the first tutorial, you [set up the Azure components](tutorial-prepare-azure.md) that are required for Hyper-V disaster recovery to Azure.
 
 In this tutorial, you learn how to:
 
@@ -75,7 +75,7 @@ For the purposes of the tutorial, the simplest configuration is for the Hyper-V 
 
 During a failover scenario, you might want to connect to your replicated on-premises network.
 
-To connect to Windows VMs by using RDP after failover, allow access as follows:
+To connect to Windows VMs by using Remote Desktop Protocol (RDP) after failover, allow access as follows:
 
 1. To access over the internet, enable RDP on the on-premises VM before failover. Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows  Firewall** > **Allowed Apps** for all profiles.
 1. To access over site-to-site VPN, enable RDP on the on-premises machine. RDP should be allowed in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.

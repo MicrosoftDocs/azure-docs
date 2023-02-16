@@ -71,9 +71,9 @@ Images of replicated machines are held in an Azure storage account. Azure VMs ar
     :::image type="content" source="media/tutorial-prepare-azure/create-storage-account.png" alt-text="Screenshot that shows an example of Create a storage account options.":::
 
 > [!NOTE]
-> If you want to create a legacy storage account type, select the related link in the **Instance details** section. The link redirects you to the **Create a storage account** page to a create legacy storage account.
+> If you want to create a legacy storage account type, select the related link in the **Instance details** section. The link redirects you to the **Create a storage account** pane to a create legacy storage account.
 >
-> :::image type="content" source="media/tutorial-prepare-azure/create-legacy-storage-account.png" alt-text="Screenshot of the Create a legacy storage account link.":::
+> :::image type="content" source="media/tutorial-prepare-azure/create-legacy-storage-account.png" alt-text="Screenshot that shows the Create a legacy storage account link.":::
 
 ## Create a Recovery Services vault
 
@@ -90,9 +90,9 @@ Images of replicated machines are held in an Azure storage account. Azure VMs ar
 > [!NOTE]
 > To quickly access the vault from the dashboard, select **Pin to dashboard**.
 
-The new vault appears on **Dashboard** > **All resources** and on the main **Recovery Services vaults** page.
+The new vault appears on **Dashboard** > **All resources** and on the main **Recovery Services vaults** pane.
 
-:::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+:::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot that shows the Create Recovery Services vault pane.":::
 
 ## Set up an Azure network
 
@@ -106,7 +106,7 @@ When an Azure VM is created from storage after failover, the VM is joined to thi
     1. For **Name**, enter a name for the network. The name must be unique within the Azure resource group. For example, enter **ContosoASRnet**.
     1. For **Region**, select **West Europe**. The network must be in the same region as your Recovery Services vault.
   
-    :::image type="content" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options.":::
+    :::image type="content" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot that shows the Create virtual network options.":::
 
 1. Go to the **IP addresses** tab, and then complete these steps:
     1. Because there's no subnet for this network, first delete the existing address range. To delete the range, select the ellipsis (**...**), under the available IP address range, and then select **Delete address space**.
@@ -119,7 +119,7 @@ When an Azure VM is created from storage after failover, the VM is joined to thi
     1. For **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
 
-        :::image type="content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot of the add virtual network options.":::
+        :::image type="content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot that shows the Add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
 
 It takes a few minutes for the virtual network to be created. After it's created, it's included on the Azure portal dashboard.

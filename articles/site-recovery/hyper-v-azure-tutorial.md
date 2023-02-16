@@ -12,7 +12,7 @@ author: ankitaduttaMSFT
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines and Azure virtual machines (VMs).
 
-This is the third tutorial in a series. It shows you how to set up on-premises Hyper-V VMs for disaster recovery to Azure. This tutorial applies to Hyper-V VMs that are not managed by Microsoft System Center Virtual Machine Manager (SCVMM).
+This tutorial is the third tutorial in a series. It shows you how to set up on-premises Hyper-V VMs for disaster recovery to Azure. This tutorial applies to Hyper-V VMs that aren't managed by Microsoft System Center Virtual Machine Manager.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This is the third tutorial in a series. It assumes that you have already completed the tasks in the first two tutorials:
+This tutorial is the third tutorial in a series. It assumes that you've already completed the tasks in the first two tutorials:
 
 1. [Prepare Azure](./tutorial-prepare-azure-for-hyperv.md)
 1. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
@@ -145,7 +145,7 @@ You can track progress in your Azure portal notifications. After the job finishe
 1. On **Site Recovery**, under the **Hyper-V machines to Azure** tile, select **Enable replication**.
 1. On **Enable replication**, on the **Source environment** tab, select a source location, and then select **Next**.
   
-    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot of the source environment page.":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot that shows the source environment pane.":::
 
 1. On the **Target environment** tab, complete these steps:
     1. For **Subscription**, enter or select the subscription.
@@ -153,15 +153,15 @@ You can track progress in your Azure portal notifications. After the job finishe
     1. For **Post-failover deployment model**, select **Resource Manager**.
     1. For **Storage account**, enter or select the storage account.
 
-    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-target.png" alt-text="Screenshot of the target environment page.":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-target.png" alt-text="Screenshot that shows the target environment pane.":::
 1. Select **Next**.
 1. On the **Virtual machine selection** tab, select the VM to replicate, and then select **Next**.
 1. On the **Replication settings** tab, select and verify the disk details, and then select **Next**.
 
-    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-settings.png" alt-text="Screenshot of the replication settings pane.":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-settings.png" alt-text="Screenshot that shows the replication settings pane.":::
 1. On the **Replication policy** tab, verify that the correct replication policy is selected, and then select **Next**.
 
-    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-policy.png" alt-text="Screenshot of the replication policy pane.":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-policy.png" alt-text="Screenshot that shows the replication policy pane.":::
 1. On the **Review** tab, review your selections, and then select **Enable Replication**.
 
 ## Next steps
