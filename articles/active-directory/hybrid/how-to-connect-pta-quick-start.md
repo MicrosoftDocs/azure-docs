@@ -104,9 +104,9 @@ Follow these instructions to verify that you have enabled Pass-through Authentic
 4. Verify that the **Pass-through authentication** feature appears as **Enabled**.
 5. Select **Pass-through authentication**. The **Pass-through authentication** pane lists the servers where your Authentication Agents are installed.
 
-![Screenhot shows Entra admin center: Azure AD Connect pane.](./media/how-to-connect-pta-quick-start/azure-ad-connect-blade.png)
+   ![Screenhot shows Entra admin center: Azure AD Connect pane.](./media/how-to-connect-pta-quick-start/azure-ad-connect-blade.png)
 
-![Screenshot shows Entra admin center: Pass-through Authentication pane.](./media/how-to-connect-pta-quick-start/pta-server-list.png)
+   ![Screenshot shows Entra admin center: Pass-through Authentication pane.](./media/how-to-connect-pta-quick-start/pta-server-list.png)
 
 At this stage, users from all the managed domains in your tenant can sign in by using Pass-through Authentication. However, users from federated domains continue to sign in by using AD FS or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in by using Pass-through Authentication. The Pass-through Authentication feature does not affect cloud-only users.
 
@@ -132,7 +132,7 @@ To begin, follow these instructions to download the Authentication Agent softwar
 3. Select **Azure AD Connect**, select **Pass-through authentication**, and then select **Download Agent**.
 4. Select the **Accept terms & download** button.
 
-![Screenshot shows Entra admin center: Download Authentication Agent button.](./media/how-to-connect-pta-quick-start/download-agent.png)
+   [![Screenshot shows Entra admin center: Download Authentication Agent button.](./media/how-to-connect-pta-quick-start/download-agent.png)](./media/how-to-connect-pta-quick-start/download-agent.png#lightbox)
 
 >[!NOTE]
 >You can also directly [download the Authentication Agent software](https://aka.ms/getauthagent). Review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
