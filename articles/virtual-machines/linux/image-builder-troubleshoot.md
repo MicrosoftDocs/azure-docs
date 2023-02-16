@@ -100,7 +100,7 @@ The assigned managed identity cannot be used. Please remove the existing one and
 
 There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
 
-1. MSI is deleted before the image template is deleted ([staging resource group](/azure/virtual-machines/linux/image-builder-json?#properties-stagingresourcegroup) scenario) 
+1. The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](/azure/virtual-machines/linux/image-builder-json?#properties-stagingresourcegroup) scenario)
 1. The Image Builder template uses a customer provided staging resource group
 1. The identity is deleted and attempted to recreate the identity with the same name, but without re-assigning the MSI. Though the resource ids are the same, the underlying service principal has been changed.
 
