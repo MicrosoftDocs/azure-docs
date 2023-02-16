@@ -239,7 +239,7 @@ Now you can run your website and manipulate data in the database directly.
 1. Start the static web app with the database configuration.
 
     ```bash
-    swa start /. --data-api-location swa-db-connections
+    swa start ./src --data-api-location swa-db-connections
     ```
 
 ## Manipulate data
