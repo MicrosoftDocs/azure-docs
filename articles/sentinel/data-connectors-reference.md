@@ -14,6 +14,9 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 Some data connectors are deployed only via solutions. For more information, see the [Discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
 
+> [!IMPORTANT]
+> For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+
 ## How to use this guide
 
 1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
@@ -296,9 +299,6 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | Microsoft |
 
-> [!NOTE]
-> This connector was designed to import only those alerts whose status is "open." Alerts that have been closed in Azure AD Identity Protection will not be imported to Microsoft Sentinel.
-
 ## Azure Activity
 
 | Connector attribute | Description |
@@ -367,19 +367,20 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Information Protection (Preview)
 
+> [!IMPORTANT]
+>
+> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+>
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+
+See the [Microsoft Purview Information Protection](#microsoft-purview-information-protection-preview) connector, which will replace this connector.
+
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
 | **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
-
-
-> [!NOTE]
-> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
->
-> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
->
 
 ## Azure Key Vault
 
@@ -463,7 +464,7 @@ You will only see the storage types that you actually have defined resources for
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Kusto function alias:** | CGFWFirewallActivity |
-| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Barracuda%20CloudGen%20Firewall/Parsers/CGFWFirewallActivity |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Barracuda%20CloudGen%20Firewall/Parsers/CGFWFirewallActivity.txt |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/Sentinel-barracudacloudfirewall-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 
@@ -528,6 +529,14 @@ See Barracuda instructions - note the assigned facilities for the different type
 | **Vendor documentation/<br>installation instructions** | [Configuring the Log to a Syslog Server action](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) |
 | **Supported by** | Microsoft |
 
+## Common Event Format (CEF) via AMA
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **[Azure monitor Agent-based connection](connect-cef-ama.md)** |
+| **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
+| **DCR support** | Standard DCR |
+| **Supported by** | Microsoft |
 
 ## Check Point
 
@@ -694,10 +703,10 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Get a Cyberpion subscription](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br>[Integrate Cyberpion security alerts into Microsoft Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
 | **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
 
-
-
-
 ## DNS (Preview)
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 **See [Windows DNS Events via AMA (Preview)](#windows-dns-events-via-ama-preview) or [Windows DNS Server (Preview)](#windows-dns-server-preview).**
 
@@ -739,7 +748,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br>[Configure the ESET SMC logs to be collected](#configure-the-eset-smc-logs-to-be-collected) <br>[Configure OMS agent to pass Eset SMC data in API format](#configure-oms-agent-to-pass-eset-smc-data-in-api-format)<br>[Change OMS agent configuration to catch tag oms.api.eset and parse structured data](#change-oms-agent-configuration-to-catch-tag-omsapieset-and-parse-structured-data)<br>[Disable automatic configuration and restart agent](#disable-automatic-configuration-and-restart-agent)|
 | **Log Analytics table(s)** | eset_CL |
 | **DCR support** | Not currently supported |
-| **Vendor documentation/<br>installation instructions** | [ESET Syslog server documentation](https://help.eset.com/esmc_admin/70/en-US/admin_server_settings_syslog.html) |
+| **Vendor documentation/<br>installation instructions** | [ESET Syslog server documentation](https://help.eset.com/protect_admin/10.0/en-US/admin_server_settings_syslog.html) |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
 
@@ -1222,6 +1231,14 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | ProjectActivity |
 | **Supported by** | Microsoft |
 
+## Microsoft Purview Information Protection (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-microsoft-purview.md)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | MicrosoftPurviewInformationProtection |
+| **Supported by** | Microsoft |
+
 
 ## Microsoft Sysmon for Linux (Preview)
 
@@ -1552,13 +1569,16 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Vendor documentation/<br>installation instructions** | [Salesforce REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm)<br>Under **Set up authorization**, use **Session ID** method instead of OAuth. |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | SalesforceServiceCloud |
-| **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-SalesforceServiceCloud-parser |
+| **Kusto function URL/<br>Parser config instructions** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Salesforce%20Service%20Cloud/Parsers/SalesforceServiceCloud.txt |
 | **Application settings** | <li>SalesforceUser<li>SalesforcePass<li>SalesforceSecurityToken<li>SalesforceConsumerKey<li>SalesforceConsumerSecret<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 
 
 
 ## Security events via Legacy Agent (Windows)
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1827,7 +1847,8 @@ Follow the instructions to obtain the credentials.
 
 ## Windows DNS Server (Preview)
 
-This connector uses the legacy agent. We recommend that you use the DNS over AMA connector above.
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 | Connector attribute | Description |
 | --- | --- |

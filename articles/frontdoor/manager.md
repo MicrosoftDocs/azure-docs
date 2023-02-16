@@ -1,5 +1,5 @@
 ---
-title: 'Front Door manager - Azure Front Door'
+title: Azure Front Door manager
 description: This article is about concepts of the Front Door manager. You'll learn about routes and security policies in an endpoint.
 services: frontdoor
 author: duongau

@@ -3,14 +3,14 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 02/07/2023
 ---
 
 # Manage AWS assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or create custom standards, and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS CIS 1.5.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or create custom standards to meet specific internal requirements.
 
-There are three types of resources that are needed to create and manage custom assessments:
+There are three types of resources that are needed to create and manage assessments:
 
 - Assessment:
     - assessment details such as name, description, severity, remediation logic, etc.
@@ -19,7 +19,7 @@ There are three types of resources that are needed to create and manage custom a
 - Standard: defines a set of assessments
 - Standard assignment: defines the scope, which the standard will evaluate. For example, specific AWS account(s).
 
-You can either use the built-in regulatory compliance standards or create your own custom standards and assessments.
+You can either use the built-in regulatory compliance standards or create your own custom standards.
 
 ## Assign a built-in compliance standard to your AWS account
 
@@ -33,7 +33,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add an AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
@@ -49,7 +49,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select the relevant AWS account.
 
-1. Select **Standards** > **Add** > **Standard**.
+1. Select **Standards** > **Create** > **Standard**.
 
 1. Select **New standard**.
 
@@ -78,36 +78,6 @@ You can either use the built-in regulatory compliance standards or create your o
 1. Select all relevant assessments from the drop-down menu.
 
 1. Select the standards from the drop-down menu.
-
-1. Select **Save**.
-
-## Create a new custom assessment for your AWS account
-
-**To create a new custom assessment for your AWS account**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-
-1. Select the relevant AWS account.
-
-1. Select **Standards** > **Add** > **Assessment**.
-
-1. Select **New assessment (preview)**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/new-aws-assessment.png" alt-text="Screenshot of the adding a new assessment screen for your AWS account." lightbox="media/how-to-manage-assessments-standards/new-aws-assessment.png":::
-
-1. Enter a name, severity, and select an assessment from the drop-down menu.
-
-1. Enter a KQL query that defines the assessment logic.
-
-    If you’d like to create a new query, select the ‘[Azure Data Explorer](https://dataexplorer.azure.com/clusters/securitydatastoreus.centralus/databases/DiscoveryMockDataAws)’ link. The explorer will contain mock data on all of the supported native APIs. The data will appear in the same structure as contracted in the API.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/azure-data-explorer.png" alt-text="Screenshot that shows where to select to select the Azure Data Explorer link." lightbox="media/how-to-manage-assessments-standards/azure-data-explorer.png":::
-
-    See the [how to build a query](#how-to-build-a-query) section for more examples.
-
-1. Select the standards to add to this assessment.
 
 1. Select **Save**.
 

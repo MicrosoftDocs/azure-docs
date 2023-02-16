@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 ---
 
 # Failover for business continuity and disaster recovery

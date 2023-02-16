@@ -3,7 +3,7 @@ title: Use the migration feature to migrate your App Service Environment to App 
 description: Learn how to migrate your App Service Environment to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 12/5/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -19,7 +19,7 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-Ensure there are no locks on your virtual network, resource group, or subscription. Locks will block platform operations during migration.
+Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks will block platform operations during migration.
 
 ::: zone pivot="experience-azcli"
 
@@ -82,7 +82,7 @@ az network vnet subnet update --resource-group $VNET_RG -name <subnet-name> --vn
 
 ## 6. Confirm there are no locks on the virtual network
 
-Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, they'll need to be removed before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 Use the following command to check if your virtual network has any locks.
 
@@ -103,6 +103,10 @@ For related commands to check if your subscription or resource group has locks, 
 You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). This can be done by setting the `zoneRedundant` property to "true". Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, don't include the `zoneRedundant` parameter.
 
 If your existing App Service Environment uses a custom domain suffix, you'll need to [configure one for your new App Service Environment v3 during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration will fail if you don't configure a custom domain suffix and are using one currently. Migration will also fail if you attempt to add a custom domain suffix during migration to an environment that doesn't have one configured currently. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
+
+> [!NOTE]
+> If you're configuring a custom domain suffix, when adding the network permissions on your Azure Key Vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 3.
+>
 
 If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
 
@@ -219,7 +223,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 ## 5. Confirm there are no locks on the virtual network
 
-Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, they'll need to be removed before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 For details on how to check if your subscription or resource group has locks, see [Configure locks](../../azure-resource-manager/management/lock-resources.md#configure-locks).
 
@@ -234,6 +238,10 @@ You can make your new App Service Environment v3 zone redundant if your existing
 If your environment is in a region that doesn't support zone redundancy, the checkbox will be disabled. If you need a zone redundant App Service Environment v3, use one of the manual migration options and create your new App Service Environment v3 in one of the regions that supports zone redundancy.
 
 If your existing App Service Environment uses a [custom domain suffix](./migrate.md#choose-your-app-service-environment-v3-configurations), you'll be required to configure one for your new App Service Environment v3. You'll be shown the custom domain suffix configuration options if this situation applies to you. You won't be able to migrate until you provide the required information. If you'd like to use a custom domain suffix but don't currently have one configured, you can configure one once migration is complete. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
+
+> [!NOTE]
+> If you're configuring a custom domain suffix, when adding the network permissions on your Azure Key Vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 2.
+>
 
 :::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Screenshot that shows how to add a custom domain suffix configuration.":::
 

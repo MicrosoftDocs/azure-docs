@@ -221,6 +221,9 @@ sections:
         answer: |
           The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate is not persistent and is valid for one hour, but it is issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It is not renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
           
+      - question: How can we disable cached logon/expire the cache logon of the user on Azure AD joined devices?
+        answer: |
+              It is not possible to disable or expire previous cached logons on Azure AD joined devices. 
           
           
   - name: Hybrid Azure AD join FAQ

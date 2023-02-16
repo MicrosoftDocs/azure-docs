@@ -32,7 +32,7 @@ In addition, the sign-ins report can also help you troubleshoot sign-in failures
 You need:
 
 * An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
-* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
+* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **reports reader** role for the tenant. In addition, any user can access their own sign-ins. 
 
 ## Troubleshoot sign-in errors using the sign-ins report
 

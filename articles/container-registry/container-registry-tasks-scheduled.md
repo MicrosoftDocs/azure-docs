@@ -21,7 +21,7 @@ Scheduling a task is useful for scenarios like the following:
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image during the workday as part of your live-site monitoring.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## About scheduling a task
 
@@ -69,6 +69,34 @@ az acr task show --name timertask --registry $ACR_NAME --output table
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 timertask linux       Enabled                           BASE_IMAGE, TIMER
+```
+
+
+Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
+
+Follow the [Prerequisites](./container-registry-tutorial-quick-task.md#prerequisites) to build the source code context and then create a scheduled task with context.
+ 
+```azurecli
+az acr task create \
+  --name timertask \
+  --registry $ACR_NAME \
+  --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
+  --file Dockerfile \
+  --image timertask:{{.Run.ID}} \
+  --git-access-token $GIT_PAT \
+  --schedule "0 21 * * *"
+```
+
+Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
+
+```azurecli
+az acr task show --name timertask --registry $ACR_NAME --output table
+```
+
+Run the [az acr task run][az-acr-task-run ] command to trigger the task manually.
+
+```azurecli
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
 ## Trigger the task

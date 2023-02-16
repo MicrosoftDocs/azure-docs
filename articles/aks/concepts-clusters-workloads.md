@@ -74,7 +74,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-The Azure VM size for your nodes defines the storage CPUs, memory, size, and type available (such as high-performance SSD or regular HDD). Plan the node size around whether your applications may require large amounts of CPU and memory or high-performance storage. Scale out the number of nodes in your AKS cluster to meet demand.
+The Azure VM size for your nodes defines CPUs, memory, size, and the storage type available (such as high-performance SSD or regular HDD). Plan the node size around whether your applications may require large amounts of CPU and memory or high-performance storage. Scale out the number of nodes in your AKS cluster to meet demand.
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
@@ -235,7 +235,7 @@ A breakdown of the deployment specifications in the YAML manifest file is as fol
 | ----------------- | ------------- |  
 | `.apiVersion` | Specifies the API group and API resource you want to use when creating the resource. |  
 | `.kind` | Specifies the type of resource you want to create. |  
-| `.metadata.name` | Specifies the image to run. This file will run the *nginx* image from Docker Hub. |  
+| `.metadata.name` | Specifies the name of the deployment. This file will run the *nginx* image from Docker Hub. |  
 | `.spec.replicas` | Specifies how many pods to create. This file will create three deplicated pods. |  
 | `.spec.selector` | Specifies which pods will be affected by this deployment. |
 | `.spec.selector.matchLabels` | Contains a map of *{key, value}* pairs that allows the deployment to find and manage the created pods. |  

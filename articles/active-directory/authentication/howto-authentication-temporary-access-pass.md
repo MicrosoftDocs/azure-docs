@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: tilarso 
@@ -147,7 +147,7 @@ Users with a Temporary Access Pass can navigate the setup process on Windows 10 
 For Azure AD Joined devices: 
 - During the Azure AD Join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
 - On already joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
-- If the [Web sign-in](https://learn.microsoft.com/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
+- If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
 
 For Hybrid Azure AD Joined devices: 
 - Users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
@@ -206,7 +206,7 @@ Keep these limitations in mind:
 - Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they've signed in with a Temporary Access Pass. 
 Users in scope for these policies will get redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience doesn't currently support FIDO2 and Phone Sign-in registration. 
 - A Temporary Access Pass can't be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
-- After a Temporary Access Pass is added to an account or expires, it can take a few minutes for the changes to replicate. Users may still see a prompt for Temporary Access Pass during this time. 
+- It can take a few minutes for changes to replicate. Because of this, after a Temporary Access Pass is added to an account it can take a while for the prompt to appear. For the same reason, after a Temporary Access Pass expires, users may still see a prompt for Temporary Access Pass. 
 
 ## Troubleshooting    
 

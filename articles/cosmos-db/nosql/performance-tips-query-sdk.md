@@ -311,7 +311,7 @@ Following are implications of how the parallel queries would behave for differen
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first. Increasing the page size will reduce the number of round trips required and increase performance for queries that return more than 100 items. If you're not sure what value to set, 1000 is typically a good choice. Memory consumption will increase as page size increases, so if your workload is memory sensitive consider a lower value.
 
 You can use the `pageSize` parameter in `iterableByPage()` for sync API and `byPage()` for async API, to define a page size:
 
@@ -339,7 +339,7 @@ filteredItemsAsPages.map(page -> {
 
 ## Tune the buffer size
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching (NOTE: This can also result in high memory consumption). If you set this value to 0, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. To maximize the pre-fetching, set the `maxBufferedItemCount` to a higher number than the `pageSize` (NOTE: This can also result in high memory consumption). To minimize the pre-fetching, set the `maxBufferedItemCount` equal to the `pageSize`. If you set this value to 0, the system will automatically determine the number of items to buffer.
 
 ```java
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();

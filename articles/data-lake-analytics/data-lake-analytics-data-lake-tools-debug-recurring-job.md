@@ -1,13 +1,15 @@
 ---
 title: Debug recurring jobs in Azure Data Lake Analytics 
 description: Learn how to use Azure Data Lake Tools for Visual Studio to debug an abnormal recurring job.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 05/20/2018
+ms.date: 01/27/2023
 ---
 
 # Troubleshoot an abnormal recurring job
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article shows how to use [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) to troubleshoot problems with recurring jobs. Learn more about pipeline and recurring jobs from the [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy).
 
@@ -53,7 +55,7 @@ You can find all submitted recurring jobs through the job list at the bottom of 
 
 ![Shortcut menu for comparing jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-Pay attention to the big differences between these two jobs. Those differences are probably causing the performance problems. To check further, use the steps in the following diagram:
+Pay attention to the differences between these two jobs. Those differences are probably causing the performance problems. To check further, use the steps in the following diagram:
 
 ![Process diagram for checking differences between jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 

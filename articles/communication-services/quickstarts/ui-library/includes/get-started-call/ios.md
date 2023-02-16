@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 > [!VIDEO https://www.youtube.com/embed/Aq5VTLfXU_4]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.0.0'
+        pod 'AzureCommunicationUICalling', '1.1.0'
     end
     ```
 

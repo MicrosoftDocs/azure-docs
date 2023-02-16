@@ -13,16 +13,14 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET (v12)
+    - name: .NET
       href: storage-quickstart-queues-dotnet.md
-    - name: .NET (v11)
-      href: storage-quickstart-queues-dotnet-legacy.md
-    - name: Java (v12)
+    - name: Java
       href: storage-quickstart-queues-java.md
-    - name: Python (v12)
-      href: storage-quickstart-queues-python.md
-    - name: JavaScript (v12)
+    - name: JavaScript
       href: storage-quickstart-queues-nodejs.md
+    - name: Python
+      href: storage-quickstart-queues-python.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
@@ -51,7 +49,7 @@
     href: ../common/authorize-data-access.md?toc=/azure/storage/queues/toc.json
     items:
     - name: Authorizing data operations
-      href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
       items:
       - name: Authorize with Azure AD
         items:
@@ -132,6 +130,8 @@
       href: ../common/storage-account-upgrade.md?toc=/azure/storage/queues/toc.json
     - name: Recover a deleted storage account
       href: ../common/storage-account-recover.md?toc=/azure/storage/queues/toc.json
+    - name: Migrate a classic account to Azure Resource Manager
+      href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/queues/toc.json
     - name: Get account configuration properties
       href: ../common/storage-account-get-info.md?toc=/azure/storage/queues/toc.json
   - name: Secure queue data
@@ -148,14 +148,6 @@
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         href: assign-azure-role-data-access.md
-      - name: Authenticate and authorize with Azure AD
-        items:
-          - name: Get an access token for authorization with Azure AD
-            href: ../common/identity-library-acquire-token.md?toc=/azure/storage/queues/toc.json
-          - name: Authorize from an application running in Azure
-            href: authorize-managed-identity.md
-          - name: Authorize from a native or web application
-            href: ../common/storage-auth-aad-app.md?toc=/azure/storage/queues/toc.json
       - name: Authorize with Shared Key
         items:
         - name: View and manage account keys
@@ -289,7 +281,7 @@
     - name: REST API
       href: /rest/api/storagerp/
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/storage/management
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK

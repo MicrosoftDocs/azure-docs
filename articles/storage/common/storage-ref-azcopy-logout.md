@@ -1,5 +1,5 @@
 ---
-title: azcopy logout | Microsoft Docs
+title: azcopy logout
 description: This article provides reference information for the azcopy logout command.
 author: normesta
 ms.service: storage

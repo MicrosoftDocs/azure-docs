@@ -5,7 +5,6 @@ author: v-shmck
 ms.author: rymend
 ms.topic: overview
 ms.service: azure-education
-ms.subservice: education-hub
 ms.date: 06/30/2020
 ---
 
