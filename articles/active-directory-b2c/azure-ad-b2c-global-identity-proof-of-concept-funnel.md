@@ -28,7 +28,7 @@ The following block diagram shows the proof of concept. The guidance will show h
 
 1. [Create a tenant.](../active-directory-b2c/tutorial-create-tenant.md)
 
-1. [Configure federations to each Azure AD B2C tenant/policy combination](tenant-management.md)
+1. [Configure federations to each Azure AD B2C tenant/policy combination](tenant-management-read-tenant-name.md)
 
 1. Configure client_id mapping to region – use [lookup claim transformation](general-transformations.md) to emulate.
 
