@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 02/16/2023
 ms.author: jfields
 ---
 
 # View rules in the Autopilot dashboard
 
-The **Autopilot** dashboard in Permissions Management provides a table of information about **Autopilot rules** for administrators.
+The **Autopilot** dashboard in Permissions Management provides a table of information about **Autopilot rules** for administrators. Creating Autopilot rules allows you to automate right-sizing policies so you can automatically remove unused roles and permissions assigned to identities in your authorization system.
 
 
 > [!NOTE]
