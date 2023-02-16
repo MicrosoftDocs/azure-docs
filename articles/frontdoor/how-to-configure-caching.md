@@ -1,5 +1,6 @@
 ---
-title: 'Configure caching - Azure Front Door'
+title: Configure caching
+titleSuffix: Azure Front Door
 description: This article shows you how to configure caching on Azure Front Door.
 services: frontdoor
 author: johndowns

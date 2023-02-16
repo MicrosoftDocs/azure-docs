@@ -1,13 +1,13 @@
 ---
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
-description: In this article, learn about how to create an internal load balancer with outbound NAT
+description: In this article, learn about how to create an internal load balancer with outbound NAT.
 author: mbender-ms
-ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/27/2022
 ms.author: mbender
+ms.custom: template-how-to, seodec18
 ---
 
 # Outbound-only load balancer configuration

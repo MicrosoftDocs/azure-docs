@@ -23,6 +23,14 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 
 <hr width = 100%>
 
+## February 2023
+### Product Billing Update
+
+Microsoft Energy Data Services will begin billing February 15, 2023. Prices will be based on a fixed per-hour consumption rate at a 50 percent discount during preview. 
+- No upfront costs or termination fees—pay only for what you use.
+- No charges for storage, data transfers or compute overage during preview.
+
+
 ## January 2023
 
 ### Managed Identity Support 
