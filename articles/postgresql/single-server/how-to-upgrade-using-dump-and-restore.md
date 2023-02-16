@@ -89,12 +89,20 @@ You may choose to use one of the methods described in this section for your upgr
 
 ### Migrate the Roles
 
-Roles (Users) are global objects and needed to be migrated separately to the new cluster before restoring the database. You can use `pg_dumpall` binary with -r (--roles-only) option to dump them.
-To dump all the roles from the source server:
+Roles (Users) are global objects and needed to be migrated separately to the new cluster **before** restoring the database(s). You can use `pg_dumpall` binary with -r (--roles-only) option to dump them. 
+To dump all the roles **with passwords** from the source **Single Server**:
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser@mySourceServer --database=mySourceDB > roles.sql
 ```
+
+To dump all the roles names, **without passwords** from the source **Flexible Server**:
+```azurecli-interactive
+pg_dumpall -r --no-role-passwords --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
+```
+
+> [!IMPORTANT]
+> In Azure Database for PostgreSQL - Flexible Server users are not allowed to access pg_authid table which contains information about database authorization identifiers together with user's passwords. Therefore retrieving passwords for users is not possible. Please consider using [Azure Key Vault](../../azure/key-vault/secrets/about-secrets.md) to securely store your secrets.  
 
 Edit the `roles.sql` and remove references of `NOSUPERUSER` and `NOBYPASSRLS` before restoring the content using psql in the target server:
 
