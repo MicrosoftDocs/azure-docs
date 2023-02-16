@@ -10,9 +10,7 @@ ms.reviewer: bwren
 ---
 
 # Azure Monitor for existing Operations Manager customers
-This article provides guidance for customers who currently use [System Center Operations Manager](/system-center/scom/welcome) and are planning a transition to [Azure Monitor](overview.md) as they migrate business applications and other resources into Azure. It assumes that your ultimate goal is a full transition into the cloud, replacing as much Operations Manager functionality as possible with Azure Monitor, without compromising your business and IT operational requirements. 
-
-The specific recommendations made in this article will change as Azure Monitor and Operations Manager add features. The fundamental strategy though will remain consistent.
+This article provides guidance for customers who currently use [System Center Operations Manager](/system-center/scom/welcome) and are planning a transition to cloud based monitoring with [Azure Monitor](overview.md) as they migrate business applications and other resources into Azure. It assumes that your ultimate goal is a full transition into the cloud, replacing as much Operations Manager functionality as possible with Azure Monitor, without compromising your business and IT operational requirements. 
 
 > [!IMPORTANT]
 > There is a cost to implementing several Azure Monitor features described here, so you should evaluate their value before deploying across your entire environment. See [Cost optimization and Azure Monitor](best-practices-cost.md) for strategies for reducing your cost for Azure Monitor.
@@ -28,6 +26,29 @@ Your migration will instead constitute a [standard Azure Monitor implementation]
 > [Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md) is now in public preview. This allows you to move your existing SCOM environment into the Azure portal with Azure Monitor while continuing to use the same management packs. The rest of the recommendations in this article still apply as you migrate your monitoring logic into Azure Monitor. 
 
 The general strategy recommended in this article is the same as in the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/), which recommends a [Hybrid cloud monitoring](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) strategy that allows you to make a gradual transition to the cloud. Even though some features may overlap, this strategy will allow you to maintain your existing business processes as you become more familiar with the new platform. Only move away from Operations Manager functionality as you can replace it with Azure Monitor. Using multiple monitoring tools does add complexity, but it allows you to take advantage of Azure Monitor's ability to monitor next generation cloud workloads while retaining Operations Manager's ability to monitor server software and infrastructure components that may be on-premises or in other clouds. 
+
+
+| Step | Infrastructure | Platform | Application | Workloads |
+| On-premises | SCOM | SCOM | SCOM | SCOM |
+
+
+
+| Phase | Description |
+| On-premises | All monitoring is performed by Operations Manager with on-premises installation. |
+| Infrastructure monitoring | Use Azure Monitor to monitor services that you're using in Azure. Enable VM insights for monitoring virtual machines, Container insights for monitoring Kubernetes clusters, Azure Arc for 
+ |
+| SCOM to cloud | 
+
+
+infra
+	- Arc, VM, K8s, etc
+platform
+	-	 no native way to collect. have to do custom. use APIs for each to push/pull
+application
+	
+workload
+	- we don't provide it, but SCOM does
+
 
 
 ## Components to monitor
