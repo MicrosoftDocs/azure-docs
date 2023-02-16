@@ -1,6 +1,6 @@
 ---
 title: Use managed identities for Microsoft Azure Data Manager for Energy Preview on Azure	
-description: Learn how to use a managed identity to accessAzure Data Manager for Energy Preview from other Azure services. 
+description: Learn how to use a managed identity to access Azure Data Manager for Energy Preview from other Azure services. 
 author: sandeepchads
 ms.author: sancha
 ms.service: energy-data-services	
