@@ -235,7 +235,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-run-details.png" alt-text="Screenshot showing runs and status for a specific Consumption logic app workflow.":::
 
-   For actions where you added [tracked properties](#custom-tracking-properties), you can view those properties by selecting **View** in the **Tracked Properties** column. To search the tracked properties, use the column filter.
+   For actions where you added [tracked properties](#custom-tracking-properties), you can search for the tracked properties using the column filter. To view the properties, in the **Tracked Properties** column, select **View**.
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-tracked-properties.png" alt-text="Screenshot showing tracked properties for a specific Consumption logic app workflow.":::
 
@@ -365,13 +365,25 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
 
-The following example shows where these custom properties appear in your Log Analytics workspace where the custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column:
+The following examples shows where custom properties appear in your Log Analytics workspace:
 
 ### [Consumption](#tab/consumption)
 
-**TBD**
+1. On your Log Analytics workspace menu, under **Classic**, select **Workspace summary**. On the **Overview** page, select **Logic Apps Management**.
+
+1. Select the row for the workflow that you want to review.
+
+1. On the **Runs** page, in the **Logic App Runs** table, find the **Tracking ID** column and the **Tracked Properties** column.
+
+   :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-run-details.png" alt-text="Screenshot showing runs and status for a specific Consumption workflow.":::
+
+1. To search the tracked properties, use the column filter. To view the properties, select **View**.
+
+   :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/example-tracked-properties.png" alt-text="Screenshot showing example tracked properties for a specific Consumption  workflow.":::
 
 ### [Standard (preview)](#tab/standard)
+
+The custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column, for example:
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/custom-tracking-properties-workspace.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace, and captured telemetry for Standard workflow run with custom tracking properties.":::
 
