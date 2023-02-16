@@ -57,8 +57,6 @@
       href: ./linux/tutorial-availability-sets.md
     - name: 6 - Create a scale set
       href: ./linux/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./linux/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./linux/tutorial-virtual-network.md
   - name: Windows
@@ -75,8 +73,6 @@
       href: ./windows/tutorial-availability-sets.md
     - name: 6 - Create a scale set
       href: ./windows/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
 - name: Develop
@@ -1585,7 +1581,7 @@
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports and filter traffic
     items:
-    - name: CLI 
+    - name: CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
