@@ -18,7 +18,7 @@ When you open a template, you create a transient workbook that's populated with 
  
 In this article, you'll learn about the various workbook templates that are available for your flexible server.
 
-Azure Database for PostgreSQL Flexible Server has three available templates:
+Azure Database for PostgreSQL Flexible Server has two available templates:
  
 - **Overview**: Displays an instance summary and top-level metrics to help you visualize and understand the resource utilization on your server. This template displays the following views:
 
