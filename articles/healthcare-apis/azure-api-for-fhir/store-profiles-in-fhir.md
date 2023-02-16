@@ -203,9 +203,9 @@ You'll be returned with a `CapabilityStatement` that includes the following info
     ],
 ```
 ### Bindings in Profiles
-In profiles, code systems defines codes (symbols and/or expressions) and Value sets specify set of codes defined by code systems. Value sets link between CodeSystem definitions and their use in coded elements. Azure API for FHIR provide capability to validate ValueSets resources that carry definitons of local codes. 
+A terminology service is a set of functions that can perform operations on medical “terminologies,” such as validating codes, translating codes, expanding value sets, etc.  The Azure API for FHIR (the service) does not support terminology service. Information for supported operations ($), resource types and interactions can be found in the service's CapabilityStatement. Resource types ValueSet, StructureDefinition and CodeSystem are supported with basic CRUD operations and Search (as defined in the CapabilityStatement) as well as being leveraged by the system for use in $validate. 
 
-The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. Uploading the value set enables FHIR server to validate that codes within a resource meet the constraints. 
+ValueSets can contain a complex set of rules and external references, today, the service will only consider the pre-expanded inline codes Customers need to upload suported ValueSets to the FHIR server prior to utilizing the $validate operation. The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. 
 
 > [!NOTE]
 > Azure API for FHIR does not support Terminology service. There is no support for External code systems, operations and translations listed under [Terminology Service FHIR specification](https://www.hl7.org/fhir/terminology-service.html#:~:text=A%20FHIR%20terminology%20service%20is%20simply%20a%20set,the%20basic%20principles%20for%20using%20terminologies%20in%20FHIR)
