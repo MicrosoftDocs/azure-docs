@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 07/22/2022
+ms.date: 02/02/2023
 ms.reviewer: cynthn
 
 ---
@@ -51,6 +51,7 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 10,000 image versions, per subscription, per region
 - 100 replicas per image version however 50 replicas should be sufficient for most use cases
 - Any disk attached to the image must be less than or equal to 1TB in size
+- Resource move is not supported for 'Azure compute gallery' resources
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.
  
@@ -212,6 +213,9 @@ There are some limitations for sharing your gallery to the community:
 
 **A**: Azure is not responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
 
+**Q: Is Community gallery sharing functionality part of Azure Marketplace?**
+
+**A**: No, Community gallery sharing is not part of Azure Marketplace, it's a feature of 'Azure Compute Gallery'. Anyone with an Azure subscription can use 'Community gallery' and make their images public.
 
 **Q: I have concerns about an image, who do I contact?**
 
@@ -250,10 +254,10 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - To prevent images from being accidentally deleted, use resource locks at the Gallery level. For more information, see [Protect your Azure resources with a lock](../azure-resource-manager/management/lock-resources.md).
 
-- Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create the a version of the image or VM application.
+- Use ZRS wherever available for high availability. You can configure ZRS in the replication tab when you create a version of the image or VM application.
  For more information about which regions support ZRS, see [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
-- Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VM’s concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
+- Keep a minimum of 3 replicas for production images. For every 20 VMs that you create concurrently, we recommend you keep one replica.  For example, if you create 1000 VMs concurrently, you should keep 50 replicas (you can have a maximum of 50 replicas per region).  To update the replica count, please go to the gallery -> Image Definition -> Image Version -> Update replication.
 
 - Maintain separate galleries for production and test images, don’t put them in a single gallery.
 

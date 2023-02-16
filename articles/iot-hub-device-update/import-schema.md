@@ -221,6 +221,7 @@ For example:
   }
 }
 ```
+
 ## relatedFiles object
 
 Collection of related files to one or more of your primary payload files.
@@ -251,6 +252,9 @@ For example:
   }
 ],
 ```
+
+For more information, see [Use the related files feature to reference multiple update files](related-files.md).
+
 ## downloadHandler object
 
 Specifies how to process any related files.

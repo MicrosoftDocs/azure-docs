@@ -5,7 +5,7 @@ description: Debug or monitor your Machine Learning job as it runs on AzureML co
 services: machine-learning
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to

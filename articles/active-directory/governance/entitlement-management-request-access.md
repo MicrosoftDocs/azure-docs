@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 3/30/2022
+ms.date: 01/26/2023
 ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ The first step is to sign in to the My Access portal where you can request acces
 
 **Prerequisite role:** Requestor
 
-1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain may be `https://myaccess.microsoft.us` instead.)
+1. Look for an email or a message from the project or business manager you're working with. The email should include a link to the access package you'll need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain may be `https://myaccess.microsoft.us` instead.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -52,9 +52,9 @@ Once you have found the access package in the My Access portal, you can submit a
  
 1. To request access you can either:
 
-    1. Click the row to see Access package details, and then select Request access.
+    1. Select the row to see Access package details, and then select Request access.
 
-    1. Or click **Request access** directly.
+    1. Or select **Request access** directly.
 
 1. You may have to answer questions and provide business justification for your request. If there are questions that you need to answer, type in your responses in the fields.
 
@@ -68,9 +68,9 @@ Once you have found the access package in the My Access portal, you can submit a
 
         ![My Access portal - Request access](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. When finished, click **Submit** to submit your request.
+1. When finished, select **Submit** to submit your request.
 
-1. Click **Request history** to see a list of your requests and the status.
+1. Select **Request history** to see a list of your requests and the status.
 
     If the access package requires approval, the request is now in a pending approval state.
 
@@ -97,13 +97,13 @@ When you request access to an access package, your request might be denied or yo
 
 1. Sign in to the **My Access** portal.
 
-1. Click **Request history** from the navigation menu to the left.
+1. Select **Request history** from the navigation menu to the left.
 
-1. Find the access package for which you are resubmitting a request.
+1. Find the access package for which you're resubmitting a request.
 
-1. Click the check mark to select the access package.
+1. Select the check mark to select the access package.
 
-1. Click the blue **View** link to the right of the selected access package.
+1. Select the blue **View** link to the right of the selected access package.
     
     ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
 
@@ -111,7 +111,7 @@ When you request access to an access package, your request might be denied or yo
     
     ![Select resubmit button](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
 
-1. Click the **Resubmit** button at the bottom of the pane.
+1. Select the **Resubmit** button at the bottom of the pane.
 
 ## Cancel a request
 
@@ -119,15 +119,15 @@ If you submit an access request and the request is still in the **pending approv
 
 **Prerequisite role:** Requestor
 
-1. In the My Access portal, on the left, click **Request history** to see a list of your requests and the status.
+1. In the My Access portal, on the left, select **Request history** to see a list of your requests and the status.
 
-1. Click the **View** link for the request you want to cancel.
+1. Select the **View** link for the request you want to cancel.
 
-1. If the request is still in the **pending approval** state, you can click **Cancel request** to cancel the request.
+1. If the request is still in the **pending approval** state, you can select **Cancel request** to cancel the request.
 
     ![My Access portal - Cancel request](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Click **Request history** to confirm the request was canceled.
+1. Select **Request history** to confirm the request was canceled.
 
 ## Next steps
 

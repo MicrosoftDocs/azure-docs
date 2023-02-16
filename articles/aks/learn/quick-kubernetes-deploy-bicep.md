@@ -1,7 +1,6 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
 ms.date: 11/01/2022
 ms.custom: mvc, subject-armbicep
@@ -27,7 +26,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.20.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

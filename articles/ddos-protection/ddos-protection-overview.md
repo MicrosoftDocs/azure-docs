@@ -2,16 +2,15 @@
 title: Azure DDoS Protection Overview
 description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 01/17/2023
 ms.author: abell
+ms.custom: ignite-2022, references_regions
 ---
+
 # What is Azure DDoS Protection?
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
@@ -19,6 +18,7 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
+
 ## Key benefits
 
 ### Always-on traffic monitoring

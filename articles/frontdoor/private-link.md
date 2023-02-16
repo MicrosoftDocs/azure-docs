@@ -2,7 +2,6 @@
 title: 'Secure your Origin with Private Link in Azure Front Door Premium'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
@@ -15,7 +14,7 @@ ms.custom: references_regions
 
 [Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.
 
-Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure App Service or Azure Storage. Private Link removes the need for your origin to be access publicly.
+Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure App Service or Azure Storage. Private Link removes the need for your origin to be accessed publicly.
 
 :::image type="content" source="./media/private-link/front-door-private-endpoint-architecture.png" alt-text="Diagram of Azure Front Door with Private Link enabled.":::
 
@@ -23,12 +22,10 @@ Azure Front Door Premium can connect to your origin using Private Link. Your ori
 
 When you enable Private Link to your origin in Azure Front Door Premium, Front Door creates a private endpoint on your behalf from an Azure Front Door managed regional private network. You'll receive an Azure Front Door private endpoint request at the origin pending your approval.
 
-You must approve the private endpoint connection before traffic can pass to the origin privately. You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](../private-link/manage-private-endpoint.md).
-
 > [!IMPORTANT]
-> You must approve the private endpoint connection before traffic will flow to your origin.
+> You must approve the private endpoint connection before traffic can pass to the origin privately. You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](../private-link/manage-private-endpoint.md).
 
-After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to get established. During this time, requests to the origin will receive an Azure Front Door error message. The error message will go away once the connection is established.
+After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to be established. During this time, requests to the origin will receive an Azure Front Door error message. The error message will go away once the connection is established.
 
 Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin will communicate using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
@@ -38,7 +35,7 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 ### Private endpoint creation
 
-Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of Private Link, resource ID and group ID, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, group ID, you won't need to approve anymore private endpoints.
+Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of Private Link, resource ID and group ID, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID and group ID, you won't need to approve anymore private endpoints.
 
 #### Single private endpoint
 
@@ -66,17 +63,17 @@ A new private endpoint gets created in the following scenario:
 
 ### Private endpoint removal
 
-When an Azure Front Door profile get deleted, private endpoints associated with the profile will also get deleted. 
+When an Azure Front Door profile gets deleted, private endpoints associated with the profile will also get deleted. 
 
 #### Single private endpoint
 
-If AFD-Profile-1 gets deleted, then PE1 private endpoint across all the origin will also get deleted.
+If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the origins will also be deleted.
 
 :::image type="content" source="./media/private-link/delete-endpoint.png" alt-text="Diagram showing if AFD-Profile-1 gets deleted then PE1 across all origins will get deleted.":::
 
 #### Multiple private endpoints
 
-* If AFD-Profile-1 gets deleted, all private endpoints from PE1 through PE4 will get deleted.
+* If AFD-Profile-1 gets deleted, all private endpoints from PE1 through to PE4 will be deleted.
  
     :::image type="content" source="./media/private-link/delete-multiple-endpoints.png" alt-text="Diagram showing if AFD-Profile-1 gets deleted, all private endpoints from PE1 through PE4 gets deleted.":::
 

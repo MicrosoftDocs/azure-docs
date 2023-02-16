@@ -62,8 +62,8 @@ Several aspects of a search service are determined when the service is provision
 Service administration includes the following tasks:
 
 * [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
-* [Manage API keys](search-security-api-keys.md) used for admin and query operations
-* [Allow or deny access using Azure roles](search-security-rbac.md)
+* [Manage API keys](search-security-api-keys.md) used for content access
+* [Manage Azure roles](search-security-rbac.md) used for content and service access
 * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency

@@ -23,7 +23,7 @@ Here's what you can do when you run Azure Virtual Desktop on Azure:
 
 Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:
 
-> [!VIDEO https://www.youtube.com/embed/NQFtI3JLtaU]
+> [!VIDEO https://www.youtube.com/embed/aPEibGMvxZw]
 
 For more videos about Azure Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
@@ -34,7 +34,7 @@ With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 - Create a full desktop virtualization environment in your Azure subscription without running any gateway servers.
 - Publish host pools as you need to accommodate your diverse workloads.
 - Bring your own image for production workloads or test from the Azure Gallery.
-- Reduce costs with pooled, multi-session resources. With the new Windows 11 and Windows 10 Enterprise multi-session capability, exclusive to Azure Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system overhead while still providing the same resources to your users.
+- Reduce costs with pooled, multi-session resources. With the new Windows 11 and Windows 10 Enterprise multi-session capability, exclusive to Azure Virtual Desktop and the Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system overhead while still providing the same resources to your users.
 - Provide individual ownership through personal (persistent) desktops.
 - Use autoscale to automatically increase or decrease capacity based on time of day, specific days of the week, or as demand changes, helping to manage cost.
 

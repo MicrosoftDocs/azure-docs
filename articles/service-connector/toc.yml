@@ -1,8 +1,12 @@
 items:
 - name: Service Connector documentation
   href: index.yml
-- name: Service Connector overview
-  href: overview.md
+- name: Overview
+  items:
+    - name: About Service Connector
+      href: overview.md
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   expanded: true
   items: 

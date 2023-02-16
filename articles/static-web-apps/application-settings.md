@@ -12,9 +12,15 @@ ms.custom: devx-track-js, engagement-fy23
 
 # Configure application settings for Azure Static Web Apps
 
-When you configure application settings and environment variables, you modify the configuration input to your app without the need to change application code, such as with database connection strings. You can also store secrets used in [authentication configuration](key-vault-secrets.md).
+Application settings hold configuration values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
 
-Application settings are encrypted at rest, copied to [staging](review-publish-pull-requests.md) and production environments, used by backend APIs, and may only be alphanumeric characters, plus `.`  and `_`.
+Application settings:
+
+- Are available as environment variables to the backend API of a static web app
+- Can be used to store secrets used in [authentication configuration](key-vault-secrets.md)
+- Are encrypted at rest
+- Are copied to [staging](review-publish-pull-requests.md) and production environments
+- May only be alphanumeric characters, `.`, and `_`
 
 > [!IMPORTANT]
 > The application settings described in this article only apply to the backend API of an Azure Static Web App.
@@ -54,7 +60,7 @@ const connectionString = process.env.DATABASE_CONNECTION_STRING;
 
 The `local.settings.json` file isn't tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually configure your settings in Azure.
 
-Generally, your settings are infrequently set, so aren't required with every build.
+Generally, configuring your settings is done infrequently, and isn't required with every build.
 
 ## Configure application settings
 

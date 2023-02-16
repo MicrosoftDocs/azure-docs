@@ -2,9 +2,12 @@
 title: Create an internal load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
-services: container-service
-ms.topic: article
-ms.date: 12/12/2022
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.date: 03/04/2019
 
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
@@ -13,7 +16,7 @@ ms.date: 12/12/2022
 # Use an internal load balancer with Azure Kubernetes Service (AKS)
 
 You can create and use an internal load balancer to restrict access to your applications in Azure Kubernetes Service (AKS).
-An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with AKS.
+An internal load balancer does not have a public IP and makes a Kubernetes service accessible only to applications that can reach the private IP. These applications can be within the same VNET or in another VNET through VNET peering. This article shows you how to create and use an internal load balancer with AKS.
 
 > [!NOTE]
 > Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. When you create a *LoadBalancer* service type, you'll get the same load balancer type as when you provisioned the cluster. For more information, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
@@ -68,28 +71,50 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## Specify an IP address
 
-If you want to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
-
-> [!NOTE]
-> If you initially deploy the service without specifying an IP address and later you update its configuration to use a dynamically assigned IP address using the *loadBalancerIP* property, the IP address still shows as dynamically assigned.
+When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
 
 For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: internal-app
-  annotations:
-    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.240.0.25
-  ports:
-  - port: 80
-  selector:
-    app: internal-app
-```
+If you want to use a specific IP address with the load balancer, there are two ways:
+
+> [!IMPORTANT]
+> Adding the *LoadBalancerIP* property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead.
+
+* **Set service annotations**: Use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address.
+  
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: internal-app
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.240.0.25
+        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+      selector:
+        app: internal-app
+    ```
+
+* **Add the *LoadBalancerIP* property to the load balancer YAML manifest**: Add the *Service.Spec.LoadBalancerIP* property to the load balancer YAML manifest. This field is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235), and it can't support dual-stack. Current usage remains the same and existing services are expected to work without modification.
+
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: internal-app
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    spec:
+      type: LoadBalancer
+      loadBalancerIP: 10.240.0.25
+      ports:
+      - port: 80
+      selector:
+        app: internal-app
+    ```
 
 When you view the service details, the IP address in the *EXTERNAL-IP* column should reflect your specified IP address.
 
@@ -253,5 +278,5 @@ Learn more about Kubernetes services in the [Kubernetes services documentation][
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [different-subnet]: #specify-a-different-subnet
-[aks-vnet-subnet]: /aks/configure-kubenet.md#create-a-virtual-network-and-subnet
-[unique-subnet]: /aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
+[aks-vnet-subnet]: configure-kubenet.md#create-a-virtual-network-and-subnet
+[unique-subnet]: use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet

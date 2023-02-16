@@ -3,14 +3,14 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 11/09/2022
+ms.date: 01/24/2023
 ---
 
 # Cloud Security Posture Management (CSPM)
 
 One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
-Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues and shows your security posture in secure score, an aggregated score of the security findings that tells you, at a glance, your current security situation: the higher the score, the lower the identified risk level.
+Defender for Cloud continually assesses your resources, subscriptions and organization for security issues. Defender for Cloud shows your security posture in secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
 
 ## Availability
 
@@ -66,13 +66,13 @@ Attack path analysis is a graph-based algorithm that scans the cloud security gr
 - expose exploitable paths that attackers may use to breach your environment and reach your high-impact assets
 - provide recommendations for ways to prevent successful breaches
 
-By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more, this analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+When you take your environment's contextual information into account, attack path analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.  For example its exposure to the internet, permissions, lateral movement, and more.
 
 Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
 ## Agentless scanning for machines 
 
-With agentless scanning for VMs, you can get visibility on actionable OS posture issues without installed agents, network connectivity, or machine performance impact.
+With agentless scanning for VMs, you can get visibility on actionable OS posture issues without installed agents, network connectivity, or machine performance.
 
 Learn more about [agentless scanning](concept-agentless-data-collection.md).
 

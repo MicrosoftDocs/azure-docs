@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network - quickstart - Azure PowerShell
+title: 'Quickstart: Create a virtual network - Azure PowerShell'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
 author: asudbring
