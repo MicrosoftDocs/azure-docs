@@ -335,33 +335,37 @@ You can then get real-time monitoring by using telemetry and analytics from othe
 
 In your workflow, triggers and actions have the capability for you to add the following custom properties so that their values appear along with the emitted telemetry in your Log Analytics workspace.
 
-* Custom tracking ID
+### Custom tracking ID
 
-  Most triggers have a **Custom Tracking Id** property where you can specify a tracking ID using an expression. You can use this expression to get data from the received message payload or to generate unique values, for example:
+Most triggers have a **Custom Tracking Id** property where you can specify a tracking ID using an expression. You can use this expression to get data from the received message payload or to generate unique values, for example:
 
-  If you don't specify this custom tracking ID, Azure automatically generates this ID and correlates events across a workflow run, including any nested workflows that are called from the parent workflow. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a Request trigger, HTTP trigger, or webhook-based trigger.
+If you don't specify this custom tracking ID, Azure automatically generates this ID and correlates events across a workflow run, including any nested workflows that are called from the parent workflow. You can manually specify this ID in a trigger by passing a `x-ms-client-tracking-id` header with your custom ID value in the trigger request. You can use a Request trigger, HTTP trigger, or webhook-based trigger.
 
-  **Consumption workflow**
+### [Consumption](#tab/consumption)
 
-  :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
+:::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
 
-  **Standard workflow**
+### [Standard (preview)](#tab/standard)
 
-  :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
+:::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
 
-* Tracked properties
+---
 
-  Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value to track specific inputs or outputs, for example:
+### Tracked properties
 
-  **Consumption workflow**
+Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value to track specific inputs or outputs, for example:
 
-  :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
+### [Consumption](#tab/consumption)
 
-  **Standard workflow**
+:::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
 
-  :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
+### [Standard (preview)](#tab/standard)
 
-  Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
+:::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
+
+---
+
+Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
 
 The following example shows where these custom properties appear in your Log Analytics workspace where the custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column:
 
