@@ -77,7 +77,7 @@
     - name: Get started with machine learning
       items:
         - name: Develop on a cloud workstation
-          href: tutorial-cloud-workstation
+          href: tutorial-cloud-workstation.md
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
     - name: Build models
