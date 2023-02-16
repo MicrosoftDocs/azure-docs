@@ -52,7 +52,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
 - For Microsoft Graph, the *RoleManagement.ReadWrite.Directory* permission is required to be able to manage the membership of role-assignable groups. The *Group.ReadWrite.All* permission won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA or modify sensitive attributes for members and owners of a role-assignable group.
-- Group nesting is not supported. 
+- Group nesting is not supported. A group can't be added as a member of a role-assignable group.
 
 ## Use PIM to make a group eligible for a role assignment
 
