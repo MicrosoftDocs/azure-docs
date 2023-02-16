@@ -264,7 +264,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     +  Converting decimal type y-test into float to allow for metrics computation to proceed without errors.   
     +  AutoML training now supports numpy version 1.8.    
   + **azureml-contrib-automl-dnn-forecasting**
-    +  Fixed a bug in the TCNForecaster model were not all training data would be used when cross-validation settings were provided.
+    +  Fixed a bug in the TCNForecaster model where not all training data would be used when cross-validation settings were provided.
     +  TCNForecaster wrapper's forecast method that was corrupting inference-time predictions. Also fixed an issue where the forecast method would not use the most recent context data in train-valid scenarios.
   + **azureml-interpret**
     +  For azureml-interpret package, remove shap pin with packaging update. Remove numba and numpy pin after CE env update.
@@ -1728,7 +1728,7 @@ To get started, visit the [Run Jupyter Notebooks in your workspace](../how-to-ru
 
 **New Features Introduced:**
 
-+ Improved editor (Monaco editor) used by VS Code 
++ Improved editor (Monaco editor) used by Visual Studio Code 
 + UI/UX improvements
 + Cell Toolbar
 + New Notebook Toolbar and Compute Controls
@@ -3011,7 +3011,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Use transfer learning with the supported DNN
     + Register the model with Model Management Service and containerize the model
     + Deploy the model to an Azure VM with an FPGA in an Azure Kubernetes Service (AKS) cluster
-  + Deploy the container to an [Azure Data Box Edge](../../databox-online/azure-stack-edge-overview.md) server device
+  + Deploy the container to an [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) server device
   + Score your data with the gRPC endpoint with this [sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
 
 ### Automated Machine Learning
