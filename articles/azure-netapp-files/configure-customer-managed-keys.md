@@ -27,17 +27,17 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 >
 > During preview, customer-managed keys are available only in the **East Asia**, **East US 2**, and **West Europe** regions. 
 
-* Customer-managed keys can only be configured on new volumes. You cannot migrate existing volumes to customer-managed key encryption. 
-* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
-* Switching from user-assigned identity to the system-assigned identity is currently not supported.
-* MSI Automatic certificate renewal is not currently supported.  
-* The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
-    * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, you will get an error message stating when the account will be eligible for renewal. 
+* Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
+* To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Switching from user-assigned identity to the system-assigned identity isn't currently supported.
+* MSI Automatic certificate renewal isn't currently supported.  
+* The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
+    * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, an error message will communicate the date of eligibility. 
     * Version 2.42 or later of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account#az-netappfiles-account-renew-credentials). For example:
     
     `az netappfiles account renew-credentials –-account-name myaccount –resource-group myresourcegroup`
 
-    * If the account is not eligible for MSI certificate renewal, then an error will be returned stating the date and time when the account will be eligible. It is recommended you run this operation periodically (for example, daily) to prevent the certificate from expiring and from the customer-managed key volume going offline.
+    * If the account isn't eligible for MSI certificate renewal, an error will communicate the date and time when the account is eligible. It's recommended you run this operation periodically (for example, daily) to prevent the certificate from expiring and from the customer-managed key volume going offline.
 
 <!-- 
    *  You will need to call the operation via ARM REST API. Submit a POST request to `/subscriptions/<16 digit subscription ID>/resourceGroups/<resource_group_name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-04`.
@@ -47,7 +47,7 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
          /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
         ```  -->
 
-* Applying Azure network security groups on the private link subnet to Azure Key Vault is not supported for Azure NetApp Files customer-managed keys. Network security groups do not affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
+* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
 ## Requirements
@@ -68,7 +68,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 ## Configure a NetApp account to use customer-managed keys
 
-1. In the Azure Portal and under Azure NetApp Files, select **Encryption**.
+1. In the Azure portal and under Azure NetApp Files, select **Encryption**.
 
     The **Encryption** page enables you to manage encryption settings for your NetApp account. It includes an option to let you set your NetApp account to use your own encryption key, which is stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). This setting provides a system-assigned identity to the NetApp account, and it adds an access policy for the identity with the required key permissions.
 
@@ -81,27 +81,27 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
     * The **Enter key URI** option allows you to enter manually the key URI. 
     :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
 
-1. Select the identity type that will be used for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options will be available. Otherwise, only user-assigned will only be available.
-    * If you choose **System-assigned**, select the **Save** button. The Azure Portal will configure the NetApp account automatically with the following process: A system-assigned identity will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
-    * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** will open a context pane prompting you to select a user-assigned managed identity. 
+1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options are available. Otherwise, only the user-assigned option is available.
+    * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically with the following process: A system-assigned identity is added to your NetApp account. An access policy is be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
+    * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** opens a context pane prompting you to select a user-assigned managed identity. 
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
     
-    If your Azure Key Vault is configured to use Vault access policy, the Azure Portal will configure the NetApp account automatically with the following process: The user-assigned identity you select will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt. 
+    If you've configured your Azure Key Vault use Vault access policy, the Azure portal configures the NetApp account automatically with the following process: The user-assigned identity you select is added to your NetApp account. An access policy is created on your Azure Key Vault with the key permissions Get, Encrypt, Decrypt. 
 
-    If your Azure Key Vault is configured to use Azure role-based access control, then you need to make sure that the selected user-assigned identity has a role assignment on the key vault with permissions for data actions"
+    If you've configure your Azure Key Vault to use Azure role-based access control, then you need to make sure the selected user-assigned identity has a role assignment on the key vault with permissions for data actions:
       * `Microsoft.KeyVault/vaults/keys/read`
       * `Microsoft.KeyVault/vaults/keys/encrypt/action`
       * `Microsoft.KeyVault/vaults/keys/decrypt/action`
-    The user-assigned identity you select will be added to your NetApp account. Due to the customizable nature of RBAC, the Azure Portal does not configure access to the key vault. See Using role-based access control for details on configuring Azure Key Vault. 
+    The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control (RBAC), the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md) for details on configuring Azure Key Vault. 
 
-1. After selecting **Save** button, you'll receive a notification communicating the status of the operation. If the operation was not successful, an error message will display. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
+1. After selecting **Save** button, you'll receive a notification communicating the status of the operation. If the operation was not successful, an error message displays. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
 
 ## Use role-based access control
 
-You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure Portal, you need to provide a user-assigned identity. 
+You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure portal, you need to provide a user-assigned identity. 
 
-1. In your Azure account, go to the **Access policies** menu.
+1. In your Azure account, navigate to the **Access policies** menu.
 1. To create an access policy, under **Permission model**, select **Azure role-based access-control**.
     :::image type="content" source="../media/azure-netapp-files/rbac-permission.png" alt-text="Screenshot of access configuration menu." lightbox="../media/azure-netapp-files/rbac-permission.png":::
 1. When creating the user-assigned role, there are three permissions required for customer-managed keys: 
@@ -152,7 +152,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
      
     When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported. 
 
-    You must select a key vault private endpoint as well. The dropdown menu will display private endpoints in the selected Virtual network. If there's no private endpoint for your key vault in the selected virtual network, then the dropdown will be empty, and you'll not be able to proceed. If this is the case, refer to [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
+    You must select a key vault private endpoint as well. The dropdown menu displays private endpoints in the selected Virtual network. If there's no private endpoint for your key vault in the selected virtual network, then the dropdown is empty, and you won't be able to proceed. If so, see to [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
     :::image type="content" source="../media/azure-netapp-files/keys-create-volume.png" alt-text="Screenshot of create volume menu." lightbox="../media/azure-netapp-files/keys-create-volume.png":::
 
@@ -163,7 +163,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
 ## Rekey all volumes under a NetApp account
 
-If your NetApp account is already configured for customer-managed keys and has one or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault, changing key vaults is not supported. 
+If you have already configured your NetApp account for customer-managed keys and has one or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault, changing key vaults isn't supported. 
 
 1. Under your NetApp account, navigate to the **Encryption** menu. Under the **Current key** input field, select the **Rekey** link.
 :::image type="content" source="../media/azure-netapp-files/encryption-current-key.png" alt-text="Screenshot of the encryption key." lightbox="../media/azure-netapp-files/encryption-current-key.png":::
@@ -188,14 +188,14 @@ This section lists error messages and possible resolutions when Azure NetApp Fil
 | `Azure Key Vault key has not been activated` | Ensure that the selected key is active. |
 | `Key Vault URI is invalid` | When entering key URI manually, ensure that the URI is correct. | 
 | `Azure Key Vault is not recoverable. Make sure that Soft-delete and Purge protection are both enabled on the Azure Key Vault` | Update the key vault recovery level to: <br> `“Recoverable/Recoverable+ProtectedSubscription/CustomizedRecoverable/CustomizedRecoverable+ProtectedSubscription”` |
-| `Account must be in the same region as the Vault` | Ensure the key vault being used is in the same region as the NetApp account. |
+| `Account must be in the same region as the Vault` | Ensure the key vault is in the same region as the NetApp account. |
 
 ### Errors creating a volume encrypted with customer-managed keys  
 
 | Error Condition | Resolution |
 | ----------- | ----------- |
-| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account does not have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
-| `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume cannot be changed. |
+| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account doesn't have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
+| `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume can't be changed. |
 | `Unable to use the configured encryption key, please check if key is active` | Check that: <ol><li>Are all access policies correct on the key vault: Get, Encrypt, Decrypt?</li><li>Does a private endpoint for the key vault exist?</li><li>Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled?</li></ol> |
 
 ## Next steps
