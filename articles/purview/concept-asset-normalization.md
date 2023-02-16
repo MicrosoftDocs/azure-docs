@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 02/16/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -98,7 +98,7 @@ Remove the trailing slash from higher level assets for Azure Blob, ADLS Gen1, an
 
 Applies to: Azure Blob, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2
 
-Asset types: "azure_blob_container", "azure_blob_service", "azure_storage_account", "azure_datalake_gen2_service", "azure_datalake_gen2_filesystem", "azure_datalake_gen1_account"
+Asset types: "azure_blob_container", "azure_blob_service", "azure_storage_account", "azure_datalake_gen2_service", "azure_datalake_gen2_filesystem", "azure_datalake_gen1_account".
 
 Before: `https://myaccount.core.windows.net/`
 
