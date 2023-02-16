@@ -75,8 +75,7 @@ This sample code does the following:
 * Read the whole wave files at once and stream it to sdk and begins transcription.
 * If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
-> [!NOTE]
-> If speaker identification or differentiate is enabled, even you have received `transcribed` results, service is still evaluating them by accumulated audio information. When service finds any previous result assigned a wrong `speakerId`, it will send out an almost same `transcribed` result again, but only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if current `transcribed` result is going to correct previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or just ignore the current one.
+If speaker identification or differentiate is enabled, then even if you have already received `transcribed` results, the service is still evaluating them by accumulated audio information. If the service finds that any previous result was assigned an incorrect `speakerId`, then a nearly identical `Transcribed` result will be sent again, where only the `speakerId` and `UtteranceId` are different. Since the `UtteranceId` format is `{index}_{speakerId}_{Offset}`, when you receive a `transcribed` result, you could use `UtteranceId` to determine if the current `transcribed` result is going to correct a previous one. Your client or UI logic could decide behaviors, like overwriting previous output, or to ignore the latest result.
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
