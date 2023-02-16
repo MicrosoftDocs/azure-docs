@@ -371,6 +371,24 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool-portal.png)
 
+## Remove DisableRegistryTools
+
+If you've performed all four steps but the agent still doesn't work, that may be because the DisableRegistryTools registry key is enabled in one of the following locations:
+
+- HKU:\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1 
+- HKU:\S-1-5-18\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1 
+- HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1
+
+This registry key prevents the agent from installing the side-by-side stack, which results in an installMSIException error. This error leads to the session hosts being stuck in an unavailable state.
+
+To resolve this issue, you'll need to remove the key:
+
+1. Remove the DisableRegistryTools key from the three previously listed locations.
+2. Uninstall and remove the affected side-by-side stack installation from the **Apps & Features** folder.
+3. Remove the affected side-by-side stack's registry keys.
+4. Restart your VM.
+5. Start the agent and let it auto-install the side-by-side stack.
+
 ## Next steps
 
 If the issue continues, create a support case and include detailed information about the problem you're having and any actions you've taken to try to resolve it. The following list includes other resources you can use to troubleshoot issues in your Azure Virtual Desktop deployment.
