@@ -1,7 +1,7 @@
 ---
 title: Map DNS for the applications in multiple Azure Spring Apps in the same VNET
 description: Learn how to Map DNS for the applications in multiple Azure Spring Apps in the same VNET
-author: 
+author: Descatles
 ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to
@@ -169,7 +169,7 @@ az spring app update \
 
 Using this Microsoft provided fully qualified domain name requires you to add DNS record for each applications. Before using this approach, please make sure that you have read [Access your application in a private network](how-to-prepare-app-deployment.md).
 
-When Assign Endpoint on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name. By default, the fully qualified domain name is unique per app across service instances with formart <service-name>-<app-name>.private.azuremicroservices.io. In this approach, we need to create DNS record for each application.
+When Assign Endpoint on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name. By default, the fully qualified domain name is unique per app across service instances with formart <service\-name>-<app\-name>.private.azuremicroservices.io. In this approach, we need to create DNS record for each application.
  
 
 ### Create DNS record for all the applications
@@ -195,7 +195,7 @@ This doc use the hello-vnet app in azure-spring-apps-1 as an example, and you sh
 
 1. Select **OK**.
 
-    ![Add private DNS zone record](media/spring-cloud-access-app-vnet-multiple-instance/private-dns-zone-add-record.png)
+    ![Add private DNS zone record FQDN](media/spring-cloud-access-app-vnet-multiple-instance/private-dns-zone-add-record-fqdn.png)
 
 #### [CLI](#tab/azure-CLI)
 
@@ -215,15 +215,15 @@ Use the [IP address](#find-the-ip-for-your-applications) to create the A record 
 
 After the assignment, you can access all those application's private FQDN in the private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then, on that jumpbox or virtual machine, the private FQDN of those applications are all accessible.
 
-![Access private endpoint in vnet - 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-1.png)
-![Access private endpoint in vnet - 2](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-2.png)
+![Access private endpoint in vnet FQDN 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-1-fqdn.png)
+![Access private endpoint in vnet FQDN 2](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-2-fqdn.png)
 
 
 ## Extra steps by using Custom domain
 
 By using Custom domain, you only need to add DNS record for each azure spring apps instance. But instead, you need to configure custom domain for each applications. please make sure that you have read [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
-We will reuse the private DNS zone *private.azuremicroservices.io* to add custom domain related DNS record to simplify this example, so the private fully qualified domain name we use is in format <app-name>.<service-name>.private.azuremicroservices.io. Technically, you could use any private fully qualified domain name you want. In that case, you have to create a new private DNS zone corresponding to the fully qualified domain name you choose.
+We will reuse the private DNS zone *private.azuremicroservices.io* to add custom domain related DNS record to simplify this example, so the private fully qualified domain name we use is in format <app\-name>.<service\-name>.private.azuremicroservices.io. Technically, you could use any private fully qualified domain name you want. In that case, you have to create a new private DNS zone corresponding to the fully qualified domain name you choose.
 
 ### Map your custom domain to Azure Spring Apps app
 
@@ -238,7 +238,7 @@ Go to application page.
 4. Select **Validate** to enable the **Add** button.
 5. Select **Add**.
 
-![Add custom domain](/media/spring-cloud-access-app-vnet-multiple-instance/add-custom-domain.png)
+![Add custom domain](./media/spring-cloud-access-app-vnet-multiple-instance/add-custom-domain.png)
 
 When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
 
@@ -260,7 +260,7 @@ az spring app custom-domain list --app <app name> --resource-group <resource gro
 > [!NOTE]
 > A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning.
 
-## Add SSL binding
+### Add SSL binding
 
 Before doing this step, please make sure you have prepare your certificates and import them into Azure Spring Apps. For detailed information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
@@ -306,7 +306,7 @@ This doc use the azure-spring-apps-1 instanceas an example, and you should creat
 
 1. Select **OK**.
 
-    ![Add private DNS zone record](media/spring-cloud-access-app-vnet-multiple-instance/private-dns-zone-add-record-custom-domain.png)
+    ![Add private DNS zone record custom domain](media/spring-cloud-access-app-vnet-multiple-instance/private-dns-zone-add-record-custom-domain.png)
 
 #### [CLI](#tab/azure-CLI)
 
@@ -326,8 +326,8 @@ Use the [IP address](#find-the-ip-for-your-applications) to create the A record 
 
 After the assignment, you can access all those application's private FQDN in the private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then, on that jumpbox or virtual machine, the private FQDN of those applications are all accessible.
 
-![Access private endpoint in vnet - 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-1.png)
-![Access private endpoint in vnet - 2](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-2.png)
+![Access private endpoint in vnet custom domain 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-1.png)
+![Access private endpoint in vnet custom domain 1](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-custom-domain-2.png)
 
 ## Clean up resources
 
