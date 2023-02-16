@@ -23,6 +23,37 @@ The Kubernetes iSCSI CSI driver is available on GitHub:
 - [Readme](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md)
 - [Report iSCSI driver issues](https://github.com/kubernetes-csi/csi-driver-iscsi/issues)
 
+Elastic SAN does not currently support dynamic discovery used in this driver, so the following code changes in the driver are required to add the volumes statically. 
+
+Make the following modifications to the pkg/lib/iscsi/iscsi/iscsi.go file: 
+
+![image](https://user-images.githubusercontent.com/125496408/219490945-b2201780-e78a-448a-8c05-1fece2325d59.png)
+
+First add a new function for static discovery: 
+
+```
+// Add a new function to make static discovery
+func (c *Connector) discoverTargetStatically(targetIqn string, iFace string, portal string) error {
+	err := CreateDBEntry(targetIqn, portal, iFace, c.DiscoverySecrets, c.SessionSecrets)
+	if err != nil {
+		debug.Printf("Error creating db entry: %s\n", err.Error())
+		return err
+	}
+	return nil
+}
+```
+
+Then replace the dynamic discovery with our new function name: 
+
+replace: 
+```
+if err := c.discoverTarget(targetIqn, iFace, portal); err != nil
+```
+with:
+```
+if err := c.discoverTargetStatically
+```
+
 ### Licensing
 
 The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/LICENSE).
@@ -72,7 +103,7 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 ### Cluster configuration
 
-Once you've retrieved your volumes information, you'll need to create a few yml files on your AKS cluster.
+Once you've retrieved your volumes information, you'll need to create a few yml files for your new resources on your AKS cluster.
 
 First, create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
@@ -113,7 +144,7 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
-Then we create this persistent volume referenced to the pod onto the AKS cluster. After that we can verify the connection by running some basic read/write workloads onto the volume.
+Then we create this persistent volume claim referenced to the pod onto the AKS cluster by the same persistent volume name. 
 
 ```yml
 apiVersion: v1
@@ -172,10 +203,22 @@ Now that the persistent volume is created, create a persistent volume claim.
 kubectl apply -f pathtoyourfile/pvc.yaml
 ```
 
+To verify your PersistentVolumeClaim is created and bound to the PersistentVolume, run the following command: 
+
+```bash
+kubectl get pvc pathtoyourfile 
+```
+
 Finally, create the pod.
 
 ```bash
 kubectl apply -f pathtoyourfile/pod.yaml
+```
+
+To verify your Pod was created run the following command: 
+
+```bash
+kubectl get pods  
 ```
 
 You've now successfully connected an Elastic SAN volume to your AKS cluster.
