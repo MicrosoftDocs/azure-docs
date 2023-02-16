@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -26,16 +26,16 @@ App provisioning lets you:
 
 - **Automate provisioning**: Automatically create new accounts in the right systems for new people when they join your team or organization.
 - **Automate deprovisioning**: Automatically deactivate accounts in the right systems when people leave the team or organization.
-- **Synchronize data between systems**: Ensure that the identities in your apps and systems are kept up to date based on changes in the directory or your human resources system.
+- **Synchronize data between systems**: Keep the identities in apps and systems up to date based on changes in the directory or human resources system.
 - **Provision groups**: Provision groups to applications that support them.
-- **Govern access**: Monitor and audit who has been provisioned into your applications.
+- **Govern access**: Monitor and audit users provisioned in applications.
 - **Seamlessly deploy in brown field scenarios**: Match existing identities between systems and allow for easy integration, even when users already exist in the target system.
 - **Use rich customization**: Take advantage of customizable attribute mappings that define what user data should flow from the source system to the target system.
 - **Get alerts for critical events**: The provisioning service provides alerts for critical events and allows for Log Analytics integration where you can define custom alerts to suit your business needs.
 
 ## What is SCIM?
 
-To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. User management in more than one app is a challenge because every app tries to perform the same actions. For example, creating or updating users, adding users to groups, or deprovisioning users. Yet, all these actions are implemented slightly differently by using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
+To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. User management in more than one app is a challenge because every app tries to perform the same actions. For example, creating or updating users, adding users to groups, or deprovisioning users. Often, developers implement these actions slightly different. For example, using different endpoint paths, different methods to specify user information, and different schema to represent each element of information.
 
 To address these challenges, the System for Cross-domain Identity Management (SCIM) specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used with federation standards like Security Assertions Markup Language (SAML) or OpenID Connect (OIDC), provides administrators an end-to-end standards-based solution for access management.
 
@@ -74,7 +74,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
    ![Image that shows logos for DropBox, Salesforce, and others.](./media/user-provisioning/gallery-app-logos.png)
 
-   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../manage-apps/v2-howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
+   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../manage-apps/v2-howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Request that the application vendor follows the SCIM standard so we can onboard the app to our platform quickly.
 
 * **Applications that support SCIM 2.0**: For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
