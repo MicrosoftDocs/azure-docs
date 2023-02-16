@@ -97,10 +97,10 @@ The following Resource Manager template enables adding an IP filter rule to an e
         {
             "type": "Microsoft.EventHub/namespaces/authorizationrules",
             "apiVersion": "2022-01-01-preview",
-            "name": "[concat(parameters('namespaces_spehubns0215_name'), '/RootManageSharedAccessKey')]",
+            "name": "[concat(parameters('namespace_name'), '/RootManageSharedAccessKey')]",
             "location": "eastus",
             "dependsOn": [
-                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_spehubns0215_name'))]"
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespace_name'))]"
             ],
             "properties": {
                 "rights": [
@@ -113,10 +113,10 @@ The following Resource Manager template enables adding an IP filter rule to an e
         {
             "type": "Microsoft.EventHub/namespaces/networkRuleSets",
             "apiVersion": "2022-01-01-preview",
-            "name": "[concat(parameters('namespaces_spehubns0215_name'), '/default')]",
+            "name": "[concat(parameters('namespace_name'), '/default')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_spehubns0215_name'))]"
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespace_name'))]"
             ],
             "properties": {
                 "publicNetworkAccess": "Enabled",
