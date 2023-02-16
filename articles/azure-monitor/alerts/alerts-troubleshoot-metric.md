@@ -224,11 +224,11 @@ To check the current usage of metric alert rules, follow the next steps.
    1. Verify that the **Status** dropdown box is set to **Enabled**.
    1. The total number of metric alert rules are displayed above the alert rules list.
     
-    ### From API
-    
-    - **PowerShell**: [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
-    - **REST API**: [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
-    - **Azure CLI**: [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
+### With the API
+
+   - **PowerShell**: [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
+   - **REST API**: [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
+   - **Azure CLI**: [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## Manage alert rules using Resource Manager templates, REST API, PowerShell, or the Azure CLI
 
