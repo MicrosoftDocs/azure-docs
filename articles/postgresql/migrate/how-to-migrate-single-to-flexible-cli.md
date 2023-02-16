@@ -40,7 +40,7 @@ To complete this tutorial, you need to:
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
 
-* Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../postgresql/flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../postgresql/flexible-server/quickstart-create-server-cli.md)
+* Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
 
 ## Getting started
 
