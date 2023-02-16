@@ -207,9 +207,6 @@ A terminology service is a set of functions that can perform operations on medic
 
 ValueSets can contain a complex set of rules and external references, today, the service will only consider the pre-expanded inline codes Customers need to upload suported ValueSets to the FHIR server prior to utilizing the $validate operation. The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. 
 
-> [!NOTE]
-> Azure API for FHIR does not support Terminology service. There is no support for External code systems, operations and translations listed under [Terminology Service FHIR specification](https://www.hl7.org/fhir/terminology-service.html#:~:text=A%20FHIR%20terminology%20service%20is%20simply%20a%20set,the%20basic%20principles%20for%20using%20terminologies%20in%20FHIR)
-
 
 ## Next steps
 
