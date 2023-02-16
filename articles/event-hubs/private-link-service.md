@@ -22,7 +22,7 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 ### Prerequisites
 
-To integrate an Event Hubs namespace with Azure Private Link, you'll need the following entities or permissions:
+To integrate an Event Hubs namespace with Azure Private Link, you need the following entities or permissions:
 
 - An Event Hubs namespace.
 - An Azure virtual network.
@@ -42,7 +42,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Select **Disabled** if you want the namespace to be accessed only via private endpoints. 
 
     Here are more details about options available in the **Public network access** page:
-    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -57,7 +57,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
     1. Enter a **name for the network interface**. 
-    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
+    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you're connecting to. 
     1. Select **Next: Resource >** button at the bottom of the page.
 
         :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
@@ -197,7 +197,7 @@ There are four provisioning states:
 5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove.
 
 ### Approve a private endpoint connection
-1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
@@ -207,7 +207,7 @@ There are four provisioning states:
 
 ### Reject a private endpoint connection
 
-1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and click the **Reject** button.
+1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and select the **Reject** button.
 
     ![Reject private endpoint](./media/private-link-service/private-endpoint-reject-button.png)
 2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
@@ -217,7 +217,7 @@ There are four provisioning states:
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
-3. You should see the status changed to **Disconnected**. Then, the endpoint will disappear from the list.
+3. You should see the status changed to **Disconnected**. Then, the endpoint disappears from the list.
 
 ## Validate that the private link connection works
 
