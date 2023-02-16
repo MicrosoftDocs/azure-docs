@@ -57,7 +57,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [Noname Security](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
-- [Vectra Cognito](https://vectra.ai/microsoftazure)
+- [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
 
 
 ## Next steps
