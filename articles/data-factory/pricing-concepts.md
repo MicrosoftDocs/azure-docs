@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/22/2022
 ---
 
-# Understanding Data Factory pricing through examples
+# Understanding Azure Data Factory pricing through examples
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
