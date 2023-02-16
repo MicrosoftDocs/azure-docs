@@ -33,7 +33,7 @@ A shared private link is:
 + Approved by the Azure PaaS resource owner
 + Used internally on a connection to a specific Azure resource
 
-Only your search service can use the private links that it creates. 
+Only your search service can use the private links that it creates, and there can be only one shared private link for each resource and sub-resource combination. 
 
 Once you set up the private link, it's used automatically whenever search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
@@ -63,7 +63,7 @@ You can create a shared private link for the following resources.
 | Resource type                     | Sub-resource (or Group ID) |
 |-----------------------------------|----------------------------|
 | Microsoft.Storage/storageAccounts <sup>1</sup> | `blob`, `table`, `dfs`, `file` |
-| Microsoft.DocumentDB/databaseAccounts <sup>w</sup>| `sql` |
+| Microsoft.DocumentDB/databaseAccounts <sup>2</sup>| `sql` |
 | Microsoft.Sql/servers | `sqlServer` |
 | Microsoft.KeyVault/vaults | `vault` |
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
@@ -134,13 +134,13 @@ When you complete these steps, you have a shared private link that's provisioned
 
 See [Manage with REST](search-manage-rest.md) for instructions on setting up a REST client for issuing Management REST API requests.
 
-First, review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+First, use [Get](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/get) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
 ```http
 GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
 ```
 
-Create a shared private link, providing the name of the link on the URI, and the target resource in the body of the request. The following example is for blob storage.
+Use [Create or Update](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) for the next step, providing the name of the link name on the URI, and the target Azure resource in the body of the request. The following example is for blob storage.
 
 ```http
 PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
@@ -164,13 +164,13 @@ Rerun the first request to monitor the provisioning state as it transitions from
 
 See [Manage with PowerShell](search-manage-powershell.md) for instructions on getting started.
 
-First, review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+First, use [Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchprivatelinkresource) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
 ```azurepowershell
 Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name>
 ```
 
-Create a shared private link, substituting valid values for the placeholders. This example is for blob storage.
+Use [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/new-azsearchsharedprivatelinkresource) to create a shared private link, substituting valid values for the placeholders. This example is for blob storage.
 
 ```azurepowershell
 New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId blob -RequestMessage "Please approve"
@@ -219,7 +219,7 @@ Be sure to specify the correct group ID for the type of resource for which you'r
 
 ### Shared private link for Azure SQL Managed Instances
 
-When you're creating a shared private link to SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. See [Create an Azure SQL Managed Instance](azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone. If the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the `resourceRegion` should be `a1b22c333d44`.
+When you're creating a shared private link to SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone. If the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the `resourceRegion` should be `a1b22c333d44`.
 
 ```json
 {
