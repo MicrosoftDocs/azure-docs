@@ -1598,7 +1598,7 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
             "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
