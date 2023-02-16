@@ -27,7 +27,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
-3. Select the Set Variable activity on the canvas if it is not already selected, and then click the **Settings** tab to edit its details.
+3. Select the Set Variable activity on the canvas if it isn't already selected, and then click the **Settings** tab to edit its details.
 
 4. Select the variable for the Name property.
 
@@ -43,7 +43,7 @@ To set a pipeline return value, complete the following steps:
 
 1. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
-2. Select the Set Variable activity on the canvas if it is not already selected, and then click the **Settings** tab to edit its details.
+2. Select the Set Variable activity on the canvas if it isn't already selected, and then click the **Settings** tab to edit its details.
 
 3. Select **Pipeline return value (preview)** for your **Variable type**.
 
@@ -66,7 +66,7 @@ value | String literal or expression object value that the variable is assigned 
 
 ## Incrementing a variable
 
-A common scenario involving variables is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you cannot reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
+A common scenario involving variables is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
 
 Below is an example of this pattern:
 
@@ -126,7 +126,7 @@ Below is an example of this pattern:
 }
 ```
 
-Variables are currently scoped at the pipeline level. This means that they are not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
+Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
 ## Next steps
