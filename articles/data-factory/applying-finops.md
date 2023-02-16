@@ -74,7 +74,7 @@ Estimated pricing for a month (8 hours per day for 30 days):
 
 |Types  |Calculation  |
 |---------|---------|
-|**Orchestration** (activity run counts in thousands)     |3 activity runs per execution (1 for trigger run, 2 for activity runs).<br>Activity run counts/month = 3 * 8 * 30 = **720**.  Activity run counts in thousand/month = **1** |
+|**Orchestration** (activity run counts in thousands)     |3 activity runs per execution (1 for trigger run, 2 for activity runs).<br>Activity run counts/month = 3 * 8 * 30 = **720**.<br>Activity run counts in thousand/month = **1** |
 |**Execution**     |1. Data integration unit (DIU) hours:<br>&nbsp;&nbsp;&nbsp;• DIU hours **per execution** = 10 min<br>&nbsp;&nbsp;&nbsp;• Default DIU setting = 4<br>&nbsp;&nbsp;&nbsp;• DIU hours/month = (10 min / 60 min) * 4 * 8 * 30 = **160**<br><br>2. External pipeline activity execution hours:<br>&nbsp;&nbsp;&nbsp;• Per execution time: 10 min<br>&nbsp;&nbsp;&nbsp;• External pipeline activity execution hours = (10 min / 60 min) * 8 * 30 = **40** |
 
 #### Pricing calculator example
