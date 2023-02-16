@@ -712,8 +712,8 @@ For sample alerts that use the common schema, including see
 |stage     |         |
 |communicationId     |         |
 |maintenanceId     |         |
-|isHIR     |         ||
-|version     |         ||
+|isHIR     |         |
+|version     |         |
 |status     |         |
 |submissionTimeStamp     |         |
 
