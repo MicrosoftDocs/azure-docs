@@ -221,10 +221,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### Disable local accounts on an existing cluster
 
-To disable local accounts on an existing AKS cluster, use the [`az aks update`][az-aks-update] command with the `disable-local-accounts` parameter.
+To disable local accounts on an existing Azure AD integration enabled AKS cluster, use the [`az aks update`][az-aks-update] command with the `disable-local-accounts` parameter.
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
+az aks update -g <resource-group> -n <cluster-name> --disable-local-accounts
 ```
 
 In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to `true`.
@@ -247,10 +247,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### Re-enable local accounts on an existing cluster
 
-AKS supports enabling a disabled local account on an existing cluster with the `enable-local` parameter.
+AKS supports enabling a disabled local account on an existing cluster with the `enable-local-accounts` parameter.
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --enable-local
+az aks update -g <resource-group> -n <cluster-name> --enable-local-accounts
 ```
 
 In the output, confirm local accounts have been re-enabled by checking the field `properties.disableLocalAccounts` is set to `false`.
