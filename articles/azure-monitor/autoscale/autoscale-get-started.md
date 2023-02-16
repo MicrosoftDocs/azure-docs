@@ -10,7 +10,9 @@ ms.reviewer: akkumari
 ---
 # Get started with autoscale in Azure
 
-This article describes how to configure the autoscale settings for your resource in the Azure portal.
+Autoscale allows you to automatically scale your applications or resources based on demand. Use Autoscale to provision just enough resources to support the demand on your application without over provisioning and incurring unnecessary costs.
+
+This article describes how to configure the autoscale settings for your resources in the Azure portal.
 
 Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](./autoscale-overview.md#supported-services-for-autoscale).
 
