@@ -51,7 +51,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow basic customization for attribute flows |● |● |
 | Synchronize Exchange online attributes |● |● |
 | Synchronize extension attributes 1-15 |● |● |
-| Synchronize customer defined AD attributes (directory extensions) |● | |
+| Synchronize customer defined AD attributes (directory extensions) |●|●|
 | Support for Password Hash Sync |●|●|
 | Support for Pass-Through Authentication |●||
 | Support for federation |●|●|
