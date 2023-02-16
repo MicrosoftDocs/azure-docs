@@ -1,0 +1,133 @@
+---
+title: Workspaces in Azure API Management | Microsoft Docs
+description: Learn about the concept of workspaces in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
+services: api-management
+documentationcenter: ''
+author: dlepow
+ 
+ms.service: api-management
+ms.topic: conceptual
+ms.date: 02/15/2023
+ms.author: danlep
+ms.custom: 
+---
+# Workspaces in Azure API Management
+
+In API Management, *workspaces* allow decentralized API development teams to own and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
+
+[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
+
+
+> [!NOTE]
+> * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
+> * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+
+
+## Example scenario overview
+
+An organization that manages APIs using Azure API Management may have multiple development teams that develop, define, maintain, and productize different sets of APIs. Workspaces allow these teams to use API Management to manage and access their APIs independently, and independently of managing the service infrastructure.
+
+The following is a sample workflow for creating and using a workspace.
+
+1. A central API platform team creates a workspace and assigns its administrators. 
+
+1. A central API platform team creates a DevOps pipeline for APIs in that workspace. 
+
+1. Workspace administrators add workspace members and assign them permissions using RBAC roles - for example, workspace owner, workspace contributor, and so on.
+
+1. Workspace members develop, publish, productize, and monitor APIs in the workspace. 
+
+1. The central API platform team manages the infrastructure of the service, such as network connectivity, monitoring, resiliency, and enforcement of all-APIs policies. 
+
+## Workspace features
+
+### Creation and management
+
+* Create and manage workspaces by API Management instance owners or contributors.
+
+* Enable workspace members and permissions with built-in [RBAC roles](#rbac-roles). 
+
+### APIs and policies
+
+* Create and manage APIs and API operations, including API version sets, API revisions, and API policies.
+
+* Apply a policy for all APIs in a workspace. 
+
+* Use `context.Api.Workspace` and `context.Product.Workspace` objects in policies in workspaces and in the all-APIs policy on the service level. 
+
+* Describe APIs with tags from the workspace level or from the service level. 
+
+* Define named values for use in workspace policies. 
+
+* Define reusable policy fragments for use in workspace policies.
+
+* Define schemas for request and response validation policies. 
+
+### Users and groups
+
+* Organize users (from the service-level) into groups in a workspace. 
+
+### Products and subscriptions
+
+* Publish APIs with products. APIs in a workspace can be part of a service-level product or a workspace-level product. 
+
+    * Workspace-level product -  Visibility can be configured based on user membership in a workspace-level or a service-level group. 
+
+    * Service-level product - Visibility can be configured only for service-level groups. 
+
+* Manage access to APIs with subscriptions. Subscriptions requested to an API or product within a workspace are created in that workspace. 
+
+* Publish APIs and products with the developer portal. 
+
+* Manage administrative email notifications related to resources in the workspace. 
+
+## RBAC roles 
+
+ Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
+
+Workspace members must be assigned both a service-level role and a workspace-level role. The service-level role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+
+## Workspace constraints
+
+* API Management platform infrastructure features are managed on the service level only, not at the workspace level. These features include:
+
+    * Private network connectivity
+    
+    * API gateways, including scaling, locations, and self-hosted gateways
+    
+    * Developer portal, including users and identity providers etc.
+    
+* Resources in a workspace can reference other resources in the workspace and, in certain cases, resources from the service level. They can’t reference resources from another workspace. 
+
+* For security reasons, it’s not possible to reference service-level resources from workspace-level policies (for example, named values) or by resource names, such as `backend-id` in the [set-backend-service](set-backend-service-policy.md) policy.
+
+* Resources of a given type in a workspace (for example, APIs, products, subscriptions, tags) must have unique resource names in the API Management instance. For example, an API name used in a workspace can't be reused in another workspace or at the service level. 
+
+* Deleting a workspace deletes all its child resources (APIs, products, and so on).
+
+## Preview limitations 
+
+The following resources and features aren't currently supported in workspaces: 
+
+* Configuring authorization servers for access to the developer portal 
+
+* Authorizations to manage OAuth 2.0 tokens for backend APIs
+
+* Managing API backends and importing APIs from Azure services 
+
+* Client certificates for client certificate validation
+
+* Diagnostics and loggers for workspace-specific monitoring
+
+* User-assigned managed identity 
+
+* Extending current DevOps tooling to support workspaces 
+
+* Separation of API runtime per workspace
+
+
+## Next steps
+
+* Set up a workspace
+
+* Migrate API Management resources to a workspace
