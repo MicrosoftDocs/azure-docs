@@ -12,7 +12,7 @@ author: ankitaduttaMSFT
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines and Azure virtual machines (VMs).
 
-This tutorial is the third tutorial in a series. It shows you how to set up on-premises Hyper-V VMs for disaster recovery to Azure. This tutorial applies to Hyper-V VMs that aren't managed by Microsoft System Center Virtual Machine Manager.
+This tutorial is the third in a series that shows you how to set up on-premises Hyper-V VMs for disaster recovery to Azure. This tutorial applies to Hyper-V VMs that aren't managed by Microsoft System Center Virtual Machine Manager.
 
 In this tutorial, you learn how to:
 
@@ -22,11 +22,11 @@ In this tutorial, you learn how to:
 > - Enable replication for a VM.
 
 > [!NOTE]
-> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How to* section of the [Site Recovery documentation](./index.yml).
+> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How-to Guides* section of the [Site Recovery documentation](./index.yml).
 
 ## Prerequisites
 
-This tutorial is the third tutorial in a series. It assumes that you've already completed the tasks in the first two tutorials:
+This tutorial is the third in a series of tutorials. It assumes that you've already completed the tasks in the first two tutorials:
 
 1. [Prepare Azure](./tutorial-prepare-azure-for-hyperv.md)
 1. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
@@ -46,9 +46,9 @@ It's important to prepare the infrastructure before you set up disaster recovery
     > If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the pane. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
   
    - For this tutorial, you don't need to use the Deployment Planner. For **Deployment planning completed?**, select **I will do it later**.
-1. Select **Next**.
 
     :::image type="content" source="./media/hyper-v-azure-tutorial/deployment-planning.png" alt-text="Screenshot that shows the Deployment planning pane.":::
+1. Select **Next**.
 
 ### Source settings
 
@@ -110,7 +110,6 @@ Select and verify target resources:
     1. For **Post-failover deployment model**, select the **Resource Manager** deployment model.
 
     :::image type="content" source="./media/hyper-v-azure-tutorial/target-settings.png" alt-text="Screenshot that shows the Target settings pane.":::
-
 1. Select **Next**.
 
 ### Replication policy
@@ -133,10 +132,9 @@ On **Prepare infrastructure**, on the **Replication policy** tab, complete these
 
     :::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot that shows Create and associate policy pane and options.":::
 1. Select **Next**.
-
 1. On the **Review** tab, review your selections, and then select **Create**.
 
-You can track progress in your Azure portal notifications. After the job finishes, the initial replication is complete, and the VM is ready for failover.
+You can track progress in your Azure portal notifications. When the job finishes, the initial replication is complete, and the VM is ready for failover.
 
 ## Enable replication
 

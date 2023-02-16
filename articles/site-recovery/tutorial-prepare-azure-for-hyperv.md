@@ -15,7 +15,7 @@ author: ankitaduttaMSFT
 This tutorial is the first in a series that describes how to set up disaster recovery for on-premises Hyper-V VMs.
 
 > [!NOTE]
-> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How to* section of the [Site Recovery documentation](./index.yml).
+> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How-to Guides* section of the [Site Recovery documentation](./index.yml).
 
 This tutorial shows you how to prepare Azure components when you want to replicate on-premises Hyper-V VMs to Azure.
 
@@ -65,10 +65,10 @@ Images of replicated machines are held in an Azure storage account. Azure VMs ar
     1. For **Region**, select the geographic location for your storage account. For example, select **West Europe**.
     1. For **Performance**, select **Standard**.
     1. For **Redundancy**, retain the default **Geo-redundant storage (GRS)** for storage redundancy.
-1. Select **Review** and review your settings.
-1. Select **Create**.
 
     :::image type="content" source="media/tutorial-prepare-azure/create-storage-account.png" alt-text="Screenshot that shows an example of Create a storage account options.":::
+1. Select **Review** and review your settings.
+1. Select **Create**.
 
 > [!NOTE]
 > If you want to create a legacy storage account type, select the related link in the **Instance details** section. The link redirects you to the **Create a storage account** pane to a create legacy storage account.
@@ -85,14 +85,14 @@ Images of replicated machines are held in an Azure storage account. Azure VMs ar
     1. For **Resource group**, select an existing resource group or create a new one. For example, select **contosoRG**.
     1. For **Vault name**, enter a name you can use to identify the vault. For example, enter **ContosoVMVault**.
     1. For **Region**, select the region where the vault should be located. For example, select **West Europe**.
-    1. Select **Review + create** > **Create** to create the recovery vault.
+  
+   :::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot that shows the Create Recovery Services vault pane."::: 
+1. Select **Review + create**, and then select **Create** to create the recovery vault.
   
 > [!NOTE]
-> To quickly access the vault from the dashboard, select **Pin to dashboard**.
+> To quickly access the vault from your dashboard in the Azure portal, select **Pin to dashboard**.
 
 The new vault appears on **Dashboard** > **All resources** and on the main **Recovery Services vaults** pane.
-
-:::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot that shows the Create Recovery Services vault pane.":::
 
 ## Set up an Azure network
 
@@ -108,7 +108,7 @@ When an Azure VM is created from storage after failover, the VM is joined to thi
   
     :::image type="content" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot that shows the Create virtual network options.":::
 
-1. Go to the **IP addresses** tab, and then complete these steps:
+1. On **Create virtual network**, on the **IP addresses** tab, complete these steps:
     1. Because there's no subnet for this network, first delete the existing address range. To delete the range, select the ellipsis (**...**), under the available IP address range, and then select **Delete address space**.
 
         :::image type="content" source="media/tutorial-prepare-azure/delete-ip-address.png" alt-text="Screenshot that shows deleting the address space.":::
@@ -117,17 +117,15 @@ When an Azure VM is created from storage after failover, the VM is joined to thi
         :::image type="content" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot that shows adding an IP address space.":::
     1. For **Starting address**, enter **10.0.0**.
     1. For **Address space size**, select **/24 (256 addresses)**.
-    1. Select **Add**.
 
         :::image type="content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot that shows the Add virtual network options.":::
-1. Select **Review + create** > **Create** to create a new virtual network.
+1. Select **Add**.
+1. Select **Review + create**, and then select **Create** to create a new virtual network.
 
-It takes a few minutes for the virtual network to be created. After it's created, it's included on the Azure portal dashboard.
+It takes a few minutes for the virtual network to be created. After it's created, it's included on your Azure portal dashboard.
 
 ## Next steps
 
-Learn about:
-
-- [Preparing the on-premises Hyper-V infrastructure for disaster recovery to Azure](hyper-v-prepare-on-premises-tutorial.md)
-- [Azure networks](../virtual-network/virtual-networks-overview.md)
-- [Managed disks](../virtual-machines/managed-disks-overview.md)
+- [Prepare the on-premises Hyper-V infrastructure](hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure.
+- Learn about [Azure networks](../virtual-network/virtual-networks-overview.md).
+- Learn about [Managed disks](../virtual-machines/managed-disks-overview.md).
