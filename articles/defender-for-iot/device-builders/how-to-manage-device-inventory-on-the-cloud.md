@@ -53,7 +53,7 @@ The following table describes the different device properties in the device inve
 
 1. Navigate to **Defender for IoT** > **Device inventory**.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-page.png" alt-text="Select device inventory from the left side menu under Defender for IoT." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-page.png":::
 
 ## Customize the device inventory table
 
