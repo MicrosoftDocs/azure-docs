@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/24/2022
+ms.date: 02/16/2023
 ms.custom: engagement-fy23
 ---
 
@@ -290,6 +290,8 @@ Drive letter of location containing data files | SERVERPROPERTY, and Software\Mi
 List of database files | sys.databases, sys.master_files
 Service broker is enabled or not | sys.databases
 Database is enabled for change data capture or not | sys.databases
+Always On Availability Group databases and states | sys.dm_hadr_database_replica_states 
+
 
 ### SQL Server metadata
 
@@ -325,6 +327,10 @@ Size of temp database | sys.master_files, sys.configurations, sys.dm_os_sys_info
 No. of logins | sys.logins
 List of linked servers | sys.servers
 List of agent job |	[msdb].[dbo].[sysjobs], [sys].[syslogins], [msdb].[dbo].[syscategories]
+Always On Availability Groups, Replicas, and their states | sys.availability_groups, sys.dm_hadr_availability_group_states, sys.availability_group_listeners, sys.availability_group_listener_ip_addresses, sys.availability_replicas, sys.dm_hadr_availability_replica_states 
+Always On Failover Clustered Instance | sys.dm_hadr_cluster, sys.dm_hadr_cluster_members, sys.dm_hadr_cluster_networks 
+
+
 
 ### Performance metadata
 

@@ -4,7 +4,7 @@ description: Learn about Azure SQL assessments in Azure Migrate Discovery and as
 author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 02/16/2023
 ms.custom: engagement-fy23
 ---
 
@@ -95,6 +95,7 @@ Azure SQL Database sizing | **Service Tier** | You can choose the most appropria
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
 Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
 Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
+High availability and disaster recovery properties | Disaster recovery region | 
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
 
