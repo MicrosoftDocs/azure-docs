@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -292,9 +292,8 @@ Run the following code in the browser's console window to select all items.
           }
        }`;
   
-    const endpoint = "http://localhost:4280/data-api/graphql";
-  
     try {
+      const endpoint = "http://localhost:4280/data-api/graphql";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -357,10 +356,9 @@ Run the following code in the browser's console window to get an item by its uni
             Id
             Name
       }`;
-  
-    const endpoint = "http://localhost:4280/data-api/graphql";
 
     try {
+      const endpoint = "http://localhost:4280/data-api/graphql";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -442,16 +440,20 @@ This example uses a `PUT` request to do the update.
         item: newValues
       } 
     };
-  
-    const endpoint = "http://localhost:4280/data-api/graphql";
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(query)
-    });
 
-    const result = await res.json();
-    console.table(result.data.updatePeople);
+    try {
+      const endpoint = "http://localhost:4280/data-api/graphql";
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(query)
+      });
+  
+      const result = await res.json();
+      console.table(result.data.updatePeople);
+    } catch(error) {
+      console.error(error);
+    }
   }
   
   update(1, { Name: "Molly" });
@@ -503,7 +505,6 @@ Run the following code in the browser's console window to create a new record.
   
   async function create(data) {
     
-    const endpoint = "http://localhost:4280/data-api/graphql";
     const query = `
       mutation {
         createPeople(item: ${ JSON.stringify(data) })
@@ -513,14 +514,19 @@ Run the following code in the browser's console window to create a new record.
         }
       }`;
   
-    const result = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query })
-    });
-  
-    const response = await result.json();
-    console.table(response);
+    try {
+      const endpoint = "http://localhost:4280/data-api/graphql";
+      const result = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+      });
+    
+      const response = await result.json();
+      console.table(response);
+    } catch(error) {
+      console.error(error);
+    }
   }
   
   create({ Name: "Pedro" });
@@ -584,7 +590,6 @@ Run the following code in the browser's console window to delete a record.
     };
 
     try {
-
       const endpoint = "http://localhost:4280/data-api/graphql";
       const response = await fetch(endpoint, {
         method: "POST",
@@ -595,7 +600,7 @@ Run the following code in the browser's console window to delete a record.
       const result = await response.json();
       console.log(`Record deleted: ${result.data.deletePeople.Id}`);
     } catch(error) {
-        console.error(error);
+      console.error(error);
     }
   }
   
@@ -641,4 +646,4 @@ If you want to remove the resources created during this tutorial, you need to un
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure your database](database-configuration.md)
+> [Add ann API](add-api.md)

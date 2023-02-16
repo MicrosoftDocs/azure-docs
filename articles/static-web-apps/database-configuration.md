@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 ---
 
 # Database connection configuration in Azure Static Web Apps (preview)

@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -32,14 +32,11 @@ The following table shows support for different relational and NoSQL databases.
 
 | Name | Type | Description | REST | GraphQL |
 |---|---|---|---|---|
-| [Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale. | | ✔ |
+| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale. | | ✔ |
 | [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. | ✔ | ✔ |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition | ✔ | ✔ |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. | ✔ | ✔ |
 | [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | Fully managed PostgreSQL database. | ✔ | ✔ |
-
-> [!NOTE]
-> Azure Cosmos DB does not support REST endpoints.
 
 You can use the following connection types for database access:
 
@@ -58,11 +55,11 @@ The following table shows you how requests route to different parts of a static 
 
 | Path | Description |
 |---|---|
-| `example.com/api/*` | API functions |
+| `example.com/api/*` | [API functions](add-api.md) |
 | `example.com/data-api/*` | Database connection endpoints that support REST and GraphQL requests. |
 | `example.com/*` | Static content |
 
-When you configure database connections on your website, you have control over the endpoint past the `/data-api` path fragment. The `/data-api` path fragment is a convention of Static Web Apps and isn't available for you to change.
+When you configure database connections on your website, you have control over the endpoint past the `/data-api` path fragment. The `/data-api` is a convention of Static Web Apps and isn't available for you to change.
 
 ## Configuration
 
@@ -74,17 +71,15 @@ See [Database connection configuration in Azure Static Web Apps](database-config
 
 The Azure Static Web Apps CLI (SWA CLI) includes support for working with database connections during local development.
 
-data-api is the base and then you configure the REST and/or GraphQL endpoints in the [configuration file]
+The CLI activates the local `/data-api` endpoint, and proxies requests from port `4280` to the appropriate port for database access.
 
-The CLI activates the local `/data-api` endpoint, and proxies requests from port `4280` to the appropriate port for the database access.
-
-Here's an example command that starts the SWA CLI using the database connections feature:
+Here's an example command that starts the SWA CLI with a database connection:
 
 ```bash
-swa start /. --data-api-location db-config
+swa start /. --data-api-location swa-db-connections
 ```
 
-This command starts the SWA CLI in the current directory and sets `--data-api-location` to a folder named *db-config* that holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
+This command starts the SWA CLI in the current directory and sets `--data-api-location` to a folder named *swa-db-connections* that holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
 
 ## Constraints
 
@@ -94,4 +89,4 @@ This command starts the SWA CLI in the current directory and sets `--data-api-lo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure your database](database-configuration.md) 
+> [Configure your database](database-configuration.md)
