@@ -511,9 +511,10 @@ You will see a web page like this one:
 We're interested in the `stage` tile for this exercise. If you click on it, it will provide you with more details on the reconciliation state from the `stage` branch to this cluster. You can even click the `SYNC` buttons to force the reconciliation and speed up the process. 
 
 Once the new configuration has arrived to the cluster, we can check the `uat-test` application instance at `localhost:8002` after 
-running the following command:
+running the following commands:
 
 ```azurecli-interactivet
+kubectl rollout restart deployment hello-world-deployment -n stage-kaizen-app-team-hello-world-app-uat-test
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
