@@ -81,8 +81,6 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
 
-:::image type="content" source="media/use-pod-sandboxing/pod-sandbox-architecture.png" alt-text="Diagram of the AKS pod sandbox components.":::
-
 The solution architecture is based on the following components:
 
 * [Mariner][mariner-overview] AKS Container Host
