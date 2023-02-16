@@ -15,7 +15,7 @@ Some issues users experience with Durable Functions can be resolved by upgrading
 .NET apps can get the latest version of the Durable Functions extension by referencing the latest [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). 
 
 ## Upgrading the extension bundle 
-[Extension bundle](../../azure-functions/functions-bindings-register#a-nameextension-bundlesaextension-bundles.md) provides an easy and convenient way for non-.NET function apps to reference and use Azure Function extension packages written in C#. For example, if you need to send a message to Event Hubs every time your function is triggered, you need the Event Hubs extension. The extension bundle gathers a set of Azure Functions extensions that have been verified to work together into a single package referenced in host.json; the Durable Functions extension is one of them. The extension bundle is automatically enabled during time of app creation. 
+[Extension bundle](../functions-bindings-register#a-nameextension-bundlesaextension-bundles.md) provides an easy and convenient way for non-.NET function apps to reference and use Azure Function extension packages written in C#. For example, if you need to send a message to Event Hubs every time your function is triggered, you need the Event Hubs extension. The extension bundle gathers a set of Azure Functions extensions that have been verified to work together into a single package referenced in host.json; the Durable Functions extension is one of them. The extension bundle is automatically enabled during time of app creation. 
 
 Most non-.NET applications, unless they reference a .NET assembly that has all Azure Functions extensions, rely on the extension bundle for the different extensions.  The [latest bundle release](https://github.com/Azure/azure-functions-extension-bundles) often contains the latest version of the Durable Functions extension with critical bug fixes and performance improvements. Therefore, it is important that your app uses the latest version of the extension bundle. You can check the version you have in the host.json file. 
 
@@ -26,15 +26,15 @@ First, remove from your host.json the section about extension bundle.
 
 Then run the following to upgrade the Durable Functions extension:
 
-    ```console
-    func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
-    ```
+```console
+func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+```
 
 For example:
 
-    ```console
-    func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
-    ```
+```console
+func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
+```
 
 Because applications normally use more than one extension, it is recommended that you run just `func extensions install` to get **all** the latest extensions supported by Azure Functions, which would include the Durable Functions extension.  
 

@@ -19,16 +19,16 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 Full-Solution Analysis
 For the best experience, you'll want to enable full solution analysis in your Visual Studio settings. This can be done in Tools -> Options -> Text Editor -> C# -> Advanced -> "Entire solution":
 
-    :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-1.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
+:::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-1.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
 
 Depending on the version of Visual Studio, you may also see "Enable full solution analysis": 
 
-    :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-2.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
+:::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-2.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
 
-For information to disable the analyzer, refer to these [instructions](https://learn.microsoft.com/visualstudio/code-quality/in-source-suppression-overview?view=vs-2022&tabs=csharp). 
+For information to disable the analyzer, refer to these [instructions](https://learn.microsoft.com/visualstudio/code-quality/in-source-suppression-overview). 
 
 ### Visual Studio Code
 
 Open Settings by clicking the wheel icon on the lower left corner. Search for “rosyln” and “Enable Rosyln Analyzers” should show up as one of the results. Check the enable support box.
 
-    :::image type="content" source="media/media/durable-functions-best-practice/roslyn-analyzer-vscode.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio Code.":::
+:::image type="content" source="media/media/durable-functions-best-practice/roslyn-analyzer-vscode.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio Code.":::
