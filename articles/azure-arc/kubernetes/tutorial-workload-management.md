@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Workload management in a multi-cluster environment with GitOps'
-description: This tutorial walks through typical use-cases that Platform and Application teams face on a daily basis working with K8s workloads in a multi-cluster envrironemnt.
+description: This tutorial walks through typical use-cases that Platform and Application teams face on a daily basis working with K8s workloads in a multi-cluster environment.
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
