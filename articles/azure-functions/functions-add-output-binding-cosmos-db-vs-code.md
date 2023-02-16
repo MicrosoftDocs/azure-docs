@@ -186,6 +186,8 @@ A binding is added to the `bindings` array in your *function.json*, which should
 
 ::: zone pivot="programming-language-python"
 
+The way that you define the new binding depends on your Python programming model.
+
 # [v1](#tab/v1)
 
 Binding attributes are defined directly in the *function.json* file. Depending on the binding type, other properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
