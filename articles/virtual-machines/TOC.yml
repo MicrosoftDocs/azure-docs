@@ -53,8 +53,6 @@
       href: ./linux/tutorial-automate-vm-deployment.md
     - name: 4 - Create VM images
       href: ./linux/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./linux/tutorial-availability-sets.md
     - name: 6 - Create a scale set
       href: ./linux/tutorial-create-vmss.md
     - name: 7 - Load balance VMs
@@ -71,8 +69,6 @@
       href: ./windows/tutorial-automate-vm-deployment.md
     - name: 4 - Create VM images
       href: ./windows/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./windows/tutorial-availability-sets.md
     - name: 6 - Create a scale set
       href: ./windows/tutorial-create-vmss.md
     - name: 7 - Load balance VMs
@@ -1112,12 +1108,6 @@
     - name: Overview
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: ./windows/change-availability-set.md
@@ -1585,7 +1575,7 @@
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports and filter traffic
     items:
-    - name: CLI 
+    - name: CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
