@@ -56,7 +56,7 @@ You may read more about databases, containers and items [here.](../account-datab
 
 The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. Provisioned throughput can be selected at per-container granularity or per-database granularity, however container-level throughput specification is typically preferred. You may read more about throughput provisioning [here.](../set-throughput.md)
 
-As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you're advised to choose a partition key which is relatively random or evenly distributed. Otherwise, some partitions will see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
+As items are inserted into an Azure Cosmos DB container, the database grows horizontally by adding more storage and compute to handle requests. Storage and compute capacity are added in discrete units known as *partitions*, and you must choose one field in your documents to be the partition key, which maps each document to a partition. The way partitions are managed is that each partition is assigned a roughly equal slice out of the range of partition key values; therefore you're advised to choose a partition key, which is relatively random or evenly distributed. Otherwise, some partitions see substantially more requests (*hot partition*) while other partitions see substantially fewer requests (*cold partition*), and this is to be avoided. You may learn more about partitioning [here](../partitioning-overview.md).
 
 ## Create a database account
 
@@ -79,7 +79,7 @@ Before you can create a document database, you need to create an API for NoSQL a
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone an API for NoSQL app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
@@ -91,15 +91,19 @@ git clone https://github.com/Azure-Samples/azure-spring-boot-samples.git
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app](#run-the-app).
 
-## [Passwordless (Recommended)](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
-In this section, neither the configurations nor the code have any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
+In this section, neither the configurations nor the code has any authentication operations. However, connecting to Azure service requires authentication. To complete the authentication, you need to use Azure Identity. Spring Cloud Azure uses `DefaultAzureCredential`, which is provided by Azure Identity to help you get credentials without any code changes.
 
 `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. For more information, see the [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) section of [Authenticate Azure-hosted Java applications](/azure/developer/java/sdk/identity-azure-hosted-auth).
 
-To use Azure CLI, Visual Studio Code, PowerShell or other methods to complete the authentication in local development environments, see [Azure authentication in Java development environments](/azure/developer/java/sdk/identity-dev-env-auth). To complete the authentication in Azure hosting environments, we recommend using managed identity. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
-
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+
+### Authenticate using DefaultAzureCredential
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
+You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `azure-identity` [dependency](https://mvnrepository.com/artifact/com.azure/azure-identity) to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
 
 ### Application configuration file
 
@@ -118,7 +122,7 @@ After creating the Azure Cosmos DB account, database and container, Spring Boot/
 
 ### Java source
 
-The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Datan Azure Cosmos DB.
+The Spring Data value-add also comes from its simple, clean, standardized and platform-independent interface for operating on datastores. Building on the Spring Data GitHub sample linked above, below are CRUD and query samples for manipulating Azure Cosmos DB documents with Spring Data Azure Cosmos DB.
 
 * Item creation and updates by using the `save` method.
 
@@ -144,13 +148,13 @@ The Spring Data value-add also comes from its simple, clean, standardized and pl
     LOGGER.info("Deleted all data in container.");
     ```
 
-* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
+* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query couldn't be implemented as a point-read):
 
     ```java
     final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
     ```
   
-## [Password](#tab/password)
+### [Password](#tab/password)
 
 ### Application configuration file
 
@@ -196,7 +200,7 @@ The Spring Data value-add also comes from its simple, clean, standardized and pl
     LOGGER.info("Deleted all data in container.");
     ```
 
-* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query could not be implemented as a point-read):
+* Derived query based on repository method name. Spring Data implements the `repository` `findByFirstName` method as a Java SDK SQL query on the `firstName` field (this query couldn't be implemented as a point-read):
 
     ```java
     final Flux<User> firstNameUserFlux = repository.findByFirstName("testFirstName");
@@ -227,8 +231,8 @@ Now go back to the Azure portal to get your connection string information and la
     ```
 
 1. The app loads **application.yml** and connects the resources in your Azure Cosmos DB account.
-1. The app will perform point CRUD operations described above.
-1. The app will perform a derived query.
+1. The app performs point CRUD operations described above.
+1. The app performs a derived query.
 1. The app doesn't delete your resources. Switch back to the portal to [clean up the resources](#clean-up-resources) from your account if you want to avoid incurring charges.
 
 ## Review SLAs in the Azure portal
