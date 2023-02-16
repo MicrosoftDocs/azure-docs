@@ -25,7 +25,6 @@ Complete the steps in the [Walkthrough: Add an API connector to a sign-up user f
 
 You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD uses when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
-
 ## HTTP basic authentication
 
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Basic authentication works as follows: Azure AD sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then is responsible for checking these values to perform other authorization decisions.
@@ -34,11 +33,12 @@ To configure an API Connector with HTTP basic authentication, follow these steps
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Under **Azure services**, select **Azure AD**.
-3. Select **API connectors**, and then select the **API Connector** you want to configure.
-4. For the **Authentication type**, select **Basic**.
-5. Provide the **Username**, and **Password** of your REST API endpoint.
+1. In the left menu, select **External Identities**.
+1. Select **All API connectors**, and then select the **API Connector** you want to configure.
+1. For the **Authentication type**, select **Basic**.
+1. Provide the **Username**, and **Password** of your REST API endpoint.
     :::image type="content" source="media/secure-api-connector/api-connector-config.png" alt-text="Providing basic authentication configuration for an API connector.":::
-6. Select **Save**.
+1. Select **Save**.
 
 ## HTTPS client certificate authentication
 
@@ -71,12 +71,13 @@ To configure an API Connector with client certificate authentication, follow the
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Under **Azure services**, select **Azure AD**.
-3. Select **API connectors**, and then select the **API Connector** you want to configure.
-4. For the **Authentication type**, select **Certificate**.
-5. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
-6. In the **Enter Password** box, type the certificate's password.
+1. In the left menu, select **External Identities**.
+1. Select **All API connectors**, and then select the **API Connector** you want to configure.
+1. For the **Authentication type**, select **Certificate**.
+1. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
+1. In the **Enter Password** box, type the certificate's password.
   :::image type="content" source="media/secure-api-connector/api-connector-upload-cert.png" alt-text="Providing certificate authentication configuration for an API connector.":::
-7. Select **Save**.
+1. Select **Save**.
 
 ### Perform authorization decisions 
 Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and *validate the certificate from your API code*.  You can alternatively use Azure API Management as a layer in front of any API service to [check client certificate properties](
