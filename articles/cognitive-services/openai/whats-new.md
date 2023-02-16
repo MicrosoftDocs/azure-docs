@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure OpenAI?
+title: What's new in Azure OpenAI Service?
 titleSuffix: Azure Cognitive Services
 description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
@@ -13,13 +13,13 @@ recommendations: false
 keywords:  
 ---
 
-# What's new in Azure OpenAI
+# What's new in Azure OpenAI Service
 
 ## January 2023
 
 ### New Features
 
-* **Service GA**. Azure OpenAI is now generally available.​
+* **Service GA**. Azure OpenAI Service is now generally available.​
 
 * **New models**: Addition of the latest text model, text-davinci-003 (East US, West Europe), text-ada-embeddings-002 (East US, South Central US, West Europe)
 
