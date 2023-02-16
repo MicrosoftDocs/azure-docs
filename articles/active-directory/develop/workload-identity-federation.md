@@ -24,7 +24,7 @@ You can use workload identity federation in scenarios such as GitHub Actions, wo
 ## Why use workload identity federation?
 
 Watch this video to learn why you would use workload identity federation.
-[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWXamJ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWXamJ]
 
 Typically, a software workload (such as an application, service, script, or container-based application) needs an identity in order to authenticate and access resources or communicate with other services.  When these workloads run on Azure, you can use [managed identities](../managed-identities-azure-resources/overview.md) and the Azure platform manages the credentials for you.  For a software workload running outside of Azure, you need to use application credentials (a secret or certificate) to access Azure AD protected resources (such as Azure, Microsoft Graph, Microsoft 365, or third-party resources).  These credentials pose a security risk and have to be stored securely and rotated regularly. You also run the risk of service downtime if the credentials expire.
 
