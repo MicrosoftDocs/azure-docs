@@ -26,6 +26,11 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.49.0
   + **azureml-automl-dnn-nlp**
     + Logs to show the final values applied to the model and hyperparameter settings based on both the default values and the user-specified ones.
+    + Starting with v1.49.0 and above, following AutoML algorithms will not be supported.
+	Regression: FastLinearRegressor, OnlineGradientDescentRegressor 
+	Classification: AveragedPerceptronClassifier
+
+    + Please use v1.48.0 or below, to continue using these algorithms.
   + **azureml-contrib-automl-dnn-forecasting**
     + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
     + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
