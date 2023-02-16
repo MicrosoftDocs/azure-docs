@@ -40,7 +40,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
-The example below is for creating a Linux VM secured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example.
+This example is for creating a Linux VM secured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example.
 
 ```azurecli-interactive
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -65,7 +65,7 @@ You can also use a specific version by using the image version ID for the `--ima
 
 Once you have a generalized image version, you can create one or more new VMs. Using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
-In this example, we are using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+In this example, we're using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `Set-AzVMSourceImage -Id`. For example, to use image version *1.0.0* type: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
 Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 
@@ -391,7 +391,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
 1. Under **Administrator account**, you need to provide a username, such as *azureuser* and a password or SSH key. The password must be at least 12 characters long and meet the [defined complexity requirements](./windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** or **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
-1. When you are finished, select the **Review + create** button at the bottom of the page.
+1. When you're finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 ---
@@ -400,7 +400,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 If the subscription where the gallery resides is within the same tenant, images shared through RBAC can be used to create VMs using the CLI and PowerShell.
 
-You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM.
+You'll need to the `imageID` of the image you want to use and you need to make sure it's replicated to the region where you want to create the VM.
 ### [CLI](#tab/cli2)
 
 Make sure the state of the image is `Generalized`. If you want to use an image with the `Specialized` state, see [Create a VM from a specialized image version](vm-specialized-image-version.md).
@@ -469,12 +469,12 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ---
 ## RBAC - Shared from another tenant
 
-If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you will need to log in to each tenant to verify you have access.
+If the image you want to use is stored in a gallery that isn't in the same tenant (directory) then you'll need to sign in to each tenant to verify you have access.
 
-You will need to the `imageID` of the image you want to use and you need to make sure it is replicated to the region where you want to create the VM. You will also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
+you'll need to the `imageID` of the image you want to use and you need to make sure it's replicated to the region where you want to create the VM. You'll also need the `tenantID` for the source gallery and the `tenantID` for where you want to create the VM.
 ### [CLI](#tab/cli2)
 
-In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
+In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
 You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
@@ -513,7 +513,7 @@ az vm create \
 
 ### [PowerShell](#tab/powershell2)
 
-In this example, we are showing how to create a VM from a generalized image. If you are using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
+In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
 You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
@@ -694,7 +694,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
    :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
 1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
 
 
 ---
@@ -828,7 +828,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ### [Portal](#tab/portal4)
 
 > [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
 > You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus` to see what images are shared with you in the West US region.
 
@@ -842,7 +842,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page will open.
 1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
 
 
 ---
