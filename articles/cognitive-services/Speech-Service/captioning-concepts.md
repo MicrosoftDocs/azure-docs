@@ -53,7 +53,7 @@ The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output 
 Welcome to applied Mathematics course 201.
 ```
 
-The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss,fff`. 
+The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss.fff`. 
 
 ```
 WEBVTT
