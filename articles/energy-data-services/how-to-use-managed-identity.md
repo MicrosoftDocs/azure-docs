@@ -93,7 +93,7 @@ To add the application ID:
    * Tenant ID
    * Client ID
    * Client secret
-   *Azure Data Manager for Energy Preview URI
+   * Azure Data Manager for Energy Preview URI
    * Data partition ID
    * [Access token](how-to-manage-users.md#prerequisites)
    * Application ID of the managed identity
