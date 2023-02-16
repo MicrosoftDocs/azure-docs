@@ -18,7 +18,7 @@ This article describes how to apply FinOps in Azure Data Factory.
 
 The FinOps Foundation [Technical Advisory Council](https://www.finops.org/about/technical-advisory-council/) defines FinOps accordingly:
 
-    *FinOps is an evolving cloud financial management discipline and cultural practice that enables organizations to get maximum business value by helping engineering, finance, technology, and business teams to collaborate on data-driven spending decisions.*
+*FinOps is an evolving cloud financial management discipline and cultural practice that enables organizations to get maximum business value by helping engineering, finance, technology, and business teams to collaborate on data-driven spending decisions.*
 
 At its core, FinOps is a cultural practice. It’s the way for teams to manage their cloud costs, where everyone takes ownership of their cloud usage supported by a central best-practices group. Cross-functional teams in Engineering, Finance, Product, etc. work together to enable faster product delivery, while at the same time gaining more financial control and predictability.
 
