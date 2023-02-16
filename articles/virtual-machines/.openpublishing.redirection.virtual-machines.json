@@ -1557,13 +1557,13 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/endpoints-in-resource-manager.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
-            "redirect_document_id": true
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/openshift-origin.md",
@@ -1586,6 +1586,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
             "redirect_url": "/azure/virtual-machines/linux/reset-password",
             "redirect_document_id": false
@@ -1599,6 +1614,16 @@
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-security-controls.md",
             "redirect_url": "/azure/virtual-machines/linux/security-baseline",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/a8-a9-a10-a11-specs.md",
