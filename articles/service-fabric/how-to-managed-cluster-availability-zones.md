@@ -218,6 +218,30 @@ Requirements:
    ```
    If you run in to any problems reach out to support for assistance.
 
+## Enable FastZonalUpdate on Service Fabric managed clusters (preview)
+Service Fabric managed clusters support faster cluster and application upgrades by reducing the max upgrade domains per availability zone. The default configuration right now can have at most 15 UDs in multiple AZ nodetype. This huge number of UDs reduced the upgrade velocity. Using the new configuration, the max UDs are reduced, which results in faster updates, keeping the safety of the upgrades intact.   
+
+The update should be done via ARM template by setting the zonalUpdateMode property to “fast” and then modifying a node type attribute, such as adding a node and then removing the node to each nodetype (see required steps 2 and 3 below).  The Service Fabric managed cluster resource apiVersion should be 2022-10-01-preview or later.
+
+1. Modify the ARM template with the new property mentioned above.
+```json
+   "resources": [
+        {
+            "type": "Microsoft.ServiceFabric/managedClusters",
+            "apiVersion": "2022-10-01-preview",
+            '''
+            "properties": {
+                '''
+                "zonalResiliency": true,
+                "zonalUpdateMode": “fast”,
+                ...
+            }
+        }]
+```
+2. Add a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md). 
+
+3. Remove a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md).
+
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

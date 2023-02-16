@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 06/12/2022 
+ms.date: 01/24/2023 
 ms.topic: how-to
 ---
 # About high availability

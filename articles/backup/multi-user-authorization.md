@@ -4,9 +4,9 @@ description: This article explains how to configure Multi-user authorization usi
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
 ms.date: 11/08/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Configure Multi-user authorization using Resource Guard in Azure Backup
 

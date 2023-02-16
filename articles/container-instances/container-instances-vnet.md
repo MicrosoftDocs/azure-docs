@@ -19,7 +19,7 @@ This article shows how to use the [az container create][az-container-create] com
 For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
+> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [available-regions][available-regions]. 
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
@@ -227,4 +227,4 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [az-container-show]: /cli/azure/container#az_container_show
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
-[container-regions]: container-instances-region-availability.md
+[available-regions]: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances

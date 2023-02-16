@@ -14,7 +14,7 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI preview.
+This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure CLI.
 
 In this tutorial, you learn how to:
 
@@ -254,5 +254,5 @@ The params **identityUri** and **primaryKeyUri** are the resource ID of the user
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
-- [Data encryption with Azure portal (Preview)](how-to-data-encryption-portal.md)
+- [Customer managed keys data encryption](concepts-customer-managed-key.md)
+- [Data encryption with Azure portal](how-to-data-encryption-portal.md)

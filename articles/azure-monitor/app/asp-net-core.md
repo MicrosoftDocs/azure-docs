@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/27/2022
+ms.date: 01/24/2023
 ms.reviewer: casocha
 ---
 # Application Insights for ASP.NET Core applications
@@ -755,5 +755,5 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users move through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* Use [availability tests](./availability-overview.md) to check your app constantly from around the world.
 * Learn about [dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).

@@ -3,18 +3,17 @@ title: Developer guidance for Azure AD Conditional Access authentication context
 description: Developer guidance and scenarios for Azure AD Conditional Access authentication context
 
 services: active-directory
+author: cilwerner
+manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 11/15/2022
 
-ms.author: kkrishna
-author: kalyankrishna1
-manager: CelesteDG
-ms.reviewer: joflore
-
+ms.author: cwerner
+ms.reviewer: joflore, kkrishna
 ms.workload: identity
-
 ms.custom: aaddev
 ---
 

@@ -97,16 +97,16 @@ In this article you learn how to secure the following training compute resources
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
 > If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
-> * Outbound requirements - Two additional outbounds:
+> * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
 >     - `AzureMachineLearning` service tag on UDP port 5831.
 >     - `BatchNodeManagement` service tag on TCP port 443.
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
 
-+ Your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
++ You must use a workspace private endpoint for the compute resource to communicate with Azure Machine Learning services from the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 + In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
 
@@ -135,7 +135,9 @@ The following configurations are in addition to those listed in the [Prerequisit
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
-    - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
+    - [Azure's outbound connectivity methods](../load-balancer/load-balancer-outbound-connections.md#scenarios).
+
+    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](../virtual-network/service-tags-overview.md) article.
 
 Use the following information to create a compute instance or cluster with no public IP address:
 

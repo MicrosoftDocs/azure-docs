@@ -34,9 +34,9 @@ Always use the role with the fewest permissions available to accomplish the requ
 | Persona | Roles | Azure AD role (if necessary) |
 | ------- | ----- | --------------------------- |
 | Help desk admin | Tier 1 support | None |
-| Identity admin | Configure and debug when issues involve Azure AD | Global admin |
+| Identity admin | Configure and debug when issues involve Azure AD | Global Administrator |
 | Application admin | User attestation in application, configuration on users with permissions | None |
-| Infrastructure admins | Certificate rollover owner | Global admin |
+| Infrastructure admins | Certificate rollover owner | Global Administrator |
 | Business owner/stakeholder | User attestation in application, configuration on users with permissions | None |
 
 To learn more about Azure AD administrative roles, see [Azure AD built-in roles](../users-groups-roles/directory-assign-admin-roles.md).

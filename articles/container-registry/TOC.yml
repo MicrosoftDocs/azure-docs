@@ -50,6 +50,16 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
+    - name: Caching for ACR (preview)
+      items:
+      - name: Caching for ACR - Overview
+        href: tutorial-registry-cache.md
+      - name: Enable Caching for ACR- Azure portal
+        href: tutorial-enable-registry-cache.md
+      - name: Enable Caching for ACR with authentication- Azure portal
+        href: tutorial-enable-registry-cache-auth.md
+      - name: Troubleshoot 
+        href: tutorial-troubleshoot-registry-cache.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -139,6 +149,8 @@
         href: container-registry-private-link.md
       - name: Configure public registry access
         href: container-registry-access-selected-networks.md
+      - name: Mitigate data exfiltration with dedicated data endpoints
+        href: container-registry-dedicated-data-endpoints.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
       - name: Allow access by trusted services
@@ -155,7 +167,7 @@
           href: container-registry-auth-service-principal.md
         - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
-        - name: Authenticate with token (preview)
+        - name: Authenticate with token 
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
