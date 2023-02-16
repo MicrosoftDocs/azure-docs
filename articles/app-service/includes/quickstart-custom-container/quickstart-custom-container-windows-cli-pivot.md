@@ -83,6 +83,9 @@ Congratulations, you've successfully completed this quickstart.
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 > [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+
+> [!div class="nextstepaction"]
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]

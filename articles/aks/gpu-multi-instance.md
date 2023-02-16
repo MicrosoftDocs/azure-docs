@@ -58,7 +58,7 @@ If you're using command line, use the `az aks nodepool add` command to create th
 
 az aks nodepool add \
     --name mignode \
-    --resourcegroup myresourcegroup \
+    --resource-group myresourcegroup \
     --cluster-name migcluster \
     --node-vm-size Standard_ND96asr_v4 \
     --gpu-instance-profile MIG1g

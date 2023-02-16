@@ -626,8 +626,8 @@
               href: performance-tips-java.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+        - name: Benchmarking framework
+          href: benchmarking-framework.md
         - name: Cost-effective reads and writes
           href: ../key-value-store-cost.md
     - name: Troubleshooting
@@ -747,7 +747,7 @@
           items:
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
-            - name: Self-serve minimum tls version enforcement
+            - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
             - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
@@ -772,7 +772,7 @@
               href: ../how-to-restrict-user-data.md
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Use Azure Key Vault to store master keys
+        - name: Use Azure Key Vault to store keys
           href: ../store-credentials-key-vault.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md

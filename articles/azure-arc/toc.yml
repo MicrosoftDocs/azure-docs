@@ -20,6 +20,8 @@
     href: ./resource-bridge/network-requirements.md
   - name: Security overview
     href: ./resource-bridge/security-overview.md
+  - name: Deployment overview
+    href: ./resource-bridge/deploy-cli.md
   - name: Troubleshoot
     href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >

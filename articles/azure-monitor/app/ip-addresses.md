@@ -19,7 +19,7 @@ Alternatively, you can subscribe to this page as an RSS feed by adding https://g
 
 ## Outgoing ports
 
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Application Insights Agent to send data to the portal.
 
 | Purpose | URL | Type | IP | Ports |
 | --- | --- | --- | --- | --- |
@@ -37,9 +37,9 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 >
 > If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) to support the newer TLS version.
 
-## Status Monitor
+## Application Insights Agent
 
-Status Monitor configuration is needed only when you're making changes.
+Application Insights Agent configuration is needed only when you're making changes.
 
 | Purpose | URL | Ports |
 | --- | --- | --- |

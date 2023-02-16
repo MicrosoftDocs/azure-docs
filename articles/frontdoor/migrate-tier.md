@@ -111,6 +111,10 @@ Select **Grant** to add managed identities from the last section to all the Key 
     > [!NOTE]
     > If you cancel the migration, only the new Front Door profile will get deleted. Any new WAF policy copies will need to be manually deleted.
 
+    > [!WARNING]
+    > Deleting the new profile will delete the production configuration once the **Migrate** step is initiated, which is an irreversible change. 
+
+
 1. Once the migration completes, you can select the banner the top of the page or the link from the successful message to go to the new Front Door profile.
 
     :::image type="content" source="./media/migrate-tier/successful-migration.png" alt-text="Screenshot of a successful Front Door migration.":::

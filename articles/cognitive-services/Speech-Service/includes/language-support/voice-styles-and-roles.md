@@ -2,10 +2,11 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 11/17/2022
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
+
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
 |en-GB-RyanNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
@@ -30,7 +31,7 @@ ms.author: eur
 |zh-CN-XiaomoNeural<sup>5</sup>|`embarrassed`, `calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `depressed`, `affectionate`, `gentle`, `envious`|`YoungAdultFemale`, `YoungAdultMale`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `Girl`, `Boy`|
 |zh-CN-XiaoruiNeural<sup>5</sup>|`calm`, `fearful`, `angry`, `sad`|Not supported|
 |zh-CN-XiaoshuangNeural<sup>5</sup>|`chat`|Not supported|
-|zh-CN-XiaoxiaoNeural<sup>5</sup>|`assistant`, `chat`, `customerservice`, `newscast`, `affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `sad`, `serious`, `poetry-reading`|Not supported|
+|zh-CN-XiaoxiaoNeural<sup>5</sup>|`assistant`, `chat`, `customerservice`, `newscast`, `affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `friendly`, `gentle`, `lyrical`, `sad`, `serious`, `poetry-reading`|Not supported|
 |zh-CN-XiaoxuanNeural<sup>5</sup>|`calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `gentle`, `depressed`|`YoungAdultFemale`, `YoungAdultMale`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `Girl`, `Boy`|
 |zh-CN-XiaoyiNeural<sup>1,5</sup>|`angry`, `disgruntled`, `affectionate`, `cheerful`, `fearful`, `sad`, `embarrassed`, `serious`, `gentle`|Not supported|
 |zh-CN-XiaozhenNeural<sup>1,5</sup>|`angry`, `disgruntled`, `cheerful`, `fearful`, `sad`, `serious`|Not supported|
