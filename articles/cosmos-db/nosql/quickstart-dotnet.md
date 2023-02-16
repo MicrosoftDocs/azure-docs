@@ -115,7 +115,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
 
@@ -159,7 +159,7 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 Next you'll create a database and container to store products, and perform queries to insert and read those items.
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 

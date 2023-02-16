@@ -16,7 +16,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
-## Version 1.26 - January 2022
+## Version 1.26 - January 2023
 
 > [!NOTE]
 > Version 1.26 is only available for Linux operating systems. The most recent Windows agent version is 1.25.
@@ -25,7 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
 
-## Version 1.25 - January 2022
+## Version 1.25 - January 2023
 
 ### New features
 

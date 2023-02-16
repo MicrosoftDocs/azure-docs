@@ -144,6 +144,9 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 2. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
 
+   >[!NOTE]
+   >The name you choose for the prefix needs to be a unique name.
+
 3. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool. Keep in mind that VM prices vary by region, and the VM locations should be near their users when possible to maximize performance. Learn more at [Data locations for Azure Virtual Desktop](data-locations.md).
    
 4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](./faq.yml#which-availability-option-is-best-for-me-).

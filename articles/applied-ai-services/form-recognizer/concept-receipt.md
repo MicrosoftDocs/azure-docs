@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 02/13/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -84,7 +84,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ### Try receipt data extraction
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts. You'll need the following resources:
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -141,7 +141,7 @@ See how data, including time and date of transactions, merchant information, and
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of the select-form-type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -157,20 +157,20 @@ See how data, including time and date of transactions, merchant information, and
 ## Supported languages and locales v3.0
 
 >[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+> Form Recognizer auto-detects language and locale data.
 
 The receipt model supports all English receipts and the following locales:
 
-|Language| Locale code |
+|Supported Languages| Details |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
-|French | 'fr' |
-|Spanish | `es` |
-
+|&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
+|&bullet; Dutch| Netherlands (nl-nl)|
+|&bullet; French | France (fr-fr), Canada (fr-ca) |
+|&bullet; German | Germany (de-de) |
+|&bullet; Italian | Italy (it-it) |
+|&bullet; Japanese | Japan (ja-ja)|
+|&bullet; Portuguese| Portugal (pt-pt), Brazil (pt-br)|
+|&bullet; Spanish | Spain (es-es) |
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
