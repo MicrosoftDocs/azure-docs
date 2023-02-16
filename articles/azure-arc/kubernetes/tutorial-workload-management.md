@@ -95,14 +95,16 @@ The script created the following AKS clusters:
 Let's have a look at what is preconfigured in our `control plane` repository. It contains three branches: `main`, `dev` and `stage`. The `dev` and `stage` branches represent `Dev` and `Stage` environments. They contain configurations that are specific for those environments. On the other hand, the `main` branch doesn't represent any specific environment. The content of the `main` branch is common and used by all environments in the fleet. Any change to the `main` branch is a subject to be promoted across environments. For example, a new application or a new template can be promoted to the `Stage` environment only after successful testing on the `Dev` environment.
 
 The `main` branch:
+
 |Folder|Description|
-|----|-----------|
+|------|-----------|
 |.github/workflows| GitHub workflows that implement the promotional flow|
 |.environments| Contains a list of environments with the pointers to the branches with the environment configurations|
 |templates| Contains manifest templates for various reconcilers (e.g. Flux and ArgoCD) as well as a template for the workload namespace| 
 |workloads| Contains a list of onboarded applications and services with the pointers to the corresponding GitOps repositories|  
 
 The `dev` and `stage` branches:
+
 |Item|Description|
 |----|-----------|
 |cluster-types| Contains a list of available cluster types in the environment. The cluster types are grouped in custom subfolders. Each cluster type is marked with a set of labels. It specifies a reconciler type that it uses to fetch the manifests from GitOps repositories. The subfolders also contain a number of config maps with the platform configuration values available on the cluster types.|
