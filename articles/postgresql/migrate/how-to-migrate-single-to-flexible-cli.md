@@ -68,7 +68,7 @@ For help with understanding the options associated with a command and with frami
 az postgres flexible-server migration --help
 ```
 
-That command gives you the following output:
+The above command gives you the following output:
 
 :::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration --help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration --help.png":::
 
@@ -82,7 +82,7 @@ The `create` command helps in creating a migration from a source server to a tar
 az postgres flexible-server migration create -- help
 ```
 
-That command gives the following result:
+The above command gives you the following result:
 
 :::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration create.png" alt-text="Screenshot of the command for creating a migration." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration create.png":::
 
