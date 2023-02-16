@@ -6,6 +6,7 @@ manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/24/2022
