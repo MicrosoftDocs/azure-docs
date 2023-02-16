@@ -7,7 +7,6 @@ metadata:
   title: Azure Education Hub Documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Use the Education Hub to quickly and easily provide students with all the necessary software, learning, and Azure services they need to become cloud proficient. #< 160 chars.
   ms.service: azure-education
-  ms.subservice: education-hub
   ms.topic: landing-page # Required
   author: tfosmark 
   ms.author: rymend 
@@ -25,6 +24,8 @@ landingContent:
         links:
           - text: About the Education Hub
             url: about-education-hub.md
+          - text: Allocate Credits to Educators
+            url: it-admin-allocate-credit.md
       - linkListType: quickstart
         links:
           - text: Use the Education Hub

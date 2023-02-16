@@ -115,7 +115,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 ```
 Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
-## Issue access tokens
+## Issue an access token
 
 Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
 
@@ -157,7 +157,7 @@ console.log(`\nIssued an access token with 'voip' scope that expires at ${expire
 console.log(token);
 ```
 
-## Refresh access tokens
+## Refresh an access token
 
 As tokens expire, you'll periodically need to refresh them. Refreshing is easy just call `getToken` again with the same identity that was used to issue the tokens. You'll also need to provide the `scopes` of the refreshed tokens.
 

@@ -57,10 +57,10 @@ If end users are accessing the Azure file share using Active Directory (AD) or A
 
 Validate that permissions are configured correctly:
 
-- **Active Directory Domain Services (AD DS)** see [Assign share-level permissions to an identity](./storage-files-identity-ad-ds-assign-permissions.md).
+- **Active Directory Domain Services (AD DS)** see [Assign share-level permissions](./storage-files-identity-ad-ds-assign-permissions.md).
 
     Share-level permission assignments are supported for groups and users that have been synced from AD DS to Azure Active Directory (Azure AD) using Azure AD Connect sync or Azure AD Connect cloud sync. Confirm that groups and users being assigned share-level permissions are not unsupported "cloud-only" groups.
-- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions to an Azure AD identity](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions-to-an-azure-ad-identity).
+- **Azure Active Directory Domain Services (Azure AD DS)** see [Assign share-level permissions](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-share-level-permissions).
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -120,7 +120,7 @@ You can use Azure File Sync as a workaround to access Azure Files from clients t
 By setting up a VPN or ExpressRoute from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
 
 #### Solution 3 — Unblock port 445 with help of your ISP/IT Admin
-Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 #### Solution 4 — Use REST API-based tools like Storage Explorer/PowerShell
 Azure Files also supports REST in addition to SMB. REST access works over port 443 (standard tcp). There are various tools that are written using REST API that enable a rich UI experience. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) is one of them. [Download and Install Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and connect to your file share backed by Azure Files. You can also use [PowerShell](./storage-how-to-use-files-portal.md) which also uses REST API.
@@ -471,9 +471,10 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 
 ### Symptom
 
-You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
+You may experience one of the symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
 - After you click on **Edit permission** under the Security tab, the Permission wizard doesn't load. 
 - When you try to select a new user or group, the domain location doesn't display the right AD DS domain. 
+- You're using multiple AD forests and get the following error message: "The Active Directory domain controllers required to find the selected objects in the following domains are not available. Ensure the Active Directory domain controllers are available, and try to select the objects again."
 
 ### Solution
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/15/2022
+ms.date: 01/29/2023
 
 
 ms.author: justinha
@@ -32,16 +32,13 @@ People who enabled phone sign-in from Microsoft Authenticator see a message that
 1. Choose **Approve**.
 1. Provide their PIN or biometric.
 
-## Multiple accounts on iOS (preview)
+## Multiple accounts on iOS 
 
 You can enable passwordless phone sign-in for multiple accounts in Microsoft Authenticator on any supported iOS device. Consultants, students, and others with multiple accounts in Azure AD can add each account to Microsoft Authenticator and use passwordless phone sign-in for all of them from the same iOS device. 
 
 Previously, admins might not require passwordless sign-in for users with multiple accounts because it requires them to carry more devices for sign-in. By removing the limitation of one user sign-in from a device, admins can more confidently encourage users to register passwordless phone sign-in and use it as their default sign-in method.
 
 The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
-
->[!NOTE]
->Multiple accounts on iOS is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
@@ -73,24 +70,28 @@ To enable the authentication method for passwordless phone sign-in, complete the
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
-1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change the mode, for each row:
-   1. Browse to **...** > **Configure**.
-   1. For **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
+1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change the mode, for each row for **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
 1. To apply the new policy, click **Save**. 
 
    >[!NOTE]
-   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then select **Save** again.
 
 ## User registration 
 
-Users register themselves for the passwordless authentication method of Azure AD by using the following steps:
+Users register themselves for the passwordless authentication method of Azure AD. For users who already registered the Microsoft Authenticator app for [multi-factor authentication](./concept-mfa-howitworks.md), skip to the next section, [enable phone sign-in](#enable-phone-sign-in). To register the Microsoft Authenticator app, follow these steps:
 
 1. Browse to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
-1. Sign in, then click **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
+1. Sign in, then select **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
 1. Follow the instructions to install and configure the Microsoft Authenticator app on your device.
 1. Select **Done** to complete Microsoft Authenticator configuration.
-1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
-1. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
+
+### Enable phone sign-in
+
+After users registered themselves for the Microsoft Authenticator app, they need to enable phone sign-in: 
+
+1. In **Microsoft Authenticator**, select the account registered.
+2. Select **Enable phone sign-in**.
+3. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
 
 An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring Microsoft Authenticator and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Authenticator app](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
 

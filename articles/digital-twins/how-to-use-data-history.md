@@ -32,7 +32,7 @@ It also contains a sample twin graph that you can use to see the historized twin
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 >[!NOTE]
 > You can also use Azure Cloud Shell in the PowerShell environment instead of the Bash environment, if you prefer. The commands on this page are written for the Bash environment, so they may require some small adjustments to be run in PowerShell.
@@ -72,9 +72,9 @@ databasename="<name-for-your-database>"
 
 ## Create an Azure Digital Twins instance with a managed identity
 
-If you already have an Azure Digital Twins instance, ensure that you've enabled a [system-managed identity](how-to-set-up-instance-cli.md#enabledisable-system-managed-identity-for-the-instance) for it.
+If you already have an Azure Digital Twins instance, ensure that you've enabled a [system-assigned managed identity](how-to-set-up-instance-cli.md#system-assigned-identity-commands) for it.
 
-If you don't have an Azure Digital Twins instance, follow the instructions in [Create the instance with a system-managed identity](how-to-set-up-instance-cli.md#create-the-instance-with-a-system-managed-identity) to create an Azure Digital Twins instance with a managed identity for the first time.
+If you don't have an Azure Digital Twins instance, follow the instructions in [Create the instance with a managed identity](how-to-set-up-instance-cli.md#system-assigned-identity-command) to create an Azure Digital Twins instance with a system-assigned managed identity for the first time.
 
 Then, make sure you have *Azure Digital Twins Data Owner* role on the instance. You can find instructions in [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
@@ -183,7 +183,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Create a connection**. Doing so will begin the process of creating a data history connection.
 
-2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
+2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
 
     :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
 

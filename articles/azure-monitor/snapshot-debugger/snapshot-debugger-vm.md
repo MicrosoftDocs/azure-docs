@@ -156,7 +156,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
 ## Configure snapshot collection for other .NET applications
 
-1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](../app/windows-desktop.md).
+1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](https://github.com/Microsoft/appcenter).
 
 1. Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 

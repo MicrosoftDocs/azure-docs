@@ -2,15 +2,16 @@
 title: "How to use Continuous Access Evaluation enabled APIs in your applications"
 description: How to increase app security and resilience by adding support for Continuous Access Evaluation, enabling long-lived access tokens that can be revoked based on critical events and policy evaluation.
 services: active-directory
-manager: martinco
+author: cilwerner
+manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/09/2021
-author: janicericketts
-ms.author: jricketts
-ms.reviewer:
+ms.author: cwerner
+ms.reviewer: jricketts
 # Customer intent: As an application developer, I want to learn how to use Continuous Access Evaluation for building resiliency through long-lived, refreshable tokens that can be revoked based on critical events and policy evaluation.
 ---
 # How to use Continuous Access Evaluation enabled APIs in your applications

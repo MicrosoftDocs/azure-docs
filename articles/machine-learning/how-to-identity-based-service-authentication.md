@@ -40,12 +40,24 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## User-assigned managed identity
 
+### Workspace
+
 You can add a user-assigned managed identity when creating an Azure Machine Learning workspace from the [Azure portal](https://portal.azure.com). Use the following steps while creating the workspace:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
 
-You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet) to create a workspace with user-assigned managed identity.
+The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
+
+|Resource|Permission|
+|---|---|
+|Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
+|Azure Key Vault (when using [RBAC permission model](../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
+|Azure Key Vault (when using [access policies permission model](../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
+|Azure Container Registry|Contributor|
+|Azure Application Insights|Contributor|
+
+For automated creation of role assignments on your user-assigned managed identity, you may use [this ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment).
 
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
@@ -109,12 +121,12 @@ __System-assigned managed identity__
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-from azure.ai.ml.entities import UserAssignedIdentity, IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.entities import ManagedIdentityConfiguration, IdentityConfiguration, AmlCompute
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration from the user-assigned managed identity
-managed_identity = UserAssignedIdentity(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
-identity_config = IdentityConfiguration(type = IdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
+managed_identity = ManagedIdentityConfiguration(resource_id="/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>")
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.USER_ASSIGNED, user_assigned_identities=[managed_identity])
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
@@ -185,6 +197,9 @@ To enable authentication with compute managed identity:
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 
+> [!NOTE]
+> The name of the created system managed identity for compute instance or cluster will be in the format /workspace-name/computes/compute-name in your Azure Active Directory.
+
 Once the identity-based authentication is enabled, the compute managed identity is used by default when accessing data within your training jobs. Optionally, you can authenticate with user identity using the steps described in next section.
 
 For information on using configuring Azure RBAC for the storage, see [role-based access controls](../storage/blobs/assign-azure-role-data-access.md).
@@ -236,14 +251,14 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentity](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.useridentity). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command
     from azure.ai.ml.entities import Data, UriReference
     from azure.ai.ml import Input
     from azure.ai.ml.constants import AssetTypes
-    from azure.ai.ml import UserIdentity
+    from azure.ai.ml import UserIdentityConfiguration
     
     # Specify the data location
     my_job_inputs = {
@@ -257,7 +272,7 @@ The following steps outline how to set up data access with user identity for tra
         inputs=my_job_inputs,
         environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
         compute="<my-compute-cluster-name>",
-        identity= UserIdentity() 
+        identity= UserIdentityConfiguration() 
     )
     # submit the command
     returned_job = ml_client.jobs.create_or_update(job)
@@ -349,10 +364,10 @@ az ml compute create --name cpu-cluster --type <cluster name>  --identity-type s
 
 ```python
 from azure.ai.ml.entities import IdentityConfiguration, AmlCompute
-from azure.ai.ml.constants import IdentityType
+from azure.ai.ml.constants import ManagedServiceIdentityType
 
 # Create an identity configuration for a system-assigned managed identity
-identity_config = IdentityConfiguration(type = IdentityType.SYSTEM_ASSIGNED)
+identity_config = IdentityConfiguration(type = ManagedServiceIdentityType.SYSTEM_ASSIGNED)
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
@@ -470,7 +485,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
 
     ```azurecli-interactive
-    az ml connection --file <yml file> -w <workspace name> -g <resource group>
+    az ml connection create --file <yml file> --resource-group <resource group> --workspace-name <workspace>
     ```
 
 1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:

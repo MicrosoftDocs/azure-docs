@@ -26,7 +26,7 @@ To create your first function in the new v2 model, see one of these quickstart a
 + [Get started with Visual Studio](./create-first-function-vs-code-python.md)
 + [Get started command prompt](./create-first-function-cli-python.md)
 
-## Blob trigger
+## Azure Blob storage trigger
 
 The following code snippet defines a function triggered from Azure Blob Storage:
 
@@ -36,11 +36,47 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="BlobTrigger1")
 @app.blob_trigger(arg_name="myblob", path="samples-workitems/{name}",
-                  connection="<STORAGE_CONNECTION_SETTING>")
+                  connection="AzureWebJobsStorage")
 def test_function(myblob: func.InputStream):
    logging.info(f"Python blob trigger function processed blob \n"
                 f"Name: {myblob.name}\n"
                 f"Blob Size: {myblob.length} bytes")
+```
+
+## Azure Blob storage input binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="BlobInput1")
+@app.route(route="file")
+@app.blob_input(arg_name="inputblob",
+                path="sample-workitems/{name}",
+                connection="AzureWebJobsStorage")
+def test(req: func.HttpRequest, inputblob: bytes) -> func.HttpResponse:
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
+    return inputblob
+```
+
+## Azure Blob storage output binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="BlobOutput1")
+@app.route(route="file")
+@app.blob_input(arg_name="inputblob",
+                path="sample-workitems/test.txt",
+                connection="AzureWebJobsStorage")
+@app.blob_output(arg_name="outputblob",
+                path="newblob/test.txt",
+                connection="AzureWebJobsStorage")
+def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
+    outputblob.set(inputblob)
+    return "ok"
 ```
 
 ## Azure Cosmos DB trigger
@@ -52,11 +88,43 @@ import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="CosmosDBTrigger1")
-@app.cosmos_db_trigger(arg_name="documents", database_name="<DB_NAME>", collection_name="<COLLECTION_NAME>", connection_string_setting="<COSMOS_CONNECTION_SETTING>",
+@app.cosmos_db_trigger(arg_name="documents", database_name="<DB_NAME>", collection_name="<COLLECTION_NAME>", connection_string_setting=""AzureWebJobsStorage"",
  lease_collection_name="leases", create_lease_collection_if_not_exists="true")
 def test_function(documents: func.DocumentList) -> str:
     if documents:
         logging.info('Document id: %s', documents[0]['id'])
+```
+
+## Azure Cosmos DB input binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.route()
+@app.cosmos_db_input(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    connection_string_setting="CONNECTION_SETTING")
+def cosmosdb_input(req: func.HttpRequest, documents: func.DocumentList) -> str:
+    return func.HttpResponse(documents[0].to_json())
+```
+
+## Azure Cosmos DB output binding
+
+```python
+import logging
+import azure.functions as func
+@app.route()
+@app.cosmos_db_output(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    create_if_not_exists=True,
+    connection_string_setting="CONNECTION_SETTING")
+def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
+    request_body = req.get_body()
+    documents.set(func.Document.from_json(request_body))
+    return 'OK'
 ```
 
 ## Azure EventHub trigger
@@ -69,10 +137,30 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="EventHubTrigger1")
 @app.event_hub_message_trigger(arg_name="myhub", event_hub_name="samples-workitems",
-                               connection="<EVENT_HUB_CONNECTION_SETTING>") 
+                               connection=""CONNECTION_SETTING"") 
 def test_function(myhub: func.EventHubEvent):
     logging.info('Python EventHub trigger processed an event: %s',
                 myhub.get_body().decode('utf-8'))
+```
+
+## Azure EventHub output binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="eventhub_output")
+@app.route(route="eventhub_output")
+@app.event_hub_output(arg_name="event",
+                      event_hub_name="samples-workitems",
+                      connection="CONNECTION_SETTING")
+def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
+    body = req.get_body()
+    if body is not None:
+        event.set(body.decode('utf-8'))
+    else:    
+        logging.info('req body is none')
+    return 'ok'
 ```
 
 ## HTTP trigger
@@ -104,7 +192,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-## Azure Queue Storage trigger
+## Azure Queue storage trigger
 
 ```python
 import logging
@@ -112,10 +200,27 @@ import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="QueueTrigger1")
 @app.queue_trigger(arg_name="msg", queue_name="python-queue-items",
-                   connection="")  
+                   connection=""AzureWebJobsStorage"")  
 def test_function(msg: func.QueueMessage):
     logging.info('Python EventHub trigger processed an event: %s',
                  msg.get_body().decode('utf-8'))
+```
+
+## Azure Queue storage output binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.function_name(name="QueueOutput1")
+@app.route(route="message")
+@app.queue_output(arg_name="msg", queue_name="python-queue-items", connection="AzureWebJobsStorage")
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+    input_msg = req.params.get('name')
+    msg.set(input_msg)
+    logging.info(input_msg)
+    logging.info('name: {name}')
+    return 'OK'
 ```
 
 ## Azure Service Bus queue trigger
@@ -125,7 +230,7 @@ import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="ServiceBusQueueTrigger1")
-@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="")
+@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="CONNECTION_SETTING")
 def test_function(msg: func.ServiceBusMessage):
     logging.info('Python ServiceBus queue trigger processed message: %s',
                  msg.get_body().decode('utf-8'))
@@ -138,11 +243,28 @@ import logging
 import azure.functions as func
 app = func.FunctionApp()
 @app.function_name(name="ServiceBusTopicTrigger1")
-@app.service_bus_topic_trigger(arg_name="message", topic_name="mytopic", connection="", subscription_name="testsub")
+@app.service_bus_topic_trigger(arg_name="message", topic_name="mytopic", connection="CONNECTION_SETTING", subscription_name="testsub")
 def test_function(message: func.ServiceBusMessage):
     message_body = message.get_body().decode("utf-8")
     logging.info("Python ServiceBus topic trigger processed message.")
     logging.info("Message Body: " + message_body)
+```
+
+## Azure Service Bus Topic output binding
+
+```python
+import logging
+import azure.functions as func
+app = func.FunctionApp()
+@app.route(route="put_message")
+@app.service_bus_topic_output(
+    arg_name="message",
+    connection="CONNECTION_SETTING",
+    topic_name="mytopic")
+def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
+    input_msg = req.params.get('message')
+    message.set(input_msg)
+    return 'OK'
 ```
 
 ## Timer trigger
@@ -162,6 +284,126 @@ def test_function(mytimer: func.TimerRequest) -> None:
         logging.info('The timer is past due!')
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
+
+## Durable Functions
+
+Durable Functions also provides preview support of the V2 programming model. To try it out, install the Durable Functions SDK (PyPI package `azure-functions-durable`) from version `1.2.2` or greater. You can reach us in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python) with feedback and suggestions.
+
+
+> [!NOTE]
+> Using [Extension Bundles](./functions-bindings-register.md#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
+> To do this, remove the `extensionBundle` section of your `host.json` as described [here](./functions-run-local.md#install-extensions) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
+
+The Durable Functions Triggers and Bindings may be accessed from an instance `DFApp`, a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
+
+Below is a simple Durable Functions app that declares a simple sequential orchestrator, all in one file!
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+# An HTTP-Triggered Function with a Durable Functions Client binding
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
+
+# Orchestrator
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result1 = yield context.call_activity("hello", "Seattle")
+    result2 = yield context.call_activity("hello", "Tokyo")
+    result3 = yield context.call_activity("hello", "London")
+
+    return [result1, result2, result3]
+
+# Activity
+@myApp.activity_trigger(input_name="myInput")
+def hello(myInput: str):
+    return "Hello " + myInput    
+```
+
+> [!NOTE]
+> Previously, Durable Functions orchestrators needed an extra line of boilerplate, usually at the end of the file, to be indexed:
+> `main = df.Orchestrator.create(<name_of_orchestrator_function>)`.
+> This is no longer needed in V2 of the Python programming model. This applies to Entities as well, which required a similar boilerplate through
+> `main = df.Entity.create(<name_of_entity_function>)`.
+
+For reference, all Durable Functions Triggers and Bindings are listed below:
+
+### Orchestration Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result = yield context.call_activity("Hello", "Tokyo")
+    return result
+```
+
+### Activity Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.activity_trigger(input_name="myInput")
+def my_activity(myInput: str):
+    return "Hello " + myInput
+```
+
+### DF Client Binding
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.route(route="orchestrators/{functionName}")
+@myApp.durable_client_input(client_name="client")
+async def durable_trigger(req: func.HttpRequest, client):
+    function_name = req.route_params.get('functionName')
+    instance_id = await client.start_new(function_name)
+    response = client.create_check_status_response(req, instance_id)
+    return response
+```
+
+### Entity Trigger
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.entity_trigger(context_name="context")
+def entity_function(context):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        pass
+    
+    context.set_state(current_value)
+    context.set_result(current_value)
+```
+
 ## Next steps
 
 + [Python developer guide](./functions-reference-python.md)

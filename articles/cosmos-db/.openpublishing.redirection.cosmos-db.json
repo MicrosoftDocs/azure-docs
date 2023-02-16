@@ -731,6 +731,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/performance-testing.md",
+      "redirect_url": "/azure/cosmos-db/nosql/benchmarking-framework",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/table/create-table-dotnet.md",
       "redirect_url": "/azure/cosmos-db/table/quickstart-dotnet",
       "redirect_document_id": false
@@ -4334,6 +4339,11 @@
       "source_path_from_root": "/articles/cosmos-db/postgresql/overview.md",
       "redirect_url": "/azure/cosmos-db/postgresql/introduction",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/postgresql/concepts-audit.md",
+      "redirect_url": "/azure/cosmos-db/postgresql/howto-logging",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/troubleshoot-unauthorized.md",

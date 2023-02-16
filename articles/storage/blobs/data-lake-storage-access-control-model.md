@@ -1,7 +1,9 @@
 ---
 title: Access control model for Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
 author: jimmart-dev
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual

@@ -56,7 +56,6 @@ Scheduled events are delivered to and can be acknowleged by:
 - Standalone Virtual Machines.
 - All the VMs in an [Azure cloud service (classic)](../../cloud-services/index.yml).
 - All the VMs in an availability set.
-- All the VMs in an availability zone.
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
@@ -206,6 +205,8 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
 
+> [!Note] 
+> Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
 
 #### Bash sample
 ```

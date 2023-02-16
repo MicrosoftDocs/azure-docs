@@ -49,7 +49,7 @@ __Recommended actions__:
 
 ## Azure ML compute instance
 
-Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ hosted on a compute instance.
+Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ and __Posit Workbench (formerly RStudio Workbench)__ hosted on a compute instance.
 
 __Possible threats__:
 * Cross site scripting (XSS)

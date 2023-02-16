@@ -15,6 +15,7 @@ ms.reviewer: etbasser
 
 ms.collection: M365-identity-device-management
 ---
+
 # Securing workload identities with Identity Protection
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
@@ -28,7 +29,7 @@ A [workload identity](../develop/workload-identities-overview.md) is an identity
 These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
-> Detections are visible only to Workload Identities Premium customers. Customers without Workload Identities Premium licenses still receive all detections but the reporting of details is limited. 
+> Detections are visible only to [Workload Identities Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz) customers. Customers without Workload Identities Premium licenses still receive all detections but the reporting of details is limited. 
 
 ## Prerequisites
 
@@ -68,9 +69,9 @@ Organizations can find workload identities that have been flagged for risk in on
    
 :::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
-### Graph APIs
+### Microsoft Graph APIs
 
-You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root?view=graph-rest-beta&preserve-view=true) 
+You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
 - riskyServicePrincipals
 - servicePrincipalRiskDetections
@@ -116,3 +117,4 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
+

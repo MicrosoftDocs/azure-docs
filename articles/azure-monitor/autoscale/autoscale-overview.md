@@ -42,7 +42,7 @@ In contrast, scaling up and down, or vertical scaling, keeps the number of resou
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. In addition, you can perform other actions like sending email  notifications, or webhooks to trigger processes in other systems.
 
-### Predictive autoscale (preview)
+### Predictive autoscale
 
 [Predictive autoscale](./autoscale-predictive.md) uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load on your Virtual Machine Scale Set, based on historical CPU usage patterns. The scale set can then be scaled out in time to meet the predicted demand.
 
@@ -75,14 +75,16 @@ Set up schedule-based rules to trigger scale events. Use schedule-based rules wh
 
 ### Rules
 
-Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Rules can be:
+Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Combine multiple rules using different metrics, for example CPU usage and queue length. Define up to 10 rules per profile.     
+
+Rules can be:
 
 * Metric-based  
 Trigger based on a metric value, for example when CPU usage is above 50%.
 * Time-based  
 Trigger based on a schedule, for example, every Saturday at 8am. 
 
-You can combine multiple rules using different metrics, for example CPU usage and queue length.  
+
 Autoscale scales out if *any* of the rules are met, whereas autoscale scales in only if *all* the rules are met.
 In terms of logic operators, the OR operator is used when scaling out with multiple rules. The AND operator is used when scaling in with multiple rules.
 
