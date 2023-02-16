@@ -5,8 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 12/12/2022
-ms.custom: template-how-to
+ms.date: 02/16/2023
+ms.custom: how-to
 ---
 
 # Set up private access (preview) in Azure Managed Grafana
