@@ -12,4 +12,4 @@ ms.service: azure-education
 
 [!INCLUDE [help using Azure Dev Tools for Teaching](../../../includes/edu-dev-tools-program-support.md)]
 
-If you need help with GitHub sign in or setup, go to [GitHub Support](https://learn.microsoft.com/azure/education-hub/azure-dev-tools-teaching/program-faq#what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription-).
+If you need help with GitHub sign in or setup, go to [GitHub Support](http://aka.ms/githubsupporteduhub).
