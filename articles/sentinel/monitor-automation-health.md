@@ -107,7 +107,7 @@ For **Playbook was triggered**, you may see the following statuses:
 
 Microsoft Sentinel's health monitoring table allows you to track the triggering of playbooks, but to monitor what happens inside your playbooks and their results when they're run, you must also turn on **Azure Logic Apps diagnostics**.
 
-By [enabling Azure Logic Apps diagnostics](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs), you'll ingest the following events to the *AzureDiagnostics* table:
+By [enabling Azure Logic Apps diagnostics](../logic-apps/monitor-workflows-collect-diagnostic-data.md#set-up-azure-monitor-logs), you'll ingest the following events to the *AzureDiagnostics* table:
 - {Action name} started
 - {Action name} ended
 - Workflow (playbook) started
@@ -117,7 +117,7 @@ These added events will give you additional insights into the actions being take
 
 ### Turn on Logic Apps diagnostics
 
-For each playbook you are interested in monitoring, [follow these steps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs). Make sure to select **Send to Log Analytics workspace** as your log destination, and choose your Microsoft Sentinel workspace.
+For each playbook you are interested in monitoring, [follow these steps](../logic-apps/monitor-workflows-collect-diagnostic-data.md#set-up-azure-monitor-logs). Make sure to select **Send to Log Analytics workspace** as your log destination, and choose your Microsoft Sentinel workspace.
 
 ### Correlate Microsoft Sentinel and Azure Logic Apps logs
 
