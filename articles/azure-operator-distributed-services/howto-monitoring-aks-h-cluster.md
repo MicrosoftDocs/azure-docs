@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Monitoring of AKS-Hybrid cluster"
 description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: AFOI-Network Cloud  #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -43,16 +43,18 @@ When enabling Monitoring agents on AKS-Hybrid clusters using CLI, ensure appropr
 
 Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cli), how to install it across [multiple operating systems](/cli/azure/install-azure-cli), and how to install [CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
+Install [CLI extensions](./includes/howto-install-cli-extensions.md).
+
 ## Monitoring AKS-Hybrid – VM Layer
 
 This how-to guide provides steps and utility scripts to [Arc connect](/azure/azure-arc/servers/overview) the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview). The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
 To support these steps, the following resources are provided:
 
-- [arc-connect.env](media/arc-connect.env) - Template file that can be used to create environment variables needed by included scripts.
-- [dcr.sh](media/dcr.sh) - Script used to create a Data Collection Rule (DCR) that can be used to configure syslog collection.
-- [assign.sh](media/assign.sh) - Script used to create a policy that will associate the DCR to all Arc-enabled servers in a resource group.
-- [install.sh](media/install.sh) - Script used to Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each.
+- [arc-connect.env](media/arc-connect) - Template file that can be used to create environment variables needed by included scripts. Copy this file into `arc-connect.env`.
+- [dcr.sh](media/dcr) - Script used to create a Data Collection Rule (DCR) that can be used to configure syslog collection. Copy this file into `dcr.sh`.
+- [assign.sh](media/assign) - Script used to create a policy that will associate the DCR to all Arc-enabled servers in a resource group. Copy this file into `assign.sh`.
+- [install.sh](media/install) - Script used to Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each. Copy this file into `install.sh`.
 
 ### Prerequisites-VM
 
@@ -105,7 +107,7 @@ For convenience, the template file, arc-connect.env can be modified and used to 
 
 ```bash
 # Apply the modified values to the environment
-. ./arc-connect.env
+ ./arc-connect.env
 ```
 
 ### Adding a Data Collection Rule (DCR)
@@ -156,7 +158,7 @@ For convenience, the **assign.sh** script is provided, which will assign the bui
 3. Run the **assign.sh** script. It will create the policy assignment and necessary role assignments.
 
 ```bash
-./media/assign.sh
+./assign.sh
 ```
 
 #### Connecting Arc-enabled servers and Installing Azure Monitoring Agent
@@ -183,7 +185,7 @@ The script will deploy the daemonSet to the cluster. Connection progress can be 
 
 ```bash
 # Run the install script and observe results
-./media/install.sh
+./install.sh
 kubectl get pod --selector='name=haks-vm-telemetry'
 kubectl logs <podname>
 ```

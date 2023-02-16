@@ -3,7 +3,7 @@ title: "Azure Operator Nexus : How to configure Network Fabric Controller"
 description: How to configure Network Fabric Controller
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: AFOI-Network Cloud  #Required
+ms.service: Operator Nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.

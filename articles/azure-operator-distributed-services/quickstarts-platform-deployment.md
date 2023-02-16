@@ -3,7 +3,7 @@ title: "Operator Nexus: Platform deployment"
 description: Learn the steps for deploying the Operator Nexus platform software.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: AFOI-Network Cloud #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -20,6 +20,7 @@ Services platform software.
 - Step 4: Provision the Cluster
 
 These steps use commands and parameters that are detailed in the API documents.
+
 ## Prerequisites
 
 - Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
@@ -27,10 +28,10 @@ These steps use commands and parameters that are detailed in the API documents.
 
 ## API Guide and Metrics
 
-The [API guide](https://docs.microsoft.com/rest/api/azure/azure-operator-distributed-srveices) provides
+The [API guide](/rest/api/azure/azure-operator-distributed-services) provides
 information on the resource providers and resource models, and the APIs.
 
-The metrics generated from the logging data are available in [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics).
+The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ## Step 1: Create Network Fabric
 

@@ -3,7 +3,7 @@ title: How to deploy tenant workloads prerequisites
 description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
 author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
 ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: AFOI-Network Cloud #Required; service per approved list. slug assigned by ACOM.
+ms.service: Operator Nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -64,7 +64,7 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 These images will be used when creating your workload VMs. Make sure each is a
 containerized image in either `qcow2` or `raw` disk format and is uploaded to an Azure Container
 Registry. If your Azure Container Registry is password protected, you can supply this info when creating your VM.
-Refer to [Operator Nexus VM disk image build procedure](#aods-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
+Refer to [Operator Nexus VM disk image build procedure](#operatore-neus-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
 
 ### Operator Nexus VM disk image build procedure
 

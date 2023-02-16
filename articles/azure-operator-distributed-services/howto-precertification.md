@@ -5,7 +5,7 @@ author: vatsal-parikh
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
-ms.service: AFOI-Network Cloud 
+ms.service: Operator Nexus 
 ---
 
 # How to pre-certify network functions on Azure Operator Nexus
@@ -60,12 +60,12 @@ Figure: Pre-Certification (precert) Process
 To ensure an efficient and effective onboarding process for the partner there are perquisites to pre-certification lab entry.
 
 1. The partners start the Azure Marketplace agreement and [create a partner
-   center account](https://docs.microsoft.com/azure/marketplace/create-account).
+   center account](/azure/marketplace/create-account).
    The partner can then publish the network function
    offers in the marketplace. The marketplace agreement doesn't have to be
    completed prior to precert lab entry. However, it's an important step before the
-   helm charts and images onboarded to Azure Network Function Manager (ANFM)
-   service are added to the precertified catalog.
+   helm charts and images on-boarded to Azure Network Function Manager (ANFM)
+   service are added to the pre-certified catalog.
 
 2. Microsoft will conduct several sessions on key topics with the partner:
 
