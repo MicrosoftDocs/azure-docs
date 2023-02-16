@@ -25,7 +25,7 @@ For Azure Synapse Pipelines, the authentication will use the service principal n
 ## Limitations
   - The Azure Data Explorer (Kusto) connector is currently only supported on the Azure Synapse Apache Spark 2.4 runtime (EOLA).
   - The Azure Data Explorer linked service can only be configured with the Service Principal Name.
-  - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will use AAD pass-through to connect to the Kusto Cluster.
+  - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will use Azure AD pass-through to connect to the Kusto Cluster.
 
 
 ## Use the Azure Data Explorer (Kusto) connector
