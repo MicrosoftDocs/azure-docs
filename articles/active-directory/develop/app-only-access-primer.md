@@ -49,7 +49,7 @@ Always follow the principle of least privilege: you should never request app rol
  
 ## Designing and publishing app roles for a resource service
 
-If you're building a service on Azure AD that exposes APIs for other clients to call, you may wish to support automated access with app roles. You can define the app roles for your application in the **App roles** section of your app registration in Azure AD portal. For more information on how to create app roles, see [Declare roles for an application](howto-add-app-roles-in-azure-ad-apps#declare-roles-for-an-application.md).
+If you're building a service on Azure AD that exposes APIs for other clients to call, you may wish to support automated access with app roles. You can define the app roles for your application in the **App roles** section of your app registration in Azure AD portal. For more information on how to create app roles, see [Declare roles for an application](howto-add-app-roles-in-azure-ad-apps.md#declare-roles-for-an-application).
 
 When exposing app roles for others to use, provide clear descriptions of the scenario to the admin who is going to assign them. App roles should generally be as narrow as possible and support specific functional scenarios, since app-only access isn't constrained by user rights. Avoid exposing a single role that grants full `read` or full `read/write` access to all APIs and resources your service contains.
 
@@ -75,7 +75,7 @@ The script runs without any user interaction, therefore the authorization system
 | POST /users/{id}/{userPrincipalName}/sendMail | Client app granted Mail.Send | Client app not granted Mail.Send |
 | ----- | ----- | ----- |
 | The script uses Alice’s mailbox to send emails. | 200 – Access granted. Admin allowed the app to send mail as any user. |403 - Unauthorized. Admin hasn’t allowed this client to send emails. |
-| A dedicated mailbox is created for the script to send emails. | 200 – Access granted. Admin allowed the app to send mail as any user. | 403 - Unauthorized. Admin hasn’t allowed this client to send emails. |
+| The script creates a dedicated mailbox to send emails. | 200 – Access granted. Admin allowed the app to send mail as any user. | 403 - Unauthorized. Admin hasn’t allowed this client to send emails. |
  
 The example given is a simple illustration of application authorization. The production Exchange Online service supports many other access scenarios, such as limiting application permissions to specific Exchange Online mailboxes. 
 
