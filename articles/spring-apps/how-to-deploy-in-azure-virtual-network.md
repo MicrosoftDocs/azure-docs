@@ -147,7 +147,7 @@ Select the virtual network **azure-spring-apps-vnet** you previously created.
 
 1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
 
-   :::image type="content" source="media/spring-cloud-v-net-injection/access-control.png" alt-text="Screenshot of the Azure Portal showing the Access Control (IAM) page with Check access selected and Add role assignment highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
+   :::image type="content" source="media/spring-cloud-v-net-injection/access-control.png" alt-text="Screenshot of the Azure Portal showing the Access Control (IAM) page with Check access selected and Add role assignment highlighted." lightbox="media/spring-cloud-v-net-injection/access-control.png":::
 
 1. Assign the *Owner* role to the Azure Spring Apps Resource Provider. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
