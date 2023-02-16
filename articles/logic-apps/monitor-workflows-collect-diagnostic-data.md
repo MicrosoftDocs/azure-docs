@@ -71,11 +71,11 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 ### [Consumption](#tab/consumption)
 
-The following sections apply only to a Consumption logic app resource. 
+For a Consumption logic app, you need to first enable Log Analytics.
 
 <a name="enable-for-new-logic-apps"></a>
 
-### Enable Log Analytics at logic app creation
+#### Enable Log Analytics at logic app creation
 
 1. In the [Azure portal](https://portal.azure.com), on the **Create Logic App** pane, follow these steps:
 
@@ -95,7 +95,7 @@ The following sections apply only to a Consumption logic app resource.
 
 <a name="install-management-solution"></a>
 
-### Install Logic Apps Management solution
+#### Install Logic Apps Management solution
 
 If you turned on Log Analytics when you created your logic app resource, skip this section. You already have the Logic Apps Management solution installed in your Log Analytics workspace. Otherwise, continue with the following steps for an existing Consumption logic app:
 
@@ -129,9 +129,9 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/workspace-summary-pane-logic-apps-management.png" alt-text="Screenshot showing the Azure portal, the workspace summary pane with Logic Apps Management solution.":::
 
-### [Standard](#tab/standard)
+### [Standard (preview)](#tab/standard)
 
-For a Standard logic app, no option to enable Log Analytics is available at creation time, nor does the Logic Apps Management solution apply. You can continue with [Add a diagnostic setting](#add-diagnostic-setting).
+For a Standard logic app, you can continue with [Add a diagnostic setting](#add-diagnostic-setting). No other prerequisite steps are necessary to enable Log Analytics, nor does the Logic Apps Management solution apply to Standard logic apps.
 
 ---
 
