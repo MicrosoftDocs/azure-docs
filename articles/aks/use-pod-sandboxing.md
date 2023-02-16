@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 02/14/2023
+ms.date: 02/16/2023
 
 ---
 
@@ -95,7 +95,7 @@ Deploying Pod Sandboxing using Kata Containers is similar to the standard contai
 
 For a pod to use this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
 
-When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is one core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use one CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
+When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is one core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use one + xCPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB + yMemory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
@@ -110,7 +110,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -126,7 +126,12 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 ## Deploy to an existing cluster
 
-To use this feature with an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
+To use this feature with an existing AKS cluster, the following requirements must be met:
+
+* Follow the steps to [register the KataVMIsolationPreview][#register-the-'KataVMIsolationPreview'-feature-flag] feature flag.
+* Verify the cluster is running Kubernetes version 1.24.0 and higher.
+
+Use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
 
 1. Add a node pool to your AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
 
@@ -141,6 +146,12 @@ To use this feature with an existing AKS cluster, if the cluster is running vers
 
     ```azurecli
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
+    ```
+
+2. Run the [az aks update][az-aks-update] command to enable pod sandboxing (preview) on the cluster.
+
+    ```bash
+    az aks update --name myAKSCluster --resource-group myResourceGroup
     ```
 
 ## Deploy a trusted application
@@ -317,3 +328,4 @@ kubectl delete pod pod-name
 [mariner-overview]: use-mariner.md
 [csi-storage-driver]: csi-storage-drivers.md
 [csi-secret-store driver]: csi-secrets-store-driver.md
+[az-aks-update]: /cli/azure/aks#az-aks-update
