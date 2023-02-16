@@ -25,14 +25,14 @@ Dynamic thresholds help you:
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
 - Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate)
 
-Dynamic Thresholds can be applied to:
+You can use dynamic thresholds on:
 - most Azure Monitor platform and custom metrics
 - common application and infrastructure metrics
 - noisy metrics, such as machine CPU or memory
 - metrics with low dispersion, such as availability and error rate
 See [metrics not supported by dynamic thresholds](#metrics-not-supported-by-dynamic-thresholds) for a list of metrics that aren't supported by dynamic thresholds.
 
-The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. If there is a prolonged outage, dynamic thresholds understand the data, and detect system issues with the same level of sensitivity as before the outage occurred.
+The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. If there's a prolonged outage, dynamic thresholds understand the data, and detect system issues with the same level of sensitivity as before the outage occurred.
 
 You can configure dynamic thresholds using:
 - [the Azure portal](https://portal.azure.com/)
