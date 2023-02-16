@@ -3,7 +3,7 @@ title: 'Azure Virtual WAN FAQ | Microsoft Docs'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 10/13/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
@@ -158,7 +158,11 @@ While Virtual WAN VPN supports many algorithms, our recommendation is GCMAES256 
 
 Packets per second or PPS is a factor of the total # of packets and the throughput supported per instance. This is best understood with an example. Lets say a 1 scale unit 500-Mbps site-to-site VPN gateway instance is deployed in a virtual WAN hub. Assuming a packet size of 1400, expected PPS for that vpn gateway instance *at a maximum* = [(500 Mbps * 1024 * 1024) /8/1400] ~ 47000.
 
-Virtual WAN has concepts of VPN connection, link connection and tunnels. A single VPN connection consists of link connections. Virtual WAN supports up to 4 link connections in a VPN connection. Each link connection consists of two IPsec tunnels that terminate in two instances of an active-active VPN gateway deployed in a virtual hub. The total number of tunnels that can terminate in a single active instance is 1000, which also implies that throughput for 1 instance will be available aggregated across all the tunnels connecting to that instance. Each tunnel also has certain throughput values. For GCM algorithm, a tunnel can support up to a maximum 1.25 Gbps. In cases of multiple tunnels connected to a lower value scale unit gateway, it's best to evaluate the need per tunnel and plan for a VPN gateway that is an aggregate value for throughput across all tunnels terminating in the VPN instance.
+Virtual WAN has concepts of VPN connection, link connection and tunnels. A single VPN connection consists of link connections. Virtual WAN supports up to 4 link connections in a VPN connection. Each link connection consists of two IPsec tunnels that terminate in two instances of an active-active VPN gateway deployed in a virtual hub. The total number of tunnels that can terminate in a single active instance is 1000, which also implies that throughput for 1 instance will be available aggregated across all the tunnels connecting to that instance. Each tunnel also has certain throughput values. In cases of multiple tunnels connected to a lower value scale unit gateway, it's best to evaluate the need per tunnel and plan for a VPN gateway that is an aggregate value for throughput across all tunnels terminating in the VPN instance.
+
+**Values for various scale units supported in Virtual WAN**
+
+[!INCLUDE [values for scale units](../../includes/virtual-wan-tunnels-throuput-instance-include.md)]
 
 ### Which device providers (Virtual WAN partners) are supported?
 
@@ -261,7 +265,6 @@ No. Virtual WAN doesn't require ExpressRoute from each site. Your sites may be c
 ### Is there a network throughput or connection limit when using Azure Virtual WAN?
 
 Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps, and the User VPN/point-to-site VPN aggregate throughput is up to 200 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub.
-
 
 To secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed, you can set the minimum capacity or modify as needed. See [About virtual hub settings - hub capacity](hub-settings.md#capacity). For cost implications, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
