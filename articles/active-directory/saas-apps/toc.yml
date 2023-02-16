@@ -600,6 +600,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: courses.work
+        href: courseswork-tutorial.md
       - name: Coveo Hosted Services
         href: coveo-hosted-services-tutorial.md
       - name: Coverity Static Application Security Testing
