@@ -13,7 +13,7 @@ ms.date: 02/15/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
-# Set up your Azure Machine Learning cloud workstation
+# Model development on a cloud workstation
  
 Learn how to get started prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. This tutorial covers the basics of setting up and configuring the cloud workstation, using cloud-based development environments, and using MLflow to track your model metrics. 
 
@@ -203,22 +203,22 @@ This code uses sklearn for training and MLflow for logging the metrics.
 
 Now that you have model results, you may want to change something and try again.  For example, try a different classifier technique:
 
-    ```python
-    # Train  AdaBoost Classifier
-    from sklearn.ensemble import AdaBoostClassifier
+```python
+# Train  AdaBoost Classifier
+from sklearn.ensemble import AdaBoostClassifier
 
-    print(f"Training with data of shape {X_train.shape}")
-    
-    ada = AdaBoostClassifier()
+print(f"Training with data of shape {X_train.shape}")
 
-    ada.fit(X_train, y_train)
-    
-    y_pred = clf.predict(X_test)
-    
-    print(classification_report(y_test, y_pred))
-     # Stop Logging for this model
-    mlflow.end_run()
-    ```
+ada = AdaBoostClassifier()
+
+ada.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+
+print(classification_report(y_test, y_pred))
+    # Stop Logging for this model
+mlflow.end_run()
+```
 
 ## Clean up notebook
 
