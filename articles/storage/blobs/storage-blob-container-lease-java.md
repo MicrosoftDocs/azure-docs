@@ -1,5 +1,6 @@
 ---
-title: Create and manage container leases with Java - Azure Storage 
+title: Create and manage container leases with Java
+titleSuffix: Azure Storage
 description: Learn how to manage a lock on a container in your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -81,9 +82,22 @@ When a lease expires, the lease ID is maintained by the Blob service until the c
 
 If a lease expires rather than being explicitly released, a client may need to wait up to one minute before a new lease can be acquired for the container. However, the client can renew the lease with the expired lease ID immediately.
 
+## Resources
+
+To learn more about leasing a container using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for leasing a container use the following REST API operation:
+
+- [Lease Container](/rest/api/storageservices/lease-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
 ## See also
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java)
-- [Lease Container](/rest/api/storageservices/lease-container)
-- [Lease Blob](/rest/api/storageservices/lease-blob)
 - [Managing Concurrency in Blob storage](concurrency-manage.md)

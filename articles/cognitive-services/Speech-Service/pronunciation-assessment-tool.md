@@ -25,7 +25,7 @@ Pronunciation assessment provides various assessment results in different granul
 This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
 > [!NOTE]
-> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> Usage of pronunciation assessment costs the same as standard Speech to Text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). Pronunciation assessment doesn't yet support commitment tier pricing.
 > 
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
@@ -238,4 +238,4 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 ## Next steps
 
 - Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
-- Read the blog about [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
+- Read the blog about [use cases](https://aka.ms/pronunciationassessment/techblog)

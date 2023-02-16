@@ -49,7 +49,7 @@ Use the following request to create a dashboard.
 PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
-`dashboardId` - A unique [DTMI](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) identifier for the dashboard.
+`dashboardId` - A unique [DTMI](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#digital-twin-model-identifier) identifier for the dashboard.
 
 The request body has some required fields:
 

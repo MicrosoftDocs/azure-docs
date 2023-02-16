@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Implement the data lake capture pattern to update a Azure Databricks Delta table'
+title: 'Tutorial: Implement the data lake capture pattern to update an Azure Databricks Delta table'
 titleSuffix: Azure Storage
-description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure DataLake Storage Gen2.
+description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure Data Lake Storage Gen2.
 author: normesta
 
 ms.subservice: data-lake-storage-gen2
@@ -46,7 +46,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
 
 ## Create a sales order
 
@@ -99,7 +99,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, select **New** > **Cluster**.
+2. You're redirected to the Azure Databricks portal. From the portal, select **New** > **Cluster**.
 
     ![Databricks on Azure](./media/data-lake-storage-events/databricks-on-azure.png "Databricks on Azure")
 
@@ -110,7 +110,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
     - Enter a name for the cluster.
-    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster isn't being used.
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -235,9 +235,9 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 Create a Job that runs the notebook that you created earlier. Later, you'll create an Azure Function that runs this job when an event is raised.
 
-1. Click **Jobs**.
+1. Select **Jobs**.
 
-2. In the **Jobs** page, click **Create Job**.
+2. In the **Jobs** page, select **Create Job**.
 
 3. Give the job a name, and then choose the `upsert-order-data` workbook.
 
@@ -251,7 +251,7 @@ Create an Azure Function that runs the Job.
 
    ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
 
-2. Click the **Generate new token** button, and then click the **Generate** button.
+2. Select the **Generate new token** button, and then select the **Generate** button.
 
    Make sure to copy the token to safe place. Your Azure Function needs this token to authenticate with Databricks so that it can run the Job.
 
@@ -263,7 +263,7 @@ Create an Azure Function that runs the Job.
 
    ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
 
-5. In the **Overview** page of the Function App, click **Configuration**.
+5. In the **Overview** page of the Function App, select **Configuration**.
 
    ![Screenshot that highlights the Configuration option under Configured features.](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
@@ -278,7 +278,7 @@ Create an Azure Function that runs the Job.
    |**DBX_INSTANCE**| The region of your databricks workspace. For example: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| The personal access token that you generated earlier. |
    |**DBX_JOB_ID**|The identifier of the running job. In our case, this value is `1`.|
-7. In the overview page of the function app, click the **New function** button.
+7. In the overview page of the function app, select the **New function** button.
 
    ![New function](./media/data-lake-storage-events/new-function.png "New function")
 
@@ -288,9 +288,9 @@ Create an Azure Function that runs the Job.
 
    The **New Function** pane appears.
 
-9. In the **New Function** pane, name the function **UpsertOrder**, and then click the **Create** button.
+9. In the **New Function** pane, name the function **UpsertOrder**, and then select the **Create** button.
 
-10. Replace the contents of the code file with this code, and then click the **Save** button:
+10. Replace the contents of the code file with this code, and then select the **Save** button:
 
     ```csharp
     using "Microsoft.Azure.EventGrid"
@@ -340,7 +340,7 @@ Create an Azure Function that runs the Job.
 
 In this section, you'll create an Event Grid subscription that calls the Azure Function when files are uploaded to the storage account.
 
-1. In the function code page, click the **Add Event Grid subscription** button.
+1. In the function code page, select the **Add Event Grid subscription** button.
 
    ![Screenshot that highlights the Add Event Grid subscription button.](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
 
@@ -348,7 +348,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    ![New event subscription](./media/data-lake-storage-events/new-event-subscription-2.png "New event subscription")
 
-3. In the **Filter to Event Types** drop-down list, select the **Blob Created**, and **Blob Deleted** events, and then click the **Create** button.
+3. In the **Filter to Event Types** drop-down list, select the **Blob Created**, and **Blob Deleted** events, and then select the **Create** button.
 
 ## Test the Event Grid subscription
 
@@ -363,7 +363,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
    Uploading a file raises the **Microsoft.Storage.BlobCreated** event. Event Grid notifies all subscribers to that event. In our case, the Azure Function is the only subscriber. The Azure Function parses the event parameters to determine which event occurred. It then passes the URL of the file to the Databricks Job. The Databricks Job reads the file, and adds a row to the Databricks Delta table that is located your storage account.
 
-3. To check if the job succeeded, open your databricks workspace, click the **Jobs** button, and then open your job.
+3. To check if the job succeeded, open your databricks workspace, select the **Jobs** button, and then open your job.
 
 4. Select the job to open the job page.
 
