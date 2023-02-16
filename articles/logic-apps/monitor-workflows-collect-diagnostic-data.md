@@ -68,7 +68,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 * Your logic app resource and workflow
 
-## Enable Log Analytics (Consumption only)
+## Enable Log Analytics
 
 ### [Consumption](#tab/consumption)
 
@@ -132,7 +132,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
 ### [Standard](#tab/standard)
 
-For Standard logic apps, continue with [Add a diagnostic setting](#add-diagnostic-setting?tabs=standard)
+For a Standard logic app, no option to enable Log Analytics is available at creation time, nor does the Logic Apps Management solution apply. You can continue with [Add a diagnostic setting](#add-diagnostic-setting).
 
 ---
 
