@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files

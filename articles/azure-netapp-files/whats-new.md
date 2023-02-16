@@ -12,14 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/19/2023
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## January 2023
+## February 2023
 
 * [Large volumes](large-volumes-requirements-considerations.md) (Preview)
 
