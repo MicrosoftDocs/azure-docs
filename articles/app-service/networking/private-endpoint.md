@@ -123,6 +123,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 * Remote Debugging functionality isn't available through the private endpoint. The recommendation is to deploy the code to a slot and remote debug it there.
 * FTP access is provided through the inbound public IP address. Private endpoint doesn't support FTP access to the app.
 * IP-Based SSL isn't supported with private endpoints.
+* Apps that is configured with private endpoints is limited to private endpoint access only from clients in subnets that are configured with the `Microsoft.Web` service endpoint.
 
 We're improving Azure Private Link feature and private endpoint regularly, check [this article](../../private-link/private-endpoint-overview.md#limitations) for up-to-date information about limitations.
 
