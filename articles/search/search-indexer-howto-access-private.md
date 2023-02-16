@@ -14,9 +14,9 @@ ms.date: 02/14/2023
 
 # Make outbound connections through a private endpoint
 
-If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](azure/private-link/private-link-overview), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
+If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](/azure/private-link/private-link-overview), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
 
-## Concepts and terms
+## When to use a shared private link
 
 Cognitive Search makes outbound requests to other Azure PaaS resources in the following scenarios:
 
@@ -31,7 +31,7 @@ A shared private link is:
 
 + Created by your search service
 + Approved by the Azure PaaS resource owner
-+ Used internally on a connection in one of the previously listed scenarios
++ Used internally on a connection to a specific Azure resource
 
 Only your search service can use the private links that it creates. 
 
@@ -40,9 +40,17 @@ Once you set up the private link, it's used automatically whenever search connec
 > [!NOTE]
 > There are two scenarios for using Azure Private Link and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is configuring search for a private *inbound* connection from clients that run run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
+### Limitations
+
++ You can't use Azure portal tools such as **Import data** or **Debug sessions** for private outbound connections to Azure PaaS resources.
+
++ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
+
++ Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multi-tenant environment. The configuration setting for this requirement is covered in this article.
+
 ## Prerequisites
 
-+ An Azure Cognitive Search at the Basic tier or above. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
++ An Azure Cognitive Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
 + An Azure PaaS resource from the list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
@@ -68,7 +76,7 @@ You can create a shared private link for the following resources.
 
 <sup>3</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure Cognitive Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
 
-<sup>4</sup> Although `Microsoft.Sql/managedInstances` is listed in the search **Networking** portal page, creating a shared private link to Azure SQL Managed Instance (preview) requires using the Azure CLI. The portal doesn't currently construct a valid fully qualified domain name for SQL Managed instances. Instructions for meeting this requirement can be found in this article, in the Azure CLI section for creating a shared private link.
+<sup>4</sup> Although `Microsoft.Sql/managedInstances` is listed in the search **Networking** portal page, creating a shared private link to Azure SQL Managed Instance (preview) requires using the REST API, Azure PowerShell, or the Azure CLI. The portal doesn't currently construct a valid fully qualified domain name for SQL Managed instances. Instructions for configuring a shared private link to a SQL Managed instance can be found in the Azure CLI section for [creating a shared private link](#1---create-a-shared-private-link).
 
 ### Private endpoint verification
 
@@ -85,14 +93,6 @@ These Private Link tutorials provide steps for creating a private endpoint for A
 + [Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-cosmosdb-portal)
 
 + [Tutorial: Connect to a web app using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-webapp-portal)
-
-### Limitations
-
-+ You can't use Azure portal tools such as **Import data** or **Debug sessions** for private outbound connections to Azure PaaS resources.
-
-+ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
-
-+ Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multi-tenant environment. The configuration setting for this requirement is covered in this article.
 
 ## 1 - Create a shared private link
 
@@ -178,11 +178,11 @@ New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resourc
 
 ### [**Azure CLI**](#tab/cli-create)
 
-Remember to use the preview API version, either 2020-08-01-preview or 2021-04-01-preview, if you're using a group ID that's in preview. The following resource types are in preview and require the preview API: `managedInstance`, `mySqlServer`, `sites`.
+Remember to use the preview API version, either `2020-08-01-preview` or `2021-04-01-preview`, if you're using a group ID that's in preview. The following resource types are in preview and require a preview API: `managedInstance`, `mySqlServer`, `sites`.
 
 1. Formulate the request.
 
-```dotnetcli
+```azurecli
 az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
 ```
 
@@ -207,6 +207,7 @@ You can poll for the status by manually querying the `Azure-AsyncOperationHeader
 
 ```dotnetcli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
+```
 
 A `202 Accepted` response is returned on success. The process of creating an outbound private endpoint is a long-running (asynchronous) operation. It involves deploying the following resources:
 
@@ -230,23 +231,6 @@ When you're creating a shared private link to SQL Managed Instance, the `resourc
         "requestMessage": "please approve",
     }
 }
-```
-
----
-
-<a name="check-endpoint-status"></a>
-
-## 2 - Check the status of the private endpoint creation
-
-In this step, confirm that the provisioning state of the resource changes from "Updating" to "Succeeded". 
-
-### [**Azure portal**](#tab/portal-status)
-
-
-
-### [**Azure CLI**](#tab/cli-status)
-
-
 ```
 
 ---
@@ -293,7 +277,6 @@ This would return a JSON, where the connection state shows up as "status" under 
         "provisioningState": "Succeeded"
       }
 }
-
 ```
 
 If the provisioning state (`properties.provisioningState`) of the resource is "Succeeded" and connection state(`properties.status`) is "Approved", it means that the shared private link resource is functional and the indexer can be configured to communicate over the private endpoint.
@@ -302,7 +285,7 @@ If the provisioning state (`properties.provisioningState`) of the resource is "S
 
 [Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing for multiple customers. 
 
-The execution environment is usually transparent, but once you start building firewall rules or establishing private connections, you'll have to take indexer execution into account. For a private connection, you'll need to ensure that indexer execution always occurs in the private environment. 
+The execution environment is usually transparent, but once you start building firewall rules or establishing private connections, you have to take indexer execution into account. For a private connection, configure indexer execution to always run in the private environment. 
 
 This step shows you how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
 
@@ -377,7 +360,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 + If your indexer creation fails with "Data source credentials are invalid," check the approval status of the shared private link before debugging the connection. If the status is `Approved`, check the `properties.provisioningState` property. If it's `Incomplete`, there might be a problem with underlying dependencies. In this case, reissue the `PUT` request to re-create the shared private link. You might also need to repeat the approval step.
 
-+ If indexers fail consistently or intermittently, check the [`executionEnvironment` property](/rest/api/searchservice/update-indexer) on the indexer. The value should be set to `private`. If you didn't set this property, and indexer runs succeeded in the past, it's because the search service used a private environment of its own accord. A search service will move processing out of the standard environment if the system is under load.
++ If indexers fail consistently or intermittently, check the [`executionEnvironment` property](/rest/api/searchservice/update-indexer) on the indexer. The value should be set to `private`. If you didn't set this property, and indexer runs succeeded in the past, it's because the search service used a private environment of its own accord. A search service moves processing out of the standard environment if the system is under load.
 
 + If you get an error when creating a shared private link, check [service limits](search-limits-quotas-capacity.md) to verify that you're under the quota for your tier.
 
