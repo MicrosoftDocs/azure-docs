@@ -12,7 +12,7 @@ ms.date: 2/23/2022
 
 Dynamic thresholds apply advanced machine learning, and use a set of algorithms and methods to:
 - Learn the historical behavior of metrics
-- Analyze metrics over time and identify patterns such as hourly, daily or weekly patterns. 
+- Analyze metrics over time and identify patterns such as hourly, daily or weekly patterns
 - Recognize anomalies that indicate possible service issues
 - Calculate the most appropriate threshold for the metric
 
@@ -20,16 +20,16 @@ When you use dynamic thresholds, you don't have to know the "right" threshold fo
 
 Dynamic thresholds help you:
 - Create scalable alerts for hundreds of metric series with one alert rule. If you have fewer alert rules, you spend less time creating and managing alerts rules. Scalable alerting is especially useful for multiple dimensions or for multiple resources, such as to all resources in a subscription.
-- Create rules without having to know what threshold to configure. Using dynamic thresholds, you can configure metric alerts using high-level concepts, without having extensive domain knowledge about the metric.
+- Create rules without having to know what threshold to configure. Using dynamic thresholds, you can configure metric alerts using high-level concepts, without having extensive domain knowledge about the metric
 - Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
-- Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
+- Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate)
 
 Dynamic Thresholds can be applied to:
 - most Azure Monitor platform and custom metrics
 - common application and infrastructure metrics
 - noisy metrics, such as machine CPU or memory
-- metrics with low dispersion, such as availability and error rate.
+- metrics with low dispersion, such as availability and error rate
 See [metrics not supported by dynamic thresholds](#metrics-not-supported-by-dynamic-thresholds) for a list of metrics that aren't supported by dynamic thresholds.
 
 The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. If there is a prolonged outage, dynamic thresholds understand the data, and detect system issues with the same level of sensitivity as before the outage occurred.
