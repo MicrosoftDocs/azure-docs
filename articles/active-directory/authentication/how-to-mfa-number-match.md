@@ -305,7 +305,7 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 ### When will my tenant see number matching if I don't use the Azure portal or Graph API to roll out the change?
 
-Number match will be enabled for all users of Microsoft Authenticator push notifications after May 8, 2023. We had previously announced that we will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting May 8, 2023. After listening to customers, we will extend the availability of the rollout controls for a few more weeks. 
+Number match will be enabled for all users of Microsoft Authenticator push notifications after May 8, 2023. We had previously announced that we will remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we will extend the availability of the rollout controls for a few more weeks. 
 
 Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
