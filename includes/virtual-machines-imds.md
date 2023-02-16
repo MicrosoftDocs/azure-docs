@@ -449,9 +449,8 @@ Data | Description | Version introduced |
 | `diskEncryptionKey.sourceVault.id` | The location of the disk encryption key | 2021-11-01
 | `diskEncryptionKey.secretUrl` | The location of the secret | 2021-11-01
 | `keyEncryptionKey.sourceVault.id` | The location of the key encryption key | 2021-11-01
-| `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01† 
+| `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01
 
-† This version is not fully available yet and may not be supported in all regions.
 
 The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
 If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
