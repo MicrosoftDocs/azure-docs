@@ -25,7 +25,6 @@ To complete this tutorial, you need to have an existing Azure SQL database and s
 |---|---|
 | [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) | If you don't already have one, follow the steps in the [create a single database](/azure/azure-sql/database/single-database-create-quickstart) guide. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide.  |
-| [Azure Data Studio](https://aka.ms/azuredatastudio) | Data client used to create a sample table and add sample data. |
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
@@ -63,30 +62,16 @@ You need the database connection string to set up your development environment.
 
 Create a sample table and seed it with sample data to match the tutorial.
 
-1. From the *Overview* window of your SQL database, select **Connect with...** to open the connection drop-down.
+1. On the left-hand navigation window, select **Query editor**.
 
-1. Select **Azure Data Studio**.
-
-1. Find the text "*Already have the app?*" at the bottom of the window and select the link **Launch it now** to open Azure Data Studio.
-
-1. If a dialog box appears, and asks *Open Azure Data Studio*, select **Open Azure Data Studio**.
-
-1. When the Azure Data Studio dialog window opens asking *Are you sure you want to connect?* appears, select **Open**.
-
-1. In the *Connection* window, enter the SQL Server name, user name and password, and select your database.
-
-1. Select **Connect**.
-
-1. Select <kbd>CMD/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> to open the *Servers* window.
-
-1. Select <kbd>CMD/CTRL</kbd> + <kbd>N</kbd> to open a new query window.
+1. Sign in to the server with your Active Directory account or the server's user name and password.
 
 1. Run the following script to create a new table named `MyTestPeopleTable`.
 
     ```sql
     CREATE TABLE [dbo].[MyTestPeopleTable] (
-        [Id]       INT          IDENTITY (1, 1) NOT NULL,
-        [Name]     VARCHAR (25) NULL
+        [Id] INT IDENTITY (1, 1) NOT NULL,
+        [Name] VARCHAR (25) NULL
     );
     ```
 
@@ -646,4 +631,4 @@ If you want to remove the resources created during this tutorial, you need to un
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add ann API](add-api.md)
+> [Add an API](add-api.md)
