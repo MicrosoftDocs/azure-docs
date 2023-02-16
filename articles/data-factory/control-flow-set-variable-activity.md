@@ -15,7 +15,7 @@ ms.reviewer: jburchel
 # Set Variable Activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline or use the Set Variable activity to set a pipeline return value (preview), which can be used in a parent pipeline.
+Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline or use the Set Variable activity to set a pipeline return value (preview).
 
 
 ## Setting a variable in the Set Variable activity with UI
@@ -24,13 +24,35 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 1. Select the background of the pipeline canvas and use the Variables tab to add a variable:
 
-    :::image type="content" source="media/control-flow-activities-common/add-pipeline-array-variable.png" alt-text="Screenshot shows an empty pipeline canvas with the variables tab selected having an array type variable named TestVariable.":::
+:::image type="content" source="media/control-flow-activities-common/add-pipeline-array-variable.png" alt-text="Screenshot shows an empty pipeline canvas with the variables tab selected having an array type variable named TestVariable.":::
 
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
+
 3. Select the Set Variable activity on the canvas if it is not already selected, and then click the **Settings** tab to edit its details.
+
 4. Select the variable for the Name property.
+
 5. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+
 :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot shows the ui for a set variable activity.":::
+    
+## Setting a pipeline return value in the Set Variable activity with UI
+
+The Set Variable activity now allows you to set a pipeline return value (preview). The pipeline return value is a system variable that allows you to customize a value that can be consumed by a parent pipeline and used downstream in your pipeline. 
+
+To set a pipeline return value, complete the following steps:
+
+1. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
+
+2. Select the Set Variable activity on the canvas if it is not already selected, and then click the **Settings** tab to edit its details.
+
+3. Select **Pipeline return value (preview)** for your **Variable type**.
+
+4. Enter a **Name** for your variable and select the **Type** from the drop-down menu. 
+
+5. Enter an expression to set the value for the pipeline return value. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+
+:::image type="content" source="media/control-flow-set-variable-activity/set-pipeline-return-value.png" alt-text="Screenshot shows the UI for setting a pipeline return value.":::
 
 ## Type properties
 
@@ -42,24 +64,11 @@ type | Must be set to **SetVariable** | yes
 variableName | Name of the variable that is set by this activity | yes
 value | String literal or expression object value that the variable is assigned to | yes
 
-## Setting a pipeline return value in the Set Variable activity with UI
-
-The Set Variable activity now allows you to set a pipeline return value (preview). The pipeline return value is a system variable that allows you to customize a value that can be consumed by a parent pipeline and used downstream in your pipeline. 
-
-To set a pipeline return value, complete the following steps:
-
-1. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
-2. Select the Set Variable activity on the canvas if it is not already selected, and then click the **Settings** tab to edit its details.
-4. Select **Pipeline return value (preview)** for your **Variable type**.
-5. Enter a **Name** for your variable and select the **Type** from the drop-down menu. 
-6. Enter an expression to set the value for the pipeline return value. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
-
-:::image type="content" source="media/control-flow-set-variable-activity/set-pipeline-return-value.png" alt-text="Screenshot shows the UI for setting a pipeline return value.":::
-
 
 ## Incrementing a variable
 
-A common scenario involving variables is using a variable as an iterator within an until or foreach activity. In a set variable activity, you cannot reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second set variable activity. The second set variable activity sets the value of the iterator to the temporary variable. 
+A common scenario involving variables is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you cannot reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
+
 Below is an example of this pattern:
 
 :::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="Screenshot shows increment variable.":::
@@ -123,6 +132,5 @@ Variables are currently scoped at the pipeline level. This means that they are n
 
 ## Next steps
 Learn about another related control flow activity: 
-
 - [Append Variable Activity](control-flow-append-variable-activity.md)
 
