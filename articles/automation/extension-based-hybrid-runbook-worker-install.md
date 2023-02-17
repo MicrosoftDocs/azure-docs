@@ -976,6 +976,23 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 
 After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
 
+**Hybrid Worker extension settings**
+#### [Windows](#tab/hrw-win)
+
+```powershell-interactive
+$settings = @{
+    "AutomationAccountURL"  = "<registrationurl>";
+};
+```
+#### [Linux](#tab/hrw-lin)
+
+```powershell-interactive
+$settings = @{
+    "AutomationAccountURL"  = "<registration-url>";    
+};
+```
+---
+
 **Azure VMs**
 
 ```powershell
