@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure OpenAI?
+title: What's new in Azure OpenAI Service?
 titleSuffix: Azure Cognitive Services
 description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
@@ -13,9 +13,18 @@ recommendations: false
 keywords:  
 ---
 
-# What's new in Azure OpenAI
+# What's new in Azure OpenAI Service
 
-## December 2022 - Azure OpenAI General Availability (GA)
+## January 2023
+
+### New Features
+
+* **Service GA**. Azure OpenAI Service is now generally available.​
+
+* **New models**: Addition of the latest text model, text-davinci-003 (East US, West Europe), text-ada-embeddings-002 (East US, South Central US, West Europe)
+
+
+## December 2022
 
 ### New features
 
@@ -49,25 +58,25 @@ keywords:
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"hyperparams": { ​
-              "batch_size": 4,​
-              "learning_rate_multiplier": 0.1,​
-              "n_epochs": 4,​
-              "prompt_loss_weight": 0.1, ​
-              }​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "hyperparams": { ​
+        "batch_size": 4,​
+        "learning_rate_multiplier": 0.1,​
+        "n_epochs": 4,​
+        "prompt_loss_weight": 0.1,​
+    }​
 }
 ```
 
-**GA API 2022-12-01:**
+**API version 2022-12-01:**
 
 ```json
 {​
-"training_file": "file-XGinujblHPwGLSztz8cPS8XY" ,​
-"batch_size": 4,​
-“learning_rate_multiplier": 0.1,​
-"n_epochs": 4,​
-"prompt_loss_weight": 0.1, ​
+    "training_file": "file-XGinujblHPwGLSztz8cPS8XY",​
+    "batch_size": 4,​
+    "learning_rate_multiplier": 0.1,​
+    "n_epochs": 4,​
+    "prompt_loss_weight": 0.1,​
 }
 ```
 

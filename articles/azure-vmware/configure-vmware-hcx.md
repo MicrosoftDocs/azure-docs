@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 Once you've [installed the VMware HCX add-on](install-vmware-hcx.md), you're ready to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.  
 
-In this how-to, you'll:
+In this tutorial, you'll learn how to do the following tasks:
 
 * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
 * Configure the network profile, compute profile, and service mesh
@@ -23,13 +23,13 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - [VMware HCX Connector](install-vmware-hcx.md) has been installed.
 
-- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise edition is available and supported on Azure VMware Solution, at no additional cost.
+- VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise is automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. 
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
    - NSX-T Data Center or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported)
 
-   - One or more active stretched network segment
+   - One or more active stretched network segments
 
 - [VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) have been met.
 
@@ -54,7 +54,7 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 
 1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9` and the credentials for a user which holds the CloudAdmin role in your private cloud. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9` and the credentials for a user that holds the CloudAdmin role in your private cloud. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
@@ -68,7 +68,7 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 
 ## Create network profiles
 
-VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [planning phase](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  You'll create four network profiles:
+VMware HCX Connector deploys a subset of virtual appliances (automated) that requires multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [planning phase](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  You'll create four network profiles:
 
    - Management
    - vMotion

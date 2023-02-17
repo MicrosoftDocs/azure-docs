@@ -25,27 +25,6 @@ In this quickstart, you'll learn how to create a virtual network using the Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a DDoS protection plan
-
-1. Select **Create a resource** in the upper left-hand corner of the portal.
-
-1. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
-
-1. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
-
-    :::image type="content" source="./media/quick-create-portal/create-ddos-plan.png" alt-text="Screenshot of creating a DDoS protection plan.":::
-
-    | Setting | Value |
-    |--|--|
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
-    | **Instance details** |   |
-    | Name | Enter **myDDoSPlan**. |
-    | Region | Select **(US) East US**. |
-
-1. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
-
 ## Create a virtual network
 
 1. Select **Create a resource** in the upper left-hand corner of the portal.
@@ -90,10 +69,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Bastion name | Enter **myBastionHost** |
     | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-1. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
-
-    :::image type="content" source="./media/quick-create-portal/enable-ddos.png" alt-text="Screenshot of enabling DDoS protection standard in the security tab.":::
 
 1. Select the **Review + create** tab or select the **Review + create** button.
 

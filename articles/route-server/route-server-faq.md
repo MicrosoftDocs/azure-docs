@@ -4,9 +4,10 @@ description: Find answers to frequently asked questions about Azure Route Server
 services: route-server
 author: halkazwini
 ms.service: route-server
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
 # Azure Route Server frequently asked questions (FAQs)
@@ -54,6 +55,9 @@ If the route has the same AS path length, Azure Route Server will program multip
 ### Does Azure Route Server preserve the BGP AS Path of the route it receives?
 
 Yes, Azure Route Server propagates the route with the BGP AS Path intact.
+
+### Do I need to peer each NVA with both Route Server instances?
+Yes, to ensure that VNet routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instances with both instances of Route Server.
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 

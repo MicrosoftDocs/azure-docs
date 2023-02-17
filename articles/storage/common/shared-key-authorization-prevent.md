@@ -78,8 +78,6 @@ Azure Storage supports Azure AD authorization for requests to blob, table and qu
 
 Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to an account via Shared Key, or do not apply this setting to storage accounts that support Azure Files workloads.
 
-Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
-
 ## Identify storage accounts that allow Shared Key access
 
 There are two ways to identify storage accounts that allow Shared Key access:
@@ -206,7 +204,7 @@ You can create a diagnostic setting for each type of Azure Storage resource in y
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
 #### Query logs for requests made with Shared Key or SAS
 

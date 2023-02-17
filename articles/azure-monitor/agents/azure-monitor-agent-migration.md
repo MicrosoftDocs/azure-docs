@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
-ms.date: 9/14/2022 
+ms.date: 1/10/2023 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an IT manager, I want to understand how I should move from using legacy agents to Azure Monitor Agent.
 ---
@@ -21,9 +21,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Agent provides the following benefits over legacy agents:
 
-- **Security and performance**
+- **Security**
   - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
-  - Same events-per-second (EPS) upload rate with less resource utilization.
+- **Performance**
+  - The AMA agent event throughput is 25% better than the MMA agent.
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md). Using DCRs is one of the most useful advantages of using Azure Monitor Agent:
   - DCRs let you configure data collection for specific machines connected to a workspace as compared to the "all or nothing" approach of legacy agents.
   - With DCRs, you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.
@@ -37,16 +38,17 @@ Azure Monitor Agent provides the following benefits over legacy agents:
 
 Your migration plan to the Azure Monitor Agent should take into account:
 
-- **Current and new feature requirements:** Review [Azure Monitor Agent's supported services and features](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent has the features you require. If you currently use unsupported features you can temporarily do without, consider migrating to the new agent to benefit from added security and reduced cost immediately. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to *discover what solutions and features you're using today that depend on the legacy agent*.
+- **Service (legacy Solutions) requirements:** 
+  - Review [Azure Monitor Agent's supported services list](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent supports the services you require. If you currently use service(s) in preview, start testing your scenarios during the preview phase. This will save time and ensure you're ready to deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
+  - Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to *discover what solutions and features you're using today that depend on the legacy agents*.
+  - If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
 
-    If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
-
-- **Installing Azure Monitor Agent alongside a legacy agent:** If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, and you still need a legacy agent, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort.
-
-    Azure Monitor Agent can run alongside the legacy Log Analytics agents on the same machine so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the limitations:
-    - Be careful when you collect duplicate data from the same machine. Duplicate data could skew query results and affect downstream features like alerts, dashboards, or workbooks. For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents.
-    If you install Azure Monitor Agent and create a data collection rule for these events and performance data, you'll collect duplicate data. If you're using both agents to collect the same type of data, make sure the agents are *collecting data from different machines* or *sending the data to different destinations*. Collecting duplicate data also generates more charges for data ingestion and retention.
-    
+- **Installing Azure Monitor Agent alongside a legacy agent:** 
+  - If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
+  - Azure Monitor Agent **can run alongside the legacy Log Analytics agents on the same machine** so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the **limitations below**:
+    - Be careful when you collect duplicate data from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, workbooks and generate more charges for data ingestion and retention. To avoid data duplication, ensure the agents are *collecting data from different machines* or *sending the data to different destinations*. Additionally,
+      - For **Defender for Cloud**, you will only be [billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
+      - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
     - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
 
 ## Prerequisites

@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery for Virtual machines on Azure
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/09/2022
+ms.date: 12/14/2022
 ms.author: v-pgaddala
 ---
 
@@ -13,7 +13,9 @@ ms.author: v-pgaddala
 > [!IMPORTANT]
 > The Azure Site Recovery (ASR) functionality for Public MEC is in preview state.
 
-This tutorial shows you how to set up disaster recovery for ASR Azure Public MEC using VM Flow. You will do this using the Azure Site Recovery portal.
+
+This tutorial shows you how to set up disaster recovery for Azure Site Recovery Public MEC (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
+
 
 In this article, you learn how to:
 
