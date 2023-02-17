@@ -11,7 +11,7 @@ ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
+[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
 
 Use this quickstart to create an entity linking application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify and disambiguate entities found in text.
 
@@ -142,5 +142,5 @@ main().catch((err) => {
 
 * [Entity linking language support](../../language-support.md)
 * [How to call the entity linking API](../../how-to/call-api.md)  
-* [Reference documentation](/javascript/api/overview/azure/ai-language-text-readme?view=azure-node-latest)
+* [Reference documentation](/javascript/api/overview/azure/ai-language-text-readme)
 * [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1)
