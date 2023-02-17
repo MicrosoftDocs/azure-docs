@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/16/2023
+ms.date: 02/17/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -97,7 +97,6 @@ Under **Manage**, select **Storage**.
 1. Under **Data store**, create a personalized name for your **Datastore name**.
     1. When the datastore is created, you should see all of your datastores in the **Storage**.
     2. You'll also notice that the NFS datastores are added in vCenter.
-
 
 ### [Azure CLI](#tab/azure-cli)
 
