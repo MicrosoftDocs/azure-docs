@@ -51,6 +51,12 @@
         - name: App settings
           href: application-settings.md
           displayName: environment variables
+    - name: Database connections
+      items:
+        - name: Overview
+          href: database-overview.md
+        - name: Configuration
+          href: database-configuration.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -99,12 +105,6 @@
           href: add-api.md
         - name: Bring your own functions
           href: functions-bring-your-own.md
-    - name: Database connections
-      items:
-        - name: Overview
-          href: database-overview.md
-        - name: Configuration
-          href: database-configuration.md
     - name: Security
       items:
         - name: Set up a private endpoint
