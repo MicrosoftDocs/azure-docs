@@ -172,6 +172,15 @@ directCommands:
       ```azstatic-cli
       swa start ./my-dist --api-location http://localhost:7071
       ```
+    
+    #### Database connections
+
+    To start your application with a [database connection](database-overview.md), use the `--data-api-location` parameter and point to the folder containing the *staticwebapp.database.config.json* file. 
+
+    ```azstatic-cli
+    swa start ./src --data-api-location swa-db-connections
+    ```
+
   syntax: >-
     swa start
               [--yes]
@@ -189,6 +198,8 @@ directCommands:
     summary: The folder containing the source code of the API application.
   - name: --output-location, -O <PATH>
     summary: The folder containing the built source of the front end application. The path is relative to `--app-location`. Default is `.`.
+  - name: --data-api-location
+    summary: The folder containing the *staticwebapp.database.config.js* file.
   - name: --app-devserver-url, -D <URL>
     summary: Connect to the app dev server at this URL instead of using output location.
   - name: --api-devserver-url, -is <URL>
@@ -405,6 +416,17 @@ directCommands:
     syntax: swa deploy --print-token
   - summary: Deploy to a specific environment
     syntax: swa deploy --env production
+- uid: swa_db
+  name: swa db
+  summary: Configure database connection settings
+  description: >-
+    Use `swa db --init` to generate a sample *staticwebapp.database.config.json* file.
+  syntax: >-
+    swa db
+      --init
+  examples:
+  - summary: Generate a sample database connection configuration file.
+    syntax: swa db --init
   optionalParameters:
   - name: --app-location, -a <PATH>
     summary: the folder containing the source code of the front-end application. Default is `.`.
@@ -458,5 +480,6 @@ commands:
 - swa_build
 - swa_start
 - swa_deploy
+- swa_db
 metadata:
   description: Azure Static Web Apps CLI
