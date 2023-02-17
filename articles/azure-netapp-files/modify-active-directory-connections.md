@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/21/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,7 +20,6 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 * [Validate user access on LDAP volumes]
-
 
 ## December 2022
 
