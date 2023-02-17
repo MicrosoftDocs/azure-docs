@@ -32,7 +32,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Avro
 * Azure Cosmos DB (SQL API)
 * Azure SQL Database
-* Azure SQL Database Managed Instance
+* Azure SQL Managed Instance
 * Delimited Text
 * JSON
 * ORC
@@ -44,7 +44,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 * Avro
 * Azure SQL Database
-* Azure SQL Database Managed Instance
+* SQL Managed Instance
 * Delimited Text
 * Delta
 * JSON
