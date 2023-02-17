@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/13/2022
+ms.date: 02/17/2023
 ---
 
 # Support matrix for VMware discovery 
@@ -86,7 +86,7 @@ Support | Details
 **SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
-**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.<br /><br /> Identification of Failover Cluster and Always On availability groups isn't supported.
+**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.
 **Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) isn't supported.
 
 > [!NOTE]

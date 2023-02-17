@@ -329,8 +329,16 @@ List of linked servers | sys.servers
 List of agent job |	[msdb].[dbo].[sysjobs], [sys].[syslogins], [msdb].[dbo].[syscategories]
 Always On Availability Groups, Replicas, and their states | sys.availability_groups, sys.dm_hadr_availability_group_states, sys.availability_group_listeners, sys.availability_group_listener_ip_addresses, sys.availability_replicas, sys.dm_hadr_availability_replica_states 
 Always On Failover Clustered Instance | sys.dm_hadr_cluster, sys.dm_hadr_cluster_members, sys.dm_hadr_cluster_networks 
-
-
+Availability groups and replicas | sys.availability_groups
+Always On Availability Groups, Replicas, and their states | sys.dm_hadr_availability_group_states
+Returns a row for each of the availability replicas that belong to any Always On availability group in the WSFC failover cluster. | sys.availability_replicas
+Returns a row for each local replica and a row for each remote replica in the same Always On availability group as a local replica. Each row contains information about the state of a given replica. | sys.dm_hadr_availability_replica_states
+Returns a row that exposes the cluster name and information about the quorum. | sys.dm_hadr_cluster
+Returns a row for each of the members that constitute the quorum and the state of each of them.  | sys.dm_hadr_cluster_members
+Returns a row for every WSFC cluster member that is participating in an availability group's subnet configuration. | sys.dm_hadr_cluster_networks
+For each Always On availability group, returns either zero rows indicating that no network name is associated with the availability group, or returns a row for each availability-group listener configuration in the Windows Server Failover Clustering (WSFC) cluster. | sys.availability_group_listeners
+Returns a row for every IP address that is associated with any Always On availability group listener in the Windows Server Failover Clustering (WSFC) cluster. | sys.availability_group_listener_ip_addresses
+Returns a row for each database that is participating in an Always On availability group for which the local instance of SQL Server is hosting an availability replica. This dynamic management view exposes state information on both the primary and secondary replicas. | sys.dm_hadr_database_replica_states
 
 ### Performance metadata
 
