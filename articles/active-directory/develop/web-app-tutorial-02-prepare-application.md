@@ -71,7 +71,7 @@ dotnet new webapp
 
 ## Create and upload a self-signed certificate
 
-The use of certificates is a suggested way of securing communication between client and server. For the purpose of this tutorial, a self-signed certificate will be created in the project directory. Learn more about self-signed certificates [here](azure-docs-pr/articles/active-directory/develop/howto-create-self-signed-certificate.md).
+The use of certificates is a suggested way of securing communication between client and server. For the purpose of this tutorial, a self-signed certificate will be created in the project directory. Learn more about self-signed certificates [here](howto-create-self-signed-certificate.md).
 
 ### [Visual Studio](#tab/visual-studio)
 
