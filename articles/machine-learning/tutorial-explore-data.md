@@ -15,14 +15,14 @@ ms.date: 02/16/2023
 
 # Tutorial: Upload, access and explore your data in Azure Machine Learning
 
-In this tutorial you'll learn how to:
+In this tutorial you learn how to:
 
 > * Upload your data to cloud storage
 > * Create an Azure ML data asset
 > * Access your data in a notebook for interactive development
 > * Create new versions of data assets
 
-The start of a machine learning project typically involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and the building of Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial will describe these ideas.
+The start of a machine learning project typically involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and the building of Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial describes these ideas.
 
 ## Prerequisites
 
@@ -37,11 +37,11 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Set your notebook kernel
 
-1. On the top bar, you'll see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
+1. On the top bar, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
 
-1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+1. If the compute instance is stopped, select **Start compute** and wait until it's running.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped.":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
@@ -52,15 +52,14 @@ The start of a machine learning project typically involves exploratory data anal
 
 ### Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial will use this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We'll see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/en-us/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
 
 > [!NOTE]
 > This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource.
 
-This image shows the Azure ML Files (directory) panel:
+This image shows the Azure ML files (directory) panel:
 
 :::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
-
 In the files panel, you can easily create directories, and move files between directories. Create a new directory at the directory root, and name it **get-started-notebooks**.
 
 Upload the data to the **get-started-notebooks** directory after you download it. Or, follow these steps to copy the data using the compute instance terminal.
@@ -70,7 +69,7 @@ Upload the data to the **get-started-notebooks** directory after you download it
 
 :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-1. The terminal window will open in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
+1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
 
     ```
     cd get-started-notebooks # cd to the location you would like to store the data
@@ -83,10 +82,10 @@ Upload the data to the **get-started-notebooks** directory after you download it
 
 ## Connect to the workspace
 
-Before you dive in the code, you'll need to connect to your Azure ML workspace. 
+Before you dive in the code, you need to connect to your Azure ML workspace. 
 
 We're using `DefaultAzureCredential` to get access to workspace. 
-`DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
+`DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
 
 In this cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -116,7 +115,7 @@ ml_client = MLClient(
 
 ## Upload data to cloud storage
 
-Azure ML uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats look similar to the web URL's that you use in your web browser to access web pages. For example:
+Azure ML uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats look similar to the web URLs that you use in your web browser to access web pages. For example:
 
 * Access data from public https server: `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`
 * Access data from Azure Data Lake Gen 2: `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
@@ -128,7 +127,7 @@ Data asset creation also creates a *reference* to the data source location, alon
 > [!TIP]
 > For smaller-size data uploads, Azure ML data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
 
-The next notebook cell creates the data asset. Here, the code sample will upload the raw data file to the designated cloud storage resource. This upload operation requires unique **version** and **name** properties in the **my_data** block. Otherwise, the cell will fail. To run this cell code more than once with the same **name** value, change the **version** value each time you run the code. As another workaround, you can also comment out the **version** value. This approach will create new data asset each time the cell runs, and it will auto-increment the version numbers of those versions, starting from 1:
+The next notebook cell creates the data asset. Here, the code sample uploads the raw data file to the designated cloud storage resource. This upload operation requires unique **version** and **name** properties in the **my_data** block. Otherwise, the cell fails. To run this cell code more than once with the same **name** value, change the **version** value each time you run the code. As another workaround, you can also comment out the **version** value. This approach creates new data asset each time the cell runs, and it auto-increments the version numbers of those versions, starting from 1:
 
 
 ```python
@@ -157,7 +156,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-You'll notice that the data has been uploaded to the default Azure ML _Datastore_. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. A datastore offers these benefits:
+You'll notice that the data uploads to the default Azure ML _Datastore_. An Azure Machine Learning datastore is a _reference_ to an _existing_ storage account on Azure. A datastore offers these benefits:
 
 1. A common and easy-to-use API, to interact with different storage types (Blob/Files/ADLS) and authentication methods.
 1. An easier way to discover useful datastores, when working as a team.
@@ -208,7 +207,7 @@ Read [Access data from Azure cloud storage during interactive development](how-t
 You might have noticed that the data needs a little light cleaning, to make it fit to train a machine learning model. It has:
 
 * two headers
-* a client ID column; we would not use this feature in Machine Learning
+* a client ID column; we wouldn't use this feature in Machine Learning
 * spaces in the response variable name
 
 Also, compared to the CSV format, the Parquet file format becomes a better way to store this data. Parquet offers compression, and it maintains schema. Therefore, to clean the data and store it in Parquet, use:
@@ -240,7 +239,7 @@ This table shows the structure of the data in the original **default_of_credit_c
 |X18-23     | Explanatory        |  Amount of previous payment (NT dollar) from April to September  2005.      |
 |Y     | Response        |    Default payment (Yes = 1, No = 0)     |
 
-Next, create a new _version_ of the data asset (the data will automatically upload to cloud storage):
+Next, create a new _version_ of the data asset (the data automatically uploads to cloud storage):
 
 > [!NOTE]
 >
