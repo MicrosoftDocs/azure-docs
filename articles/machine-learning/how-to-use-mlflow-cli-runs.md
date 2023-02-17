@@ -106,27 +106,25 @@ Use MLflow SDK to track any metric, parameter, artifacts, or models. For detaile
 
 Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
 
-# [Azure CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
-To submit the job, create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory.
+    To submit the job, create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
 
-# [Python](#tab/python)
+    # [Python](#tab/python)
 
-```python
-from azure.ai.ml import command, Environment
+    ```python
+    from azure.ai.ml import command, Environment
 
-command_job = command(
-    code="src",
-    command="echo "hello world",
-    environment=Environment(image="library/python:latest"),
-    compute="cpu-cluster",
-    display_name="hello-world-example"
-)
-```
-
----
+    command_job = command(
+        code="src",
+        command="echo "hello world",
+        environment=Environment(image="library/python:latest"),
+        compute="cpu-cluster",
+        display_name="hello-world-example"
+    )
+    ```
 
 ---
 
@@ -134,33 +132,33 @@ command_job = command(
 
 1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
 
-   # [Azure CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
    
-   ```azurecli
-   az account set --subscription <subscription>
-   az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-   ```
+    ```azurecli
+    az account set --subscription <subscription>
+    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+    ```
    
-   # [Python SDK](#tab/sdk)
+    # [Python SDK](#tab/sdk)
    
-   The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+    The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
    
-   1. Import the required libraries:
+    1. Import the required libraries:
    
-   ```python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
-   ```
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
+    ```
    
-   2. Configure workspace details and get a handle to the workspace:
+    2. Configure workspace details and get a handle to the workspace:
    
-   ```python
-   subscription_id = "<subscription>"
-   resource_group = "<resource-group>"
-   workspace = "<workspace>"
-   
-   ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-   ```
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
 
 1. Submit the job
 
