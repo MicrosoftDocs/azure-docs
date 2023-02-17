@@ -678,6 +678,56 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 }
 ```
 
+## Pronunciation assessment in streaming mode
+
+Pronunciation assessment supports uninterrupted streaming mode. The recording time can be unlimited through the Speech SDK. As long as you don't stop recording, the evaluation process doesn't finish and you can pause and resume evaluation conveniently. In streaming mode, the `AccuracyScore`, `FluencyScore` , and `CompletenessScore`  will vary over time throughout the recording and evaluation process.
+
+::: zone pivot="programming-language-csharp"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/1e525f57608efaea085ea46cd2236a3a11f7bf47/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L1053).
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/1e525f57608efaea085ea46cd2236a3a11f7bf47/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
 ## Next steps
 
 - Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)
