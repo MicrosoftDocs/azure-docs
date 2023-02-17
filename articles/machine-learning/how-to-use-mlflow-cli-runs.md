@@ -26,7 +26,7 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 
 In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
 
-> [!Tip] 
+> [!NOTE] 
 > If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-synapse.md).
 
 ## Prerequisites
@@ -125,6 +125,12 @@ The previous code example doesn't uses `mlflow.start_run()` but if used you can 
 
 Use MLflow SDK to track any metric, parameter, artifacts, or models. For detailed examples about how to log each, see [Log metrics, parameters and files with MLflow](how-to-log-view-metrics.md).
 
+### Configuring the job's name
+
+Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
+
 ### Submitting the job
 
 Use the [Azure Machine Learning CLI](how-to-train-model.md) to submit your job. Jobs using MLflow and running on Azure Machine Learning will automatically log any tracking information to the workspace. To submit the job, create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory. Copy this code into the file:
@@ -136,12 +142,6 @@ Open your terminal and use the following to submit the job.
 ```Azure CLI
 az ml job create -f job.yml --web
 ```
-
-### Configuring the job's name
-
-Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
 
 ---
 
