@@ -49,6 +49,21 @@ If there are any connection issues, a disconnection message is shown in the **Ge
 
     :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
+
+## Download software for OT sensors
+
+You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
+
+In Defender for IoT in the Azure portal, use one of the following options:
+
+- For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
+
+- If you're updating your OT sensor, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ## Manage sensor activation files
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
@@ -317,7 +332,7 @@ You can restore a sensor from a backup file using the sensor console or the CLI.
 
 For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
-**To restore from the sensor console:**
+# [Restore from the sensor console](#tab/restore-from-sensor-console)
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
@@ -339,9 +354,11 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
      1. When the restore process is complete, select **Close**.
 
-**To restore the latest backup file by using the CLI:**
+# [Restore the latest backup file by using the CLI](#tab/restore-using-cli)
 
 - Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+---
 
 ## Configure SMTP settings
 

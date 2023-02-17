@@ -238,4 +238,4 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 ## Next steps
 
 - Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
-- Read the blog about [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
+- Read the blog about [use cases](https://aka.ms/pronunciationassessment/techblog)
