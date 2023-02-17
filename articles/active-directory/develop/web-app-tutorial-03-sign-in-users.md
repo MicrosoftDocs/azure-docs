@@ -12,7 +12,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Add sign in to an application
 
-In the [previous tutorial](web-app-tutorial-02-sign-in-users.md), an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
+In the [previous tutorial](web-app-tutorial-02-prepare-application.md), an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
 
 In this tutorial:
 
