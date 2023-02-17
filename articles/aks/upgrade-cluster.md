@@ -250,7 +250,7 @@ To confirm that the upgrade was successful, navigate to your AKS cluster in the 
 When you upgrade your cluster, the following Kubernetes events may occur on each node:
 
 - Surge – Create surge node.
-- Drain – Pods are being evicted from the node. Each pod has a 30-minute timeout to complete the eviction.
+- Drain – Pods are being evicted from the node. Each pod has a 30-seconds timeout to complete the eviction.
 - Update – Update of a node has succeeded or failed.
 - Delete – Deleted a surge node.
 
