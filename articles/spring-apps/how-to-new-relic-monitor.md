@@ -69,35 +69,31 @@ You can also activate this agent from portal with the following procedure.
 
    :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
-2. Select the application to jump to the **Overview** page.
-
-   :::image type="content" source="media/new-relic-monitoring/overview-page.png" alt-text="Screenshot of the Azure portal showing the Overview page for an app in an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/overview-page.png":::
-
-3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment variables** of the application.
+1. Select the application, and from its **Overview** page select **Configuration** in the left navigation pane to add/update/delete the **Environment variables** of the application.
 
    :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
 
-4. Select **General settings** to add/update/delete the **JVM options** of the application.
+1. Select **General settings** to add/update/delete the **JVM options** of the application.
 
    :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
 
-5. View the application api/gateway **Summary** page from the New Relic dashboard.
+1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
    [![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png)
 
-6. View the application customers-service **Summary** page from the New Relic dashboard.
+1. View the application customers-service **Summary** page from the New Relic dashboard.
 
    [![Customers-service page](media/new-relic-monitoring/customers-service.png)](media/new-relic-monitoring/customers-service.png)
 
-7. View the **Service Map** page from the New Relic dashboard.
+1. View the **Service Map** page from the New Relic dashboard.
 
    [![Service map page](media/new-relic-monitoring/service-map.png)](media/new-relic-monitoring/service-map.png)
 
-8. View the **JVMs** page of the application from the New Relic dashboard.
+1. View the **JVMs** page of the application from the New Relic dashboard.
 
    [![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png)
 
-9. View the application profile from the New Relic dashboard.
+1. View the application profile from the New Relic dashboard.
 
    [![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png)
 
