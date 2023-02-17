@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/07/2023
+ms.date: 02/17/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -573,7 +573,19 @@ If you are an Azure AD Global Administrator and you don't have access to a subsc
 
 ## Classic subscription administrators
 
-If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](rbac-and-directory-admin-roles.md).
+### Symptom - Removing a guest assigned the Co-Administrator role does not the remove role assignment
+
+Consider the following scenario:
+
+- Add a guest user from an external tenant and then assign them the classic Co-Administrator role.
+- Later, you remove the guest user from your tenant without removing the role assignment.
+- The guest user signs in to the Azure portal and switches to your tenant.
+
+The guest user still has the Co-Administrator role assignment.
+
+**Solution**
+
+Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## Next steps
 
