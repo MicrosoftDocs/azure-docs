@@ -67,7 +67,7 @@ In this tutorial:
     }
     ```
 
-1. Open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
+1. Open *Index.cshtml* and add the following code to the bottom of the file. This will handle how the information received from the API is displayed:
 
 	```html
     <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
@@ -94,7 +94,7 @@ In this tutorial:
 
 ---
 
-2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account with which to sign in.
+2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account with which to sign in. Esnure the account matches the criteria of the app registration.
 
     :::image type="content" source="./media/web-app-tutorial-04-call-web-api/pick-account.png" alt-text="Screenshot depicting account options to sign in.":::
  
