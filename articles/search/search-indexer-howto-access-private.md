@@ -31,11 +31,11 @@ A shared private link is:
 
 + Created using Azure Cognitive Search tooling, APIs, or SDKs
 + Approved by the Azure PaaS resource owner
-+ Used internally by search on a private connection to a specific Azure resource
++ Used internally by Search on a private connection to a specific Azure resource
 
 Only your search service can use the private links that it creates, and there can be only one shared private link created on your service for each resource and sub-resource combination.
 
-Once you set up the private link, it's used automatically whenever search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
+Once you set up the private link, it's used automatically whenever Search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
 > [!NOTE]
 > There are two scenarios for using [Azure Private Link](/azure/private-link/private-link-overview) and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
@@ -52,7 +52,7 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure Cognitive Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ An Azure PaaS resource from the list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
++ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
 <a name="group-ids"></a>
 
