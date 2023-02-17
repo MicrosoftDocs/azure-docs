@@ -237,11 +237,11 @@ Managed identities eliminate the limitations of user-based authentication method
 
 **Exactly once delivery (preview)** is supported in the ADLS Gen2 as no code editor output. You can enable it in the **Write mode** section in ADLS Gen2 configuration. For more information about this feature, see [Exactly once delivery (preview) in Azure Data Lake Gen2](./blob-storage-azure-data-lake-gen2-output.md#exactly-once-delivery-public-preview)
 
-:::image type="content" source="./media/no-code-stream-processing/exactly-once-delivery-adls-gen2.png" alt-text="Screenshot that shows the exactly once configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/exactly-once-delivery-adls-gen2.png" :::
+:::image type="content" source="./media/no-code-stream-processing/exactly-once-delivery-adls.png" alt-text="Screenshot that shows the exactly once configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/exactly-once-delivery-adls.png" :::
 
 **Write to Delta Lake table (preview)** is supported in the ADLS Gen2 as no code editor output. You can access this option in section **Serialization** in ADLS Gen2 configuration. For more information about this feature, see [Write to Delta Lake table (Public Preview)](./write-to-delta-lake.md).
 
-:::image type="content" source="./media/no-code-stream-processing/delta-lake-format-output-in-adls-gen2.png" alt-text="Screenshot that shows the delta lake configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/delta-lake-format-output-in-adls-gen2.png" :::
+:::image type="content" source="./media/no-code-stream-processing/delta-lake-format-output-in-adls.png" alt-text="Screenshot that shows the delta lake configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/delta-lake-format-output-in-adls.png" :::
 
 ### Azure Synapse Analytics
 

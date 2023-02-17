@@ -48,7 +48,7 @@ This article describes how you can use the no code editor to easily create a Str
     - **Dataset**: it's the Power BI destination where the Azure Stream Analytics job output data is written into.
     - **Table**: it's the table name in the Dataset where the output data goes to.
 
-    :::image type="content" source="./media/no-code-build-power-bi-dashboard/nocode.pbi.configuration.png" alt-text="Screenshot that shows the Power BI output configuration." lightbox="./media/no-code-build-power-bi-dashboard/nocode.pbi.configuration.png" :::
+    :::image type="content" source="./media/no-code-build-power-bi-dashboard/no-code-pbi-configuration.png" alt-text="Screenshot that shows the Power BI output configuration." lightbox="./media/no-code-build-power-bi-dashboard/no-code-pbi-configuration.png" :::
 
 1. Optionally, select **Get static preview/Refresh static preview** to see the data preview that will be ingested in event hub.  
     :::image type="content" source="./media/no-code-build-power-bi-dashboard/no-code-output-static-preview.png" alt-text="Screenshot showing the Get static preview/Refresh static preview option." lightbox="./media/no-code-build-power-bi-dashboard/no-code-output-static-preview.png" :::
