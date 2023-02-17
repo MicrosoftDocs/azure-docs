@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Log Analytics
 
-The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md).
+The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md).
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 

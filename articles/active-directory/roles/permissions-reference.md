@@ -1495,7 +1495,7 @@ Users in this role can create and manage content, like topics, acronyms and lear
 
 ## License Administrator
 
-Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
+Users in this role can read, add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2306,7 +2306,7 @@ Assign the User Administrator role to users who need to do the following:
 | Delete or restore some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
 | Create and manage user views |  |
 | Create and manage all groups |  |
-| Assign licenses for all users, including all administrators |  |
+| Assign and read licenses for all users, including all administrators |  |
 | Reset passwords | [Who can reset passwords](#who-can-reset-passwords) |
 | Invalidate refresh tokens | [Who can reset passwords](#who-can-reset-passwords) |
 | Update (FIDO) device keys |  |
