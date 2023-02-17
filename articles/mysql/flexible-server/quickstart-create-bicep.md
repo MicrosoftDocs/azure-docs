@@ -15,7 +15,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction-bicep.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
