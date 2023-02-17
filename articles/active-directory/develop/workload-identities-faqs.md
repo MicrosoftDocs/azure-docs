@@ -16,7 +16,7 @@ ms.custom: aaddev
 
 # Frequently asked questions about Microsoft Entra Workload Identities license plan
 
-[Microsoft Entra Workload Identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/en-us/). The Workload
+[Microsoft Entra Workload Identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
 Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../partner-center/csp-overview.md). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
