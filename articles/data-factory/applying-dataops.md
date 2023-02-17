@@ -101,21 +101,21 @@ Running the pipeline entails the following steps:
 
 #### Publishing in Azure Data Factory
 
-Regardless of whether you're deploying pipelines with [Azure Release Pipeline](continuous-integration-delivery-automate-azure-pipelines.md) to automate publishing, or with [manual deployment](continuous-integration-delivery-manual-promotion.md) of Resource Manager templates, in the backend, publishing is a series of create/update operations on [datasets](https://learn.microsoft.com/rest/api/datafactory/datasets/create-or-update?tabs=HTTP), [linked services](https://learn.microsoft.com/rest/api/datafactory/linked-services/create-or-update?tabs=HTTP), [pipelines](https://learn.microsoft.com/rest/api/datafactory/pipelines/create-or-update?tabs=HTTP), and [triggers](https://learn.microsoft.com/rest/api/datafactory/triggers/create-or-update?tabs=HTTP), for each of the artifacts. The effect is the same as making the underlying Rest API calls directly.
+Regardless of whether you're deploying pipelines with [Azure Release Pipeline](continuous-integration-delivery-automate-azure-pipelines.md) to automate publishing, or with [manual deployment](continuous-integration-delivery-manual-promotion.md) of Resource Manager templates, in the backend, publishing is a series of create/update operations on [datasets](/rest/api/datafactory/datasets/create-or-update?tabs=HTTP), [linked services](/rest/api/datafactory/linked-services/create-or-update?tabs=HTTP), [pipelines](/rest/api/datafactory/pipelines/create-or-update?tabs=HTTP), and [triggers](/rest/api/datafactory/triggers/create-or-update?tabs=HTTP), for each of the artifacts. The effect is the same as making the underlying Rest API calls directly.
 
 A few things come from the actions here:
 
 - All of these API calls are [synchronous](https://www.techtarget.com/whatis/definition/synchronous-asynchronous-API#:~:text=With%20synchronous%20communications%2C%20the%20parties,not%20respond%20for%20some%20time.), meaning that the call only returns when the publishing succeeds/fails. There won't be a state of partial deployment for the artifact.
 - API calls are to a large extent sequential. We try to parallelize the calls, while maintaining the referential dependencies of the artifacts. The order of deployments is linked service -> dataset/integration runtime -> pipeline -> trigger. This order ensures that dependent artifacts can properly reference its dependencies. For example, pipelines depend on datasets and so data factory deploys them after datasets.
 - Deployment of linked services, datasets, etc. are independent from the pipelines. There are situations where data factory updates linked services before a pipeline updates. We'll talk about this situation in the section [When to Stop a Trigger](#when-to-stop-a-trigger).
-- Deployment won't delete artifacts from the factories. You need to explicitly call delete APIs for each artifact type ([pipeline](https://learn.microsoft.com/rest/api/datafactory/pipelines/delete?tabs=HTTP), [dataset](https://learn.microsoft.com/rest/api/datafactory/datasets/delete?tabs=HTTP), [linked service](https://learn.microsoft.com/rest/api/datafactory/linked-services/delete?tabs=HTTP), etc.) to clean up a factory. Refer to the sample post deployment script from Azure Data Factory for example.
+- Deployment won't delete artifacts from the factories. You need to explicitly call delete APIs for each artifact type ([pipeline](/rest/api/datafactory/pipelines/delete?tabs=HTTP), [dataset](/rest/api/datafactory/datasets/delete?tabs=HTTP), [linked service](/rest/api/datafactory/linked-services/delete?tabs=HTTP), etc.) to clean up a factory. Refer to the sample post deployment script from Azure Data Factory for example.
 - Even if you haven’t touched a pipeline, dataset, or linked service, it still invokes a quick update API call to the factory.
 
 ##### Publishing triggers
 
 - Triggers have states: **started** or **stopped**.
 - You can't make changes to a trigger in **started** mode. You need to stop a trigger before publishing any changes.
-- You can invoke the [Create or Update Trigger API](https://learn.microsoft.com/en-us/rest/api/datafactory/triggers/create-or-update?tabs=HTTP) on a trigger in **started** mode.
+- You can invoke the [Create or Update Trigger API](/rest/api/datafactory/triggers/create-or-update?tabs=HTTP) on a trigger in **started** mode.
   - If the payload changes, the API fails.
   - If the payload remains unchanged, the API succeeds.
 - This behavior has profound impact on when to stop a trigger.
