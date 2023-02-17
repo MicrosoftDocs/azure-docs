@@ -8,59 +8,56 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
-
-# Review Stage 3: PM Review - (ADO-54212)
 ---
 
 # Tutorial: Add sign in to an application
 
-In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience. 
+In the [previous tutorial](web-app-tutorial-02-sign-in-users.md), an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
 
-In this tutorial: 
+In this tutorial:
 
-> [!div class="checklist"] 
-> * Identify and install the NuGet packages that are needed for authentication 
-> * Implement authentication in the code 
-> * Add the sign in and sign out experiences 
+> [!div class="checklist"]
+> * Identify and install the NuGet packages that are needed for authentication
+> * Implement authentication in the code
+> * Add the sign in and sign out experiences
 
-## Prerequisites 
+## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md). 
+* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md).
 
-## Install identity packages 
+## Install identity packages
 
-Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application. 
+Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
 
-### [Visual Studio](#tab/visual-studio) 
+### [Visual Studio](#tab/visual-studio)
 
-1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**. 
-1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Select the **Project** checkbox, and then select **Install**. 
-1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package. 
+1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
+1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Select the **Project** checkbox, and then select **Install**.
+1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
 
-### [Visual Studio Code](#tab/visual-studio-code) 
+### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **Terminal** then **New Terminal.** 
-1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages: 
+1. In Visual Studio Code, select **Terminal** then **New Terminal.**
+1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
 
     ```powershell
-    dotnet add package Microsoft.Identity.Web 
-    dotnet add package Microsoft.Identity.Web.UI 
-    dotnet add package Microsoft.Identity.Web.Diagnostics 
+    dotnet add package Microsoft.Identity.Web
+    dotnet add package Microsoft.Identity.Web.UI
+    dotnet add package Microsoft.Identity.Web.Diagnostics
     ``` 
 
-### [Visual Studio for Mac](#tab/visual-studio-for-mac) 
+### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. In the top menu, select **Tools** > **Manage NuGet Packages**. 
+1. In the top menu, select **Tools** > **Manage NuGet Packages**.
 1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**. 
-1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**. 
-1. In the pop-up, ensure the correct project is selected, then select **Ok**. 
-1. Select **Accept** if additional **License Acceptance** windows appear.  
+1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
+1. In the pop-up, ensure the correct project is selected, then select **Ok**.
+1. Select **Accept** if additional **License Acceptance** windows appear.
 ---
 
+## Implement authentication and acquire tokens
 
-## Implement authentication and acquire tokens 
-
-1. Open *Program.cs* and replace the entire file contents with the following snippet:  
+1. Open *Program.cs* and replace the entire file contents with the following snippet:
 
     ```csharp
     // Imports packages
@@ -108,29 +105,29 @@ Identity related **NuGet packages** must be installed in the project for authent
     app.UseAuthorization();
     app.MapRazorPages();
     app.Run();
-    ``` 
+    ```
 
-## Add the sign in and sign out experience 
+## Add the sign in and sign out experience
 
-After installing the NuGet packages and adding necessary code for authentication, add the sign in and sign out experiences. 
+After installing the NuGet packages and adding necessary code for authentication, add the sign in and sign out experiences.
 
-### Create the *_LoginPartial.cshtml* file 
+### Create the *_LoginPartial.cshtml* file
 
-### [Visual Studio](#tab/visual-studio) 
+### [Visual Studio](#tab/visual-studio)
 
-1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**. 
-1. Select **Razor Page - Empty**, and then select **Add**. 
-1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**. 
+1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
+1. Select **Razor Page - Empty**, and then select **Add**.
+1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 
-### [Visual Studio Code](#tab/visual-studio-code) 
+### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In the Explorer bar, select **Pages**, right-click **Shared**, and select **New File**. Give it the name *_LoginPartial.cshtml*. 
+1. In the Explorer bar, select **Pages**, right-click **Shared**, and select **New File**. Give it the name *_LoginPartial.cshtml*.
 
-### [Visual Studio for Mac](#tab/visual-studio-for-mac) 
+### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**. 
-1. Select **Razor Page - Empty**, and then select **Add**. 
-1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**. 
+1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
+1. Select **Razor Page - Empty**, and then select **Add**.
+1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 ---
 
 ### Edit the *_LoginPartial.cshtml* file
