@@ -1717,7 +1717,7 @@ Try creating a separate environment using conda
 ## *Make issues*
 ## No targets specified and no makefile found
 <!--issueDescription-->
-This issue can happen when no targets are specified and no makefile is found when running make
+This issue can happen when no targets are specified and no makefile is found when running make.
 
 **Potential causes:**
 * Makefile does not exist in the current directory
@@ -1731,7 +1731,7 @@ This issue can happen when no targets are specified and no makefile is found whe
 * Ensure that the makefile is spelled correctly
 * Ensure that the makefile exists in the currect directory
 * If you have a custom makefile, specify it using ```make -f custommakefile```
-* Specify targets in the Makefile or in the command line
+* Specify targets in the makefile or in the command line
 * Configure your build and generate a makefile
 * Ensure you makefile is formatted correctly and tabs are used for indentation
 
