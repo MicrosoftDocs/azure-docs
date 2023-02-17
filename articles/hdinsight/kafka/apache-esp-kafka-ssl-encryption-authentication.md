@@ -326,7 +326,7 @@ Using Command Line Tool
 1. Create a topic if it doesn't exist already.
 
    ```bash
-   sudo su kafka –c “/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2"
+   sudo su kafka –c "/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2"
    ```
    To use a keytab, create a JAAS file with the following content. Be sure to point the keyTab property to your keytab file and reference the principal used inside the keytab. Following is a sample JAAS file created and placed in the location in VM: **/home/hdiuser/kafka_client_jaas_keytab.conf**
    
