@@ -216,6 +216,8 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 }
 ```
 
+---
+
 ### Assessment scores in streaming mode
 
 Pronunciation Assessment supports uninterrupted streaming mode. The demo on the Speech Studio supports up to 60 minutes of recording in streaming mode for evaluation. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you do not press the stop recording button, the evaluation process does not finish and you can pause and resume evaluation conveniently.
