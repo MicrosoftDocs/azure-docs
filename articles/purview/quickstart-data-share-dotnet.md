@@ -363,10 +363,12 @@ public static class PurviewDataSharingQuickStart
     private static string RecipientApplicationObjectId = "<Target Application's Object Id>";
 
     private static string SentShareDisplayName = "<Name of share you're sending an invite for.>";
-    private static string InvitationId = Utilities.GenerateResourceName(useGuid: true);
+    private static string InvitationId = Guid.NewGuid().ToString();
 
     private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
     private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
+
+    private static string SenderStorageResourceId = "<Resource ID for storage account that has been shared>";
 
     // Set if using Service principal to send invitation
     private static bool UseServiceTokenCredentials = false;
@@ -388,8 +390,22 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 
     private static async Task<BinaryData> Sender_CreateServiceRecipient()
@@ -399,7 +415,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+        SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
         if (!Guid.TryParse(RecipientApplicationTenantId, out Guid _))
         {
@@ -425,21 +441,22 @@ public static class PurviewDataSharingQuickStart
 
 
         var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-        Utilities.LogCheckpoint("Get a Specific Sent Share");
         var mySentShare = allSentShares.First(sentShareDoc =>
         {
             var doc = JsonDocument.Parse(sentShareDoc).RootElement;
             var props = doc.GetProperty("properties");
             return props.GetProperty("displayName").ToString() == SentShareDisplayName;
         });
-        Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
 
         var SentShareId = JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString();
 
-        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, InvitationId, RequestContent.Create(invitationData));
-        return Utilities.LogResult(sentInvitation.Content);
+        var sentInvitation = await sentSharesClient.CreateSentShareInvitationAsync(SentShareId, InvitationId, RequestContent.Create(invitationData));
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(sentInvitation.Content);
+        Console.ForegroundColor = Console.ForegroundColor;
+        return sentInvitation.Content;
     }
-    
+
 }
 ```
 
@@ -483,14 +500,16 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+            SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
             Console.WriteLine(allSentShares);
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -537,7 +556,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+            SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
             Utilities.LogCheckpoint("Get a Specific Sent Share");
@@ -557,7 +576,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -605,7 +626,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+            SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             Utilities.LogCheckpoint("Get a Specific Recipient");
             var recipient = allRecipients.First(recipient =>
@@ -635,7 +656,9 @@ public static class PurviewDataSharingQuickStart
 
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -681,7 +704,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+            SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
             Utilities.LogCheckpoint("Get a Specific Sent Share");
@@ -700,7 +723,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -751,7 +776,7 @@ public static class PurviewDataSharingQuickStart
     private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
 
     // [OPTIONAL INPUTS] Override Values If Desired.
-    private static string ReceivedShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string ReceivedShareId = Guid.NewGuid().ToString();
     private static string ReceiverVisiblePath = Utilities.GenerateResourceName();
 
     private static string ReceivedShareDisplayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}";
@@ -772,7 +797,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 
@@ -878,7 +905,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -943,7 +972,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 
@@ -1061,7 +1092,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 }
@@ -1161,7 +1194,9 @@ public static class ShareNetSample20
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 
