@@ -21,7 +21,7 @@ Before you can access a lab in Azure Lab Services, you need to first register to
 
 ## Register to the lab
 
-To get access to a lab and connect to the lab VM, you first need to register for the lab by using a lab registration link. The lab creator can [provide the registration link for the lab](./how-to-configure-student-usage.md#send-invitations-to-users).
+To get access to a lab and connect to the lab VM from the Azure Lab Services website, you first need to register for the lab by using a lab registration link. The lab creator can [provide the registration link for the lab](./how-to-configure-student-usage.md#send-invitations-to-users).
 
 To register for a lab by using the registration link:
 
