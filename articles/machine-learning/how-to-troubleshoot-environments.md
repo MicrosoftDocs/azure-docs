@@ -1734,6 +1734,9 @@ This issue can happen when no targets are specified and no makefile is found whe
 * Specify targets in the Makefile or in the command line
 * Configure your build and generate a makefile
 * Ensure you makefile is formatted correctly and tabs are used for indentation
+
+**Resources**
+* [GNU Make](https://www.gnu.org/software/make/manual/make.html)
 <!--/issueDescription-->
 
 ## *Docker push issues*
