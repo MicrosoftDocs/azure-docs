@@ -69,13 +69,13 @@ You can also activate this agent from the Azure portal with the following proced
 
    :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
-1. Select the application, and from its **Overview** page select **Configuration** in the left navigation pane to add/update/delete the **Environment variables** of the application.
-
-   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
-
-1. Select **General settings** to add/update/delete the **JVM options** of the application.
+1. Select the application from the list, and then select **Configuration** in the left navigation pane. In **General settings**, you can set the **JVM options** of the application.
 
    :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
+
+1. Select **Environment variables** to add, update, variables of your application.
+
+   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
 
 1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
