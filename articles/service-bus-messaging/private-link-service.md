@@ -43,7 +43,7 @@ When creating a namespace, you can either allow public only (from all networks) 
 
 If you select the **Private access** option on the **Networking** page of the namespace creation wizard, you can add a private endpoint on the page by selecting **+ Private endpoint** button. See the next section for the detailed steps for adding a private endpoint. 
 
-:::image type="content" source="./media/service-bus-ip-filtering/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected.":::
+:::image type="content" source="./media/private-link-service/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected.":::
 
 
 ### Configure private access for an existing namespace
