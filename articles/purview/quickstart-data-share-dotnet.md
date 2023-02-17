@@ -727,7 +727,10 @@ public static class PurviewDataSharingQuickStart
 This script deletes a sent share.
 To use it, be sure to fill out these variables:
 
+- **SenderTenantId** - the Azure Tenant ID for the share sender's identity.
+- **SenderPurviewAccountName** - the name of the Microsoft Purview account where the data was sent from.
 - **SentShareDisplayName** - the name of the sent share you're listing recipients for.
+- **SenderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be sent from.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to create the shares, set this to **true**.
 - **SenderClientId** - (optional) If using a service principal to create the shares, this is the Application (client) ID for the service principal.
 - **SenderClientSecret** - (optional) If using a service principal to create the shares, add your client secret/authentication key.
@@ -737,13 +740,16 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
 using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SenderTenantId = "<Sender Tenant ID>";
+    private static string SenderPurviewAccountName = "<Name of the Microsoft Purview account>";
     private static string SentShareDisplayName = "<Name of share you're removing.>";
+
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
 
     // Set if using Service principal to delete share
     private static bool UseServiceTokenCredentials = false;
@@ -765,19 +771,23 @@ public static class PurviewDataSharingQuickStart
             SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-            Utilities.LogCheckpoint("Get a Specific Sent Share");
+
             var mySentShare = allSentShares.First(sentShareDoc =>
             {
                 var doc = JsonDocument.Parse(sentShareDoc).RootElement;
                 var props = doc.GetProperty("properties");
                 return props.GetProperty("displayName").ToString() == SentShareDisplayName;
             });
-            Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
 
             var SentShareId = JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString();
 
             await sentSharesClient.DeleteSentShareAsync(WaitUntil.Completed, SentShareId);
-            
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Remove Id: " + SentShareId);
+            Console.WriteLine("Complete");
+            Console.ForegroundColor = Console.ForegroundColor;
+
         }
         catch (Exception ex)
         {
