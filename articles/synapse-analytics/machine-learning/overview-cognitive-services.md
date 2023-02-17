@@ -28,7 +28,7 @@ The tutorial, [Pre-requisites for using Cognitive Services in Azure Synapse](tut
 
 ## Cognitive Services
 
-:::image type="content" source="media/overview-cognitive-services/cog_services_on_spark_2.svg" alt-text="Decorative image of SynapseML Cognitive Services":::
+:::image type="content" source="media/overview-cognitive-services/cog_services_on_spark_2.svg" alt-text="Decorative image of SynapseML Cognitive Services.":::
 
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) are a suite of APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge by enabling developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
 
