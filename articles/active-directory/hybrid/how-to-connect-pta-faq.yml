@@ -41,7 +41,7 @@ sections:
       - question: |
           Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
         answer: |
-          Yes, sign-in using a non-UPN value, such as an alternate email, is supported for both pass-through authentication (PTA) and password hash sync (PHS). For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
+          Yes, both pass-through authentication (PTA) and password hash sync (PHS) support sign-in using a non-UPN value, such as an alternate email. For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
           
       - question: |
           Does password hash synchronization act as a fallback to Pass-through Authentication?
@@ -74,8 +74,8 @@ sections:
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You will find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
-          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
+          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a server reboot is required if the installer cannot replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
           - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
 
       - question: |
@@ -88,7 +88,7 @@ sections:
       - question: |
           The user logs on to Azure AD with credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
         answer: |
-          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
+          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user is able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
           [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
@@ -114,7 +114,7 @@ sections:
           Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
           
           If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
-          - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
+          - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This allows you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
           - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
           - Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
           
@@ -170,8 +170,8 @@ sections:
           Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
           
           To estimate network traffic, use the following sizing guidance:
-          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; i.e., data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
-          - Each response has a payload size of 1K bytes; i.e., data from the Authentication Agent to Azure AD.
+          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; that is, data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
+          - Each response has a payload size of 1K bytes; that is, data from the Authentication Agent to Azure AD.
           
           For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
           
