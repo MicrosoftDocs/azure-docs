@@ -157,29 +157,30 @@ When using our Embeddings models, keep in mind their limitations and risks.
 ### GPT-3 Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| Ada | 	Yes	| No	|	N/A	| East US, South Central US, West Europe |
+| Ada | 	Yes	| No	|	N/A	| East US\*\*, South Central US, West Europe |
 | Text-Ada-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Babbage | Yes | No | N/A | East US, South Central US, West Europe |
+| Babbage | Yes | No | N/A | East US\*\*, South Central US, West Europe |
 | Text-Babbage-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Curie | Yes | No | N/A | East US, South Central US, West Europe |
+| Curie | Yes | No | N/A | East US\*\*, South Central US, West Europe |
 | Text-curie-001 | Yes | No | East US, South Central US, West Europe | N/A |
-| Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
+| Davinci* | Yes | No | N/A | East US\*\*, South Central US, West Europe |
 | Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | Text-davinci-003 | Yes | No | East US | N/A |
-| Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
+| Text-davinci-fine-tune-002* | Yes | No | N/A | East US\*\*, West Europe |
 
 \*Models available by request only. We are currently unable to onboard new customers at this time.
+\*\* East US is currently unavailable for new customers to fine-tune to due to high demand. Please use US South Central region for US based training
 
 ### Codex Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
-| Code-Cushman-001* | Yes | No | South Central US, West Europe | East US, South Central US, West Europe |
+| Code-Cushman-001* | Yes | No | South Central US, West Europe | East US\*\*, South Central US, West Europe |
 | Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
-| Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
+| Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US\*\*, West Europe |
 
 \*Models available for Fine-tuning by request only. We are currently unable to enable new cusetomers at this time.
-
+\*\* East US is currently unavailable for new customers to fine-tune to due to high demand. Please use US South Central region for US based training
 
 
 ### Embeddings Models
