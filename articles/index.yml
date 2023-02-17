@@ -90,6 +90,7 @@ productDirectory:
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
       azureCategories:
+        - featured
         - ai-machine-learning
       url: cognitive-services/openai/index.yml
 
@@ -504,7 +505,6 @@ productDirectory:
       imageSrc: ./media/index/quantum.svg
       azureCategories:
         - compute
-        - featured
       url: /azure/quantum/
     # Card
     - title: Azure Spot Virtual Machines
