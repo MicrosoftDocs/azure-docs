@@ -27,31 +27,24 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
-3. Select the Set Variable activity on the canvas if it isn't already selected, and then click the **Settings** tab to edit its details.
+3. Select the Set Variable activity on the canvas if it isn't already selected, and then select the **Settings** tab to edit its details.
 
-4. Select the variable for the Name property.
+4. Select **Pipeline variable** for your **Variable type**.
 
-5. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+5. Select the variable for the Name property.
+
+6. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
 :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot of the UI for a Set variable activity.":::
     
-## Setting a pipeline return value in the Set Variable activity with UI
+## Setting a pipeline return value with UI
 
-The Set Variable activity now allows you to set a pipeline return value (preview). The pipeline return value is a system variable that allows you to customize a value that can be consumed by a parent pipeline and used downstream in your pipeline. 
+We have expanded Set Variable activity to include a special system variable, named _Pipeline Return Value_. This allows communication from the child pipeline to the calling pipeline, in the following scenario. 
 
-To set a pipeline return value, complete the following steps:
+You don't need to define the variable, before using it. For more information, see [Pipeline Return Value](tutorial-pipeline-return-value.md)
 
-1. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
-2. Select the Set Variable activity on the canvas if it isn't already selected, and then click the **Settings** tab to edit its details.
-
-3. Select **Pipeline return value (preview)** for your **Variable type**.
-
-4. Enter a **Name** for your variable and select the **Type** from the drop-down menu. 
-
-5. Enter an expression to set the value for the pipeline return value. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
-
-:::image type="content" source="media/control-flow-set-variable-activity/set-pipeline-return-value.png" alt-text="Screenshot of the UI for setting a pipeline return value.":::
+:::image type="content" source="media/pipeline-return-value/pipeline-return-value-00-paradigm.png" alt-text="Screenshot with ExecutePipeline Activity.":::
 
 ## Type properties
 
@@ -66,7 +59,7 @@ value | String literal or expression object value that the variable is assigned 
 
 ## Incrementing a variable
 
-A common scenario involving variables is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
+A common scenario involving variable is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
 
 Below is an example of this pattern:
 
@@ -126,7 +119,7 @@ Below is an example of this pattern:
 }
 ```
 
-Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
+Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
 ## Next steps
