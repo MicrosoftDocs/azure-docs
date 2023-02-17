@@ -1,6 +1,6 @@
 ---
 title: Re-establish deleted volume replication relationships | Microsoft Docs
-description: You can reestablish the replication relationship between volumes if it has been deleted. 
+description: You can reestablish the replication relationship between volumes. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.author: anfdocs
@@ -11,13 +11,13 @@ ms.date: 02/21/2023
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files
 
-Azure NetApp Files allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. Re-establishing the relationship can only be performed from the destination volume. 
+Azure NetApp Files allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. You can only re-establish the relationship from the destination volume. 
 
-If the destination volume remains operational and no snapshots were deleted, the replication re-establish operation uses the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. A baseline snapshot is not required. 
+If the destination volume remains operational and no snapshots were deleted, the replication re-establish operation uses the last common snapshot. The operation incrementally synchronizes the destination volume based on the last known good snapshot. A baseline snapshot isn't required. 
 
 ## Considerations
 
-* Relationships can only be re-established when there is an existing snapshot generated either [manually](azure-netapp-files-manage-snapshots.md) or by a [snapshot policy](snapshots-manage-policy.md). 
+* You can only re-establish relationships when there's an existing snapshot generated either [manually](azure-netapp-files-manage-snapshots.md) or by a [snapshot policy](snapshots-manage-policy.md). 
 
 ## Register the feature 
 
@@ -42,8 +42,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ## Reestablish the Relationship
 1. From the **Volumes** menu under **Storage service**, select the volume that was formerly the _destination_ volume in the replication relationship you want to restore. Then select the **Replication** tab. 
 1. In the **Replication** tab, select the **Re-establish** button. 
-    :::image type="content" source="../media/azure-netapp-files/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. The re-establish button is highlighted with a red box." lightbox="../media/azure-netapp-files/reestablish-button.png":::
-1. A dropdown list will appear with a selection of all volumes that formerly had either a source or destination replication relationship with the selected volume. From the dropdown menu, select the volume you want to reestablish a relationship with. Select **OK** to reestablish the relationship.
+    :::image type="content" source="../media/azure-netapp-files/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. A red box surrounds the re-establish button." lightbox="../media/azure-netapp-files/reestablish-button.png":::
+1. A dropdown list appears with a selection of all volumes that formerly had either a source or destination replication relationship with the selected volume. From the dropdown menu, select the volume you want to reestablish a relationship with. Select **OK** to reestablish the relationship.
     :::image type="content" source="../media/azure-netapp-files/reestablish-confirm.png" alt-text="Screenshot of a dropdown menu with available volume relationships to restore." lightbox="../media/azure-netapp-files/reestablish-confirm.png":::
 
 ## Next steps  
