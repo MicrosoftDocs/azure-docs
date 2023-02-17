@@ -68,7 +68,7 @@ The pipeline return value of the child pipeline becomes the activity output of t
 * A _sting_ value to define the URL for the [Web activity](control-flow-web-activity.md)
 * An _expression_ value payload for a [script activity](transform-data-using-script.md) for logging purposes.
 
-:::image type="content" source="media/pipeline-return-value/pipeline-return-value-03-calling-pipeline.png" alt-text="Screenshot shows the ui for pipeline return value.":::
+:::image type="content" source="media/pipeline-return-value/pipeline-return-value-03-calling-pipeline.png" alt-text="Screenshot shows the calling pipeline.":::
 
 There are two noticeable call outs in referencing the pipeline return values. 
 
