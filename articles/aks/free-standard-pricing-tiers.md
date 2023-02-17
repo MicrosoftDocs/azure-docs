@@ -41,6 +41,9 @@ The Uptime SLA feature is included in the Paid tier and is enabled per cluster. 
 
 ## Create a new cluster in the Free tier or Paid tier
 
+> [!IMPORTANT]
+> `--tier standard` and `--tier free` are currently unavailable in Azure CLI 2.46.0 due to a [critical bug](https://github.com/Azure/AKS/issues/3481). To enable the Uptime SLA feature, use the commands below.
+
 Use the Azure CLI to create a new cluster on an AKS pricing tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
 Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group in each tier.
@@ -66,7 +69,7 @@ Once the deployment completes, it returns JSON-formatted information about your 
     "tier": "Free"
   },
 
-# Sample output for uptime-sla
+# Sample output for --uptime-sla
 
   },
   "sku": {
