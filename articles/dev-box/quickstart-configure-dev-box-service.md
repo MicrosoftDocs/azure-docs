@@ -26,7 +26,7 @@ After you've completed this quickstart, you'll have a Dev Box configuration read
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
 - User licenses. To use Dev Box, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory P1. 
@@ -303,7 +303,7 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). 
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
  
    |Setting  |Value  |
    |---------|---------|
@@ -330,5 +330,3 @@ To learn about how to create and connect to a dev box, advance to the next quick
 
 > [!div class="nextstepaction"]
 > [Create a dev box](./quickstart-create-dev-box.md)
-
-

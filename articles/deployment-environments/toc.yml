@@ -24,6 +24,8 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
+    - name: Components common to ADE and Dev Box
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:

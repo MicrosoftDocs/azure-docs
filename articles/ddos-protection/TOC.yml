@@ -103,6 +103,6 @@
   - name: FAQ
     href: ddos-faq.yml
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
+    href: https://azure.microsoft.com/pricing/details/ddos-protection/
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=ddos-protection
