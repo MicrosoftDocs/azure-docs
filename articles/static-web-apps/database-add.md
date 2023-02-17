@@ -618,7 +618,7 @@ To deploy this site to production, you just need to commit the configuration fil
     git push origin main
     ```
 
-Now wait for your web app to build, and then send a request to [list all items](#return-all-items) to verify a production connection to the database.
+Now wait for your web app to build, and then send a request to [list all items](#list-all-items) to verify a production connection to the database.
 
 ## Clean up resources
 
