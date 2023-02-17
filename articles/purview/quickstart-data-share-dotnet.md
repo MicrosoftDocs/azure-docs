@@ -72,6 +72,9 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Azure.Identity
     ```
 
+    >[!TIP]
+    >If you get an error that reads "Could not find any project in..." when attempting these commands, you may just need to move a folder level down in your project. Try the command `dir` to list folders in your directory, then use 'cd \<name of the project folder>' to move down a level to your project folder. Then try again.
+
 ## Create a sent share
 
 This script creates a data share that you can send to internal or external users.
