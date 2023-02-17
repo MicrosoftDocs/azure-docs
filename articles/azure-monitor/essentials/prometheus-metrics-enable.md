@@ -277,6 +277,41 @@ In this json, `full_resource_id_1` and `full_resource_id_2` were already in the 
 
 The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor Workspace resource ID provided in the parameters file.
 
+## [Azure Policy](#tab/azurepolicy)
+
+### Prerequisites
+
+- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
+- The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
+
+### Download Azure policy rules and parameters and deploy
+
+1. Download the main Azure policy rules template from [here](https://aka.ms/AddonPolicyMetricsProfile) and save it as **AddonPolicyMetricsProfile.rules.json**.
+2. Download the parameter file from [here](https://aka.ms/AddonPolicyMetricsProfile.parameters) and save it as **AddonPolicyMetricsProfile.parameters.json** in the same directory as the rules template.
+3. Create the policy definition using a command like : `az policy definition create --name "(Preview) Prometheus Metrics addon" --display-name "(Preview) Prometheus Metrics addon" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules .\AddonPolicyMetricsProfile.rules.json --params .\AddonPolicyMetricsProfile.parameters.json`
+4. After creating the policy definition, go to Azure portal -> Policy -> Definitions and select the Policy definition you just created.
+5. Click on 'Assign' and then go to the 'Parameters' tab and fill in the details. Then click 'Review + Create'.
+6. Now that the policy is assigned to the subscription, whenever you create a new cluster which does not have Prometheus enabled, the policy will run and deploy the resources. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that AKS cluster resource after going to the 'Policy Assignment'.
+7. Now you should see metrics flowing in the existing linked Grafana resource which is linked with the corresponding Azure Monitor Workspace.
+
+In case you create a new Managed Grafana resource from Azure portal, please link it with the corresponding Azure Monitor Workspace from the 'Linked Grafana Workspaces' tab of the relevant Azure Monitor Workspace page. Please assign the role 'Monitoring Data Reader' to the Grafana MSI on the Azure Monitor Workspace resource so that it can read data for displaying the charts, using the instructions below.
+
+1. From the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
+
+2. Copy the value of the `principalId` field for the `SystemAssigned` identity.
+
+```json
+"identity": {
+        "principalId": "00000000-0000-0000-0000-000000000000",
+        "tenantId": "00000000-0000-0000-0000-000000000000",
+        "type": "SystemAssigned"
+    },
+```
+3. From the **Access control (IAM)** page for the Azure Managed Grafana instance in the Azure portal, select **Add** and then **Add role assignment**.
+4. Select `Monitoring Data Reader`.
+5. Select **Managed identity** and then **Select members**.
+6. Select the **system-assigned managed identity** with the `principalId` from the Grafana resource.
+7. Click **Select** and then **Review+assign**.
 
 ### Deploy template
 
