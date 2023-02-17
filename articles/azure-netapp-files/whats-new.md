@@ -19,6 +19,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## February 2023
+
+* Option to delete base snapshot when you [restore a snapshot to a new volume using Azure NetApp Files](snapshots-restore-new-volume.md) 
+
+    By default, the new volume includes a copy of the snapshot that it uses for the restore operation. If you don’t want the new volume to contain this snapshot copy, you can select the **delete base snapshot** option during volume creation. 
+
 ## December 2022
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 

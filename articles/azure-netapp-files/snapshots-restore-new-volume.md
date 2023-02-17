@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 02/22/2023
 ms.author: anfdocs
 ---
 
@@ -27,21 +27,21 @@ ms.author: anfdocs
 
     ![Screenshot that shows the Restore New Volume menu.](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-3. In the Create a Volume window, provide information for the new volume:  
-    * **Name**   
-        Specify the name for the volume that you're creating.  
-        
-        The name must be unique within a resource group. It must be at least three characters long.  It can use any alphanumeric characters.
+3. In the **Create a Volume** page, provide information for the new volume.  
 
-    * **Quota**  
-        Specify the amount of logical storage that you want to allocate to the volume.  
+    The new volume uses the same protocol that the snapshot uses.   
+    For information about the fields in the Create a Volume page, see: 
+    * [Create an NFS volume](azure-netapp-files-create-volumes.md)   
+    * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)   
+    * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
-    ![Screenshot that shows the Create a Volume window.](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
+    By default, the new volume includes a copy of the snapshot that it uses for the restore operation. If you don't want the new volume to contain this snapshot copy, select **Delete base snapshot** during the new volume creation. This option does not affect the original snapshot that you selected (in Step 2). 
+
+    :::image type="content" source="../media/azure-netapp-files/delete-base-snapshop.png" alt-text="Screenshot showing the Delete Base Snapshot checkbox."::: 
 
 4. Select **Review+create**. Select **Create**.   
-    The new volume uses the same protocol that the snapshot uses.   
     The new volume to which the snapshot is restored appears in the Volumes page.   
-    The snapshot used to create the new volume will also be present on the new volume. 
+
 
 ## Next steps
 
