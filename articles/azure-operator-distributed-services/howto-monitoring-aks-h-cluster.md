@@ -54,13 +54,13 @@ The instructions further capture details on how to set up log data collection in
 To support these steps, the following resources are provided:
 
 - `arc-connect.env` template file that can be used to create environment variables needed by included scripts
-[!INCLUDE [arc-connect.env](./includes/arc-connect.env)]
+[!INCLUDE [arc-connect.env](./includes/arc-connect.md)]
 - `dcr.sh` - script used to create a Data Collection Rule (DCR) that can be used to configure syslog collection
-[!INCLUDE [dcr.sh](./includes/dcr.sh)]
+[!INCLUDE [dcr.sh](./includes/dcr.md)]
 - `assign.sh` - script used to create a policy that will associate the DCR to all Arc-enabled servers in a resource group
-[!INCLUDE [assign.sh](./includes/assign.sh)]
+[!INCLUDE [assign.sh](./includes/assign.md)]
 - `install.sh` - script used to Arc-enable AKS-Hybrid VMs and install Azure Monitoring Agent on each
-[!INCLUDE [install.sh](./includes/install.sh)]
+[!INCLUDE [install.sh](./includes/install.md)]
 
 ### Prerequisites-VM
 
