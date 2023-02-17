@@ -857,9 +857,9 @@ public static class PurviewDataSharingQuickStart
 
     // [OPTIONAL INPUTS] Override Values If Desired.
     private static string ReceivedShareId = Guid.NewGuid().ToString();
-    private static string ReceiverVisiblePath = Utilities.GenerateResourceName();
+    private static string ReceiverVisiblePath = "ReceivedSharePath";
 
-    private static string ReceivedShareDisplayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}";
+    private static string ReceivedShareDisplayName = "ReceivedShare";
 
     // General Configs
     private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
@@ -883,14 +883,14 @@ public static class PurviewDataSharingQuickStart
         }
     }
 
-    private static async Task<BinaryData> Receiver_CreateReceivedShare(ReceivedSharesClient receivedSharesClient)
+    private static async Task<BinaryData> Receiver_CreateReceivedShare()
     {
 
         TokenCredential receiverCredentials = UseServiceTokenCredentials
             ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
             : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
 
-        receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+        ReceivedSharesClient? receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
 
         if (receivedSharesClient == null)
         {
@@ -898,15 +898,24 @@ public static class PurviewDataSharingQuickStart
         }
 
         var results = await receivedSharesClient.GetAllDetachedReceivedSharesAsync().ToResultList();
-        var detachedReceivedShare = Utilities.LogResults(results);
+        var detachedReceivedShare = results;
 
         if (detachedReceivedShare == null)
         {
             throw new InvalidOperationException("No received shares found.");
         }
 
-        var detachedReceivedShareDocument = JsonDocument.Parse(detachedReceivedShare).RootElement;
-        ReceivedShareId = detachedReceivedShareDocument.GetProperty("id").ToString();
+
+
+        var myReceivedShare = detachedReceivedShare.First(recShareDoc =>
+        {
+            var doc = JsonDocument.Parse(recShareDoc).RootElement;
+            var props = doc.GetProperty("properties");
+            return props.GetProperty("displayName").ToString() == ReceivedShareDisplayName;
+        });
+
+        var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString();
+
 
         var attachedReceivedShareData = new
         {
@@ -933,7 +942,12 @@ public static class PurviewDataSharingQuickStart
         };
 
         var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
-        return Utilities.LogResult(receivedShare.Value);
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(receivedShare.Value);
+        Console.ForegroundColor = Console.ForegroundColor;
+
+        return receivedShare.Value;
     }
 
     public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
@@ -955,6 +969,8 @@ public static class PurviewDataSharingQuickStart
 This script lists all received shares on a storage account.
 To use it, be sure to fill out these variables:
 
+- **ReceiverTenantId** - the Azure Tenant ID for the user/service that is receiving the shared data.
+- **ReceiverPurviewAccountName** - the name of the Microsoft Purview account where the data was received.
 - **ReceiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data has been shared.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to receive the shares, set this to **true**.
 - **ReceiverClientId** - (optional) If using a service principal to receive the shares, this is the Application (client) ID for the service principal.
@@ -965,12 +981,13 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
-using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
+    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
+
     private static string ReceiverStorageResourceId = "<Storage Account Resource Id that is housing shares>";
 
     //Use if using a service principal to list shares
@@ -990,7 +1007,7 @@ public static class PurviewDataSharingQuickStart
             ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
             : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
 
-            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+            ReceivedSharesClient? receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
 
             var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
             Console.WriteLine(allReceivedShares);
@@ -1025,7 +1042,8 @@ To use it, be sure to fill out these variables:
 - **ReceiverTenantId** - the Azure Tenant ID for the user/service that is receiving the shared data.
 - **ReceiverPurviewAccountName** - the name of the Microsoft Purview account where the data will be received.
 - **ReceiverStorageKind** - either BlobAccount or AdlsGen2Account.
-- **ReceiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be received.
+- **ReceiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data has been shared.
+- **ReAttachStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be received.
 - **ReceiverStorageContainer** - the name of the container where the shared data will be stored.
 - **ReceiverTargetFolderName** - the folder path to where the shared data will be stored.
 - **ReceiverTargetMountPath** - the mount path you'd like to use to store your data in the folder.
@@ -1049,6 +1067,7 @@ public static class PurviewDataSharingQuickStart
     private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
 
     private static string ReceiverStorageKind = "<Receiver Storage Account Kind (BlobAccount / AdlsGen2Account)>";
+    private static string ReceiverStorageResourceId = "<Storage Account Resource Id for the account where the share is currently attached.>";
     private static string ReAttachStorageResourceId = "<Storage Account Resource Id For Reattaching Received Share>";
     private static string ReceiverStorageContainer = "<Container Name To Receive Data Under>";
     private static string ReceiverTargetFolderName = "<Folder Name to Received Data Under>";
@@ -1089,7 +1108,7 @@ public static class PurviewDataSharingQuickStart
             ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
             : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
 
-        receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+        ReceivedSharesClient? receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
 
         if (receivedSharesClient == null)
         {
@@ -1122,19 +1141,27 @@ public static class PurviewDataSharingQuickStart
 
         var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
 
-        Utilities.LogCheckpoint("Get a Specific Received Share");
         var myReceivedShare = allReceivedShares.First(recShareDoc =>
         {
             var doc = JsonDocument.Parse(recShareDoc).RootElement;
             var props = doc.GetProperty("properties");
             return props.GetProperty("displayName").ToString() == ReceivedShareDisplayName;
         });
-        Utilities.LogResult("My Received Share Id: " + JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString());
 
-        var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString()
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("My Received Share Id: " + JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString());
+        Console.ForegroundColor = Console.ForegroundColor;
+
+
+        var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString();
 
         var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
-        return Utilities.LogResult(receivedShare.Value);
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(receivedShare.Value);
+        Console.ForegroundColor = Console.ForegroundColor;
+
+        return receivedShare.Value;
     }
 
     public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
@@ -1156,7 +1183,10 @@ public static class PurviewDataSharingQuickStart
 This script deletes a received share.
 To use it, be sure to fill out these variables:
 
+- **ReceiverTenantId** - the Azure Tenant ID for the user/service that is receiving the shared data.
+- **ReceiverPurviewAccountName** - the name of the Microsoft Purview account where the data will be received.
 - **ReceivedShareDisplayName** - The display name for your received share.
+- **ReceiverStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data has been shared.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to receive the shares, set this to **true**.
 - **ReceiverClientId** - (optional) If using a service principal to receive the shares, this is the Application (client) ID for the service principal.
 - **ReceiverClientSecret** - (optional) If using a service principal to receive  the shares, add your client secret/authentication key.
@@ -1166,13 +1196,17 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
 using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
+    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
+    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
+
     private static string ReceivedShareDisplayName = "<Display name of your received share>";
+
+    private static string ReceiverStorageResourceId = "<Storage Account Resource Id for the account where the share is currently attached.>";
 
     //Use if using a service principal to delete share.
     private static bool UseServiceTokenCredentials = false;
@@ -1191,20 +1225,28 @@ public static class PurviewDataSharingQuickStart
             ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
             : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
 
-            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
+            ReceivedSharesClient? receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
 
-            Utilities.LogCheckpoint("Get a Specific Received Share");
+            var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
+
             var myReceivedShare = allReceivedShares.First(recShareDoc =>
             {
                 var doc = JsonDocument.Parse(recShareDoc).RootElement;
                 var props = doc.GetProperty("properties");
                 return props.GetProperty("displayName").ToString() == ReceivedShareDisplayName;
             });
-            Utilities.LogResult("My Received Share Id: " + JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString());
 
-            var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString()
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("My Received Share Id: " + JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString());
+            Console.ForegroundColor = Console.ForegroundColor;
+
+            var ReceivedShareId = JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString();
 
             await receivedSharesClient.DeleteReceivedShareAsync(WaitUntil.Completed, ReceivedShareId);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Delete Complete");
+            Console.ForegroundColor = Console.ForegroundColor;
         }
         catch (Exception ex)
         {
@@ -1212,6 +1254,17 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 }
 ```
