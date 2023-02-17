@@ -14,7 +14,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Prepare an application for authentication
 
-This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment (IDE). You'll create and upload a self-signed certificate and configure the application for authentication.
+This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment (IDE). You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
 
 In this tutorial:
 
@@ -35,7 +35,7 @@ In this tutorial:
 
 ## Create an ASP.NET Core project
 
-After registering an application on the Azure portal, a .NET web application needs to be created using an IDE. Use the tabs to create an ASP.NET Core project with your IDE.
+After registering an application, a .NET web application can be created using an IDE. Use the following tabs to create an ASP.NET Core project within an IDE.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -111,7 +111,7 @@ To make the certificate available to the application, it must be uploaded into t
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
-1. Select the folder icon, then browse for and select the certificate that was previously created.
+1. Select the **folder** icon, then browse for and select the certificate that was previously created.
 1. Enter a description for the certificate and select **Add**.
 1. Record the **Thumbprint** value, which will be used in the next step.
 
