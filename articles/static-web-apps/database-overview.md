@@ -76,10 +76,10 @@ The CLI activates the local `/data-api` endpoint, and proxies requests from port
 Here's an example command that starts the SWA CLI with a database connection:
 
 ```bash
-swa start /. --data-api-location swa-db-connections
+swa start ./src --data-api-location swa-db-connections
 ```
 
-This command starts the SWA CLI in the current directory and sets `--data-api-location` to a folder named *swa-db-connections* that holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
+This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
 
 ## Constraints
 

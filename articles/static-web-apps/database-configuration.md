@@ -21,7 +21,7 @@ Use this table for details about firewall and Managed Identity configuration for
 
 | Name | Type | Firewall | Managed Identity |
 |---|---|---|---|
-| [Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | [Configure firewall](/azure/cosmos-db/how-to-configure-firewall#configure-ip-policy) | [Configure Managed Identity](/azure/cosmos-db/managed-identity-based-authentication) |
+| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | [Configure firewall](/azure/cosmos-db/how-to-configure-firewall#configure-ip-policy) | [Configure Managed Identity](/azure/cosmos-db/managed-identity-based-authentication) |
 | [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | [Configure firewall](/azure/azure-sql/database/firewall-configure?view=azuresql&preserve-view=true#connections-from-inside-azure) | [Configure Managed Identity](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity?view=azuresql&preserve-view=true) |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex | [Configure firewall](/azure/mysql/flexible-server/concepts-networking-public#allow-all-azure-ip-addresses) | [Configure Managed Identity](/azure/mysql/flexible-server/how-to-azure-ad) |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | [Configure firewall](/azure/postgresql/flexible-server/concepts-networking#allowing-all-azure-ip-addresses) | [Configure Managed Identity](/azure/postgresql/flexible-server/how-to-connect-with-managed-identity) |
@@ -29,7 +29,7 @@ Use this table for details about firewall and Managed Identity configuration for
 
 ## Link a database
 
-Linking a database to your static web app establishes the connection between your website and database when published to Azure.
+Linking a database to your static web app establishes the production connection between your website and database when published to Azure.
 
 1. Open your static web app in the Azure portal.
 
@@ -51,7 +51,7 @@ Linking a database to your static web app establishes the connection between you
 
 As you link a database to your static web app, you need to define a database configuration. A file named *staticwebapp.database.config.json* stores the database configuration information. By default this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
 
-The purpose of the configuration file includes the following items:
+The purpose of the configuration file is to:
 
 - Map paths off the `/data-api` endpoint to your database tables or entities
 - Expose REST or GraphQL endpoints (or both)
@@ -118,7 +118,12 @@ The [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) allows y
 
 Use the `swa db init --database-type <YOUR_DATABASE_TYPE>` to generate a configuration file. By default, the CLI creates a new *staticwebapp.database.config.json* in a folder named *swa-db-connections*.
 
-Supported database types include `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.
+Supported database types include:
+
+- `mssql`
+- `postgresql`
+- `cosmosdb_nosql`
+- `mysql`
 
 ### Custom configuration folder
 
