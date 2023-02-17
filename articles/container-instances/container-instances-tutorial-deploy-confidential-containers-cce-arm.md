@@ -169,7 +169,7 @@ When this command completes, you should see a Base 64 encoded string as output. 
 cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5ldmVyeQppbXBvcnQgZnV0dXJlLmtleXdvcmRzLmluCgpmcmFnbWVudHMgOj0gWwpdCgpjb250YWluZXJzIDo9IFsKICAgIHsKICAgICAgICAiY29tbWFuZCI6IFsiL3BhdXNlIl0sCiAgICAgICAgImVudl9ydWxlcyI6IFt7InBhdHRlcm4iOiAiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogdHJ1ZX0seyJwYXR0ZXJuIjogIlRFUk09eHRlcm0iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogZmFsc2V9XSwKICAgICAgICAibGF5ZXJzIjogWyIxNmI1MTQwNTdhMDZhZDY2NWY5MmMwMjg2M2FjYTA3NGZkNTk3NmM3NTVkMjZiZmYxNjM2NTI5OTE2OWU4NDE1Il0sCiAgICAgICAgIm1vdW50cyI6IFtdLAogICAgICAgICJleGVjX3Byb2Nlc3NlcyI6IFtdLAogICAgICAgICJzaWduYWxzIjogW10sCiAgICAgICAgImFsbG93X2VsZXZhdGVkIjogZmFsc2UsCiAgICAgICAgIndvcmtpbmdfZGlyIjogIi8iCiAgICB9LApdCmFsbG93X3Byb3BlcnRpZXNfYWNjZXNzIDo9IHRydWUKYWxsb3dfZHVtcF9zdGFja3MgOj0gdHJ1ZQphbGxvd19ydW50aW1lX2xvZ2dpbmcgOj0gdHJ1ZQphbGxvd19lbnZpcm9ubWVudF92YXJpYWJsZV9kcm9wcGluZyA6PSB0cnVlCmFsbG93X3VuZW5jcnlwdGVkX3NjcmF0Y2ggOj0gdHJ1ZQoKCm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQp1bm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQptb3VudF9vdmVybGF5IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnVubW91bnRfb3ZlcmxheSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpjcmVhdGVfY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfaW5fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfZXh0ZXJuYWwgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2h1dGRvd25fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNpZ25hbF9jb250YWluZXJfcHJvY2VzcyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV9tb3VudCA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmdldF9wcm9wZXJ0aWVzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmR1bXBfc3RhY2tzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJ1bnRpbWVfbG9nZ2luZyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpsb2FkX2ZyYWdtZW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNjcmF0Y2hfbW91bnQgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2NyYXRjaF91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJlYXNvbiA6PSB7ImVycm9ycyI6IGRhdGEuZnJhbWV3b3JrLmVycm9yc30K
 ```
 
-2. Copy the string and paste under the **ccePolicy** property in your ARM template. 
+1. Copy the string and paste under the **ccePolicy** property in your ARM template. 
 
 ```ARM
 "confidentialComputeProperties": {
@@ -177,7 +177,7 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 }
 ```
 
-3. Save your changes to your local copy of the ARM template.
+1. Save your changes to your local copy of the ARM template.
 
 ## Deploy the template
 
@@ -187,33 +187,33 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 
 1. Choose **Build your own template in the editor**. You'll see a mostly blank template JSON.
 
-  ![Screenshot of Build your own template in the editor button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-build-template.png)
+   ![Screenshot of Build your own template in the editor button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-build-template.png)
 
 1. Select **Load file** and upload **template.json**, which you've modified by generating adding a CCE policy. 
 
-  ![Screenshot of Load file button on template screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-load-file.png)
+   ![Screenshot of Load file button on template screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-load-file.png)
 
-2. Click **Save**. 
+1. Click **Save**. 
 
- 3. Select or enter the following values.
+1. Select or enter the following values.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    * **Location**: select a location for the resource group. Example: **West Europe**.
-    * **Name**: accept the generated name for the instance, or enter a name.
-    * **Image**: accept the default image name. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. 
+   * **Subscription**: select an Azure subscription.
+   * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
+   * **Location**: select a location for the resource group. Example: **West Europe**.
+   * **Name**: accept the generated name for the instance, or enter a name.
+   * **Image**: accept the default image name. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. 
 
-    Accept default values for the remaining properties.
+   Accept default values for the remaining properties.
 
-    Review the terms and conditions. If you agree, select **I agree to the terms and conditions stated above**.
+   Review the terms and conditions. If you agree, select **I agree to the terms and conditions stated above**.
 
-    ![Screenshot of Linux container with public IP template properties, PNG.](media/container-instances-quickstart-template/template-properties.png)
+   ![Screenshot of Linux container with public IP template properties, PNG.](media/container-instances-quickstart-template/template-properties.png)
 
- 3. After the instance has been created successfully, you get a notification:
+1. After the instance has been created successfully, you get a notification:
 
-    ![Screenshot of portal notification for successful deployment, PNG.](media/container-instances-quickstart-template/deployment-notification.png)
+   ![Screenshot of portal notification for successful deployment, PNG.](media/container-instances-quickstart-template/deployment-notification.png)
 
- The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ## Review deployed resources
 
