@@ -1,6 +1,6 @@
 ---
 title: Monitor a SharePoint site with Application Insights
-description: Start monitoring a new application with a new instrumentation key
+description: Start monitoring a new application with a new instrumentation key.
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.reviewer: newylie
@@ -8,21 +8,21 @@ ms.reviewer: newylie
 
 # Monitor a SharePoint site with Application Insights
 
-Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
+Application Insights monitors the availability, performance, and usage of your apps. This article shows you how to set it up for a SharePoint site.
 
 > [!NOTE]
-> Due to security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites.
+> Because of security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites.
 
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
-![Click Properties, select the key, and press ctrl+C](./media/sharepoint/001.png)
+![Screenshot that shows selecting Properties, selecting the key, and selecting Ctrl+C.](./media/sharepoint/001.png)
 
-The window that opens is the place where you'll see performance and usage data about your app. To get back to it next time you sign in to Azure, you should find a tile for it on the start screen. Alternatively select Browse to find it.
+The window that opens is the place where you see performance and usage data about your app. The next time you sign in to Azure, a tile for it appears on the **Start** screen. Alternatively, select **Browse** to find it.
 
-## Add the script to your web pages
+## Add the script to your webpages
 
-The current Snippet (listed below) is version "5", the version is encoded in the snippet as sv:"#" and the [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The following current snippet is version `"5"`. The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```HTML
 <!-- 
@@ -47,30 +47,33 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> The Url for SharePoint uses a different module format "...\ai.2.gbl.min.js" (note the additional **.gbl.**) this alternate module format is required to avoid an issue caused by the order that scripts are loaded, which will cause the SDK to fail to initialize and will result in the loss of telemetry events.
+> The URL for SharePoint uses a different module format "...\ai.2.gbl.min.js" (note the additional **.gbl.**). This alternate module format is required to avoid an issue caused by the order that scripts are loaded, which will cause the SDK to fail to initialize and result in the loss of telemetry events.
 >
-> The issue is caused by requireJS being loaded and initialized before the SDK.
+> The issue is caused by `requireJS` being loaded and initialized before the SDK.
 
-Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
+Insert the script before the &lt;/head&gt; tag of every page you want to track. If your website has a main page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`.
 
 The script contains the instrumentation key that directs the telemetry to your Application Insights resource.
 
 ### Add the code to your site pages
-#### On the master page
-If you can edit the site's master page, that will provide monitoring for every page in the site.
 
-Check out the master page and edit it using SharePoint Designer or any other editor.
+You can add the code to your main page or individual pages.
 
-![Screenshot that shows how to edit the master page using Sharepoing Designer or another editor.](./media/sharepoint/03-master.png)
+#### Main page
+If you can edit the site's main page, that will provide monitoring for every page in the site.
 
-Add the code just before the </head> tag. 
+Check out the main page and edit it by using SharePoint Designer or any other editor.
+
+![Screenshot that shows how to edit the main page by using Sharepoint Designer or another editor.](./media/sharepoint/03-master.png)
+
+Add the code before the </head> tag.
 
 ![Screenshot that shows where to add the code to your site page.](./media/sharepoint/04-code.png)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-#### Or on individual pages
-To monitor a limited set of pages, add the script separately to each page. 
+#### Individual pages
+To monitor a limited set of pages, add the script separately to each page.
 
 Insert a web part and embed the code snippet in it.
 
@@ -81,21 +84,21 @@ Redeploy your app.
 
 Return to your application pane in the [Azure portal](https://portal.azure.com).
 
-The first events appear in Search. 
+The first events appear in Search.
 
 ![Screenshot that shows the new data that you can view in the app.](./media/sharepoint/09-search.png)
 
-Select Refresh after a few seconds if you're expecting more data.
+Select **Refresh** after a few seconds if you're expecting more data.
 
-## Capturing User Id
-The standard web page code snippet doesn't capture the user ID from SharePoint, but you can do that with a small modification.
+## Capture user ID
+The standard webpage code snippet doesn't capture the user ID from SharePoint, but you can do that with a small modification.
 
-1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
+1. Copy your app's instrumentation key from the **Essentials** dropdown in Application Insights.
 
     ![Screenshot that shows copying the app's instrumentation from the Essentials dropdown in Application Insights.](./media/sharepoint/02-props.png)
 
-1. Substitute the instrumentation key for 'XXXX' in the snippet below. 
-2. Embed the script in your SharePoint app instead of the snippet you get from the portal.
+1. Substitute the instrumentation key for `XXXX` in the following snippet.
+1. Embed the script in your SharePoint app instead of the snippet you get from the portal.
 
 ```
 
@@ -144,9 +147,7 @@ function onRequestFail(sender, args) {
 
 ```
 
-
-
-## Next Steps
+## Next steps
 * [Availability overview](./availability-overview.md) to monitor the availability of your site.
 * [Application Insights](./app-insights-overview.md) for other types of app.
 
