@@ -31,7 +31,7 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
 
 ### Visual Studio
 
-The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 may differ slightly.
+The walkthrough in this article uses Visual Studio 2022. The procedures for Visual Studio 2013, 2015, 2017, or 2019 may differ slightly.
 
 ### Azure .NET SDK
 
@@ -57,7 +57,7 @@ To set up a service principal, follow these instructions:
 Next, create a C# .NET console application in Visual Studio:
 
 1. Launch **Visual Studio**.
-2. In the Start window, select **Create a new project** > **Console App (.NET Framework)**. .NET version 4.5.2 or above is required.
+2. In the Start window, select **Create a new project** > **Console App**. .NET version 6.0 or above is required.
 3. In **Project name**, enter **PurviewDataSharingQuickStart**.
 4. Select **Create** to create the project.
 
@@ -80,9 +80,9 @@ Next, create a C# .NET console application in Visual Studio:
 This script creates a data share that you can send to internal or external users.
 To use it, be sure to fill out these variables:
 
-- **SenderTenantId** - the Azure Tenant ID for the sender's identity.
+- **SenderTenantId** - the [Azure Tenant ID](/partner-center/find-ids-and-domain-names#find-the-microsoft-azure-ad-tenant-id-and-primary-domain-name) for the sender's identity.
 - **SenderPurviewAccountName** - the name of the Microsoft Purview account where the data will be sent from.
-- **ShareName** - (optional) A display name for your sent share.
+- **ShareName** - A display name for your sent share.
 - **ShareDescription** - (optional) A description for your sent share.
 - **SenderStorageKind** - either BlobAccount or AdlsGen2Account.
 - **SenderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be sent from.
@@ -92,6 +92,7 @@ To use it, be sure to fill out these variables:
 - **SenderClientId** - (optional) If using a service principal to create the shares, this is the Application (client) ID for the service principal.
 - **SenderClientSecret** - (optional) If using a service principal to create the shares, add your client secret/authentication key.
 - **SentShareID** - (optional) This option must be a GUID, and the current value generates one for you, but you can replace it with a different value if you would like.
+- **ReceiverVisiblePath** - (optional) The name for the share the receiver will see. Currently set to a GUID, but GUID is not required.
 
 ```C# Snippet:Azure_Analytics_Purview_Share_Samples_01_Namespaces
 using Azure;
@@ -99,7 +100,6 @@ using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
 using System.ComponentModel;
-using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
@@ -107,8 +107,8 @@ public static class PurviewDataSharingQuickStart
     private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
     private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
 
-    private static string ShareName = $"SDK-{Utilities.GenerateResourceName(4, 8)}";
-    private static string ShareDescription = $"Sent share created via updated experience SDK.";
+    private static string ShareName = "<Share Display Name>";
+    private static string ShareDescription = "Share created using the SDK.";
     private static string SenderStorageKind = "<Sender Storage Account Kind (BlobAccount / AdlsGen2Account)>";
     private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
     private static string SenderStorageContainer = "<Share Data Container Name>";
@@ -120,7 +120,8 @@ public static class PurviewDataSharingQuickStart
     private static string SenderClientSecret = "<Sender Application (Client) Secret>";
 
     // [OPTIONAL INPUTS] Override Value If Desired.
-    private static string SentShareId = Utilities.GenerateResourceName(useGuid: true);
+    private static string SentShareId = Guid.NewGuid().ToString();
+    private static string ReceiverVisiblePath = Guid.NewGuid().ToString();
 
     // General Configs
     private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
@@ -140,7 +141,9 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
     }
 
@@ -151,7 +154,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+        SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
         if (sentSharesClient == null)
         {
@@ -191,7 +194,10 @@ public static class PurviewDataSharingQuickStart
         };
 
         Operation<BinaryData> sentShare = await sentSharesClient.CreateSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
-        return Utilities.LogResult(sentShare.Value);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(sentShare.Value);
+        Console.ForegroundColor = Console.ForegroundColor;
+        return sentShare.Value;
     }
 }
 ```
@@ -234,11 +240,12 @@ public static class PurviewDataSharingQuickStart
     private static string SenderClientSecret = "<Sender Application (Client) Secret>";
 
     private static string SentShareDisplayName = "<Name of share you're sending an invite for.>";
-    private static string InvitationId = Utilities.GenerateResourceName(useGuid: true);
+    private static string InvitationId = Guid.NewGuid().ToString();
 
     // General Configs
     private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
     private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
+    private static int StepCounter = 0;
 
     private static async Task Main(string[] args)
     {
@@ -251,8 +258,22 @@ public static class PurviewDataSharingQuickStart
         }
         catch (Exception ex)
         {
-            Utilities.LogError(ex);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(ex);
+            Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 
     private static async Task<BinaryData> Sender_CreateUserRecipient()
@@ -262,7 +283,7 @@ public static class PurviewDataSharingQuickStart
                 ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
                 : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
 
-        sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
+        SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
         if (string.IsNullOrEmpty(RecipientUserEmailId))
         {
@@ -282,21 +303,32 @@ public static class PurviewDataSharingQuickStart
         };
 
         var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-        Utilities.LogCheckpoint("Get a Specific Sent Share");
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("{0}. {1}...", ++StepCounter, "Get a Specific Sent Share");
+        Console.ForegroundColor = Console.ForegroundColor;
+
         var mySentShare = allSentShares.First(sentShareDoc =>
         {
             var doc = JsonDocument.Parse(sentShareDoc).RootElement;
             var props = doc.GetProperty("properties");
             return props.GetProperty("displayName").ToString() == SentShareDisplayName;
         });
-        Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
+        Console.ForegroundColor = Console.ForegroundColor;
 
         var SentShareId = JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString();
 
-        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, InvitationId, RequestContent.Create(invitationData));
-        return Utilities.LogResult(sentInvitation.Content);
+        var sentInvitation = await sentSharesClient.CreateSentShareInvitationAsync(SentShareId, InvitationId, RequestContent.Create(invitationData));
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(sentInvitation.Content);
+        Console.ForegroundColor = Console.ForegroundColor;
+
+        return sentInvitation.Content;
     }
-    
 }
 ```
 
