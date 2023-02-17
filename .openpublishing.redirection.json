@@ -13241,7 +13241,7 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
-            "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
+            "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
             "redirect_document_id": false
         },
         {
@@ -13339,6 +13339,12 @@
             "redirect_url": "/connectors/custom-connectors/submit-certification",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/logic-apps/monitor-logic-apps-log-analytics.md",
+            "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
+            "redirect_document_id": true
+        },
+
         {
             "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
             "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
