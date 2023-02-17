@@ -16,7 +16,7 @@ In this article, you learn how to connect to a lab VM in Azure Lab Services from
 
 ## Connect to VM from Windows using RDP
 
-You can use RDP to connect to your lab VMs in Azure Lab Services. If the lab VM is a Windows VM, no extra configuration is required by the lab creator.  If the lab VM is a Linux VM, the lab creator must [enable RDP for the lab](how-to-enable-remote-desktop-linux.md) and install GUI packages for a Linux graphical desktop.
+You can use RDP to connect to your lab VMs in Azure Lab Services. If the lab VM is a Linux VM, the lab creator must [enable RDP for the lab](how-to-enable-remote-desktop-linux.md) and install GUI packages for a Linux graphical desktop. For Windows-based lab VMs, no additional configuration is needed.
 
 Typically, the [Remote Desktop client software](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) is already present on Windows. To connect to the lab VM, you open the RDP connection file to start the remote session.
 
@@ -48,11 +48,11 @@ If the lab creator configured the GNOME graphical desktop on a Linux lab VM with
 
 - On the **Display** tab, set the color depth to **High Color (15 bit)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png" alt-text="Screenshot of display tab of the Windows R D P client.  The color depth setting is highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-display-settings.png" alt-text="Screenshot of display tab of the Windows R D P client, highlighting the color depth setting.":::
 
 - On the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows R D P client.  The connection speed setting is highlighted.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows R D P client, highlighting the connection speed setting.":::
 
 ## Next steps
 
