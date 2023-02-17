@@ -27,6 +27,8 @@ AKS follows a strict versioning window with regard to supportability. With prope
 
 If you’re using cluster auto-upgrade, you can no longer upgrade the control plane first and then upgrade the individual node pools. Cluster auto-upgrade will always upgrade the control plane and the node pools together. There is no ability of upgrading the control plane only, and trying to run the command `az aks upgrade --control-plane-only` will raise the error: `NotAllAgentPoolOrchestratorVersionSpecifiedAndUnchanged: Using managed cluster api, all Agent pools' OrchestratorVersion must be all specified or all unspecified. If all specified, they must be stay unchanged or the same with control plane.`
 
+If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, unattended upgrades from Canonical will be disabled by default.
+
 ## Using cluster auto-upgrade
 
 Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect.

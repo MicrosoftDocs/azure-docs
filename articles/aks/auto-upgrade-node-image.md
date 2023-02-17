@@ -46,6 +46,10 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
+## Limitation
+
+If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, unattended upgrades from Canonical will be disabled by default.
+
 ## Using node OS auto-upgrade
 
 Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. By default, a cluster's node OS auto-upgrade channel is set to `Unmanaged`.
