@@ -106,6 +106,8 @@ Use MLflow SDK to track any metric, parameter, artifacts, or models. For detaile
 
 Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
 
+1. Use the `display_name` property to configure the job.
+
     # [Azure CLI](#tab/cli)
 
     To submit the job, create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory.
@@ -125,6 +127,8 @@ Use the parameter `display_name` of Azure Machine Learning jobs to configure the
         display_name="hello-world-example"
     )
     ```
+
+2. Ensure you are not using `mlflow.start_run(run_name="")` inside of your training routine.
 
 ---
 
