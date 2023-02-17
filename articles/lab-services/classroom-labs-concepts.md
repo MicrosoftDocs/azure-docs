@@ -13,7 +13,9 @@ This article describes key Azure Lab Services concepts and definitions.
 
 The following conceptual diagram shows how the different Azure Lab Services components are related.
 
-:::image type="content" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services." lightbox="./media/classroom-labs-concepts/lab-services-key-concepts.png":::
+:::image type="complex" source="./media/classroom-labs-concepts/lab-services-key-concepts.png" alt-text="Diagram that shows the relationships between the different concepts in Azure Lab Services." lightbox="./media/classroom-labs-concepts/lab-services-key-concepts.png":::
+    Diagram that shows the hierarchical relationship between the different components in Azure Lab Services. It also shows how lab users and lab creators interact with some of these components. A lab plan uses VM images from the Azure Marketplace or an Azure compute gallery. The lab plan has one or more labs. When you publish a lab, one or more lab VMs are created. The lab has the list of users that are allowed to connect to a lab VM. Optionally, a lab can have a template VM, which enables a lab creator to customize the base VM image of the lab. The lab creator can remotely connect to the template VM to customize it. A lab can also optionally have lab schedules and user quota.
+:::image-end:::
 
 ## Lab plan
 
@@ -49,9 +51,9 @@ Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-
 
 You can choose to create a customizable lab, which enables you to modify the base image for the [lab VMs](#lab-virtual-machine). For example, to install additional software components are modify operating system settings. In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize.
 
-When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the the template VM image. If you modify the template VM at a later stage, the lab VMs will be updated to match the new template.
+When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the the template VM image. If you modify the template VM at a later stage, when you republish the template VM, all lab VMs are updated to match the new template. When your republish a template VM, Azure Lab Services reimages the lab VMs and removes all changes and data on the VM.
 
-With the [introduction of lab plans](lab-services-whats-new.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery.
+With the [introduction of lab plans](lab-services-whats-new.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery, and you can't further customize the image of a templateless lab. You might use templateless labs because you manage  your *golden* VM images in an Azure compute gallery. The advantage of templateless labs is that all labs use your *golden images* without changes. Another benefit is that lab creation is faster because there's no need to create a template VM.
 
 Learn how to [create and manage a template in Azure Lab Services](./how-to-create-manage-template.md).
 
@@ -61,24 +63,36 @@ In Azure Lab Services, lab VMs are managed virtual machines that get their confi
 
 After provisioning the lab VMs, lab users can connect to their VM through remote desktop (RDP) or secure shell (SSH). Before they can connect to the lab VM, lab users have to first [register for the lab](./how-to-use-lab.md) by using a registration link. Azure Lab Services then assigns the user to a specific lab VM.
 
-In the lab settings, you can configure one or more [schedules](#schedule) to automatically start and stop the lab VMs. Depending on their [user quota](#quota), lab users can also manually start their lab VM outside the scheduled events.
+In the lab settings, you can optionally configure one or more [schedules](#schedule) and assign [user quota](#quota).
 
 ## Schedule
 
-Schedules are the time slots that a lab creator defines so the lab VMs are available for class time.  Schedules can be one-time or recurring.  Any scheduled time doesn't count against extra time that lab users have. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
+Schedules are the time slots that a lab creator defines so the lab VMs are available for class time, and to avoid that lab users need to wait for their VM to start up. Schedules can be one-time or recurring.
 
-A common scenario for scheduled time is where students are following the educator's directions during class hours. For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
+The use of schedules for a lab is optional and you might [specify user quota](#quota) instead, or use a combination of both. User quota is the time that lab users can run their lab VM outside of scheduled time. For example, to complete assignments or homework. Any scheduled time doesn't count against extra time that lab users have. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
 
-All the lab VMs are started with schedules, except for lab VMs that are not assigned yet. A lab VM is started, regardless if a user sign into the VM or not.  To help reduce the cost of running VMs that are unused, see you can [configure automatic shutdown of lab VMs](how-to-enable-shutdown-disconnect.md).
+Example scenarios for using schedules:
+
+- A class happens at regular intervals or at a predefined time. You assign one or multiple schedules that match the class time slots, and that enables the students to follow the educator's directions during class hours.
+- A class happens at regular intervals, and students need to complete assignments after class hours. You assign a schedule that matches the class time slots, and you assign user quota for students to complete after-hours assignments.
 
 There are two types of schedules.
 
-- **Standard**. This schedule starts all lab VMs at the specified start time and shuts down all lab VMs at the specified stop time.
+- **Standard**. This schedule starts all lab VMs, except VMs that are not assigned yet, at the specified start time and shuts down all lab VMs at the specified stop time.
 - **Stop only**. This schedule stops all lab VMs at the specified time, even if the VM was manually started by the lab creator or the lab user.
+
+Azure Lab Services starts a lab VM, regardless if the user signs into the VM or not. To help reduce the cost of running VMs that are unused, see how you can [configure automatic shutdown of lab VMs](how-to-enable-shutdown-disconnect.md).
+
+For more information about schedules, see [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md).
 
 ## Quota
 
-A Quota is the limit of time a lab user can use their VM outside of scheduled lab events.  For example, you can assign quota hours to allow students to complete their homework. If no quota is assigned, lab users can only use their VM during scheduled time, or if the lab creator manually starts a lab VM for them.
+A quota is the limit of time a lab user can use their VM outside of scheduled lab events. The use of quota is optional, and you can use [lab schedules](#schedule) instead, or use a combination of both. If no quota is assigned, lab users can only use their VM during scheduled time, or if the lab creator manually starts a lab VM for them.
+
+Example scenarios for using quotas are:
+
+- Students need to use their lab VMs outside of class time to complete their homework. You can assign a schedule for the class time, and additionally assign quota hours for homework.
+- There are no regular class times, for example with students in different geographical areas. The lab has no scheduled events, and you only specify quota hours for lab users.
 
 When a lab user starts their lab VM, quota hours for the lab start counting. If a lab creator manually starts the lab VM for a user, quota hours aren't used for that student.
 

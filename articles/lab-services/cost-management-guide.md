@@ -16,6 +16,8 @@ For Azure Lab Services, cost management can be broken down into two distinct are
 
 Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-configure-student-usage.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#set-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
 
+If users don't consume their assigned quota hours, you are only charged for the quota hours that lab users consumed.
+
 This estimate might not show all the possible costs. A few resources aren't included:
 
 - The [template VM preparation](how-to-create-manage-template.md#update-a-template-vm) cost. It can vary significantly in the amount of time needed to create the template. The cost to run the template is the same as running any lab VM.
