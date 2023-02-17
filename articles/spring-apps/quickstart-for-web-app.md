@@ -154,14 +154,14 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --name <name-of-app> \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`.
-3. You can check the app's log by this command:
+2. You can check the app's log by this command:
     ```azurecli-interactive
     az spring app logs \
         --resource-group <name-of-resource-group> \
         --service <name-of-azure-spring-apps-instance> \
         --name <name-of-app>
     ```
+3. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`.
 
 ## Clean up resources
 1. Use the following commands to delete the resource group.
