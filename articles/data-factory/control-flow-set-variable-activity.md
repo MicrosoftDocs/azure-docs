@@ -27,7 +27,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
 
-3. Select the Set Variable activity on the canvas if it isn't already selected, and then click the **Settings** tab to edit its details.
+3. Select the Set Variable activity on the canvas if it isn't already selected, and then select the **Settings** tab to edit its details.
 
 4. Select **Pipeline variable** for your **Variable type**.
 
@@ -41,7 +41,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 We have expanded Set Variable activity to include a special system variable, named _Pipeline Return Value_. This allows communication from the child pipeline to the calling pipeline, in the following scenario. 
 
-You do not need to define the varible, before using it. For more information, see [Pipeline Return Value](tutorial-pipeline-return-value.md)
+You don't need to define the variable, before using it. For more information, see [Pipeline Return Value](tutorial-pipeline-return-value.md)
 
 
 :::image type="content" source="media/pipeline-return-value/pipeline-return-value-00-paradigm.png" alt-text="Screenshot with ExecutePipeline Activity.":::
@@ -59,7 +59,7 @@ value | String literal or expression object value that the variable is assigned 
 
 ## Incrementing a variable
 
-A common scenario involving variables is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
+A common scenario involving variable is to use a variable as an iterator within an **Until** or **ForEach** activity. In a **Set variable** activity, you can't reference the variable being set in the `value` field. To work around this limitation, set a temporary variable and then create a second **Set variable** activity. The second **Set variable** activity sets the value of the iterator to the temporary variable. 
 
 Below is an example of this pattern:
 
@@ -119,7 +119,7 @@ Below is an example of this pattern:
 }
 ```
 
-Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they are accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
+Variables are currently scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
 ## Next steps
