@@ -516,6 +516,7 @@ public static class PurviewDataSharingQuickStart
             Console.ForegroundColor = Console.ForegroundColor;
         }
     }
+
     public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
     {
         List<T> list = new List<T>();
@@ -535,6 +536,8 @@ public static class PurviewDataSharingQuickStart
 This script lists all recipients for a specific share.
 To use it, be sure to fill out these variables:
 
+- **SenderTenantId** - the Azure Tenant ID for the share sender's identity.
+- **SenderPurviewAccountName** - the name of the Microsoft Purview account where the data was sent from.
 - **SentShareDisplayName** - the name of the sent share you're listing recipients for.
 - **SenderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be sent from.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to create the shares, set this to **true**.
@@ -546,13 +549,16 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
 using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareDisplayName = "<Name of share you're listing recipients for.>";
+    private static string SenderTenantId = "<Sender Tenant ID>";
+    private static string SenderPurviewAccountName = "<Name of the Microsoft Purview account>";
+
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
 
     // Set if using Service principal to list recipients
     private static bool UseServiceTokenCredentials = false;
@@ -574,14 +580,16 @@ public static class PurviewDataSharingQuickStart
             SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-            Utilities.LogCheckpoint("Get a Specific Sent Share");
             var mySentShare = allSentShares.First(sentShareDoc =>
             {
                 var doc = JsonDocument.Parse(sentShareDoc).RootElement;
                 var props = doc.GetProperty("properties");
                 return props.GetProperty("displayName").ToString() == SentShareDisplayName;
             });
-            Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
+            Console.ForegroundColor = Console.ForegroundColor;
 
             var SentShareId = JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString();
 
@@ -596,6 +604,18 @@ public static class PurviewDataSharingQuickStart
             Console.ForegroundColor = Console.ForegroundColor;
         }
     }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
+    }
 }
 ```
 
@@ -604,7 +624,10 @@ public static class PurviewDataSharingQuickStart
 This script removes a share invitation, and therefore the share, for a recipient.
 To use it, be sure to fill out these variables:
 
+- **SenderTenantId** - the Azure Tenant ID for the share sender's identity.
+- **SenderPurviewAccountName** - the name of the Microsoft Purview account where the data was sent from.
 - **SentShareDisplayName** - the name of the sent share you're removing a recipient for.
+- **SenderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where the data will be sent from.
 - **RecipientUserEmailId** - Email address for the user you want to delete.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to create the shares, set this to **true**.
 - **SenderClientId** - (optional) If using a service principal to create the shares, this is the Application (client) ID for the service principal.
@@ -615,14 +638,17 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
 using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
     private static string SentShareDisplayName = "<Name of share you're removing a recipient for.>";
+    private static string SenderTenantId = "<Sender Tenant ID>";
+    private static string SenderPurviewAccountName = "<Name of the Microsoft Purview account>";
     private static string RecipientUserEmailId = "<Target User's Email Id>";
+
+    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
 
     // Set if using Service principal to delete recipients
     private static bool UseServiceTokenCredentials = false;
@@ -643,30 +669,35 @@ public static class PurviewDataSharingQuickStart
 
             SentSharesClient? sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
 
-            Utilities.LogCheckpoint("Get a Specific Recipient");
-            var recipient = allRecipients.First(recipient =>
-            {
-                var doc = JsonDocument.Parse(recipient).RootElement;
-                var props = doc.GetProperty("properties");
-                return props.TryGetProperty("targetEmail", out JsonElement rcpt) && rcpt.ToString() == RecipientUserEmailId;
-            });
-            Utilities.LogResult("My Recipient Id: " + JsonDocument.Parse(recipient).RootElement.GetProperty("id").ToString());
-
             var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-            Utilities.LogCheckpoint("Get a Specific Sent Share");
+
             var mySentShare = allSentShares.First(sentShareDoc =>
             {
                 var doc = JsonDocument.Parse(sentShareDoc).RootElement;
                 var props = doc.GetProperty("properties");
                 return props.GetProperty("displayName").ToString() == SentShareDisplayName;
             });
-            Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
 
             var SentShareId = JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString();
+
+            var allRecipients = await sentSharesClient.GetAllSentShareInvitationsAsync(SentShareId).ToResultList();
+
+            var recipient = allRecipients.First(recipient =>
+            {
+                var doc = JsonDocument.Parse(recipient).RootElement;
+                var props = doc.GetProperty("properties");
+                return props.TryGetProperty("targetEmail", out JsonElement rcpt) && rcpt.ToString() == RecipientUserEmailId;
+            });
+
             var recipientId = JsonDocument.Parse(recipient).RootElement.GetProperty("id").ToString();
 
             await sentSharesClient.DeleteSentShareInvitationAsync(WaitUntil.Completed, SentShareId, recipientId);
-            
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Remove Id: " + JsonDocument.Parse(recipient).RootElement.GetProperty("id").ToString());
+            Console.WriteLine("Complete");
+            Console.ForegroundColor = Console.ForegroundColor;
+
         }
 
         catch (Exception ex)
@@ -675,6 +706,18 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 }
 ```
@@ -742,6 +785,18 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 }
 ```
@@ -870,6 +925,18 @@ public static class PurviewDataSharingQuickStart
         var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
         return Utilities.LogResult(receivedShare.Value);
     }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
+    }
 }
 ```
 
@@ -924,6 +991,18 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 }
 ```
@@ -1047,6 +1126,18 @@ public static class PurviewDataSharingQuickStart
         var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
         return Utilities.LogResult(receivedShare.Value);
     }
+
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
+    }
 }
 ```
 
@@ -1111,398 +1202,6 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
-    }
-}
-```
-
-## Full lifecycle script
-
-This script gives the full share lifecycle for Sender, Receiver, and Manager operations. You can use this script and edit the Operations boolean toggles as needed.
-
-```C# Snippet:Azure_Analytics_Purview_Share_Sample
-// -----------------------------------------------------------------------
-//  <copyright>
-//      Copyright (C) Microsoft Corporation. All rights reserved.
-//  </copyright>
-// -----------------------------------------------------------------------
-
-using Azure;
-using Azure.Analytics.Purview.Share;
-using Azure.Core;
-using Azure.Identity;
-using System.ComponentModel;
-using System.Text.Json;
-
-namespace ShareNetSample;
-
-public static class ShareNetSample20
-{
-    // [REQUIRED INPUTS] Set To Actual Values.
-    private static string SenderTenantId = "<Sender Indentity's Tenant ID>";
-    private static string SenderPurviewAccountName = "<Sender Purview Account Name>";
-
-    private static string SenderStorageKind = "<Sender Storage Account Kind (BlobAccount / AdlsGen2Account)>";
-    private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
-    private static string SenderStorageContainer = "<Share Data Container Name>";
-    private static string SenderPathToShare = "<File/Folder Path To Share>";
-
-    private static string ReceiverTenantId = "<Receiver Indentity's Tenant ID>";
-    private static string ReceiverPurviewAccountName = "<Receiver Purview Account Name>";
-
-    private static string RecipientUserEmailId = "<Target User's Email Id>";
-    private static string RecipientApplicationTenantId = "<Target Application's Tenant Id>";
-    private static string RecipientApplicationObjectId = "<Target Application's Object Id>";
-
-    private static string ReceiverStorageKind = "<Receiver Storage Account Kind (BlobAccount / AdlsGen2Account)>";
-    private static string ReceiverStorageResourceId = "<Receiver Storage Account Resource Id>";
-    private static string ReceiverStorageContainer = "<Container Name To Receive Data Under>";
-    private static string ReceiverTargetFolderName = "<Folder Name to Received Data Under>";
-    private static string ReceiverTargetMountPath = "<Mount Path to Received Data Under>";
-
-    // Set if using Service principal to create shares
-    private static bool UseServiceTokenCredentials = false;
-    private static string SenderClientId = "<Sender Application (Client) Id>";
-    private static string SenderClientSecret = "<Sender Application (Client) Secret>";
-
-    private static string ReceiverClientId = "<Receiver Caller Application (Client) Id>";
-    private static string ReceiverClientSecret = "<Receiver Caller Application (Client) Secret>";
-
-    // Set if performing manage share operations
-    private static string ReAttachStorageResourceId = "<Storage Account Resource Id For Reattaching Recieved Share>";
-
-
-    // [OPTIONAL INPUTS] Override Values If Desired.
-    private static string SentShareId = Guid.NewGuid().ToString();
-    private static string ReceivedShareId = Guid.NewGuid().ToString();
-    private static string UserRecipientId = Guid.NewGuid().ToString();
-    private static string ServiceRecipientId = Guid.NewGuid().ToString();
-    private static string ReceiverVisiblePath = Utilities.GenerateResourceName();
-
-    private static string SentShareDisplayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}";
-    private static string ReceivedShareDisplayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}";
-
-
-    // Toggle As Needed.
-    private static bool PerformSenderOperations = true;
-    private static bool PerformReceiverOperations = true;
-    private static bool PerformManageOperations = true;
-
-
-    // General Configs
-    private static string SenderPurviewEndPoint = $"https://{SenderPurviewAccountName}.purview.azure.com";
-    private static string SenderShareEndPoint = $"{SenderPurviewEndPoint}/share";
-
-    private static string ReceiverPurviewEndPoint = $"https://{ReceiverPurviewAccountName}.purview.azure.com";
-    private static string ReceiverShareEndPoint = $"{ReceiverPurviewEndPoint}/share";
-
-    private static async Task Main(string[] args)
-    {
-        try
-        {
-            /// Replace all placeholder inputs above with actual values before running this program.
-            /// This updated Share experiece API will create Shares based on callers RBAC role on the storage account.
-            /// To view/manage Shares via UX in Purview Studio. Storage accounts need to be registered (one time action) in Purview account with DSA permissions.
-
-            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: RunShareLifecycle - START");
-            await RunShareLifecycle();
-            Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: RunShareLifecycle - FINISH");
-        }
-        catch (Exception ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(ex);
-            Console.ForegroundColor = Console.ForegroundColor;
-        }
-    }
-
-    private async static Task RunShareLifecycle()
-    {
-        SentSharesClient? sentSharesClient = null;
-        ReceivedSharesClient? receivedSharesClient = null;
-
-        if (PerformSenderOperations)
-        {
-            TokenCredential senderCredentials = UseServiceTokenCredentials
-                ? new ClientSecretCredential(SenderTenantId, SenderClientId, SenderClientSecret)
-                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = SenderTenantId });
-
-            sentSharesClient = new SentSharesClient(SenderShareEndPoint, senderCredentials);
-
-            Utilities.LogCheckpoint("Create Sent Share");
-            await Sender_CreateSentShare(sentSharesClient);
-
-            Utilities.LogCheckpoint("Add Service Recipient and Invite");
-            await Sender_CreateServiceRecipient(sentSharesClient);
-
-            Utilities.LogCheckpoint("Add User Recipient and Invite");
-            await Sender_CreateUserRecipient(sentSharesClient);
-        }
-
-        if (PerformReceiverOperations)
-        {
-            TokenCredential receiverCredentials = UseServiceTokenCredentials
-                ? new ClientSecretCredential(ReceiverTenantId, ReceiverClientId, ReceiverClientSecret)
-                : new DefaultAzureCredential(new DefaultAzureCredentialOptions { AuthorityHost = new Uri("https://login.windows.net"), TenantId = ReceiverTenantId });
-
-            receivedSharesClient = new ReceivedSharesClient(ReceiverShareEndPoint, receiverCredentials);
-
-            Utilities.LogCheckpoint("List And Attach Received Share");
-            await Receiver_CreateReceivedShare(receivedSharesClient);
-        }
-
-        if (PerformManageOperations && sentSharesClient != null && receivedSharesClient != null)
-        {
-            Utilities.LogCheckpoint("Fetch Sender Resources");
-            await Sender_GetResources(sentSharesClient);
-
-            Utilities.LogCheckpoint("Fetch Receiver Resources");
-            await Receiver_GetResources(receivedSharesClient);
-
-            Utilities.LogCheckpoint("Re-atach Received Share");
-            await Receiver_UpdateReceivedShare(receivedSharesClient);
-
-            Utilities.LogCheckpoint("Delete Recipient");
-            var recipientId = UseServiceTokenCredentials ? UserRecipientId : ServiceRecipientId;
-            await sentSharesClient.DeleteSentShareInvitationAsync(WaitUntil.Completed, SentShareId, recipientId);
-            Utilities.LogResult(recipientId);
-
-            Utilities.LogCheckpoint("Delete Received Share");
-            await receivedSharesClient.DeleteReceivedShareAsync(WaitUntil.Completed, ReceivedShareId);
-            Utilities.LogResult(ReceivedShareId);
-
-            Utilities.LogCheckpoint("Delete Sent Share");
-            await sentSharesClient.DeleteSentShareAsync(WaitUntil.Completed, SentShareId);
-            Utilities.LogResult(SentShareId);
-        }
-    }
-
-    private static async Task<BinaryData> Sender_CreateSentShare(SentSharesClient sentSharesClient)
-    {
-        if (sentSharesClient == null)
-        {
-            throw new InvalidEnumArgumentException("Invalid Sent Shares Client.");
-        }
-
-        // Create sent share
-        var inPlaceSentShareDto = new
-        {
-            shareKind = "InPlace",
-            properties = new
-            {
-                displayName = SentShareDisplayName,
-                description = $"Sent share created via updated experience SDK.",
-                artifact = new
-                {
-                    storeKind = SenderStorageKind,
-                    storeReference = new
-                    {
-                        referenceName = SenderStorageResourceId,
-                        type = "ArmResourceReference"
-                    },
-                    properties = new
-                    {
-                        paths = new[]
-                        {
-                            new
-                            {
-                                receiverPath = ReceiverVisiblePath,
-                                containerName = SenderStorageContainer,
-                                senderPath = SenderPathToShare
-                            }
-                        }
-                    }
-                }
-            },
-        };
-
-        Operation<BinaryData> sentShare = await sentSharesClient.CreateSentShareAsync(WaitUntil.Completed, SentShareId, RequestContent.Create(inPlaceSentShareDto));
-        return Utilities.LogResult(sentShare.Value);
-    }
-
-    private static async Task<BinaryData> Sender_CreateUserRecipient(SentSharesClient sentShareClient)
-    {
-        if (string.IsNullOrEmpty(RecipientUserEmailId))
-        {
-            throw new InvalidEnumArgumentException("Invalid Recipient User Email Id.");
-        }
-
-        // Create user recipient and invite
-        var invitationData = new
-        {
-            invitationKind = "User",
-            properties = new
-            {
-                expirationDate = DateTime.Now.AddDays(7).ToString(),
-                notify = true, // Send invitation email
-                targetEmail = RecipientUserEmailId
-            }
-        };
-
-        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, UserRecipientId, RequestContent.Create(invitationData));
-        return Utilities.LogResult(sentInvitation.Content);
-    }
-
-    private static async Task<BinaryData> Sender_CreateServiceRecipient(SentSharesClient sentShareClient)
-    {
-        if (!Guid.TryParse(RecipientApplicationTenantId, out Guid _))
-        {
-            throw new InvalidEnumArgumentException("Invalid Recipient Service Tenant Id.");
-        }
-
-        if (!Guid.TryParse(RecipientApplicationObjectId, out Guid _))
-        {
-            throw new InvalidEnumArgumentException("Invalid Recipient Service Object Id.");
-        }
-
-        // Create service recipient
-        var invitationData = new
-        {
-            invitationKind = "Service",
-            properties = new
-            {
-                expirationDate = DateTime.Now.AddDays(5).ToString(),
-                targetActiveDirectoryId = RecipientApplicationTenantId,
-                targetObjectId = RecipientApplicationObjectId
-            }
-        };
-
-        var sentInvitation = await sentShareClient.CreateSentShareInvitationAsync(SentShareId, ServiceRecipientId, RequestContent.Create(invitationData));
-        return Utilities.LogResult(sentInvitation.Content);
-    }
-
-    private static async Task<BinaryData> Receiver_CreateReceivedShare(ReceivedSharesClient receivedSharesClient)
-    {
-        if (receivedSharesClient == null)
-        {
-            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
-        }
-
-        var results = await receivedSharesClient.GetAllDetachedReceivedSharesAsync().ToResultList();
-        var detachedReceivedShare = Utilities.LogResults(results);
-
-        if (detachedReceivedShare == null)
-        {
-            throw new InvalidOperationException("No received shares found.");
-        }
-
-        var detachedReceivedShareDocument = JsonDocument.Parse(detachedReceivedShare).RootElement;
-        ReceivedShareId = detachedReceivedShareDocument.GetProperty("id").ToString();
-
-        var attachedReceivedShareData = new
-        {
-            shareKind = "InPlace",
-            properties = new
-            {
-                displayName = ReceivedShareDisplayName,
-                sink = new
-                {
-                    storeKind = ReceiverStorageKind,
-                    properties = new
-                    {
-                        containerName = ReceiverStorageContainer,
-                        folder = ReceiverTargetFolderName,
-                        mountPath = ReceiverTargetMountPath
-                    },
-                    storeReference = new
-                    {
-                        referenceName = ReceiverStorageResourceId,
-                        type = "ArmResourceReference"
-                    }
-                }
-            }
-        };
-
-        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
-        return Utilities.LogResult(receivedShare.Value);
-    }
-
-    private static async Task<BinaryData> Receiver_UpdateReceivedShare(ReceivedSharesClient receivedSharesClient)
-    {
-        if (receivedSharesClient == null)
-        {
-            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
-        }
-
-        var attachedReceivedShareData = new
-        {
-            shareKind = "InPlace",
-            properties = new
-            {
-                displayName = $"SDK-{Utilities.GenerateResourceName(4, 8)}-ReAttached",
-                sink = new
-                {
-                    storeKind = ReceiverStorageKind,
-                    properties = new
-                    {
-                        containerName = $"{ReceiverStorageContainer}reattached",
-                        folder = ReceiverTargetFolderName,
-                        mountPath = ReceiverTargetMountPath
-                    },
-                    storeReference = new
-                    {
-                        referenceName = ReAttachStorageResourceId,
-                        type = "ArmResourceReference"
-                    }
-                }
-            }
-        };
-
-        var receivedShare = await receivedSharesClient.CreateOrUpdateReceivedShareAsync(WaitUntil.Completed, ReceivedShareId, RequestContent.Create(attachedReceivedShareData));
-        return Utilities.LogResult(receivedShare.Value);
-    }
-
-    private static async Task Sender_GetResources(SentSharesClient sentSharesClient)
-    {
-        if (sentSharesClient == null)
-        {
-            throw new InvalidEnumArgumentException("Invalid Sent Shares Client.");
-        }
-
-        var allSentShares = await sentSharesClient.GetAllSentSharesAsync(SenderStorageResourceId).ToResultList();
-        Utilities.LogResults(allSentShares);
-
-        Utilities.LogCheckpoint("Get a Specific Sent Share");
-        var mySentShare = allSentShares.First(sentShareDoc =>
-        {
-            var doc = JsonDocument.Parse(sentShareDoc).RootElement;
-            var props = doc.GetProperty("properties");
-            return props.GetProperty("displayName").ToString() == SentShareDisplayName;
-        });
-        Utilities.LogResult("My Sent Share Id: " + JsonDocument.Parse(mySentShare).RootElement.GetProperty("id").ToString());
-
-        Utilities.LogCheckpoint("List All Recipients");
-        var allRecipients = await sentSharesClient.GetAllSentShareInvitationsAsync(SentShareId).ToResultList();
-        Utilities.LogResults(allRecipients);
-
-        Utilities.LogCheckpoint("Get a Specific Recipient");
-        var recipient = allRecipients.First(recipient =>
-        {
-            var doc = JsonDocument.Parse(recipient).RootElement;
-            var props = doc.GetProperty("properties");
-            return props.TryGetProperty("targetEmail", out JsonElement rcpt) && rcpt.ToString() == RecipientUserEmailId;
-        });
-        Utilities.LogResult("My Recipient Id: " + JsonDocument.Parse(recipient).RootElement.GetProperty("id").ToString());
-    }
-
-    private static async Task Receiver_GetResources(ReceivedSharesClient receivedSharesClient)
-    {
-        if (receivedSharesClient == null)
-        {
-            throw new InvalidEnumArgumentException("Invalid Received Shares Client.");
-        }
-
-        var allReceivedShares = await receivedSharesClient.GetAllAttachedReceivedSharesAsync(ReceiverStorageResourceId).ToResultList();
-        Utilities.LogResults(allReceivedShares);
-
-        Utilities.LogCheckpoint("Get a Specific Recieved Share");
-        var myReceivedShare = allReceivedShares.First(rcvdShareDoc =>
-        {
-            var doc = JsonDocument.Parse(rcvdShareDoc).RootElement;
-            var props = doc.GetProperty("properties");
-            return props.GetProperty("displayName").ToString() == ReceivedShareDisplayName;
-        });
-
-        Utilities.LogResult("My Received Id: " + JsonDocument.Parse(myReceivedShare).RootElement.GetProperty("id").ToString());
     }
 }
 ```
