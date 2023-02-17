@@ -39,7 +39,7 @@ Next, select the deleted blob from the list of blobs to display its properties. 
 
 Deleting a blob also deletes any snapshots associated with the blob. If a soft-deleted blob has snapshots, the deleted snapshots can also be displayed in the Azure portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
 
-:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing ":::
+:::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing how to display deleted snapshots in Azure portal.":::
 
 ### Restore soft-deleted objects when versioning is disabled
 

@@ -35,9 +35,9 @@ Non-HNS enabled blob containers also support "blob versioning". If blob versioni
 
 In Blob Explorer, soft-deleted blobs are shown under certain view contexts.
 
-For blob containers without HNS enabled, choose the "Active blobs and soft-deleted blobs" or the "All blobs and blobs without current version" view context to view soft-deleted blobs.
+For blob containers without HNS enabled, choose the "Active blobs and soft deleted blobs" or the "All blobs and blobs without current version" view context to view soft-deleted blobs.
 
-For blob containers with HNS enabled, choose the "Active and soft-deleted blobs" or the "Deleted only" view context to view soft-deleted blobs and directories.
+For blob containers with HNS enabled, choose the "Active and soft deleted blobs" or the "Deleted only" view context to view soft-deleted blobs and directories.
 
 ## Delete blobs
 
