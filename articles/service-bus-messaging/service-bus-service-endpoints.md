@@ -43,6 +43,16 @@ The virtual network rule is an association of the Service Bus namespace with a v
 
 
 ## Use Azure portal
+When creating a namespace, you can either allow public only (from all networks) or private only (only via private endpoints) access to the namespace. Once the namespace is created, you can allow access from specific IP addresses or from specific virtual networks (using network service endpoints). 
+
+### Configure public access when creating a namespace
+To enable public access, select **Public access** on the **Networking** page of the namespace creation wizard. 
+
+:::image type="content" source="./media/service-bus-ip-filtering/create-namespace-public-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Public access option selected.":::
+
+After you create the namespace, select **Networking** on the left menu of the **Service Bus Namespace** page. You see that **All Networks** option is selected. You can select **Selected Networks** option and allow access from specific IP addresses or specific virtual networks. The next section provides you details on specifying the networks from which the access is allowed. 
+
+### Configure selected networks for an existing namespace
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
@@ -51,7 +61,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
-    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -64,7 +74,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     >[!WARNING]
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
-3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
+3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal prompts you to enable it.
    
     :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Image showing the selection of VNet and subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.ServiceBus**. Select **Add** at the bottom of the page to add the network. 

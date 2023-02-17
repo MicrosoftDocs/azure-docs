@@ -29,7 +29,7 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 ### Prerequisites
 
-To integrate a Service Bus namespace with Azure Private Link, you'll need the following entities or permissions:
+To integrate a Service Bus namespace with Azure Private Link, you need the following entities or permissions:
 
 - A Service Bus namespace.
 - An Azure virtual network.
@@ -38,7 +38,15 @@ To integrate a Service Bus namespace with Azure Private Link, you'll need the fo
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
 
-### Steps
+### Configure private access when creating a namespace
+When creating a namespace, you can either allow public only (from all networks) or private only (only via private endpoints) access to the namespace.
+
+If you select the **Private access** option on the **Networking** page of the namespace creation wizard, you can add a private endpoint on the page by selecting **+ Private endpoint** button. See the next section for the detailed steps for adding a private endpoint. 
+
+:::image type="content" source="./media/service-bus-ip-filtering/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected.":::
+
+
+### Configure private access for an existing namespace
 
 If you already have an existing namespace, you can create a private endpoint by following these steps:
 
@@ -50,7 +58,7 @@ If you already have an existing namespace, you can create a private endpoint by 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Select **Disabled** if you want the namespace to be accessed only via private endpoints. 
-    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -65,7 +73,7 @@ If you already have an existing namespace, you can create a private endpoint by 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
     1. Enter a **name for the network interface**. 
-    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
+    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you're connecting to. 
     1. Select **Next: Resource >** button at the bottom of the page.
 
         :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
@@ -88,7 +96,7 @@ If you already have an existing namespace, you can create a private endpoint by 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     :::image type="content" source="./media/private-link-service/create-private-endpoint-review-create-page.png" alt-text="Screenshot showing the Review and Create page of the Create private endpoint wizard.":::
-12. Confirm that the private endpoint is created. If you are the owner of the resource and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+12. Confirm that the private endpoint is created. If you're the owner of the resource and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
@@ -182,7 +190,7 @@ There are four provisioning states:
 
 ### Approve a private endpoint connection
 
-1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
@@ -196,7 +204,7 @@ There are four provisioning states:
 
 ### Reject a private endpoint connection
 
-1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection that was approved earlier, select the endpoint connection and click the **Reject** button.
+1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection that was approved earlier, select the endpoint connection and select the **Reject** button.
 
     ![Reject button](./media/private-link-service/private-endpoint-reject.png)
 2. On the **Reject connection** page, enter an optional comment, and select **Yes**. If you select **No**, nothing happens. 
@@ -215,7 +223,7 @@ There are four provisioning states:
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens. 
 
     ![Delete connection page](./media/private-link-service/delete-connection-page.png)
-3. You should see the status changed to **Disconnected**. Then, the endpoint will disappear from the list. 
+3. You should see the status changed to **Disconnected**. Then, the endpoint disappears from the list. 
 
 ## Validate that the private link connection works
 
