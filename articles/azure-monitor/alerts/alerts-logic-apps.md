@@ -32,8 +32,10 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 1. Set **Logic App name**. For **Plan type**, select **Consumption**.
 1. Select **Review + create** > **Create**.
 1. Select **Go to resource** after the deployment is finished.
+
 :::image type="content" source="./media/alerts-logic-apps/create-logic-app.png" alt-text="Screenshot that shows the Create Logic App page.":::
 1. On the **Logic Apps Designer** page, select **When a HTTP request is received**.
+
 :::image type="content" source="./media/alerts-logic-apps/logic-apps-designer.png" alt-text="Screenshot that shows the Logic Apps Designer start page.":::
 
 1. Paste the common alert schema into the **Request Body JSON Schema** field from the following JSON:
