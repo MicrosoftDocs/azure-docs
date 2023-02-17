@@ -22,9 +22,11 @@ The Application Insights JavaScript SDK is easily implemented with a runtime sni
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 - An application that includes [JavaScript](https://learn.microsoft.com/visualstudio/javascript)
 
-### JavaScript snippet
+### Enable Application Insights SDK for JavaScript
 
-To enable the Application Insights SDK for JavaScript, add the following code to the head of an HTML file.
+Only two steps are required to enable the Application Insights SDK for JavaScript.
+
+1. Add the following code snippet to the head of an HTML file.
 
 ```html
 <script type="text/javascript">
@@ -41,13 +43,17 @@ cfg: { // Application Insights Configuration
 </script>
 ```
 
-### Define the connection string
+2. Define the connection string
 
 An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string is not considered a security token or key.
 
 In the code snippet, replace the placeholder `"CONNECTION_STRING"` with your actual connection string found in the Azure portal.
 
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+    1. Navigate to the **Overview** pane of your Application Insights resource.
+    1. Locate the **Connection String**.
+    1. Select the button to copy the connection string to the clipboard.
+
+    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 ### Confirm data is flowing
 
@@ -78,7 +84,15 @@ dataset
 
 ## What is collected automatically?
 
-<!-- TODO: Add information about what is automatically collected. -->
+When you enable the App Insights JavaScript SDK using a code snippet, the following data classes are collected automatically:
+
+- ClientContext: OS, locale, language, network, window resolution
+- Inferred: Geolocation from IP address, timestamp, OS, browser
+- PageViews: URL and page name or screen name
+- Client perf: URL/page name, browser load time
+- Ajax: HTTP calls from webpage to server
+
+For more information, refer to the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
 
 ## Snippet configuration
 
@@ -102,10 +116,9 @@ Additional information is available for the following advanced scenarios:
 - React plugin
 - React native plugin
 - Angular plugin
+- Click Analytics plugin
 
-## Troubleshooting
-
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/TBD).
+TODO: Add links to the tabs in javascript-framework-extensions.md and javascript-feature-extensions.md
 
 ## Frequently asked questions
 
@@ -150,6 +163,10 @@ Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<
 #### How can I disable distributed tracing?
 
 Distributed tracing can be disabled in configuration.
+
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/TBD).
 
 ## Next steps
 
