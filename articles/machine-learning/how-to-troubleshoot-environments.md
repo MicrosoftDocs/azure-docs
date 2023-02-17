@@ -1733,7 +1733,7 @@ This issue can happen when no targets are specified and no makefile is found whe
 * If you have a custom makefile, specify it using ```make -f custommakefile```
 * Specify targets in the makefile or in the command line
 * Configure your build and generate a makefile
-* Ensure you makefile is formatted correctly and tabs are used for indentation
+* Ensure your makefile is formatted correctly and tabs are used for indentation
 
 **Resources**
 * [GNU Make](https://www.gnu.org/software/make/manual/make.html)
