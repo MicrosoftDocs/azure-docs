@@ -14,7 +14,9 @@ ms.date: 02/09/2023
 
 # Tutorial: Register an application with the Microsoft identity platform
 
-Before an application can interact with the Microsoft identity platform, it must be registered in a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal. 
+To enable an application to interact with the Microsoft identity platform, it must be registered in an Azure Active Directory (Azure AD) tenant. This tutorial shows you how to register a web application on the Azure portal, making Azure AD aware of an application you create.
+
+In this tutorial:
 
 In this tutorial: 
 
@@ -25,11 +27,10 @@ In this tutorial:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
-* This Azure account must have permissions to manage applications. Use the least privileged of the following roles needed to register the application: 
+* This Azure account must have permissions to manage applications. Use any of the following roles needed to register the application: 
   * Application administrator 
   * Application developer 
   * Cloud application administrator 
-* Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart. 
 
 ## Register the application and record identifiers 
 
@@ -40,7 +41,7 @@ To complete registration, provide the application a name and specify the support
 1. Search for and select **Azure Active Directory**. 
 1. Under **Manage**, select **App registrations > New registration**. 
 1. Enter a **Name** for the application, such as *NewWebApp1*. 
-1. For **Supported account types**, select **Accounts in this organizational directory only**.  
+1. For Supported account types, select Accounts in this organizational directory only. For information on different account types, select Help me choose.  
     - The **Redirect URI (optional)** will be configured at a later stage. 
 1. Select **Register**. 
 
