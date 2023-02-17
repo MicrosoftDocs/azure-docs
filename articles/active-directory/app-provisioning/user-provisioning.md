@@ -46,7 +46,7 @@ For detailed guidance on developing a SCIM endpoint to automate the provisioning
 Applications in the Azure AD gallery support one of two provisioning modes:
 
 * **Manual** provisioning means there's no automatic Azure AD provisioning connector for the app yet. You must create them manually. Examples are adding users directly into the app's administrative portal or uploading a spreadsheet with user account detail. Consult the documentation provided by the app, or contact the app developer to determine what mechanisms are available.
-* **Automatic** means that an Azure AD provisioning connector has been developed for this application. Follow the setup tutorial specific to setting up provisioning for the application. App tutorials can be found in [Tutorials for integrating SaaS applications with Azure Active Directory](../../active-directory/saas-apps/tutorial-list.md).
+* **Automatic** means that an Azure AD provisioning connector is available this application. Follow the setup tutorial specific to setting up provisioning for the application. App tutorials are found in [Tutorials for integrating SaaS applications with Azure Active Directory](../../active-directory/saas-apps/tutorial-list.md).
 
 The provisioning mode supported by an application is also visible on the **Provisioning** tab after you've added the application to your enterprise apps.
 
