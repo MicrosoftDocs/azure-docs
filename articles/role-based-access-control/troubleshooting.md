@@ -573,19 +573,19 @@ If you are an Azure AD Global Administrator and you don't have access to a subsc
 
 ## Classic subscription administrators
 
-### Symptom - Removing a guest assigned the Co-Administrator role does not the remove role assignment
+### Symptom - Deleting a guest assigned the Co-Administrator role does not the remove role assignment
 
 Consider the following scenario:
 
-- Add a guest user from an external tenant and then assign them the classic Co-Administrator role.
-- Later, you remove the guest user from your tenant without removing the role assignment.
+- Invite a guest user from an external tenant and then assign them the classic Co-Administrator role.
+- Later, you delete the guest user from your tenant without removing the role assignment.
 - The guest user signs in to the Azure portal and switches to your tenant.
 
 The guest user still has the Co-Administrator role assignment.
 
 **Solution**
 
-Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
+Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
 
 ## Next steps
 
