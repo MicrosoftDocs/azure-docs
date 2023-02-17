@@ -2,7 +2,7 @@
 title: Configure virtual network service endpoints for Azure Service Bus
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 01/04/2022
+ms.date: 02/16/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -52,17 +52,11 @@ This section shows you how to use Azure portal to add a virtual network service 
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
     - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
-  
-        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled.png" alt-text="Networking page - public access tab - public network access is disabled.":::
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
-        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
-    
-        :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/service-bus-ip-filtering/selected-networks.png":::    
+        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.       
     - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, Service Bus accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
-
-        :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
 1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new VNet.
 
@@ -101,102 +95,101 @@ Template:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "servicebusNamespaceName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Service Bus namespace"
-        }
-      },
-      "virtualNetworkName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Virtual Network Rule"
-        }
-      },
-      "subnetName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Virtual Network Sub Net"
-        }
-      },
-      "location": {
-        "type": "string",
-        "metadata": {
-          "description": "Location for Namespace"
-        }
-      }
-    },
-    "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
-      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
-    },
-    "resources": [
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[parameters('servicebusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/namespaces",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "Premium",
-          "tier": "Premium"
-        },
-        "properties": { }
-      },
-      {
-        "apiVersion": "2017-09-01",
-        "name": "[parameters('virtualNetworkName')]",
-        "location": "[parameters('location')]",
-        "type": "Microsoft.Network/virtualNetworks",
-        "properties": {
-          "addressSpace": {
-            "addressPrefixes": [
-              "10.0.0.0/23"
-            ]
-          },
-          "subnets": [
-            {
-              "name": "[parameters('subnetName')]",
-              "properties": {
-                "addressPrefix": "10.0.0.0/23",
-                "serviceEndpoints": [
-                  {
-                    "service": "Microsoft.ServiceBus"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
-        "dependsOn": [
-          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
-        ],
-        "properties": {
-          "publicNetworkAccess": "Enabled",
-          "defaultAction": "Deny",
-          "virtualNetworkRules": 
-          [
-            {
-              "subnet": {
-                "id": "[variables('subNetId')]"
-              },
-              "ignoreMissingVnetServiceEndpoint": false
-            }
-          ],
-          "ipRules":[],
-          "trustedServiceAccessEnabled": false
-        }
-      }
-    ],
-    "outputs": { }
-  }
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"servicebusNamespaceName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the Service Bus namespace"
+			}
+		},
+		"virtualNetworkName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the Virtual Network Rule"
+			}
+		},
+		"subnetName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the Virtual Network Sub Net"
+			}
+		},
+		"location": {
+			"type": "string",
+			"metadata": {
+				"description": "Location for Namespace"
+			}
+		}
+	},
+	"variables": {
+		"namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+		"subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+	},
+	"resources": [{
+			"apiVersion": "2022-10-01-preview",
+			"name": "[parameters('servicebusNamespaceName')]",
+			"type": "Microsoft.ServiceBus/namespaces",
+			"location": "[parameters('location')]",
+			"sku": {
+				"name": "Premium",
+				"tier": "Premium",
+				"capacity": 1
+			},
+			"properties": {
+				"premiumMessagingPartitions": 1,
+				"minimumTlsVersion": "1.2",
+				"publicNetworkAccess": "Enabled",
+				"disableLocalAuth": false,
+				"zoneRedundant": true
+			}
+		},
+		{
+			"apiVersion": "2022-07-01",
+			"name": "[parameters('virtualNetworkName')]",
+			"location": "[parameters('location')]",
+			"type": "Microsoft.Network/virtualNetworks",
+			"properties": {
+				"addressSpace": {
+					"addressPrefixes": [
+						"10.0.0.0/23"
+					]
+				},
+				"subnets": [{
+					"name": "[parameters('subnetName')]",
+					"properties": {
+						"addressPrefix": "10.0.0.0/23",
+						"serviceEndpoints": [{
+							"service": "Microsoft.ServiceBus"
+						}]
+					}
+				}]
+			}
+		},
+		{
+			"apiVersion": "2022-10-01-preview",
+			"name": "[variables('namespaceNetworkRuleSetName')]",
+			"type": "Microsoft.ServiceBus/namespaces/networkruleset",
+			"dependsOn": [
+				"[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+			],
+			"properties": {
+				"publicNetworkAccess": "Enabled",
+				"defaultAction": "Deny",
+				"virtualNetworkRules": [{
+					"subnet": {
+						"id": "[variables('subNetId')]"
+					},
+					"ignoreMissingVnetServiceEndpoint": false
+				}],
+				"ipRules": [],
+				"trustedServiceAccessEnabled": false
+			}
+		}
+	],
+	"outputs": {}
+}
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
