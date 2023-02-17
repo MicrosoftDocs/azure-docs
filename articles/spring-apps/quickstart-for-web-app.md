@@ -70,6 +70,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --resource-group <name-of-resource-group> \
         --service <name-of-azure-spring-apps-instance> \
         --name <name-of-app> \
+        --runtime-version Java_17 \
         --assign-endpoint true
     ```
 
