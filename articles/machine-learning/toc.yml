@@ -284,6 +284,8 @@
           href: how-to-assign-roles.md
     - name: Network security
       items:
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
