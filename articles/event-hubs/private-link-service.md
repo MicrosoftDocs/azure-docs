@@ -33,7 +33,15 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-### Steps
+### Configure private access when creating a namespace
+When creating a namespace, you can either allow public only (from all networks) or private only (only via private endpoints) access to the namespace.
+
+If you select the **Private access** option on the **Networking** page of the namespace creation wizard, you can add a private endpoint on the page by selecting **+ Private endpoint** button. See the next section for the detailed steps for adding a private endpoint. 
+
+:::image type="content" source="./media/private-link-service/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected.":::
+
+
+### Configure private access for an existing namespace
 If you already have an Event Hubs namespace, you can create a private link connection by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
