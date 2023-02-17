@@ -84,12 +84,13 @@ If you’re using Planned Maintenance and cluster auto-upgrade, your upgrade wil
 
 For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
-## Best practices for auto-upgrade
+## Best practices for cluster auto-upgrade
 
 The following best practices will help maximize your success when using auto-upgrade:
 
 - In order to keep your cluster always in a supported version (i.e within the N-2 rule), choose either `stable` or `rapid` channels.
 - If you're interested in getting the latest patches as soon as possible, use the `patch` channel. The `node-image` channel is a good fit if you want your agent pools to always be running the most recent node images.
+- To automatically upgrade node images while using a different cluster upgrade channel, consider using the [node image auto-upgrade][auto-upgrade-node-image] `NodeImage` channel.
 - Follow [Operator best practices][operator-best-practices-scheduler].
 - Follow [PDB best practices][pdb-best-practices].
 

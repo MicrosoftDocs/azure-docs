@@ -13,7 +13,6 @@ author: qpetraroia
 
 Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, upgrades occur only during the window you selected.
 
-
 There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
 - `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
@@ -85,7 +84,7 @@ An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintena
 
 ### Understanding schedule types
 
-There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`. These schedule types are only applicable to `aksManagedClusterAutoUpgrade` configurations.
+There are currently four available schedule types: `Daily`, `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`. These schedule types are only applicable to `aksManagedClusterAutoUpgradeSchedule` and `aksManagedNodeOSUpgrade` configurations. `Daily` schedules are only applicable to `aksManagedNodeOSUpgradeSchedule` types.
 
 > [!NOTE]
 > All of the fields shown for each respective schedule type are required.
