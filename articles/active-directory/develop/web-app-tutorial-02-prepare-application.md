@@ -14,12 +14,12 @@ ms.date: 02/09/2023
 
 # Tutorial: Prepare an application for authentication
 
-This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment (IDE). You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
+After registration is complete, a .NET web application can be created using an integrated development environment (IDE). This tutorial demonstrates how to create an **ASP.NET Core Web App** using an IDE. You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
 
 In this tutorial:
 
 > [!div class="checklist"]
-> * Create an ASP.NET Core project
+> * Create an **ASP.NET Core Web App**
 > * Create a self-signed certificate
 > * Configure the settings for the application
 > * Define platform settings and URLs
@@ -35,7 +35,7 @@ In this tutorial:
 
 ## Create an ASP.NET Core project
 
-After registering an application, a .NET web application can be created using an IDE. Use the following tabs to create an ASP.NET Core project within an IDE.
+Use the following tabs to create an ASP.NET Core project within an IDE.
 
 ### [Visual Studio](#tab/visual-studio)
 
