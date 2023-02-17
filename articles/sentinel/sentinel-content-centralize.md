@@ -21,7 +21,7 @@ The Microsoft Sentinel content hub enables discovery and on-demand installation 
 
 ## Content hub changes
 
-To centralize all out-of-the-box content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content is kept up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
+To centralize all out-of-the-box content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
 
 To facilitate this transition, we're publishing a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
 
@@ -32,7 +32,7 @@ Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/
 For consistent discovery of this content, the OOTB content centralization changes have already been extended to the Microsoft Sentinel GitHub repo:
 
 - All OOTB content packaged from content hub solutions is now stored in the GitHub repo's [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions).
-- All standalone OOTB content will continue to remain in its location.
+- All standalone OOTB content items will remain in their respective locations.
   
 These changes to the content hub and the Microsoft Sentinel GitHub repo will complete the journey toward centralizing Microsoft Sentinel content.
 
@@ -41,13 +41,13 @@ These changes to the content hub and the Microsoft Sentinel GitHub repo will com
 > [!IMPORTANT]
 > The following timeline is tentative and subject to change.
 
-The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solutions content has been moved to the *Solutions* folder.  
+The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.  
 
 ## Scope of change
 
 This change is scoped to only the *gallery content* type of templates. All these same templates and more OOTB content are available in the content hub as solutions or standalone content.
 
-For the Microsoft Sentinel GitHub repo, OOTB content packaged in solutions in the content hub is now listed only under the GitHub repo's [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). The other existing GitHub content is scoped to the following folders and contains only standalone content items. Content in the remaining GitHub folders not mentioned in this list don't have any changes.
+For the Microsoft Sentinel GitHub repo, OOTB content packaged in solutions in the content hub is now listed only under the GitHub repo's [Solutions folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions). The other existing GitHub content is scoped to the following folders and contains only standalone content items. Content in the remaining GitHub folders not mentioned in this list doesn't have any changes.
 
 - [DataConnectors folder](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors)
 - [Detections folder](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) (analytics rules)
@@ -72,7 +72,7 @@ This change also doesn't affect any OOTB content templates installed from conten
 
 All template galleries will display an in-product warning banner. This banner will contain a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool will start a guided experience to reinstate the content templates for the **IN USE** retired templates from the content hub.
 
-This tool needs to run only once per workspace, so be sure to plan with your organization. After the tool runs successfully, the warning banner will resolve and no longer be visible from the template galleries of that workspace.
+This tool needs to run only once per workspace, so be sure to plan with your organization. After the tool runs successfully, the warning banner will disappear from the template galleries of that workspace.
 
 The following table lists specific impacts to the content templates for each of these galleries. Expect these changes when the OOTB content centralization goes live.
 
@@ -104,7 +104,7 @@ Here's an example of an analytics rule before and after the centralization chang
 - For existing gallery content templates in use, get future updates by installing the solutions or standalone content items from the content hub. The gallery content in the feature galleries might be out of date.
 - If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the *Solutions* folder in addition to existing content folders.  
 - Plan with your organization who will run the tool, and when, after you see the warning banner and the change goes live in Q2 2023. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
-- Review the following FAQs to learn more details that might be applicable to your environment.
+- Review the following FAQs to learn more details that might apply to your environment.
 
 ## Content centralization FAQs
 
