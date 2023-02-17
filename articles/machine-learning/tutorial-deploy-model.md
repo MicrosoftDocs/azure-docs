@@ -47,10 +47,10 @@ The steps you'll take are:
 1. If you haven't completed the earlier training tutorial, be sure to do the following steps:
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
     * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the compute resources you'll use in this tutorial. To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
-    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
+    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <!-- MA: update this location** -->
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
-    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.<mark> **update these locations**</mark>
+    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section. <!-- MA: update this location** -->
 
 ## Connect to the workspace
 
@@ -98,7 +98,7 @@ If you already completed the earlier training tutorial, "Train model responsibly
 
 If you didn't complete the training tutorial, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
-In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks) <mark> **update this location**</mark>, then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. 
+In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. <!-- MA: update this location --to tutorials folder** -->
 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
@@ -414,13 +414,13 @@ print(logs)
 ```
 
 ### View metrics using Azure Monitor
-You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following the links in the **Details** page of the endpoint in AzureML studio.
+You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment.
 
-:::image type="content" source="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png" alt-text="Links from the endpoint details page to view online endpoint and deployment metrics." lightbox="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png":::
+:::image type="content" source="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png" alt-text="Screenshot showing links on the endpoint details page to view online endpoint and deployment metrics." lightbox="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png":::
 
 If you open the metrics for the online endpoint, you can set it up to see metrics.
 
-:::image type="content" source="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png" alt-text="View online endpoint metrics in the Azure portal." lightbox="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png":::
+:::image type="content" source="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png" alt-text="Screenshot showing online endpoint metrics in the Azure portal." lightbox="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png":::
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#metrics).
 
