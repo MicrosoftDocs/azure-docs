@@ -183,11 +183,11 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 
 1. Select the following **Deploy to Azure** button to sign in to Azure and begin an Azure Container Instances deployment.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerinstance%2Faci-linuxcontainer-public-ip%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://ms.portal.azure.com/#create/Microsoft.Template)
 
-1. Choose **Edit template**. You'll see a default deployment template JSON.
+1. Choose **Build your own template in the editor**. You'll see a mostly blank template JSON.
 
-  ![Screenshot of Edit template button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-edit-template.png)
+  ![Screenshot of Build your own template in the editor button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-build-template.png)
 
 1. Select **Load file** and upload **template.json**, which you've modified by generating adding a CCE policy. 
 
