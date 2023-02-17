@@ -68,7 +68,7 @@ If you do have a compute instance, start it if it's not already running.
     from sklearn.ensemble import GradientBoostingClassifier
     from sklearn.metrics import classification_report
     from sklearn.model_selection import train_test_split
-```
+    ```
 
 ## Set up a new environment for prototyping
 
