@@ -39,7 +39,11 @@ When the definition is assigned, it will:
 The remediation task will then enable Defender for Cloud's basic functionality on the non-compliant subscriptions.
 
     > [!TIP]
-    > Make sure the resource provider _Microsoft.Security_ is enabled for the management group: az provider register --namespace Microsoft.Security --management-group-id …
+    > Make sure the resource provider _Microsoft.Security_ is enabled for the management group:
+
+    ```
+    az provider register --namespace Microsoft.Security --management-group-id …
+    ```
 
 ## Optional modifications
 
