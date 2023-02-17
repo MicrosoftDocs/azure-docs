@@ -30,7 +30,7 @@ The Microsoft LUIS service is available as a complete AI intent service that wor
 ## Get started
 See this [how-to](how-to-use-simple-language-pattern-matching.md) to get started with pattern matching.
 
-See this [quickstart](get-started-intent-recognition.md) to get started with LUIS intent recognition.
+See this [quickstart](get-started-intent-recognition-clu.md) to get started with conversational language understanding intent recognition.
 
 ## Sample code
 
