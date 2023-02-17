@@ -89,3 +89,4 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
+[upgrade-aks-cluster]: upgrade-cluster.md

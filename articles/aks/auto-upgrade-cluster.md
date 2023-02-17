@@ -90,7 +90,7 @@ The following best practices will help maximize your success when using auto-upg
 
 - In order to keep your cluster always in a supported version (i.e within the N-2 rule), choose either `stable` or `rapid` channels.
 - If you're interested in getting the latest patches as soon as possible, use the `patch` channel. The `node-image` channel is a good fit if you want your agent pools to always be running the most recent node images.
-- To automatically upgrade node images while using a different cluster upgrade channel, consider using the [node image auto-upgrade][auto-upgrade-node-image] `NodeImage` channel.
+- To automatically upgrade node images while using a different cluster upgrade channel, consider using the [node image auto-upgrade][node-image-auto-upgrade] `NodeImage` channel.
 - Follow [Operator best practices][operator-best-practices-scheduler].
 - Follow [PDB best practices][pdb-best-practices].
 
