@@ -24,20 +24,20 @@ Node OS auto-upgrade provides a set once and forget mechanism that yields tangib
 
 - If using Azure CLI, the `aks-preview` CLI extension version `0.5.127` or later must be installed
 
-- If using the `SecurityPatch` channel, the `NodeImageUpgradePreview` feature flag must be enabled on your subscription
+- If using the `SecurityPatch` channel, the `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
-### Register the 'NodeImageUpgradePreview' feature flag
+### Register the 'NodeOsUpgradeChannelPreview' feature flag
 
-Register the `NodeImageUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `NodeOsUpgradeChannelPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
+az feature register --namespace "Microsoft.ContainerService" --name "NodeOsUpgradeChannelPreview"
 ```
 
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
+az feature show --namespace "Microsoft.ContainerService" --name "NodeOsUpgradeChannelPreview"
 ```
 
 When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
