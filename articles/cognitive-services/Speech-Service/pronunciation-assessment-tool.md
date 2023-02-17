@@ -19,7 +19,7 @@ Pronunciation assessment uses the Speech-to-Text capability to provide subjectiv
 Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
 - At the full-text level, pronunciation assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
 - At the word-level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
-- Syllable-level accuracy scores are currently available via the [JSON file](?tabs=json#scores-within-words) or [Speech SDK](how-to-pronunciation-assessment.md). 
+- Syllable-level accuracy scores are currently available via the [JSON file](?tabs=json#pronunciation-assessment-results) or [Speech SDK](how-to-pronunciation-assessment.md). 
 - At the phoneme level, pronunciation assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
 
 This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
@@ -228,7 +228,7 @@ Refer to the demo examples below for the whole process of evaluating pronunciati
 
 When starting to record, you can see the scores at the bottom start to change from 0.
 
-:::image type="content" source="media/pronunciation-assessment/initial-recording.png" alt-text="Screenshot of overall assessment scores when recording." lightbox="media/pronunciation-assessment/initial-recording.png":::
+:::image type="content" source="media/pronunciation-assessment/initial-recording.png" alt-text="Screenshot of overall assessment scores when starting to record." lightbox="media/pronunciation-assessment/initial-recording.png":::
 
 **During recording**
 
