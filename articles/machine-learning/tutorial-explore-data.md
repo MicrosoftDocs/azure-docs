@@ -47,10 +47,12 @@ The start of a machine learning project typically involves exploratory data anal
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/access-and-explore-data.ipynb -->
 
+> [!TIP]
+> Contents of _access-and-explore-data.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/access-and-explore-data.ipynb)**.
 
-## Download the data used in this tutorial
+### Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these](https://learn.microsoft.com/en-us/azure/data-explorer/ingestion-supported-formats) formats. This tutorial will use this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We'll see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/en-us/azure/data-explorer/ingestion-supported-formats). This tutorial will use this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We'll see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
 
 > [!NOTE]
 > This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource. 
@@ -61,20 +63,17 @@ This image shows the Azure ML files (directory) panel:
 
 In the files panel, you can easily create directories, and move files between directories. Create a new directory at the directory root, and name it **get-started-notebooks**.
 
-The next step relies on the Azure ML terminal window. To use this feature, first select **Open terminal** in the files panel toolbar.
+Upload the data to the **get-started-notebooks** directory after you download it. Or, follow these steps to copy the data using the compute instance terminal.
 
 :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-The terminal window will open in a new tab. You can type terminal commands at the highlighted command prompt.
+1. The terminal window will open in a new tab. Enter these commands to copy the data to your compute instance:
 
-Upload the data to your compute instance after you download it, or use this command in the terminal window to get the file:
+    ```
+    cd get-started-notebooks # cd to the location you would like to store the data
+    wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
+    ```
 
-```
-cd get-started-notebooks # cd to the location you would like to store the data
-wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
-```
-
-Move the downloaded file to the **get-started-notebooks** directory.
 
 [Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
@@ -111,6 +110,7 @@ ml_client = MLClient(
     workspace_name="<AML_WORKSPACE_NAME>"
 )
 ```
+
 
 ## Upload data to cloud storage
 
@@ -305,6 +305,7 @@ print(v2df.head(5))
 ```
 
 <!-- nbend -->
+
 
 
 ## Clean up resources
