@@ -48,15 +48,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Navigate to **Advanced Settings**.
 * Navigate to **User Auto-Provisioning (SCIM)**. 
 * Click **Generate new token**.
-* Copy the **SCIM Service Provider Endpoint** and **SCIM Provisioning Token** and paste them into a text editor. You'll need them for Step 5.
+* Copy the **SCIM Service Provider Endpoint** and **SCIM Provisioning Token** and paste them into a text editor. You need them for Step 5.
 
 ## Step 3. Add Atmos from the Azure AD application gallery
 
 Add Atmos from the Azure AD application gallery to start managing provisioning to Atmos. If you have previously setup Atmos for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-## Step 4. Define who'll be in scope for provisioning 
+## Step 4. Define who will be in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who'll be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who'll be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who'll be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -97,7 +97,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Atmos**.
 
-1. Review the user attributes that're synchronized from Azure AD to Atmos in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atmos for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Atmos API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Atmos in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atmos for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Atmos API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Atmos|
    |---|---|---|---|
@@ -140,7 +140,7 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users are provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
