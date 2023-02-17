@@ -16,7 +16,7 @@
      * **Public IP address name**: In the text box, type a name for your public IP address instance.
      * **Public IP address SKU**: This field is controlled by the **Public IP Address Type** value.
      * **Assignment**: This setting is based on the **Public IP Address Type** value.
-     * **Enable active-active mode**: Only select **Enable active-active mode** if you're creating an active-active gateway configuration. Otherwise, leave this setting **Disabled**. For more information, see [Highly available connectivity](../articles/vpn-gateway/vpn-gateway-highlyavailable.md).
+     * **Enable active-active mode**: Only select **Enable active-active mode** if you're creating an active-active gateway configuration. Otherwise, leave this setting **Disabled**.
      * Leave **Configure BGP** as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
 4. Select **Review + create** to run validation.
 5. Once validation passes, select **Create** to deploy the VPN gateway.
