@@ -465,6 +465,8 @@ public static class PurviewDataSharingQuickStart
 This script lists all the sent shares for a specific storage resource.
 To use it, be sure to fill out these variables:
 
+- **SenderTenantId** - the Azure Tenant ID for the share sender's identity.
+- **SenderPurviewAccountName** - the name of the Microsoft Purview account where the data was sent from.
 - **SenderStorageResourceId** - the [resource ID for the storage account](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account) where shares have been sent from.
 - **UseServiceTokenCredentials** - (optional) If you want to use a service principal to create the shares, set this to **true**.
 - **SenderClientId** - (optional) If using a service principal to create the shares, this is the Application (client) ID for the service principal.
@@ -475,12 +477,12 @@ using Azure;
 using Azure.Analytics.Purview.Share;
 using Azure.Core;
 using Azure.Identity;
-using System.ComponentModel;
-using System.Text.Json;
 
 public static class PurviewDataSharingQuickStart
 {
     // [REQUIRED INPUTS] Set To Actual Values.
+    private static string SenderTenantId = "<Sender Tenant ID>";
+    private static string SenderPurviewAccountName = "<Name of the Microsoft Purview account>";
     private static string SenderStorageResourceId = "<Sender Storage Account Resource Id>";
 
     // Set if using Service principal to list shares
@@ -494,6 +496,8 @@ public static class PurviewDataSharingQuickStart
 
     private static async Task Main(string[] args)
     {
+
+
         try
         {
             TokenCredential senderCredentials = UseServiceTokenCredentials
@@ -511,6 +515,17 @@ public static class PurviewDataSharingQuickStart
             Console.WriteLine(ex);
             Console.ForegroundColor = Console.ForegroundColor;
         }
+    }
+    public static async Task<List<T>> ToResultList<T>(this AsyncPageable<T> asyncPageable)
+    {
+        List<T> list = new List<T>();
+
+        await foreach (T item in asyncPageable)
+        {
+            list.Add(item);
+        }
+
+        return list;
     }
 }
 ```
