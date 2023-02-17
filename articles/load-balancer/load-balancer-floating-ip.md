@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/28/2023
+ms.date: 02/17/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
