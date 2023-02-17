@@ -587,7 +587,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
             raise Exception("Request must contain a top level key named 'input_data'")
         
         serving_input = json.dumps(json_data["input_data"])
-        data = infer_and_parse_json_input(raw_data, input_schema)
+        data = infer_and_parse_json_input(serving_input, input_schema)
         result = model.predict(data)
         
         result = StringIO()
