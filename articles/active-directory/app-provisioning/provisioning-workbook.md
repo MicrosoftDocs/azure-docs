@@ -23,7 +23,7 @@ This workbook is intended for Hybrid Identity Admins who use provisioning to syn
 This workbook:
 
 - Provides a synchronization summary of users and groups synchronized from all of you provisioning sources to targets
-- Provides and agrigated and detailed view of information captured by the provisioning logs.
+- Provides and aggregated and detailed view of information captured by the provisioning logs.
 - Allows you to customize the data to tailor it to your specific needs
 
 
@@ -63,7 +63,7 @@ For example, if you wanted to see data from your cloud sync workflow, your sourc
 
 
 ## Sync Summary  
-The sync summary section provides a summary of your organizations synchronization activies.  These activies include:
+The sync summary section provides a summary of your organizations synchronization activities.  These activities include:
    - Total synced objects by type 
    - Provisioning events by action
    - Provisioning events by status
@@ -93,7 +93,7 @@ You can further drill in to the sync log details for additional information.
 >Clicking on the Source ID it will dive deeper and provide more information on the synchronized object.
  
 ## Sync details by cycle
-The sync details by cycle tab allows you to get more granular with the synchronization data.  This information includes:
+The sync details by cycle tab allow you to get more granular with the synchronization data.  This information includes:
    - Objects sync by status
    - Objects synced by action
    - Sync log details
