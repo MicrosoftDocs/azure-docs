@@ -545,6 +545,13 @@ The `category` class feature defines category names. For example: "room.conferen
 
 :::zone-end
 
+## Next steps
+
+Learn more about Creator for indoor maps by reading:
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps](creator-indoor-maps.md)
+
 [conversion]: /rest/api/maps/v2/conversion
 [geojsonpoint]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
 [GeoJsonPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonpolygon
