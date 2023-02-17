@@ -145,6 +145,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
 ## Service level change for Azure NetApp files datastore
+
 Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md)
 This has no impact to the Datastore or private cloud as there is no downtime involved and the IP address/mount path remain unchanged. However, the volume Resource Id will be changed due to the capacity pool change. Therefore to avoid any metadata mismatch re-issue the datastore create command via Azure CLI as follows: `az vmware datastore netapp-volume create`.
 >[!IMPORTANT]  
