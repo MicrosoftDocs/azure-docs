@@ -2834,6 +2834,8 @@
         href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: Atmos
+        href: atmos-provisioning-tutorial.md
       - name: AuditBoard
         href: auditboard-provisioning-tutorial.md
       - name: Autodesk SSO
