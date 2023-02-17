@@ -52,7 +52,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 ### Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/en-us/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
 
 > [!NOTE]
 > This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource.
