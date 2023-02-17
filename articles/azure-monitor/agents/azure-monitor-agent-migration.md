@@ -21,9 +21,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Agent provides the following benefits over legacy agents:
 
-- **Security and performance**
+- **Security**
   - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
-  - Same events-per-second (EPS) upload rate with less resource utilization.
+- **Performance**
+  - The AMA agent event throughput is 25% better than the MMA agent.
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md). Using DCRs is one of the most useful advantages of using Azure Monitor Agent:
   - DCRs let you configure data collection for specific machines connected to a workspace as compared to the "all or nothing" approach of legacy agents.
   - With DCRs, you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.
@@ -46,7 +47,7 @@ Your migration plan to the Azure Monitor Agent should take into account:
   - If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
   - Azure Monitor Agent **can run alongside the legacy Log Analytics agents on the same machine** so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the **limitations below**:
     - Be careful when you collect duplicate data from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, workbooks and generate more charges for data ingestion and retention. To avoid data duplication, ensure the agents are *collecting data from different machines* or *sending the data to different destinations*. Additionally,
-      - For **Defender for Cloud**, you will only be [billed once per machine](/azure/defender-for-cloud/auto-deploy-azure-monitoring-agent#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
+      - For **Defender for Cloud**, you will only be [billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
       - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
     - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
 

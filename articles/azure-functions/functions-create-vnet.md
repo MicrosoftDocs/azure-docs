@@ -2,7 +2,7 @@
 title: Use private endpoints to integrate Azure Functions with a virtual network
 description: This tutorial shows you how to connect a function to an Azure virtual network and lock it down by using private endpoints.
 ms.topic: article
-ms.date: 2/22/2021
+ms.date: 2/10/2023
 
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---
@@ -40,7 +40,7 @@ You'll create a .NET function app in the Premium plan because this tutorial uses
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
-    | **Version** | 3.1 | This tutorial uses .NET Core 3.1 |
+    | **Version** | 6 | This tutorial uses .NET 6.0 running [in the same process as the Functions host](./functions-dotnet-class-library.md). |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
 
 1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings.
@@ -352,7 +352,7 @@ To use your function app with virtual networks, you need to join it to a subnet.
     | **Repository** | functions-vnet-tutorial | The repository forked from https://github.com/Azure-Samples/functions-vnet-tutorial. |
     | **Branch** | main | The main branch of the repository you created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
-    | **Version** | .NET Core 3.1 | The runtime version. |
+    | **Version** | v4.0 | The runtime version. |
 
 1. Select **Save**. 
 

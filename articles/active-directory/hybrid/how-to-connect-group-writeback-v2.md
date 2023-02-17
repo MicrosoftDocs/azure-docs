@@ -133,14 +133,8 @@ These limitations and known issues are specific to group writeback:
 - To be backwards compatible with the current version of group writeback, when you enable group writeback, all existing Microsoft 365 groups are written back and created as distribution groups, by default. 
 - When you disable writeback for a group, the group won't automatically be removed from your on-premises Active Directory, until hard deleted in Azure AD. This behavior can be modified by following the steps detailed in [Modifying group writeback](how-to-connect-modify-group-writeback.md) 
 - Group Writeback does not support writeback of nested group members that have a scope of ‘Domain local’ in AD, since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you'll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member.”  The resolution is to remove the member with scope ‘Domain local’ from the Azure AD group or update the nested group member scope in AD to ‘Global’ or ‘Universal’ group. 
-- Group Writeback only supports writing back groups to a single Organization Unit (OU). Once the feature is enabled, you cannot change the OU you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
 - Nested cloud groups that are members of writeback enabled groups must also be enabled for writeback to remain nested in AD. 
 - Group Writeback setting to manage new security group writeback at scale is not yet available. You will need to configure writeback for each group.  
-
-  If you have a nested group like this, you'll see an export error in Azure AD Connect with the message "A universal group cannot have a local group as a member." The resolution is to remove the member with the **Domain local** scope from the Azure AD group, or update the nested group member scope in Active Directory to **Global** or **Universal**. 
-- Group writeback supports writing back groups to only a single organizational unit (OU). After the feature is enabled, you can't change the OU that you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
-- Nested cloud groups that are members of writeback-enabled groups must also be enabled for writeback to remain nested in Active Directory. 
-- A group writeback setting to manage new security group writeback at scale is not yet available. You need to configure writeback for each group.   
 
 ## Next steps 
 
