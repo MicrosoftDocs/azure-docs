@@ -17,6 +17,7 @@ ms.date: 02/16/2023
 
 In this tutorial you learn how to:
 
+> [!div class="checklist"]
 > * Upload your data to cloud storage
 > * Create an Azure ML data asset
 > * Access your data in a notebook for interactive development
@@ -60,14 +61,14 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
 This image shows the Azure ML files (directory) panel:
 
 :::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
+
 In the files panel, you can easily create directories, and move files between directories. Create a new directory at the directory root, and name it **get-started-notebooks**.
 
 Upload the data to the **get-started-notebooks** directory after you download it. Or, follow these steps to copy the data using the compute instance terminal.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
-
-:::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
+    :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
 1. The terminal window opens in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
 
@@ -164,7 +165,7 @@ You'll notice that the data uploads to the default Azure ML _Datastore_. An Azur
 
 
 
-## Accessing your data in a notebook
+## Access your data in a notebook
 
 Pandas directly support URIs - this example shows how to read a CSV file from an Azure ML Datastore:
 
@@ -243,7 +244,7 @@ Next, create a new _version_ of the data asset (the data automatically uploads t
 
 > [!NOTE]
 >
-> * This Python code cell sets **name** and **version** values for the data asset it creates. As a result, the code in this cell will fail if executed more than once, without a change to these values. Fixed **name** and **version** values offer a way to pass values that work for specific situations, without concern for auto-generated or randomly-generated values.
+> This Python code cell sets **name** and **version** values for the data asset it creates. As a result, the code in this cell will fail if executed more than once, without a change to these values. Fixed **name** and **version** values offer a way to pass values that work for specific situations, without concern for auto-generated or randomly-generated values.
 
 
 
