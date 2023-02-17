@@ -2,7 +2,7 @@
 title: Handling external events in Durable Functions - Azure
 description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -89,16 +89,14 @@ if ($approved) {
 
 ```java
 @FunctionName("WaitForExternalEvent")
-public String waitForExternalEvent(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean approved = ctx.waitForExternalEvent("Approval", boolean.class).await();
-            if (approved) {
-                // approval granted - do the approved action
-            } else {
-                // approval denied - send a notification
-            }
-        });
+public void waitForExternalEvent(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean approved = ctx.waitForExternalEvent("Approval", boolean.class).await();
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
 }
 ```
 
@@ -205,22 +203,20 @@ if ($winner -eq $event1) {
 
 ```java
 @FunctionName("Select")
-public String selectOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            Task<Void> event1 = ctx.waitForExternalEvent("Event1");
-            Task<Void> event2 = ctx.waitForExternalEvent("Event2");
-            Task<Void> event3 = ctx.waitForExternalEvent("Event3");
+public void selectOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Void> event1 = ctx.waitForExternalEvent("Event1");
+    Task<Void> event2 = ctx.waitForExternalEvent("Event2");
+    Task<Void> event3 = ctx.waitForExternalEvent("Event3");
 
-            Task<?> winner = ctx.anyOf(event1, event2, event3).await();
-            if (winner == event1) {
-                // ...
-            } else if (winner == event2) {
-                // ...
-            } else if (winner == event3) {
-                // ...
-            }
-        });
+    Task<?> winner = ctx.anyOf(event1, event2, event3).await();
+    if (winner == event1) {
+        // ...
+    } else if (winner == event2) {
+        // ...
+    } else if (winner == event3) {
+        // ...
+    }
 }
 ```
 
@@ -310,20 +306,18 @@ Invoke-ActivityFunction -FunctionName 'IssueBuildingPermit' -Input $applicationI
 
 ```java
 @FunctionName("NewBuildingPermit")
-public String newBuildingPermit(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            String applicationId = ctx.getInput(String.class);
+public void newBuildingPermit(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String applicationId = ctx.getInput(String.class);
 
-            Task<Void> gate1 = ctx.waitForExternalEvent("CityPlanningApproval");
-            Task<Void> gate2 = ctx.waitForExternalEvent("FireDeptApproval");
-            Task<Void> gate3 = ctx.waitForExternalEvent("BuildingDeptApproval");
+    Task<Void> gate1 = ctx.waitForExternalEvent("CityPlanningApproval");
+    Task<Void> gate2 = ctx.waitForExternalEvent("FireDeptApproval");
+    Task<Void> gate3 = ctx.waitForExternalEvent("BuildingDeptApproval");
 
-            // all three departments must grant approval before a permit can be issued
-            ctx.allOf(List.of(gate1, gate2, gate3)).await();
+    // all three departments must grant approval before a permit can be issued
+    ctx.allOf(List.of(gate1, gate2, gate3)).await();
 
-            ctx.callActivity("IssueBuildingPermit", applicationId).await();
-        });
+    ctx.callActivity("IssueBuildingPermit", applicationId).await();
 }
 ```
 

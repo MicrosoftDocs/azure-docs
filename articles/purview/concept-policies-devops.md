@@ -56,8 +56,12 @@ Bob and Alice are DevOps users at their company. Given their role, they need to 
 - Once saved, DevOps policies get automatically published.
 
 ## Next steps
-To get started with DevOps policies, consult the following guides:
-* Doc: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
+To get started with DevOps policies, consult the following blogs, videos and guides:
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
+* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
+* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
 * Doc: [Microsoft Purview DevOps policies on resource groups and subscriptions](./how-to-policies-devops-resource-group.md)
 * Blog: [New granular permissions for SQL Server 2022 and Azure SQL to help PoLP](https://techcommunity.microsoft.com/t5/sql-server-blog/new-granular-permissions-for-sql-server-2022-and-azure-sql-to/ba-p/3607507)

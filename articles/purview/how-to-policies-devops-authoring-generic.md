@@ -1,19 +1,19 @@
 ---
-title: Create, list, update and delete Microsoft Purview DevOps policies
-description: Step-by-step guide on provisioning access through Microsoft Purview DevOps policies
+title: Create, list, update and delete Microsoft Purview DevOps policies, so you can manage access to system health and performance counters.
+description: Use Microsoft Purview DevOps policies to provision access to database system metadata, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat. This guide covers the basic operations.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 02/10/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-This how-to guide covers how to provision access from Microsoft Purview to SQL-type data sources via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This guide covers the configuration steps in Microsoft Purview to provision access to database system metadata using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*. It goes into detail on creating, listing, updating and deleting DevOps policies.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -39,7 +39,7 @@ To create a new DevOps policy, ensure first that you have the Microsoft Purview 
 1.  Select the **Data source type** and then one of the listed data sources under **Data source name**. Then click on **Select**. This will take you back to the New Policy experience
 ![Screenshot shows to select a data source for policy.](./media/how-to-policies-devops-authoring-generic/select-a-data-source.png)
 
-1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are not supported. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
+1. Select one of two roles, *SQL Performance monitor* or *SQL Security auditor*. Then select **Add/remove subjects**. This will open the Subject window. Type the name of an Azure AD principal (user, group or service principal) in the **Select subjects** box. Note that Microsoft 365 groups are supported but updates to group membership take up to 1 hour to get reflected by Azure AD. Keep adding or removing subjects until you are satisfied. Select **Save**. This will take you back to the prior window.
 ![Screenshot shows to select role and subject for policy.](./media/how-to-policies-devops-authoring-generic/select-role-and-subjects.png)
 
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.
@@ -80,10 +80,11 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
 ## Next steps
-Check the blog, related videos and documents
+Check the blogs, videos and related docs
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
 * Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
-* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
-* Document: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
+* Document: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
 * Document: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)

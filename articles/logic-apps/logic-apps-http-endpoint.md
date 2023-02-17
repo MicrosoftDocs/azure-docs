@@ -393,8 +393,8 @@ For more information about security, authorization, and encryption for inbound c
 
 **A**: Yes, HTTPS endpoints support more advanced configuration through [Azure API Management](../api-management/api-management-key-concepts.md). This service also offers the capability for you to consistently manage all your APIs, including logic apps, set up custom domain names, use more authentication methods, and more, for example:
 
-* [Change the request method](../api-management/api-management-advanced-policies.md#SetRequestMethod)
-* [Change the URL segments of the request](../api-management/api-management-transformation-policies.md#RewriteURL)
+* [Change the request method](../api-management/set-method-policy.md)
+* [Change the URL segments of the request](../api-management/rewrite-uri-policy.md)
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/)
 * Set up policy to check for Basic authentication
 

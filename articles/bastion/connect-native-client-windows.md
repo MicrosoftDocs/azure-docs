@@ -2,11 +2,10 @@
 title: 'Connect to a VM using a native client and Azure Bastion'
 titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
-services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 12/05/2022
 ms.author: cherylmc
 ---
 
@@ -38,7 +37,7 @@ After you deploy this feature, there are two different sets of connection instru
 **Limitations**
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
-* This feature is not supported on Cloud Shell.
+* This feature isn't supported on Cloud Shell.
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -52,6 +51,12 @@ Before you begin, verify that you have the following prerequisites:
   * [Enable Azure AD sign-in for a Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
   * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
   * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
+
+## <a name="secure "></a>Secure your native client connection
+
+If you want to further secure your native client connection, you can limit port access by only providing access to port 22/3389. To restrict port access, you must deploy the following NSG rules on your AzureBastionSubnet to allow access to select ports and deny access from any other ports.
+
+:::image type="content" source="./media/connect-native-client-windows/network-security-group.png" alt-text="Screenshot that shows NSG configurations." lightbox="./media/connect-native-client-windows/network-security-group.png":::
 
 ## <a name="configure"></a>Configure the native client support feature
 

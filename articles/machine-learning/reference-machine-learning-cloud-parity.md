@@ -54,6 +54,7 @@ The information in the rest of this document provides information on what featur
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | GA       | YES                | YES         |
+| [Configure Apache Spark pools to perform data wrangling](apache-spark-azure-ml-concepts.md)                                             | Public Preview       | No                | No         |
 | **SDK support** |  |  | | 
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
@@ -64,7 +65,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
-| Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
+| Network isolation for managed online endpoints                             | GA       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
 | [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |
@@ -130,7 +131,7 @@ The information in the rest of this document provides information on what featur
 * For Azure Machine Learning compute instances, the ability to refresh a token lasting more than 24 hours is not available in Azure Government.
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
-* IP addresses: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
+* IP addresses: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
 * For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do extra setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App (SDK/CLI v1)](v1/how-to-trigger-published-pipeline.md).
 * Firewalls: When using an Azure Government region, add the following hosts to your firewall setting:
 
@@ -177,7 +178,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Preview   | NO        | N/A        |
-| Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
+| Network isolation for managed online endpoints                             | GA     | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |
@@ -231,7 +232,7 @@ The information in the rest of this document provides information on what featur
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
-* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
+* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AzureML regions.
 * Searching for assets in the web UI with Chinese characters will not work correctly.
 

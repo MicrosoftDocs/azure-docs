@@ -2,7 +2,7 @@
 title: Azure Application Insights .Net Agent API reference
 description: Application Insights Agent API reference. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 01/10/2023
 ---
 
 # Azure Monitor Application Insights Agent API Reference
@@ -166,7 +166,7 @@ Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Ser
 Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC[Environment]
 Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]
 Configuring registry for instrumentation engine...
-Successfully disabled Application Insights Status Monitor
+Successfully disabled Application Insights Agent
 Installing GAC module 'C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.0\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll'
 Applying transformation to 'C:\Windows\System32\inetsrv\config\applicationHost.config'
 Found GAC module Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
@@ -176,7 +176,7 @@ Configuring IIS Environment for codeless attach...
 Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 Updating app pool permissions...
-Successfully enabled Application Insights Status Monitor
+Successfully enabled Application Insights Agent
 ```
 
 ## Disable-InstrumentationEngine
@@ -247,7 +247,7 @@ Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Ser
 Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC[Environment]
 Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]
 Configuring registry for instrumentation engine...
-Successfully disabled Application Insights Status Monitor
+Successfully disabled Application Insights Agent
 ```
 
 
@@ -280,7 +280,7 @@ Filters:
 
 ## Get-ApplicationInsightsMonitoringStatus
 
-This cmdlet provides troubleshooting information about Status Monitor.
+This cmdlet provides troubleshooting information about Application Insights Agent.
 Use this cmdlet to investigate the monitoring status, version of the PowerShell Module, and to inspect the running process.
 This cmdlet will report version information and information about key files required for monitoring.
 
@@ -328,7 +328,7 @@ In this example;
 - **Default Web Site** is Stopped in IIS
 - **DemoWebApp111** has been started in IIS, but hasn't received any requests. This report shows that there's no running process (ProcessId: not found).
 - **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
-- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Status Monitor detected the SDK and won't monitor this site.
+- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and won't monitor this site.
 
 
 #### Example: PowerShell module information
@@ -576,7 +576,7 @@ To collect these events:
 
 You have three options when collecting events:
 1. Use the switch `-CollectSdkEvents` to collect events emitted from the Application Insights SDK.
-2. Use the switch `-CollectRedfieldEvents` to collect events emitted by Status Monitor and the Redfield Runtime. These logs are helpful when diagnosing IIS and application startup.
+2. Use the switch `-CollectRedfieldEvents` to collect events emitted by Application Insights Agent and the Redfield Runtime. These logs are helpful when diagnosing IIS and application startup.
 3. Use both switches to collect both event types.
 4. By default, if no switch is specified both event types will be collected.
 
@@ -596,7 +596,7 @@ The full path will be displayed during script execution.
 **Optional.** Use this switch to collect Application Insights SDK events.
 
 #### -CollectRedfieldEvents
-**Optional.** Use this switch to collect events from Status Monitor and the Redfield runtime.
+**Optional.** Use this switch to collect events from Application Insights Agent and the Redfield runtime.
 
 #### -Verbose
 **Common parameter.** Use this switch to output detailed logs.
@@ -608,7 +608,7 @@ The full path will be displayed during script execution.
 
 #### Example of application startup logs
 ```powershell
-PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -ColectRedfieldEvents
+PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
 Log File: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\logs\20190627_144217_ApplicationInsights_ETW_Trace.etl
 Tracing enabled, waiting for events.
@@ -644,7 +644,7 @@ Timeout Reached. Stopping...
 - [Create dashboards](./overview-dashboard.md).
  
  Add more telemetry:
- - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+  [Availability overview](availability-overview.md)
 - [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
  

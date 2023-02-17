@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 11/22/2022
 ms.author: jawoods
 ms.reviewer: phsignor
-zone_pivot_groups: enterprise-apps-minus-graph
+zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
 
 #customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
@@ -32,9 +32,9 @@ To review permissions granted to applications, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator.
 - A Service principal owner who isn't an administrator is able to invalidate refresh tokens.
 
-## Review permissions
-
 :::zone pivot="portal"
+
+## Review permissions
 
 You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
 
@@ -53,13 +53,10 @@ Each option generates PowerShell scripts that enable you to control user access 
 
 :::zone pivot="aad-powershell"
 
-## Revoke permissions
-
-
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-AzureAD
+Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All", 
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -73,7 +70,7 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-AzureADServicePrincipalAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
@@ -83,8 +80,10 @@ $spApplicationPermissions | ForEach-Object {
 
 ## Invalidate the refresh tokens
 
+Remove appRoleAssignments for users or groups to the application using the following scripts.
+
 ```powershell
-Connect-AzureAD
+Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -98,12 +97,13 @@ $assignments | ForEach-Object {
 }
 ```
 :::zone-end
+
 :::zone pivot="ms-powershell"
 
 Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-MgGraph
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -117,12 +117,22 @@ $spOAuth2PermissionsGrants= Get-MgOauth2PermissionGrant -All| Where-Object { $_.
 $spOauth2PermissionsGrants |ForEach-Object {
   Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId $_.Id
   }
+
+# Get all application permissions for the service principal
+$spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id -All | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+
+# Remove all application permissions
+$spApplicationPermissions | ForEach-Object {
+Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id  -AppRoleAssignmentId $_.Id
+ }
 ``` 
 
 ## Invalidate the refresh tokens
 
+Remove appRoleAssignments for users or groups to the application using the following scripts.
+
 ```powershell
-Connect-MgGraph
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -140,9 +150,86 @@ $spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrin
 
 :::zone-end
 
+:::zone pivot = "ms-graph"
+
+To review permissions, Sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+
+You'll need to consent to the following permissions: 
+
+`Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`.
+
+### Delegated permissions
+
+Run the following queries to review delegated permissions granted to an application.
+
+1. Get Service Principal using objectID
+
+    ```http
+    GET /servicePrincipals/{id}
+    ```
+ 
+   Example:
+
+    ```http
+    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```
+
+1. Get all delegated permissions for the service principal
+
+    ```http
+    GET /servicePrincipals/{id}/oauth2PermissionGrants
+    ```
+1. Remove delegated permissions using oAuth2PermissionGrants ID.
+
+    ```http
+    DELETE /oAuth2PermissionGrants/{id}
+    ```
+
+### Application permissions
+
+Run the following queries to review application permissions granted to an application.
+
+1. Get all application permissions for the service principal
+
+    ```http
+    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignments
+    ```
+1. Remove application permissions using appRoleAssignment ID
+
+    ```http
+    DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
+
+## Invalidate the refresh tokens
+
+Run the following queries to remove appRoleAssignments of users or groups to the application.
+
+1. Get Service Principal using objectID.
+
+    ```http
+    GET /servicePrincipals/{id}
+    ```
+   Example:
+
+    ```http
+    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```
+1. Get Azure AD App role assignments using objectID of the Service Principal.
+
+    ```http
+    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
+    ```
+1. Revoke refresh token for users and groups assigned to the application using appRoleAssignment ID.
+
+    ```http
+    DELETE /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
+:::zone-end
+
 > [!NOTE]
 > Revoking the current granted permission won't stop users from re-consenting to the application. If you want to block users from consenting, read [Configure how users consent to applications](configure-user-consent.md).
 
 ## Next steps
 
+- [Configure user consent setting](configure-user-consent.md)
 - [Configure admin consent workflow](configure-admin-consent-workflow.md)

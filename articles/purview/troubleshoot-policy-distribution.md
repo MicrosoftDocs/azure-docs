@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 11/14/2022
+ms.date: 11/21/2022
 ---
 
 # Tutorial: Troubleshoot distribution of Microsoft Purview access policies (preview)
@@ -26,7 +26,7 @@ This guide uses examples from SQL Server as data sources.
 * Register a data source, enable *Data use management*, and create a policy. To do so, use one of the Microsoft Purview policy guides. To follow along with the examples in this tutorial, you can [create a DevOps policy for Azure SQL Database](how-to-policies-devops-azure-sql-db.md).
 * Establish a bearer token and call data plane APIs. To learn how, see [how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). To be authorized to fetch policies, you need to be a Policy Author, Data Source Admin, or Data Curator at the root-collection level in Microsoft Purview. To assign those roles, see [Manage Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
-## Overviewrelecloud-sql-srv1
+## Overview
 
 You can fetch access policies from Microsoft Purview via either a *full pull* or a *delta pull*, as described in the following sections.
 
@@ -44,10 +44,13 @@ Full pull provides a complete set of policies for a particular data resource sco
 To fetch policies for a data source via full pull, send a `GET` request to `/policyElements`, as follows:
 
 ```
-GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}
+GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}&$filter={filter}
 ```
 
 where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` matches the resource ID for the data source.
+
+The last two parameters `api-version` and `$filter` are query parameters of type string.
+`$filter` is optional and can take the following values: `atScope` (the default, if parameter is not specified) or `childrenScope`. The first value is used to request all the policies that apply at the level of the path, including the ones that exist at higher scope as well as the ones that apply specifically to lower scope, that is, children data objects. The second means just return fine-grained policies that apply to the children data objects.
 
 >[!Tip]
 > The resource ID can be found under the properties for the data source in the Azure portal.
@@ -73,7 +76,7 @@ where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 **Example request**:
 
 ```
-GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
+GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview&$filter=atScope
 ```
 **Example response**:
 
@@ -81,7 +84,7 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-
 
 ```json
 {
-    "count": 7,
+    "count": 2,
     "syncToken": "820:0",
     "elements": [
         {

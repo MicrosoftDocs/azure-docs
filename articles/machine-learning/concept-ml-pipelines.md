@@ -8,6 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
+ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.custom: devx-track-python, event-tier1-build-2022
 ---
@@ -40,7 +41,7 @@ Besides being the tool to put MLOps into practice, the machine learning pipeline
 
 Depending on what a machine learning project already has, the starting point of building a machine learning pipeline may vary. There are a few typical approaches to building a pipeline.
 
-The first approach usually applies to the team that hasn’t used pipeline before and wants to take some advantage of pipeline like MLOps. In this situation, data scientists typically have developed some machine learning models on their local environment using their favorite tools. Machine learning engineers need to take data scientists’ output into production. The work involves cleaning up some unnecessary code from original notebook or python code, changes the training input from local data to parameterized values, split the training code into multiple steps as needed, perform unit test of each step, and finally wraps all steps into a pipeline.
+The first approach usually applies to the team that hasn’t used pipeline before and wants to take some advantage of pipeline like MLOps. In this situation, data scientists typically have developed some machine learning models on their local environment using their favorite tools. Machine learning engineers need to take data scientists’ output into production. The work involves cleaning up some unnecessary code from original notebook or Python code, changes the training input from local data to parameterized values, split the training code into multiple steps as needed, perform unit test of each step, and finally wraps all steps into a pipeline.
 
 Once the teams get familiar with pipelines and want to do more machine learning projects using pipelines, they'll find the first approach is hard to scale. The second approach is set up a few pipeline templates, each try to solve one specific machine learning problem. The template predefines the pipeline structure including how many steps, each step’s inputs and outputs, and their connectivity. To start a new machine learning project, the team first forks one template repo. The team leader then assigns members which step they need to work on. The data scientists and data engineers do their regular work. When they're happy with their result, they structure their code to fit in the pre-defined steps. Once the structured codes are checked-in, the pipeline can be executed or automated. If there's any change, each member only needs to work on their piece of code without touching the rest of the pipeline code. 
 

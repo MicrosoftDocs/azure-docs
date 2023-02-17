@@ -9,6 +9,8 @@ ms.date: 08/25/2022
 # Analyze usage in a Log Analytics workspace
 Azure Monitor costs can vary significantly based on the volume of data being collected in your Log Analytics workspace. This volume is affected by the set of solutions using the workspace and the amount of data that each solution collects. This article provides guidance on analyzing your collected data to assist in controlling your data ingestion costs. It helps you determine the cause of higher-than-expected usage. It also helps you to predict your costs as you monitor more resources and configure different Azure Monitor features.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
+
 ## Causes for higher-than-expected usage
 Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the:
 
@@ -17,6 +19,25 @@ Each Log Analytics workspace is charged as a separate service and contributes to
   - Volume of data collected from each monitored resource.
 
 An unexpected increase in any of these factors can result in increased charges for data retention. The rest of this article provides methods for detecting such a situation and then analyzing collected data to identify and mitigate the source of the increased usage.
+
+## Send alert when data collection is high
+
+To avoid unexpected bills, you should be proactively notified anytime you experience excessive usage. Notification allows you to address any potential anomalies before the end of your billing period.
+
+The following example is a [log alert rule](../alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** setting to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this option will result in a higher charge for the alert rule.
+
+| Setting | Value |
+|:---|:---|
+| **Scope** | |
+| Target scope | Select your Log Analytics workspace. |
+| **Condition** | |
+| Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
+| Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
+| Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
+| Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
+| **Details** | |
+| Severity| Warning |
+| Alert rule name | Billable data volume greater than 50 GB in 24 hours. |
 
 ## Usage analysis in Azure Monitor
 Start your analysis with existing tools in Azure Monitor. These tools require no configuration and can often provide the information you need with minimal effort. If you need deeper analysis into your collected data than existing Azure Monitor features, use any of the following [log queries](log-query-overview.md) in [Log Analytics](log-analytics-overview.md).
@@ -177,7 +198,30 @@ let freeTables = dynamic([
 "OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
 "UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
 "Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
-Usage | where DataType !in (freeTables) | where TimeGenerated > ago(30d) | summarize MonthlyGB=sum(Quantity)/1000
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| summarize MonthlyGB=sum(Quantity)/1000
+```
+
+To look for data which might not have IsBillable correctly set (and which could result in incorrect billing, or more specifically under-billing), use this query on your workspace:
+
+```kusto
+let freeTables = dynamic([
+"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
+"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
+"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
+"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
+"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
+"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
+"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
+"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
+"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| where IsBillable == false 
+| summarize MonthlyPotentialUnderbilledGB=sum(Quantity)/1000 by DataType
 ```
 
 ## Querying for common data types

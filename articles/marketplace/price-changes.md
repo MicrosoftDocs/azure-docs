@@ -39,8 +39,8 @@ The price change feature supports the following scenarios:
 - Increase or decrease the [monthly/yearly flat fee](#changing-the-flat-fee-of-a-saas-or-azure-app-offer).
 - Increase or decrease the [per-user monthly/yearly SaaS fee](#changing-the-per-user-fee-of-a-saas-offer).
 - Increase or decrease the [price per unit of a meter dimension](#changing-the-meter-dimension-of-a-saas-or-azure-app-offer).
-- Increase or decrease the [price per core or per core size](#changing-the-core-price-of-a-virtual-machine).
-
+- Increase or decrease the [price per vCPU or per vCPU size](#changing-the-vcpu-price-of-a-virtual-machine).
+   
 ### Supported offer types
 
 The ability to change prices is available for both public and private plans of offers transacted through Microsoft.
@@ -81,7 +81,8 @@ When planning a price change, consider the following:
 For a price decrease to a Software as a service offer to take effect on the first of the next month, publish the price change at least four days before the end of the current month.
 
 For a price increase to a Software as a service offer to take effect on the first of a future month, 90 days out, publish the price change at least four days before the end of the current month.
-
+> [!Note]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md#how-we-convert-currency).
 ## Changing the flat fee of a SaaS or Azure app offer
 
 To update the monthly or yearly price of a SaaS or Azure app offer:
@@ -181,9 +182,9 @@ Once publishing is complete, you will receive an email with the effective date o
 
 Customers are billed the new price for overage usage if it is consumed after the new price is in effect.
 
-## Changing the core price of a virtual machine
+## Changing the vCPU price of a virtual machine
 
-To update the price per core or per core size of a VM offer.
+To update the price per vCPU or per vCPU size of a VM offer.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. Select the offer to update from the table of offers.
@@ -193,14 +194,14 @@ To update the price per core or per core size of a VM offer.
 6. To change prices specific for a market:
 
     **Option 1**: You do the currency conversion:
-    1. Under **Select a price entry**, select the **Per market and core size** option.
+1- Under **Select a price entry**, select the **Per market and vCPU size** option.
     2. Under **Select a market to customize prices**, select the **market** you want to change the price for.
-    3. Update the price per hour for each core size.
+1- Update the price per hour for each vCPU size.
     4. Repeat if you want to update prices for several markets.
 
     **Option 2**: Export to a spreadsheet:
     1. Export the prices using **Export pricing data**.
-    2. Update the market and core size prices in the downloaded spreadsheet and save it.
+1- Update the market and vCPU size prices in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
 
 1. 7. To change prices across all markets:
@@ -208,9 +209,10 @@ To update the price per core or per core size of a VM offer.
     > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
-1. **Per core**: Edit the price per core in the **USD/hour** box.
-    2. **Per core size**: Edit each core size in the **Price per hour in USD** box.
-
+1. **Per vCPU**: Edit the price per vCPU in the **USD/hour** box.
+    
+1- **Per vCPU size**: Edit each vCPU size in the **Price per hour in USD** box.
+   
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -226,13 +228,9 @@ Customers are billed the new price for consumption of the resource that happens 
 
 ## Canceling or modifying a price change
 
-If the price change was configured within the last 2 days, it can be cancelled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken affect, [submit a support request](https://partner.microsoft.com/support/?stage=1), that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
+If the price change was configured within the last 2 days, it can be canceled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken effect, [submit a support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
 If the price change was an increase and the cancelation was after the 2-day period, we will email the customers a second time to inform them of the cancelation.
 After the price change is canceled, follow the steps in the appropriate part of this article to schedule a new price change with the needed modifications. 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
-
-
-
-

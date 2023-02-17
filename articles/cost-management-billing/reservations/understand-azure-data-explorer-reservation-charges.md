@@ -6,7 +6,7 @@ ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 12/05/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -18,7 +18,9 @@ After you buy an Azure Data Explorer reserved capacity, the reservation discount
 
 A reservation discount is on a "*use-it-or-lose-it*" basis. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward discounts for unused reserved hours.
 
-When you shut down, stop, or suspend the Azure Data Explorer cluster, the applicable reservations automatically apply to other matching resources (compute and Azure Data Explorer markup) in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
+Stopped or suspended Azure Data Explorer clusters are not using reservation hours for compute and Azure Data Explorer markup since the cluster's underlying compute resources are deallocated when the cluster is stopped or suspended.
 
 ## Discount for other resources
 

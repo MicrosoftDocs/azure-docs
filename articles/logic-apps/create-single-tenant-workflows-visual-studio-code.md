@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/17/2022
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -23,7 +23,7 @@ This how-to guide shows how to create an example integration workflow that runs 
 
 * You can locally create, run, and test workflows using the Visual Studio Code development environment.
 
-  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (ASEv3 - Windows plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
+  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -80,12 +80,15 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.4868) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
+  * [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0), which includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime.
+
+  * [Azure Functions Core Tools - 4.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
     * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
 
-    * Azure Functions v3 support ends in late 2022. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have 
-    a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+    * Azure Functions v3 support in Azure Logic Apps ends on March 31, 2023. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Since January 31, 2023, existing Standard workflows in the Azure portal were automatically migrated to Azure Functions v4.
+    
+      Unless you deployed your Standard logic apps as NuGet-based projects, pinned your logic apps to a specific bundle version, or Microsoft determined that you had to take action before the automatic migration, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
@@ -247,25 +250,6 @@ The authoring capability is currently available only in Visual Studio Code, but 
 <a name="open-workflow-definition-designer"></a>
 
 ## Open the workflow definition file in the designer
-
-1. Check the versions that are installed on your computer by running this command:
-
-   `..\Users\{yourUserName}\dotnet --list-sdks`
-
-   If you have .NET Core SDK 5.x, this version might prevent you from opening the logic app's underlying workflow definition in the designer. Rather than uninstall this version, at your project's root folder, create a **global.json** file that references the .NET Core runtime 3.x version that you have that's later than 3.1.201, for example:
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   > [!IMPORTANT]
-   > Make sure that you explicitly add the **global.json** file in your project's 
-   > root folder from inside Visual Studio Code. Otherwise, the designer won't open.
 
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
@@ -599,7 +583,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
    | **Cancelled** | The run was triggered and started but received a cancellation request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
+   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <p><p>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
@@ -790,7 +774,7 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan. This example selects **Create new App Service Plan**.
+   1. Select a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan (Windows-based App Service plans only). This example selects **Create new App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 

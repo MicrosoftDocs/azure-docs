@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 11/07/2022
+ms.date: 11/30/2022
 ms.author: banders
 ---
 
@@ -23,6 +23,11 @@ The error is normal and expected.
 The error can occur for customers with the following Azure subscription agreement type:
 
 - Microsoft Customer Agreement purchased directly through Azure.com
+    - You can have a maximum of five subscriptions in a Microsoft Customer Agreement purchased directly through Azure.com.
+    - The ability to create other subscriptions is determined on an individual basis according to your history with Azure.
+- Microsoft Online Services Program
+    - A new billing account for a Microsoft Online Services Program can have a maximum of five subscriptions. However, subscriptions transferred to the new billing account don't count against the limit.
+    - The ability to create other Microsoft Online Services Program subscriptions is determined on an individual basis according to your history with Azure.
 
 ## Solution
 

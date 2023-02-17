@@ -2,15 +2,19 @@
 title: Troubleshoot Python function apps in Azure Functions
 description: Learn how to troubleshoot Python functions.
 ms.topic: article
-ms.date: 10/25/2022
+ms.date: 11/21/2022
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 zone_pivot_groups: python-mode-functions
 ---
 
 # Troubleshoot Python errors in Azure Functions
 
 This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose the model you want to use from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
+
+> [!NOTE]
+> The Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
+
 
 Here are the troubleshooting sections for common issues in Python functions:
 
@@ -61,7 +65,7 @@ To identify the actual cause of your issue, you need to get the Python project f
 * If the function app has a `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copying and pasting the URL into your browser.
 * If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it's set to `1`, go to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
 * If the function app doesn't have either of the preceding app settings, go to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copying and pasting the URL into your browser.
-* If none of these suggestions resolves the issue, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and view the content under `/home/site/wwwroot`.
+* If suggestions resolve the issue, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and view the content under `/home/site/wwwroot`.
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
@@ -89,11 +93,7 @@ To mitigate the issue, see [Enable remote build](#enable-remote-build) or [Build
 
 Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. In your text editor, open the *METADATA* file and check the **Classifiers:** section. If the section doesn't contain `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, the package version is either too old or, more likely, it's already out of maintenance.
 
-You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Go to your function app, select **Resource explorer**, and then select **Go**.
-
-:::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Screenshot that shows the 'Resource Explorer' pane for the function app in the Azure portal.":::
-
-After the Resource Explorer opens, search for **LinuxFxVersion**, which shows the Python version.
+You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app's **Overview** resource page to find the runtime version. The runtime version supports Python versions as described in the [Azure Functions runtime versions overview](./functions-versions.md).
 
 To mitigate the issue, see [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents).
 
@@ -224,9 +224,9 @@ This error occurs when a Python function app is forced to terminate by the opera
 
 In your function app's *requirements.txt* file, an unpinned package will be upgraded to the latest version in every Azure Functions deployment. Vendors of these packages might introduce regressions in their latest release. To recover from this issue, try commenting out the import statements, disabling the package references, or pinning the package to a previous version in *requirements.txt*.
 
-### Unpickling from a malformed .pkl file
+### Unpickling from a malformed \.pkl file
 
-If your function app is using the Python pickle library to load a Python object from a *.pkl* file, it's possible that the file contains a malformed bytes string or an invalid address reference. To recover from this issue, try commenting out the `pickle.load()` function.
+If your function app is using the Python pickle library to load a Python object from a *\.pkl* file, it's possible that the file contains a malformed bytes string or an invalid address reference. To recover from this issue, try commenting out the `pickle.load()` function.
 
 ### Pyodbc connection collision
 
@@ -254,7 +254,7 @@ Example error logs:
 
 You can mitigate this issue in either of two ways:
 
-* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
+* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies) to a value of `1`. 
 
 * Pin Protobuf to a non-4.x.x. version, as in the following example:
 
@@ -278,7 +278,7 @@ This specific error might read:
 "DurableTask.Netherite.AzureFunctions: Could not load file or assembly 'Microsoft.Azure.WebJobs.Extensions.DurableTask, Version=2.0.0.0, Culture=neutral, PublicKeyToken=014045d636e89289'.  
 The system cannot find the file specified."
 
-This error might occur because of an issue with how the extension bundle was cached. To detect whether this is the issue, you can run the following command with `--verbose` to see more details: 
+This error might occur because of an issue with how the extension bundle was cached. To troubleshoot this issue, you can run the following command with `--verbose` to see more details: 
 
 > `func host start --verbose`
 
@@ -286,33 +286,34 @@ After you run the command, if you notice that `Loading startup extension <>` isn
 
 To resolve this issue: 
 
-1. Find the *.azure-functions-core-tools* path by running: 
+1. Find the *\.azure-functions-core-tools* path by running: 
 
     ```console 
     func GetExtensionBundlePath
     ```
 
-1. Delete the *.azure-functions-core-tools* directory.
+1. Delete the *\.azure-functions-core-tools* directory.
 
-# [bash](#tab/bash)
+    # [bash](#tab/bash)
+    
+    ```bash
+    rm -r <insert path>/.azure-functions-core-tools
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    Remove-Item <insert path>/.azure-functions-core-tools
+    ```
+    
+    # [Cmd](#tab/cmd)
+    
+    ```cmd
+    rmdir <insert path>/.azure-functions-core-tools
+    ```
+    
+    ---
 
-```bash
-rm -r <insert path>/.azure-functions-core-tools
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Remove-Item <insert path>/.azure-functions-core-tools
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-rmdir <insert path>/.azure-functions-core-tools
-```
-
----
 ## Troubleshoot "unable to resolve the Azure Storage connection"
 
 You might see this error in your local output as the following message:
@@ -320,7 +321,7 @@ You might see this error in your local output as the following message:
 "Microsoft.Azure.WebJobs.Extensions.DurableTask: Unable to resolve the Azure Storage connection named 'Storage'.  
 Value cannot be null. (Parameter 'provider')"
 
-This error is a result of how extensions are loaded from the bundle locally. To resolve this error, do one of the following:
+This error is a result of how extensions are loaded from the bundle locally. To resolve this error, take one of the following actions:
 
 * Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This option is a good one when you aren't planning to use a storage account in your function application.
 

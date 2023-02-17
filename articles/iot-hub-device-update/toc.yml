@@ -135,7 +135,7 @@ items:
   - name: Control plane SDK
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/iot/management
+        href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/
   - name: Data plane SDK
@@ -148,23 +148,31 @@ items:
         href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
-  - name: Resources
-    items:
-      - name: Support and help options
-        href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
-      - name: Azure IoT services
-        items:
-          - name: IoT Hub
-            href: ../iot-hub/index.yml
-          - name: IoT Hub Device Provisioning Service
-            href: ../iot-dps/index.yml
-          - name: IoT Central
-            href: ../iot-central/index.yml
-          - name: IoT Edge
-            href: ../iot-edge/index.yml
-          - name: Azure Maps
-            href: ../azure-maps/index.yml
-          - name: Time Series Insights
-            href: ../time-series-insights/index.yml
-      - name: Delivery Optimization
-        href: https://github.com/microsoft/do-client
+- name: Resources
+  items:
+    - name: Support and help options
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+    - name: Azure IoT services
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/index.yml
+        - name: IoT Hub Device Provisioning Service
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: ../iot-central/index.yml
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Terraform modules
+      items:
+      - name: Device Update account resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_account
+      - name: Device Update instance resource
+        displayName: Terraform
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/iothub_device_update_instance
+    - name: Delivery Optimization
+      href: https://github.com/microsoft/do-client

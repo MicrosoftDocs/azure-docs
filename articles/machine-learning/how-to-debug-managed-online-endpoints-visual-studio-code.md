@@ -5,8 +5,8 @@ description: Learn how to use Visual Studio Code to test and debug online endpoi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 11/03/2021
 ms.topic: troubleshooting
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
 
-# Debug online endpoints locally in Visual Studio Code (preview)
+# Debug online endpoints locally in Visual Studio Code
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -52,7 +52,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
 
-For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
+For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
 The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli` directory in the repo:
 
@@ -88,7 +88,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
 - [Azure ML Python SDK (v2)](https://aka.ms/sdk-v2-install)
 
-For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
+For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
 The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
 
@@ -382,5 +382,5 @@ Once the updated image is built and your development container launches, use the
 
 ## Next steps
 
-- [Deploy and score a machine learning model by using a managed online endpoint)](how-to-deploy-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint)](how-to-deploy-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring)](how-to-troubleshoot-managed-online-endpoints.md)

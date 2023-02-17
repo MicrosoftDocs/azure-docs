@@ -1,26 +1,28 @@
 ---
-title: Provision access to resource groups and subscriptions for DevOps actions
-description: Step-by-step guide showing how to provision access to entire resource groups and subscriptions through Microsoft Purview DevOps policies
+title: Manage access to entire resource groups or subscriptions for monitoring system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to all data sources inside a resource group or subscription, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 02/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in resource groups or subscriptions
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. They can be created only on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source. Microsoft Purview access policies apply to Azure AD Accounts only.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-In this guide we cover how to register an entire resource group or subscription and then create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
+This how-to guide covers how to register an entire resource group or subscription and then create a single policy that will provision access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. and provisioning access to its system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
+
+
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
 **Only these data sources are enabled for access policies on resource group or subscription**. Follow the **Prerequisites** section that is specific to the data source(s) in these guides:
 * [DevOps policies on an Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#prerequisites)
-* [DevOps policies on an Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md#prerequisites)
+* [DevOps policies on an Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md#prerequisites)
 
 ## Microsoft Purview Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
@@ -37,7 +39,7 @@ In the end, your resource will have the  **Data Use Management** toggle **Enable
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 >[!Important]
-> - If you create a policy on a resource group or subscription and want to have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently and enable *Data use management* which captures their App ID: [See this document](./how-to-policies-devops-arc-sql-server.md#register-data-sources-in-microsoft-purview).
+> - If you create a policy on a resource group or subscription and want to have it enforced in Azure Arc-enabled SQL Servers, you will need to also register those servers independently and enable *Data use management* which captures their App ID: [See this document](./how-to-policies-devops-arc-sql-server.md#register-data-sources-in-microsoft-purview).
 
 
 ## Create a new DevOps policy
@@ -57,8 +59,11 @@ Follow this link for the steps to [delete a DevOps policies in Microsoft Purview
 To test the policy see the DevOps policy guides for the underlying data sources listed in the [next steps section](#next-steps) of this document.
 
 ## Next steps
-Check the blog and related docs
+Check the blogs, videos and related docs
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
-* Doc: [Microsoft Purview DevOps policies on Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
+* Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
+* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
-In this article, you'll learn how to migrate discovered VMware VMs with the agentless method using Azure PowerShell for [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+In this article, you'll learn how to migrate discovered VMware VMs with the agentless method using Azure PowerShell for [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool).
 
 You learn how to:
 
@@ -110,10 +110,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 ## 6. Initialize replication infrastructure
 
-[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) leverages multiple Azure resources for migrating VMs. Server Migration provisions the following resources, in the same resource group as the project.
+[Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) leverages multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
 
-- **Service bus**: Server Migration uses the service bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
+- **Service bus**: Migration and modernization uses the service bus to send replication orchestration messages to the appliance.
+- **Gateway storage account**: Migration and modernization uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
 - **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication.
 
@@ -328,7 +328,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## 10. Update properties of a replicating VM
 
-[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 

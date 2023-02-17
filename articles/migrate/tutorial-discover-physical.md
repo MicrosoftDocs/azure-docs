@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/13/2022
-ms.custom: mvc, subject-rbac-steps
+ms.date: 02/16/2023
+ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
@@ -139,6 +139,9 @@ Set up a new project.
 
    ![Screenshot of project name and region.](./media/tutorial-discover-physical/new-project.png)
 
+   > [!Note]
+   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
@@ -164,7 +167,7 @@ To set up the appliance, you:
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
-1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
+1. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
@@ -172,7 +175,7 @@ To set up the appliance, you:
 
 ### 2. Download the installer script
 
-In **2: Download Azure Migrate appliance**, click **Download**.
+In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
@@ -186,7 +189,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277c53620db299f57e3ac5a65569e9720f06190a245476810b36bf651c8b795b
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 1E48D6ACDD8BCD3290F6E1E33705C7AFAAC0745E3295ED56BEF5AC019C0FD760
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
@@ -233,7 +236,7 @@ Set up the appliance for the first time.
 
 1. Open a browser on any server that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
-   Alternately, you can open the app from the desktop by clicking the app shortcut.
+   Alternately, you can open the app from the desktop by selecting the app shortcut.
 1. Accept the **license terms**, and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -257,11 +260,11 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
-        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
         > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
-	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+	5. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
@@ -286,6 +289,8 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
 
 1. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
+   > [!Note]
+   > By default, the credentials will be used to gather data about the installed applications, roles, and features, and also to collect dependency data from Windows and Linux servers, unless you disable the slider to not perform these features (as instructed in the last step).
 1. In **Step 2:Provide physical or virtual server details​**, select **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide server details through **Import CSV**.
 
@@ -294,13 +299,18 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
-1. On clicking Save, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
-    - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+1. Select Save. The appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
+    - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, select **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
+1. To perform discovery of SQL Server instances and databases, you can add additional credentials (Windows domain/non-domain, SQL authentication credentials) and the appliance will attempt to automatically map the credentials to the SQL servers. If you add domain credentials, the appliance will authenticate the credentials against Active Directory of the domain to prevent any user accounts from locking out. To check validation of the domain credentials, follow these steps:
+  - In the configuration manager credentials table, see **Validation status** for domain credentials. Only the domain credentials are validated.
+  - If validation fails, you can select a Failed status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+
+
 
 ### Start discovery
 
@@ -324,10 +334,10 @@ select **Start discovery**, to kick off discovery of the successfully validated 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Delete servers
-After the discovery has been initiated, you can delete any of the added servers from the appliance configuration manager by searching for the server name in the **Add discovery source** table and by clicking **Delete**.
+After the discovery has been initiated, you can delete any of the added servers from the appliance configuration manager by searching for the server name in the **Add discovery source** table and by selecting **Delete**.
 
 >[!NOTE]
 > If you choose to delete a server where discovery has been initiated, it will stop the ongoing discovery and assessment which may impact the confidence rating of the assessment that includes this server. [Learn more](./common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low)

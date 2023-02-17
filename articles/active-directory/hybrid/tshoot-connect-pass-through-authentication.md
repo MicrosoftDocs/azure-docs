@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/25/2021
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -28,11 +28,11 @@ This article helps you find troubleshooting information about common issues rega
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Entra admin center](https://entra.microsoft.com/).
 
-![Azure Active Directory admin center - Azure AD Connect blade](./media/tshoot-connect-pass-through-authentication/pta7.png)
+![Screnshot shows Entra admin center - Azure AD Connect blade.](./media/tshoot-connect-pass-through-authentication/azure-ad-connect-blade.png)
 
-![Azure Active Directory admin center - Pass-through Authentication blade](./media/tshoot-connect-pass-through-authentication/pta11.png)
+![Screenhot shows Entra admin center - Pass-through Authentication blade.](./media/tshoot-connect-pass-through-authentication/pta-server-list.png)
 
 ### User-facing sign-in error messages
 
@@ -75,9 +75,9 @@ If you get the same username/password error, this means that the Pass-through Au
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Entra admin center](https://entra.microsoft.com/).
 
-![Azure Active Directory admin center - Sign-ins report](./media/tshoot-connect-pass-through-authentication/pta4.png)
+[![Screenshot shows Entra admin center - Sign-ins report,](./media/tshoot-connect-pass-through-authentication/sign-in-report.png)](./media/tshoot-connect-pass-through-authentication/sign-in-report.png#lightbox)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
