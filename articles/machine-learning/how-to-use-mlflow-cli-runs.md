@@ -106,7 +106,7 @@ Use MLflow SDK to track any metric, parameter, artifacts, or models. For detaile
 
 Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
 
-# [Azure CLI](#tab/python)
+# [Azure CLI](#tab/cli)
 
 To submit the job, create a YAML file with your job definition in a `job.yml` file. This file should be created outside the `src` directory.
 
@@ -162,7 +162,7 @@ command_job = command(
 
 1. Submit the job
 
-   # [Azure CLI](#tab/python)
+   # [Azure CLI](#tab/cli)
 
    Use the Azure Machine Learning CLI [to submit your job](how-to-train-model.md). Jobs using MLflow and running on Azure Machine Learning will automatically log any tracking information to the workspace. Open your terminal and use the following to submit the job.
 
