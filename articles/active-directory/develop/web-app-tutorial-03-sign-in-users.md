@@ -27,7 +27,7 @@ In this tutorial:
 
 ## Install identity packages
 
-Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
+Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled.
 
 ### [Visual Studio](#tab/visual-studio)
 
