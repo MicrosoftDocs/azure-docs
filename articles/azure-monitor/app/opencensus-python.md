@@ -345,7 +345,7 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. You must set this value to 60s as Application Insights backend assumes aggregation of metrics points on a 60s time interval. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase, and resets to 0 on restart.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. You must set this value to 60s as Application Insights backend assumes aggregation of metrics points on a 60s time interval. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The data is cumulative, can only increase, and resets to 0 on restart.
 
    You can find the data under `customMetrics`, but the `customMetrics` properties `valueCount`, `valueSum`, `valueMin`, `valueMax`, and `valueStdDev` aren't effectively used.
 
