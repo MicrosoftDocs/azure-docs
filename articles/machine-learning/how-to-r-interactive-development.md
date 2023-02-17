@@ -33,7 +33,7 @@ Many R users also use RStudio, a popular IDE. You can install RStudio or Posit W
 You'll use a notebook in your Azure Machine Learning workspace, on a compute instance.  
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
-1. Open your workspace if isn't already open
+1. Open your workspace if it isn't already open
 1. On the left navigation, select **Notebooks**
 1. Create a new notebook, named **RunR.ipynb**
 
@@ -44,7 +44,7 @@ You'll use a notebook in your Azure Machine Learning workspace, on a compute ins
 1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
 1. On the notebook toolbar, switch the kernel to **R**.
 
-    :::image type="content" source="media/how-to-r-azure-ml-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R." lightbox="media/how-to-r-azure-ml-interactive-development/r-kernel.png":::
+    :::image type="content" source="media/how-to-r-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R." lightbox="media/how-to-r-interactive-development/r-kernel.png":::
 
 Your notebook is now ready for you to run R commands.
 
@@ -156,4 +156,4 @@ Other than the above issues, use R as you would in any other environment, such a
 
 ## Next steps
 
-* [Adapt your R script to run in production](how-to-r-azure-ml-modify-script-for-production.md)
+* [Adapt your R script to run in production](how-to-r-modify-script-for-production.md)

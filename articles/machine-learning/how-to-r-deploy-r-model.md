@@ -21,9 +21,9 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
-- At least one custom environment associated with your workspace. Create [an R environment](how-to-r-azure-ml-modify-script-for-production.md#create-an-environment), or any other custom environment if you don't have one.
+- At least one custom environment associated with your workspace. Create [an R environment](how-to-r-modify-script-for-production.md#create-an-environment), or any other custom environment if you don't have one.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
-- A model that you've trained and [packaged with `crate`](how-to-r-azure-ml-modify-script-for-production.md#crate-your-models-with-the-carrier-package), and [registered into your workspace](how-to-r-azure-ml-train-model.md#register-model)
+- A model that you've trained and [packaged with `crate`](how-to-r-modify-script-for-production.md#crate-your-models-with-the-carrier-package), and [registered into your workspace](how-to-r-train-model.md#register-model)
 
 ## Create a folder with this structure
 
@@ -177,7 +177,7 @@ These steps assume you have an Azure Container Registry associated with your wor
 1. On the left navigation, select **Environments**.
 1. On the top, select **Custom environments**.
 1. If you see custom environments, nothing more is needed.
-1. If you don't see any custom environments, create [an R environment](how-to-r-azure-ml-modify-script-for-production.md#create-an-environment), or any other custom environment.  (You *won't* use this environment for deployment, but you *will* use the container registry that is also created for you.)
+1. If you don't see any custom environments, create [an R environment](how-to-r-modify-script-for-production.md#create-an-environment), or any other custom environment.  (You *won't* use this environment for deployment, but you *will* use the container registry that is also created for you.)
 
 Once you have verified that you have at least one custom environment, use the following steps to build a container.
 
@@ -201,7 +201,7 @@ Once you have verified that you have at least one custom environment, use the fo
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Set the default workspace.  If you're doing this from a compute instance, you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in [Azure Machine Learning studio](how-to-r-azure-ml-train-model.md#submit-the-job).)
+1. Set the default workspace.  If you're doing this from a compute instance, you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in [Azure Machine Learning studio](how-to-r-train-model.md#submit-the-job).)
 
     ```azurecli
     az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
@@ -326,7 +326,7 @@ Enter the following json into the **Input data to rest real-time endpoint** text
 
 Select **Test**. You should see the following output:
 
-:::image type="content" source="media/how-to-r-azure-ml-deploy-an-r-model/test-deployment.png" alt-text="Screenshot shows results from testing a model." lightbox="media/how-to-r-azure-ml-deploy-an-r-model/test-deployment.png":::
+:::image type="content" source="media/how-to-r-deploy-an-r-model/test-deployment.png" alt-text="Screenshot shows results from testing a model." lightbox="media/how-to-r-deploy-an-r-model/test-deployment.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -361,4 +361,4 @@ az ml online-endpoint delete --name r-endpoint-forecast
 
 ## Next steps
 
-For more information about using R with Azure Machine Learning, see [Overview of R capabilities in Azure Machine Learning](how-to-r-azure-ml-overview-r-capabilities.md)
+For more information about using R with Azure Machine Learning, see [Overview of R capabilities in Azure Machine Learning](how-to-r-overview-r-capabilities.md)

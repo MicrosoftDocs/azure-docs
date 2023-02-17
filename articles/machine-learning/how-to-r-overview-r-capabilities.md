@@ -23,13 +23,13 @@ This article outlines the key scenarios for R that are supported in Azure Machin
 
 A typical workflow for using R with Azure Machine Learning:
 
-- [Develop R scripts interactively](how-to-r-azure-ml-interactive-development.md) using Jupyter Notebooks on a compute instance.  (While you can also add Posit or RStudio to a compute instance, you can't currently access data assets in the workspace from these applications on the compute instance. So for now, interactive work is best done in a Jupyter notebook.)
+- [Develop R scripts interactively](how-to-r-interactive-development.md) using Jupyter Notebooks on a compute instance.  (While you can also add Posit or RStudio to a compute instance, you can't currently access data assets in the workspace from these applications on the compute instance. So for now, interactive work is best done in a Jupyter notebook.)
 
     - Read tabular data from a registered data asset or datastore
     - Install additional R libraries
     - Save artifacts to the workspace file storage
 
-- [Adapt your script](how-to-r-azure-ml-modify-script-for-production.md) to run as a production job in Azure Machine Learning
+- [Adapt your script](how-to-r-modify-script-for-production.md) to run as a production job in Azure Machine Learning
 
     - Remove any code that may require user interaction
     - Add command line input parameters to the script as necessary
@@ -37,13 +37,13 @@ A typical workflow for using R with Azure Machine Learning:
     - Use `crate` to package the model
     - Include the R/MLflow functions in the script to **log** artifacts, models, parameters, and/or tags to the job on MLflow
 
-- [Submit remote asynchronous R jobs](how-to-r-azure-ml-train-model.md) (you submit jobs via the CLI or Python SDK, not R)
+- [Submit remote asynchronous R jobs](how-to-r-train-model.md) (you submit jobs via the CLI or Python SDK, not R)
 
     - Build an environment
     - Log job artifacts, parameters, tags and models
 
-- [Register your model](how-to-r-azure-ml-train-model.md#register-model) using Azure Machine Learning studio
-- [Deploy registered R models](how-to-r-azure-ml-deploy-r-model.md) to managed online endpoints
+- [Register your model](how-to-r-train-model.md#register-model) using Azure Machine Learning studio
+- [Deploy registered R models](how-to-r-deploy-r-model.md) to managed online endpoints
     - Use the deployed endpoints for real-time inferencing/scoring
 
 ## Known limitations
@@ -59,7 +59,7 @@ A typical workflow for using R with Azure Machine Learning:
 | Programmatic model registering/recording from a running job with R isn't supported. |  |
 | Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported. | Create a custom container with `plumber` for deployment. |
 | Scoring an R model with batch endpoints isn't supported. |  |
-| AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile. | Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-r-azure-ml-deploy-r-model.md) for the correct way to deploy. |
+| AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile. | Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-r-deploy-r-model.md) for the correct way to deploy. |
 
 
 
@@ -67,7 +67,7 @@ A typical workflow for using R with Azure Machine Learning:
 
 Learn more about R in Azure Machine Learning:
 
-* [Interactive R development](how-to-r-azure-ml-interactive-development.md)
-* [Adapt your R script to run in production](how-to-r-azure-ml-modify-script-for-production.md)
-* [How to train R models in Azure Machine Learning](how-to-r-azure-ml-train-model.md)
-* [How to deploy an R model to an online (real time) endpoint](how-to-r-azure-ml-deploy-r-model.md)
+* [Interactive R development](how-to-r-interactive-development.md)
+* [Adapt your R script to run in production](how-to-r-modify-script-for-production.md)
+* [How to train R models in Azure Machine Learning](how-to-r-train-model.md)
+* [How to deploy an R model to an online (real time) endpoint](how-to-r-deploy-r-model.md)

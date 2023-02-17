@@ -773,15 +773,15 @@
     - name: Use R with Azure ML
       items:
         - name: Bring R workloads
-          href: how-to-r-azure-ml-overview-r-capabilities.md
+          href: how-to-r-overview-r-capabilities.md
         - name: Interactive R development
-          href: how-to-r-azure-ml-interactive-development.md
+          href: how-to-r-interactive-development.md
         - name: Adapt R scripts for production
-          href: how-to-r-azure-ml-modify-script-for-production.md
+          href: how-to-r-modify-script-for-production.md
         - name: Train R model
-          href: how-to-r-azure-ml-train-model.md
+          href: how-to-r-train-model.md
         - name: Deploy R model
-          href: how-to-r-azure-ml-deploy-r-model.md
+          href: how-to-r-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity

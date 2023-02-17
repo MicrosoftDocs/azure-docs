@@ -15,7 +15,7 @@ ms.devlang: r
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-This article explains how to take the R script that you [adapted to run in production](how-to-r-azure-ml-modify-script-for-production.md) and set it up to run as an R job using the AzureML CLI V2.
+This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the AzureML CLI V2.
 
 > [!NOTE]
 > Although the title of this article refers to _training_ a model, you can actually run any kind of R script as long as it meets the requirements listed in the adapting article.
@@ -26,7 +26,7 @@ This article explains how to take the R script that you [adapted to run in produ
 - [A registered data asset](how-to-create-data-assets.md) that your training job will use.
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
 - [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-compute-instance) to run your training job.
-- [An R environment](how-to-r-azure-ml-modify-script-for-production.md#create-an-environment) for the compute cluster to use to run the job.
+- [An R environment](how-to-r-modify-script-for-production.md#create-an-environment) for the compute cluster to use to run the job.
 
 ## Create a folder with this structure
 
@@ -44,7 +44,7 @@ Create this folder structure for your project:
 > All source code goes in the `src` directory.
 
 * The **r-source.R** file is the R script that you adapted to run in production
-* The **azureml_utils.R** file is necessary. The source code is shown [here](how-to-r-azure-ml-modify-script-for-production.md#source-the-azureml_utilsr-helper-script)
+* The **azureml_utils.R** file is necessary. The source code is shown [here](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script)
 
 
 
@@ -103,7 +103,7 @@ Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. You can copy the values from the section that appears.  
 
-:::image type="content" source="media/how-to-r-azure-ml-train-model/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/how-to-r-azure-ml-train-model/find-values.png":::
+:::image type="content" source="media/how-to-r-train-model/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/how-to-r-train-model/find-values.png":::
 
 To submit the job, run the following commands in a terminal window:
 
@@ -165,4 +165,4 @@ You'll see a confirmation that the model is registered.
 
 ## Next steps
  
-Now that you have a registered model, learn [How to deploy an R model to an online (real time) endpoint](how-to-r-azure-ml-deploy-r-model.md).
+Now that you have a registered model, learn [How to deploy an R model to an online (real time) endpoint](how-to-r-deploy-r-model.md).
