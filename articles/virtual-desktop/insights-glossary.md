@@ -161,13 +161,31 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service data:
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. Note that the checkpoints used to denote when the connection has been established are different for a desktop versus a remote application scenario:
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
-  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = first app launch for RemoteApp (RdpShellAppExecuted)
+  - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp, for timing consider the first app launch only)
 
-  For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe).
+  For example, the time for a desktop experience to launch would be measured based on how long it takes to launch Windows Explorer (explorer.exe). The time for a remote application to launch would be measured based on the time taken to launch the first instance of the shell app for a connection.
+  
+>[!NOTE]
+>It is possible for multiple shell app execution events to happen in the context of one connection if a user launches more than one remote application. To ensure an accurate representation of the time to connect, only the first execution checkpoint to occur in the connection should be used for a given connection.
+
+Example query:
+
+```kusto
+WVDConnections
+| where State == 'Started' and TimeGenerated > ago(1d)
+| extend StartTime=TimeGenerated
+| join kind=inner
+(
+    WVDCheckpoints    
+    | where Name == 'RdpShellAppExecuted'    
+    | summarize AppExecutedTime=min(TimeGenerated) by CorrelationId
+) on CorrelationId
+| project CorrelationId, SessionHostName, UserName, StartTime, TimeToConnect = (AppExecutedTime - StartTime)
+```
 
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 
