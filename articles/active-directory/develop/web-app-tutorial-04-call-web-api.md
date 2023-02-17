@@ -94,7 +94,7 @@ In this tutorial:
 
 ---
 
-2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account with which to sign in. Esnure the account matches the criteria of the app registration.
+2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account in which to sign in with. Ensure the account matches the criteria of the app registration.
 
     :::image type="content" source="./media/web-app-tutorial-04-call-web-api/pick-account.png" alt-text="Screenshot depicting account options to sign in.":::
  
