@@ -18,12 +18,12 @@ If you have an Azure PaaS resource that has a private connection enabled through
 
 ## When to use a shared private link
 
-Cognitive Search makes outbound requests to other Azure PaaS resources in the following scenarios:
+Cognitive Search makes outbound calls to other Azure PaaS resources in the following scenarios:
 
 + Indexer connection requests to supported data sources
 + Indexer (skillset) connections to Azure Storage for caching enrichments or writing to a knowledge store
 + Encryption key requests to Azure Key Vault
-+ Custom skill requests to Azure Functions
++ Custom skill requests to Azure Functions or similar resource
 
 For those scenarios, a search service typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](/azure/private-link/private-endpoint-overview), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
 
@@ -42,7 +42,7 @@ Once you set up the private link, it's used automatically whenever search connec
 
 ### Limitations
 
-+ You can't use Azure portal tools such as **Import data** or **Debug sessions** for private outbound connections to Azure PaaS resources.
+When evaluating shared private links for your scenario, remember these constraints.
 
 + Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
 
@@ -220,7 +220,7 @@ Approaches that provide `resourceRegion` include the Management REST API or the 
 
    The DNS zone is part of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone.
 
-1. Create a JSON file for the body of the create shared private link request. The following is an example of what a *create-pe.json* file might contain:
+1. Create a JSON file for the body of the create shared private link request. Save the file locally. In the Azure CLI, type `dir` to view the current location. The following is an example of what a *create-pe.json* file might contain:
 
    ```json
    {
@@ -234,14 +234,15 @@ Approaches that provide `resourceRegion` include the Management REST API or the 
    }
    ```
 
-1. Using the Azure CLI, call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure Cognitive Search. Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. You can use either `2021-04-01-preview` or `2020-08-01-preview`.
+1. Using the Azure CLI, call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure Cognitive Search. 
+
+   Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. You can use either `2021-04-01-preview` or `2020-08-01-preview`.
 
    ```azurecli
    az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2020-08-01 --body @create-pe.json
    ```
 
-
-
+<!-- 
 1. Check the response. The `PUT` call to create the shared private endpoint returns an `Azure-AsyncOperation` header value that looks like the following:
 
    `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
@@ -251,6 +252,7 @@ Approaches that provide `resourceRegion` include the Management REST API or the 
    ```azurecli
    az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
    ```
+ -->
 
 ## 2 - Approve the private endpoint connection
 
@@ -340,9 +342,9 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool. You can't use **Import data** or the Azure portal, but if you have the Postman desktop app, you can make a REST API call that invokes a search scenario for an outbound request to the private endpoint. Assuming your search service isn't also configured for a private connection, the client connection to Search can be over the public internet.
+1. Choose a tool. You can use **Import data** or the Postman desktop app for REST API calls. Assuming that your search service isn't also configured for a private connection, the client connection to Search can be over the public internet.
 
-1. Set the connection string to the Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service uses the shared private link internally.
+1. Set the connection string to the private Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service uses the shared private link internally.
 
    For indexer workloads, the connection string is in the data source definition. An example of a data source might look like this:
 
