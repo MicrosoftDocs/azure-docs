@@ -54,7 +54,7 @@ The following table lists messaging exception types, and their causes, and notes
 
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indicates that a quota for a specific entity has been exceeded. 
 
-> [!NOTE>
+> [!NOTE]
 > For Service Bus quotas, see [Quotas](service-bus-quotas.md).
 
 ### Queues and topics
