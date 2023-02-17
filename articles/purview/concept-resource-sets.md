@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/17/2023
 ---
 
 # Understanding resource sets
@@ -124,7 +124,6 @@ To customize or override how Microsoft Purview detects which assets are grouped 
 ## Known limitations with resource sets
 
 - By default, resource set assets will only be deleted by a scan if [Advanced Resource sets](#advanced-resource-sets) are enabled. If this capability is off, resource set assets can only be deleted manually or via API.
-- Currently, resource set assets will apply the first schema and classification discovered by the scan. Subsequent scans won't update the schema. 
 
 ## Next steps
 
