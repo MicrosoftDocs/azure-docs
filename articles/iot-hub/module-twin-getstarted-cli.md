@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub module identity & module twin (Azure CLI)
-description: Learn how to create module identity and update module twins using Azure CLI.
+description: Learn how to create a module identity and update a module twin using Azure CLI.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: mqtt, devx-track-azurecli
 ---
 
-# Get started with IoT Hub module identity and module twins using Azure CLI
+# Get started with IoT Hub module identities and module twins using Azure CLI
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
-[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities at a finer granularity for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
+[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. Just as Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for the individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -34,11 +34,11 @@ This article shows you how to create an Azure CLI session in which you:
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
 
-If you want to use the Azure Cloud Shell, you must first launch and configure it. If you use the CLI locally, skip to the [Prepare two CLI sessions](#prepare-two-cli-sessions) section.
+If you want to use the Azure Cloud Shell, you must first launch and configure it. If you use the CLI locally, skip to the [Prepare a CLI session](#prepare-a-cli-session) section.
 
 1. Select the **Cloud Shell** icon from the page header in the Azure portal.
 
@@ -56,7 +56,8 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 ## Prepare a CLI session
 
-Next, you must prepare an Azure CLI sessions. If you're using the Cloud Shell, you run the session in a Cloud Shell tab. If using a local CLI client, you run the sessioin in a CLI instance. 
+Next, you must prepare an Azure CLI session. If you're using the Cloud Shell, you run the session in a Cloud Shell tab. If using a local CLI client, you run the session in a CLI instance. 
+
 > [!NOTE]
 > Azure CLI requires you to be logged into your Azure account. If you're using the Cloud Shell, you're automatically logged into your Azure account. If you're using a local CLI client, you must log into each CLI session. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about logging in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -67,7 +68,6 @@ Next, you must prepare an Azure CLI sessions. If you're using the Cloud Shell, y
    ```
 
    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 
 ## Create a device identity and module identity
 
