@@ -64,7 +64,7 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 These images will be used when creating your workload VMs. Make sure each is a
 containerized image in either `qcow2` or `raw` disk format and is uploaded to an Azure Container
 Registry. If your Azure Container Registry is password protected, you can supply this info when creating your VM.
-Refer to [Operator Nexus VM disk image build procedure](#operatore-neus-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
+Refer to [Operator Nexus VM disk image build procedure](#operator-nexus-vm-disk-image-build-procedure) for an example for pulling from an anonymous Azure Container Registry.
 
 ### Operator Nexus VM disk image build procedure
 
