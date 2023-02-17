@@ -12,7 +12,7 @@ ms.date: 02/17/2023
 
 # Connect to a lab VM
 
-In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services. Depending on the operating system (OS) and you local machine, you can use different mechanisms, such as secure shell (SSH) or remote desktop (RDP), to connect to your VM.
+In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services. Depending on the operating system (OS) and your local machine, you can use different mechanisms, such as secure shell (SSH) or remote desktop (RDP), to connect to your VM.
 
 To connect to a lab VM, the VM must be running. Learn more about [how to start and stop a lab VM](how-to-use-lab.md#start-or-stop-the-vm).
 

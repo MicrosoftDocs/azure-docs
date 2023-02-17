@@ -40,7 +40,7 @@ To register for a lab by using the registration link:
 
 1. After the registration finishes, confirm that you see the lab virtual machine in **My virtual machines**.
 
-    After you complete the registration, you can directly access you lab VMs by using the Azure Lab Services website (https://labs.azure.com).
+    After you complete the registration, you can directly access your lab VMs by using the Azure Lab Services website (https://labs.azure.com).
 
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page in Azure Lab Services portal.":::
 
