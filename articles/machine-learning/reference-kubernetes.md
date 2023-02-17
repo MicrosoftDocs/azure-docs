@@ -395,6 +395,7 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+| Feb 14, 2022 | 1.1.21 | Bug fixes.|
 | Feb 7, 2023 | 1.1.19 | Improve error return message for inference. Update default instance type to use 2Gi memory limit. Do cluster health check for pod healthiness, resource quota, Kubernetes version and extension version. Bug fixes|
 | Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
 | Nov 29, 2022 | 1.1.16 |Add instance type validation by new CRD. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |

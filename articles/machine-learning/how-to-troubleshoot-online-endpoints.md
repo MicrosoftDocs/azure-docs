@@ -209,7 +209,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCanceled](#error-operationcanceled)
 
-If your are creating or updating an Kubernetes online deployment, you can refer to [Common errors specific to Kubernetes deployments](#) for more information.
+If your are creating or updating a Kubernetes online deployment, you can refer to [Common errors specific to Kubernetes deployments](#) for more information.
 
 
 ### ERROR: ImageBuildFailure
