@@ -7,9 +7,9 @@ ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 03/04/2022
+ms.date: 02/28/2023
 ms.author: mbender 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, engagement-fy23
 ---
 
 # Azure CLI script example: Load balance multiple websites
