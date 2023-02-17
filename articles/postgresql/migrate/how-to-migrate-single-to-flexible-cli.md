@@ -48,7 +48,7 @@ To complete this tutorial, you need to:
 
 2. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
-   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be 2.44.0 or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
+   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.45.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
 
 3. Run the `az login` command:
    
