@@ -210,7 +210,7 @@
 
     - name: Process data
       items:
-        - name: Build real-time Power BI dashboard
+        - name: Build real-time dashboard with Power BI dataset
           href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
         - name: Capture Event Hubs data in Delta Lake format
           href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json

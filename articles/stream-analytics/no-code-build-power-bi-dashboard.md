@@ -1,17 +1,17 @@
 ---
-title: Build real-time Power BI dashboard using the Stream Analytics no code editor
-description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from Event Hubs, and outputs the data into Power BI dataset to build the real-time Power BI dashboard.
+title: Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor
+description: Learn how to use the no code editor to easily create a Stream Analytics job to produce the Power BI dataset, and use it to build the real-time dashboard. It continuously reads from Event Hubs, and outputs the data into Power BI dataset to build the real-time Power BI dashboard.
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: 
 ms.topic: how-to
-ms.date: 2/10/2023
+ms.date: 2/17/2023
 ---
 
-# Build real-time Power BI dashboard using the Stream Analytics no code editor
+# Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor
 
-This article describes how you can use the no code editor to easily create a Stream Analytics job. It continuously reads from your Event Hubs, and outputs the data into Power BI dataset to build the near real-time Power BI dashboard.
+This article describes how you can use the no code editor to easily create a Stream Analytics job to produce processed data into Power BI dataset. It continuously reads from your Event Hubs, processes and outputs the data into Power BI dataset to build the near real-time Power BI dashboard.
 
 ## Prerequisites
 
@@ -69,8 +69,8 @@ This article describes how you can use the no code editor to easily create a Str
 
     :::image type="content" source="./media/no-code-build-power-bi-dashboard/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/no-code-build-power-bi-dashboard/no-code-list-jobs.png" :::
 
-## Build the near real-time dashboard in Power BI
-Now, you have the Azure Stream Analytics job running and the data is continuously written into the table in the Power BI dataset you've configured. You can now create the near real-time dashboard in Power BI workspace.
+## Build the real-time dashboard in Power BI
+Now, you have the Azure Stream Analytics job running and the data is continuously written into the table in the Power BI dataset you've configured. You can now create the real-time dashboard in Power BI workspace.
 
 1. Go to the Power BI workspace, which you've configured in above Power BI output tile, and select **+ New** in the top left corner, then choose **Dashboard** to give the new dashboard a name.
     :::image type="content" source="./media/no-code-build-power-bi-dashboard/pbi-dashboard-creation.png" alt-text="Screenshot of the pbi dashboard creation." lightbox="./media/no-code-build-power-bi-dashboard/pbi-dashboard-creation.png" :::
@@ -90,3 +90,4 @@ Learn more about Azure Stream Analytics and how to monitor the job you've create
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)
+* [Azure Stream Analytics no-code editor](./no-code-stream-processing.md)
