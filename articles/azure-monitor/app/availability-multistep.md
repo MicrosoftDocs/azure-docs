@@ -154,5 +154,5 @@ For troubleshooting help, see the dedicated [troubleshooting](troubleshoot-avail
 
 ## Next steps
 
+* [Availability overview](availability-overview.md)
 * [Availability alerts](availability-alerts.md)
-* [URL ping web tests](monitor-web-app-availability.md)

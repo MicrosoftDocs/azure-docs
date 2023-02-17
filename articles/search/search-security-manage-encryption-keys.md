@@ -348,7 +348,7 @@ In this section, you'll set the policy that defines a CMK standard for your sear
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](/azure/governance/policy/concepts/effects#deny). 
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](../governance/policy/concepts/effects.md#deny). 
 
    During evaluation of the request, a request that matches a deny policy definition is marked as non-compliant. Assuming the standard for your service is CMK encryption, "deny" means that requests that *don't* specify CMK encryption are non-compliant.
 

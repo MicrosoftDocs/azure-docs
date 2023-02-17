@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Front Door Rules Eng
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/22/2022
 ms.author: duau
