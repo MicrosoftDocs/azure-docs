@@ -14,7 +14,17 @@ ms.author: greglin
 
 ## Design considerations
 
-When using a [hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) VNet topology in Azure with a [Azure DNS Private Resolver](#azure-dns-private-resolver) in the hub VNet 
+Consider the following general [hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) VNet topology in Azure with an [Azure DNS Private Resolver](#azure-dns-private-resolver) located in the hub:
+
+![Hub and spoke architecture diagram](./media/private-resolver-architecture/hub-and-spoke-generic.png)
+
+**Figure 1**: Azure hub and spoke VNet
+- A hub VNet is configured with address space 10.10.0.0/16
+- A spoke VNet is configured with address space 10.11.0.0/16
+- A private resolver is located in the hub VNet
+    - One inbound endpoint is provisioned with an IP address of 10.10.0.4
+    - One outbound endpoint provisioned and associated with a DNS forwarding ruleset
+- The private DNS zone azure.contoso.com is provisioned and linked to the hub VNet 
 
 
 consider the following dependencies for DNS resolution:
