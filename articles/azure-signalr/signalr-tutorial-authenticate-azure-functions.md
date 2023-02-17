@@ -23,17 +23,15 @@ A step by step tutorial to build a chat room with authentication and private mes
 
 ### Prerequisites
 
-You need to install the following softwares to build this tutorial.
-
 * [Node.js](https://nodejs.org/en/download/) (Version 18.x)
-* [Azure Functions Core Tools](../azure-functions/functions-run-local?#install-the-azure-functions-core-tools) (Version 4)
+* [Azure Functions Core Tools](../azure-functions/functions-run-local.md?#install-the-azure-functions-core-tools) (Version 4)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Create essential resources on Azure
 ### Create an Azure SignalR service resource
 
-You'll build and test the Azure Functions app locally. The app accesses a SignalR Service instance, which you need to create ahead of time.
+Your application will access a SignalR Service instance, which you need to create ahead of time.
 
 1. Select on the **Create a resource** (**+**) button for creating a new Azure resource.
 
@@ -75,22 +73,20 @@ You'll build and test the Azure Functions app locally. The app accesses a Signal
 
 1. Select **Review + Create**, then select **Create**.
 
-## Create a Azure Functions project locally
+## Create an Azure Functions project locally
 ### Initialize a function app
 
 1. Create a new folder locally and execute the following command in your terminal to create a new JavaScript Functions project.
 ```
 func init --worker-runtime node --language javascript --name my-app
 ```
-By default, the extension bundle, which contains SignalR extensions is configured in the `host.json` file. For more information about extension bundle, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles) .
+The generated project by default has an extension bundle in the `host.json` file, which contains SignalR extensions, and you don't need to install it yourself. For more information about extension bundle, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles) .
 
 ### Configure application settings
 
-When running and debugging the Azure Functions runtime locally, application settings are read from **local.settings.json**. Update this file with the connection strings of the SignalR Service instance and the storage account that you created earlier.
+When running and debugging the Azure Functions runtime locally, application settings are read by the function app from **local.settings.json**. Update this file with the connection strings of the SignalR Service instance and the storage account that you created earlier.
 
-1. Open **local.settings.json** to edit it.
-
-1. Replace the file's contents with the following.
+1. Modify the content of **local.settings.json** to the following.
 
     ```json
     {
@@ -105,7 +101,6 @@ When running and debugging the Azure Functions runtime locally, application sett
 
    * Enter the Azure SignalR Service connection string into a setting named `AzureSignalRConnectionString`. Obtain the value from the **Keys** page in the Azure SignalR Service resource in the Azure portal; you can use either primary or secondary connection string.
 
-1. Save the file.
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -151,7 +146,7 @@ When the chat app first opens in the browser, it requires valid connection crede
     }
     ```
 
-    There's no `userId` property in the `signalRConnectionInfo` binding for local development. You'll use it to set the user name of a SignalR connection when the function app is deployed to Azure.
+    There's no `userId` property in the `signalRConnectionInfo` binding for local development, but you'll add it later to set the user name of a SignalR connection when you deploy the function app to Azure.
 
 1. Open **negotiate/index.js** to view the body of the function.
 
@@ -174,7 +169,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
     func new --name sendMessage --template "Http trigger"
     ```
 
-1. Open **sendMessage/function.json** to configure bindings for the function. Modify the content of the file to the following.
+1. Modify the content of **sendMessage/function.json** to configure bindings for the function.
     ```json
     {
         "disabled": false,
@@ -205,9 +200,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
     * Changes the route to `messages` and restricts the HTTP trigger to the **POST** HTTP method.
     * Adds a SignalR Service output binding that sends a message returned by the function to all clients connected to a SignalR Service hub named `default`.
 
-1. Save the file.
-
-1. Open **sendMessage/index.js** to view the body of the function. Modify the content of the file to the following.
+1. Modify the content of **sendMessage/index.js** to the following.
 
     ```javascript
     module.exports = async function (context, req) {
@@ -230,7 +223,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
 
     This function takes the body from the HTTP request and sends it to clients connected to SignalR Service, invoking a function named `newMessage` on each client.
 
-    The function can read the sender's identity and can accept a *recipient* value in the message body to allow to send a message privately to a single user. These functionalities will be used later in the tutorial.
+    The function can read the sender's identity and can accept a *recipient* value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
 
 1. Save the file.
 
@@ -267,6 +260,26 @@ The chat application's UI is a simple single page application (SPA) created with
     ```
     The function reads the static web page and returns it to the user.
 
+1. Open **index/function.json**, change the **authLevel** of the bindings to **anonymous**. Now the whole file looks like this:
+    ```json
+    {
+        "bindings": [
+            {
+                "authLevel": "anonymous",
+                "type": "httpTrigger",
+                "direction": "in",
+                "name": "req",
+                "methods": ["get", "post"]
+            },
+            {
+                "type": "http",
+                "direction": "out",
+                "name": "res"
+            }
+        ]
+    }
+    ```
+
 1. Now you can test your app locally. Start the function app with the command:
     ```bash
     func start
@@ -276,7 +289,7 @@ The chat application's UI is a simple single page application (SPA) created with
 
     ![Local chat client web user interface](./media/signalr-tutorial-authenticate-azure-functions/local-chat-client-ui.png)
 
-1. Enter a message in the chat box and press enter. Refresh the application to see new messages. Because no user name is configured, all messages will be sent as "anonymous".
+1. Enter a message in the chat box and press enter. Refresh the application to see new messages. Because we don't set the user name of the SignalR client, we send all messages as "anonymous".
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -286,11 +299,11 @@ You have been running the function app and chat application locally. You'll now 
 
 ### Configure function app for authentication
 
-So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
+So far, the chat app works anonymously. In Azure, you'll use [App Service Authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. We can pass the user ID or username of the authenticated user to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
 1. Open **negotiate/function.json**.
 
-1. Insert a [binding expression](../azure-functions/functions-triggers-bindings.md) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
+1. Insert a *userId* property to the *SignalRConnectionInfo* binding with value `{headers.x-ms-client-principal-name}`. This value is a [binding expression](../azure-functions/functions-triggers-bindings.md) that sets the user name of the SignalR client to the name of the authenticated user. The binding should now look like this.
 
     ```json
     {
@@ -317,7 +330,7 @@ The *--publish-local-settings* option enables publishing your local settings in 
 
 ### Enable App Service Authentication
 
-App Service Authentication supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. We'll use **Microsoft** as identity provider.
+App Service Authentication supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. Here we use **Microsoft** as identity provider.
 
 1. Go to the resource page of your function app on Azure portal. Select **Settings** -> **Authentication** -> **Add an identity provider**.
     ![The screenshot of "Authentication" blade](./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png)
