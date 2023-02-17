@@ -39,7 +39,7 @@ To help automate provisioning and deprovisioning, apps expose proprietary user a
 
 To address these challenges, the System for Cross-domain Identity Management (SCIM) specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used with federation standards like Security Assertions Markup Language (SAML) or OpenID Connect (OIDC), provides administrators an end-to-end standards-based solution for access management.
 
-For detailed guidance on developing a SCIM endpoint to automate the provisioning and deprovisioning of users and groups to an application, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md). Many applications are already integrated with Azure Active Directory. Some examples include Slack, Azure Databricks, and Snowflake. For apps that are already integrated, skip the developer documentation and use the tutorials provided in [Tutorials for integrating SaaS applications with Azure Active Directory](../../active-directory/saas-apps/tutorial-list.md).
+For detailed guidance on developing a SCIM endpoint to automate the provisioning and deprovisioning of users and groups to an application, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md). Many applications integrate directly with Azure Active Directory. Some examples include Slack, Azure Databricks, and Snowflake. For these apps, skip the developer documentation and use the tutorials provided in [Tutorials for integrating SaaS applications with Azure Active Directory](../../active-directory/saas-apps/tutorial-list.md).
 
 ## Manual vs. automatic provisioning
 
@@ -80,7 +80,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
 ## How do I set up automatic provisioning to an application?
 
-For pre-integrated applications listed in the gallery, step-by-step guidance is available for setting up automatic provisioning. See [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The following video demonstrates how to set up automatic user provisioning for SalesForce.
+For pre-integrated applications listed in the gallery, use existing step-by-step guidance to set up automatic provisioning, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The following video shows you how to set up automatic user provisioning for SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
