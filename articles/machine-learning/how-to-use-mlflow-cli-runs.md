@@ -114,7 +114,7 @@ Use the parameter `display_name` of Azure Machine Learning jobs to configure the
 
     :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml" highlight="8" range="1-9":::
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     ```python
     from azure.ai.ml import command, Environment
