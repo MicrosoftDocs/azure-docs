@@ -16,6 +16,26 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.22 - September 2022
+
+### Known issues
+
+- When connecting a server and specifying multiple tags, the value of the last tag is used for all tags. You will need to fix the tags after onboarding to use the correct values.
+
+### New features
+
+- The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
+- If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- Added support for Ubuntu 22.04
+- Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
+
+### Fixed
+
+- The agent can now be installed on Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
+- Agent telemetry is now sent through the proxy server if one is configured.
+- Improved accuracy of network connectivity checks
+- When switching the agent from monitoring mode to full mode, existing restrictions are now retained. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+
 ## Version 1.21 - August 2022
 
 ### New features

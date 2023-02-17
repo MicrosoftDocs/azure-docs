@@ -160,6 +160,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
   * The Azure Monitor Agent can use up to 30% of the CPU during normal operations.
   * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
   * The Microsoft Defender for Endpoint extension can use up to 30% of the CPU during installation, upgrades, and removal operations.
+  * The Microsoft Sentinel DNS extension can use up to 30% of the CPU to collect logs from DNS servers
 
 ## Instance metadata
 
