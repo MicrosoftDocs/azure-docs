@@ -21,7 +21,7 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS and upstream Kubernetes.
 
-AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Supported Kubernetes versions][supported-kubernetes-versions].
+AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Alias minor versions][supported-kubernetes-versions].
 
 
 Even if using node image auto upgrade (which won't change the Kubernetes version), it still requires MC to be in a supported version
@@ -42,6 +42,9 @@ The following upgrade channels are available:
 
 > [!NOTE]
 > Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
+
+> [!NOTE]
+> With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. To Learn more [AKS support window][supported-kubernetes-versions]
 
 > [!NOTE]
 > Auto-upgrade requires the cluster's Kubernetes version to be within the [AKS support window][supported-kubernetes-versions], even if using the `node-image` channel.
