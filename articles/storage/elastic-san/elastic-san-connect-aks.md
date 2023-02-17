@@ -23,13 +23,11 @@ The Kubernetes iSCSI CSI driver is available on GitHub:
 - [Readme](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md)
 - [Report iSCSI driver issues](https://github.com/kubernetes-csi/csi-driver-iscsi/issues)
 
-Elastic SAN does not currently support dynamic discovery used in this driver, so the following code changes in the driver are required to add the volumes statically. 
+Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
 
-Make the following modifications to the pkg/lib/iscsi/iscsi/iscsi.go file: 
+Make the following modifications to pkg/lib/iscsi/iscsi/iscsi.go:
 
-![image](https://user-images.githubusercontent.com/125496408/219490945-b2201780-e78a-448a-8c05-1fece2325d59.png)
-
-First add a new function for static discovery: 
+First, add a new function for static discovery: 
 
 ```
 // Add a new function to make static discovery
@@ -43,7 +41,7 @@ func (c *Connector) discoverTargetStatically(targetIqn string, iFace string, por
 }
 ```
 
-Then replace the dynamic discovery with our new function name: 
+Then, replace the `discoverTarget` with the new function name: 
 
 replace: 
 ```
@@ -89,7 +87,6 @@ kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 To connect an Elastic SAN volume to an AKS cluster, you need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
 
 You may get them with the following Azure PowerShell command:
-
 
 ```azurepowershell
 Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume 
