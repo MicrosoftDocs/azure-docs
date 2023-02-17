@@ -31,7 +31,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
-|  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
+|  Number of IPs in a virtual network (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   Yes   |
 |  Minimum size of a single regular volume    |    100 GiB    |    No    |
