@@ -25,7 +25,7 @@ The following client libraries are available to manage users:
 
 Get the confidential ledger's name and the identity service URI from the Azure portal; it will be needed to create a client to manage the users. The image shows the appropriate properties in the Azure portal.
 
-:::image type="content" source="./media/ledger-properties.png" alt-text="Screenshot showing ledger properties in the Azure portal":::
+:::image type="content" source="./media/ledger-properties.png" alt-text="A screenshot showing ledger properties in the Azure portal.":::
 
 Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.com` in the following code snippets with the respective values from the Azure portal.
 
@@ -347,4 +347,4 @@ main().catch((err) => {
 ## Next steps
 
 - [Create a client certificate](create-client-certificate.md)
-- [Manage AAD token-based users](manage-azure-ad-token-based-users.md)
+- [Manage Azure AD token-based users](manage-azure-ad-token-based-users.md)
