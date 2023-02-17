@@ -102,6 +102,16 @@ The previous code example doesn't uses `mlflow.start_run()` but if used you can 
 
 Use MLflow SDK to track any metric, parameter, artifacts, or models. For detailed examples about how to log each, see [Log metrics, parameters and files with MLflow](how-to-log-view-metrics.md).
 
+### Ensure your job's environment has MLflow installed
+
+All Azure Machine Learning environment already have MLflow installed for you, so no action is required if you are using a curated environment. If you want to use a custom environment:
+
+1. Create a `conda.yml` file with the dependencies you need:
+
+    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yml" highlight="7-8" range="1-12":::
+    
+1. Reference the environment in the job you are using.
+
 ### Configuring the job's name
 
 Use the parameter `display_name` of Azure Machine Learning jobs to configure the name of the run. The following example shows how:
