@@ -6,25 +6,27 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 02/15/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
 
 # Azure DNS Private Resolver endpoints and rulesets
 
-In this article, you'll learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md). Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
+In this article, you'll learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md): Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
 
-The architecture for Azure DNS Private Resolver is summarized in the following figure. In this example network, a DNS resolver is deployed in a hub vnet that peers with a spoke vnet. 
-
-> [!NOTE]
-> The peering connection shown in the diagram is not required for name resolution. Vnets that are linked from a DNS forwarding ruleset will use the ruleset when performing name resolution, whether or not the linked vnet peers with the ruleset vnet.
-
-[Ruleset links](#ruleset-links) are provisioned in the [DNS forwarding ruleset](#dns-forwarding-rulesets) to both the hub and spoke vnets, enabling resources in both vnets to resolve custom DNS namespaces using DNS forwarding rules. A private DNS zone is also deployed and linked to the hub vnet, enabling resources in the hub vnet to resolve records in the zone. The spoke vnet resolves records in the private zone by using a DNS forwarding [rule](#rules) that forwards private zone queries to the inbound endpoint VIP in the hub vnet. 
+The architecture for Azure DNS Private Resolver is summarized in the following figure. In this example network, a DNS resolver is deployed in a hub VNet that peers with a spoke VNet. 
 
 [ ![Diagram that shows private resolver architecture](./media/private-resolver-endpoints-rulesets/ruleset.png) ](./media/private-resolver-endpoints-rulesets/ruleset-high.png#lightbox)
 
-An ExpressRoute-connected on-premises network is also shown in the figure, with DNS servers configured to forward queries for the Azure private zone to the inbound endpoint VIP. For more information about enabling hybrid DNS resolution using the Azure DNS Private Resolver, see [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+**Figure 1**: Example hub and spoke network with DNS resolver
+- [Ruleset links](#ruleset-links) are provisioned in the [DNS forwarding ruleset](#dns-forwarding-rulesets) to both the hub and spoke VNets, enabling resources in both VNets to resolve custom DNS namespaces using DNS forwarding rules. 
+- A private DNS zone is also deployed and linked to the hub VNet, enabling resources in the hub VNet to resolve records in the zone. 
+- The spoke VNet resolves records in the private zone by using a DNS forwarding [rule](#rules) that forwards private zone queries to the inbound endpoint VIP in the hub VNet. 
+- An ExpressRoute-connected on-premises network is also shown in the figure, with DNS servers configured to forward queries for the Azure private zone to the inbound endpoint VIP. For more information about enabling hybrid DNS resolution using the Azure DNS Private Resolver, see [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+
+> [!NOTE]
+> The peering connection shown in the diagram is not required for name resolution. Vnets that are linked from a DNS forwarding ruleset will use the ruleset when performing name resolution, whether or not the linked VNet peers with the ruleset VNet.
 
 ## Inbound endpoints
 
@@ -44,7 +46,7 @@ Outbound endpoints are also part of the private virtual network address space wh
 
 ## DNS forwarding rulesets
 
-DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces. The individual [rules](#rules) in a ruleset determine how these DNS names are resolved. Rulesets can also be linked one or more virtual networks, enabling resources in the vnets to use the forwarding rules that you configure.
+DNS forwarding rulesets enable you to specify one or more custom DNS servers to answer queries for specific DNS namespaces. The individual [rules](#rules) in a ruleset determine how these DNS names are resolved. Rulesets can also be linked one or more virtual networks, enabling resources in the VNets to use the forwarding rules that you configure.
 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
@@ -55,17 +57,17 @@ A ruleset can't be linked to a virtual network in another region. For more infor
 
 ### Ruleset links
 
-When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules enabled in the ruleset. The linked virtual networks are not required to peer with the virtual network where the outbound endpoint exists, but these networks can be configured as peers. This configuration is common in a hub and spoke design. In this hub and spoke scenario, the spoke vnet doesn't need to be linked to the private DNS zone in order to resolve resource records in the zone. In this case, the forwarding ruleset rule for the private zone sends queries to the hub vnet's inbound endpoint. For example: **azure.contoso.com** to **10.10.0.4**.
+When you link a ruleset to a virtual network, resources within that virtual network will use the DNS forwarding rules enabled in the ruleset. The linked virtual networks are not required to peer with the virtual network where the outbound endpoint exists, but these networks can be configured as peers. This configuration is common in a hub and spoke design. In this hub and spoke scenario, the spoke VNet doesn't need to be linked to the private DNS zone in order to resolve resource records in the zone. In this case, the forwarding ruleset rule for the private zone sends queries to the hub VNet's inbound endpoint. For example: **azure.contoso.com** to **10.10.0.4**.
 
-The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub vnet: **myeastvnet**, and a spoke vnet: **myeastspoke**.
+The following screenshot shows a DNS forwarding ruleset linked to two virtual networks: a hub VNet: **myeastVNet**, and a spoke VNet: **myeastspoke**.
 
 ![View ruleset links](./media/private-resolver-endpoints-rulesets/ruleset-links.png)
 
-Virtual network links for DNS forwarding rulesets enable resources in other vnets to use forwarding rules when resolving DNS names. The vnet with the private resolver must also be linked from any private DNS zones for which there are ruleset rules.
+Virtual network links for DNS forwarding rulesets enable resources in other VNets to use forwarding rules when resolving DNS names. The VNet with the private resolver must also be linked from any private DNS zones for which there are ruleset rules.
 
-For example, resources in the vnet `myeastspoke` can resolve records in the private DNS zone `azure.contoso.com` if:
-- The ruleset provisioned in `myeastvnet` is linked to `myeastspoke` and `myeastvnet`
-- A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
+For example, resources in the VNet `myeastspoke` can resolve records in the private DNS zone `azure.contoso.com` if:
+- The ruleset provisioned in `myeastVNet` is linked to `myeastspoke` and `myeastVNet`
+- A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastVNet`
 
 ### Rules
 

@@ -14,7 +14,23 @@ ms.author: greglin
 
 ## Design considerations
 
-This article provides guidance on how to optimize DNS resolution with the [Azure DNS Private Resolver](#azure-dns-private-resolver) for a centralized or a decentralized Azure VNet architecture. 
+When using a [hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) VNet topology in Azure with a [Azure DNS Private Resolver](#azure-dns-private-resolver) in the hub VNet 
+
+
+consider the following dependencies for DNS resolution:
+1. Do spoke VNets need to resolve private DNS zones?
+2. Are private DNS zones linked to spoke VNets?
+
+When using a hub and spoke VNet design where private DNS zones don't need to be resolved in the spoke (centralized design), use the inbound endpoint in the spoke as a custom DNS server.
+- Private DNS zones not linked to spokes
+- Ruleset not linked to spoke
+- Private DNS zones linked to hub VNet where endpoints are located
+- Custom DNS
+
+When spokes need to resolve private DNS zones linked to themselves (decentralized), link the ruleset to the spoke VNet. 
+- Default DNS 
+
+This article provides guidance on how to optimize DNS resolution with  for a centralized or a decentralized Azure VNet architecture. 
 
 
 ## Azure DNS Private Resolver
