@@ -54,7 +54,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    |  Property | Description |
    |--|--|
    |  **Subscription**   |  Select the Azure subscription that you want to use for creating the New Relic resource. You must have owner access.|
-   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution.|
+   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
    |  **Resource name**  |Specify a name for the New Relic resource. This name will be the friendly name of the New Relic account.|
    |  **Region**         |Select the region where the New Relic resource on Azure and the New Relic account will be created.|
 
@@ -74,13 +74,13 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
 
 1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs will be sent to New Relic.
 
-   These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). These logs also include updates on service-health events. 
+   These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events. 
 
    Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
-1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-   These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+   These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
    :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
 
@@ -90,7 +90,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
    - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
    - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
     
-   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](/azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) to Azure Marketplace partners.
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
