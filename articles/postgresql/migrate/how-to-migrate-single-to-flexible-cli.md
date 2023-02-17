@@ -70,7 +70,7 @@ az postgres flexible-server migration --help
 
 The above command gives you the following output:
 
-:::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration --help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration --help.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-help.png":::
 
 The output lists the supported migration commands, along with their actions. Let's look at these commands in detail.
 
@@ -84,7 +84,7 @@ az postgres flexible-server migration create -- help
 
 The above command gives you the following result:
 
-:::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration create.png" alt-text="Screenshot of the command for creating a migration." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration create.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-create.png" alt-text="Screenshot of the command for creating a migration." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-create.png":::
 
 It lists the expected arguments and has an example syntax for successfully creating a migration from the source server to the target server. Here's the CLI command to create a new migration:
 
@@ -201,7 +201,7 @@ az postgres flexible-server migration show [--subscription]
 
 The `migration_name` parameter is the name you have assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
 
-:::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration show.png" alt-text="Screenshot of Command Line Interface migration Show." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration show.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-show.png" alt-text="Screenshot of Command Line Interface migration Show." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-show.png":::
 
 For more information about this command, use the `help` parameter:
 
@@ -250,7 +250,7 @@ For more information about this command, use the `help` parameter:
 
 The command gives you the following output:
 
-:::image type="content" source="./media/concepts-single-to-flexible/az postgres flexible-server migration update cancel -- help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="./media/concepts-single-to-flexible/az postgres flexible-server migration update cancel -- help.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
 ## Migration best practices
 
