@@ -26,7 +26,7 @@ The Application Insights JavaScript SDK is easily implemented with a runtime sni
 
 Only two steps are required to enable the Application Insights SDK for JavaScript.
 
-1. Add the following code snippet to the head of an HTML file.
+#### Add the following code snippet to the head of an HTML file.
 
 ```html
 <script type="text/javascript">
@@ -43,7 +43,7 @@ cfg: { // Application Insights Configuration
 </script>
 ```
 
-2. Define the connection string
+#### Define the connection string
 
 An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string is not considered a security token or key.
 
