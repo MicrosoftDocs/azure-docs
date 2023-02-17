@@ -55,7 +55,19 @@ In the code snippet, replace the placeholder `"CONNECTION_STRING"` with your act
 
     :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-### Confirm data is flowing
+## What is collected automatically?
+
+When you enable the App Insights JavaScript SDK using a code snippet, the following data classes are collected automatically:
+
+- ClientContext: OS, locale, language, network, window resolution
+- Inferred: Geolocation from IP address, timestamp, OS, browser
+- PageViews: URL and page name or screen name
+- Client perf: URL/page name, browser load time
+- Ajax: HTTP calls from webpage to server
+
+For more information, refer to the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
+
+## Confirm data is flowing
 
 Check the data flow by going to the Azure portal and navigating to the Application Insights resource that you've enabled the SDK for. From there, you can view the data in the "Live Metrics Stream" or "Metrics" sections. 
 
@@ -82,21 +94,9 @@ dataset
 | render timechart
 ```
 
-## What is collected automatically?
-
-When you enable the App Insights JavaScript SDK using a code snippet, the following data classes are collected automatically:
-
-- ClientContext: OS, locale, language, network, window resolution
-- Inferred: Geolocation from IP address, timestamp, OS, browser
-- PageViews: URL and page name or screen name
-- Client perf: URL/page name, browser load time
-- Ajax: HTTP calls from webpage to server
-
-For more information, refer to the following link: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/data-retention-privacy.md
-
 ## Snippet configuration
 
-All configuration fields are optional except for `connectionString` and default to `false` unless otherwise noted.
+Additional snippet configuration is optional.
 
 | Name | Type | Description
 |------|------|----------------
@@ -112,7 +112,7 @@ All configuration fields are optional except for `connectionString` and default 
 
 Additional information is available for the following advanced scenarios:
 
-- Setup using npm
+- JavaScript SDK npm setup
 - React plugin
 - React native plugin
 - Angular plugin
