@@ -37,7 +37,7 @@ To complete registration, provide the application a name and specify the support
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
-1. For Supported account types, select Accounts in this organizational directory only. For information on different account types, select Help me choose.
+1. For Supported account types, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
     - The **Redirect URI (optional)** will be configured at a later stage.
 1. Select **Register**.
 
