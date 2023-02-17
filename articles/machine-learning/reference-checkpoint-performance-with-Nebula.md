@@ -39,7 +39,7 @@ When large model training operations experience failures and terminations, data 
 
 To summarize, large model checkpoint management involves heavy job recover time and storage overheads.
 
-:::image type="content" source="media/quickstart-spark-jobs/checkpoint-time-flow-diagram.png" lightbox="media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time waste of duplicated data training.":::
+:::image type="content" source="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" lightbox="./media/reference-checkpoint-performance-with-Nebula/checkpoint-time-flow-diagram.png" alt-text="Screenshot that shows the time waste of duplicated data training.":::
 
 ## Nebula to the Rescue
 
@@ -65,18 +65,18 @@ Nebula can
 
 and access them at any time with a few lines of code.
 
-  **LARGER IMG_3 VERSION NEEDED**
+  **LARGER img-3 VERSION NEEDED**
 
-:::image type="content" source="media/quickstart-spark-jobs/IMG_3.png" lightbox="media/reference-checkpoint-performance-with-Nebula/IMG_3.png" alt-text="LARGER IMG_3 VERSION NEEDED":::
+:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-3.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-3.png" alt-text="LARGER img-3 VERSION NEEDED":::
 
-  **LARGER IMG_4 VERSION NEEDED**
+  **LARGER img-4 VERSION NEEDED**
 
-:::image type="content" source="media/quickstart-spark-jobs/IMG_4.png" lightbox="media/reference-checkpoint-performance-with-Nebula/IMG_4.png" alt-text="LARGER IMG_3 VERSION NEEDED":::
+:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-4.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-4.png" alt-text="LARGER img-4 VERSION NEEDED":::
 
 
-  **LARGER IMG_5 VERSION NEEDED**
+  **LARGER img-5 VERSION NEEDED**
 
-:::image type="content" source="media/quickstart-spark-jobs/IMG_5.png" lightbox="media/reference-checkpoint-performance-with-Nebula/IMG_5.png" alt-text="LARGER IMG_5 VERSION NEEDED":::
+:::image type="content" source="media/reference-checkpoint-performance-with-Nebula/img-5.png" lightbox="media/reference-checkpoint-performance-with-Nebula/img-5.png" alt-text="LARGER img-5 VERSION NEEDED":::
 
 Nebula offers full compatibility with any distributed training framework that supports PyTorch, and any compute target that supports ACPT. Nebula is designed to work with different distributed training strategies. You can use Nebula with PyTorch, PyTorch Lightning, DeepSpeed, and more. You can also use it with different Azure Machine Learning compute target, such as AmlCompute or AKS.
 
@@ -91,7 +91,7 @@ Nebula offers full compatibility with any distributed training framework that su
 
   See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
 
-* The required dependency included in an ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments#azure-container-for-pytorch-acpt-preview) to obtain the ACPT image. Learn how to use the curated environment [here](./how-to-use-environments.md)
+* The required dependency included in an ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to obtain the ACPT image. Learn how to use the curated environment [here](./how-to-use-environments.md)
 
 * An Azure ML script run configuration file, which defines the
 - source directory
@@ -112,7 +112,7 @@ To save checkpoints with Nebula, you must modify your training scripts in two wa
 
     Similar to the way that the PyTorch `torch.save()` API works, Nebula provides checkpoint save APIs that you can use in your training scripts.
 
-You don't need to modify other steps to train your large model on Azure Machine Learning Platform. You only need to use the [Azure Container PyTorch (ACPT) curated environment](how-to-manage-environments-v2?tabs=cli#curated-environments)
+You don't need to modify other steps to train your large model on Azure Machine Learning Platform. You only need to use the [Azure Container PyTorch (ACPT) curated environment](how-to-manage-environments-v2.md?tabs=cli#curated-environments)
 
 
 ## Examples
