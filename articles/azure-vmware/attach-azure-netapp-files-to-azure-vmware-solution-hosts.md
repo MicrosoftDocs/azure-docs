@@ -64,7 +64,7 @@ There are some important best practices to follow for optimal performance of NFS
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
   >[!IMPORTANT]
-  > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in portal and API due to metadata mismatch.
+  > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch.
 
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type will determine volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 64, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../availability-zones/az-overview.md#availability-zones) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
@@ -144,7 +144,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
     `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
-## Service level change for Azure NetApp files datastore
+## Service level change for Azure NetApp Files datastore
 
 Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md)
 This has no impact to the Datastore or private cloud as there is no downtime involved and the IP address/mount path remain unchanged. However, the volume Resource Id will be changed due to the capacity pool change. Therefore to avoid any metadata mismatch re-issue the datastore create command via Azure CLI as follows: `az vmware datastore netapp-volume create`.
@@ -225,4 +225,4 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
-    Yes, you can select multiple clusters at the time of datastore creation. Additional clusters may be added or removed after the initial creation as well.
+    Yes, you can select multiple clusters at the time of creating the datastore. Additional clusters may be added or removed after the initial creation as well.
