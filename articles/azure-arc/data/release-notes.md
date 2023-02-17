@@ -17,6 +17,38 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## February 14, 2023
+
+### Image tag
+
+`v1.16.0_2023-02-14`
+
+For complete release version information, see [Version log](version-log.md#february-14-2023).
+
+New for this release:
+
+- Arc data services:
+   - Initial Extended Events Functionality | (preview)
+
+- Arc-SQL MI
+   - [Enabled service managed Transparent Data Encryption (TDE) (preview)](configure-transparent-data-encryption-sql-managed-instance.md).
+   - Backups | Produce automated backups from readable secondary
+    - The built-in automatic backups are performed on secondary replicas when available.
+
+- Arc PostgreSQL 
+   - Automated Backups
+   - Settings via configuration framework
+   - Point-in-Time Restore
+   - Turn backups on/off
+   - Require client connections to use SSL
+   - Active Directory |  Customer-managed bring your own keytab
+   - Active Directory | Configure in Azure command line client
+   - Enable Extensions via Kubernetes Custom Resource Definition
+
+- Azure CLI Extension 
+   - Optional `imageTag` for controller creation by defaulting to the image tag of the bootstrapper
+
+
 ## January 13, 2023
 
 ### Image tag

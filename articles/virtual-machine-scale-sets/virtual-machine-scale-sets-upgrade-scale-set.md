@@ -330,7 +330,7 @@ There is one type of modification to global scale set properties that does not f
     ```
 
    > [!NOTE]
-   > The `az vmss reimage` command will reimage the selected instance, restoing him to the initial state. The instance may be restarted, and any local data will be lost.
+   > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 

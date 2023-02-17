@@ -155,7 +155,7 @@ az afd origin create --resource-group myresourcegroup --host-name <web-app-east-
 |http-port    |80         |The port used for HTTP requests to the origin.        |
 |https-port    |443         |The port used for HTTPS requests to the origin.         |
 
-Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to "2". This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
+Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to "2". This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. If you set the priority for this origin to "1", Azure Front Door will treat both origins as active and direct traffic to both regions. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
 
 ```azurecli-interactive
 az afd origin create --resource-group myresourcegroup --host-name <web-app-west-us>.azurewebsites.net --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name secondaryapp --origin-host-header <web-app-west-us>.azurewebsites.net --priority 2 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
