@@ -150,13 +150,14 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 
 ## Retrieve the Object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI. You'll need to be an owner of your Azure subscription to obtain the OID.
 
-You can retrieve the OID using the Azure CLI:
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **Bash**.
+1. Retrieve the OID:
 
-```azurecli-interactive
-az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
-```
+    ```azurecli-interactive
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+    ```
 
 This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
 
