@@ -100,7 +100,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --target-resource-group <name-of-resource-group> \
         --server <name-of-database-server> \
         --database <name-of-database> \
-        --secret name=<admin-username> secret=<admin-password>
+        --secret name=<admin-username> secret=<admin-password> \
         --connection <name-of-connection>
     ```
 3. Check connection to PostgreSQL.
