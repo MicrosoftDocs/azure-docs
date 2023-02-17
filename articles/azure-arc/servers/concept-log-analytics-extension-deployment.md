@@ -70,7 +70,7 @@ The process automation operating environment in Azure Automation and its support
 * Experience authoring and managing runbooks in Azure Automation
 * Must create a runbook based on PowerShell or Python, depending on the target operating system
 
-### Use Azure Portal
+### Use Azure portal
 
 The Azure Monitor agent VM extension can be installed using the Azure portal. See [Automatic extension upgrade for Azure Arc-enabled servers](manage-automatic-vm-extension-upgrade.md) for more information about installing extensions from the Azure portal.
 
