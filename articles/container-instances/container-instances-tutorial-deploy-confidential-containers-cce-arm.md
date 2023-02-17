@@ -216,11 +216,11 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 1. In the portal, search for Container Instances, and select the container instance you created.
 
-1. On the **Overview** page, note the **Status** of the instance and its **IP address**.
+2. On the **Overview** page, note the **Status** of the instance and its **IP address**.
 
     ![Screenshot of overview page for container group instance, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-cce-portal.png)
 
-2. Once its status is *Running*, navigate to the IP address in your browser. 
+3. Once its status is *Running*, navigate to the IP address in your browser. 
 
     ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png)
 
