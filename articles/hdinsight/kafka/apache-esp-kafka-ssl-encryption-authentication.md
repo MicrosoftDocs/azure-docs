@@ -331,13 +331,15 @@ Using Command Line Tool
    To use a keytab, create a JAAS file with the following content. Be sure to point the keyTab property to your keytab file and reference the principal used inside the keytab. Following is a sample JAAS file created and placed in the location in VM: **/home/hdiuser/kafka_client_jaas_keytab.conf**
    
    ```
-   KafkaClient {
-      com.sun.security.auth.module.Krb5LoginModule required
-      useKeyTab=true
-      storeKey=true
-      keyTab="/home/hdiuser/espkafkauser.keytab"
-      principal="espkafkauser@TEST.COM";};
+   KafkaClient { 
+      com.sun.security.auth.module.Krb5LoginModule required
+      useKeyTab=true
+      storeKey=true
+      keyTab="/home/hdiuser/espkafkauser.keytab"
+      principal="espkafkauser@TEST.COM";
+   };
    ```
+      
 1. Start console producer and provide the path to `client-ssl-auth.properties` as a configuration file for the producer.
 
    ```bash
@@ -345,6 +347,7 @@ Using Command Line Tool
     
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
    ```
+   
 1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
    ```bash
@@ -352,6 +355,7 @@ Using Command Line Tool
     
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
    ```
+   
 If you want to use Java client to do CRUD operations, then use following GitHub repository.
 
 https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/main/DomainJoined-Producer-Consumer-With-TLS
