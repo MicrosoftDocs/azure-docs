@@ -16,7 +16,7 @@ As you use Chaos Studio, you may occasionally encounter some problems. This arti
 ## General troubleshooting tips
 
 The following sources are useful when troubleshooting issues with Chaos Studio:
-1. **The Activity Log**: The [Azure Activity Log](../azure-monitor/essentials/activity-log.md) has a record of all create, update, and delete operations in a subscription. This includes Chaos Studio operations like enabling a target and/or capabilities, installing the agent, and creating or running an experiment. Failures in the Activity Log indicate that a user action essential to using Chaos Studio may have failed to complete. Most service-direct faults also inject faults by executing an Azure Resource Manager operation, so the Activity Log also has the record of faults that were injected during an experiment for some service-direct faults.
+1. **The Activity Log**: The [Azure Activity Log](../azure-monitor/essentials/activity-log.md) has a record of all create, update, and delete operations in a subscription. These records include Chaos Studio operations like enabling a target and/or capabilities, installing the agent, and creating or running an experiment. Failures in the Activity Log indicate that a user action essential to using Chaos Studio may have failed to complete. Most service-direct faults also inject faults by executing an Azure Resource Manager operation, so the Activity Log also has the record of faults that were injected during an experiment for some service-direct faults.
 2. **Experiment Details**: Experiment execution details show the status and errors of an individual experiment run. Opening a specific fault in experiment details shows the resources that failed and the error messages for a failure. [Learn more about how to access experiment details](chaos-studio-run-experiment.md#view-experiment-history-and-details).
 3. **Agent logs**: If using an agent-based fault, you may need to RDP or SSH in to the virtual machine to understand why the agent failed to run a fault. The instructions for accessing agent logs depend on the operating system:
     * **Chaos Windows agent**: Agent logs are in the Windows Event Log in the Application category with the source AzureChaosAgent. The agent adds fault activity and regular health check (ability to authenticate to and communicate with the Chaos Studio agent service) events to this log.
@@ -49,7 +49,7 @@ If you see an error when enabling targets and/or capabilities, try the following
 Some issues are caused by missing prerequisites. 
 
 ### Agent-based faults fail on a virtual machine
-Agent-based faults may fail for a variety of reasons related to missing prerequisites:
+Agent-based faults may fail for various reasons related to missing prerequisites:
 * On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#disk-io-pressure-linux), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stress) faults all require the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) to be installed on your virtual machine. For more information on how to install stress-ng, see the fault prerequisite sections.
 * On either Linux or Windows VMs, the user-assigned managed identity provided during agent-based target enablement must also be added to the virtual machine.
 * On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted Reader role on the VM (seemingly elevated roles like Virtual Machine Contributor don't include the \*/Read operation that is necessary for the Chaos Studio agent service to read the microsoft-agent target proxy resource on the virtual machine).
@@ -63,7 +63,7 @@ Installing the Chaos agent on Virtual Machine Scale Sets may fail with without s
 1. From the left pane menu, choose **Upgrade policy**.
 1. Check the **Upgrade mode** to see if it's set to **Manual - Existing instances must be manually upgraded**.
 
-If the Upgrade policy is set to **Manual**, you can manually upgrade your VMSS instances so that you'll be able to install the Chaos agent.
+If the Upgrade policy is set to **Manual**, you can manually upgrade your VMSS instances so that you can install the Chaos agent.
 
 #### Upgrade instances from Azure portal
 
@@ -87,7 +87,7 @@ You can upgrade your Virtual Machine Scale Sets instances with Azure CLI:
 For more information, see [How to bring VMs up-to-date with the latest scale set model](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
 ### AKS Chaos Mesh faults fail
-AKS Chaos Mesh faults may fail for a variety of reasons related to missing prerequisites:
+AKS Chaos Mesh faults may fail for various reasons related to missing prerequisites:
 * Chaos Mesh must first be installed on the AKS cluster before using the AKS Chaos Mesh faults. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks-portal.md#set-up-chaos-mesh-on-your-aks-cluster).
 * Chaos Mesh must be version 2.0.4 or greater. You can get the Chaos Mesh version by connecting to your AKS cluster and running `helm version chaos-mesh`.
 * Chaos Mesh must be installed with the namespace `chaos-testing`. Other namespace names for Chaos Mesh aren't supported.
