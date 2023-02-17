@@ -69,7 +69,7 @@ See the tables below to learn about the services offered within those categories
 
 |Service Name | Service Description| Quickstart|
 |:------------|:-------------------|-----------|
-|[Azure OpenAI](./openai/index.yml "Azure OpenAI") |  powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. | [Azure OpenAI quickstart](./openai/quickstart.md) |
+|[Azure OpenAI](./openai/index.yml "Azure OpenAI") |Powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. | [Azure OpenAI quickstart](./openai/quickstart.md) |
 
 ## Create a Cognitive Services resource
 
