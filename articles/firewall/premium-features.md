@@ -103,11 +103,11 @@ IDPS signature rules have the following properties:
 |Column  |Description  |
 |---------|---------|
 |Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
-|Mode      |Indicates if the signature is active or not, and whether firewall will drop or alert upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You'll receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You'll receive alerts and suspicious traffic will be blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures won't be blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br> Note: IDPS alerts are available in the portal via network rule log query.|
+|Mode      |Indicates if the signature is active or not, and whether firewall drops or alerts upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You receive alerts and suspicious traffic is blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures isn't blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br> Note: IDPS alerts are available in the portal via network rule log query.|
 |Severity      |Each signature has an associated severity level and assigned priority that indicates the probability that the signature is an actual attack.<br>- **Low (priority 3)**: An abnormal event is one that doesn't normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium (priority 2)**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High (priority 1)**: The attack signatures indicate that an attack of a severe nature is being launched. There's little probability that the packets have a legitimate purpose.|
 |Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
 |Group      |The group name that the signature belongs to.|
-|Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
+|Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE.|
 |Protocol     |The protocol associated with this signature.|
 |Source/Destination Ports     |The ports associated with this signature.|
 |Last updated     |The last date that this signature was introduced or modified.|
@@ -123,13 +123,13 @@ URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic 
 
 ## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories will also be included in Azure Firewall Standard, but it will be more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. 
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. 
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
-- Firewall Standard – only the FQDN part will be examined, so `www.google.com` will be categorized as *Search Engine*. 
+- Firewall Standard – only the FQDN part is examined, so `www.google.com` is categorized as *Search Engine*. 
 
-- Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
+- Firewall Premium – the complete URL is examined, so `www.google.com/news` is categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**. For a detailed description of the web categories, see [Azure Firewall web categories](web-categories.md).
 
@@ -159,7 +159,7 @@ Under the **Web Categories** tab in **Firewall Policy Settings**, you can reques
 
 - have a suggested category for an uncategorized FQDN or URL 
 
- Once you submit a category change report, you'll be given a token in the notifications that indicate that we've received the request for processing. You can check whether the request is in progress, denied, or approved by entering the token in the search bar.  Be sure to save your token ID to do so.
+ Once you submit a category change report, you're given a token in the notifications that indicate that we've received the request for processing. You can check whether the request is in progress, denied, or approved by entering the token in the search bar.  Be sure to save your token ID to do so.
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 

@@ -251,7 +251,7 @@ version = registered_model.version
     
     __endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/create-endpoint.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/create-endpoint.yaml":::
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -295,7 +295,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_endpoint":::
 
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -322,7 +322,7 @@ version = registered_model.version
 
     __sklearn-deployment.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-deployment.yaml":::
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -375,7 +375,7 @@ version = registered_model.version
     
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
 
     # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -471,7 +471,7 @@ Once your deployment completes, your deployment is ready to serve request. One o
 
 **sample-request-sklearn.json**
 
-:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+:::code language="json" source="~/azureml-examples-main/cli/endpoints/online/ncd/sample-request-sklearn.json":::
 
 > [!NOTE]
 > Notice how the key `input_data` has been used in this example instead of `inputs` as used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. See [Differences between models deployed in Azure Machine Learning and MLflow built-in server](how-to-deploy-mlflow-models.md#differences-between-models-deployed-in-azure-machine-learning-and-mlflow-built-in-server) for details about expected input format.
@@ -480,7 +480,7 @@ To submit a request to the endpoint, you can do as follows:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="test_sklearn_deployment":::
 
 # [Python (Azure ML SDK)](#tab/sdk)
 
@@ -675,7 +675,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
       conda_file: mlflow/sklearn-diabetes/environment/conda.yml
     code_configuration:
-      source: mlflow/sklearn-diabetes/src
+      code: mlflow/sklearn-diabetes/src
       scoring_script: score.py
     instance_type: Standard_F2s_v2
     instance_count: 1
@@ -719,7 +719,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     **sample-request-sklearn.json**
     
-    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
+    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/ncd/sample-request-sklearn.json":::
 
     To submit a request to the endpoint, you can do as follows:
     
@@ -776,7 +776,7 @@ Once you're done with the endpoint, you can delete the associated resources:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="delete_endpoint":::
 
 # [Python (Azure ML SDK)](#tab/sdk)
     
