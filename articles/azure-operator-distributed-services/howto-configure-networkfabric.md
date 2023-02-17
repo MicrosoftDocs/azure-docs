@@ -26,7 +26,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ### Install CLI extensions
 
-[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the [necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ## Parameters needed to create network fabric
 

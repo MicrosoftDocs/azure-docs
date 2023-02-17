@@ -22,8 +22,8 @@ You'll need:
 3. <`YourSubscription`>: your subscription name or ID where the AKS-Hybrid cluster was created
 4. <`YourResourceGroupName`>: the name of the Resource group where the AKS-Hybrid cluster was created
 5. <`tags`>: space-separated key=value tags: key[=value] [key[=value] ...]. Use '' to clear existing tags
-6. You should have installed the CLI extensions
-[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+6. You should install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ## List command
 

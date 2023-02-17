@@ -57,7 +57,8 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 
 ## Install CLI extensions
 
-[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ## Operator Nexus Workload Images
 

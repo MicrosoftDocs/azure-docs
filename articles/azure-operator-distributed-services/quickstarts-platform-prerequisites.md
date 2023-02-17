@@ -203,7 +203,8 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
 
 ## Install CLI Extensions and sign-in to your Azure Subscription
 
-[!INCLUDE [Azure CLI extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ### Azure Subscription sign-in
 

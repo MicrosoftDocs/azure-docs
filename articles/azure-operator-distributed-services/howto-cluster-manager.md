@@ -26,7 +26,7 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 
 ## Prerequisites: install CLI extensions
 
-[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
 
 ## Global arguments
 

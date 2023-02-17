@@ -47,8 +47,8 @@ Each Operator Nexus instance consists of network fabric, compute and storage inf
 
 ### Install CLI extensions
 
-Install the latest versions of the required CLI extensions.
-[!INCLUDE [howto-install-cli-extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ## Create Steps
 

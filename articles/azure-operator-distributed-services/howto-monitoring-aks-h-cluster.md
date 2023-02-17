@@ -43,7 +43,8 @@ When enabling Monitoring agents on AKS-Hybrid clusters using CLI, ensure appropr
 
 Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cli), how to install it across [multiple operating systems](/cli/azure/install-azure-cli), and how to install [CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
-[!INCLUDE [CLI extensions](./includes/howto-install-cli-extensions.md)].
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ## Monitoring AKS-Hybrid – VM Layer
 

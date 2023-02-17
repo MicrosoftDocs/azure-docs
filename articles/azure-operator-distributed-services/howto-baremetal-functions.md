@@ -24,8 +24,8 @@ Make your BMM schedulable for it to be used.
 
 ## Prerequisites
 
-1. Install the CLI extensions
-  [!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+1. Install the latest version of the
+  [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target bare metal machine (server) must be `powered-on` and have its `readyState` set to True
 1. Get the Resource group name that you created for `network cloud cluster resource`
 

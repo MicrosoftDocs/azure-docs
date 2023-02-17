@@ -17,8 +17,8 @@ This how-to describes how you can manage your Layer 2 and Layer 3 Isolation Doma
 ## Prerequisites
 
 1. Ensure Network Fabric Controller and Network Fabric have been created.
-1. Install the latest version of CLIs
-[!INCLUDE [necessary CLIs](./includes/howto-install-cli-extensions.md)]
+1. Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ### Sign-in to your Azure account
 

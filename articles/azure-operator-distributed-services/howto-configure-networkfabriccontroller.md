@@ -20,7 +20,8 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 ### Install CLI extensions
 
-[!INCLUDE [Azure CLI & appropriate extensions](./includes/howto-install-cli-extensions.md)]
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
 
 ### Sign in to your Azure account and select your subscription
 
