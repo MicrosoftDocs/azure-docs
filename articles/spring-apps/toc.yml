@@ -12,6 +12,8 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Launch your first web app
+    href: quickstart-for-web-app.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
