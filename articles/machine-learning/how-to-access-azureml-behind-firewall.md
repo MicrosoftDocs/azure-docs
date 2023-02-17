@@ -28,7 +28,7 @@ The following terms and information are used throughout this article:
 * __Azure service tags__: A service tag is an easy way to specify the IP ranges used by an Azure service. For example, the `AzureMachineLearning` tag represents the IP addresses used by the Azure Machine Learning service.
 
     > [!IMPORTANT]
-    > Azure service tags are only supported by some Azure services. For a list of service tags supported with network security groups and Azure Firewall, see the [Virtual network service tags](/azure/virtual-network/service-tags-overview) article.
+    > Azure service tags are only supported by some Azure services. For a list of service tags supported with network security groups and Azure Firewall, see the [Virtual network service tags](../virtual-network/service-tags-overview.md) article.
     > 
     > If you are using a non-Azure solution such as a 3rd party firewall, download a list of [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). Extract the file and search for the service tag within the file. The IP addresses may change periodically.
 
@@ -62,10 +62,10 @@ __Inbound traffic__
 
 | Source | Source<br>ports | Destination | Destination<b>ports| Purpose |
 | ----- |:-----:| ----- |:-----:| ----- |
-| `AzureLoadBalancer` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
+| `AzureMachineLearning` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
 
 > [!TIP]
-> A network security group (NSG) is created by default for this traffic. For more information, see [Default security rules](/azure/virtual-network/network-security-groups-overview#inbound).
+> A network security group (NSG) is created by default for this traffic. For more information, see [Default security rules](../virtual-network/network-security-groups-overview.md#inbound).
 
 __Outbound traffic__
 
@@ -85,7 +85,7 @@ __Outbound traffic__
   > If a compute instance or compute cluster is configured for no public IP, they can't access the public internet by default. However, they do need to communicate with the resources listed above. To enable outbound communication, you have two possible options:
   >
   > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
-  > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) documentation.
+  > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
 
 ### Recommended configuration for training and deploying models
 
