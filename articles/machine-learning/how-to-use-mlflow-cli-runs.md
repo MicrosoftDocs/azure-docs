@@ -128,6 +128,8 @@ command_job = command(
 
 ---
 
+---
+
 ### Submitting the job
 
 1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
