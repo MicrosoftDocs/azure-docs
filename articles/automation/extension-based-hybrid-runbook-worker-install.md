@@ -976,9 +976,7 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 
 After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
 
-**Hybrid Worker extension settings for Windows and Linux**
-
-**Windows**
+**Hybrid Worker extension settings**
 
 ```powershell-interactive
 $settings = @{
