@@ -28,7 +28,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 
-## Clone and build the Spring Boot sample project
+## Clone and build the sample project
 1. Clone sample project.
     ```shell
     git clone git@github.com:Azure-Samples/ASA-Samples-Web-Application.git
@@ -36,7 +36,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
     ./mvnw clean package
    ```
 
-## Provision an instance of Azure Spring Apps
+## Provision Azure Spring Apps
 
 1. Login Azure ClI.
     ```azurecli-interactive
@@ -63,7 +63,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --name <name-of-azure-spring-apps-instance>
     ```
 
-## Create an app in the Azure Spring Apps instance
+## Create an app
 1. Create an app.
     ```azurecli-interactive
     az spring app create \
@@ -74,7 +74,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --assign-endpoint true
     ```
 
-## Provision an instance of Azure Database for PostgreSQL - Flexible Server
+## Provision Azure Database for PostgreSQL
 1. Create a PostgreSQL server.
     ```azurecli-interactive
     az postgres flexible-server create \
