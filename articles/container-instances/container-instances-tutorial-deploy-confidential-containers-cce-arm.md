@@ -27,12 +27,12 @@ In this article, you'll:
 
 ## Create an ACI container group ARM Template
 
-In this tutorial, you deploy a hello world application that generates a hardware attestation report. We start by creating an ARM template with a container group resource to define the properties of this application. This ARM is used with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for software attestation. In this tutorial, this [ARM template](https://acidocs.blob.core.windows.net/documentation/template.json) is used.  
+In this tutorial, you deploy a hello world application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You'll use this ARM template with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for software attestation. In this tutorial, we use this [ARM template](https://acidocs.blob.core.windows.net/documentation/template.json).  
 
 There are two properties added to the ACI resource definition to make the container group confidential: 
 
-1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property is not added, the container group will be deployed as Standard SKU. 
-2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object is not added to the resource, you'll only receive hardware attestation, and all software is allowed to run within the container group.
+1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property isn't added, the container group will be deployed as Standard SKU. 
+2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object isn't added to the resource, you'll only receive hardware attestation, and all software is allowed to run within the container group.
 
 Use your preferred text editor to save this ARM template on your local machine as **template.json**.
 
@@ -154,7 +154,7 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
 
 ## Create a custom CCE Policy 
 
-With the ARM template that you have crafted and the Azure CLI confcom extension, you are able to generate a custom CCE policy. the CCE policy is used for software attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
+With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for software attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
 
 
 1. To generate the CCE policy, you'll run the following command using the ARM template as input: 
@@ -181,15 +181,15 @@ cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5l
 
 ## Deploy the template
 
-1. Select the following **Deploy to Azure** button to sign in to Azure and begin a Azure Container Instances deployment.
+1. Select the following **Deploy to Azure** button to sign in to Azure and begin an Azure Container Instances deployment.
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerinstance%2Faci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
-1. Choose **Edit template**. You will see a default deployment template JSON.
+1. Choose **Edit template**. You'll see a default deployment template JSON.
 
   ![Screenshot of Edit template button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-edit-template.png)
 
-1. Select **Load file** and upload **template.json**, which you have modified by generating adding a CCE policy. 
+1. Select **Load file** and upload **template.json**, which you've modified by generating adding a CCE policy. 
 
   ![Screenshot of Load file button on template screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-load-file.png)
 
