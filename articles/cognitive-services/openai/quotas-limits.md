@@ -14,7 +14,7 @@ ms.author: chrhoder
 
 # Azure OpenAI Service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for the Azure OpenAI Service in Azure Cognitive Services.
+This article contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI in Azure Cognitive Services.
 
 ## Quotas and limits reference
 
