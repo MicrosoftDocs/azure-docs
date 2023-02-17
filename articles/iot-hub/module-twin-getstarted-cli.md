@@ -85,7 +85,7 @@ To create a device identity and module identity:
     az iot hub device-identity create --device-id {DeviceName} --hub-name {HubName} 
     ```
 
-1. In the CLI session, run the [az iot hub module-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-module-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the module identity for your module, under the device identity you created in the previous step.
+1. In the CLI session, run the [az iot hub module-identity create](/cli/azure/iot/hub/module-identity#az-iot-hub-module-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the module identity for your module, under the device identity you created in the previous step.
 
     *{DeviceName}*. The name of your device.
 
@@ -102,7 +102,7 @@ To create a device identity and module identity:
 
 Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you use the CLI session to update a set of desired properties on the module twin associated with the module identity you created in the previous section.
 
-1. In the CLI session, run the [az iot hub module-twin update](/cli/azure/iot/hub#az-iot-hub-module-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple desired properties on the module twin for the module identity we created in the previous section.
+1. In the CLI session, run the [az iot hub module-twin update](/cli/azure/iot/hub/module-twin#az-iot-hub-module-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple desired properties on the module twin for the module identity we created in the previous section.
 
     *{DeviceName}*. The name of your device.
 
