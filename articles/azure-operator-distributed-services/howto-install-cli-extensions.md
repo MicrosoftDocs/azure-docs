@@ -9,7 +9,7 @@ ms.date: 01/27/2023
 # ms.custom: template-include #Required;
 ---
 
-**Install Azure CLI Extensions**
+# Install Azure CLI Extensions
 
 Install the following CLI extensions:
 
