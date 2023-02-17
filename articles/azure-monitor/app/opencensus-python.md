@@ -574,6 +574,6 @@ For more information about how to use queries and logs, see [Logs in Azure Monit
 
 ### Alerts
 
-* [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Availability overview](./availability-overview.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../alerts/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
