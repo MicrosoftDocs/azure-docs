@@ -287,7 +287,7 @@ If you move a resource that has an Azure role assigned directly to the resource 
 
 After you move a resource, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it's a best practice to remove the role assignment before moving the resource. For information about how to move resources, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-### Symptom - Role assignment changes aren't being detected
+### Symptom - Role assignment changes are not being detected
 
 You recently added or updated a role assignment, but the changes aren't being detected. You might see the message `Status: 401 (Unauthorized)`.
 
