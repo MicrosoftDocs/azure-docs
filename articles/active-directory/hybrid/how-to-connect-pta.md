@@ -29,7 +29,7 @@ This feature is an alternative to [Azure AD Password Hash Synchronization](how-t
 
 ![Azure AD Pass-through Authentication](./media/how-to-connect-pta/pta1.png)
 
-You can combine Pass-through Authentication with the [Seamless single sign-On](how-to-connect-sso.md) feature. If you have Windows 10 or later machines, use [Hybrid Azure AD Join (AADJ)](../devices/howto-hybrid-azure-ad-join.md). This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
+You can combine Pass-through Authentication with the [Seamless single sign-on](how-to-connect-sso.md) feature. If you have Windows 10 or later machines, use [Hybrid Azure AD Join (AADJ)](../devices/howto-hybrid-azure-ad-join.md). This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
 
 ## Key benefits of using Azure AD Pass-through Authentication
 
