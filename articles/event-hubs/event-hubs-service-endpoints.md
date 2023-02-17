@@ -42,7 +42,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access only from specific virtual networks.
 
     Here are more details about options available in the **Public network access** page:
-    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -55,7 +55,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!IMPORTANT]
     > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.
-3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
+3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal prompts you to enable it.
    
     :::image type="content" source="./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png" lightbox="./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png" alt-text="Image showing the selection of a subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.EventHub**. Select **Add** at the bottom of the page to add the network. 
@@ -186,6 +186,17 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+
+## Use Azure CLI
+Use [`az eventhubs namespace network-rule`](/cli/azure/eventhubs/namespace/network-rule) add, list, update, and remove commands to manage virtual network rules for a Service Bus namespace.
+
+## Use Azure PowerShell
+Use the following Azure PowerShell commands to add, list, remove, update, and delete network rules for a Service Bus namespace. 
+
+- [`Add-AzEventHubVirtualNetworkRule`](/powershell/module/az.eventhub/add-azeventhubvirtualnetworkrule) to add a virtual network rule.
+- [`New-AzEventHubVirtualNetworkRuleConfig`](/powershell/module/az.eventhub/new-azeventhubipruleconfig) and [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) together to add a virtual network rule.
+- [`Remove-AzEventHubVirtualNetworkRule`](/powershell/module/az.eventhub/remove-azeventhubvirtualnetworkrule) to remove s virtual network rule.
+
 
 ## default action and public network access 
 

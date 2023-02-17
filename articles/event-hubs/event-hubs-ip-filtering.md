@@ -147,6 +147,17 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
+## Use Azure CLI
+Use [`az eventhubs namespace network-rule`](/cli/azure/eventhubs/namespace/network-rule) add, list, update, and remove commands to manage IP firewall rules for an Event Hubs namespace.
+
+## Use Azure PowerShell
+Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 
+
+- [`Add-AzEventHubIPRule`](/powershell/module/az.eventhub/add-azeventhubiprule) to add an IP firewall rule.
+- [`New-AzEventHubIPRuleConfig`](/powershell/module/az.eventhub/new-azeventhubipruleconfig) and [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) together to add an IP firewall rule
+- [`Remove-AzEventHubIPRule`](/powershell/module/az.eventhub/remove-azeventhubiprule) to remove an IP firewall rule.
+
+
 ## Default action and public network access 
 
 ### REST API
