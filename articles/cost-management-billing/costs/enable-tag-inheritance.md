@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2023
+ms.date: 02/16/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -65,7 +65,9 @@ Let's look at an example of how a resource tag gets applied. In the following di
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-02.svg" alt-text="Example diagram showing how a resource tag gets applied." border="false" lightbox="./media/enable-tag-inheritance/tag-example-02.svg":::
 
-Let's look at another example where a resource tag gets overridden. In the following diagram, resource 4 and resource group 2 have the same tag: **App**. Because the user chose to use the resource group or subscription tag, usage record 4 is updated with the resource group tag value, which is *backend*.
+Let's look at another example where a resource tag gets overridden. In the following diagram, resource 4 and resource group 2 have the same tag: **App**. Because the user chose to use the resource group or subscription tag, usage record 4 is updated with the resource group tag value, which is *backend*¹.
+
+¹ When the subscription and resource group tags are the same as the resource tag and you’ve selected the **Use the subscription or resource group tag** option, the subscription tag is used.
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-03.svg" alt-text="Example diagram showing how a resource tag gets overridden." border="false" lightbox="./media/enable-tag-inheritance/tag-example-03.svg":::
 

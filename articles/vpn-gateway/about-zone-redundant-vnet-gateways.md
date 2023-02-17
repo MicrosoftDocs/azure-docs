@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Create a zone-redundant virtual network gateway in Azure availability zones
+# About zone-redundant virtual network gateway in Azure availability zones
 
 This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../availability-zones/az-overview.md)
 
