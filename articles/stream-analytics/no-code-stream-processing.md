@@ -6,7 +6,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022, ignite-2022
-ms.date: 10/12/2022
+ms.date: 2/17/2023
 ---
 
 # No-code stream processing through Azure Stream Analytics
@@ -229,9 +229,17 @@ Under the **Outputs** section on the ribbon, select **ADLS Gen2** as the output 
 
 When you're connecting to Azure Data Lake Storage Gen2, if you select **Managed Identity** as the authentication mode, then the Storage Blob Data Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Data Lake Storage Gen2, see [Use managed identities to authenticate your Azure Stream Analytics job to Azure Blob Storage](blob-output-managed-identity.md). 
 
-Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days. 
+Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days.
 
 ![Screenshot that shows selecting managed identity as the authentication method for Azure Data Lake Storage Gen2](./media/no-code-stream-processing/msi-adls-nocode.png)
+
+**Exactly once delivery (preview)** is supported in the ADLS Gen2 as no code editor output. You can enable it in the **Write mode** section in ADLS Gen2 configuration. For more information about this feature, see [Exactly once delivery (preview) in Azure Data Lake Gen2](./blob-storage-azure-data-lake-gen2-output.md#exactly-once-delivery-public-preview)
+
+:::image type="content" source="./media/no-code-stream-processing/exactly-once-delivery-adls-gen2.png" alt-text="Screenshot that shows the exactly once configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/exactly-once-delivery-adls-gen2.png" :::
+
+**Write to Delta Lake table (preview)** is supported in the ADLS Gen2 as no code editor output. You can access this option in section **Serialization** in ADLS Gen2 configuration. For more information about this feature, see [Write to Delta Lake table (Public Preview)](./write-to-delta-lake.md).
+
+:::image type="content" source="./media/no-code-stream-processing/delta-lake-format-output-in-adls-gen2.png" alt-text="Screenshot that shows the delta lake configuration in ADLS Gen2 output." lightbox="./media/no-code-stream-processing/delta-lake-format-output-in-adls-gen2.png" :::
 
 ### Azure Synapse Analytics
 
