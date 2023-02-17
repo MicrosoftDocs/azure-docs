@@ -76,6 +76,8 @@
   items:
     - name: Get started with machine learning
       items:
+        - name: Prepare and explore data
+          href: tutorial-explore-data.md
         - name: Develop on a cloud workstation
           href: tutorial-cloud-workstation.md
         - name: Set up a reusable pipeline

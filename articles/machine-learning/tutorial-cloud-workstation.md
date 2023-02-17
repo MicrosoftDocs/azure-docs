@@ -59,15 +59,15 @@ If you do have a compute instance, start it if it's not already running.
 1. On the top right, observe the kernel dropdown menu. While you can use any of the built-in kernels right away, in this tutorial you're going to create a new kernel.  
 1. Copy and paste the following import code into the first cell of your notebook, _but don't run it yet._
 
-```python
-import os
-import argparse
-import pandas as pd
-import mlflow
-import mlflow.sklearn
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
+    ```python
+    import os
+    import argparse
+    import pandas as pd
+    import mlflow
+    import mlflow.sklearn
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.metrics import classification_report
+    from sklearn.model_selection import train_test_split
 ```
 
 ## Set up a new environment for prototyping

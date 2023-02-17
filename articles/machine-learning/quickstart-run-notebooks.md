@@ -1,5 +1,5 @@
 ---
-title: "Set up your cloud workstation"
+title: "Run notebooks on your cloud workstation"
 titleSuffix: Azure Machine Learning
 description: Add and edit files, install packages, and run code from your workstation in the cloud. 
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 01/04/2023
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
 ---
 
-# Set up your Azure Machine Learning cloud workstation
+# Run notebooks on your cloud workstation
  
 Learn how to use the Azure Machine Learning cloud as your development environment to run notebooks and scripts.
 
