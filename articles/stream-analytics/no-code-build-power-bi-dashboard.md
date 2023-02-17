@@ -11,7 +11,7 @@ ms.date: 2/17/2023
 
 # Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor
 
-This article describes how you can use the no code editor to easily create a Stream Analytics job to produce processed data into Power BI dataset. It continuously reads from your Event Hubs, processes and outputs the data into Power BI dataset to build the near real-time Power BI dashboard.
+This article describes how you can use the no code editor to easily create a Stream Analytics job to produce processed data into Power BI dataset. It continuously reads from your Event Hubs, processes and outputs the data into Power BI dataset to build the real-time Power BI dashboard.
 
 ## Prerequisites
 
@@ -90,4 +90,4 @@ Learn more about Azure Stream Analytics and how to monitor the job you've create
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)
-* [Azure Stream Analytics no-code editor](./no-code-stream-processing.md)
+* [Azure Stream Analytics no code editor](./no-code-stream-processing.md)

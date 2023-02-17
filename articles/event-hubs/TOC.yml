@@ -72,7 +72,7 @@
     - name: Capture Event Hubs data in Parquet format
       href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
       maintainContext: true
-    - name: Build real time dashboards with Power BI
+    - name: Build real-time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
       maintainContext: true
     - name: Process Apache Kafka for Event Hubs events using Stream analytics

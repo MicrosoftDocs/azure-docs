@@ -1,6 +1,6 @@
 ---
-title: Build near real-time dashboard with Azure Synapse Analytics and Power BI
-description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build near-real time dashboards using Power BI 
+title: Build real-time dashboard with Azure Synapse Analytics and Power BI
+description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build real-time dashboards using Power BI 
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
@@ -9,7 +9,7 @@ ms.date: 02/17/2023
 ms.custom: seodec18
 ---
 
-# Build real time Power BI dashboards with Stream Analytics no code editor
+# Build real-time Power BI dashboards with Stream Analytics no code editor
 This tutorial shows how you can use the Stream Analytics no code editor to compute aggregates on real time data streams and store it in Azure Synapse Analytics. 
 
 In this tutorial, you learn how to:
@@ -120,7 +120,7 @@ Before you start, make sure you've completed the following steps:
     * X-axis as times
     * Y-axis as CarCount
     * Legend as Make
-    You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a near-real time view.
+    You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a real-time view.
 [![Screenshot of Power BI dashboard showing car summary data.](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png)](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png#lightbox)
 
 ## More option
@@ -136,7 +136,7 @@ It's also a good option to build the real-time dashboard with your streaming dat
 3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Next steps
-In this tutorial, you created a Stream Analytics job using the no code editor to define aggregations and write results to Azure Synapse Analytics. You then used the Power BI to build a near-real time dashboard to see the results produced by the job.
+In this tutorial, you created a Stream Analytics job using the no code editor to define aggregations and write results to Azure Synapse Analytics. You then used the Power BI to build a real-time dashboard to see the results produced by the job.
 
 > [!div class="nextstepaction"]
 > [No code stream processing with Azure Stream Analytics](https://aka.ms/asanocodeux)
