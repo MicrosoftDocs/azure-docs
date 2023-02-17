@@ -6,7 +6,7 @@ author: tomvcassidy
 
 ms.service: container-instances
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 03/01/2023
 ms.author: tomcassidy
 ms.custom: include file
 ---
@@ -15,18 +15,16 @@ You must satisfy the following requirements to complete this tutorial:
 
 1. **Azure CLI**: You must have Azure CLI version 2.44.1 or later installed on your local computer. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI][azure-cli-install].
 
-2. **Azure CLI Confcom extension**: You must have the Azure CLI confcom extension version 0.30+ installed to generate confidential computing enforcement policies. 
-
-
+2. **Azure CLI confcom extension**: You must have the Azure CLI confcom extension version 0.2.10+ installed to generate confidential computing enforcement policies. 
 
 **Docker**: This tutorial assumes a basic understanding of core Docker concepts like containers, container images, and basic `docker` commands. For a primer on Docker and container basics, see the [Docker overview][docker-get-started].
 
 **Docker**: To complete this tutorial, you need Docker installed locally. Docker provides packages that configure the Docker environment on [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux].
 
-**Azure CLI Confcom extension**: You must have the Azure CLI Confcom extension version 0.30+ to generate confidential computing enforcement policies. 
+**Azure CLI confcom extension**: You must have the Azure CLI confcom extension version 0.30+ to generate confidential computing enforcement policies. 
    
 ```bash
-   az extension add confcom
+   az extension add -n confcom
  ```
 
 > [!IMPORTANT]
