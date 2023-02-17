@@ -1,11 +1,11 @@
 ---
 title: Deploy Azure Monitor agent on Arc-enabled servers
 description: This article reviews the different methods to deploy the Azure Monitor agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 02/16/2023
+ms.date: 02/17/2023
 ms.topic: conceptual
 ---
 
-# Understand deployment options for the Azure Monitor agent on Azure Arc-enabled servers
+# Deployment options for Azure Monitor agent on Azure Arc-enabled servers
 
 Azure Monitor supports multiple methods to install the Azure Monitor agent and connect your machine or server registered with Azure Arc-enabled servers to the service. Azure Arc-enabled servers support the Azure VM extension framework, which provides post-deployment configuration and automation tasks, enabling you to simplify management of your hybrid machines like you can with Azure VMs.
 
