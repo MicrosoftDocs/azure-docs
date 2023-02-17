@@ -119,7 +119,7 @@ You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or
 ### Monitor
 
 * [Monitor run status, review trigger history, and set up alerts for Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
-* [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md)
 * [Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps](../logic-apps/monitor-b2b-messages-log-analytics.md)
 * [View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps](../logic-apps/create-monitoring-tracking-queries.md)
 
