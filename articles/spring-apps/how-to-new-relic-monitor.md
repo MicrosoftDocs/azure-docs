@@ -63,9 +63,9 @@ Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic
 
 ## Azure portal
 
-You can also activate this agent from portal with the following procedure.
+You can also activate this agent from the Azure portal with the following procedure.
 
-1. Find the app from **Settings**/**Apps** in the navigation pane.
+1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
    :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
