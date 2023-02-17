@@ -1,6 +1,6 @@
 ---
-title: Workload Identities license plan faq
-description: Learn about Workload identities license plan, features and capabilities. 
+title: Workload identities license plan faq
+description: Learn about workload identities license plan, features and capabilities. 
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -11,12 +11,12 @@ ms.date: 2/17/2023
 ms.author: gasinh
 ms.reviewer: 
 ms.custom: aaddev 
-#Customer intent: I want to know about Workload identities licensing plans 
+#Customer intent: I want to know about workload identities licensing plans 
 ---
 
-# Frequently asked questions about Microsoft Entra Workload Identities license plan
+# Frequently asked questions about workload identities license plan
 
-[Microsoft Entra Workload Identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
+[Workload identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
 Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../marketplace/cloud-solution-providers.md). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
