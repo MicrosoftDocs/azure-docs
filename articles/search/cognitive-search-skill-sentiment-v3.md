@@ -23,7 +23,7 @@ The **Sentiment** skill (v3) evaluates unstructured text and for each record, pr
 Microsoft.Skills.Text.V3.SentimentSkill
 
 ## Data limits
-The maximum size of a record should be 5000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment skill, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 5000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment skill, use the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 
 ## Skill parameters
 
