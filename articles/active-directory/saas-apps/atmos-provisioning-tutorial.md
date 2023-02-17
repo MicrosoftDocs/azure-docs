@@ -52,11 +52,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Atmos from the Azure AD application gallery
 
-Add Atmos from the Azure AD application gallery to start managing provisioning to Atmos. If you have previously setup Atmos for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Atmos from the Azure AD application gallery to start managing provisioning to Atmos. If you have previously setup Atmos for SSO, you can use the same application. However the recommendation is to create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+The Azure AD provisioning service allows you to scope provisioning based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -97,7 +97,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Atmos**.
 
-1. Review the user attributes that are synchronized from Azure AD to Atmos in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atmos for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Atmos API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the synchronized user attributes from Azure AD to Atmos, in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atmos for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Atmos API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Atmos|
    |---|---|---|---|
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Atmos**.
 
-1. Review the group attributes that are synchronized from Azure AD to Atmos in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Atmos for update operations. Select the **Save** button to commit any changes.
+1. Review the synchronized group attributes from Azure AD to Atmos, in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Atmos for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|Supported for filtering|Required by Atmos|
       |---|---|---|---|
