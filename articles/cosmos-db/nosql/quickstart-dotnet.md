@@ -210,12 +210,13 @@ Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.
 For more information on creating a database, see [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md).
 
 
-### Get the container
+### Create a container
 
-The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getcontainer) will return a reference to the specified container.
+The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will create a new container if it doesn't already exist. This method will also return a reference to the container.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_container" highlight="2,4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
 
+For more information on creating a container, see [Create a container in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-container.md).
 
 ---
 
