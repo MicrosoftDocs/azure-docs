@@ -80,6 +80,8 @@
           href: tutorial-cloud-workstation.md
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
+        - name: Deploy an ML model
+          href: tutorial-deploy-model.md
     - name: Build models
       items: 
         - name: Automated ML
@@ -105,8 +107,6 @@
       items: 
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Deploy an ML model
-      href: tutorial-deploy-model.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
