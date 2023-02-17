@@ -35,7 +35,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot of the UI for a Set variable activity.":::
     
-## Setting a pipeline return value in the Set Variable activity with UI
+## Setting a pipeline return value with UI
 
 The Set Variable activity now allows you to set a pipeline return value (preview). The pipeline return value is a system variable that allows you to customize a value that can be consumed by a parent pipeline and used downstream in your pipeline. 
 
