@@ -59,10 +59,10 @@ To authorize with Azure AD, you'll need to use a [security principal](../../acti
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
-| Local machine (developing and testing) | Service principal | [Authorize access using developer service principals](/azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
-| Local machine (developing and testing) | User identity | [Authorize access using developer credentials](/azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
-| Hosted in Azure | Managed identity | [Authorize access from Azure-hosted apps using a managed identity](/azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
-| Hosted outside of Azure (for example, on-premises apps) | Service principal | [Authorize access from on-premises apps using an application service principal](/azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+| Local machine (developing and testing) | Service principal | To learn how to register the app, set up an Azure AD group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Local machine (developing and testing) | User identity | To learn how to set up an Azure AD group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
+| Hosted in Azure | Managed identity | To learn how to enable managed identity and assign roles, see [Authorize access from Azure-hosted apps using a managed identity](/azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+| Hosted outside of Azure (for example, on-premises apps) | Service principal | To learn how to register the app, assign roles, and configure environment variables, see [Authorize access from on-premises apps using an application service principal](/azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
 #### Authorize access using DefaultAzureCredential
 
