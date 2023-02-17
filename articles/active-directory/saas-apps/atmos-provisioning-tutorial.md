@@ -44,9 +44,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * Login to the [Management Console](https://auth.axissecurity.com/).
 * Navigate to **Settings**-> **Identity Providers** screen.
-* Click on  **New Identity Provider** and select **Azure AD**. 
+* Hover over the **Azure Identity Provider** and select **edit**.
 * Navigate to **Advanced Settings**.
-* Go to **User Auto-Provisioning (SCIM)**. 
+* Navigate to **User Auto-Provisioning (SCIM)**. 
 * Click **Generate new token**.
 * Copy the **SCIM Service Provider Endpoint** and **SCIM Provisioning Token** and paste them into a text editor. You will need them for Step 5.
 
