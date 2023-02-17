@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 [Microsoft Entra Workload Identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/en-us/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
-Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](https://learn.microsoft.com/partner-center/csp-overview). Azure and Microsoft 365 subscribers can also purchase Workload
+Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../partner-center/csp-overview.md). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
 
 For more information, see [what are Workload Identities?](workload-identities-overview.md)
@@ -95,7 +95,7 @@ applications for connecting resources that support Azure AD authentication.
 
 All Workload Identities - Service principles, Microsoft apps and
 Managed identities, configured in your directory for a Microsoft Entra
-Workload Identities Premium feature require a license Select and prioritize the identities based on the available licenses. Remove
+Workload Identities Premium feature require a license. Select and prioritize the identities based on the available licenses. Remove
 the workload identities from the directory that are no longer required.
 
 The following identity functionalities are currently available to view
