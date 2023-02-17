@@ -37,7 +37,7 @@ The following sections give different examples of assigning permissions across a
 
 In this scenario, the IT department, service providers, or administrators manage the Azure subscription(s) and is responsible for creating the Azure Lab Services lab plan and then grants the educators permission to create labs in the lab plan. The educator invites students to register for and connect to a lab VM.
 
-Your on the organization structure, the administrator activities might be further split across sub-teams. For example, one team (central IT) might be responsible for the configuration of virtual networks in the case of advanced networking. The creation of the lab plan and other Azure resources might be in the hands of another team (department IT).
+In your organization structure, the administrator activities might be further split across sub-teams. For example, one team might be responsible for the configuration of virtual networks in the case of advanced networking (central IT). And the creation of the lab plan and other Azure resources might be in the hands of another team (department IT).
 
 Get started as an administrator with the [Quickstart: set up the resources for creating labs](./quick-create-resources.md).
 

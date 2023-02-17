@@ -71,7 +71,7 @@ Schedules are the time slots that a lab creator defines so the lab VMs are avail
 
 The use of schedules for a lab is optional and you might [specify user quota](#quota) instead, or use a combination of both. User quota is the time that lab users can run their lab VM outside of scheduled time. For example, to complete assignments or homework. Any scheduled time doesn't count against extra time that lab users have. A lab can use [quota](#quota) time, scheduled time, or a combination of both.
 
-Example scenarios for using schedules:
+Example scenarios for using schedules are:
 
 - A class happens at regular intervals or at a predefined time. You assign one or multiple schedules that match the class time slots, and that enables the students to follow the educator's directions during class hours.
 - A class happens at regular intervals, and students need to complete assignments after class hours. You assign a schedule that matches the class time slots, and you assign user quota for students to complete after-hours assignments.
