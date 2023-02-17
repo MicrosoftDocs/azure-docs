@@ -359,7 +359,7 @@ To do these, Azure uses [managed identities](../active-directory/managed-identit
 
 - If you created the associated endpoint with User Assigned Identity, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission.
 
-For more information, please see [Container Registry Authorication Error](#container-registry-authorization-error).
+For more information, please see [Container Registry Authorization Error](#container-registry-authorization-error).
 
 #### Unable to download user container image
 
