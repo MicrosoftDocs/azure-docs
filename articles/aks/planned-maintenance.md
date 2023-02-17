@@ -75,7 +75,7 @@ An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintena
 |`startDate`|The date on which the maintenance window begins to take effect|The current date at creation time|
 |`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
 |`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
-|`intervalDays`|The interval in days for maintenance runs. Only applicable to `aksManagedNodeOSUpgradeSchedule`|N?A|
+|`intervalDays`|The interval in days for maintenance runs. Only applicable to `aksManagedNodeOSUpgradeSchedule`|N/A|
 |`intervalWeeks`|The interval in weeks for maintenance runs|N/A|
 |`intervalMonths`|The interval in months for maintenance runs|N/A|
 |`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|
@@ -298,7 +298,7 @@ The following example output shows the maintenance window for *aksManagedAutoUpg
 To delete a certain maintenance configuration window in your AKS Cluster, use the `az aks maintenanceconfiguration delete` command.
 
 ```azurecli-interactive
-az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name autoUpgradeSchedule
+az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCluster --name autoUpgradeSchedule
 ```
 
 ## Next steps
