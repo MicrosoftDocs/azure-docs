@@ -99,9 +99,9 @@ ip addr
 For each loopback interface, repeat these commands, which assign the floating IP to the loopback alias:
 
 ```console
-sudo ip addr add floatingip/floatingipnetmask dev lo:0
+sudo ip addr add <floatingip>/<floatingipnetmask> dev lo:0
 ```
-(replace **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
+(replace **<floatingip>** and **<floatingipnetmask>** with the appropriate values that correspond to the load balancer frontend IP) 
 
 Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
 
