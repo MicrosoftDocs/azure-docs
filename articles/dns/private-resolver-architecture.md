@@ -26,6 +26,7 @@ Consider the following general [hub and spoke](/azure/architecture/reference-arc
     - One outbound endpoint provisioned and associated with a DNS forwarding ruleset
 - The private DNS zone azure.contoso.com is provisioned and linked to the hub VNet 
 
+If
 
 consider the following dependencies for DNS resolution:
 1. Do spoke VNets need to resolve private DNS zones?
