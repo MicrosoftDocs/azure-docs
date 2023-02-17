@@ -143,19 +143,20 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 
 1. In the search field, search for **Outlook**.
 1. Select **Office 365 Outlook**.
+
     :::image type="content" source="./media/alerts-logic-apps/choose-operation-outlook.png" alt-text="Screenshot that shows the Add an action page of the Logic Apps Designer with Office 365 Outlook selected.":::
 1. Select **Send an email (V2)** from the list of actions.
 1. Sign in to Office 365 when you're prompted to create a connection.
 1. Create the email **Body** by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.
-For example, for:
-    - **An alert has monitoring condition:** select **monitorCondition** from the **Dynamic content** list.
-    - **Date fired:** select **firedDateTime** from the **Dynamic content** list.
-    - **Affected resources:** and select **alertTargetIDs** from the **Dynamic content** list.
+For example:
+    - **An alert has monitoring condition:** Select **monitorCondition** from the **Dynamic content** list.
+    - **Date fired:** Select **firedDateTime** from the **Dynamic content** list.
+    - **Affected resources:** Select **alertTargetIDs** from the **Dynamic content** list.
 
-1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list. For example, for:
-     - **Alert:** select **alertRule** from the **Dynamic content** list.
-     - **with severity:** select **severity** from the **Dynamic content** list.
-     - **has condition:** select **monitorCondition** from the **Dynamic content** list.
+1. In the **Subject** field, create the subject text by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list. For example:
+     - **Alert:** Select **alertRule** from the **Dynamic content** list.
+     - **with severity:** Select **severity** from the **Dynamic content** list.
+     - **has condition:** Select **monitorCondition** from the **Dynamic content** list.
 
 1. Enter the email address to send the alert to the **To** field.
 1. Select **Save**.
@@ -170,19 +171,20 @@ The next step is to create an action group to trigger your logic app.
 
 1. In the search field, search for **Microsoft Teams**.
 1. Select **Microsoft Teams**.
+
     :::image type="content" source="./media/alerts-logic-apps/choose-operation-teams.png" alt-text="Screenshot that shows the Add an action page of the Logic Apps Designer with Microsoft Teams selected.":::
 1. Select **Post message in a chat or channel** from the list of actions.
 1. Sign in to Teams when you're prompted to create a connection.
 1. Select **User** from the **Post as** dropdown.
 1. Select **Group chat** from the **Post in** dropdown.
 1. Select your group from the **Group chat** dropdown.
-1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list.
-    For example, for:
-    1. **Alert:** select **alertRule** from the **Dynamic content** list.
-    1. **with severity:** select **severity** from the **Dynamic content** list.
-    1. **was fired at:** select **firedDateTime** from the **Dynamic content** list.
+1. Create the message text in the **Message** field by entering static text and including content taken from the alert payload by choosing fields from the **Dynamic content** list. For example:
+    1. **Alert:** Select **alertRule** from the **Dynamic content** list.
+    1. **with severity:** Select **severity** from the **Dynamic content** list.
+    1. **was fired at:** Select **firedDateTime** from the **Dynamic content** list.
     1. Add more fields according to your requirements.
 1. Select **Save**.
+
     :::image type="content" source="./media/alerts-logic-apps/configure-teams-message.png" alt-text="Screenshot that shows the Parameters tab on the Post message in a chat or channel pane.":::
 
 You've created a logic app that sends a Teams message to the specified group, with details from the alert that triggered it.
@@ -209,13 +211,15 @@ To trigger your logic app, create an action group. Then create an alert that use
 1. Select **OK**.
 1. Enter a name in the **Name** field.
 1. Select **Review + create** > **Create**.
-:::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="Screenshot that shows the Actions tab on the Create an action group page and the Logic App pane.":::
+
+   :::image type="content" source="./media/alerts-logic-apps/create-action-group-actions.png" alt-text="Screenshot that shows the Actions tab on the Create an action group page and the Logic App pane.":::
 
 ## Test your action group
 
 1. Select your action group.
 1. In the **Logic App** section, select **Test action group (preview)**.
-:::image type="content" source="./media/alerts-logic-apps/test-action-group1.png" alt-text="Screenshot that shows an action group details page with the Test action group option.":::
+
+   :::image type="content" source="./media/alerts-logic-apps/test-action-group1.png" alt-text="Screenshot that shows an action group details page with the Test action group option.":::
 1. Select a sample alert type from the **Select sample type** dropdown.
 1. Select **Test**.
 
@@ -232,7 +236,8 @@ To trigger your logic app, create an action group. Then create an alert that use
 1. Select your action group from the list.
 1. Choose **Select**.
 1. Finish the creation of your rule.
- :::image type="content" source="./media/alerts-logic-apps/select-action-groups.png" alt-text="Screenshot that shows the Actions tab on the Create an alert rule pane and the Select action groups pane.":::
+
+   :::image type="content" source="./media/alerts-logic-apps/select-action-groups.png" alt-text="Screenshot that shows the Actions tab on the Create an alert rule pane and the Select action groups pane.":::
 
 ## Next steps
 

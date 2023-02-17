@@ -119,9 +119,9 @@ When you create or update an action group in the Azure portal, you can test the 
 
 1. Define an action, as described in the previous few sections. Then select **Review + create**.
 
-> [!NOTE]
->
-> If you're editing an already existing action group, you must save changes to the action group before you begin testing.
+    > [!NOTE]
+    >
+    > If you're editing an already existing action group, you must save changes to the action group before you begin testing.
 
 1. On the page that lists the information you entered, select **Test action group**.
 
