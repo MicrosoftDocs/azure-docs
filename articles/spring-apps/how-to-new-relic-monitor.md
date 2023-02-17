@@ -61,25 +61,25 @@ Use the following procedure to access the agent:
 
 Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-## Portal
+## Azure portal
 
 You can also activate this agent from portal with the following procedure.
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
 
-   [![Find app to monitor](media/new-relic-monitoring/find-app.png)](media/new-relic-monitoring/find-app.png)
+   :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
 2. Select the application to jump to the **Overview** page.
 
-   [![Overview page](media/new-relic-monitoring/overview-page.png)](media/new-relic-monitoring/overview-page.png)
+   :::image type="content" source="media/new-relic-monitoring/overview-page.png" alt-text="Screenshot of the Azure portal showing the Overview page for an app in an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/overview-page.png":::
 
-3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment variables** of the application.
 
-   [![Update environment](media/new-relic-monitoring/configurations-update-environment.png)](media/new-relic-monitoring/configurations-update-environment.png)
+   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
 
 4. Select **General settings** to add/update/delete the **JVM options** of the application.
 
-   [![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png)](media/new-relic-monitoring/update-jvm-option.png)
+   :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
 
 5. View the application api/gateway **Summary** page from the New Relic dashboard.
 
