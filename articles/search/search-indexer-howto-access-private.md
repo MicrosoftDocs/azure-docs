@@ -182,13 +182,13 @@ Rerun the first request to monitor the provisioning state as it transitions from
 
 See [Manage with the Azure CLI](search-manage-azure-cli.md) for instructions on getting started.
 
-First, use [az-search-shared-private-link-resource list](/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-list) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+First, use [az-search-shared-private-link-resource list](/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-list&preserve-view=true) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
 ```azurecli
 az search shared-private-link-resource list --service-name {{your-search-service-name}} --resource-group {{your-search-service-resource-group}}
 ```
 
-Use [az-search-shared-private-link-resource create](/cli/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-create) for the next step. This example is for Azure Cosmos DB for NoSQL.
+Use [az-search-shared-private-link-resource create](/cli/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-create&preserve-view=true) for the next step. This example is for Azure Cosmos DB for NoSQL.
 
 The syntax is case-sensitive, so make sure that the group ID is `Sql` and the provider name is `Microsoft.DocumentDB`.
 
