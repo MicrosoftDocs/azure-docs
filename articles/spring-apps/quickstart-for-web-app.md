@@ -156,7 +156,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
     az spring app logs \
         --resource-group <name-of-resource-group> \
         --service <name-of-azure-spring-apps-instance> \
-        --name <name-of-app> \
+        --name <name-of-app>
     ```
 
 ## Clean up resources
