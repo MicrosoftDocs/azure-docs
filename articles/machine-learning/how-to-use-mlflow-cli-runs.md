@@ -130,8 +130,6 @@ Use the parameter `display_name` of Azure Machine Learning jobs to configure the
 
 2. Ensure you are not using `mlflow.start_run(run_name="")` inside of your training routine.
 
----
-
 ### Submitting the job
 
 1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
