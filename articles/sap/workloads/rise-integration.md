@@ -42,7 +42,7 @@ SAP managed workload should run in the same [Azure region](https://azure.microso
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet.
 :::image-end:::
 
-Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, set up the virtual network peering between [different tenants](../../virtual-network/create-peering-different-subscriptions.md). You accomplish this by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a vnet peering - different subscriptions](../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
+Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, set up the virtual network peering between [different tenants](../../virtual-network/create-peering-different-subscriptions.md). You accomplish this by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite Azure AD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a vnet peering - different subscriptions](../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
 
 ### Connectivity during migration to ECS/RISE
 
@@ -80,7 +80,7 @@ If there's no currently existing Azure to on-premises connectivity, contact your
 
 Similarly to using a hub and spoke network architecture with connectivity to both SAP RISE/ECS vnet and on-premises, the Azure Virtual Wan (vWAN) hub can be used for same purpose. Both connection options described earlier – vnet peering as well as VPN vnet-to-vnet – are available with vWAN hub.
 
-The vWAN network hub is deployed and managed entirely by customer in customer subscription and vnet. On-premise connection and routing through vWAN network hub are also managed entirely by customer.
+The vWAN network hub is deployed and managed entirely by customer in customer subscription and vnet. On-premises connection and routing through vWAN network hub are also managed entirely by customer.
 
 Contact your SAP representative for details and steps needed.
 
@@ -140,7 +140,7 @@ For SAP Fiori, standalone or embedded within the SAP S/4 HANA or NetWeaver syste
 Applications using remote function calls (RFC) or direct database connections using JDBC/ODBC protocols are only possible through private networks and thus via the vnet peering or VPN from customer’s vnet(s).
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-open-ports.png" alt-text="Diagram of SAP's open ports for integration with SAP services":::
-   Diagram of open ports on an SAP RISE/ECS system. RFC connections for BAPI and IDoc, https for OData and Rest/SOAP. ODBC/JDBC for direct database connections to SAP HANA. All connnections through the private vnet peering. Application Gateway with public IP for https as a potential option, managed through SAP.
+   Diagram of open ports on an SAP RISE/ECS system. RFC connections for BAPI and IDoc, https for OData and Rest/SOAP. ODBC/JDBC for direct database connections to SAP HANA. All connections through the private vnet peering. Application Gateway with public IP for https as a potential option, managed through SAP.
 :::image-end:::
 
 With the information about available interfaces to the SAP RISE/ECS landscape, several methods of integration with Azure Services are possible. For data scenarios with Azure Data Factory or Synapse Analytics a self-hosted integration runtime or Azure Integration Runtime is available and described in the next chapter. For Logic Apps, Power Apps, Power BI the intermediary between the SAP RISE system and Azure service is through the on-premises data gateway, described in further chapters. Most services in the [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/) don't require any intermediary gateway and thus can communicate directly with these available SAP interfaces.
@@ -163,7 +163,7 @@ Contact SAP for details on communication paths available to you with SAP RISE an
 
 To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
-## On-premise data gateway
+## On-premises data gateway
 Further Azure Services such as [Logic Apps](../../logic-apps/logic-apps-using-sap-connector.md), [Power Apps](/connectors/saperp/) or [Power BI](/power-bi/connect-data/desktop-sap-bw-connector) communicate and exchange data with SAP systems through an on-premises data gateway. The on-premises data gateway is a virtual machine, running in Azure or on-premises. It provides secure data transfer between these Azure Services and your SAP systems.
 
 With SAP RISE, the on-premises data gateway can connect to Azure Services running in customer’s Azure subscription. This VM running the data gateway is deployed and operated by the customer. Following high-level architecture serves as overview, similar method can be used for either service.
@@ -177,18 +177,18 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 
 SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription. Contact SAP for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
 
-## Single Sign-On for SAP 
+## Single sign-on for SAP 
 
-Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps identical to a natively run SAP system can be followed. The integration steps with Azure Active Directory (AAD) based SSO are available for typical ECS/RISE managed workloads:
+Single sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps identical to a natively run SAP system can be followed. The integration steps with Azure Active Directory (Azure AD) based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](../../active-directory/saas-apps/sap-netweaver-tutorial.md)
 - [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](../../active-directory/saas-apps/sap-fiori-tutorial.md)
 - [Tutorial: Azure Active Directory integration with SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md)
 
-| SSO method | Identity Provider | Typical use case                 | Implementation            |
-| :--------- | :---------------: | :------------------------------- | :------------------------ |
-| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration    |
-| SNC        | AD                | SAP GUI                          | Customer configuration    |
-| SPNEGO     | AD                | Web GUI, Portal                  | Customer configuration    |
+| SSO method | Identity Provider     | Typical use case                 | Implementation            |
+| :--------- | :-------------------: | :------------------------------- | :------------------------ |
+| SAML/OAuth | Azure AD (AAD)        | SAP Fiori, Web GUI, Portal, HANA | Customer configuration    |
+| SNC        | Azure AD (AAD)        | SAP GUI                          | Customer configuration    |
+| SPNEGO     | Active Directory (AD) | Web GUI, Portal                  | Customer configuration    |
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. This isn't necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
 
@@ -197,9 +197,9 @@ SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SA
 The Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities and guard your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. 
 
 The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and apply Sentinel’s built-in content.
--	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premise estate
+-	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premises estate
 -	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
--	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, AAD data and more
+-	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, Azure AD data and more
 -	Customize based on your needs - build your own detections to monitor sensitive transactions and other business risks
 -	Visualize the data with built-in workbooks
 
