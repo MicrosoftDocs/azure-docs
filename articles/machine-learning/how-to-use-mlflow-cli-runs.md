@@ -141,7 +141,7 @@ Use the parameter `display_name` of Azure Machine Learning jobs to configure the
     az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
     ```
    
-    # [Python SDK](#tab/sdk)
+    # [Python SDK](#tab/python)
    
     The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
    
@@ -242,5 +242,5 @@ Some methods available in the MLflow API may not be available when connected to 
 
 ## Next steps
 
-* [Deploy MLflow models)](how-to-deploy-mlflow-models.md).
+* [Deploy MLflow models](how-to-deploy-mlflow-models.md).
 * [Manage models with MLflow](how-to-manage-models-mlflow.md).
