@@ -115,7 +115,7 @@ in a directory:
 >Functionality is subject to change, and feature coverage is
 intended to expand.
 
-## Do these licenses require individual workload identities assginment? 
+## Do these licenses require individual workload identities assignment? 
 
 No, license assignment isn't required. One license in the tenant unlocks features for workload identities. 
 
