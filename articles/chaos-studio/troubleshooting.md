@@ -54,6 +54,38 @@ Agent-based faults may fail for a variety of reasons related to missing prerequi
 * On either Linux or Windows VMs, the user-assigned managed identity provided during agent-based target enablement must also be added to the virtual machine.
 * On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted Reader role on the VM (seemingly elevated roles like Virtual Machine Contributor do not include the \*/Read operation that is necessary for the Chaos Studio agent service to read the microsoft-agent target proxy resource on the virtual machine).
 
+### Chaos agent won't install on Virtual Machine Scale Set (VMSS)
+
+Installing the Chaos agent on a VMSS may fail with without showing an error if the VMSS upgrade policy is set to **Manual**. To check the VMSS upgrade policy:
+
+1. Login to Azure Portal.
+1. Select **Virtual Machine Scale Set (VMSS)**.
+1. From the left pane menu, choose **Upgrade policy**.
+1. Check the **Upgrade mode** to see if it's set to **Manual - Existing instances must be manually upgraded**.
+
+If the Upgrade policy is set to **Manual**, you can manually upgrade your VMSS instances so that you'll be able to install the Chaos agent.
+
+#### Upgrade instances from Azure Portal
+
+You can upgrade you VMSS instances from Azure Portal:
+
+1. Login to Azure Portal.
+1. Select **Virtual Machine Scale Set (VMSS)**.
+1. From the left pane menu, choose **Instances**.
+1. Select all instances and click **Upgrade**.
+
+#### Upgrade instances with the Azure CLI
+
+You can upgrade your VMSS instances with Azure CLI:
+
+- From the Azure CLI, use `az vmss update-instances` to manually upgrade your instances:
+
+    ```azurecli
+    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+    ```
+
+For more information see [How to bring VMs up-to-date with the latest scale set model](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
+
 ### AKS Chaos Mesh faults fail
 AKS Chaos Mesh faults may fail for a variety of reasons related to missing prerequisites:
 * Chaos Mesh must first be installed on the AKS cluster before using the AKS Chaos Mesh faults. Instructions can be found in the [Chaos Mesh faults on AKS tutorial](chaos-studio-tutorial-aks-portal.md#set-up-chaos-mesh-on-your-aks-cluster).
