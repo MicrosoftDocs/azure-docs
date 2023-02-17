@@ -32,7 +32,7 @@ The start of a machine learning project typically involves exploratory data anal
     * Create a cloud-based compute instance to use for your development environment.
 
 * Complete [Run notebooks on your cloud workstation](quickstart-run-notebooks.md) if you need help to:
-    *  Create a new notebook, if you want to copy/paste code into cells.
+    * Create a new notebook, if you want to copy/paste code into cells.
     * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
@@ -52,12 +52,12 @@ The start of a machine learning project typically involves exploratory data anal
 
 ### Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](https://learn.microsoft.com/en-us/azure/data-explorer/ingestion-supported-formats). This tutorial will use this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We'll see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial will use this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We'll see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **get-started-notebooks**.
 
 > [!NOTE]
-> This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource. 
+> This tutorial depends on data placed in an Azure ML resource directory location. For this tutorial, 'local' means a directory location in that Azure ML resource.
 
-This image shows the Azure ML files (directory) panel:
+This image shows the Azure ML Files (directory) panel:
 
 :::image type="content" source="media/tutorial-prepare-data/files.png" alt-text="Screenshot shows the files panel in Azure Machine Learning studio.":::
 
@@ -65,14 +65,18 @@ In the files panel, you can easily create directories, and move files between di
 
 Upload the data to the **get-started-notebooks** directory after you download it. Or, follow these steps to copy the data using the compute instance terminal.
 
+1. Select **Open terminal** below the three dots, as shown in this image:
+
+
 :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-1. The terminal window will open in a new tab. Enter these commands to copy the data to your compute instance:
+1. The terminal window will open in a new tab. Enter these commands in this terminal window to copy the data to your compute instance:
 
     ```
     cd get-started-notebooks # cd to the location you would like to store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
     ```
+
 
 
 [Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
@@ -83,8 +87,6 @@ Before you dive in the code, you'll need to connect to your Azure ML workspace.
 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
-
-Reference for more available credentials if it doesn't work for you: [configure credential example](../../configuration.ipynb), [azure-identity reference doc](https://docs.microsoft.com/python/api/azure-identity/azure.identity?view=azure-python).
 
 In this cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -124,7 +126,7 @@ An Azure ML data asset is similar to web browser bookmarks (favorites). Instead 
 Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure ML datastores, Azure Storage, public URLs, and local files.
 
 > [!TIP]
-> For smaller-size data uploads, Azure ML data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10).
+> For smaller-size data uploads, Azure ML data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
 
 The next notebook cell creates the data asset. Here, the code sample will upload the raw data file to the designated cloud storage resource. This upload operation requires unique **version** and **name** properties in the **my_data** block. Otherwise, the cell will fail. To run this cell code more than once with the same **name** value, change the **version** value each time you run the code. As another workaround, you can also comment out the **version** value. This approach will create new data asset each time the cell runs, and it will auto-increment the version numbers of those versions, starting from 1:
 
@@ -178,13 +180,12 @@ However, as mentioned previously, it can become hard to remember these URIs. Add
 > [!IMPORTANT]
 > In a notebook cell, execute this code to install the `azureml-fsspec` Python library in your Jupyter kernel:
 
-
 ```python
 %pip install -U azureml-fsspec
 ```
 
-    Note: you may need to restart the kernel to use updated packages.
-    
+> [!NOTE]
+> You may need to restart the kernel to use updated packages.
 
 
 ```python
@@ -304,7 +305,66 @@ v2df = pd.read_parquet(data_asset_v2.path)
 print(v2df.head(5))
 ```
 
+    V1 Data asset URI: azureml://subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourcegroups/fbs-rg/workspaces/FBS-Workspace/datastores/workspaceblobstore/paths/UI/2022-12-15_223329_UTC/default_of_credit_card_clients.csv
+      Unnamed: 0         X1   X2         X3        X4   X5     X6     X7     X8  \
+    0         ID  LIMIT_BAL  SEX  EDUCATION  MARRIAGE  AGE  PAY_0  PAY_2  PAY_3   
+    1          1      20000    2          2         1   24      2      2     -1   
+    2          2     120000    2          2         2   26     -1      2      0   
+    3          3      90000    2          2         2   34      0      0      0   
+    4          4      50000    2          2         1   37      0      0      0   
+    
+          X9  ...        X15        X16        X17       X18       X19       X20  \
+    0  PAY_4  ...  BILL_AMT4  BILL_AMT5  BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3   
+    1     -1  ...          0          0          0         0       689         0   
+    2      0  ...       3272       3455       3261         0      1000      1000   
+    3      0  ...      14331      14948      15549      1518      1500      1000   
+    4      0  ...      28314      28959      29547      2000      2019      1200   
+    
+            X21       X22       X23                           Y  
+    0  PAY_AMT4  PAY_AMT5  PAY_AMT6  default payment next month  
+    1         0         0         0                           1  
+    2      1000         0      2000                           1  
+    3      1000      1000      5000                           0  
+    4      1100      1069      1000                           0  
+    
+    [5 rows x 25 columns]
+    _____________________________________________________________________________________________________________
+    
+    V2 Data asset URI: azureml://subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourcegroups/fbs-rg/workspaces/FBS-Workspace/datastores/workspaceblobstore/paths/LocalUpload/972d801ec6250defbf94d7aa5bc433e1/cleaned-credit-card.parquet
+       LIMIT_BAL  SEX  EDUCATION  MARRIAGE  AGE  PAY_0  PAY_2  PAY_3  PAY_4  \
+    0      20000    2          2         1   24      2      2     -1     -1   
+    1     120000    2          2         2   26     -1      2      0      0   
+    2      90000    2          2         2   34      0      0      0      0   
+    3      50000    2          2         1   37      0      0      0      0   
+    4      50000    1          2         1   57     -1      0     -1      0   
+    
+       PAY_5  ...  BILL_AMT4  BILL_AMT5  BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3  \
+    0     -2  ...          0          0          0         0       689         0   
+    1      0  ...       3272       3455       3261         0      1000      1000   
+    2      0  ...      14331      14948      15549      1518      1500      1000   
+    3      0  ...      28314      28959      29547      2000      2019      1200   
+    4      0  ...      20940      19146      19131      2000     36681     10000   
+    
+       PAY_AMT4  PAY_AMT5  PAY_AMT6  default  
+    0         0         0         0        1  
+    1      1000         0      2000        1  
+    2      1000      1000      5000        0  
+    3      1100      1069      1000        0  
+    4      9000       689       679        0  
+    
+    [5 rows x 24 columns]
+    
+
+## Next steps
+
+Read [Create data assets](how-to-create-data-assets.md) for more information about data assets.
+
+Read [Create datastores](how-to-datastore.md) to learn more about datastores.
+
+Now, you can train a model.
+
 <!-- nbend -->
+
 
 
 
