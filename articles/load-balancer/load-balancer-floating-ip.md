@@ -62,7 +62,7 @@ For the VM NIC (Azure managed), type this command.
 ```console
 netsh interface ipv4 set interface <interfacename> weakhostreceive=enabled
 ```
-(replace **<interfacename>** with the name of this interface)
+(replace **\<interfacename\>** with the name of this interface)
 
 For each loopback interface you added, repeat these commands:
 
@@ -70,7 +70,7 @@ For each loopback interface you added, repeat these commands:
 netsh interface ipv4 add addr <loopbackinterface> <floatingip> <floatingipnetmask>
 netsh interface ipv4 set interface <loopbackinterface> weakhostreceive=enabled  weakhostsend=enabled 
 ```
-(replace **<loopbackinterface>** with the name of this loopback interface and **<floatingip>** and **<floatingipnetmask>** with the appropriate values that correspond to the load balancer frontend IP) 
+(replace **\<loopbackinterface\>** with the name of this loopback interface and **\<floatingip\>** and **\<floatingipnetmask\>** with the appropriate values that correspond to the load balancer frontend IP) 
 
 Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
 
