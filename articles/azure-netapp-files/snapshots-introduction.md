@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/10/2023
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
