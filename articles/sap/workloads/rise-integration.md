@@ -25,7 +25,7 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 
 RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services are SAP managed services of your SAP landscape, in an Azure subscription owned by SAP. This means all Azure resources of your SAP environment are visible and managed only by SAP. In turn, the customer's own Azure environment contains applications that interact with the SAP systems. Elements such as virtual networks, network security groups, firewalls, routing, Azure services such as Azure Data Factory and others running inside the customer subscription accessing the SAP managed applications. When engaging with Azure support on Azure topics, only resources owned in your own customer subscriptions are in scope. Contact SAP for issues with any resources operated in SAP's Azure subscriptions for your RISE workload.
 
-As part of your RISE project, document the interface points between on-premises, your own Azure environment and SAP workload managed by SAP. This needs to include any network information such as address space, firewall(s) and routing, network file shares, Azure services, DNS and others. Document ownership of any interface partner and where any resource is running, so this information you can access quickly in a support situation and determine your best way to obtain support. SAP's support organization is to be contacted for services running in SAP's Azure subscriptions.
+As part of your RISE project, document the interface points between on-premises, your own Azure environment and SAP workload managed by SAP. This needs to include any network information such as address space, firewall(s) and routing, network file shares, Azure services, DNS and others. Document ownership of any interface partner and where any resource is running, so this information you can access quickly in a support situation and determine your best way to obtain support. Contact SAP's support organization for services running in SAP's Azure subscriptions.
 
 > [!IMPORTANT]
 > For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud private edition, contact your SAP representative.
@@ -52,7 +52,7 @@ During your migration planning to ECS/RISE, plan how in each phase SAP systems a
 
 ## VPN vnet-to-vnet
 
-As an alternative to vnet peering, virtual private network (VPN) connection can be established between VPN gateways, deployed both in the SAP RISE/ECS subscription and customers own. A vnet-to-vnet connection will be established between these two VPN gateways, enabling fast communication between the two separate vnets. The respective vnets and gateways can be located in different Azure regions.
+As an alternative to vnet peering, virtual private network (VPN) connection can be established between VPN gateways, deployed both in the SAP RISE/ECS subscription and customers own. You can establish a vnet-to-vnet connection between these two VPN gateways, enabling fast communication between the two separate vnets. The respective vnets and gateways can reside in different Azure regions.
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-vpn.png" alt-text="Diagram ofSAP RISE/ECS VPN connection to customer vnet.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. VPN gateway located in SAP RISE vnet connects through vnet-to-vnet connection into gateway contained in customer's hub vnet.
