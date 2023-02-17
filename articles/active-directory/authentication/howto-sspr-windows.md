@@ -78,8 +78,8 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Endpoint Manager**.
 1. Create a new device configuration profile by going to **Device configuration** > **Profiles**, then select **+ Create Profile**
-   - For **Platform** choose *Windows 11 and later*
-   - For **Profile type**, choose *Custom*
+   - For **Platform** choose *Windows 10 and later*
+   - For **Profile type**, choose Templates then select the Custom template below
 1. Select **Create**, then provide a meaningful name for the profile, such as *Windows 11 sign-in screen SSPR*
 
     Optionally, provide a meaningful description of the profile, then select **Next**.
