@@ -1,7 +1,7 @@
 ---
-title: Use Planned Maintenance for your Azure Kubernetes Service (AKS) cluster (preview)
+title: Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS).
+description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 01/17/2023
@@ -9,9 +9,20 @@ ms.author: qpetraroia
 author: qpetraroia
 ---
 
-# Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
+# Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, maintenance will occur only during the window you selected.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, upgrades occur only during the window you selected.
+
+
+There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
+
+- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
+
+- `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
+- `aksManagedNodeOSUpgradeSchedule` controls when node operating system upgrades scheduled by your node OS auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default configuration. For more information on node OS auto-upgrade, see [Automatically patch and update AKS cluster node images][node-image-auto-upgrade]
+
+We recommend using `aksManagedAutoUpgradeSchedule` for all cluster upgrade scenarios and `aksManagedNodeOSUpgradeSchedule` for all node image upgrade scenarios, while `default` is meant exclusively for weekly releases. You can port `default` configurations to `aksManagedAutoUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
 
 ## Before you begin
 
@@ -39,26 +50,12 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Understanding maintenance window configuration types
-
-There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
-
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
-
-- `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
-
-- `aksManagedNodeOSUpgradeSchedule` controls when node operating system upgrades scheduled by your node OS auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default configuration. For more information on node OS auto-upgrade, see [Automatically patch and update AKS cluster node images][node-image-auto-upgrade]
-
-### Choosing between configuration types
-
-We recommend using `aksManagedAutoUpgradeSchedule` for all maintenance and upgrade scenarios, while `default` is meant exclusively for weekly releases. You can port `default` configurations to `aksManagedAutoUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
-
-> [!NOTE]
-> When using auto-upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
-
 ## Creating a maintenance window
 
 To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
+
+> [!NOTE]
+> When using auto-upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
 
 Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
@@ -76,7 +73,7 @@ An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintena
 |Name|Description|Default value|
 |--|--|--|
 |`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|
-|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|
+|`startDate`|The date on which the maintenance window begins to take effect|The current date at creation time|
 |`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
 |`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
 |`intervalDays`|The interval in days for maintenance runs. Only applicable to `aksManagedNodeOSUpgradeSchedule`|N?A|
@@ -325,3 +322,5 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [release-tracker]: release-tracker.md
 [auto-upgrade]: auto-upgrade-cluster.md
 [node-image-auto-upgrade]: auto-upgrade-node-image.md
+[pm-weekly]: ./aks-planned-maintenance-weekly-releases.md
+

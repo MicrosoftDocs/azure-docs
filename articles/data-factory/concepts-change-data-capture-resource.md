@@ -25,6 +25,8 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level resource in Factory Resources panel.":::
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5geIG]
+
 ## Supported data sources
 
 * Avro

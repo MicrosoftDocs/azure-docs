@@ -103,6 +103,8 @@ items:
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
+  - name: Azure AD recommendations API reference
+    href: /graph/api/resources/recommendations-api-overview
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities
@@ -137,12 +139,10 @@ items:
       - name: Multifactor authentication gaps 
         href: workbook-mfa-gaps.md
 
-- name: Recommendations
+- name: Azure AD Recommendations
   items:
-    - name: Convert to Conditional Access MFA
+    - name: Switch to Conditional Access MFA
       href: recommendation-turn-off-per-user-mfa.md
-    - name: Integrate your third party apps
-      href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
     - name: Migrate apps from AD FS to Azure AD

@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/virtual-machines/h-series-retirement.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/h-series-retirement",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
       "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
       "redirect_document_id": false
@@ -13236,7 +13241,7 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-monitor-your-logic-apps-oms.md",
-            "redirect_url": "/azure/logic-apps/monitor-logic-apps-log-analytics",
+            "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
             "redirect_document_id": false
         },
         {
@@ -13334,6 +13339,12 @@
             "redirect_url": "/connectors/custom-connectors/submit-certification",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/logic-apps/monitor-logic-apps-log-analytics.md",
+            "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
+            "redirect_document_id": true
+        },
+
         {
             "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
             "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
@@ -14098,6 +14109,26 @@
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": ""
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-designer-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-custom-skill.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-custom-skill",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-form.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-form",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/cognitive-search-custom-skill-python.md",
+            "redirect_url": "/previous-versions/azure/search/cognitive-search-custom-skill-python",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/search-get-started-vs-code.md",
@@ -22674,6 +22705,11 @@
         {
             "source_path": "articles/application-gateway/tutorial-protect-application-gateway.md",
             "redirect_URL": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/workloads/sap/index.md",
+            "redirect_URL": "/azure/sap/workloads/get-started",
             "redirect_document_id": false
         }
     ]
