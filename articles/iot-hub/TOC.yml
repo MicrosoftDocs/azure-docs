@@ -371,7 +371,7 @@
               href: iot-hub-portal-csharp-module-twin-getstarted.md
             - name: CLI
               displayName: module twins, module identity
-              href: iot-hub-cli-cli-module-twin-getstarted.md
+              href: module-twin-getstarted-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
