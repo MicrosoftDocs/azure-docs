@@ -35,12 +35,12 @@ ms.author: anfdocs
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)   
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
-    By default, the new volume includes a copy of the snapshot that it uses for the restore operation. If you don't want the new volume to contain this snapshot copy, select **Delete base snapshot** during the new volume creation. This option does not affect the original snapshot that you selected (in Step 2). 
+    By default, the new volume includes a copy of the snapshot that it uses for the restore operation. If you don't want the new volume to contain this snapshot copy, select **Delete base snapshot** during the new volume creation. This option doesn't affect the original snapshot that you selected (in Step 2). 
 
     :::image type="content" source="../media/azure-netapp-files/delete-base-snapshop.png" alt-text="Screenshot showing the Delete Base Snapshot checkbox."::: 
 
 4. Select **Review+create**. Select **Create**.   
-    The new volume to which the snapshot is restored appears in the Volumes page.   
+    The Volumes page displays the new volume that the snapshot restores to.   
 
 
 ## Next steps
