@@ -51,7 +51,7 @@ sections:
       - question: |
           What happens when I switch from password hash synchronization to Pass-through Authentication?
         answer: |
-          When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
+          When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. All users' password hashes that are previously synchronized by password hash synchronization remain stored on Azure AD.
 
       - question: |
           Can I install an Azure AD Application Proxy connector on the same server as a Pass-through Authentication Agent?
@@ -226,7 +226,7 @@ additionalContent: |
 
   ## Next steps
 
-  - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
+  - [Current limitations](how-to-connect-pta-current-limitations.md): Learn the scenarios that are supported and the ones that are not.
   - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
   - [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
   - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
