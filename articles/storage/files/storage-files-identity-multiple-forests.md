@@ -176,8 +176,8 @@ Now we'll validate that the trust is working by running the **klist** command to
 
 1. Log on to a machine or VM that's joined to a domain in **Forest 1** and open a Windows command prompt.
 2. To display the credentials cache for the domain-joined storage account in **Forest 2**, run one of the following commands: 
-   - If you used the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method, run: `klist get cifs/onprem2sa.file.core.windows.net`
-   - If you used the [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule) method, run: `klist get cifs/onprem2sa.onpremad2.com`
+   - If you used the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method, run: `klist get cifs/onprem2sa.onpremad2.com`
+   - If you used the [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule) method, run: `klist get cifs/onprem2sa.file.core.windows.net`
 3. You should see output similar to the following. The klist output will differ slightly based on which method you used to configure domain suffixes.
 
 ```
@@ -195,8 +195,8 @@ Kdc Called: onprem2.onpremad2.com
 
 4. Log on to a machine or VM that's joined to a domain in **Forest 2** and open a Windows command prompt.
 5. To display the credentials cache for the domain-joined storage account in **Forest 1**, run one of the following commands:
-   - If you used the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method, run: `klist get cifs/onprem1sa.file.core.windows.net`
-   - If you used the [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule) method, run: `klist get cifs/onprem1sa.onpremad1.com`
+   - If you used the [Modify storage account name suffix and add CNAME record](#modify-storage-account-name-suffix-and-add-cname-record) method, run: `klist get cifs/onprem1sa.onpremad1.com`
+   - If you used the [Add custom name suffix and routing rule](#add-custom-name-suffix-and-routing-rule) method, run: `klist get cifs/onprem1sa.file.core.windows.net`
 6. You should see output similar to the following. The klist output will differ slightly based on which method you used to configure domain suffixes.
 
 ```
