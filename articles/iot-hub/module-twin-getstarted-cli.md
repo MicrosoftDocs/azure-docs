@@ -34,7 +34,7 @@ This article shows you how to create an Azure CLI session in which you:
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The samples in this article use MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
 
@@ -91,23 +91,24 @@ To create a device identity and module identity:
 
     *{HubName}*. The name of your IoT hub.
 
-    *{ModuleName}*. The name of your module.
+    *{ModuleName}*. The name of your device's module.
 
     ```azurecli
-    az iot hub device-identity create --device-id {DeviceName} --hub-name {HubName} --module-id {ModuleName}
+    az iot hub module-identity create --device-id {DeviceName} --hub-name {HubName} \
+                                      --module-id {ModuleName}
     ```
 
 ## Update the module twin
 
-Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you use the CLI session to update a set of desired properties for the module twin associated with the module identity you created in the previous section.
+Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you use the CLI session to update a set of desired properties on the module twin associated with the module identity you created in the previous section.
 
-1. In the CLI session, run the [az iot hub module-twin update](/cli/azure/iot/hub#az-iot-hub-module-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple desired properties.
+1. In the CLI session, run the [az iot hub module-twin update](/cli/azure/iot/hub#az-iot-hub-module-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple desired properties on the module twin for the module identity we created in the previous section.
 
     *{DeviceName}*. The name of your device.
 
     *{HubName}*. The name of your IoT hub.
 
-    *{ModuleName}*. The name of your module.
+    *{ModuleName}*. The name of your device's module.
 
     ```azurecli
     az iot hub module-twin update --device-id {DeviceName} --hub-name {HubName} \
