@@ -13,6 +13,8 @@ ms.date: 2/17/2023
 
 You can process your real-time data streams in Azure Event Hubs by using Azure Stream Analytics. The no-code editor allows you to develop a Stream Analytics job without writing a single line of code. In minutes, you can develop and run a job that tackles many scenarios, including:
 
+- [Build real-time dashboard with Power BI dataset](./no-code-build-power-bi-dashboard.md)
+- [Capture data from Event Hubs in Delta Lake format (preview)](./capture-event-hub-data-delta-lake.md)
 - [Filtering and ingesting to Azure Synapse SQL](./filter-ingest-synapse-sql.md)
 - [Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2](./capture-event-hub-data-parquet.md)
 - [Materializing data in Azure Cosmos DB](./no-code-materialize-cosmos-db.md)

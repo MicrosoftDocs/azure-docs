@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 2/17/2023
 ---
 
 # Debug using the physical job diagram (preview) in Azure portal

@@ -7,7 +7,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/8/2022
+ms.date: 2/17/2023
 ---
 
 # Stream Analytics job diagram (preview) in Azure portal
@@ -97,7 +97,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
 
     * **Adapter type**: it shows the type of the input or output adapter. Stream Analytics supports various input sources and output destinations. Each input source or output destination has a dedicated adapter type. It's only available in input processor and output processor. For example, "InputBlob" represents the ADLS Gen2 input where the input processor receives the data from; "OutputDocumentDb" represents the Cosmos DB output where the output processor outputs the data to. 
     
-        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md)
+        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md).
 
     * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
     * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types](./stream-analytics-define-inputs.md). It's only available in input processor and output processor.
