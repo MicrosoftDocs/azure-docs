@@ -34,7 +34,8 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| PowerStore T|1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [PowerStore T](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
 | Dell EMC PowerFlex |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerFlex version 3.6 |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerFlex CSI version 1.4 |1.21.5|1.4.1_2022-03-08 | 15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
@@ -45,6 +46,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
+|HPE Superdome Flex 280 | 1.26.0 | 1.15.0_2023-01-10 | 16.0.816.19223 | Postgres 14.5(ubuntu 20.04)|
 |HPE Apollo 4200 Gen10 Plus | 1.22.6 | 1.11.0_2022-09-13 |16.0.312.4243|12.3 (Ubuntu 12.3-1)|
 |HPE Superdome Flex 280|1.20.0|1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
 
