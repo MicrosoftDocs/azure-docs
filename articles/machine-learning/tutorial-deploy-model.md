@@ -59,7 +59,7 @@ Before you dive in the code, you'll need to connect to your AzureML workspace.
 We're using `DefaultAzureCredential` to get access to the workspace.
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios.
 
-Reference for more available credentials if it doesn't work for you: [configure credential example](../../configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity).
+Reference for more available credentials if it doesn't work for you: [azure-identity reference doc](/python/api/azure-identity/azure.identity).
 
 In the next cell, enter your Subscription ID, Resource Group name, and Workspace name. To find these values:
 
