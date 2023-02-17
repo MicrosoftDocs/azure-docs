@@ -12,7 +12,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Register an application with the Microsoft identity platform
 
-To enable an application to interact with the Microsoft identity platform, it must be registered in an Azure Active Directory (Azure AD) tenant. This tutorial shows you how to register a web application on the Azure portal, making Azure AD aware of an application you create.
+To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must first be made aware of the application you wish to create. This tutorial shows you how to register a web application in a tenant on the Azure portal.
 
 In this tutorial:
 
