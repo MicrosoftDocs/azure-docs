@@ -62,7 +62,7 @@ Azure Machine Learning any training job in what MLflow calls a run. Use runs to 
 
 When working interactively, MLflow starts tracking your training routine as soon as you try to log information that requires an active run. For instance, when you log a metric, log a parameter, or when you start a training cycle when Mlflow's autologging functionality is enabled. However, it is usually helpful to start the run explicitly, specially if you want to capture the total time of your experiment in the field __Duration__. To start the run explicitly, use `mlflow.start_run()`.
 
-Regardless if you started the run manually or not, you will eventually need to stop the run to inform MLflow that your experiment run has finished and marks its status as __Completed__. To do that, all `mlflow.end_run()`. We strongly recommend to start runs manually so you don't forget to end them when working on notebooks.
+Regardless if you started the run manually or not, you will eventually need to stop the run to inform MLflow that your experiment run has finished and marks its status as __Completed__. To do that, all `mlflow.end_run()`. We strongly recommend starting runs manually so you don't forget to end them when working on notebooks.
 
 ```python
 mlflow.start_run()
@@ -104,7 +104,7 @@ Use MLflow SDK to track any metric, parameter, artifacts, or models. For detaile
 
 ### Ensure your job's environment has MLflow installed
 
-All Azure Machine Learning environment already have MLflow installed for you, so no action is required if you are using a curated environment. If you want to use a custom environment:
+All Azure Machine Learning environments already have MLflow installed for you, so no action is required if you are using a curated environment. If you want to use a custom environment:
 
 1. Create a `conda.yml` file with the dependencies you need:
 
