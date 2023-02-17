@@ -37,26 +37,77 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
-To set up Azure Virtual Desktop for Azure Stack HCI:
+To set up Azure Virtual Desktop for Azure Stack HCI, follow these high-level steps:
 
-1. Create a new host pool with no virtual machines by following the instructions in [Begin the host pool setup process](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process). At the end of that section, come back to this article and start on step 2.
+- Deploy virtual machines on Azure Stack HCI
+- Install Connected Machine agent on the virtual machine
+- Deploy a custom template
+- Manage application groups
 
-2. Configure the newly created host pool to be a validation host pool by following the steps in [Define your host pool as a validation host pool](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool) to enable the Validation environment property.
+### Step 1: Deploy virtual machines on Azure Stack HCI
 
-3. Follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information) to create a workspace for yourself.
+Deploy a new virtual machine on your Azure Stack HCI infrastructure. For step-by-step instructions, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm).
 
-4. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
+> [!NOTE]
+> [Install the Remote Desktop Session Host (RDSH) role](/windows-server/remote/install-rds-host-role-service-without-connection-broker) if the VM is running a Windows Server operating system.
 
-   >[!NOTE]
-   >Install the Remote Desktop Session Host (RDSH) role if the VM is running a Windows Server OS.
+### Step 2: Install Connected Machine agent on the virtual machine
 
-5. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
+To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 
-6. Add the virtual machine to the Azure Virtual Desktop host pool you created earlier by installing the [Azure Virtual Desktop Agent](agent-overview.md). After that, follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
+### Deploy a custom template
 
-7. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
+The custom template helps you:
 
-8. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
+- Create host pool, workspace and application group
+- Add VMs as a session host to the host pool
+- Domain join the VMs
+- Install Azure Monitor agent on the VMs
+
+> [!NOTE]
+> If the host pool already exists, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
+
+After you satisfy the [prerequisites](#prerequisites) complete [Step 1](#step-1-deploy-virtual-machines-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
+
+1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega)
+
+The template will open in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+
+> [!TIP] 
+> Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
+
+1. Select or enter the following values under **Project details**:
+    
+    1. Select the correct **Subscription**.
+    1. In **Region**, select the Azure region for the host pool that’s right for you and your customers.
+    1. In **Host Pool Name**, enter a unique name for your host pool.
+    1. In **Location**, enter a region where you'll create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. Note that this location must match the Azure region you selected in steb b.
+    1. In **Workspace Name**, enter a unique name.
+   
+    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
+
+    1. In **Domain**, enter the domain name to join your session hosts to the required domain.
+    1. In **O U Path**, enter the OU Path value for domain join. For example: OU=unit1,DC=contoso,DC=com.
+    1. In **Domain Administrator Username** and **Domain Administrator Password**, enter the domain administrator credentials to join your session hosts to the domain.
+
+    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
+
+    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to be added to the host pool as session hosts. You can add multiple VMs. For example: [“/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”]
+    1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
+    1. In **Tags**, enter values for tags in the following format:
+    {"CreatedBy": "name", "Test": "Test2”}
+    1. In **Deployment Id**, enter the Deployment Id. A new GUID is created by default.
+    1. In **Validation Environment**, select the Validation Environment. The default is **false**.
+    
+    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
+
+1. Select **Review+Create**.
+1. After validation is passed, select **Create**.
+Once the deployment is complete, you will see all the required objects created.
+
+### Manage application groups
+
+You can add more application groups to a host pool and assign users to the application group. For step-by-step instructions, see [Tutorial: Manage app groups with the Azure portal](manage-app-groups.md).
 
 ## Windows OS activation
 
