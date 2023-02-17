@@ -305,68 +305,7 @@ v2df = pd.read_parquet(data_asset_v2.path)
 print(v2df.head(5))
 ```
 
-    V1 Data asset URI: azureml://subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourcegroups/fbs-rg/workspaces/FBS-Workspace/datastores/workspaceblobstore/paths/UI/2022-12-15_223329_UTC/default_of_credit_card_clients.csv
-      Unnamed: 0         X1   X2         X3        X4   X5     X6     X7     X8  \
-    0         ID  LIMIT_BAL  SEX  EDUCATION  MARRIAGE  AGE  PAY_0  PAY_2  PAY_3   
-    1          1      20000    2          2         1   24      2      2     -1   
-    2          2     120000    2          2         2   26     -1      2      0   
-    3          3      90000    2          2         2   34      0      0      0   
-    4          4      50000    2          2         1   37      0      0      0   
-    
-          X9  ...        X15        X16        X17       X18       X19       X20  \
-    0  PAY_4  ...  BILL_AMT4  BILL_AMT5  BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3   
-    1     -1  ...          0          0          0         0       689         0   
-    2      0  ...       3272       3455       3261         0      1000      1000   
-    3      0  ...      14331      14948      15549      1518      1500      1000   
-    4      0  ...      28314      28959      29547      2000      2019      1200   
-    
-            X21       X22       X23                           Y  
-    0  PAY_AMT4  PAY_AMT5  PAY_AMT6  default payment next month  
-    1         0         0         0                           1  
-    2      1000         0      2000                           1  
-    3      1000      1000      5000                           0  
-    4      1100      1069      1000                           0  
-    
-    [5 rows x 25 columns]
-    _____________________________________________________________________________________________________________
-    
-    V2 Data asset URI: azureml://subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourcegroups/fbs-rg/workspaces/FBS-Workspace/datastores/workspaceblobstore/paths/LocalUpload/972d801ec6250defbf94d7aa5bc433e1/cleaned-credit-card.parquet
-       LIMIT_BAL  SEX  EDUCATION  MARRIAGE  AGE  PAY_0  PAY_2  PAY_3  PAY_4  \
-    0      20000    2          2         1   24      2      2     -1     -1   
-    1     120000    2          2         2   26     -1      2      0      0   
-    2      90000    2          2         2   34      0      0      0      0   
-    3      50000    2          2         1   37      0      0      0      0   
-    4      50000    1          2         1   57     -1      0     -1      0   
-    
-       PAY_5  ...  BILL_AMT4  BILL_AMT5  BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3  \
-    0     -2  ...          0          0          0         0       689         0   
-    1      0  ...       3272       3455       3261         0      1000      1000   
-    2      0  ...      14331      14948      15549      1518      1500      1000   
-    3      0  ...      28314      28959      29547      2000      2019      1200   
-    4      0  ...      20940      19146      19131      2000     36681     10000   
-    
-       PAY_AMT4  PAY_AMT5  PAY_AMT6  default  
-    0         0         0         0        1  
-    1      1000         0      2000        1  
-    2      1000      1000      5000        0  
-    3      1100      1069      1000        0  
-    4      9000       689       679        0  
-    
-    [5 rows x 24 columns]
-    
-
-## Next steps
-
-Read [Create data assets](how-to-create-data-assets.md) for more information about data assets.
-
-Read [Create datastores](how-to-datastore.md) to learn more about datastores.
-
-Now, you can train a model.
-
 <!-- nbend -->
-
-
-
 
 ## Clean up resources
 
