@@ -2,7 +2,7 @@
 title: Manage AuthN/AuthZ API versions
 description: Upgrade your App Service authentication API to V2 or pin it to a specific version, if needed.
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 02/17/2023
 ms.custom: seodec18, devx-track-azurecli
 ---
 
@@ -15,9 +15,9 @@ There are two versions of the management API for App Service authentication. The
 ## Update the configuration version
 
 > [!WARNING]
-> Migration to V2 will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed.
+> Migration to V2 will disable management of the App Service Authentication/Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed.
 
-The V2 API does not support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it leverages the converged [Microsoft Identity Platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory configuration is used to configure the Microsoft Identity Platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but it is recommended that you move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
+The V2 API does not support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it leverages the converged [Microsoft identity platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory (Azure AD) configuration is used to configure the Microsoft identity platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but it is recommended that you move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
 
 The automated migration process will move provider secrets into application settings and then convert the rest of the configuration into the new format. To use the automatic migration:
 
@@ -39,7 +39,7 @@ The following steps will allow you to manually migrate the application to the V2
 
    In the resulting JSON payload, make note of the secret value used for each provider you have configured:
 
-   * AAD: `clientSecret`
+   * Azure AD: `clientSecret`
    * Google: `googleClientSecret`
    * Facebook: `facebookAppSecret`
    * Twitter: `twitterConsumerSecret`
@@ -67,13 +67,13 @@ The following steps will allow you to manually migrate the application to the V2
 
 1. Add a property to `authsettings.json` which points to the application setting name you created earlier for each provider:
  
-   * AAD: `clientSecretSettingName`
+   * Azure AD: `clientSecretSettingName`
    * Google: `googleClientSecretSettingName`
    * Facebook: `facebookAppSecretSettingName`
    * Twitter: `twitterConsumerSecretSettingName`
    * Microsoft Account: `microsoftAccountClientSecretSettingName`
 
-   An example file after this operation might look similar to the following, in this case only configured for AAD:
+   An example file after this operation might look similar to the following, in this case only configured for Azure AD:
 
    ```json
    {
@@ -137,20 +137,20 @@ You have now migrated the app to store identity provider secrets as application 
 
 #### Support for Microsoft Account provider registrations
 
-If your existing configuration contains a Microsoft Account provider and does not contain an Azure Active Directory provider, you can switch the configuration over to the Azure Active Directory provider and then perform the migration. To do this:
+If your existing configuration contains a Microsoft Account provider and does not contain an Azure AD provider, you can switch the configuration over to the Azure AD provider and then perform the migration. To do this:
 
 1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal and find the registration associated with your Microsoft Account provider. It may be under the "Applications from personal account" heading.
 1. Navigate to the "Authentication" page for the registration. Under "Redirect URIs" you should see an entry ending in `/.auth/login/microsoftaccount/callback`. Copy this URI.
 1. Add a new URI that matches the one you just copied, except instead have it end in `/.auth/login/aad/callback`. This will allow the registration to be used by the App Service Authentication / Authorization configuration.
 1. Navigate to the App Service Authentication / Authorization configuration for your app.
 1. Collect the configuration for the Microsoft Account provider.
-1. Configure the Azure Active Directory provider using the "Advanced" management mode, supplying the client ID and client secret values you collected in the previous step. For the Issuer URL, use Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with your **Directory (tenant) ID**.
+1. Configure the Azure AD provider using the "Advanced" management mode, supplying the client ID and client secret values you collected in the previous step. For the Issuer URL, use Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with your **Directory (tenant) ID**.
 1. Once you have saved the configuration, test the login flow by navigating in your browser to the `/.auth/login/aad` endpoint on your site and complete the sign-in flow.
-1. At this point, you have successfully copied the configuration over, but the existing Microsoft Account provider configuration remains. Before you remove it, make sure that all parts of your app reference the Azure Active Directory provider through login links, etc. Verify that all parts of your app work as expected.
-1. Once you have validated that things work against the AAD Azure Active Directory provider, you may remove the Microsoft Account provider configuration.
+1. At this point, you have successfully copied the configuration over, but the existing Microsoft Account provider configuration remains. Before you remove it, make sure that all parts of your app reference the Azure AD provider through login links, etc. Verify that all parts of your app work as expected.
+1. Once you have validated that things work against the Azure AD provider, you may remove the Microsoft Account provider configuration.
 
 > [!WARNING]
-> It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the AAD app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
+> It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the Azure AD app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
 
 #### Switching to V2
 
@@ -160,7 +160,7 @@ Alternatively, you may make a PUT request against the `config/authsettingsv2` re
 
 ## Pin your app to a specific authentication runtime version
 
-When you enable Authentication / Authorization, platform middleware is injected into your HTTP request pipeline as described in the [feature overview](overview-authentication-authorization.md#how-it-works). This platform middleware is periodically updated with new features and improvements as part of routine platform updates. By default, your web or function app will run on the latest version of this platform middleware. These automatic updates are always backwards compatible. However, in the rare event that this automatic update introduces a runtime issue for your web or function app, you can temporarily roll back to the previous middleware version. This article explains how to temporarily pin an app to a specific version of the authentication middleware.
+When you enable authentication/authorization, platform middleware is injected into your HTTP request pipeline as described in the [feature overview](overview-authentication-authorization.md#how-it-works). This platform middleware is periodically updated with new features and improvements as part of routine platform updates. By default, your web or function app will run on the latest version of this platform middleware. These automatic updates are always backwards compatible. However, in the rare event that this automatic update introduces a runtime issue for your web or function app, you can temporarily roll back to the previous middleware version. This article explains how to temporarily pin an app to a specific version of the authentication middleware.
 
 ### Automatic and manual version updates 
 
