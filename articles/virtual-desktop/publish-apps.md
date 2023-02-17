@@ -24,17 +24,18 @@ To publish a built-in app:
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
 
    ```powershell
-   New-AzWvdApplication @parameters
    $parameters = @{
-       Name = '<applicationname>'
-       ResourceGroupName = '<resourcegroupname>'
-       ApplicationGroupName = '<appgroupname>'
+       Name = '<ApplicationName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       ApplicationGroupName = '<ApplicationGroupName>'
        FilePath = 'shell:appsFolder\<PackageFamilyName>!App'
        CommandLineSetting = '<Allow|Require|DoNotAllow>'
        IconIndex = '0'
        IconPath = '<IconPath>'
-       ShowInPortal = $true
-   }
+       howInPortal = $true
+    }
+
+   New-AzWvdApplication @parameters
    ```
 
 >[!NOTE]
@@ -49,17 +50,18 @@ After you publish an app, it will have the default Windows app icon instead of i
 To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-AzWvdApplication @parameters
 $parameters = @{
-      Name = '<applicationname>'
-      ResourceGroupName = '<resourcegroupname>'
-      ApplicationGroupName = '<appgroupname>'
-      FilePath = 'shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge'
-      CommandLineSetting = '<Allow|Require|DoNotAllow>'
-      IconIndex = '0'
-      IconPath = 'C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge'
-      ShowInPortal = $true
+    Name = '<ApplicationName>'
+    ResourceGroupName = '<ResourceGroupName>'
+    ApplicationGroupName = '<ApplicationGroupName>'
+    FilePath = 'shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge'
+    CommandLineSetting = '<Allow|Require|DoNotAllow>'
+    IconIndex = '0'
+    IconPath = 'C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge'
+    howInPortal = $true
 }
+
+New-AzWvdApplication @parameters
 ```
 
 ## Next steps
