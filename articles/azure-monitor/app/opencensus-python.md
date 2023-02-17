@@ -521,7 +521,7 @@ Each exporter accepts the same arguments for configuration, passed through the c
 `connection_string`| The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.|
 `credential`| Credential class used by Azure Active Directory authentication. See the "Authentication" section that follows.|
 `enable_standard_metrics`| Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.|
-`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`. Note for metrics your MUST set this to 60s or else your metric aggregations will not make sense in the metrics explorer.|
+`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`. For metrics you MUST set this to 60s or else your metric aggregations will not make sense in the metrics explorer.|
 `grace_period`| Used to specify the timeout for shutdown of exporters in seconds. Defaults to `5s`.|
 `instrumentation_key`| The instrumentation key used to connect to your Azure Monitor resource.|
 `logging_sampling_rate`| Used for `AzureLogHandler` and `AzureEventHandler`. Provides a sampling rate [0,1.0] for exporting logs/events. Defaults to `1.0`.|
