@@ -66,7 +66,7 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
 
-    With the Encrypted SMB connections to Active Directory Domain Controller capability, you can now specify whether encryption should be used for communication between SMB server and domain controller in Active Directory connections. When enabled, only SMB3 will be used for encrypted domain controller connections.
+    With the Encrypted SMB connections to Active Directory Domain Controller capability, you can now specify whether to use encryption for communication between SMB server and domain controller in Active Directory connections. When enabled, only SMB3 will be used for encrypted domain controller connections.
 
 ## October 2022
 
@@ -193,7 +193,7 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * [Standard network features](configure-network-features.md) (Preview)
 
-    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability has been made possible by innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files.
+    Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability is a result of innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files.
     
     You can now choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
     * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
@@ -210,15 +210,15 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * [Azure NetApp Files backup](backup-introduction.md) (Preview)
 
-    Azure NetApp Files online snapshots are now enhanced with backup of snapshots. With this new backup capability, you can vault your Azure NetApp Files snapshots to cost-efficient and ZRS-enabled Azure storage in a fast and cost-effective way. This approach further protects your data from accidental deletion. 
+    Azure NetApp Files online snapshots now support backup of snapshots. With this new backup capability, you can vault your Azure NetApp Files snapshots to cost-efficient and ZRS-enabled Azure storage in a fast and cost-effective way. This approach further protects your data from accidental deletion. 
 
-    Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots are still represented in full. They can be restored to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data-recovery needs. In doing so, you can build up a longer history of snapshots at a lower cost for long-term retention in the Azure NetApp Files backup vault. 
+    Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots are still represented in full. You can restore them to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data-recovery needs. In doing so, you can build up a longer history of snapshots at a lower cost for long-term retention in the Azure NetApp Files backup vault. 
 
     For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 * [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (Preview)
 
-    The Active Directory connections page now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
+    The Active Directory connections page now includes an **Administrators** field. You can specify users or groups that will have administrator privileges on the volume.
 
 ## August 2021
 
