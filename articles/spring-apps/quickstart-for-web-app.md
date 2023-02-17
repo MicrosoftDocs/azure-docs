@@ -32,6 +32,9 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
 1. Clone sample project.
     ```shell
     git clone git@github.com:Azure-Samples/ASA-Samples-Web-Application.git
+    ```
+2. Build the sample project.
+    ```shell
     cd ASA-Samples-Web-Application
     ./mvnw clean package
    ```
