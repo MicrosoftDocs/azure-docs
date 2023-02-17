@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluste
 description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
 services: container-service
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 02/17/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -12,7 +12,10 @@ ms.custom: references_regions, devx-track-azurecli
 Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster management: the **Free tier** and the **Standard tier**.
 
 > [!IMPORTANT]
-> **Standard tier** is currently not available. To enable the Uptime SLA feature in your cluster, you'll use the existing **Paid tier** and the `--uptime-sla` parameter.
+>
+> **Standard tier** is currently not available in Azure API 2023-01-01 due to a [critical bug](https://github.com/Azure/AKS/issues/3481). To enable the Uptime SLA feature in your cluster, you'll use the existing **Paid tier** and the `--uptime-sla` parameter.
+>
+> Alternatively, you can select the **Standard tier** or **Free tier** on Azure portal when creating or updating an AKS cluster.
 
 |                  |Free tier|Standard tier|
 |------------------|---------|--------|
@@ -25,7 +28,7 @@ For more information on pricing, see the [AKS pricing details](https://azure.mic
 
 ## Uptime SLA terms and conditions
 
-The Uptime SLA feature is included in the Standard tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+The Uptime SLA feature is included in the Paid tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Region availability
 
