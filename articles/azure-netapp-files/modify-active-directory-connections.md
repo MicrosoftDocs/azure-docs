@@ -11,19 +11,19 @@ ms.author: anfdocs
 
 # Modify Active Directory connections for Azure NetApp Files
 
-Once you have [created an Active Directory connection](create-active-directory-connections.md) in Azure NetApp Files, you can modify it. When modifying an Active Directory, not all configurations can be modified.
+Once you have [created an Active Directory connection](create-active-directory-connections.md) in Azure NetApp Files, you can modify it. When you're modifying an Active Directory connection, not all configurations are modifiable.
 
 ## Modify Active Directory connections
 
 1. Select **Active Directory connections**. Then, select **Edit** to edit an existing AD connection. 
 
-1. In the **Edit Active Directory** window that appears, modify Active Directory connection configurations as needed. See [Options for Active Directory connections](#options-for-active-directory-connections) for an explanation of what fields can be modified. 
+1. In the **Edit Active Directory** window that appears, modify Active Directory connection configurations as needed. See [Options for Active Directory connections](#options-for-active-directory-connections) for an explanation of what fields you can modify. 
 
 ## Options for Active Directory connections
 
-|Field Name |What it is |Can it be modified? |Considerations & Impacts |Effect |
+|Field Name |What it is |Is it modifiable? |Considerations & Impacts |Effect |
 |:-:|:--|:-:|:--|:--|
-| Primary DNS | Primary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution. |
+| Primary DNS | Primary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP is used for DNS resolution. |
 | Secondary DNS | Secondary DNS server IP addresses for the Active Directory domain. | Yes | None* | New DNS IP will be used for DNS resolution in case primary DNS fails. |
 | AD DNS Domain Name | The domain name of your Active Directory Domain Services that you want to join. | No | None | N/A |
 | AD Site Name | The site to which the domain controller discovery is limited. | Yes | This should match the site name in Active Directory Sites and Services. See footnote.* | Domain discovery will be limited to the new site name. If not specified, "Default-First-Site-Name" will be used. |
@@ -31,14 +31,14 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Organizational Unit Path | The LDAP path for the organizational unit (OU) where SMB server computer accounts will be created. `OU=second level`, `OU=first level`| No | If you are using Azure NetApp Files with Azure Active Directory Domain Services (AADDS), the organizational path is `OU=AADDC Computers` when you configure Active Directory for your NetApp Account. | Computer accounts will be placed under the OU specified. If not specified, the default of `OU=Computers` is used by default. |
 | AES Encryption | To take advantage of the strongest security with Kerberos-based communication, you can enable AES-256 and AES-128 encryption on the SMB server. | Yes | If you enable AES encryption, the user credentials used to join Active Directory must have the highest corresponding account option enabled, matching the capabilities enabled for your Active Directory. For example, if your Active Directory has only AES-128 enabled, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.* | Enable AES encryption for Active Directory Authentication |
 | LDAP Signing | This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controller. | Yes | LDAP signing to Require Signing in group policy* | This provides ways to increase the security for communication between LDAP clients and Active Directory domain controllers. |
-| Allow local NFS users with LDAP | If enabled, this option will manage access for local users and LDAP users. | Yes | This option will allow access to local users. It is not recommended and, if enabled, should only be used for a limited time and later disabled. | If enabled, this option will allow access to local users and LDAP users. If access is needed for only LDAP users, this option must be disabled. |
-| LDAP over TLS | If enabled, LDAP over TLS will be configured to support secure LDAP communication to active directory. | Yes | None | If LDAP over TLS is enabled and if the server root CA certificate is already present in the database, then LDAP traffic is secured using the CA certificate. If a new certificate is passed in, that certificate will be installed. |
+| Allow local NFS users with LDAP | If enabled, this option will manage access for local users and LDAP users. | Yes | This option allows access to local users. It's not recommended and, if enabled, should only be used for a limited time and later disabled. | If enabled, this option allows access to local users and LDAP users. If your configuration requires access for only LDAP users, you must disable this option. |
+| LDAP over TLS | If enabled, LDAP over TLS is configured to support secure LDAP communication to active directory. | Yes | None | If you've enabled LDAP over TLS and if the server root CA certificate is already present in the database, then the CA certificate secures LDAP traffic. If a new certificate is passed in, that certificate will be installed. |
 | Server root CA Certificate | When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64-encoded Active Directory Certificate Service's self-signed root CA certificate. | Yes | None* | LDAP traffic secured with new certificate only if LDAP over TLS is enabled |
 | LDAP search scope | See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) | Yes | - | - |
 | Preferred server for LDAP client | You can designate up to two AD servers for the LDAP to attempt connection with first. See [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discover) | Yes | None* | Potentially impede a timeout when the LDAP client seeks to connect to the AD server. | 
-| Encrypted SMB connections to Domain Controller | This specifies whether encryption should be used for communication between SMB server and domain controller. See [Create Active Directory connections](create-active-directory-connections.md#encrypted-smb-dc) for more details on using this feature. | Yes | SMB, Kerberos, and LDAP enabled volume creation cannot be used if the domain controller does not support SMB3 | Only SMB3 will be used for encrypted domain controller connections. |
-| Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
-| Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges |
+| Encrypted SMB connections to Domain Controller | This specifies whether encryption should be used for communication between SMB server and domain controller. See [Create Active Directory connections](create-active-directory-connections.md#encrypted-smb-dc) for more details on using this feature. | Yes | SMB, Kerberos, and LDAP enabled volume creation cannot be used if the domain controller does not support SMB3 | Only use SMB3 for encrypted domain controller connections. |
+| Backup policy users | You can include more accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
+| Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account receives administrator privileges |
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
 | Password | Password of the Active Directory domain administrator | Yes | None* <br></br> Password cannot exceed 64 characters. | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
@@ -53,6 +53,6 @@ Once you have [created an Active Directory connection](create-active-directory-c
 
 ## Next Steps
 * [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
-* [Configure ADDS LDAP with extended groups for NFS](configure-ldap-extended-groups.md)
-* [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
+* [Configure AD DS LDAP with extended groups for NFS](configure-ldap-extended-groups.md)
+* [Configure AD DS LDAP over TLS](configure-ldap-over-tls.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
