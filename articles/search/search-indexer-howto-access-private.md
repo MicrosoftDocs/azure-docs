@@ -25,20 +25,20 @@ Cognitive Search makes outbound calls to other Azure PaaS resources in the follo
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
 
-For those scenarios, a search service typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](/azure/private-link/private-endpoint-overview), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
+For those service-to-service communication scenarios, Search typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](/azure/private-link/private-endpoint-overview), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
 
 A shared private link is:
 
 + Created using Azure Cognitive Search tooling, APIs, or SDKs
 + Approved by the Azure PaaS resource owner
-+ Used internally by search on a private connection to a specific Azure resource
++ Used internally by Search on a private connection to a specific Azure resource
 
 Only your search service can use the private links that it creates, and there can be only one shared private link created on your service for each resource and sub-resource combination.
 
-Once you set up the private link, it's used automatically whenever search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
+Once you set up the private link, it's used automatically whenever Search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
 > [!NOTE]
-> There are two scenarios for using Azure Private Link and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is configuring search for a private *inbound* connection from clients that run run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
+> There are two scenarios for using [Azure Private Link](/azure/private-link/private-link-overview) and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
@@ -52,7 +52,7 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure Cognitive Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ An Azure PaaS resource from the list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
++ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
 <a name="group-ids"></a>
 
@@ -100,7 +100,7 @@ Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to
 
 It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint, but it won't work unless the [resource has a private endpoint](#private-endpoint-verification).
 
-Recall that you can't use the portal or the Azure CLI `az search` command to create a shared private link to an Azure SQL Managed Instance. See [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for instructions.
+Recall that you can't use the portal or the Azure CLI `az search` command to create a shared private link to an Azure SQL Managed Instance. See [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for that resource type.
 
 When you complete these steps, you have a shared private link that's provisioned in a pending state. The resource owner needs to approve the request before it's operational.
 
@@ -210,15 +210,15 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ### Create a shared private link for a SQL Managed Instance
 
-Currently, you can't create a shared private link for a SQL Managed Instance using the Azure portal or the `az search` module of the Azure CLI. The URI for a SQL Managed Instance includes a DNS zone as part of it's fully qualified domain name, and currently neither the portal nor `az search` in the Azure CLI support that part. 
+Currently, you can't create a shared private link for a SQL Managed Instance using the Azure portal or the `az search` module of the Azure CLI. The URI for a SQL Managed Instance includes a DNS zone as part of it's fully qualified domain name (FQDN), and currently neither the portal nor `az search` in the Azure CLI support that part. 
 
-As a workaround, choose an approach that provides a `resourceRegion` parameter. This parameter takes the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the SQL Managed Instance.
+As a workaround, choose an approach that provides a `resourceRegion` parameter. This parameter takes the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the SQL Managed Instance, which is inserted in the URI to create the FQDN.
 
 Approaches that provide `resourceRegion` include the Management REST API or the Azure CLI using the `az rest` command. This section explains how to the Azure CLI with `az rest` to create a shared private link for a SQL managed instance.
 
 1. Get the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) for the `resourceRegion` parameter. 
 
-   The DNS zone is part of the Fully Qualified Domain Name (FQDN) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone.
+   The DNS zone is part of the domain name of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`. See [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) for instructions on how to retrieve connection details, such as the DNS zone.
 
 1. Create a JSON file for the body of the create shared private link request. Save the file locally. In the Azure CLI, type `dir` to view the current location. The following is an example of what a *create-pe.json* file might contain:
 
@@ -256,7 +256,7 @@ Approaches that provide `resourceRegion` include the Management REST API or the 
 
 ## 2 - Approve the private endpoint connection
 
-The resource owner must approve the connection request. This section assumes the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2022-05-15/private-endpoint-connections) are two examples.
+The resource owner must approve the connection request you created. This section assumes the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2022-05-15/private-endpoint-connections) are two examples.
 
 1. In the Azure portal, open the **Networking** page of the Azure PaaS resource.
 
@@ -342,9 +342,9 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool. You can use **Import data** or the Postman desktop app for REST API calls. Assuming that your search service isn't also configured for a private connection, the client connection to Search can be over the public internet.
+1. Choose a tool that can invoke an outbound request scenario, such as an indexer connection to a private endpoint. An easy choice is using the **Import data** wizard, but you can also try the Postman desktop app and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
 
-1. Set the connection string to the private Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service uses the shared private link internally.
+1. Set the connection string to the private Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service invokes the shared private link internally.
 
    For indexer workloads, the connection string is in the data source definition. An example of a data source might look like this:
 
