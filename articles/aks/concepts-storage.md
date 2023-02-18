@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/17/2023
 
 ---
 
@@ -68,6 +68,12 @@ Use [Azure Blob Storage][azure-blob-csi] to create a blob storage container and 
 
 * Block Blobs
 
+### Azure Elastic SAN
+
+Use [Azure Elastic SAN][elastic-san] to create an Azure Elastic SAN volume and mount it using the [internet Small Computer Systems Interface][iSCSI] (iSCSI) protocol.
+
+* Elastic SAN Volumes
+
 ### Volume types
 
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers.
@@ -103,7 +109,7 @@ Like using a secret:
 
 Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
-You can use Azure Disks or Files to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
+You can use Azure Disks, Files, or Elastic SAN volumes to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disk, Files, or Elastic SAN Volumes is often determined by the need for concurrent access to the data or the performance tier.
 
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
@@ -238,6 +244,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
+[iSCSI]: https://en.wikipedia.org/wiki/ISCSI
 
 <!-- INTERNAL LINKS -->
 [disks-types]: ../virtual-machines/disks-types.md
@@ -258,3 +265,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [csi-storage-drivers]: csi-storage-drivers.md
 [azure-blob-csi]: azure-blob-csi.md
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
+[elastic-san]: ../storage/elastic-san/elastic-san-introduction.md
