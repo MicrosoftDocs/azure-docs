@@ -181,4 +181,4 @@ When you upload a file, the Video Indexer language model cross references 9 lang
 ## Next steps
 
 - [Overview](video-indexer-overview.md)
-- [Release notes](azure-video-indexer/release-notes.md)
+- [Release notes](release-notes.md)
