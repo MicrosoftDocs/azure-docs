@@ -101,7 +101,7 @@ It's important to note that the default configuration described above grants the
 
  To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription’s tenant can be [changed](../fundamentals/active-directory-how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
 
-To learn more, visit [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
+To learn more, visit [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
 
 ### Microsoft Customer Agreement
 
