@@ -127,7 +127,7 @@ The Azure Native Dynatrace Service gives Microsoft Azure customers a seamless ex
 
 - Integrated onboarding: You can provision Dynatrace and manage the integration through the Azure Marketplace and Portal. The seamless onboarding experience sets up Dynatrace automatically. 
 - Single sign-on: You can easily enable SSO through Azure Active Directory. 
-- Metrics and logs: You can enable the collection of metrics and logs for Virtual Machine (VM) and App Services resources by installing Dynatrace OneAgent on those resources. Furthermore, you can activate the sending of Azure [subscription activity logs](./essentials/activity-log-schema.md) and [resource logs](h./essentials/resource-logs-categories.md) to Dynatrace.
+- Metrics and logs: You can enable the collection of metrics and logs for Virtual Machine (VM) and App Services resources by installing Dynatrace OneAgent on those resources. Furthermore, you can activate the sending of Azure [subscription activity logs](./essentials/activity-log-schema.md) and [resource logs](./essentials/resource-logs-categories.md) to Dynatrace.
 - OneAgent deployment: You can install or uninstall Dynatrace OneAgents on single or multiple virtual machines and Azure App Services directly from your Azure Portal.
 - Manage Dynatrace within Azure portal: Within your Azure Portal, you can verify which resources are sending Azure metrics and logs to Dynatrace and make instant changes as needed.
 - Deeper Azure CLI integration: You can easily manage Dynatrace resources from the Azure CLI to further extend deployments of those resources with ARM templates or other third-party IAAC platforms, such as Terraform.
