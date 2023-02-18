@@ -119,9 +119,9 @@ Dynatrace partners with Microsoft to help the world’s largest organizations ta
 - Azure Spring Apps integration
 - Dynatrace Azure Monitor Integration 
 
-Dynatrace SaaS is hosted on Microsoft Azure and available in several Azure regions. For an overview of the currently supported Azure regions please see the [Dynatrace documentation.](https://www.dynatrace.com/support/help/how-to-use-dynatrace/data-privacy-and-security/data-security/data-security-controls#data-storage)
+Dynatrace SaaS is hosted on Microsoft Azure and available in several Azure regions. For an overview of the currently supported Azure regions please see the [Dynatrace documentation](https://www.dynatrace.com/support/help/how-to-use-dynatrace/data-privacy-and-security/data-security/data-security-controls#data-storage).
 
-Furthermore, Dynatrace is also available as a native solution integrated into Microsoft Azure. The [Azure Native Dynatrace Service] (https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/) is available via the [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
+Furthermore, Dynatrace is also available as a native solution integrated into Microsoft Azure. The [Azure Native Dynatrace Service](https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/) is available via the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
 
 The Azure Native Dynatrace Service gives Microsoft Azure customers a seamless experience for Dynatrace automatic and intelligent observability and runtime application security in and from Azure. The benefits of this native integration include:
 
