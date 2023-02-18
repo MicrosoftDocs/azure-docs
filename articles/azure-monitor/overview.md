@@ -57,7 +57,7 @@ The diagram depicts the Azure Monitor system components:
 
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. 
 
-:::image type="content" source="media/overview/overview-data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-data-sources-large.png":::
+:::image type="content" source="media/overview/overview-data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/overview-data-sources-large.png":::
 
 You can integrate monitoring data from sources outside Azure, including on-premises and other non-Microsoft clouds, using the application, infrastructure, and custom data sources.
 
@@ -77,7 +77,7 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/overview-data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-data-platform-large.png":::
+:::image type="content" source="media/overview/overview-data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/overview-data-platform-large.png":::
 
 
 
@@ -93,7 +93,7 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/overview-data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-data-collection-large.png":::
+:::image type="content" source="media/overview/overview-data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/overview-data-collection-large.png":::
 
 |Collection method|Description  |
 |---------|---------|
