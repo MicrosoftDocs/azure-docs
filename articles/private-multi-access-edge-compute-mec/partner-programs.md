@@ -29,12 +29,13 @@ Our system integrator partners include:
 |[TCS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tataconsultancyservicesltd-azure.tcs_cpoa-saas?exp=ubp8&tab=Overview) ||||[Compal](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/compal1668421272498.compal_private_5g?exp=ubp8&tab=Overview) |
 |[Tech Mahindra - AR Based Remote Assistance](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.remote-assist-ar?exp=ubp8&tab=Overview)||||[HCL Technologies](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/hcl-technologies.hcl_5g_pmac?exp=ubp8&tab=Overview) |
 |[Tech Mahindra - LineSight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.linesight?exp=ubp8&tab=Overview)||||[Inventec](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/inventeccorp1645697962291.5g_e2e?exp=ubp8&tab=Overview) |
-|||||[NTT](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttgermanyagcokg1596708630215.ntt_ex_germany_p5g_001?exp=ubp8) |
-|||||[Pegatron](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pegatron1671697317455.pegatron_5g?exp=ubp8&tab=Overview) |
-|||||[Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.private_5g_network?exp=ubp8&tab=Overview) |
+|[Pegatron](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pegatron1671697317455.pegatron_5g?exp=ubp8&tab=Overview)||||[NTT](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttgermanyagcokg1596708630215.ntt_ex_germany_p5g_001?exp=ubp8) |
+|[Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-15-5g-cloud-box-quality-inspection?exp=ubp8)||||[Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.private_5g_network?exp=ubp8&tab=Overview) |
+||||| [Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-6-5g-edge?exp=ubp8) |
+||||| Avanade |
 
 Our operator partners include:
-- BT Group
+- [BT Group](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/britishtelecommunicationsplc1603355038257.0005_5g_private_network_bt_global-mpn1687281-preview?tab=Overview&flightCodes=bbaba195c14644e4aa5b4c7b6627ac7b)
 - Deutsche Telekom
 - Elisa
 - Etisalat
@@ -60,10 +61,9 @@ SIM partners provide wireless authentication technologies and embedded cellular 
 |SIM |RAN (hardware)|
 |---------|---------|
 | BICS | Airspan |
-| Idemia | Amerisoft |
-| JCI | ASOCS |
-| Transatel | Commscope |
-| | Compal |
+| Idemia | ASOCS |
+| JCI | Commscope |
+| Transatel | Compal |
 | | Ericsson |
 | | Foxconn |
 | | Fujitsu |
