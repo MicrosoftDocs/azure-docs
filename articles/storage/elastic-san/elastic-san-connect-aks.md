@@ -32,18 +32,18 @@ First, add a new function for static discovery:
 ```
 // Add a new function to make static discovery
 func (c *Connector) discoverTargetStatically(targetIqn string, iFace string, portal string) error {
-	err := CreateDBEntry(targetIqn, portal, iFace, c.DiscoverySecrets, c.SessionSecrets)
-	if err != nil {
-		debug.Printf("Error creating db entry: %s\n", err.Error())
-		return err
-	}
-	return nil
+  err := CreateDBEntry(targetIqn, portal, iFace, c.DiscoverySecrets, c.SessionSecrets)
+  if err != nil {
+    debug.Printf("Error creating db entry: %s\n", err.Error())
+    return err
+  }
+  return nil
 }
 ```
 
-Then, replace the `discoverTarget` with the new function name: 
+Then, make the following change so that you can use the function you created: 
 
-replace: 
+Replace: 
 ```
 if err := c.discoverTarget(targetIqn, iFace, portal); err != nil
 ```
@@ -100,7 +100,7 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 ### Cluster configuration
 
-Once you've retrieved your volumes information, you'll need to create a few yml files for your new resources on your AKS cluster.
+Once you've retrieved your volume's information, you'll need to create a few yml files for your new resources on your AKS cluster.
 
 First, create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
@@ -112,7 +112,7 @@ metadata:
 provisioner: manual
 ```
 
-Then, create a pv.yml file. This file defines your persistent volume. Use the following example to create a pv.yml file, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier. If you need more than 1 gibibytes of storage and have it available, replace `1Gi` with the amount of storage you require.
+Then, create a pv.yml file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a pv.yml file. If you need more than 1 gibibytes of storage and have it available, replace `1Gi` with the amount of storage you require.
 
 ```yml
 ---
@@ -141,7 +141,7 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
-Then we create this persistent volume claim referenced to the pod onto the AKS cluster by the same persistent volume name. 
+Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). In this case, a persistent volume uses the storage class we defined earlier, with the persistent volume we defined, to referenced to the pod onto the AKS cluster by the same persistent volume name. 
 
 ```yml
 apiVersion: v1
