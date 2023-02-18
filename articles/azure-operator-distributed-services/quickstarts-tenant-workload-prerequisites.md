@@ -3,7 +3,7 @@ title: How to deploy tenant workloads prerequisites
 description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
 author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
 ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: Azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: AFOI-Network Cloud #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.

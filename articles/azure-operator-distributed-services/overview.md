@@ -5,7 +5,7 @@ author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 01/30/2023
 ms.topic: overview
-ms.service: Azure
+ms.service: AFOI-Network Cloud
 ---
 
 # What is Azure Operator Nexus?
