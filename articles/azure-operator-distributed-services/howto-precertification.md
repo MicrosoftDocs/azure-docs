@@ -5,7 +5,7 @@ author: vatsal-parikh
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
-ms.service: afoi-network-cloud 
+ms.service: azure 
 ---
 
 # How to pre-certify network functions on Azure Operator Nexus

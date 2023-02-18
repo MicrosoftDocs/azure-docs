@@ -3,7 +3,7 @@ title: "Operator Nexus: Platform deployment"
 description: Learn the steps for deploying the Operator Nexus platform software.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: afoi-network-cloud #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.

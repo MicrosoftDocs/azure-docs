@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Interact with AKS-Hybrid Cluster"
 description: Learn how to manage (view, list, update, delete) AKS-Hybrid clusters.
 author: pvapheas
 ms.author: pvapheas
-ms.service: afoi-network-cloud 
+ms.service: azure 
 ms.topic: how-to
 ms.date: 02/02/2023
 ms.custom: template-how-to

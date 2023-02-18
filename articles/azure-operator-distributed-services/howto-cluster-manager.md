@@ -6,7 +6,7 @@ ms.author: sriposa
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
-ms.service: afoi-network-cloud 
+ms.service: azure 
 ---
 
 # Cluster Manager: lifecycle management
