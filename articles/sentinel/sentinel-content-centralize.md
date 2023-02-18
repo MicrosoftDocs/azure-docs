@@ -118,7 +118,7 @@ Yes. The following types of analytics rule templates are exempt from this change
 
 - Anomalies rule templates
 - Fusion rule templates
-- Machine Learning Behavior Analytics rule templates
+- ML Behavior Analytics (machine learning) rule templates
 - Microsoft Security (incident creation) rule templates
 - Threat Intelligence rule templates
 
