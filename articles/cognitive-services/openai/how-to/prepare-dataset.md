@@ -1,6 +1,6 @@
 ---
 title: 'How to prepare a dataset for custom model training'
-titleSuffix: Azure OpenAI
+titleSuffix: Azure OpenAI Service
 description: Learn how to prepare your dataset for fine-tuning
 services: cognitive-services
 manager: nitinme
@@ -270,4 +270,4 @@ Generative tasks have a potential to leak training data when requesting completi
 ## Next steps
 
 * Fine tune your model with our [How-to guide](fine-tuning.md)
-* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md)
+* Learn more about the [underlying models that power Azure OpenAI Service](../concepts/models.md)
