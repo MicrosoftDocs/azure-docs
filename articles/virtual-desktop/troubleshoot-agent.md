@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
 author: sefriend
 ms.topic: troubleshooting
-ms.date: 05/26/2022
+ms.date: 02/18/2023
 ms.author: sefriend
 manager: clarkn
 ---
@@ -384,10 +384,10 @@ This registry key prevents the agent from installing the side-by-side stack, whi
 To resolve this issue, you'll need to remove the key:
 
 1. Remove the DisableRegistryTools key from the three previously listed locations.
-2. Uninstall and remove the affected side-by-side stack installation from the **Apps & Features** folder.
-3. Remove the affected side-by-side stack's registry keys.
-4. Restart your VM.
-5. Start the agent and let it auto-install the side-by-side stack.
+1. Uninstall and remove the affected side-by-side stack installation from the **Apps & Features** folder.
+1. Remove the affected side-by-side stack's registry keys.
+1. Restart your VM.
+1. Start the agent and let it auto-install the side-by-side stack.
 
 ## Next steps
 
