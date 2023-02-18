@@ -228,13 +228,13 @@ Refer to the demo examples below for the whole process of evaluating pronunciati
 
 **Start recording**
 
-When starting to record, you can see the scores at the bottom start to change from 0.
+As you start recording, the scores at the bottom begin to alter from 0.
 
 :::image type="content" source="media/pronunciation-assessment/initial-recording.png" alt-text="Screenshot of overall assessment scores when starting to record." lightbox="media/pronunciation-assessment/initial-recording.png":::
 
 **During recording**
 
-During recording a long paragraph, you can pause recording at any time.  You can continue to evaluate your recording as long as you don't press the stop button. 
+During recording a long paragraph, you can pause recording at any time. You can continue to evaluate your recording as long as you don't press the stop button. 
 
 :::image type="content" source="media/pronunciation-assessment/pa-recording-display-score.png" alt-text="Screenshot of overall assessment scores when recording." lightbox="media/pronunciation-assessment/pa-recording-display-score.png":::
 
