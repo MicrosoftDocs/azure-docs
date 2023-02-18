@@ -36,7 +36,7 @@ Azure Communication Services direct routing is currently in public preview and n
 1. If the emergency call is unexpectedly dropped, the PSAP then makes a call-back to the user
 1. On receiving the call-back within 60 minutes, Microsoft will route the inbound call directly to the user identity, which initiated the emergency call
 
-## Enabling Emergency calling
+## Enabling Emergency Calling
 
 Emergency dialing is automatically enabled for all users of the Azure Communication Client Calling SDK with an acquired Microsoft telephone number that is enabled for outbound dialing in the Azure resource. To use emergency calling with Microsoft phone numbers, follow the steps:
 
