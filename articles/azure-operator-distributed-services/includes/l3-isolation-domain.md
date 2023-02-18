@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Creation of L3 Isolation Domain"
 description: Learn how create L3 Isolation Domain.
 author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
 ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: AFOI-Network Cloud #Required;
+ms.service: afoi-network-cloud #Required;
 ms.topic: include #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ---

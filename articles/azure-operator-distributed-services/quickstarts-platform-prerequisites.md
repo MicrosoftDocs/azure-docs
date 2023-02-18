@@ -3,7 +3,7 @@ title: "Operator Nexus: Platform deployment pre-requisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
 author: surajmb #Required; your GitHub user alias, with correct capitalization.
 ms.author: surmb #Required; microsoft alias of author; optional team alias.
-ms.service: AFOI-Network Cloud #Required; service per approved list. slug assigned by ACOM.
+ms.service: afoi-network-cloud #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
