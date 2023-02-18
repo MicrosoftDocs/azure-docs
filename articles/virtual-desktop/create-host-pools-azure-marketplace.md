@@ -329,7 +329,7 @@ To give a host pool a friendly name:
 1. In the *Friendly name* field, enter the name you’d like to give the session host. If a session host in a personal host pool has a non-null friendly name set, the friendly name will be shown in the feed instead of the application name.
 
 >[!NOTE]
->You can also set the friendly name by using a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
+>You can also set the friendly name by using [PowerShell](create-host-pools-powershell.md#give-personal-host-pools-a-friendly-name) or a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
 
 ## Next steps
 
