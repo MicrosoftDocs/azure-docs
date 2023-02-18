@@ -27,14 +27,18 @@ Language support in Video Indexer relates to many areas of the service. The foll
 - **Customization (language model)** - Whether the language can be used when customizing language models in Video Indexer. To learn more, see [Customize a Language model in Azure Video Indexer](customize-language-model-overview.md)
 - **Website Translation** – Whether the language is supported for translation when using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the translated language in the language drop-down menu.
     <!-- ![](media/303d21a81909bb008e8d998e43986b50.png) -->
-  - The following insights are translated and all other insights appear in English when using translation.
-        - Transcript
-            - Keywords
-            - Topics
-            - Labels
-            - Frame patterns (Only to Hebrew as of now)
 
-- **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select it by navigating to the settings icon at the top right and then the Language settings dropdown.
+    The following insights are translated:
+
+      - Transcript
+      - Keywords
+      - Topics
+      - Labels
+      - Frame patterns (Only to Hebrew as of now)
+
+   All other insights appear in English when using translation.
+
+- **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the **Settings icon** then select the language in the **Language settings** dropdown.
 
 <!-- ![](media/d4397cc1972298a204e03abbb2f2d92f.png) -->
 
@@ -123,7 +127,7 @@ Language support in Video Indexer relates to many areas of the service. The foll
 
 ## Get supported languages through the API
 
-You can call our API with the Get Supported Languages API call to pull a full list of supported languages per area - see [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
+Use the Get Supported Languages API call to pull a full list of supported languages per area. For more information, see [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
 
 The API returns a list of supported languages with the following values:
 
@@ -138,6 +142,7 @@ The API returns a list of supported languages with the following values:
 ```
 
 - Supported source language:
+
     If `isSourceLanguage` is false, the language is supported for translation only.
     If `isSourceLanguage` is true, the language is supported as source for transcription, translation, and search.
 
@@ -147,11 +152,11 @@ The API returns a list of supported languages with the following values:
 
 ## Language Identification
 
-When uploading a media file to Video Indexer, if you're aware of its spoken language, you can specify the language in advance. On the website, you can select a language during the upload experience, and when indexing through the API, by using the language parameter when submitting the indexing job. The selected language is used to generate the transcription of the file (assuming the file has an audio channel).
+When uploading a media file to Video Indexer, you can specify the language in advance. You can select a language during upload, and when indexing through the API, by using the language parameter while submitting the indexing job. If the file has an audio channel, the selected language is used to generate the transcription of the file.
 
-If you aren't sure of the source language of the media file or if it may contain multiple languages, you can select either Auto-detect single language (LID) or multi-language (MLID) for the media file’s source language.
+If you aren't sure of the source language of the media file or it may contain multiple languages, you can select either Auto-detect single language (LID) or multi-language (MLID) for the media file’s source language.
 
-There is a limit of 10 languages allowed for identification during the indexing of a media file for both LID and MLID.languages. The following are the 9 **default** languages of Language identification (LID) and Multi-language identification (MILD):
+There is a limit of 10 languages allowed for identification during the indexing of a media file for both LID and MLID. The following are the 9 *default* languages of Language identification (LID) and Multi-language identification (MILD):
 
 - German (de-DE)
 - English United States (en-US)
@@ -165,7 +170,7 @@ There is a limit of 10 languages allowed for identification during the indexing 
 
 ## How to change the list of default languages
 
-If you need to use languages for identification that aren't used by default, you can customize the list of identification languages to any 10 languages that support customization through either the website or the API.
+If you need to use languages for identification that aren't used by default, you can customize the list to any 10 languages that support customization through either the website or the API:
 
 ### Use the website to change the list
 
@@ -176,7 +181,9 @@ If you need to use languages for identification that aren't used by default, you
 
 ### Use the API to change the list
 
-When you upload a file, the Video Indexer language model cross references 9 languages by default. If there's a match, the model generates the transcription for the file with the detected language. Use the language parameter to specify `multi` (MLID) or `auto` (LID) parameters. Use the `customLanguages` parameter to specify up to 10 languages. (The parameter is used only when the language parameter is set to `multi` or `auto`.) To learn more about using the API, see [Use the Azure Video Indexer API](video-indexer-use-apis.md).
+When you upload a file, the Video Indexer language model cross references 9 languages by default. If there's a match, the model generates the transcription for the file with the detected language.
+
+Use the language parameter to specify `multi` (MLID) or `auto` (LID) parameters. Use the `customLanguages` parameter to specify up to 10 languages. (The parameter is used only when the language parameter is set to `multi` or `auto`.) To learn more about using the API, see [Use the Azure Video Indexer API](video-indexer-use-apis.md).
 
 ## Next steps
 
