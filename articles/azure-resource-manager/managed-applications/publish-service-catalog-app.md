@@ -140,9 +140,9 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 }
 ```
 
-## Define your create experience
+## Define your portal experience
 
-As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
+As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
 Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name, App Service plan's name, storage account prefix, and storage account type. During deployment, the `uniqueString` function appends a 13 character string to the name prefixes so the names are globally unique across Azure.
 
@@ -311,29 +311,29 @@ For more information about storage authentication, see [Choose how to authorize 
 
 In this section you'll get identity information from Azure Active Directory, create a resource group, and create the managed application definition.
 
-### Create an Azure Active Directory user group or application
+### Get group ID and role definition ID
 
-The next step is to select a user, group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor. To create a new Azure Active Directory user group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
+The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
-This example uses a user group, so you need the object ID of the user group to use for managing the resources. Replace the placeholder `mygroup` with your group's name.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You'll use this variable's value when you deploy the managed application definition.
+
+To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$principalid=(Get-AzADGroup -DisplayName mygroup).Id
+$principalid=(Get-AzADGroup -DisplayName managedAppDemo).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-principalid=$(az ad group show --group mygroup --query id --output tsv)
+principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
 ```
 
 ---
 
-### Get the role definition ID
-
-Next, you need the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. Typically, you use the Owner, Contributor, or Reader role. The following command shows how to get the role definition ID for the Owner role:
+Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You'll use this variable's value when you deploy the managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -351,9 +351,7 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 ### Create the managed application definition
 
-If you don't already have a resource group for storing your managed application definition, create a new resource group.
-
-**Optional**: If you want to deploy your managed application definition with an ARM template in your own storage account, see [bring your own storage](#bring-your-own-storage-for-the-managed-application-definition).
+Create a resource group for your managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -369,7 +367,7 @@ az group create --name appDefinitionGroup --location westcentralus
 
 ---
 
-Create the managed application definition resource. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Create the managed application definition in the resource group.
 
 The `blob` command that's run from Azure PowerShell or Azure CLI creates a variable that's used to get the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
@@ -390,6 +388,8 @@ New-AzManagedApplicationDefinition `
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+In the `blob` command's `account-name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
 ```azurecli-interactive
 blob=$(az storage blob url \
