@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Express virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 > [!NOTE]
 > Express virtual network injection feature is not supported for SSIS integration runtime in below regions yet:
 >

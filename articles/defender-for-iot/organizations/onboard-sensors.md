@@ -61,7 +61,7 @@ Onboard an OT sensor by registering it with Microsoft Defender for IoT and downl
 
         If you haven't yet upgraded to version 22.x, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-    1. In the **Site** section, select the **Resource name** and enter the **Display name** for your site. Add any tags as needed to help you identify your sensor.
+    1. In the **Site** section, select the **Resource name** and enter an extra **Display name** to show for your site in the Azure portal. Add any tags as needed to help you identify your sensor.
 
     1. In the **Zone** field, select a zone from the menu, or select **Create Zone** to create a new one.
 

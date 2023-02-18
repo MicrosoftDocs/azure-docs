@@ -89,7 +89,7 @@ If you use a proxy server for communication between Azure Automation and machine
 
 ```azurepowershell-interactive
 $settings = @{
-    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
+    "AutomationAccountURL"  = "<registrationurl>";    
     "ProxySettings" = @{
         "ProxyServer" = "<ipaddress>:<port>";
         "UserName"="test";
@@ -118,19 +118,19 @@ $protectedsettings = @{
       "Proxy_URL"="http://username:password@<IP Address>"
 };
 $settings = @{
-    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
+    "AutomationAccountURL"  = "<registration-url>";    
 };
 ```
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true
 ```
 
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Setting $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Setting $settings -EnableAutomaticUpgrade $true
 ```
 
 ---
@@ -976,6 +976,13 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 
 After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
 
+**Hybrid Worker extension settings**
+
+```powershell-interactive
+$settings = @{
+    "AutomationAccountURL"  = "<registrationurl>";
+};
+```
 **Azure VMs**
 
 ```powershell

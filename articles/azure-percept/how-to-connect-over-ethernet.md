@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 10/06/2021
+ms.date: 02/07/2023
 ms.custom: template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Connect to Azure Percept DK over Ethernet

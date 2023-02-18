@@ -27,7 +27,7 @@ You'll also need the following software installed on your computer.
 
 ## Getting Started Locally
 
-First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld). The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
+First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) and check out the `main-azure` branch. The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
 
 ```cli
 git clone -b main-azure https://github.com/microsoft/FluidHelloWorld.git
@@ -57,13 +57,15 @@ import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
 import { AzureClient } from "@fluidframework/azure-client";
 ```
 To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced. (For information about how to find these values, see [How to: Provision an Azure Fluid Relay service](../how-tos/provision-fluid-azure-portal.md).)
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced. (For information about how to find these values, see [How to: Provision an Azure Fluid Relay service](../how-tos/provision-fluid-azure-portal.md).) Note that the `id` and `name` fields are arbitrary.
 
 ```javascript
+const user = { id: "userId", name: "userName" };
+
 const serviceConfig = {
     connection: {
         tenantId: "MY_TENANT_ID", // REPLACE WITH YOUR TENANT ID
-        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
+        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, user),
         endpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
         type: "remote",
     }
