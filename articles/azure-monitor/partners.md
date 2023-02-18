@@ -12,7 +12,7 @@ ms.reviewer: robb
 
 The following partner products integrate with Azure Monitor. They're listed in alphabetical order. 
 
-This is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate additional appropropriate partners. 
+This article is not a complete list of partners.  The number keeps expanding and maintaining this list is no longer scalable.  As such, we are not accepting new requests to be added to this list. Any GitHub changes opened will be closed without action. We suggest you use your favorite search engine to locate other appropropriate partners. 
 
 ## AIMS
 
@@ -131,9 +131,9 @@ The Azure Native Dynatrace Service gives Microsoft Azure customers a seamless ex
 - OneAgent deployment: You can install or uninstall Dynatrace OneAgents on single or multiple virtual machines and Azure App Services directly from your Azure Portal.
 - Manage Dynatrace within Azure portal: Within your Azure Portal, you can verify which resources are sending Azure metrics and logs to Dynatrace and make instant changes as needed.
 - Deeper Azure CLI integration: You can easily manage Dynatrace resources from the Azure CLI to further extend deployments of those resources with ARM templates or other third-party IAAC platforms, such as Terraform.
-- Azure Monitor metrics collection: The collection of Azure Monitor metrics from your Azure subscription can be activated with one click with no need for configuration or hosting of infrastructure/components. This includes Azure services such as App Services & Functions, Azure Databases, Azure Load Balancers, Azure Storage, and many more (see the complete list of services). Monitoring with the Azure Native Dynatrace Service is setup in the background and activated from the Azure console in a second.
+- Azure Monitor metrics collection: The collection of Azure Monitor metrics from your Azure subscription can be activated with one click with no need for configuration or hosting of infrastructure/components. This includes Azure services such as App Services & Functions, Azure Databases, Azure Load Balancers, Azure Storage, and many more (see the complete list of services). Monitoring with the Azure Native Dynatrace Service is set up in the background and activated from the Azure console in a second.
 
-For further information and documentation on the native integration of Dynatrace in Azure, see our [documentation](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration) or directly have a look at the [Azure marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
+For more information and documentation on the native integration of Dynatrace in Azure, see our [documentation](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration) or directly have a look at the [Azure marketplace listing](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview&exp=ubp8)
 
 ## Elastic
 
@@ -163,7 +163,7 @@ InfluxData is on a mission to help developers and organizations, such as IBM, Vi
 
 ![LogicMonitor logo.](./media/partners/logicmonitor.png)
 
-LogicMonitor is an SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
+LogicMonitor is a SaaS-based performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. 
 
 LM Cloud's comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources—all from a single platform. Automated resource discovery, built-in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
@@ -189,7 +189,7 @@ Logz.io provides you with seamless experience to provision Logz.io accounts and 
 
 With the integration you can 
 -	Provision a new Logz.io account from Azure client interfaces like Azure Portal Azure PowerShell and SDK
--	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to setup and operate
+-	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to set up and operate
 -	Seamlessly send logs and metrics to Logz.io. Without the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
 -	Easily install the Logz.io agent on virtual machines hosts through a single-click
 -	Streamline single-sign on (SSO) to Logz.io. Previously, a separate sign-on from the Logz.io was required.
