@@ -1,5 +1,5 @@
 ---
-title: How to use CalculatedContentT mappings with the MedTech service device mappings - Azure Health Data Services
+title: How to use CalculatedContent mappings - Azure Health Data Services
 description: This article describes how to use CalculatedContent mappings with the MedTech service device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
@@ -11,9 +11,9 @@ ms.author: jasteppe
 
 # How to use CalculatedContent mappings
 
-This article describes how to use CalculatedContent mappings with MedTech service device mappings.
+This article describes how to use CalculatedContent mappings with MedTech service device mappings in Azure Health Data Services.
 
-## CalculatedContent mappings
+## Overview of CalculatedContent mappings
 
 The MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
 
@@ -29,7 +29,7 @@ An expression is defined as:
     }
 ```
 
-In the example below, *typeMatchExpression* is defined as:
+In the following example, *typeMatchExpression* is defined as:
 
 ```json
 "templateType": "CalculatedContent",
@@ -67,7 +67,7 @@ The default expression language to use for a MedTech service device mappings can
     }
 ```
 
-The CalculatedContent mappings allow matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
+The CalculatedContent mappings allow matching on and extracting values from an Azure Event Hubs message using **Expressions**, as defined in the following table:
 
 |Property|Description|Example|
 |--------|-----------|-------|
@@ -82,9 +82,9 @@ The CalculatedContent mappings allow matching on and extracting values from an A
 |Values[].ValueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
 |Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
 
-### Expression Languages
+## Expression languages
 
-When specifying the language to use for the expression, the below values are valid:
+When specifying the language to use for the expression, the following values are valid:
 
 | Expression Language | Value        |
 |---------------------|--------------|
@@ -96,15 +96,15 @@ When specifying the language to use for the expression, the below values are val
 >
 > For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). CalculatedContent mappings use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
-### Custom functions
+## Custom functions
 
-A set of MedTech service custom functions are also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
+A set of MedTech service custom functions is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
 
-### Matched Token
+## Matched token
 
-The **TypeMatchExpression** is evaluated against the incoming EventData payload. If a matching JToken is found, the template is considered a match. 
+The **TypeMatchExpression** is evaluated against the incoming EventData payload. If a matching JToken is found, the template is considered a match.
 
-All later expressions are evaluated against a new JToken. This new JToken contains both the original EventData payload and the extracted JToken matched here. 
+All later expressions are evaluated against a new JToken. This new JToken contains both the original EventData payload and the extracted JToken matched here.
 
 In this way, the original payload and the matched object are available to each later expression. The extracted JToken will be available as the property **matchedToken**.
 
@@ -223,9 +223,9 @@ And
 }
 ```
 
-### Examples
+## Examples
 
-**Heart Rate**
+### Heart rate
 
 *Message*
 
@@ -262,7 +262,7 @@ And
     }
 ```
 
-**Blood Pressure**
+### Blood pressure
 
 *Message*
 
@@ -305,7 +305,7 @@ And
     }
 ```
 
-**Project Multiple Measurements from Single Message**
+### Project multiple measurements from a single message
 
 *Message*
 
@@ -364,7 +364,7 @@ And
     }
 ```
 
-**Project Multiple Measurements from Array in Message**
+### Project multiple measurements from array in a message
 
 *Message*
 
@@ -413,7 +413,7 @@ And
     }
 ```
 
-**Project Data From Matched Token And Original Event**
+### Project data from a matched token and original event
 
 *Message*
 
@@ -465,9 +465,9 @@ And
     }
 ```
 
-**Select and transform incoming data**
+### Select and transform incoming data
 
-In the below example, height data arrives in either inches or meters. We want all normalized height data to be in meters. To achieve this outcome, we create a template that targets only height data in inches and transforms it into meters. Another template targets height data in meters and simply stores it as is.
+In the following example, height data arrives in either inches or meters. We want all normalized height data to be in meters. To achieve this outcome, we create a template that targets only height data in inches and transforms it into meters. Another template targets height data in meters and simply stores it as is.
 
 *Message*
 
@@ -538,15 +538,15 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors.
+> For assistance fixing MedTech service errors, see the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md).
 
 ## Next steps
 
-In this article, you learned how to configure the MedTech service device mappings using CalculatedContent mappings. 
+In this article, you learned how to configure the MedTech service device mappings using CalculatedContent mappings.
 
 To learn how to configure FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
 > [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office, and is used with permission.
