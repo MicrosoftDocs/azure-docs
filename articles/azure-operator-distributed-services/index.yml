@@ -22,15 +22,14 @@ landingContent:
   # Card
   - title: Operator Nexus Overview
     linkLists:
-#     - linkListType: overview
-#       links:
-#          - text: What is Operator Nexus ?
-#            url: overview.md
-      - linkListType: concept
-#       links:
-#          - text: Resource Types
-#            url: concepts-resource-types.md
+      - linkListType: overview
         links:
+           - text: What is Operator Nexus ?
+             url: overview.md
+      - linkListType: concept
+        links:
+           - text: Resource Types
+             url: concepts-resource-types.md
            - text: Observability
              url: concepts-observability.md
 #     - linkListType: how-to-guide
@@ -41,20 +40,22 @@ landingContent:
 #            url: howto-workbooks-alerts.md
 #  
   # Card
-# - title: QuickStart Guides
-#   linkLists:
-#     - linkListType: quickstart
-#       links:
-#          - text: Before you start platform deployment
-#            url: quickstarts-platform-prerequisites.md
-#          - text: Platform deployment
-#            url: quickstarts-platform-deployment.md
-#     - linkListType: quickstart
-#       links:
-#          - text: Before you start tenant workload deployment
-#            url: quickstarts-tenant-workload-prerequisites.md
-#          - text: Tenant workload deployment
-#            url: quickstarts-tenant-workload-deployment.md
+  - title: QuickStart Guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+           - text: Before you start deployment
+             url: quickstart-NFC-CM-create.md       
+           - text: Before you start platform deployment
+             url: quickstarts-platform-prerequisites.md
+           - text: Platform deployment
+             url: quickstarts-platform-deployment.md
+      - linkListType: quickstart
+        links:
+           - text: Before you start tenant workload deployment
+             url: quickstarts-tenant-workload-prerequisites.md
+           - text: Tenant workload deployment
+             url: quickstarts-tenant-workload-deployment.md
 #
   # Card
 # - title: How-To Guides

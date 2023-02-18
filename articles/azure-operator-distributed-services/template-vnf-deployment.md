@@ -6,7 +6,7 @@ ms.author: atwumbarimah
 ms.date: 01/24/2023
 ms.topic: sample
 # ms.prod: used for on prem applications
-ms.service: Operator Nexus
+ms.service: Azure
 ---
 
 # Sample: VNF deployment script
