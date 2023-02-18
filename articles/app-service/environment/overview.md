@@ -105,7 +105,7 @@ App Service Environment v3 is available in the following regions:
 | Australia East       | ✅                           | ✅                          | ✅                           | 
 | Australia Southeast  | ✅                           |                             | ✅                           | 
 | Brazil South         | ✅                           | ✅                          | ✅                           | 
-| Brazil Southeast     |                              |                             | ✅                           |
+| Brazil Southeast     | ✅                           |                             | ✅                           |
 | Canada Central       | ✅                           | ✅                          | ✅                           |
 | Canada East          | ✅                           |                             | ✅                           | 
 | Central India        | ✅                           | ✅                          | ✅                           | 
