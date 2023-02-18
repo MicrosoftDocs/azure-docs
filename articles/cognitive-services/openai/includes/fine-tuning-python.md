@@ -1,5 +1,5 @@
 ---
-title: 'How to customize a model with Azure OpenAI (Python)'
+title: 'How to customize a model with Azure OpenAI Service (Python)'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI by using the Python SDK
 services: cognitive-services
@@ -19,9 +19,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource
     
     For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
