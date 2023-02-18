@@ -1,9 +1,9 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 05/26/2021
+author: eriklindeman
+ms.author: eriklind
+ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -85,19 +85,7 @@ Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of you
 
 ## Next steps
 
-Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](/rest/api/maps/v2/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
-
-> [!div class="nextstepaction"]
-> [Drawing Conversion error codes](drawing-conversion-error-codes.md)
-
-> [!div class="nextstepaction"]
-> [Drawing Package Guide](drawing-package-guide.md)
+Learn more by reading:
 
 > [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
-
-> [!div class="nextstepaction"]
-> [Use the Indoor Maps module](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implement indoor map dynamic styling](indoor-map-dynamic-styling.md)
