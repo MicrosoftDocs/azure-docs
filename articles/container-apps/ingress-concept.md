@@ -4,7 +4,7 @@ description: Ingress options for Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/12/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
@@ -13,6 +13,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # Ingress in Azure Container Apps
 
 Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Ingress is a feature that works on a set of configurable rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
+
+> [!NOTE]
+> Should list more use cases here?
+
 
 > [!NOTE]
 > Add diagram here
@@ -44,7 +48,7 @@ With HTTPS ingress enabled, your container app features the following characteri
 
 ### <a name="tcp"></a>TCP (preview) 
 
-TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. [Configure ingress](#configure-ingress)
+TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
 > TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
@@ -78,6 +82,7 @@ You can get access to the environment's unique identifier by querying the enviro
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
+
 ## Enable ingress
 
 Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
@@ -110,6 +115,14 @@ The following settings are available when configuring ingress:
 > [!NOTE]
 > To disable ingress for your application, omit the `ingress` configuration property entirely.
 
+## Ingress authentication
+
+Container Apps supports the following authentication methods for ingress:
+
+- TLS server certificate authentication (default).
+- mTLS client certificate authentication, which requires a client certificate to be presented by the client.  For more information, see [Configure client certificate authorization in Azure Container Apps](client-certificate-authorization-howto.md)
+- Do we have anything else?
+
 ## Ingress Configuration options
 
 > [!NOTE] 
@@ -124,9 +137,15 @@ The HTTP headers are used to pass protocol and metadata related information betw
 
 The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
+> [!NOTE]
+> Do we have response headers we need to document?
+
 | Header | Description | Values | Required |
 |---|---|---|---|
 | `X-Forwarded-Proto` | The protocol that the client used to connect with the Container Apps service. | `http` or `https` | Yes |
+| `X-Forwarded-For` | The IP address of the client that sent the request. | Yes |
+| 'X-Forwarded-Host | The host name that the client used to connect with the Container Apps service. | Yes |
+
 
 
 >[!NOTE]

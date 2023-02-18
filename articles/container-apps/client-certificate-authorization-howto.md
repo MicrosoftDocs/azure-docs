@@ -1,34 +1,61 @@
 ---
-title: Configure client certificate authorization in Azure Container Apps
-description: Configure client certificate authorization in Azure Container Apps
+title: Configure mutual TLS authentication in Azure Container Apps
+description: How to configure mutual TLS authentication in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 02/15/2023
+ms.date: 02/27/2023
 ms.author: v-bcatherine
 ---
 
-# Configure client certificate authorization in Azure Container Apps
+# Configure mutual TLS authentication in Azure Container Apps
 
-Azure Container Apps allows you to restrict access to your container app by requiring a client certificate. This is useful for scenarios where you want to ensure that only authorized users can access your container app. For example, you might want to require a client certificate for a container app that is used to manage sensitive data.
+Azure Container Apps supports mutual TLS to allow you to authorize access to your container app through two-way authentication. mTLS exchanges certificates between the client and your container app to authenticate the identity of the client and the server. This article shows you how to configure client certificate authorization in Azure Container Apps.
+ 
+mTLS is often used in "zero trust" security models to authorize client access within an organization.  For example, you might want to require a client certificate for a backend container app used to manage sensitive data.
 
-This article shows you how to configure client certificate authorization in Azure Container Apps.
+Container Apps accepts client certificates in the PKCS12 format.  The certificate can be issued by a trusted certificate authority (CA) or may be self-signed.  
+
+> [!NOTE}
+> Is this true?
+>
+>The certificate must be configured with a password to protect the certificate's private key.  The password is not used to authenticate the client.
+
 
 >[!NOTE]
 > Client certificate authorization is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
-
-
->[!NOTE]
-> Question:  Is this the same certificates referenced in the custom-domains-certificates-howto.md article?  If so, we should probably link to that article from here.
 > Question:  Are certificates available in the consumption tier?  Any other limitations?  
-> Question: Are certificates configurable at both the container app and environment level?  If so, we should probably mention that here.
+> Should we include more use cases?
 
 ## Configure client certificate authorization
 
-You can configure client certificate authorization for your container app in the Azure portal or by using the Azure CLI.
+The client certificate mode is an ingress property that can be configured for your container app.  The property can be set to one of the following values:
 
-#[Azure portal](#tab/azure-portal)
+    - require: The client certificate is required for all requests to the container app.
+    - accept: The client certificate is optional. If the client certificate is not provided, the request is still accepted.
+    - ignore: The client certificate is ignored. 
+
+When `require` or `accept` is used the client certificate is passed by ingress to the container app.
+
+
+The following is a template example:
+
+```text
+{ 
+  "properties": {
+    "configuration": {
+      "ingress": {
+        "clientCertificateMode": "require"
+      }
+    }
+  }
+}
+```
+
+You can configure client certificate authorization for your container app in the Azure portal or by using the Azure CLI.  
+
+# [Azure portal](#tab/azure-portal)
 
 To configure client certificate authorization in the Azure portal, follow these steps:
 

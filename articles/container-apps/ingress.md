@@ -146,7 +146,7 @@ You can configure ingress settings for your container app by using the `ingress`
 - The port used to access the app.
 - Traffic splitting between revisions.
 - IP address restrictions. For more information, see [IP address restrictions](./ip-restrictions.md).
-- Client certificate authentication. For more information see [Client certificate authentication](./client-certificate-authentication-howto.md).
+- Client certificate authentication. For more information see [Client certificate authentication](./client-certificate-authorization-howto.md).
 
 > [!NOTE] 
 > Need information about the flags that are available in the CLI and the portal.
