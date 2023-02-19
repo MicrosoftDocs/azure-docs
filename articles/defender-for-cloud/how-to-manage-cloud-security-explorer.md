@@ -34,10 +34,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
     - Contributor
     - Owner
 
-- Clouds: 
-    - :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) 
-    - :::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) 
-    - :::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) for the cloud security explorer cloud, to see which government and cloud environments are supported. ```
 
 ## Build a query with the cloud security explorer
 
