@@ -183,40 +183,46 @@ There are three tabbed sections in this workbook:
 
 ### Overview tab
 
-- The **Overview** tab shows health and audit summaries:
-    - Health summaries of the status of analytics rule runs in the selected workspace: number of runs, successes and failures, and failure event details.
-    - Audit summaries of activities on analytics rules in the selected workspace: number of activities over time, number of activities by type, and number of activities of different types by rule.
+The **Overview** tab shows health and audit summaries:
+- Health summaries of the status of analytics rule runs in the selected workspace: number of runs, successes and failures, and failure event details.
+- Audit summaries of activities on analytics rules in the selected workspace: number of activities over time, number of activities by type, and number of activities of different types by rule.
 
 ### Health tab
 
-- The **Health** tab lets you drill down to particular health events.
-    - Filter the whole page data by **status** (success/failure) and **rule type** (scheduled/NRT).
-    - See the trends of successful and failed rule runs over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
-    - 
+The **Health** tab lets you drill down to particular health events.
 
+:::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-health-tab.png" alt-text="Screenshot of selection of health tab in analytics health workbook.":::
 
-Filter available for Reason, to apply to the remainder of the page.
-
-- Analytics rule run by status (pie chart)
-- Number of unique rules run by rule type and status (chart)
+- Filter the whole page data by **status** (success/failure) and **rule type** (scheduled/NRT).
+- See the trends of successful and/or failed rule runs (depending on the status filter) over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
+    :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-rule-runs-over-time.png" alt-text="Screenshot of analytics rule runs over time in analytics health workbook.":::
+- Filter the rest of the page by **reason**.
+- See the total number of runs for all the analytics rules, displayed proportionally by status in a pie chart.
+- Following that is a table showing the number of unique analytics rules that ran, broken down by rule type and status.
     - Select a status to filter the remaining charts for that status.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Number of unique reasons by status (chart)
+    :::image type="content" source="media/monitor-analytics-rule-integrity/number-rule-runs-by-status-and-type.png" alt-text="Screenshot of number of rules run by status and type in the analytics health workbook.":::
+- See each status, with the number of possible reasons for that status. (Only reasons represented in the runs in the selected time frame will be shown.)
     - Select a status to filter the remaining charts for that status.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Occurrences of unique reason by status (chart)
+    :::image type="content" source="media/monitor-analytics-rule-integrity/unique-reasons-by-status.png" alt-text="Screenshot of number of unique reasons by status in analytics health workbook.":::
+- Next, see a list of those reasons, with the number of total rule runs combined and the number of unique rules that were run.
     - Select a reason to filter the following charts for that reason.
     - Clear the filter by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Unique analytics rules with trendlines, by status ("Analytics rule by status and trending") (chart)
+    :::image type="content" source="media/monitor-analytics-rule-integrity/rule-runs-by-reason.png" alt-text="Screenshot of rule runs by unique reason in analytics health workbook.":::
+- After that is a list of the unique analytics rules that ran, with the latest results and trendlines of their success and/or failure (depending on the status selected to filter the list).
     - Select a rule to drill down and show a new table with all the runnings of that rule (in the selected time frame).
     - Clear that table by selecting the "Clear selection" icon (it looks like an "Undo" icon) in the upper right corner of the chart.
-- Health details for analytics rule: \<name of rule selected in the previous chart> (table)
-
+    :::image type="content" source="media/monitor-analytics-rule-integrity/unique-rules-by-status-and-trend.png" alt-text="Screenshot of list of unique rules run, with status and trendlines, in analytics health workbook.":::
+- If you selected a rule in the list above, a new table will appear with the health details for the selected rule.
+:::image type="content" source="media/monitor-analytics-rule-integrity/health-events-for-rule.png" alt-text="Screenshot of list of runs of selected analytics rule, in analytics health workbook.":::
 
 
 ### Audit tab
 
 The **Audit** tab lets you drill down to particular audit events.
+
+:::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-audit-tab.png" alt-text="Screenshot of selection of audit tab in analytics health workbook.":::
 
 - Filter the whole page data by **audit rule type** (scheduled/Fusion).
 - See the trends of audited activity on analytics rules over the selected time period. You can "time brush" the trend graph to see a subset of the original time range.
