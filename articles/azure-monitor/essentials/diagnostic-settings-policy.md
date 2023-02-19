@@ -5,25 +5,30 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 aliasms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 02/18/2023
 ms.reviewer: lualderm
 ---
 
 
 # Create diagnostic settings at scale using Azure Policies and Initiatives
 
-Since a [diagnostic settings](diagnostic-settings.md) needs to be created for each monitored Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this fact, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition. 
+In order to monitor Azure resources, it is necessary to create [diagnostic settings](./diagnostic-settings.md) for each resource. This can be difficult to manage when you have many resources. To simplify the process of creating and applying diagnostic settings at scale, use Azure Policy to automatically generate diagnostic settings for both new and existing resources. 
 
-With the addition of resource log category groups, you can now choose options that dynamically update as the log categories change.  For more information, see [diagnostic settings sources](diagnostic-settings.md#sources) listed earlier in this article. All resource types have the "All" category. Some have the "Audit" category.  
+Log category groups, group together similar types of logs for a resource. Categrory groups make it easy to refer to more than one log in a single command. An **allLogs** category group exists containg all of the logs. There is also an **audit** category group that groups together all log categories that are considered auto logs.  By referring to the **audit** group, you can define a policy that dynamically updates as new logs categories are added to group.
+
+Each Azure resource type has a unique set of categories that are listed in the diagnostic settings. Each resource type therefor requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you can create a custom definition.   
 
 ## Built-in policy definitions for Azure Monitor
-There are two built-in policy definitions for each resource type: one to send to a Log Analytics workspace and another to send to an event hub. If you need only one location, assign that policy for the resource type. If you need both, assign both policy definitions for the resource.
+There are generally three built-in policy definitions for each resource type, corresponding to the three destinations that diagnostics can be sent to:
+* Log Analytics workspaces 
+* Azure Storage accounts 
+* Event hubs 
 
-For example, the following image shows the built-in diagnostic setting policy definitions for Azure Data Lake Analytics.
+Assign the policies for the resource type according to which destinations you need.
 
-![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/diagnostic-settings-policy/built-in-diagnostic-settings.png)
+A set of policies built-in policies and initiatives based on the audit log category groups have been developed to help you apply diagnostics settings with only a few steps. For more information see [Enable Diagnostics settings by category group using built-in policies.](./diagnostics-settings-policies-deployifnotexists.md)
 
-For a complete listof built-in policies for Azure Monitor, see [Azure Policy built-in definitions for Azure Monitor](../policy-reference.md)
+For a complete list of built-in policies for Azure Monitor, see [Azure Policy built-in definitions for Azure Monitor](../policy-reference.md)
 
 ## Custom policy definitions
 For resource types that don't have a built-in policy, you need to create a custom policy definition. You could do this manually in the Azure portal by copying an existing built-in policy and then modifying it for your resource type. It's more efficient, though, to create the policy programmatically by using a script in the PowerShell Gallery.
