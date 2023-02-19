@@ -150,7 +150,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
     ```azurecli
     az ad sp create-for-rbac \
-      --name my-container-app \
+      --name my-app-credentials \
       --role contributor \
       --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-container-app-rg \
       --sdk-auth \

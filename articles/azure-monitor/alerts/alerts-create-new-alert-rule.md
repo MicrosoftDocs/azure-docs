@@ -102,7 +102,7 @@ Then you define these elements for the resulting alert actions by using:
         |Field |Description |
         |---------|---------|
         |Check every|Select how often the alert rule checks if the condition is met.    |
-        |Lookback period|Select the how far back to look each time the data is checked. For example, every 1 minute you’ll be looking at the past 5 minutes.|
+        |Lookback period|Select how far back to look each time the data is checked. For example, every 1 minute you’ll be looking at the past 5 minutes.|
 
     1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period will trigger the alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. This setting is defined by your application business policy. 
 
