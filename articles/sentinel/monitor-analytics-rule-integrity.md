@@ -24,13 +24,23 @@ This article describes how to use Microsoft Sentinel's [auditing and health moni
 - **Microsoft Sentinel analytics rule health logs:**
 
     - This log captures events that record the running of analytics rules, and the end result of these runnings&mdash;if they succeeded or failed, and if they failed, why. 
-    - The log also records how many events were captured by the query, whether or not that number passed the threshold and caused an alert to be fired.
-    - These logs are collected in the *SentinelHealth* table in Log Analytics.
+    - The log also records, for each running of an analytics rule: 
+        - How many events were captured by the rule's query.
+        - Whether the number of events passed the threshold defined in the rule, causing the rule to fire an alert.
+
+    These logs are collected in the *SentinelHealth* table in Log Analytics.
     
 - **Microsoft Sentinel analytics rule audit logs:**
 
-    - This log captures events that record changes made to any analytics rule, including which rule was changed, what the change was, the state of the rule settings before and after the change, the user or identity that made the change, the source IP and date/time of the change, and more.
-    - These logs are collected in the *SentinelAudit* table in Log Analytics.
+    - This log captures events that record changes made to any analytics rule, including the following details:
+        - The name of the rule that was changed.
+        - Which properties of the rule were changed.
+        - The state of the rule settings before and after the change.
+        - The user or identity that made the change.
+        - The source IP and date/time of the change.
+        - ...and more.
+    
+    These logs are collected in the *SentinelAudit* table in Log Analytics.
 
 ## Use the SentinelHealth and SentinelAudit data tables (Preview)
 
