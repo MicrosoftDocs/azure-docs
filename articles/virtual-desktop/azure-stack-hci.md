@@ -68,7 +68,7 @@ The custom template helps you:
 > [!NOTE]
 > If the host pool already exists, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
 
-After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-deploy-virtual-machines-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
+After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
 
 1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega)
 
