@@ -15,9 +15,9 @@ Use a device map to retrieve, analyze, and manage device information, either all
 
 To perform the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), with network traffic ingested
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](how-to-activate-and-set-up-your-sensor.md), with network traffic ingested
 
-- To view devices across multiple sensors in a zone, an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md), with multiple sensors [connected](ot-deploy/connect-sensors-to-management.md) and [assigned to sites and zones](ot-deploy/sites-and-zones-on-premises.md).
+- To view devices across multiple sensors in a zone, an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](how-to-activate-and-set-up-your-on-premises-management-console.md), with multiple sensors connected and assigned to sites and zones.
 
 - Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you'll need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -201,14 +201,14 @@ On the on-premises management console, zone maps show all network elements relat
 
     |Name  |Description  |
     |---------|---------|
-    |**Save current arrangement**  <br>:::image type="icon" source="media/how-to-work-with-maps/save-zone-map.png" border="false":::   | Saves any changes you've made in the map display.        |
-    |**Hide multicast/broadcast addresses**<br>:::image type="icon" source="media/how-to-work-with-maps/hide-multi-cast-zone-map.png" border="false":::         |  Selected by default. Select to show multicast and broadcast devices on the map.  |
-    |**Present Purdue lines**  <br>:::image type="icon" source="media/how-to-work-with-maps/present-purdue-zone-map.png" border="false":::   | Selected by default. Select to hide Purdue lines on the map. |
-    |**Relayout**  <br>:::image type="icon" source="media/how-to-work-with-maps/relayout-zone-map.png" border="false":::   | Select to reorganize the layout by Purdue lines or by zone.        |
-    |**Scale to fit screen** <br> :::image type="icon" source="media/how-to-work-with-maps/scale-zone-map.png" border="false":::   | Zooms in or out on the map so that the entire map fits on the screen.        |
+    |**Save current arrangement** <br> <br>:::image type="icon" source="media/how-to-work-with-maps/save-zone-map.png" border="false":::   | Saves any changes you've made in the map display.        |
+    |**Hide multicast/broadcast addresses**<br><br>:::image type="icon" source="media/how-to-work-with-maps/hide-multi-cast-zone-map.png" border="false":::         |  Selected by default. Select to show multicast and broadcast devices on the map.  |
+    |**Present Purdue lines**  <br><br>:::image type="icon" source="media/how-to-work-with-maps/present-purdue-zone-map.png" border="false":::   | Selected by default. Select to hide Purdue lines on the map. |
+    |**Relayout** <br> <br>:::image type="icon" source="media/how-to-work-with-maps/relayout-zone-map.png" border="false":::   | Select to reorganize the layout by Purdue lines or by zone.        |
+    |**Scale to fit screen** <br><br> :::image type="icon" source="media/how-to-work-with-maps/scale-zone-map.png" border="false":::   | Zooms in or out on the map so that the entire map fits on the screen.        |
     | **Search by IP / MAC** | Select a specific IP or MAC address to highlight the device on the map. |
-    | **Change to a different zone map** <br>:::image type="icon" source="media/how-to-work-with-maps/change-zone-map.png" border="false"::: | Select to open the **Change Zone Map** dialog, where you can select a different zone map to view. |
-    | **Zoom** <br>:::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: / :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in on the map to view the connections between each device, either using the mouse or the **+**/**-** buttons on the right of the map. |
+    | **Change to a different zone map** <br><br>:::image type="icon" source="media/how-to-work-with-maps/change-zone-map.png" border="false"::: | Select to open the **Change Zone Map** dialog, where you can select a different zone map to view. |
+    | **Zoom** <br><br>:::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: / :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in on the map to view the connections between each device, either using the mouse or the **+**/**-** buttons on the right of the map. |
 
 1. Zoom in to view more details per devices, such as to view the number of devices grouped in a subnet, or to expand a subnet.
 
