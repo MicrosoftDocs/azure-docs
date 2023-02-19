@@ -34,7 +34,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
     - Contributor
     - Owner
 
-Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) for the cloud security explorer cloud, to see which government and cloud environments are supported. ```
+Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) to see which government and cloud environments are supported.
 
 ## Build a query with the cloud security explorer
 
