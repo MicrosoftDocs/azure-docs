@@ -35,7 +35,6 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
     - Owner
 
 Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) for the cloud security explorer cloud, to see which government and cloud environments are supported. ```
-    - :::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Build a query with the cloud security explorer
 
