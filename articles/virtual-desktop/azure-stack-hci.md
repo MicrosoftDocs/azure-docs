@@ -24,7 +24,7 @@ You can set up Azure Virtual Desktop for Azure Stack HCI either manually or auto
 
 ## Prerequisites
 
-To use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
+To use Azure Virtual Desktop for Azure Stack HCI, you need the following things:
 
 - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
@@ -72,7 +72,7 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
 
 1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega)
 
-The template will open in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+The template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 > [!TIP] 
 > Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
@@ -82,7 +82,7 @@ The template will open in the Azure portal. To find all the relevant custom temp
     1. Select the correct **Subscription**.
     1. In **Region**, select the Azure region for the host pool that’s right for you and your customers.
     1. In **Host Pool Name**, enter a unique name for your host pool.
-    1. In **Location**, enter a region where you'll create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. Note that this location must match the Azure region you selected in steb b.
+    1. In **Location**, enter a region where you create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. This location must match the Azure region you selected in steb b.
     1. In **Workspace Name**, enter a unique name.
    
     :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
@@ -95,7 +95,7 @@ The template will open in the Azure portal. To find all the relevant custom temp
 
     :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
 
-    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to be added to the host pool as session hosts. You can add multiple VMs. For example:
+    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to add to the host pool as session hosts. You can add multiple VMs. For example:
     `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-    rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
     
     1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
@@ -103,7 +103,7 @@ The template will open in the Azure portal. To find all the relevant custom temp
     1. In **Tags**, enter values for tags in the following format:
     {"CreatedBy": "name", "Test": "Test2”}
     
-    1. In **Deployment Id**, enter the Deployment Id. A new GUID is created by default.
+    1. In **Deployment Id**, enter the Deployment ID. A new GUID is created by default.
     
     1. In **Validation Environment**, select the Validation Environment. The default is **false**.
     
@@ -112,7 +112,7 @@ The template will open in the Azure portal. To find all the relevant custom temp
 1. Select **Review+Create**.
 
 1. After validation is passed, select **Create**.
-Once the deployment is complete, you will see all the required objects created.
+Once the deployment is complete, you see all the required objects created.
 
 ### Step 4: Manage application groups
 
@@ -178,7 +178,7 @@ Before you begin, make sure you're connected to Azure and are running [Azure Clo
 
 If you're using a local installation, run the [az login](/cli/azure/reference-index#az-login) command to sign into Azure.
 
-After that, follow any other prompts you see to finish signing in. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+After that, follow any other prompts you see to finish signing in. For more sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 If this is your first time using Azure CLI, install any required extensions by following the instructions in [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -217,7 +217,7 @@ MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 
 ### Create a new Azure managed disk from the image
 
-Next, you'll need to create an Azure managed disk from the image you downloaded from the Azure Marketplace.
+Next, you need to create an Azure managed disk from the image you downloaded from the Azure Marketplace.
 
 To create an Azure managed disk:
 
@@ -278,7 +278,7 @@ This command may take a few minutes to finish, so be patient.
 
 If you need to refresh your memory about the basics or pricing information, go to [Azure Virtual Desktop for Azure Stack HCI](azure-stack-hci-overview.md).
 
-If you have additional questions, check out our [FAQ](azure-stack-hci-faq.yml).
+To find answers to frequently asked questions, see [FAQ](azure-stack-hci-faq.yml).
 
 # [Automated deployment](#tab/automated-deployment)
 
