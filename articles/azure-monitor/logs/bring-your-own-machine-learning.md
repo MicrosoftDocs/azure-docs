@@ -1,3 +1,15 @@
+---
+title: Bring your own machine learning/advanced analytics to analyze log data in Azure Monitor
+description: Plan the phases of your migration from Splunk to Azure Monitor Logs and get started importing, collecting, and analyzing log data. 
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: ilanawaitser
+ms.topic: conceptual 
+ms.date: 25/01/2023
+
+#customer-intent: As a data scientist, I want to understand how to use train, tune, and run machine learning models on data in Azure Monitor Logs so that I can identify and respond to anomalous patterns in log data.
+
+---
 # Bring your own machine learning/advanced analytics to analyze log data in Azure Monitor 
 
 Machine learning offers powerful methods of processing, analyzing, and acting on log data you collect in Azure Monitor Logs. 
