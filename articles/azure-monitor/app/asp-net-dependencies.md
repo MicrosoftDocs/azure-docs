@@ -268,7 +268,7 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
-* [Availability](./monitor-web-app-availability.md)
+* [Availability](./availability-overview.md)
 * Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)

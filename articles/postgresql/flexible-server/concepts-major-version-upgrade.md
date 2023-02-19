@@ -61,7 +61,8 @@ During preview, if in-place major version upgrade pre-check operations fail then
 
 -	Servers configured with logical replication slots aren't supported. 
 
--	MVU is currently not supported for PgBouncer enabled servers.
+-	MVU is currently not supported for PgBouncer,AAD,CMK enabled servers. We are going to support this during GA.
+
 
 
 ## How to Perform in-place major version upgrade: 
