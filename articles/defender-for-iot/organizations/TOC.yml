@@ -74,6 +74,8 @@
         href: ot-virtual-appliances.md
     - name: Supported protocols
       href: concept-supported-protocols.md
+    - name: Defender for IoT device inventory
+      href: device-inventory.md
     - name: Defender for IoT alerts
       href: alerts.md
     - name: Monitoring OT threats in enterprise SOCs
