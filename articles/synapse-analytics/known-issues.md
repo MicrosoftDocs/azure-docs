@@ -22,7 +22,7 @@ To learn more about Azure Synapse Analytics, see the [Overview](index.yml), and 
 
 |Issue |Status  |Synapse Component|
 |---------|---------|---------|
-|[Queries using AAD authentication fails after 1 hour](#queries-using-aad-authentication-fails-after-1-hour)|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Queries using Azure AD authentication fails after 1 hour](#queries-using-aad-authentication-fails-after-1-hour)|Has Workaround|Azure Synapse Serverless SQL Pool|
 |[Query failures from Serverless SQL to Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|Azure Synapse Serverless SQL pool|
 |[Query failures while reading Cosmos Data using OPENROWSET](#query-failures-while-reading-cosmos-data-using-openrowset)|Has Workaround|Azure Synapse Serverless SQL Pool|
 |[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|Azure Synapse Dedicated SQL Pool|
@@ -31,12 +31,12 @@ To learn more about Azure Synapse Analytics, see the [Overview](index.yml), and 
 
 ## Azure Synapse Analytics Serverless SQL Pool known issues summary
 
-### Queries using AAD authentication fails after 1 hour
+### Queries using Azure AD authentication fails after 1 hour
 
 SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries are not affected, like Synapse Studio.
 
 **Workaround**: The engineering team is currently aware of this behavior and working on a fix. <br>
-Following steps can be followed to workaround the problem. 
+Following steps can be followed to work around the problem. 
 
 1) It is recommended switching to Service Principal, Managed Identity or Shared Access Signature instead of using user identity for long running queries. 
 2) Restarting client (SSMS/ADS) acquires new token to establish the connection.
