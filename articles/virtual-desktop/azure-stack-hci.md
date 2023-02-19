@@ -15,10 +15,12 @@ This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
-You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal.
-
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Configure Azure Virtual Desktop for Azure Stack HCI
+
+You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal.
 
 # [Manual deployment](#tab/manual-deployment)
 
@@ -70,12 +72,12 @@ The custom template helps you:
 
 After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
 
-1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega)
+1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
-The template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+    The template opens in the Azure portal. To find all the relevant custom     templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
-> [!TIP] 
-> Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
+    > [!TIP] 
+    > Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
 
 1. Select or enter the following values under **Project details**:
     
@@ -85,7 +87,7 @@ The template opens in the Azure portal. To find all the relevant custom template
     1. In **Location**, enter a region where you create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. This location must match the Azure region you selected in steb b.
     1. In **Workspace Name**, enter a unique name.
    
-    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
+        :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
 
     1. In **Domain**, enter the domain name to join your session hosts to the required domain.
     
@@ -93,10 +95,11 @@ The template opens in the Azure portal. To find all the relevant custom template
    
     1. In **Domain Administrator Username** and **Domain Administrator Password**, enter the domain administrator credentials to join your session hosts to the domain.
 
-    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
+        :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
 
     1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to add to the host pool as session hosts. You can add multiple VMs. For example:
-    `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-    rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
+
+    *“/subscriptions/<subscriptionID>/resourceGroups/Contoso-    rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”*
     
     1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
     
@@ -107,11 +110,11 @@ The template opens in the Azure portal. To find all the relevant custom template
     
     1. In **Validation Environment**, select the Validation Environment. The default is **false**.
     
-    :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
+        :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
 
 1. Select **Review+Create**.
 
-1. After validation is passed, select **Create**.
+1. After validation passes, select **Create**.
 Once the deployment is complete, you see all the required objects created.
 
 ### Step 4: Manage application groups
@@ -157,7 +160,7 @@ To create a profile container using a file share:
 
 You can add new session hosts to an existing host pool that was created either manually or using the custom template.
 
-Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega).
+Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
 The template will open in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
@@ -276,7 +279,7 @@ This command may take a few minutes to finish, so be patient.
 
 ## Next steps
 
-If you need to refresh your memory about the basics or pricing information, go to [Azure Virtual Desktop for Azure Stack HCI](azure-stack-hci-overview.md).
+For an overview and pricing information, see [Azure Virtual Desktop for Azure Stack HCI](azure-stack-hci-overview.md).
 
 To find answers to frequently asked questions, see [FAQ](azure-stack-hci-faq.yml).
 
@@ -332,13 +335,13 @@ Follow these steps for the automated deployment process:
 
 1. Enter a unique name for your host pool.
 
-1. In **Location**, enter a region where Host Pool, Workspace, and VMs machines will be created. The metadata for these objects is stored in the geography associated with the region. *Example: East US*.
+1. In **Location**, enter a region where Host Pool, Workspace, and VMs machines will be created. The metadata for these objects is stored in the geography associated with the region. For example: East US.
 
     > [!NOTE]
     > This location must match the Azure region you selected in step 8 above.
 
-1. In **Custom Location Id**, enter the resource ID of the deployment target for creating VMs, which is associated with an Azure Stack HCI cluster.  
-*Example: /subscriptions/My_subscriptionID/resourcegroups/Contoso-rg/providers/microsoft.extendedlocation/customlocations/Contoso-CL*.
+1. In **Custom Location Id**, enter the resource ID of the deployment target for creating VMs, which is associated with an Azure Stack HCI cluster. For example:
+*/subscriptions/My_subscriptionID/resourcegroups/Contoso-rg/providers/microsoft.extendedlocation/customlocations/Contoso-CL*
 
 1. Enter a value for **Virtual Processor Count** (vCPU) and for **Memory GB** for your VM. Defaults are 4 vCPU and 8GB respectively.
 
