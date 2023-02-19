@@ -9,7 +9,7 @@ ms.author: jordanselig
 
 # Tutorial: Create a secure n-tier app in Azure App Service
 
-Many applications consist of more than just a single component. For example, you may have a frontend that is publicly accessible that connects to a backend database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up what's known as an n-tier application. It's important that applications like this are architected so that access is limited to privileged individuals. Any component that isn't intended for public consumptions should be locked down to the greatest extent available for your use case.
+Many applications consist of more than just a single component. For example, you may have a frontend that is publicly accessible that connects to a backend database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up an n-tier application. It's important that applications like this are architected so that access is limited to privileged individuals. Any component that isn't intended for public consumptions should be locked down to the greatest extent available for your use case.
 
 In this tutorial, you'll learn how to deploy a secure n-tier web app with network-isolated communication to a backend web app. All traffic is isolated within your virtual network using [virtual network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more information on n-tier applications including more scenarios and multi-region considerations, see [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md).
 
@@ -186,7 +186,7 @@ For more information on disabling basic auth including how to test and monitor l
 
 ## Update access restrictions to allow for continuous deployment
 
-Since your backend web app isn't publicly accessible, you need to update it's access restrictions so that your continuous deployment tool can reach your app. You need to update the access restrictions to the SCM site to make it publicly accessible. The main site can continue to deny all traffic. If you're concerned about enabling public access to the SCM site, or you're restricted by policy, consider [other App Service deployment options](deploy-run-package.md). Note that in the previous step, you disabled basic auth to the SCM endpoint of the backend web app. This setting ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure. The access restrictions on your front end web app don't need to be changed.
+Since your backend web app isn't publicly accessible, you need to update its access restrictions so that your continuous deployment tool can reach your app. You need to update the access restrictions to the SCM site to make it publicly accessible. The main site can continue to deny all traffic. If you're concerned about enabling public access to the SCM site, or you're restricted by policy, consider [other App Service deployment options](deploy-run-package.md). In the previous step, you disabled basic auth to the SCM endpoint of the backend web app. This setting ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure. The access restrictions on your front end web app don't need to be changed.
 
 To update the backed web app's [access restrictions for the SCM site](app-service-ip-restrictions.md#restrict-access-to-an-scm-site), you should use the Azure portal.
 
@@ -200,7 +200,7 @@ To update the backed web app's [access restrictions for the SCM site](app-servic
 
     :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-main-site.png" alt-text="Screenshot of access restriction updates for main site to deny public access.":::
 
-1. Under **Site access and rules**, navigate to the **Advanced tool site** tab. Select the radio button next to "Allow" for "Unmatched rule action". This settings allows public access to the SCM site.
+1. Under **Site access and rules**, navigate to the **Advanced tool site** tab. Select the radio button next to "Allow" for "Unmatched rule action". This setting allows public access to the SCM site.
 
     :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-scm-site.png" alt-text="Screenshot of access restriction updates for SCM site to allow public access.":::
 
