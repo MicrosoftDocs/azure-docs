@@ -3,7 +3,7 @@ title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: how-to
-ms.date: 1/24/2023
+ms.date: 02/19/2023
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -11,19 +11,20 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
+This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview) manually or by using automated process.
+
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
-You can configure Azure Virtual Desktop for Azure Stack HCI manually. You can also deploy the workload directly from the **Azure Virtual Desktop** tile on your cluster's Overview page on Azure portal, which is integrated with ARM templates for an end-to-end automated deployment.
+You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal.
 
 > [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply.
+> This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-# [Manual setup](#tab/manual-setup)
+# [Manual deployment](#tab/manual-deployment)
 
 ## Prerequisites
 
-In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
+To use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
 - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
@@ -35,18 +36,18 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
 
-## Configure Azure Virtual Desktop for Azure Stack HCI
+## Configure Azure Virtual Desktop for Azure Stack HCI manually
 
-To set up Azure Virtual Desktop for Azure Stack HCI, follow these high-level steps:
+To manually configure Azure Virtual Desktop for Azure Stack HCI, follow these high-level steps:
 
-- Deploy virtual machines on Azure Stack HCI
-- Install Connected Machine agent on the virtual machine
-- Deploy a custom template
-- Manage application groups
+- [Step 1: Create a new virtual machines on Azure Stack HCI](#step-1-create-a-new-virtual-machine-on-azure-stack-hci)
+- [Step 2: Install Connected Machine agent on the virtual machine](#step-2-install-connected-machine-agent-on-the-virtual-machine)
+- [Step 3: Deploy a custom template](#step-3-deploy-a-custom-template)
+- [Step 4: Manage application groups](#step-4-manage-application-groups)
 
-### Step 1: Deploy virtual machines on Azure Stack HCI
+### Step 1: Create a new virtual machine on Azure Stack HCI
 
-Deploy a new virtual machine on your Azure Stack HCI infrastructure. For step-by-step instructions, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm).
+Create a new virtual machine on your Azure Stack HCI infrastructure. For step-by-step instructions, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm).
 
 > [!NOTE]
 > [Install the Remote Desktop Session Host (RDSH) role](/windows-server/remote/install-rds-host-role-service-without-connection-broker) if the VM is running a Windows Server operating system.
@@ -55,7 +56,7 @@ Deploy a new virtual machine on your Azure Stack HCI infrastructure. For step-by
 
 To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 
-### Deploy a custom template
+### Step 3: Deploy a custom template
 
 The custom template helps you:
 
@@ -67,7 +68,7 @@ The custom template helps you:
 > [!NOTE]
 > If the host pool already exists, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
 
-After you satisfy the [prerequisites](#prerequisites) complete [Step 1](#step-1-deploy-virtual-machines-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
+After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-deploy-virtual-machines-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
 
 1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega)
 
@@ -87,29 +88,37 @@ The template will open in the Azure portal. To find all the relevant custom temp
     :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
 
     1. In **Domain**, enter the domain name to join your session hosts to the required domain.
+    
     1. In **O U Path**, enter the OU Path value for domain join. For example: OU=unit1,DC=contoso,DC=com.
+   
     1. In **Domain Administrator Username** and **Domain Administrator Password**, enter the domain administrator credentials to join your session hosts to the domain.
 
     :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
 
-    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to be added to the host pool as session hosts. You can add multiple VMs. For example: [“/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”]
+    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to be added to the host pool as session hosts. You can add multiple VMs. For example:
+    `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-    rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
+    
     1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
+    
     1. In **Tags**, enter values for tags in the following format:
     {"CreatedBy": "name", "Test": "Test2”}
+    
     1. In **Deployment Id**, enter the Deployment Id. A new GUID is created by default.
+    
     1. In **Validation Environment**, select the Validation Environment. The default is **false**.
     
     :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
 
 1. Select **Review+Create**.
+
 1. After validation is passed, select **Create**.
 Once the deployment is complete, you will see all the required objects created.
 
-### Manage application groups
+### Step 4: Manage application groups
 
 You can add more application groups to a host pool and assign users to the application group. For step-by-step instructions, see [Tutorial: Manage app groups with the Azure portal](manage-app-groups.md).
 
-## Windows OS activation
+## Activate Windows operating system
 
 Windows VMs must be licensed and activated before you can use them on Azure Stack HCI.
 
@@ -143,6 +152,14 @@ To create a profile container using a file share:
 7. Follow the directions in [Prepare the VM to act as a file share](create-host-pools-user-profile.md#prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles) to prepare your VM for deployment.
 
 8. Follow the directions in [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container) to configure your profile container for use.
+
+### Add session hosts
+
+You can add new session hosts to an existing host pool that was created either manually or using the custom template.
+
+Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega).
+
+The template will open in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 ### Download supported OS images from Azure Marketplace
 
@@ -212,7 +229,7 @@ $diskName = <disk name> #Name for new disk to be created
 $diskRG = <resource group> #Resource group that contains the new disk
 ```
 
-2. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
+1. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
 
 ```azurecli
 az disk create -g $diskRG -n $diskName --image-reference $urn
@@ -228,7 +245,7 @@ To export the VHD:
 
 1. Open a browser and go to the SAS URL of the managed disk you generated in [Create a new Azure managed disk from the image](#create-a-new-azure-managed-disk-from-the-image). You can download the VHD image for the image you downloaded at the Azure Marketplace at this URL.
 
-2. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
+1. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
 
 >[!NOTE]
 >If you're running azcopy, you may need to skip the md5check by running this command:
@@ -263,11 +280,11 @@ If you need to refresh your memory about the basics or pricing information, go t
 
 If you have additional questions, check out our [FAQ](azure-stack-hci-faq.yml).
 
-# [Using ARM templates](#tab/arm-templates)
+# [Automated deployment](#tab/automated-deployment)
 
 ## Prerequisites
 
-In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
+To use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
 - An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
@@ -283,11 +300,17 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - There should be at least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account?tabs=azurecli), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share?tabs=azurecli).
 
-## Set up and configuration
+## Configure Azure Virtual Desktop for Azure Stack HCI via automation
 
-Follow the steps below for a simplified process of setting up Azure Virtual Desktop on Azure Stack HCI. This deployment is based on an Azure Resource Manager template that automates creating the host pool and workspace, creating the session hosts on the HCI cluster, joining the domain, downloading and installing the Azure Virtual Desktop agents, and then registering them to the host pool.
+The automated deployment of Azure Virtual Desktop for Azure Stack HCI is based on an Azure Resource Manager template, which automates the following steps:
 
-1. Sign into the Azure portal.
+- Creating the host pool and workspace
+- Creating the session hosts on the Azure Stack HCI cluster
+- Joining the domain, downloading and installing the Azure Virtual Desktop agents, and then registering them to the host pool
+
+Follow these steps for the automated deployment process:
+
+1. Sign in to the Azure portal.
 
 1. On the Azure portal menu or from the Home page, select **Azure Stack HCI**.
 
@@ -297,8 +320,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 
 1. On the **Overview** page, select the **Get Started** tab.
 
-
-1. Select the **Deploy button** on the **Azure Virtual Desktop** tile - the **Custom deployment** page will open.
+1. Select the **Deploy** button on the **Azure Virtual Desktop** tile. The **Custom deployment** page will open.
 
     :::image type="content" source="media/azure-virtual-desktop-hci/custom-template.png" alt-text="Screenshot of custom deployment template." lightbox="media/azure-virtual-desktop-hci/custom-template.png":::
 
@@ -349,7 +371,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 > [!NOTE]
 > For more session host configurations, use the Full Configuration [(CreateHciHostpoolTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/CreateHciHostpoolTemplate.json) template, which offers all the features that can be used to deploy Azure Virtual Desktop on Azure Stack HCI.
 
-## Windows OS activation
+## Activate Windows operating system
 
 Windows VMs must be licensed and activated before you can use them on Azure Stack HCI.
 
@@ -359,7 +381,6 @@ For activating your multi-session OS VMs (Windows 10, Windows 11, or later), ena
 > You must manually enable access for each VM that requires Azure Benefits.
 
 For all other OS images (such as Windows Server or single-session OS), Azure Benefits is not required. Continue to use the existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
-
 
 ## Optional configuration
 
