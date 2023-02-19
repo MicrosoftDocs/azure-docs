@@ -180,7 +180,8 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
 > [!IMPORTANT]
-> Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - When `egress_public_network_access` is disabled, the deployment can only access the resources secured in the VNET. When `egress_public_network_access` is enabled, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.   
 
 ## End-to-end example
 
