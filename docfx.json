@@ -964,6 +964,7 @@
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
+        "articles/defender-for-iot/device-builders/*.md": "device-builders",
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
