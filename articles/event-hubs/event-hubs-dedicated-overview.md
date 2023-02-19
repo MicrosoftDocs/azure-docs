@@ -1,19 +1,19 @@
 ---
-title: Overview of Azure Event Hubs dedicated tier
-description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
+title: Overview of Azure Event Hubs Dedicated tier
+description: This article provides an overview of Dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
 ms.date: 02/07/2023
 ---
 
 # Overview of Azure Event Hubs Dedicated tier
 
-Event Hubs dedicated clusters are designed to meet the needs of most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on AMQP(Event Hubs SDK) or Apache Kafka APIs. 
+Event Hubs Dedicated clusters are designed to meet the needs of most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on AMQP(Event Hubs SDK) or Apache Kafka APIs. 
 
 > [!NOTE]
-> The dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
+> The Dedicated tier isn't available in all regions. Try to create a Dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
 
 ## Why Dedicated cluster? 
-The dedicated tier of Event Hubs offers several benefits to customers who need run mission-critical workloads at enterprise-level capacity. 
+The Dedicated tier of Event Hubs offers several benefits to customers who need run mission-critical workloads at enterprise-level capacity. 
 
 ### Low latency event streaming
 These clusters are optimized for low end-to-end latency and high performance. Therefore these clusters enable businesses to handle high-velocity and high-volume data streaming. 
@@ -23,13 +23,13 @@ Dedicated clusters can stream events at the gigabytes per second or millions of 
 
 
 ### Guaranteed consistent performance
-Event Hubs dedicated clusters minimize the latency jitter and ensure consistent performance with guaranteed capacity. 
+Event Hubs Dedicated clusters minimize the latency jitter and ensure consistent performance with guaranteed capacity. 
 
 ### Zero interference
 Event Hubs Dedicated Clusters operate on a single-tenant architecture. Therefore it ensures that the allocated resources being not shared with any other tenants. Therefore, unlike other tiers, you wouldn't see any cross tenant interference in Dedicated cluster. 
 
 ###  Self-serve scaling 
-The dedicated cluster offers self-serve scaling capabilities that allow you to adjust the capacity of the cluster according to dynamic loads and to facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low. 
+The Dedicated cluster offers self-serve scaling capabilities that allow you to adjust the capacity of the cluster according to dynamic loads and to facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low. 
 
 ### High-end features and generous quotas
 Dedicated clusters include all features of the Premium tier and more. The service also manages load balancing, operating system updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building your event streaming applications.  
@@ -44,7 +44,7 @@ How much you can ingest and stream per CU depends on various factors, such as th
 - Payload size
 - Egress rate
 
-Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my dedicated cluster](#when-to-scale-my-dedicated-cluster). 
+Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs Dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my Dedicated cluster](#when-to-scale-my-dedicated-cluster). 
 
 ## Cluster Types
 Event Hubs Dedicated Clusters come in two distinct types: Self-serve scalable clusters and Legacy clusters. These two types differ in their support for the number of CUs, the amount of throughput each CU provides, and the regional and zone availability. 
