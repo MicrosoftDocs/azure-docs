@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secure n-tier web app'
 description: Learn how to securely deploy your n-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/15/2023
+ms.date: 2/19/2023
 ms.author: jordanselig
 ---
 
@@ -38,6 +38,8 @@ What you'll learn:
 > * Create private DNS zones.
 > * Create private endpoints.
 > * Configure virtual network integration in App Service.
+> * Disabled basic auth in app service.
+> * Continuously deploy to a locked down backend web app.
 
 ## Prerequisites
 
@@ -81,53 +83,6 @@ You need two instances of a web app, one for the frontend and one for the backen
 
     az webapp create --name <backend-app-name> --resource-group $groupName --plan $aspName --runtime "NODE:18-lts"
     ```
-
-### Deploy source code using GitHub Actions
-
-#### Prerequisites for source code deployment
-
-Two Node.js apps are provided that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
-
-1. Go to the [Node.js backend sample app](https://github.com/seligj95/nodejs-backend). This app is a simple Hello World app.
-1. Select the **Fork** button in the upper right on the GitHub page.
-1. Select the **Owner** and leave the default Repository name.
-1. Select **Create** fork.
-1. Repeat the same process for the [Node.js frontend sample app](https://github.com/seligj95/nodejs-frontend). This app is a basic web scraping app.
-
-#### Configure continuous deployment
-
-To set up continuous deployment, you should use the Azure portal. For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
-
-1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for your frontend web app.
-1. In the left pane, select **Deployment Center**. Then select **Settings**. 
-1. In the **Source** box, select "GitHub" from the CI/CD options.
-
-    :::image type="content" source="media/app-service-continuous-deployment/choose-source.png" alt-text="Screenshot that shows how to choose the deployment source":::
-
-1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
-1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
-
-    1. If you're using the Node.js sample app that was forked as part of the prerequisites, use the following settings.
-        
-        |Setting       |Value                        |
-        |--------------|-----------------------------|
-        |Organization  |`<your-GitHub-organization>` |
-        |Repository    |nodejs-frontend              |
-        |Branch        |main                         |
-        
-1. Select **Save**.
-
-    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
-
-A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
-
-Repeat the same steps for your backend web app. The inputs for the continuous deployment settings are given in the table.
-    
-|Setting       |Value                        |
-|--------------|-----------------------------|
-|Organization  |`<your-GitHub-organization>` |
-|Repository    |nodejs-backend               |
-|Branch        |main                         |
 
 ## Create network infrastructure
 
@@ -209,156 +164,63 @@ For more information on App Service access restrictions with private endpoints, 
     
     Virtual network integration allows outbound traffic to flow directly into the virtual network. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the virtual network, which is what you need for the private endpoints. To route all your traffic to the virtual network, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your virtual network, such as through an [Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
-## Validate connections and app access
+## Disable basic auth
 
-1. You can now browse to the frontend web app by going to `<frontend-app-name>.azurewebsites.net` and all **outbound** traffic from the frontend web app is routed through the virtual network. Your frontend web app is securely connecting to your backend web app via the private endpoint. 
+[Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD), which further secures your apps. 
 
-    In the textbox, input the URL for your backend web app, which should look like `https://<backend-app-name>.azurewebsites.net`. If you set up the connections properly, you should get the message "Hello from the backend web app!", which is the entire content of the backend web app. If something is wrong with your connections, your frontend web app crashes.
-
-1. If you haven't already, try navigating to your backend web app to verify that direct access is forbidden. The URL is `https://<backend-app-name>.azurewebsites.net`. If you can reach your backend web app, ensure you've configured the private endpoint and that the access restrictions for your app are set to disable public access.
-
-    :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-disable-public-access.png" alt-text="Screenshot of Access Restrictions showing public access is disabled.":::
-
-1. To further validate that the frontend web app is reaching the backend web app over private link, SSH to one of your front end's instances. To SSH, run the following command, which establishes an SSH session to the web container of your app and opens a remote shell in your browser.
-
-    ```azurecli-interactive
-    az webapp ssh --resource-group $groupName --name <frontend-app-name>
-    ```
-
-    When the shell opens in your browser, run "nslookup" to confirm your backend web app is being reached using the private IP of your backend web app. You can also run "curl" to validate the site content again. Replace `<backend-app-name>` with your backend web app name.
-
-    ```bash
-    nslookup <backend-app-name>.azurewebsites.net
-
-    curl https://<backend-app-name>.azurewebsites.net
-    ```
-    
-    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-ssh-validation.png" alt-text="Screenshot of SSH session showing how to validate app connections.":::
-
-    If you've configured everything correctly, the "nslookup" should resolve the private IP of your backend web app. The private IP address should be an address from your virtual network. To confirm your private IP, go to the **Networking** page for your backend web app. 
-
-    :::image type="content" source="./media/tutorial-secure-ntier-app/backend-app-service-inbound-ip.png" alt-text="Screenshot of App Service Networking page showing the inbound IP of the app.":::
-
-1. Repeat the same "nslookup" and "curl" commands from another terminal (one that isn't an SSH session on your frontend’s instances). 
-
-    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-ssh-external.png" alt-text="Screenshot of an external terminal doing a nslookup and curl of the backend web app.":::
-
-    The "nslookup" returns the public IP for the backend web app. Since public access to the backend web app is disabled, if you try to reach the public IP, you get an access denied error. This error means this site isn't accessible from the public internet, which is the intended behavior. The nslookup doesn’t resolve the private IP because that can only be reached from within the virtual network using the private endpoint. Only the frontend web app is within the virtual network. If you try to do a "curl" on the backend web app from the external terminal, the HTML that is returned contains “Web App - Unavailable”. This error displays the HTML for the error page you saw earlier when you tried navigating to the backend web app in your browser.
-
-## Clean up resources
-
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell.
-
-```azurecli-interactive
-az group delete --name myresourcegroup
-```
-
-This command may take a few minutes to run.
-
-## Deploy from ARM/Bicep
-
-The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [App connected to a backend web app Bicep template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) allows you to create a secure n-tier app solution.
-
-To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bicep and Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
-
-## Frequently asked questions
-
-In this tutorial so far, you've deployed the baseline infrastructure to deploy an n-tier app. App Service provides features that can help you ensure you're running applications following security best practices and recommendations.
-
-This section contains frequently asked questions that can help you further secure your apps and deploy and manage your resources using best practices.
-
-### What is the recommended method for managing and deploying application infrastructure and Azure resources?
-
-For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Infrastructure as code (IaC), such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview), should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
-
-### How can I use staging slots to practice safe deployment to production?
-
-Deploying your application code directly to production apps/slots isn't recommended. This is because you'd want to have a safe place to test your apps and validate changes you've made before pushing to production. Use a combination of staging slots and slot swap to move code from your testing environment to production. 
-
-You already created the baseline infrastructure for this scenario. Now create deployment slots for each instance of your app and configure continuous deployment to these staging slots with GitHub Actions. As with infrastructure management, configuring continuous deployment for your application source code is also recommended.
-
-If you've been following along with this tutorial, disable the continuous deployment you configured earlier for each of your apps before proceeding. To disable continuous deployment, for each of your apps, go to the **Deployment Center** in the Azure portal and select "Disconnect". Select "Delete workflow file", and select "OK" to confirm. Repeat this step for your other app.
-
-:::image type="content" source="./media/tutorial-secure-ntier-app/disconnect-continuous-deployment.png" alt-text="Screenshot demonstrating how to disconnect continuous deployment for a web app.":::
-
-#### Create staging slots
-
-Run the following commands to create staging slots called "stage" for each of your apps. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names.
-
-```azurecli-interactive
-az webapp deployment slot create --resource-group $groupName --name <frontend-app-name> --slot stage --configuration-source <frontend-app-name>
-
-az webapp deployment slot create --resource-group $groupName --name <backend-app-name> --slot stage --configuration-source <backend-app-name>
-```
-
-To set up continuous deployment, repeat the process you used earlier using the Azure portal. For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
-
-To configure continuous deployment with GitHub Actions, complete the following steps for each of your staging slots.
-
-1. In the [Azure portal](https://portal.azure.com), go to the management page for one of your App Service app slots.
-1. In the left pane, select **Deployment Center**. Then select **Settings**. 
-1. In the **Source** box, select "GitHub" from the CI/CD options.
-1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
-1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
-1. Select **Save**.
-
-    New commits in the selected repository and branch now deploy continuously into your App Service app slot. You can track the commits and deployments on the **Logs** tab.
-
-A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
-
-#### How does slot traffic routing allow me to test updates that I make to my apps?
-
-Traffic routing with slots allows you to direct a pre-defined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them automatically get routed to the staging slot. To learn more about slot swaps and staging environments in App Service, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
-
-#### How do I move my code from my staging slot to my production slot?
-
-Once you're done testing and validating in your staging slots, you can perform a [slot swap](deploy-staging-slots.md#swap-two-slots) from your staging slot to your production site. During a slot swap, the App Service platform [ensures the target slot doesn't experience downtime](deploy-staging-slots.md#swap-operation-steps).
-
-To perform the swap, run the following command for each app. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names.
-
-```azurecli-interactive
-az webapp deployment slot swap --resource-group $groupName -name <frontend-app-name> --slot stage --target-slot production
-
-az webapp deployment slot swap --resource-group $groupName -name <backend-app-name> --slot stage --target-slot production
-```
-
-At this point, your n-tier app is up and running and any changes you make to your application source code automatically trigger an update to your respective staging slot. You can then repeat the slot swap process when you're ready to move that code into production.
-
-### How do I disable basic auth on App Service?
-
-Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD). If using a continuous deployment tool to deploy your application source code, disabling basic auth requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you can't use a publish profile since that authentication mechanism doesn't use Azure AD backed credentials. Instead, either use a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
-
-To disable basic auth for your App Service, run the following commands for each app and slot. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
+To disable basic auth for your App Service apps, run the following commands for each app. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names. The first set of commands disables FTP access, and the second set of commands disables basic auth access to the WebDeploy ports and SCM sites.
 
 ```azurecli-interactive
 az resource update --resource-group $groupName --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<frontend-app-name> --set properties.allow=false
 
-az resource update --resource-group $groupName --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<frontend-app-name>/slots/stage --set properties.allow=false
-
 az resource update --resource-group $groupName --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name> --set properties.allow=false
-
-az resource update --resource-group $groupName --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name>/slots/stage --set properties.allow=false
 ```
 
 ```azurecli-interactive
 az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<frontend-app-name> --set properties.allow=false
 
-az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<frontend-app-name>/slots/stage --set properties.allow=false
-
 az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name> --set properties.allow=false
-
-az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name>/slots/stage --set properties.allow=false
 ```
 
 For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
 
-### How do I deploy my code using continuous deployment if I disabled basic auth?
+## Update access restrictions to allow for continuous deployment
 
-If you choose to allow basic auth on your App Service apps, you can use any of the available deployment methods on App Service, including using the publish profile that was configured in the [staging slots](#how-can-i-use-staging-slots-to-practice-safe-deployment-to-production) section.
+Since your backend web app isn't publicly accessible, you need to update it's access restrictions so that your continuous deployment tool can reach your app. You need to update the access restrictions to the SCM site to make it publicly accessible. The main site can continue to deny all traffic. If you're concerned about enabling public access to the SCM site, or you're restricted by policy, consider [other App Service deployment options](deploy-run-package.md). Note that in the previous step, you disabled basic auth to the SCM endpoint of the backend web app. This setting ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure. The access restrictions on your front end web app don't need to be changed.
 
-If you disable basic auth for your App Service apps, continuous deployment requires a service principal or OpenID Connect for authentication. If you use GitHub Actions as your code repository, see the [step-by-step tutorial for using a service principal or OpenID Connect to deploy to App Service using GitHub Actions](deploy-github-actions.md) or complete the steps in the following section.
+To update the backed web app's [access restrictions for the SCM site](app-service-ip-restrictions.md#restrict-access-to-an-scm-site), you should use the Azure portal.
 
-#### Create the service principal and configure credentials with GitHub Actions
+1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for your backend web app.
+1. In the left pane, select **Networking**. Then select **Access restriction**. 
+1. Check the box to allow public access. 
+    
+    As you saw earlier, public access was blocked when you added the private endpoint to the backend web app.
+
+1. Under **Site access and rules**, select the radio button next to "Deny" for "Unmatched rule action". This setting denies public access to the main site even though the general app access setting is set to allow public access.
+
+    :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-main-site.png" alt-text="Screenshot of access restriction updates for main site to deny public access.":::
+
+1. Under **Site access and rules**, navigate to the **Advanced tool site** tab. Select the radio button next to "Allow" for "Unmatched rule action". This settings allows public access to the SCM site.
+
+    :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-scm-site.png" alt-text="Screenshot of access restriction updates for SCM site to allow public access.":::
+
+1. Select "Save" at the top left to apply the changes.
+
+## Deploy source code using GitHub Actions and a service principal
+
+### Prerequisites for source code deployment
+
+Two Node.js apps are provided that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
+
+1. Go to the [Node.js backend sample app](https://github.com/seligj95/nodejs-backend). This app is a simple Hello World app.
+1. Select the **Fork** button in the upper right on the GitHub page.
+1. Select the **Owner** and leave the default Repository name.
+1. Select **Create** fork.
+1. Repeat the same process for the [Node.js frontend sample app](https://github.com/seligj95/nodejs-frontend). This app is a basic web scraping app.
+
+If using a continuous deployment tool to deploy your application source code, as what is done in this tutorial in the upcoming sections, disabling basic auth requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you can't use a publish profile since that authentication mechanism doesn't use Azure AD backed credentials. Instead, either use a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
+
+### Create the service principal and configure credentials with GitHub Actions
 
 To configure continuous deployment with GitHub Actions and a service principal, use the following steps.
 
@@ -380,7 +242,42 @@ To configure continuous deployment with GitHub Actions and a service principal, 
         |AZURE_SUBSCRIPTION_ID    |`<subscription-id>`        |
     1. Repeat this process for your other GitHub repository.
 
-#### Create the GitHub Actions workflow
+### Configure continuous deployment
+
+To set up continuous deployment, you should use the Azure portal. For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+
+1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for your frontend web app.
+1. In the left pane, select **Deployment Center**. Then select **Settings**. 
+1. In the **Source** box, select "GitHub" from the CI/CD options.
+
+    :::image type="content" source="media/app-service-continuous-deployment/choose-source.png" alt-text="Screenshot that shows how to choose the deployment source":::
+
+1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
+1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
+
+    1. If you're using the Node.js sample app that was forked as part of the prerequisites, use the following settings.
+        
+        |Setting       |Value                        |
+        |--------------|-----------------------------|
+        |Organization  |`<your-GitHub-organization>` |
+        |Repository    |nodejs-frontend              |
+        |Branch        |main                         |
+        
+1. Select **Save**.
+
+    New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
+
+A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
+
+Repeat the same steps for your backend web app. The inputs for the continuous deployment settings are given in the table.
+    
+|Setting       |Value                        |
+|--------------|-----------------------------|
+|Organization  |`<your-GitHub-organization>` |
+|Repository    |nodejs-backend               |
+|Branch        |main                         |
+
+### Create the GitHub Actions workflow
 
 Now that you have a service principal that can access your App Service apps, edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for the Node.js sample apps that are provided in this tutorial.
 
@@ -462,11 +359,61 @@ Now that you have a service principal that can access your App Service apps, edi
               az logout
     ```
 
-1. Repeat this process for your other workflow in your other GitHub repository.
+1. Repeat this process for the other workflow in your other GitHub repository.
 
-### How do I restrict access to the advanced tools site?
+Completing these steps triggers another deployment to your apps. Unlike previous attempts that failed due to authentication errors, this deployment should succeed since it's now using the service principal to authenticate to your apps.
 
-With Azure App service, the SCM/advanced tools site is used to manage your apps and deploy application source code. Consider [locking down the SCM/advanced tools site](app-service-ip-restrictions.md#restrict-access-to-an-scm-site) since management of your apps should be done through CI/CD pipelines. For example, you can set up access restrictions that only allow you to conduct your testing and enable continuous deployment from your tool of choice. If you're using deployment slots, for production slots specifically, you can deny almost all access to the SCM site since your testing and validation is done with your staging slots.
+## Validate connections and app access
+
+1. You can now browse to the frontend web app by going to `<frontend-app-name>.azurewebsites.net` and all **outbound** traffic from the frontend web app is routed through the virtual network. Your frontend web app is securely connecting to your backend web app via the private endpoint. 
+
+    In the textbox, input the URL for your backend web app, which should look like `https://<backend-app-name>.azurewebsites.net`. If you set up the connections properly, you should get the message "Hello from the backend web app!", which is the entire content of the backend web app. If something is wrong with your connections, your frontend web app crashes.
+
+1. If you haven't already, try navigating to your backend web app to verify that direct access is forbidden. The URL is `https://<backend-app-name>.azurewebsites.net`. If you can reach your backend web app, ensure you've configured the private endpoint and that the access restrictions for your app are set to disable public access.
+
+    :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-disable-public-access.png" alt-text="Screenshot of Access Restrictions showing public access is disabled.":::
+
+1. To further validate that the frontend web app is reaching the backend web app over private link, SSH to one of your front end's instances. To SSH, run the following command, which establishes an SSH session to the web container of your app and opens a remote shell in your browser.
+
+    ```azurecli-interactive
+    az webapp ssh --resource-group $groupName --name <frontend-app-name>
+    ```
+
+    When the shell opens in your browser, run "nslookup" to confirm your backend web app is being reached using the private IP of your backend web app. You can also run "curl" to validate the site content again. Replace `<backend-app-name>` with your backend web app name.
+
+    ```bash
+    nslookup <backend-app-name>.azurewebsites.net
+
+    curl https://<backend-app-name>.azurewebsites.net
+    ```
+    
+    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-ssh-validation.png" alt-text="Screenshot of SSH session showing how to validate app connections.":::
+
+    If you've configured everything correctly, the "nslookup" should resolve the private IP of your backend web app. The private IP address should be an address from your virtual network. To confirm your private IP, go to the **Networking** page for your backend web app. 
+
+    :::image type="content" source="./media/tutorial-secure-ntier-app/backend-app-service-inbound-ip.png" alt-text="Screenshot of App Service Networking page showing the inbound IP of the app.":::
+
+1. Repeat the same "nslookup" and "curl" commands from another terminal (one that isn't an SSH session on your frontend’s instances). 
+
+    :::image type="content" source="./media/tutorial-secure-ntier-app/frontend-ssh-external.png" alt-text="Screenshot of an external terminal doing a nslookup and curl of the backend web app.":::
+
+    The "nslookup" returns the public IP for the backend web app. Since public access to the backend web app is disabled, if you try to reach the public IP, you get an access denied error. This error means this site isn't accessible from the public internet, which is the intended behavior. The nslookup doesn’t resolve the private IP because that can only be reached from within the virtual network using the private endpoint. Only the frontend web app is within the virtual network. If you try to do a "curl" on the backend web app from the external terminal, the HTML that is returned contains “Web App - Unavailable”. This error displays the HTML for the error page you saw earlier when you tried navigating to the backend web app in your browser.
+
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell.
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+This command may take a few minutes to run.
+
+## Deploy from ARM/Bicep
+
+The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [App connected to a backend web app Bicep template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) allows you to create a secure n-tier app solution.
+
+To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bicep and Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
 ## Next steps
 
