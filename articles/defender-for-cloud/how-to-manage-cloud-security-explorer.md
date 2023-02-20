@@ -9,7 +9,7 @@ ms.date: 02/07/2023
 
 # Cloud security explorer
 
-Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, and identifies the biggest security risks and distinguishes them from less risky issues.
+Defender for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
 
 By using the cloud security explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
@@ -76,7 +76,7 @@ Query templates are pre-formatted searches using commonly used filters. Use one 
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
-You can alter any template to search for specific results by changing the query and selecting **Search**.
+You can modify any template to search for specific results by changing the query and selecting **Search**.
 
 
 ## Share a query
