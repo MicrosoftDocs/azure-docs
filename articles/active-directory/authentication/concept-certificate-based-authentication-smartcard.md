@@ -54,6 +54,9 @@ Some customers may maintain different and sometimes may have non-routable UPN va
 >[!NOTE]
 >In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
+>[!IMPORTANT]
+> If a user supplies a username login hint (X509UserNameHint), the value provided **MUST** be in UPN Format.
+
 For more information about the Windows flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
 ## Supported Windows platforms
