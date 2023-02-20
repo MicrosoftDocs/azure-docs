@@ -194,7 +194,7 @@ az aro create \
 After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
 
 > [!NOTE]
-> When attempting to create a cluster, if you receive an error message saying that your resource quota has been exceeded, see [Adding Quota to ARO account](https://mobb.ninja/docs/quickstart-aro.html#adding-quota-to-aro-account) to learn how to proceed. 
+> When attempting to create a cluster, if you receive an error message saying that your resource quota has been exceeded, see [Adding Quota to ARO account](https://mobb.ninja/docs/quickstart-aro/#adding-quota-to-aro-account) to learn how to proceed. 
 
 >[!IMPORTANT]
 > If you choose to specify a custom domain, for example **foo.example.com**, the OpenShift console will be available at a URL such as `https://console-openshift-console.apps.foo.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
