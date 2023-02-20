@@ -166,7 +166,8 @@ Create an app by this command:
         --service <name-of-azure-spring-apps-instance> \
         --name <name-of-app>
     ```
-3. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`.
+3. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. Then you can see a page like this:
+   :::image type="content" source="media/quickstart-for-web-app/todo-app.png" alt-text="Screenshot of ToDo app." lightbox="media/quickstart-for-web-app/todo-app.png":::
 
 ## Clean up resources
 1. Use the following commands to delete the resource group.
