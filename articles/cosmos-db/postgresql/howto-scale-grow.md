@@ -50,7 +50,7 @@ experiments, and short- or long-term changes to traffic demands.
 To change the vCores for all worker nodes, on the **Scale** screen, select a new value under **Compute per node**. To adjust the coordinator node's vCores, expand **Coordinator** and select a new value under **Coordinator computer**.
 
 > [!NOTE]
-> Once you increase vCores and save, you can't decrease the number of vCores by using this form.
+> You can scale compute on [cluster read replicas](concepts-read-replicas.md) independent of its primary cluster's compute.
 
 > [!NOTE]
 > There is a vCore quota per Azure subscription per region.  The default quota
