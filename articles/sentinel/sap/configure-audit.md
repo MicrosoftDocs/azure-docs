@@ -49,7 +49,8 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. Specify a name for the profile in the **Profile/Filter Number** field. 
 
-1. **Note- vanilla SAP installation would require this additional step-** right click the profile you have created and create a new filter
+   > [!NOTE]
+   > Vanilla SAP installation requires this additional step: right-click the profile you have created and create a new filter.
 
 1. Mark the **Filter for recording active** checkbox.
 
