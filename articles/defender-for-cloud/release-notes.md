@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/09/2023
+ms.date: 02/13/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,9 +20,16 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in February include:
 
+- [Enhanced Cloud Security Explorer](#enhanced-cloud-security-explorer) 
 - [Recommendation to find vulnerabilities in running container images for Linux released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
 - [Microsoft Defender for DevOps (preview) is now available in other regions](#microsoft-defender-for-devops-preview-is-now-available-in-other-regions)
+
+### Enhanced Cloud Security Explorer
+
+An improved version of the cloud security explorer includes a refreshed user experience that removes query friction dramatically, added the ability to run multicloud and multi-resource queries, and embedded documentation for each query option.
+
+The Cloud Security Explorer now allows you to run cloud-abstract queries across resources. You can use either the pre-built query templates or use the custom search to apply filters to build your query. Learn [how to manage Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
 
 ### Recommendation to find vulnerabilities in running container images released for General Availability (GA)
 
