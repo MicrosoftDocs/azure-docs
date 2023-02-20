@@ -56,12 +56,16 @@
         href: tutorial-assess-hyper-v.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-hyper-v.md
     - name: Assess physical servers
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md 
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
