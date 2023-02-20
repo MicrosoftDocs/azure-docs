@@ -36,7 +36,7 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 
 ### Revenue dashboard filters
 
-The page has different dashboard-level filters you can use to filter the Revenue data based on the following:
+The page has different dashboard-level filters you can use to filter the Revenue data:
 - Offer type
 - Offer listing
 - Billing model
@@ -58,11 +58,11 @@ Each filter is expandable with multiple options that you can select. Filter opti
 
 ### Estimated revenue
 
-In this section, you will find the _estimated revenue_ information that shows the overall billed sales of a partner for the selected date range and page filters.
+In this section, you find the _estimated revenue_ information that shows the overall billed sales of a partner for the selected date range and page filters.
 
 The _Total revenue_ represents the billed sales of payouts or earnings mapped to different payout statuses: _sent_, _upcoming_, and _unprocessed_.
 
-The _Others revenue_ represents billed sales with earnings that either are rejected, reprocessed, not eligible, uncollected from the customers, or not reconcilable with transaction amounts in the earnings report.
+The _Others revenue_ represents billed sales of earnings with status as rejected, reprocessed, not eligible, uncollected from the customers, or not reconcilable with transaction amounts in the earnings report.
 
 The growth rate denotes the percentage change of billed sales between the end and the start of the selected month range.
 
@@ -75,7 +75,7 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 
 ### Transactions
 
-In this section, you will find the _transactions information_ that shows the overall count of the order purchases or offer consumption for a partner for the selected date range and page filters.
+In this section, you find the _transactions information_ that shows the overall count of the order purchases or offer consumption for a partner for the selected date range and page filters.
 
 Each transaction represents a unique combination of purchase record ID and line-item ID in the revenue report. Transaction information is further categorized based on orders (subscriptions) and consumption (usage) based billing models.
 
@@ -87,7 +87,7 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 
 ### Estimated revenue timeline
 
-In this section, you will find the _estimated revenue timeline_ information that displays the billed sales of the last payout amount, date, and the revenue figures of upcoming payments and their associated timelines. The upcoming revenue values shown are figures based on the current system date.
+In this section, you find the _estimated revenue timeline_ information that displays the billed sales of the last payout amount, date, and the revenue figures of upcoming payments and their associated timelines. The upcoming revenue values shown are figures based on the current system date.
 
 Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
@@ -95,7 +95,7 @@ Select the ellipsis (three dots) to copy the widget image, download aggregated w
 
 ### Customers leader board
 
-In this section, you will find the information for top customers who contribute the most to estimated revenue. The “All” row denotes billed sales of all your customers. Up to 500 records can be displayed in this leaderboard table. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line in the revenue trend represents revenue figures for the open month.
+In this section, you find the information for top customers who contribute the most to estimated revenue. The “All” row denotes billed sales of all your customers. This table can have upto 500 records. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line in the revenue trend represents revenue figures for the open month.
 
 Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
@@ -103,7 +103,7 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 
 ### Geographical spread
 
-In this section, you will find the geographic spread the total estimated revenue, estimated revenue for sent, upcoming, and unprocessed payout statuses. You can sort the table on different statuses. Total estimated revenue includes revenue for other statuses as well.
+In this section, you find the geographic spread the total estimated revenue, estimated revenue for sent, upcoming, and unprocessed payout statuses. You can sort the table on different statuses. Total estimated revenue includes revenue for other statuses as well.
 
 The light-to-dark colors on the map represent the low to high value of the estimated revenue. Select a record in the table to zoom in on a specific country or region.
 
@@ -111,8 +111,7 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 
 [ ![Screenshot of the geographical spread section of the Revenue dashboard.](./media/revenue-dashboard/revenue-geographical-spread.png) ](./media/revenue-dashboard/revenue-geographical-spread.png#lightbox)
 
-Note the following:
-
+**Note:**
 - You can move around the map to view an exact location.
 - You can zoom into a specific location.
 - The heatmap has a supplementary grid to view the details of country or region name, total revenue, estimated revenue of sent, unprocessed, and upcoming earnings.
@@ -126,7 +125,6 @@ Note the following:
 The _Revenue details_ table displays a numbered list of the 1,000 top orders sorted by transaction month.
 
 - Each column in the grid is sortable.
-- If records number over 500, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order id_ and _line item id_.
 - Apply filters to the revenue details table to display only the data you're interested in. You can filter by order type, offer name, billing model, sales channel, payment instrument type, payout status, and estimated payout instrument.
 
@@ -138,7 +136,7 @@ Details widget with expandable and collapsible view.
 
 Note the following:
 
-- The revenue is an estimate since it factors the exchange currency rates. It is displayed in transaction currency, US dollar, or partner preferred currency. Values are displayed as per the selected date range and page filters.
+- The revenue is an estimate since it factors the exchange currency rates. It's displayed in transaction currency, US dollar, or partner preferred currency. Values are displayed as per the selected date range and page filters.
 - Estimated revenue is tagged with different statuses as explained in the [data dictionary table](#data-dictionary-table).
 - Each row in the Details section has estimated revenue that is an aggregate of all revenue figures for a unique combination of purchase record ID and line-item ID.
 - Columns for customer attributes may contain empty values.
@@ -185,7 +183,7 @@ Note the following:
 | Exchange rate date | The date used to calculate exchange rates for currency conversions |
 | Estimated pay out month | The month for receiving your estimated earnings |
 | Sales channel | Represents the sales channel for the customer. It is the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
-| PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. |
+| PlanId | The display name of the plan entered when the offer was created in Partner Center. Note: PlanId was originally a numeric number. |
 | Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
 | Customer postal code | The postal code name provided by the bill-to customer |
 | Customer city | The city name provided by the bill-to customer |
@@ -193,7 +191,7 @@ Note the following:
 | Customer country | The country or region name provided by the customer. The country/region could be different than the country/region in a customer's Azure subscription. |
 | Customer company | The company name provided by the customer |
 | Customer email | The e-mail address provided by the end customer. This address could be different than the e-mail address in a customer's Azure subscription. |
-| Payout currency | The partner preferred currency to receive payout. This is the same as the _lastpaymentcurrency_ column in the transaction history report. |
+| Payout currency | The partner preferred currency to receive payout. It is same as the _lastpaymentcurrency_ column in the transaction history report. |
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
