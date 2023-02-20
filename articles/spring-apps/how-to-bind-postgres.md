@@ -117,6 +117,9 @@ Use the following steps to bind your app.
 
 ---
 
+> [!NOTE]
+> One identity created table can not be modified by another identity. For example: Firstly, you created a connection with admin username and password. After connect successfully, the app created a table. Then you deleted the connection and created a new connection with a system-assigned managed identity, then the app try to create / modify the table created before, it will return error like "Permission denied". To fix this problem, just delete the table / database created first time.
+
 ## Next steps
 
 In this article, you learned how to bind an application in Azure Spring Apps to an Azure Database for PostgreSQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).
