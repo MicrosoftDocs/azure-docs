@@ -33,7 +33,7 @@ Use any of the following options to modify or filter the devices shown:
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Export the device inventory to CSV
 

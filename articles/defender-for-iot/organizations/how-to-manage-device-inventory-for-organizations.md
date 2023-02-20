@@ -26,7 +26,7 @@ Use any of the following options to modify or filter the devices shown:
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 | **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ### View full device details
 
@@ -83,7 +83,7 @@ As you manage your network devices, you may need to update their details. For ex
 
 Your updates are saved for all selected devices.
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ### Reference of editable fields
 
@@ -106,7 +106,7 @@ The following device fields are supported for editing in the **Device inventory*
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Export the device inventory to CSV
 

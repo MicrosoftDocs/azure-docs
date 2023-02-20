@@ -23,7 +23,7 @@ To perform the procedures in this article, make sure that you have:
 
 ## View devices on OT sensor device map
 
-1. Sign into your OT sensor and select **Device map**. All devices detected by the OT sensor are displayed by default according to [Purdue layer](best-practices/understand-network-architecture.md#sensor-placement-in-your-networking-architecture).
+1. Sign into your OT sensor and select **Device map**. All devices detected by the OT sensor are displayed by default according to [Purdue layer](best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
 
     On the OT sensor's device map:
 
@@ -41,7 +41,7 @@ To perform the procedures in this article, make sure that you have:
     - The number of devices grouped in a subnet in an IT network, if relevant. This number of devices is shown in a black circle.
     - Whether the device is newly detected or unauthorized.
 
-1. Right-click a specific device and select **View properties** to drill down further to a [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-device-details). <!--validate this step-->
+1. Right-click a specific device and select **View properties** to drill down further to a [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory). <!--validate this step-->
 
 ### Modify the OT sensor map display
 
@@ -67,13 +67,13 @@ To see device details, select a device and expand the device details pane on the
 
 - Select **Activity Report** to jump to the device's [data mining report](how-to-create-data-mining-queries.md)
 - Select **Event Timeline** to jump to the device's [event timeline](how-to-track-sensor-activity.md)
-- Select **Device Details** to jump to a full [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-device-details).
+- Select **Device Details** to jump to a full [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory).
 
 
 ### View IT subnets from an OT sensor device map
 <!--cant' validate this procedure-->
 
-By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#define-ics-or-iot-and-segregated-subnets), so that the map focuses on OT and ICS networks.
+By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#configure-subnets), so that the map focuses on OT and ICS networks.
 
 **To expand an IT subnet**:
 
@@ -116,7 +116,7 @@ Use one of the following options to import and export device data:
 
     |Name  |Description  |
     |---------|---------|
-    |**Authorize/Unauthorize**     |    Changes the device's [authorization status](device-inventory.md#authorized-and-unauthorized-devices).     |
+    |**Authorize/Unauthorize**     |    Changes the device's [authorization status](device-inventory.md#unauthorized-devices).     |
     |**Mark as Important / Non-Important**     |    Changes the device's [importance](device-inventory.md#important-ot-devices) status, highlighting business critical servers on the map with a star and elsewhere, including OT sensor reports and the Azure device inventory.     |
     |**Show Alerts** / **Show Events**     |  Opens the **Alerts** or **Event Timeline** tab on the device's details page.   |
     |  **Activity Report**   | Generates an activity report for the device for the selected timespan.        |
@@ -128,7 +128,7 @@ Use one of the following options to import and export device data:
 
 You may want to merge devices if the OT sensor detected multiple network entities associated with a unique device, such as a PLC with four network cards, or a single laptop with both WiFi and a physical network card.
 
-You can only merge [authorized devices](device-inventory.md#authorized-and-unauthorized-devices). 
+You can only merge [authorized devices](device-inventory.md#unauthorized-devices). 
 
 > [!IMPORTANT]
 > You can't undo a device merge. If you mistakenly merged two devices, delete the devices and then wait for the sensor to rediscover both.
@@ -179,7 +179,7 @@ The following table lists available responses for each notification, and when we
 | **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |
 | **Inactive devices** | Traffic wasn't detected on a device for more than 60 days. | - **Delete**: Delete any devices that aren't part of your network anymore.<br />- **Dismiss**:  Remove the notification if the device is still part of your network. You may want to reconnect the device if it's been disconnected by accident.|
 | **New OT devices** | A subnet includes an OT device that's not defined in an ICS subnet. <br><br>This may occur when a device is detected that can be defined as an ICS subnet. We recommend defining such devices as ICS subnets to differentiate between OT and IT devices on the map. | - **Set as ICS Subnet**: Define the device as an ICS subnet. <br>- **Dismiss**: Remove the notification if the device isn't part of the subnet. |
-| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#define-ics-or-iot-and-segregated-subnets). <br />- **Dismiss**: Remove the notification. |
+| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets). <br />- **Dismiss**: Remove the notification. |
 | **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. |
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |
 | **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |

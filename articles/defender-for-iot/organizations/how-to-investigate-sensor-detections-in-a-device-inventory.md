@@ -39,7 +39,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     :::image type="content" source="media/how-to-inventory-sensor/sensor-inventory-view-details.png" alt-text="Screenshot of the Device inventory page on an OT sensor console." lightbox="media/how-to-inventory-sensor/sensor-inventory-view-details.png":::
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Edit device details
 
@@ -64,7 +64,7 @@ Editable fields include:
 - Purdue layer
 - Description
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Export the device inventory to CSV
 
