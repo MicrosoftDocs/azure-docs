@@ -16,17 +16,17 @@ ms.custom: aaddev
 
 # Frequently asked questions about workload identities license plan
 
-[Workload identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of Workload Identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
+[Workload identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
 Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the Cloud Solution Providers program. Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
 
-For more information, see [what are Workload Identities?](workload-identities-overview.md)
+For more information, see [what are workload identities?](workload-identities-overview.md)
 
 >[!NOTE]
 >Workload Identities Premium is a standalone product and isn't included in other premium product plans. All subscribers require a license to use Workload Identities Premium features.
 
-Learn more about [Workload Identities
+Learn more about [workload identities
 pricing](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).
 
 ## What are the features included in Workload Identities Premium plan and which features are free? 
@@ -67,7 +67,7 @@ Subscription (EAS), Cloud Solution Providers (CSPs), or Web Direct.
 
 ## Where can I find more feature details to determine if I need a license(s)?
 
-Entra Workload Identities has three premium features that require a license. 
+Entra workload identities has three premium features that require a license. 
 
 - [Conditional Access](../conditional-access/workload-identity.md):
 Supports location or risk-based policies for workload identities.
@@ -86,7 +86,7 @@ Category definitions:
 
 - **Enterprise apps/Service Principals**: This category includes multi-tenant apps, gallery apps, non-gallery apps and service principals.
 
-- **Microsoft apps**: Microsoft applications such as Outlook and Microsoft Teams.
+- **Microsoft apps**: Apps such as Outlook and Microsoft Teams.
 
 - [**Managed Identities**](https://entra.microsoft.com/#home): An identity for
 applications for connecting resources that support Azure AD authentication.
