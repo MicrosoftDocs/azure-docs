@@ -414,12 +414,8 @@
               href: iot-hub-java-java-schedule-jobs.md
         - name: Use device and service SDKs
           items:
-            - name: Azure IoT Embedded C SDK
-              href: iot-hub-device-embedded-c-sdk.md
             - name: Azure IoT C SDK
               items:
-                - name: Use the Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-intro.md
                 - name: Use the IoTHubClient
                   displayName: Azure IoT C SDK
                   href: iot-hub-device-sdk-c-iothubclient.md

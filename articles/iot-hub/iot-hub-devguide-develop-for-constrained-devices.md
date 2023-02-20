@@ -82,4 +82,4 @@ Another set of APIs without the _LL_ index is called the convenience layer, wher
 
 To learn more about Azure IoT C SDK architecture:
 -    [Azure IoT C SDK source code](https://github.com/Azure/azure-iot-sdk-c/)
--    [Azure IoT device SDK for C introduction](iot-hub-device-sdk-c-intro.md)
+

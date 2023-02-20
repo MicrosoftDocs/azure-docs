@@ -55,10 +55,7 @@ Since you've deployed an IoT hub, using an Azure Resource Manager template, you 
 * Capabilities of the [Azure Resource Manager][lnk-azure-rm-overview]
 * JSON syntax and properties to use in templates: [Microsoft.Devices resource types](/azure/templates/microsoft.devices/iothub-allversions)
 
-To learn more about developing for IoT Hub, see:
-
-* [Introduction to C SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To explore more capabilities of IoT Hub, see:
 
@@ -73,7 +70,6 @@ To explore more capabilities of IoT Hub, see:
 [lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/management/manage-resources-powershell.md
 
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: ../iot-edge/quickstart-linux.md
