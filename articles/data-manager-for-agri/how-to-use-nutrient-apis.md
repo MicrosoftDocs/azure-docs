@@ -1,6 +1,7 @@
 ---
-title: Use Data Manager for Agriculture Plant Tissue Nutirents APIs 
+title: Use Data Manager for Agriculture Plant Tissue Nutrients APIs 
 description: Learn how to store nutrient data in Azure Data Manager for Agriculture
+author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to #Required; leave this attribute/value as-is.
@@ -10,24 +11,22 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Using Tissue Samples Data
 
-Analyzing the nutrient composition of the crop is vital to ensure good harvest. Nutrient analysis can be done either as a preventive measure or for diagnostic purposes. Samples are taken from various places in the farm and sent to lab for analysis. Reports are provided per sample. The analysis covers macro and micro nutrients. Corrective measures (application of deficient nutrients) are suggested. 
+Analyzing the nutrient composition of the crop is vital to ensure good harvest. Nutrient analysis is done either as a preventive measure or for diagnostic reasons. The grower takes samples from different parts of the farm and sends them to the lab for analysis. The lab report covers macro and micro nutrients in its analysis and corrective measures are suggested. 
 
-In Azure Data Manager for Agriculture, plant tissue analysis is modeled as below.
+Here is how we have modeled tissue analysis in Azure Data Manager for Agriculture:
 
 ![Schema](./media/schema.PNG)
 
+* Step 1: Create a 'plant tissue analysis' resource per sample.
+* Step 2: For each nutrient that is being tested for, create a 'nutrient analysis' resource with 'plant tissue analysis' as parent (created in step 1). 
+* Step 3: Upload analysis reports from the lab (for example: pdfs, xlsx files) as attachments associated with the 'plant tissue analysis' resource created in step 1. 
+* Step 4: If you have the location (long/lat) from where the sample was taken, then create a point boundary with parent as the 'plant tissue analysis' resource created in step 1. Since a 'plant tissue analysis' resource is created per sample, only one point boundary can be associated with a 'plant tissue analysis'.
 
-* Step 1: Users have to create a 'plant tissue analysis' resource per sample.
-* Step 2: For each nutrient that is being tested for, create a 'nutrient analysis' resource with parent as the 'plant tissue analysis' resource created in step 1. 
-* Step 3: If users have analysis reports from the lab (Ex: pdfs, xlsx, etc.), the same should be uploaded as attachments and associated with the 'plant tissue analysis' resource created in step 1. 
-* Step 4: If users have information about the location (long/lat) from where the sample was taken, they should create a point boundary with parent as the 'plant tissue analysis' resource created in step 1. Since a 'plant tissue analysis' resource is created per sample, only one point boundary can be associated with a 'plant tissue analysis'.
 
-
-&nbsp;
 
 ## Working with tissue sampling APIs
 
-* Plant tissue analysis APIs - Click [here](./REST%20APIs/2021-07-31-preview/plant%20tissue%20analyses/)
-* Nutrient analysis APIs - Click [here](./REST%20APIs/2021-07-31-preview/nutrient%20analyses/)
-* Attachment APIs - Click [here](../farm%20hierarchy/REST%20APIs/2021-07-31-preview/attachments/)
-* Boundary APIs - Click [here](../farm%20hierarchy/REST%20APIs/2021-07-31-preview/boundaries/)
+* Plant tissue analysis APIs
+* Nutrient analysis APIs 
+* Attachment APIs 
+* Boundary APIs 
