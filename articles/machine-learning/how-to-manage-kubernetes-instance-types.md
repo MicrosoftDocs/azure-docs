@@ -82,20 +82,20 @@ spec:
       memory: "1500Mi"
 ```
 
-The following steps will create an instance type with the labeled behavior:
-- Pods will be scheduled only on nodes with label `mylabel: mylabelvalue`.
-- Pods will be assigned resource requests of `700m` CPU and `1500Mi` memory.
-- Pods will be assigned resource limits of `1` CPU, `2Gi` memory and `1` NVIDIA GPU.
+The following steps create an instance type with the labeled behavior:
+- Pods are scheduled only on nodes with label `mylabel: mylabelvalue`.
+- Pods are assigned resource requests of `700m` CPU and `1500Mi` memory.
+- Pods are assigned resource limits of `1` CPU, `2Gi` memory and `1` NVIDIA GPU.
 
-Creation of custom instance types must meet the following parameters and definition rules, otherwise the instance type creation will fail:
+Creation of custom instance types must meet the following parameters and definition rules, otherwise the instance type creation fails:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
 | name | required | String values, which must be unique in cluster.|
-| CPU request | required | String values, which cannot be 0 or empty. <br>CPU can be specified in millicores; for example, `100m`. Can also be specified as full numbers; for example, `"1"` is equivalent to `1000m`.|
-| Memory request | required | String values, which cannot be 0 or empty. <br>Memory can be specified as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
-| CPU limit | required | String values, which cannot be 0 or empty. <br>CPU can be specified in millicores; for example, `100m`. Can also be specified as full numbers; for example, `"1"` is equivalent to `1000m`.|
-| Memory limit | required | String values, which cannot be 0 or empty. <br>Memory can be specified as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
+| CPU request | required | String values, which cannot be 0 or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it as full numbers; for example, `"1"` is equivalent to `1000m`.|
+| Memory request | required | String values, which cannot be 0 or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
+| CPU limit | required | String values, which cannot be 0 or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it as full numbers; for example, `"1"` is equivalent to `1000m`.|
+| Memory limit | required | String values, which cannot be 0 or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
 | GPU | optional | Integer values, which can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). |
 | nodeSelector | optional | Map of string keys and values. |
 
@@ -136,9 +136,9 @@ items:
           memory: "1Gi"
 ```
 
-The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition will override the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
+The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition overrides the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
 
-If a training or inference workload is submitted without an instance type, it uses the `defaultinstancetype`.  To specify a default instance type for a Kubernetes cluster, create an instance type with name `defaultinstancetype`.  It will automatically be recognized as the default.
+If you submit a training or inference workload without an instance type, it uses the `defaultinstancetype`.  To specify a default instance type for a Kubernetes cluster, create an instance type with name `defaultinstancetype`.  It is automatically recognized as the default.
 
 
 ### Select instance type to submit training job
@@ -175,7 +175,7 @@ command_job = command(
 ---
 
 In the above example, replace `<Kubernetes-compute_target_name>` with the name of your Kubernetes compute
-target and replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to submit the job.
+target and replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system uses `defaultinstancetype` to submit the job.
 
 ### Select instance type to deploy model
 
@@ -293,15 +293,15 @@ blue_deployment = KubernetesOnlineDeployment(
 ```
 ---
 
-If you use the `resource section` as the example above, the valid resource definition need to meet the following rules, otherwise the model deployment will fail due to the invalid resource definition:
+If you use the `resource section`, the valid resource definition need to meet the following rules, otherwise the model deployment fails due to the invalid resource definition:
 
-|  Parameter | If required | Description |
+|  Parameter | If necessary | Description |
 | --- | --- | --- |
-| `requests:`<br>`cpu:`| Required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
-| `requests:`<br>`memory:` | Required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB. <br>Memory cannot be less than **1 MBytes**.|
-| `limits:`<br>`cpu:` | Optional <br>(only required when need GPU) | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`. |
-|  `limits:`<br>`memory:` | Optional <br>(only required when need GPU) | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.|
-| `limits:`<br>`nvidia.com/gpu:` | Optional <br>(only required when need GPU) | Integer values, which cannot be empty and can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If require CPU only, the entire `limits` section can be omitted.|
+| `requests:`<br>`cpu:`| Required | String values, which can not be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
+| `requests:`<br>`memory:` | Required | String values, which can not be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB. <br>Memory cannot be less than **1 MBytes**.|
+| `limits:`<br>`cpu:` | Optional <br>(only required when need GPU) | String values, which can not be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`. |
+|  `limits:`<br>`memory:` | Optional <br>(only required when need GPU) | String values, which can not be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB.|
+| `limits:`<br>`nvidia.com/gpu:` | Optional <br>(only required when need GPU) | Integer values, which cannot be empty and can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If require CPU only, you can omit the entire `limits` section.|
 
 > [!NOTE]
 >
