@@ -34,6 +34,8 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
+          - text: Azure Kinect NuGet library
+            url: add-library-to-project.md
           - text: Azure Kinect Sensor SDK
             url: sensor-sdk-download.md
           - text: Azure Kinect Body Tracking SDK
