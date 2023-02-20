@@ -38,7 +38,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
    - **Periodic assessment** - The **periodic Assessment** is set to run every 24 hours. You can either enable or disable this setting.
      
-    - **Hot patch** - For Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md). Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment. You can enable, disable or reset this setting.
+    - **Hot patch** - You can enable [hot patching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition Virtual Machines (VMs). Hot patching is a new way to install updates on supported *Windows Server Azure Edition* virtual machines that doesn't require a reboot after installation. You can use update management center (preview) to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable or reset this setting.
 
     - **Patch orchestration** option provides the following:
 
@@ -51,7 +51,7 @@ To configure update settings on your machines on a single VM, follow these steps
         |Azure-orchestrated with schedule attached | Patching will happen according to the schedule and [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) will not take effect on the machine. Patch orchestration set to Azure-orchestrated is a necessary pre-condition for enabling schedules. You cannot enable a machine for custom schedule unless you set Patch orchestration to Azure-orchestrated. | 
 
       - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
-      - **Manual updates** - Configures the Windows Update agent by setting [configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
+      - **Manual updates** - This mode disables Windows automatic updates on VMs. Patches are installed manually or using a different solution.
       - **Image Default** - Only supported for Linux Virtual Machines, this mode uses the default patching configuration in the image used to create the VM.
 
 1. After you make the selection, select **Save**.
