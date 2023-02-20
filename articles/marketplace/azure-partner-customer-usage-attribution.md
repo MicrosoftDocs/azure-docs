@@ -83,6 +83,8 @@ GUIDs must next be registered in Partner Center so they can be associated with y
 
 ### Add a GUID to a Resource Manager template
 
+#### Add a GUID to a JSON ARM template
+
 To add your registered GUID to a Resource Manager template, make a single modification to the main template file:
 
 1. Open the Resource Manager template.
@@ -114,6 +116,36 @@ To add your registered GUID to a Resource Manager template, make a single modifi
 
 > [!TIP]
 > For more information on creating and publishing Resource Manager templates, see: [create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+
+#### Add a GUID to a Bicep template
+
+1. Add a new resource of type [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) in the main template file.
+
+2. Enter the GUID value after the `pid-` prefix as the name of the resource. For example, if the GUID is eb7927c8-dd66-43e1-b0cf-c346a422063, the resource name will be **pid-eb7927c8-dd66-43e1-b0cf-c346a422063**. Example:
+
+```bicep
+// add this resource to your main Bicep file
+resource customerAttribution 'Microsoft.Resources/deployments@2021-04-01' = {
+  name: 'pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX', // use your generated GUID here
+  properties: {
+    mode: 'Incremental'
+    template: {
+      '$schema': 'https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#'
+      contentVersion: '1.0.0.0'
+      resources: []
+    }
+  }
+}
+```
+
+3. Check the template for errors.
+
+4. Deploy the template in the appropriate scope.
+
+5. [Verify GUID success in the template deployment](#verify-deployments-tracked-with-a-guid).
+
+> [!TIP]
+> For more information on creating and publishing Bicep templates, see: [Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
 
 ### Verify deployments tracked with a GUID
 
