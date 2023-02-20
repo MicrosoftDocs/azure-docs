@@ -1,6 +1,6 @@
 ---
 title: Investigate devices in the OT sensor or on-premises management console device map
-description: Learn how to use the a device map on an OT sensor or an on-premises management console, which provides a graphical representation of devices and the connections between them.
+description: Learn how to use the device map on an OT sensor or an on-premises management console, which provides a graphical representation of devices and the connections between them.
 ms.date: 01/25/2023
 ms.topic: how-to
 ---
@@ -19,7 +19,7 @@ To perform the procedures in this article, make sure that you have:
 
 - To view devices across multiple sensors in a zone, an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](how-to-activate-and-set-up-your-on-premises-management-console.md), with multiple sensors connected and assigned to sites and zones.
 
-- Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you'll need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View devices on OT sensor device map
 
@@ -39,7 +39,7 @@ To perform the procedures in this article, make sure that you have:
     - The number of currently active alerts on the device.
     - The device type, represented by a various icons.
     - The number of devices grouped in a subnet in an IT network, if relevant. This number of devices is shown in a black circle.
-    - If the device is newly detected or unauthorized.
+    - Whether the device is newly detected or unauthorized.
 
 1. Right-click a specific device and select **View properties** to drill down further to a [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-device-details). <!--validate this step-->
 
@@ -63,7 +63,7 @@ Use any of the following map tools to modify the data shown and how it's display
 |**IT/OT Presentation Options** <br> :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false":::    |Select **Disable Display IT Networks Groups** to prevent the ability to [collapse subnets](#view-it-subnets-from-an-ot-sensor-device-map) in the map. This option is selected on by default.        |
 |**Layout options** <br>:::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false":::    |  Select one of the following: <br>- **Pin layout**. Select to save device locations if you've dragged them to new places on the map. <br />- **Layout by connection**. Select to view devices organized by their connections. <br />- **Layout by Purdue**. Select to view devices organized by their Purdue layers.        |
 
-To see device device details, select a device and expand the device details pane on the right. In a device details pane:
+To see device details, select a device and expand the device details pane on the right. In a device details pane:
 
 - Select **Activity Report** to jump to the device's [data mining report](how-to-create-data-mining-queries.md)
 - Select **Event Timeline** to jump to the device's [event timeline](how-to-track-sensor-activity.md)
@@ -149,7 +149,7 @@ It can take up to two minutes complete the merge. Merge events are listed in the
 
 ## Manage device notifications from an OT sensor device map
 
-As opposed to alerts, which provide details about changes in your traffic that might present a threat to your network, device notifications on an OT sensor device map provide details about network activity that might require your attention, but are not threats. 
+As opposed to alerts, which provide details about changes in your traffic that might present a threat to your network, device notifications on an OT sensor device map provide details about network activity that might require your attention, but aren't threats. 
 
 For example, you might receive a notification about an inactive device that needs to be reconnected, or removed if it's no longer part of the network.
 

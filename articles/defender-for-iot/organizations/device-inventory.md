@@ -56,17 +56,17 @@ Defender for IoT's device inventories support the following categories of device
 |Smart facility devices     |  Doors, fire alarms, elevators, turnstiles, HVAC systems       |
 |Miscellaneous devices     | Smart watches, ebook readers, Arduino devices, oscilloscopes     |
 |Industrial devices     |  PLCs, historian devices, HMIs, robot controllers, slots, programmable boards       |
-|Operational equiptment    | Industrial printers, scales, pneumatic devices, packaging systems        |
+|Operational equipment    | Industrial printers, scales, pneumatic devices, packaging systems        |
 
-Devices that don't have built-in categories and types are listed as *Unclassified* devices.
+*Unclassified* devices are devices that don't have an out-of-the-box category defined.
 
 ## Unauthorized devices
 
 When you're first working with Defender for IoT, during the learning period just after deploying a sensor, all devices detected are identified as *authorized* devices.
 
-After the learning period is over, any new devices detected are identified as *unauthorized* and *new* devices. We recommend checking these devices carefully for risks and vulnerabilities. For example, in the Azure portal, filter the device inventory for `Authorization == **Unauthorized**`. On the device details page, drill down and check for related vulnerabilities, alerts, and recommendations.
+After the learning period is over, any new devices detected are considered to be  *unauthorized* and *new* devices. We recommend checking these devices carefully for risks and vulnerabilities. For example, in the Azure portal, filter the device inventory for `Authorization == **Unauthorized**`. On the device details page, drill down and check for related vulnerabilities, alerts, and recommendations.
 
-While the *new* status is removed if you edit the device details or move the device on an OT sensor device map, the *unauthorized* label remains until you manually edit the device details and mark it as *authorized*.
+The *new* status is removed as soon as you edit any of the device details move the device on an OT sensor device map. In contrast, the *unauthorized* label remains until you manually edit the device details and mark it as *authorized*.
 
 On an OT sensor, unauthorized devices are also included in the following reports:
 
@@ -78,13 +78,13 @@ On an OT sensor, unauthorized devices are also included in the following reports
 
 Mark OT devices as *important* to highlight them for extra tracking. On an OT sensor, important devices are included in the following reports:
 
-- [Attack vector reports](how-to-create-attack-vector-reports.md): Devices marked as *important* are specifically included in an attack vector simulation as possible attack targets.
+- [Attack vector reports](how-to-create-attack-vector-reports.md): Devices marked as *important* are included in an attack vector simulation as possible attack targets.
 
 - [Risk assessment reports](how-to-create-risk-assessment-reports.md): Devices marked as *important* are counted in risk assessment reports when calculating security scores
 
 ## Built-in device groups
 
-Defender for IoT's device inventories can be viewed and grouped by *device* group, including a series of out-of-the-box groups and [custom groups](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group-from-an-ot-sensor-device-map) created on your OT sensor's device map.
+Defender for IoT's device inventories can be viewed and grouped by *device* group. Device groups include both out-of-the-box groups and [custom groups](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group-from-an-ot-sensor-device-map) created on your OT sensor's device map.
 
 Defender for IoT provides the following device groups out-of-the-box:
 
@@ -116,7 +116,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **Agent type** | | ✔ |-  |- |
 | **Agent version** | | ✔ | -| -|
 | **Application** | The application installed on the device. | ✔ | - | - |
-|**Authorization** / **Is Authorized**    |Editable. Determines whether or not the device is *authorized*. This value may need to change as the device security changes.         |✔ | ✔ | ✔ |
+|**Authorization** / **Is Authorized**    |Editable. Determines whether or not the device is marked as *authorized*. This value may need to change as the device security changes.         |✔ | ✔ | ✔ |
 |**Business Function**     | Editable. Describes the device's business function.        |✔ | - | - |
 | **Business Unit** | The device's business unit, as [defined on the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones). |- | - | ✔ |
 | **Class** | Editable. The device's class. <br>Default: `IoT`|✔ | - | - |
@@ -137,7 +137,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **IP Address** | The device's IP address. |- | ✔ | ✔ |
 | **IPv4 Address** | The device's IPv4 address. |✔ | - | - |
 | **IPv6 Address** | The device's IPv6 address. |✔ | - | - |
-| **Last activity** | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where it's being viewed. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. | ✔ | ✔ | ✔ |
+| **Last activity** | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. | ✔ | ✔ | ✔ |
 | **Location** | Editable. The device's physical location. |✔ | - | - |
 | **MAC Address** | The device's MAC address. |✔ | ✔ | ✔ |
 | **Model** / **Hardware model**| Editable The device's hardware model. |✔ | ✔ | ✔ |
@@ -147,7 +147,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **OS distribution** | Editable. The device's operating system distribution, such as Android, Linux, and Haiku. |✔ | - | - |
 | **OS platform** / **Operating System** | Editable. The device's operating system, if detected. |✔ |  ✔ | ✔ |
 | **OS version** | Editable. The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |✔ | - | - |
-| **PLC mode** | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |✔ | ✔ | ✔ |
+| **PLC mode** | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is listed. |✔ | ✔ | ✔ |
 |**Programming device** / **Is Programming device**     | Editable.  Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |✔ | ✔ | ✔ |
 | **Protocols** | The protocols that the device uses. |✔ | ✔ | ✔ |
 | **Purdue level** | Editable. The Purdue level in which the device exists. |✔ | - | - |
