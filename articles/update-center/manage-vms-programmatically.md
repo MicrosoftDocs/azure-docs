@@ -392,6 +392,21 @@ Invoke-AzRestMethod -Path "<ARC or Azure VM resourceId>/providers/Microsoft.Main
 }'
 ```
 ---
+## Remove machine from the schedule
+
+To remove a machine from the schedule, get all the configuration assignment names for the machine that were created to associate the machine with the current schedule from the Azure Resource Graph as listed below:
+
+```kusto
+maintenanceresources
+| where type =~ "microsoft.maintenance/configurationassignments"
+| where properties.maintenanceConfigurationId =~ "<maintenance configuration Resource ID>"
+| where properties.resourceId =~ "<Machine Resource Id>"
+| project name, id
+```
+After you obtain the name from above, delete the configuration assignment by following the DELETE request - 
+```rest
+DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
+```
 
 ## Next steps
 
