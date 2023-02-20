@@ -1,0 +1,43 @@
+- name: Microsoft Azure Data Manager for Agriculture Preview Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Azure Data Manager for Agriculture Preview
+      displayName: Overview
+      href: Overview-azure-datamanager-for-agri.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Install Azure Data Manager for Agriculture Preview instance
+      href: quickstart-install-datamanager-for-agri.md
+- name: Concepts
+  items:
+    - name: Hierarchy Model
+      href: concepts-hierarchy-model.md
+    - name: Farm Operations Data Ingestion
+      href: concepts-ingest-farmoperations-data.md
+    - name: Satellite Data Ingestion
+      href: concepts-ingest-satellite-imagery.md
+    - name: Sensor Data Ingestion
+      href: concepts-ingest-sensor-data.md
+- name: How-to guides
+  items:
+    - name: Use ISV Solutions
+      href: how-to-setup-isv-solution.md
+    - name: Set-up Sensors as a Customer
+      href: how-to-setup-sensors-customer.md
+    - name: Set-up sensors as a Partner
+      href: how-to-setup-sensors-partner.md
+    - name: Use Tissue Sampling APIs
+      href: how-to-use-nutrient-apis.md
+- name: References
+  items:
+  - name: REST API
+    items:
+    - name: Data plane
+      href: https://microsoft.github.io/meds-samples/
+- name: Resources
+  items:
+  - name: Region availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
+
