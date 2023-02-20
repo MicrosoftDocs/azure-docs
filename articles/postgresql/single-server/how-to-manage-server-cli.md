@@ -37,7 +37,7 @@ If you have not already created a server, refer to this [quickstart](quickstart-
 
 ## Scale compute and storage
 
-You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
+You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/postgres/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
