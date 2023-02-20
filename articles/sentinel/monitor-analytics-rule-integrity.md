@@ -4,7 +4,7 @@ description: Use the SentinelHealth data table to keep track of your analytics r
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 02/20/2023
 ---
 
 # Monitor the health and audit the integrity of your analytics rules
@@ -179,13 +179,26 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
 
 ## Use the auditing and health monitoring workbook
 
-1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
+1. To make the workbook available in your workspace, you must install the workbook solution from the Microsoft Sentinel content hub:
+    1. From the Microsoft Sentinel portal, select **Content hub (Preview)** from the **Content management** menu.
 
-1. In the **Workbooks** gallery, enter *health* in the search bar, and select **Analytics Health & Audit workbook** from among the results.
+    1. In the **Content hub**, enter *health* in the search bar, and select **Analytics Health & Audit** from among the **Workbook** solutions under **Standalone** in the results.
 
-1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
+        :::image type="content" source="media/monitor-analytics-rule-integrity/select-workbook-from-content-hub.png" alt-text="Screenshot of selection of analytics health workbook from content hub.":::
 
-1. Once in the workbook, first select the **subscription** and **workspace** you wish to view, then define the **TimeRange** to filter the data according to your needs. Use the **Show help** toggle to display in-place explanation of the workbook.
+    1. Select **Install** from the details pane, then select **Save** that appears in its place.
+
+1. When the solution indicates it's installed, select **Workbooks** from the **Threat management** menu.
+
+    :::image type="content" source="media/monitor-analytics-rule-integrity/installed.png" alt-text="Screenshot of indication that analytics health workbook solution is installed from content hub.":::
+
+1. In the **Workbooks** gallery, select the **Templates** tab, enter *health* in the search bar, and select **Analytics Health & Audit** from among the results.
+
+    :::image type="content" source="media/monitor-analytics-rule-integrity/select-workbook-template.png" alt-text="Screenshot of selecting analytics health workbook from template gallery.":::
+
+1. Select **Save** in the details pane to create an editable and usable copy of the workbook. When the copy is created, select **View saved workbook**.
+
+1. Once in the workbook, first select the **subscription** and **workspace** you wish to view (they may already be selected), then define the **TimeRange** to filter the data according to your needs. Use the **Show help** toggle to display in-place explanation of the workbook.
 
     :::image type="content" source="media/monitor-analytics-rule-integrity/analytics-health-workbook-overview.png" alt-text="Screenshot of analytics rule health workbook overview tab.":::
 
