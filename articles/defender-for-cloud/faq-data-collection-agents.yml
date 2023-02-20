@@ -188,11 +188,11 @@ sections:
           1. Select the relevant subscription.
           1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
 
-            :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="screenshot showing selecting service plan settings for server." lightbox="media/enable-data-collection/turn-off-agent.png":::
+            :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="screenshot showing selecting service plan settings for server." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
           
           1. Turn off the extension you want to stop being automatically provisioned.
 
-            :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="screenshot showing selecting service plan settings for server." lightbox="media/enable-data-collection/turn-off-agent.png"::
+            :::image type="content" source="media/enable-data-collection/turn-off-agent.png" alt-text="screenshot showing turn off specific agent." lightbox="media/enable-data-collection/turn-off-agent.png"::
           
           1. Select **Save**.
           
