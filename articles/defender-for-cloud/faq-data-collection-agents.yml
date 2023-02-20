@@ -178,11 +178,18 @@ sections:
       - question: |
           How do I stop the automatic agent installation and workspace creation?
         answer: |
-          You can turn off extensions for your subscriptions in the security policy but this is not recommended. Turning off extensions limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
+          Deploying extensions with Defender for Cloud is highly recommended in order to get security alerts and recommendations about 
+          system updates, OS vulnerabilities, and endpoint protection. Turning off extensions limits these alerts and recommendations.
+          However, you can disable automatic provisioning for a specific agent or extension:
           
-          1. From Defender for Cloud's menu, open **Environment settings**.
+           To disable automatic provisioning for a specific agent or extension:
+          
+          1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
           1. Select the relevant subscription.
           1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+
+            :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="screenshot showing selecting service plan settings for server." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+          
           1. Turn off the extension you want to stop being automatically provisioned.
           1. Select **Save**.
           
@@ -241,23 +248,7 @@ sections:
           > [!NOTE]
           > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and you'll have to reinstall it.
           
-          
-      - question: |
-          How do I disable data collection?
-        answer: |
-          Deploying extensions with Defender for Cloud is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
-          
-          If you've enabled an extension but now want to disable it:
-          
-          1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
-          
-          1. Select the subscription on which you want to disable the extension.
-
-          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
-          
-          1. Turn off the Log Analytics agent.
-          
-          
+        
       - question: |
           How do I enable data collection?
         answer: |
