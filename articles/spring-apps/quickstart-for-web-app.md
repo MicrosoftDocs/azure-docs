@@ -68,14 +68,14 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
 
 ## Create an app
 Create an app by this command:
-    ```azurecli-interactive
-    az spring app create \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --name <name-of-app> \
-        --runtime-version Java_17 \
-        --assign-endpoint true
-    ```
+```azurecli-interactive
+az spring app create \
+    --resource-group <name-of-resource-group> \
+    --service <name-of-azure-spring-apps-instance> \
+    --name <name-of-app> \
+    --runtime-version Java_17 \
+    --assign-endpoint true
+```
 
 ## Provision Azure Database for PostgreSQL
 1. Create a PostgreSQL server.
