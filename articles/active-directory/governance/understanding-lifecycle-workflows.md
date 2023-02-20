@@ -3,7 +3,7 @@ title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfreyATL
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

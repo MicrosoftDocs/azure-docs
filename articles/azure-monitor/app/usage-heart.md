@@ -57,10 +57,10 @@ These dimensions are measured independently, but they interact with each other a
   | pageViews       | operation_Id         | Correlate telemetry events                 |
   | pageViews       | user_Id            	 | Unique user identifier                     |
 
-*Use the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
+*Use the [Click Analytics Auto collection plugin](javascript-feature-extensions.md) via npm to emit these attributes.
 
 >[!TIP]
-> To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-click-analytics-plugin.md#how-to-effectively-use-the-plugin).
+> To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-feature-extensions.md#how-to-effectively-use-the-plugin).
  
 ### Open the workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
@@ -123,7 +123,7 @@ Engagement is a measure of user activity, specifically intentional user actions 
 Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a paycheck portal, measurement would make more sense at a monthly or weekly level.
 
 >[!IMPORTANT]
->A user who does an intentional action such as clicking a button or typing an input is counted as an active user. For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
+>A user who does an intentional action such as clicking a button or typing an input is counted as an active user. For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](javascript-feature-extensions.md) implemented in the application.
 
 
 
@@ -146,7 +146,7 @@ A Retained user is a user who was active in a specified reporting period and its
 | Retention      | Proportion of active users from the previous period who are also Active this period | What percent of users are staying engaged with the product? |
 
 >[!IMPORTANT]
->Since active users must have at least one telemetry event with an actionType, Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
+>Since active users must have at least one telemetry event with an actionType, Retention metrics require the [Click Analytics plugin for Application Insights](javascript-feature-extensions.md) implemented in the application.
 
 
 ### Task success
@@ -163,7 +163,7 @@ A successful task meets three requirements:
 A task is considered unsuccessful if any of the above requirements isn't met.
 
 >[!IMPORTANT]
->Task success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
+>Task success metrics require the [Click Analytics plugin for Application Insights](javascript-feature-extensions.md) implemented in the application.
 
 Set up a custom task using the below parameters.
 
@@ -221,7 +221,7 @@ For more on editing workbook templates, refer to the [Azure Workbook templates](
  
 
 ## Next steps
-- Set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm.
+- Set up the [Click Analytics Auto Collection Plugin](javascript-feature-extensions.md) via npm.
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.

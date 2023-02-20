@@ -412,7 +412,7 @@ Users with this role can manage all enterprise Azure DevOps policies, applicable
 
 ## Azure Information Protection Administrator
 
-Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Microsoft 365 Service Health, Microsoft 365 Defender portal, or Microsoft Purview compliance portal.
+Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection, Privileged Identity Management, Monitor Microsoft 365 Service Health, Microsoft 365 Defender portal, or Microsoft Purview compliance portal.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -930,7 +930,7 @@ This administrator manages federation between Azure AD organizations and externa
 
 ## Global Administrator
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators. A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has zero Global Administrators.
 
 > [!NOTE]
 > As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
@@ -1495,7 +1495,7 @@ Users in this role can create and manage content, like topics, acronyms and lear
 
 ## License Administrator
 
-Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
+Users in this role can read, add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1663,7 +1663,7 @@ Assign the Organizational Messages Writer role to users who need to do the follo
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
-> This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used as it is deprecated and it will no longer be returned in API.
+> This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used because it is deprecated.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1713,7 +1713,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
-> This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used as it is deprecated and it will no longer be returned in API.
+> This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used because it is deprecated.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1973,7 +1973,7 @@ Users with this role have permissions to manage security-related features in the
 In | Can do
 --- | ---
 [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
-Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
+[Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Perform all Identity Protection operations except for resetting passwords
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role<br>**Cannot** manage Azure AD role assignments or settings
 [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
 Azure Advanced Threat Protection | Monitor and respond to suspicious security activity
@@ -2050,7 +2050,7 @@ Users with this role can manage alerts and have global read-only access on secur
 | In | Can do |
 | --- | --- |
 | [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | All permissions of the Security Reader role<br/>View, investigate, and respond to security threats alerts<br/>Manage security settings in Microsoft 365 Defender portal |
-| [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails. |
+| [Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Perform all Identity Protection operations except for configuring or changing risk-based policies, resetting passwords, and configuring alert e-mails. |
 | [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role |
 | [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | All permissions of the Security Reader role<br/>View, investigate, and respond to security alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role. |
@@ -2082,7 +2082,7 @@ Users with this role have global read-only access on security-related feature, i
 In | Can do
 --- | ---
 [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
-Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mail flow rules
+[Identity Protection](../identity-protection/overview-identity-protection.md) | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mail flow rules
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Azure AD Privileged Identity Management: Policies and reports for Azure AD role assignments and security reviews.<br>**Cannot** sign up for Azure AD Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
 [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | View security policies<br>View and investigate security threats<br>View reports
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | View and investigate alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role.
@@ -2306,7 +2306,7 @@ Assign the User Administrator role to users who need to do the following:
 | Delete or restore some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
 | Create and manage user views |  |
 | Create and manage all groups |  |
-| Assign licenses for all users, including all administrators |  |
+| Assign and read licenses for all users, including all administrators |  |
 | Reset passwords | [Who can reset passwords](#who-can-reset-passwords) |
 | Invalidate refresh tokens | [Who can reset passwords](#who-can-reset-passwords) |
 | Update (FIDO) device keys |  |
@@ -2557,13 +2557,13 @@ User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 All custom roles | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
-\* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
+> [!IMPORTANT]
+> The [Partner Tier2 Support](#partner-tier2-support) role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). The [Partner Tier1 Support](#partner-tier1-support) role can reset passwords and invalidate refresh tokens for only non-administrators. These roles should not be used because they are deprecated.
 
-> [!NOTE]
-> The ability to reset a password includes the ability to update the following sensitive properties required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
-> - businessPhones
-> - mobilePhone
-> - otherMails
+The ability to reset a password includes the ability to update the following sensitive properties required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
+- businessPhones
+- mobilePhone
+- otherMails
 
 ## Who can perform sensitive actions
 

@@ -1,19 +1,17 @@
 ---
-title: Add rules for Azure Standard Load Balancer and virtual machine scale sets
-titleSuffix: Add rules for Azure Standard Load Balancer and virtual machine scale sets
-description: With this learning path, get started with Azure Standard Load Balancer and virtual machine scale sets.
+title: Guidance for virtual machine scale sets with Azure Standard Load Balancer
+description: Learn about working with virtual machine scale sets and Azure Standard Load Balancer.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
-ms.custom: seodec18
 ms.service: load-balancer
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: mbender
+ms.custom: template-concept, seodec18
 ---
-# Add rules for Azure Load Balancer with virtual machine scale sets
+
+# Guidance for virtual machine scale sets with Azure Load Balancer
 
 When you work with virtual machine scale sets and Azure Load Balancer, consider the following guidelines.
 
@@ -31,7 +29,7 @@ Each virtual machine scale set must have at least one inbound NAT pool. An inbou
 
 When you use the virtual machine scale set in the back-end pool of the load balancer, the default load-balancing rule is created automatically.
 
-## Virtual Machine Scale Set Instance-level IPs
+## Virtual Machine Scale Set instance-level IPs
 
 When virtual machine scale sets with [public IPs per instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md) are created with a load balancer in front, the SKU of the instance IPs is determined by the SKU of the Load Balancer (i.e. Basic or Standard).
 

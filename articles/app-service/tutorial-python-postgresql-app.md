@@ -27,7 +27,7 @@ To run the application locally, make sure you have [Python 3.7 or higher](https:
 ### [Flask](#tab/flask)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
 ```
 
 ### [Django](#tab/django)
@@ -40,10 +40,19 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 Go to the application folder:
 
+### [Flask](#tab/flask)
+
 ```bash
 cd msdocs-python-flask-webapp-quickstart
 ```
 
+### [Django](#tab/django)
+
+```bash
+cd msdocs-django-postgresql-sample-app
+```
+
+-----
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 

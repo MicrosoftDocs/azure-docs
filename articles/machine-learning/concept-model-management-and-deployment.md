@@ -178,6 +178,7 @@ For more information on using Azure Pipelines with Machine Learning, see:
 
 Learn more by reading and exploring the following resources:
 
++ [Set up MLOps with Azure DevOps](how-to-setup-mlops-azureml.md)
 + [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
 + [How to deploy a model to an online endpoint](how-to-deploy-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
