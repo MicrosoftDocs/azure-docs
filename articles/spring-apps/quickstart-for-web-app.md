@@ -94,7 +94,11 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
     ```azurecli-interactive
     az provider register --namespace Microsoft.ServiceLinker
     ```
-2. Create a service connection between Azure Spring Apps and the PostgreSQL.
+2. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI.
+    ```azurecli-interactive
+    az extension add --name serviceconnector-passwordless --upgrade
+    ```
+3. Create a service connection between Azure Spring Apps and the PostgreSQL.
     ```azurecli-interactive
     az spring connection create postgres-flexible \
         --resource-group <name-of-resource-group> \
@@ -104,7 +108,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --target-resource-group <name-of-resource-group> \
         --server <name-of-database-server> \
         --database <name-of-database> \
-        --secret name=<admin-username> secret=<admin-password> \
+        --system-identity \
         --connection <name-of-connection>
     ```
 3. Check connection to PostgreSQL.
