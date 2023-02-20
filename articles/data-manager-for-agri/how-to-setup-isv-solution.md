@@ -19,13 +19,13 @@ A high level view of how you can create a new request and get responses from the
 ![Accessing ISV APIs](./media/3PSolutions-new.png)
 
 * Step 1: You make an API call for a PUT request with the required parameters (for example Job ID, Farm details)
-    * The Data Manager API receives this request and authenticates it.  If the request is invalid, you will get an error code back.
+    * The Data Manager API receives this request and authenticates it.  If the request is invalid, you'll get an error code back.
 * Step 2: If the request is valid, the Data Manager creates a PUT request to ISV Partners solution API.
 * Step 3: The ISV solution then makes a GET request to the weather service in Data Manager that is required for processing.
 * Step 4: The ISV solution completes the processing the request and submits a response back to the Data Manager.
-    * If there's any error when this request is submitted, the you may have to verify the configuration and parameters. If you are unable to resolve the issue then contact us at madma@microsoft.com
+    * If there's any error when this request is submitted, then you may have to verify the configuration and parameters. If you're unable to resolve the issue then contact us at madma@microsoft.com
 * Step 5: Now you make a call to Data Manager using the Job ID to get the final response.
     *  If the request processing is completed by the ISV Solution, you get the insight response back.  
-    * If the request processing is still in progress, you will get the  message “Processing in progress”
+    * If the request processing is still in progress, you'll get the  message “Processing in progress”
 
-Once all the request/responses are successfully processed, the status of the request is closed. This final output of the request will be stored in Data Manager for Agriculture. Customers must also ensure that they are submitting their requests within the pre-defined threshold defined as per the terms/agreements.  
+Once all the request/responses are successfully processed, the status of the request is closed. This final output of the request will be stored in Data Manager for Agriculture. You must ensure that you're submitting requests within the pre-defined thresholds.  
