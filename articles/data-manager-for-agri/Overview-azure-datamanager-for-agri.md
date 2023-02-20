@@ -1,7 +1,7 @@
 ---
 title: What is Microsoft Azure Data Manager for Agriculture? #Required; page title is displayed in search results. Include the brand.
 description: Microsoft Azure Data Manager for Agriculture #Required; article description that is displayed in search results. 
-author: angour #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.service: data-manager-for-agri
 ms.author: angour  #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.

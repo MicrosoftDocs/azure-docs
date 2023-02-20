@@ -1,6 +1,7 @@
 ---
 title: Our Hierarchy Model 
 description: Provides information on the data model to organize your agriculture data 
+author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual #Required; leave this attribute/value as-is.
@@ -10,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Our Hierarchy Model
 
-To generate actionable insights the data related to growers, farms, and fields needs to be organized in a well defined manner to keep data in an analysis ready state. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
+To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
@@ -22,12 +23,12 @@ To generate actionable insights the data related to growers, farms, and fields n
 ## Understanding farm hierarchy
 
 ### Party  
-* Party is the owner and custodian of any data related to their farm. You could imagine this to be the legal entity that is running the business.  
+* Party is the owner and custodian of any data related to their farm. You could imagine Party to be the legal entity that is running the business.  
 * The onus of defining the Party entity is with the customer setting up Data Manager for Agriculture. 
 
 ### Farm
 * Farms are logical entities. A farm is a collection of fields. 
-* Farms do not have any geometry associated with them. These are logical entities to help you organize your growing operations. For example Contoso Inc is the Party that has farms in Oregon and Idaho.
+* Farms don't have any geometry associated with them. Farm entity helps you organize your growing operations. For example Contoso Inc is the Party that has farms in Oregon and Idaho.
 
 ### Field
 * Fields denote a stable boundary that is in general agnostic to seasons and other temporal constructs. For example, field could be the boundary denoted in government records.
@@ -35,7 +36,7 @@ To generate actionable insights the data related to growers, farms, and fields n
 * Fields are multi-boundary.
 
 ### Seasonal field
-* This is the most important construct in the farming world. A seasonal field is defined by following things
+* This is the most important construct in the farming world. A seasonal fields defination includes the following things
      * Boundary
      * Season 
      * Crop
@@ -53,7 +54,7 @@ To generate actionable insights the data related to growers, farms, and fields n
 * Season represents the temporal aspect of farming. It is a function of local agronomic practices, procedures and weather.
 
 ### Crop
-* This provides the phenotypic details of the planted crop.
+* Crop entity provides the phenotypic details of the planted crop.
 
 ### Crop Product
-* This refers to the commercial variety (brand, product) of the planted seeds. A seasonal field can contain information about various varieties of seeds planted (belonging to the same crop).
+* Crop Product entity refers to the commercial variety (brand, product) of the planted seeds. A seasonal field can contain information about various varieties of seeds planted (belonging to the same crop).

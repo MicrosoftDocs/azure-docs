@@ -1,6 +1,7 @@
 ---
 title: Ingesting Farm Operations Data
 description: Provides step by step guidance to ingest Farm Operations data
+author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual #Required; leave this attribute/value as-is.
@@ -23,18 +24,18 @@ Farm operation data is one of the most important ground truth datasets in Agrono
 
 ### Supported farm management data
 
-As part of the data ingestion job created to ingest data from John Deere, our service will also ingest farm management data associated with the end user from John Deere.
+As part of the data ingestion job created to ingest data from John Deere, our service ingests farm management data associated with the end user from John Deere.
 
 Below are the ingested farm management data:
 * Farm
 * Field
 * Boundary
 
-Azure Data Manager for Agriculture stores the above mentioned farm management data in a **STAGED** state. The data stored in STAGED state must be queried explicitly as shown below as this data is not visible by default.
+Azure Data Manager for Agriculture stores the above mentioned farm management data in a **STAGED** state. The data stored in STAGED state must be queried explicitly as shown since this data is not visible by default.
 
 ### How to query the staged farm management data
 
-Use the existing REST APIs present for farm, field & boundary and provide a property filter to specifically query staged resources in the below fashion
+Use the existing REST APIs present for farm, field & boundary and provide a property filter to specifically query staged resources as shown
 
 ```json
 {
@@ -44,7 +45,7 @@ Use the existing REST APIs present for farm, field & boundary and provide a prop
 }
 ```
 
-Using the above property filter, Azure Data Manager for Agriculture returns all staged (farm, field, boundary) data that is present for a given partyid. You can also query for the source of the farm management data that was staged by using the below filter
+Azure Data Manager for Agriculture uses the above property filter and returns all staged (farm, field, boundary) data that is present for a given "partyid". You can also query for the source of the farm management data that was staged by using the property filter:
 
 ```json
 {
@@ -60,18 +61,18 @@ Azure Data Manager for Agriculture provides first class integration with farm eq
 
 # Configure oAuth based authorization
 
-Azure Data Manager for Agriculture provides oAuth based authorization to connect your end-users with their farm operations data provider (Eg: John Deere & Climate FieldView). **Configuring oAuth flow is a pre-requisite for integrating with John Deere** in fetching farm operations data from them. To be able to successfully integrate with oAuth callback service built by Azure Data Manager for Agriculture follow the below steps.
+Azure Data Manager for Agriculture provides oAuth based authorization to connect your end-users with their farm operations data provider (for example: John Deere & Climate FieldView). **Configuring oAuth flow is a pre-requisite for integrating with John Deere** to fetch farm operations data. To successfully integrate with oAuth callback service built by Azure Data Manager for Agriculture use the following the steps:
 
 > [!NOTE]
 > Step 1 to Step 3 are part of the one-time initial configuration setup. Once integrated, you will be able to enable all your end users to use the existing oAuth workflow and call the config API (Step 4) per user (partyid) to get access token.
 
 ## Step 1: App Creation
 
-If you are creating John Deere application, go to [John Deere portal](https://developer-portal.deere.com/#/applications/) and create a new application. Once the application is created, **request Data Subscription Services (DSS) for the app via Contact Us button in John Deere portal**. DSS is what enables an application to receive notifications for data updates and this needs to be explicitly enabled on John Deere side.
+If you are creating John Deere application, go to [John Deere portal](https://developer-portal.deere.com/#/applications/) and create a new application. Once the application is created, **request Data Subscription Services (DSS) for the app via Contact Us button in John Deere portal**. DSS enables an application to receive notifications for data updates and DSS needs to be explicitly enabled on John Deere side.
 
 ## Step 2: Provider Configuration
 
-Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with appropriate credentials (AppId & AppSecret) of the newly created App. The below API creates or updates an oauthProvider resource.
+Use the `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE) with appropriate credentials (AppID & AppSecret) of the newly created App. The API creates or updates an oauthProvider resource.
 
 ### Request
 
@@ -79,7 +80,7 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderId}` | Resource name is the Azure Data Manager for Agriculture resource name.|
+| PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderID}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 > Important
 >The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
@@ -89,14 +90,14 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 |Name | In | Required | Type | Description|
 |:-----:|:----:|:----:|:----:|----|
 | api-version | query | true | string | The api version to use.|
-| oauthProviderId | path | true | string | The oAuth provider ID (Currently supported ID is JOHNDEERE [case sensitive]).|
+| oauthProviderID | path | true | string | The oAuth provider ID (Currently supported ID is JOHNDEERE [case sensitive]).|
 
 
 #### Request body
 
 |Name | Required | Type | Description|
 |:-----:|:----:|:----:|----|
-| appId | true | string | OAuth App Id for given Auth Provider.|
+| appID | true | string | OAuth App ID for given Auth Provider.|
 | appSecret | true | string | OAuth App secret for given Provider. Note: Won't be sent in response.|
 | apiKey | | string | OAuth Api key for given Provider (optional). Note: currently Applicable to Climate provider. Won't be sent in response.|
 | isProductionApp | | boolean | An optional flag to determine if the App is ready to be used for Production scenarios in the provider side or not. (Default value: false) Note: Currently applicable for JohnDeere.|
@@ -115,14 +116,14 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
 | 404 Not Found | Couldn't find the requested resource.|
-| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
+| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to madma@microsoft.com|
 
 #### Response body
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| id (oauthProviderId) | string | Id of the OAuth Provider (JOHNDEERE).|
-| appId |  string | OAuth App Id for given Auth Provider.|
+| id (oauthProviderID) | string | ID of the OAuth Provider (JOHNDEERE).|
+| appID |  string | OAuth App ID for given Auth Provider.|
 | isProductionApp | boolean | An optional flag to determine if the App is ready to be used for Production scenarios in the provider side or not. (Default value: false) Note: Currently applicable for JohnDeere.|
 | eTag | string | The ETag value to implement optimistic concurrency.|
 | createdDateTime | string | Date when resource was created.|
@@ -137,7 +138,7 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 
 ```json
 {
-  "appId": "appId",
+  "appID": "appID",
   "appSecret": "appSecret",
   "apiKey": "apiKey",
   "isProductionApp": true,
@@ -154,7 +155,7 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 ```json
 {
   "id": "JOHNDEERE",
-  "appId": "appId",
+  "appID": "appID",
   "isProductionApp": true,
   "eTag": "2b00a419-0000-0700-0000-5fe1ae4c0000",
   "createdDateTime": "2021-03-10T16:22:12.407Z",
@@ -179,9 +180,9 @@ There are two endpoints that need to be configured
 
 ## Step 4: Farmer (End-user) Integration
 
-When a farmer (end-user) lands on your webpage where the user action is expected (Ex: Connect to John Deere button), make a call to `oauth/tokens/:connect` API in the below fashion to get the oAuth provider's (Ex: John Deere) sign-in uri back to start the end-user oAuth flow.
+When a farmer (end-user) lands on your webpage where the user action is expected (Ex: Connect to John Deere button), make a call to `oauth/tokens/:connect` API as shown, to get the oAuth provider's (Ex: John Deere) sign-in uri back to start the end-user oAuth flow.
 
-The below API returns Connection link needed in the OAuth flow.
+This API returns Connection link needed in the OAuth flow.
 
 ### Request
 
@@ -202,7 +203,7 @@ The below API returns Connection link needed in the OAuth flow.
 |Name | Required | Type | Description|
 |:-----:|:----:|:----:|----|
 | partyid | true | string | ID of the farmer for whom the oAuth flow is being triggered.|
-| oAuthProviderId | true | string | The oAuth provider ID (Currently supported ID is JOHNDEERE in all caps).|
+| oAuthProviderID | true | string | The oAuth provider ID (Currently supported ID is JOHNDEERE in all caps).|
 | userRedirectLink | true | string | Link to redirect the user to, at the end of the oauth flow.|
 | userRedirectState | | string  | State to provide back when redirecting the user, at the end of the oauth flow to uniquely identify the user at customer end.|
 
@@ -217,7 +218,7 @@ The below API returns Connection link needed in the OAuth flow.
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
 | 404 Not Found | Couldn't find the requested resource.|
-| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
+| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to madma@microsoft.com|
 
 #### Response body
 
@@ -232,7 +233,7 @@ The below API returns Connection link needed in the OAuth flow.
 ```json
 {
   "partyid": "TEST-FARMER",
-  "oAuthProviderId": "JOHNDEERE", 
+  "oAuthProviderID": "JOHNDEERE", 
   "userRedirectLink": "https://www.customerWebsite.com",
   "userRedirectState": "uniqueCode"
 }
@@ -243,12 +244,12 @@ The below API returns Connection link needed in the OAuth flow.
 "https://www.oAuthAuthorizationLink.com"
 
 
-Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizationLink`, **end-user clicks on this link to go through the oAuth flow** (Ex: In case of John Deere, the user will be served a John Deere oAuth page). Once the oAuth flow is completed, Azure Data Manager for Agriculture will redirect the user to the endpoint provided by customer (`userRedirectLink`) with the following query parameters in the url
+Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizationLink`, **end-user clicks on this link to go through the oAuth flow** (for example: The user will be served a John Deere oAuth page). On completion of the oAuth flow, our service redirects the user to the endpoint provided by the customer (`userRedirectLink`) with the following query parameters in the url
 
 1. **status** (success/failure)
 2. **state** (optional string to uniquely identify the user at customer end)
 3. **message** (optional string)
-4. **errorCode** (optional string sent in case of Failure/error) in the parameters.
+4. **errorCode** (optional string when there is an error) in the parameters.
 
 > [!NOTE]
 >
@@ -256,9 +257,9 @@ Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizatio
 
 ## Step 5: Check Access Token Info (Optional)
 
-This step is optional, only to confirm if for a given user or list of users, the required valid access token has been acquired or not. This can be done via making a call to the `oauth/tokens` API in the below fashion and **check for the entry `isValid: true` in the response body**.
+This step is optional, only to confirm if for a given user or list of users, the required valid access token was acquired or not. This can be done via making a call to the `oauth/tokens` API as shown, and **check for the entry `isValid: true` in the response body**.
 
-The below API returns a list of OAuthToken documents.
+This API returns a list of OAuthToken documents.
 
 ### Request
 
@@ -273,8 +274,8 @@ The below API returns a list of OAuthToken documents.
 |Name | In | Required | Type | Description|
 |:-----:|:----:|:----:|:----:|----|
 | api-version | query | true | string | The api version to use.|
-| partyids  | query | true | array[string] | List of farmer Ids.|
-| authProviderIds | query | | array[string] | Name of AuthProvider.|
+| partyids  | query | true | array[string] | List of party IDs.|
+| authProviderIDs | query | | array[string] | Name of AuthProvider.|
 | isValid | query | | boolean | If the token object is valid.|
 | minCreatedDateTime | query | | string($date-time) | Minimum creation date of resource (inclusive).|
 | maxCreatedDateTime | query | | string($date-time) | Maximum creation date of resource (inclusive).|
@@ -298,19 +299,19 @@ No Body
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
 | 404 Not Found | Couldn't find the requested resource.|
-| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
+| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to madma@microsoft.com|
 
 #### Response body
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| partyid | string | Id of the associated farmer.|
-| authProviderId | string | Name of AuthProvider.|
+| partyid | string | ID of the associated farmer.|
+| authProviderID | string | Name of AuthProvider.|
 | isValid | boolean | Indicates if the token is a valid and working one or expired.|
-| createdDateTime | string | Date when resource was created.|
-| modifiedDateTime | string | Date when resource was last modified.|
+| createdDateTime | string | Creation Date.|
+| modifiedDateTime | string | Modification Date.|
 | eTag | string | The ETag value to implement optimistic concurrency.|
-| $skipToken | string | Token used in retrieving the next page. If null, there are no additional pages.|
+| $skipToken | string | Token used in retrieving the next page. If null, there are no other pages.|
 | nextLink | string | Continuation link (absolute URI) to the next page of results in the list.|
 
 
@@ -329,7 +330,7 @@ No Body
   "value": [
     {
       "partyid": "TEST-FARMER",
-      "authProviderId": "JOHNDEERE",
+      "authProviderID": "JOHNDEERE",
       "isValid": true,
       "createdDateTime": "2021-03-11T04:15:04.014Z",
       "modifiedDateTime": "2021-03-11T04:15:04.014Z",
@@ -341,11 +342,11 @@ No Body
 }
 ```
 
-**This step marks the successful completion of the oAuth flow for a user**. Now, the user is all-set to trigger a new FarmOperationsDataJob using the `/farm-operations/ingest-data/{jobId}` API to start pulling the farm operations data from JohnDeere.
+**This step marks the successful completion of the oAuth flow for a user**. Now, you are ready to trigger a new FarmOperationsDataJob using the `/farm-operations/ingest-data/{jobID}` API to start pulling the farm operations data from JohnDeere.
 
-Users can now create a farm operation data ingestion job to **pull farm, field & boundary** information associated with the given partyid and also pull the **associated farm operations data** that is being requested.
+You can now create a farm operation data ingestion job to **pull farm, field & boundary** information associated with the given "partyid" and also pull the **associated farm operations data** that is being requested.
 
-The below API creates a farm operation data ingestion job.
+This API creates a farm operation data ingestion job.
 
 ## Request
 
@@ -353,7 +354,7 @@ The below API creates a farm operation data ingestion job.
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| PUT | https://{{resourceName}}.farmbeats.azure.net/farm-operations/ingest-data/{jobId}?api-version={{apiVersion}} | Resource name is the Azure Data Manager for Agriculture resource name.|
+| PUT | https://{{resourceName}}.farmbeats.azure.net/farm-operations/ingest-data/{jobID}?api-version={{apiVersion}} | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 #### Note
 The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
@@ -362,17 +363,17 @@ The contentType in the request header should be **application/merge-patch+json**
 
 |Name | In | Required | Type | Description|
 |:-----:|:----:|:----:|:----:|----|
-| jobId | path | true | string | Job Id supplied by user.|
+| jobID | path | true | string | Job ID supplied by user.|
 | api-version | query | true | string | The api version to use.|
 
 ### Request body
 
 |Name | Required | Type | Description|
 |:-----:|:----:|:----:|----|
-| partyid | true | string | The ID of the farmer for whom the data is being fetched.|
-| authProviderId | true | string | Auth provider ID (Currently supported one is `JohnDeere`).|
+| partyid | true | string | The ID of the Party.|
+| authProviderID | true | string | Auth provider ID (Currently supported one is `JohnDeere`).|
 | startYear | true | integer | Start Year (Minimum = 2000, Maximum = CurrentYear).|
-| isIncremental |  | boolean | Use this to pull only the incremental changes from the last run.|
+| isIncremental |  | boolean | Use to pull incremental changes from the last run.|
 | operations |  | enum | List of operation types for which data needs to be downloaded. Currently supported operation types are `AllOperations`, `Application`, `Planting`, `Harvest`, `Tillage`.|
 | name |  | string | Name of the farm operations job.|
 | description |  | string | User provided description.|
@@ -389,19 +390,19 @@ The contentType in the request header should be **application/merge-patch+json**
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
 | 404 Not Found | Couldn't find the requested resource.|
-| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
+| 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to madma@microsoft.com|
 
 ### Response body
 
 |Name | Type | Description|
 |:-----:|:----:|----|
-| partyid | string | Id of the farmer.|
-| authProviderId | string | Authentication provider Id.|
+| partyid | string | ID of the farmer.|
+| authProviderID | string | Authentication provider ID.|
 | operations | enum | List of operation types for which data needs to be downloaded. Available values: AllOperations, Application, Planting, Harvest, Tillage.|
 | startYear |  string | Start Year (Minimum = 2000, Maximum = CurrentYear).|
 | isIncremental | boolean | Use this to pull only the incremental changes from the last run.|
 | durationInSeconds | string | Duration of the job in seconds.|
-| id | string | Id of the job.|
+| id | string | ID of the job.|
 | status | enum | Various states a job can be in [ Waiting, Running, Succeeded, Failed, Cancelled ].|
 | message | string | Status message to capture more details of the job.|
 | createdDateTime | string | Job created at date time.|
@@ -419,7 +420,7 @@ The contentType in the request header should be **application/merge-patch+json**
 ```json
 {
   "partyid": "TEST-FARMER",
-  "authProviderId": "JOHNDEERE",
+  "authProviderID": "JOHNDEERE",
   "operations": [
     "AllOperations"
   ],
@@ -437,7 +438,7 @@ The contentType in the request header should be **application/merge-patch+json**
 ```json
 {
   "partyid": "TEST-FARMER",
-  "authProviderId": "JOHNDEERE",
+  "authProviderID": "JOHNDEERE",
   "operations": [
     "AllOperations"
   ],
@@ -459,11 +460,11 @@ The contentType in the request header should be **application/merge-patch+json**
 }
 ```
 
-Based on the startYear & operations list provided, Azure Data Manager for Agriculture will fetch the operations data from the start year to the current date. In addition to operations data, **Azure Data Manager for Agriculture will also fetch the farm, field & boundary** information for the given `partyid` associated with the John Deere system. These farm hierarchy entities **would be stored in Azure Data Manager for Agriculture as staged resources**. Read below to know how to query this staged resources which aren't made available by default.
+Based on the startYear & operations list provided, Azure Data Manager for Agriculture will fetch the operations data from the start year to the current date. In addition to operations data, **Azure Data Manager for Agriculture will also fetch the farm, field & boundary** information for the given `"partyid"` associated with the John Deere system. These farm hierarchy entities **would be stored in Azure Data Manager for Agriculture as staged resources**. Staged resources which aren't made available by default.
 
 ## How to query the staged farm hierarchy resources
 
-Use the existing CRUD APIs present for [farm](../../../farm%20hierarchy/REST%20APIs/2021-07-31-preview/farms/3.%20get_farms.md), [field](../../../farm%20hierarchy/REST%20APIs/2021-07-31-preview/fields/3.%20get_fields.md) & [boundary](../../../farm%20hierarchy/REST%20APIs/2021-07-31-preview/boundaries/3.%20get_boundaries.md) and provide a property filter to specifically query staged resources in the below fashion either using Swagger UI or API Client.
+Use the existing CRUD APIs present for farm, field, boundary and provide a property filter to specifically query staged resources as shown, either using Swagger UI or API Client.
 
 **`propertyFilters: SYSTEM-STATE eq STAGED`** 
 
@@ -475,4 +476,4 @@ OR
 }
 ```
 
-Upon using the above property filter, Azure Data Manager for Agriculture will return all staged (farm, field, boundary) resources that are present under a given partyid.
+Azure Data Manager for Agriculture will return all staged (farm, field, boundary) resources that are present under a given "partyid" when you use the property filter.
