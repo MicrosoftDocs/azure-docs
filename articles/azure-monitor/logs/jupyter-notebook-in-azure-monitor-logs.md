@@ -48,7 +48,7 @@ For more information, see [Notebooks at Microsoft](https://visualstudio.micros
 
 In this tutorial, you learn how to: 
 
-1. Create new or open existing notebook in Azure Machine Learning. 
+1. Create a new or open existing notebook in Azure Machine Learning. 
 1. Connect to a Log Analytics workspace and run KQL queries and custom code. We will show two examples: 
 
     - Custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme?view=azure-python) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
@@ -58,24 +58,20 @@ In this tutorial, you learn how to:
 
 ## Create new or open existing notebook in Azure Machine Learning 
 
-Access notebook from ML workspace 
+1. Access notebook from ML workspace 
 
-Sign into Azure Machine Learning studio 
+    1. Sign into Azure Machine Learning studio.
+    1. Select your workspace, if it isn't already open.    
+    1. On the left, select **Notebooks**. 
 
-Select your workspace, if it isn't already open 
-
-On the left, select Notebooks 
-
-Create New notebook or upload existing  
-
-Connect to compute instance  
-
-For this tutorial you should select CPU type. 
-
-If you are interested to use distributed GPU training code this article can help you. 
+1. Create a new notebook or upload an existing notebook.  
+1. Connect to a compute instance.  
+    
+    For this tutorial, select CPU type. 
+    
+    To use distributed GPU training code, see [Distributed GPU training guide](azure/machine-learning/v1/how-to-train-distributed-gpu). 
  
-
-Verify Python kernel selected Python 3.8 or higher 
+1. Verify Python kernel selected Python 3.8 or higher. 
 
 
  
