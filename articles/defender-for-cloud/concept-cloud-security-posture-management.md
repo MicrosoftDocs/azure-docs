@@ -22,7 +22,9 @@ Defender for Cloud continually assesses your resources, subscriptions and organi
 
 ## Defender CSPM plan options
 
-The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender CSPM. When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
+Defender for cloud offers foundational multicloud CSPM capabilities for free. These capabilities are automatically enabled by default on any subscription or account that has onboarded to Defender for Cloud. The foundational CSPM includes asset discovery, continuous assessment and security recommendations for posture hardening, compliance of Microsoft Cloud Security Benchmark (MCSB) and a [Secure score](secure-score-access-and-track.md) which measure the current status of your organization’s posture.
+
+The optional Defender CSPM plan, provides advanced posture management capabilities such as [Attack path analysis](#attack-path-analysis), [Cloud security explorer](#cloud-security-explorer), advanced threat hunting, [security governance capabilities](#security-governance-and-regulatory-compliance), and also tools to assess your [security compliance](#security-governance-and-regulatory-compliance) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, region, or country. 
 
 The following table summarizes what's included in each plan and their cloud availability.
 
