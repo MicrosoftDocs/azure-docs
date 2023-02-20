@@ -2,8 +2,8 @@
 title: Fusion Core solution in Azure
 description: An overview of Fusion Core - a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC) that allows 5G network operators to aggregate data traffic from all end devices over multiple wireless and fixed access technologies.  
 ms.service: private-multi-access-edge-compute-mec
-author: djrmetaswitch
-ms.author: drichards
+author: rcdun
+ms.author: rdunstan
 ms.topic: overview
 ms.date: 06/16/2021
 ---
