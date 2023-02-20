@@ -131,8 +131,6 @@
         href: troubleshoot-embedded-device-quickstarts.md
 - name: Reference
   items:
-    - name: Libraries and SDKs
-      href: libraries-sdks.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
