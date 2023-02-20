@@ -58,13 +58,13 @@ In this tutorial, you learn how to:
 
 ## Create new or open existing notebook in Azure Machine Learning 
 
-1. Access notebook from ML workspace 
+1. To access an existing notebook from your workspace: 
 
-    1. Sign into Azure Machine Learning studio.
+    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
     1. Select your workspace, if it isn't already open.    
-    1. On the left, select **Notebooks**. 
+    1. From the menu on the left, select **Notebooks**. 
 
-1. Create a new notebook or upload an existing notebook.  
+1. To create a new notebook or upload an existing notebook.  
 1. Connect to a compute instance.  
     
     For this tutorial, select CPU type. 
