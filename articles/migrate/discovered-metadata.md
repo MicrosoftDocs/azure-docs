@@ -332,7 +332,7 @@ Always On Failover Clustered Instance | sys.dm_hadr_cluster, sys.dm_hadr_cluster
 Availability groups and replicas | sys.availability_groups
 Always On Availability Groups, Replicas, and their states | sys.dm_hadr_availability_group_states
 Returns a row for each of the availability replicas that belong to any Always On availability group in the WSFC failover cluster. | sys.availability_replicas
-Returns a row for each local replica and a row for each remote replica in the same Always On availability group as a local replica. Each row contains information about the state of a given replica. | sys.dm_hadr_availability_replica_states
+Local replicas, remote replica in the same Always On availability group as a local replica, and its state | sys.dm_hadr_availability_replica_states
 Cluster name and information about the quorum. | sys.dm_hadr_cluster
 Members of the quorum and their state.  | sys.dm_hadr_cluster_members
 Every WSFC cluster member that is participating in an availability group's subnet configuration. | sys.dm_hadr_cluster_networks

@@ -117,7 +117,7 @@ Azure SQL readiness for SQL instances and databases is based on a feature compat
 1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type (SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance)
 1. If there are non-critical compatibility issues, such as deprecated or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready** (hyperlinked) with **warning** details and recommended remediation guidance. This includes the situation where the source data has an Always On Availability Group configuration and the required replicas exceed those available with the specific target deployment type. 
 1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** with **issue** details and recommended remediation guidance.
-    - In the Recommended deployment, Instances to Azure SQL MI, and Instances to SQL Server on Azure VM readiness reports, if there is even one database in an SQL instance, which is not ready for a particular target deployment type, the instance is marked as **Ready with conditions** for that deployment type.
+    - In the Recommended deployment, Instances to Azure SQL MI, and Instances to SQL Server on Azure VM readiness reports, if there is even one database in a SQL instance, which is not ready for a particular target deployment type, the instance is marked as **Ready with conditions** for that deployment type.
 1. **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. You can review the recommendation to make the instance/server ready for the desired target deployment type.
 1. If the discovery is still in progress or there are any discovery issues for a SQL instance or database, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that SQL instance.
 
@@ -187,7 +187,7 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 - If no suitable size is found, the server is marked as unsuitable for Azure.
 - If a suitable size is found, Azure Migrate applies the storage calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
-- If the source is an SQL Server Always On Failover Cluster Instance, the compute size is used again for a second Azure VM to meet the need for two nodes.
+- If the source is a SQL Server Always On Failover Cluster Instance, the compute size is used again for a second Azure VM to meet the need for two nodes.
 > [!NOTE]
 >As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
 
