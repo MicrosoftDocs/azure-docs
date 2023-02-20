@@ -121,11 +121,11 @@ The following table lists the columns available in the Defender for IoT device i
 | **Business Unit** | The device's business unit, as [defined on the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones). |- | - | ✔ |
 | **Class** | Editable. The device's class. <br>Default: `IoT`|✔ | - | - |
 | **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|✔ | - | - |
-| DHCP Address |  | - | ✔ | |
+| **DHCP Address** | The device's DHCP address. | - | ✔ | - |
 | **Description** | Editable. The device's description. |✔ | ✔ | - |
-| Device Id | | ✔ | | |
+| **Device Id** | The device's Azure-assigned ID number | ✔ | -| -|
 | **Firmware** | The device's firmware description. | - | - | ✔ |
-| Firmware model |  |✔ | - | - |
+| **Firmware model** |  The device's firmware model. |✔ | - | - |
 | **Firmware vendor** | Editable. The vendor of the device's firmware. |✔ | - | - |
 | **Firmware version** |Editable.  The device's firmware version. |✔ | ✔ |  ✔ |
 | **First seen** / **Discovered** | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. | ✔ | ✔ | ✔ |
@@ -133,7 +133,6 @@ The following table lists the columns available in the Defender for IoT device i
 | **FQDN Last Lookup Time** | The device's FQDN lookup time |- | ✔ | - |
 | **Groups** | The device groups that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group-from-an-ot-sensor-device-map). |- | ✔ | ✔ |
 |**Hardware Vendor**     | <!--missing from columns--> Editable.  The device's hardware vendor.        |✔ | - | - |
-| ID | | | | ✔ |
 | **Importance** | Editable. The device's important level: `Low`, `Medium`, or `High`.  |✔ | - | - |
 | **IP Address** | The device's IP address. |- | ✔ | ✔ |
 | **IPv4 Address** | The device's IPv4 address. |✔ | - | - |
@@ -149,28 +148,30 @@ The following table lists the columns available in the Defender for IoT device i
 | **OS platform** / **Operating System** | Editable. The device's operating system, if detected. |✔ |  ✔ | ✔ |
 | **OS version** | Editable. The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |✔ | - | - |
 | **PLC mode** | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |✔ | ✔ | ✔ |
-| **PLC secured** | <!--missing-->Defines whether the PLC mode is in a secure state. For example, a secure state might be `Run`, and an unsecured state might be `Program`, or `Remote`. |✔ | - | - |
 |**Programming device** / **Is Programming device**     | Editable.  Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |✔ | ✔ | ✔ |
-| **Programming time** | <!--missing-->The last time the device was programmed.  |✔ | - | - |
 | **Protocols** | The protocols that the device uses. |✔ | ✔ | ✔ |
 | **Purdue level** | Editable. The Purdue level in which the device exists. |✔ | - | - |
-| Rack | - | ✔ | ✔|
+| **Rack** | The number of device racks. <!--unclear--> | - | ✔ | ✔|
 |**Region**| The device's region, as [defined on the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#set-up-a-site) |  - | - | ✔ |
 | **Scanner device** / **Is Known as Scanner** | Editable. Defines whether the device performs scanning-like activities in the network. |✔ | ✔ | ✔ |
 | **Sensor** / **Appliance** | The sensor the device is connected to.  |✔ | - | ✔ |
-| Serial number  / Serial| | ✔ | ✔|✔ |
+| **Serial number**  / **Serial**| The device's serial number. | ✔ | ✔|✔ |
 | **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|✔ | - | ✔ |
-| Slot | | | ✔|✔
-| **Slots** | The number of slots the device has. |✔ |- |-|
+| **Slots** / **Slot** | The number of slots the device has.  <!--unclear for slot on sensor/cm-->|✔ |✔|✔ |
 | **Subtype** | Editable. The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |✔ | - | - |
 | **Tags** | Editable. The device's tags. |✔ | - | - |
 | **Type** | Editable. The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous` |✔ | ✔ | ✔ |
 | **Unacknowledged Alerts** | The number of unacknowledged alerts associated with the device. |- | ✔ | ✔ |
-| **Underlying devices** | <!--missing--> Any relevant underlying devices for the device. |✔ | - | - |
-| **Underlying device region** |<!--missing-->  The region for an underlying device |✔ | - | - |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |✔ | ✔ | ✔ |
 | **VLAN** / **VLAN Ids** | The device's VLAN. |✔ | ✔ | ✔ |
 | **Zone** | The device's zone. |✔ | - | ✔ |
+
+<!--missing
+| **PLC secured** | Defines whether the PLC mode is in a secure state. For example, a secure state might be `Run`, and an unsecured state might be `Program`, or `Remote`. |✔ | - | - |
+| **Programming time** | The last time the device was programmed.  |✔ | - | - |
+| **Underlying devices** | Any relevant underlying devices for the device. |✔ | - | - |
+| **Underlying device region** | The region for an underlying device |✔ | - | - |
+-->
 
 
 
