@@ -14,58 +14,49 @@ ms.date: 25/01/2023
 # Run custom code on data in Azure Monitor Logs using Jupyter Notebook
  
 
-Jupyter Notebook is an open-source web application that lets you create and share documents containing live code, equations, visualizations, and narrative text. Jupyter Notebook is a popular data science tool that's commonly used for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
+[Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
 Use Jupyter Notebook to: 
-- Run custom code on log data using your web browser. 
-- Work with log data at big scales either by using in-memory processing (with Pandas, pyspark DataFrames) or by exporting data to external services. Typically, these notebooks are a single webpage, broken up into text sections and code sections that are executed on the server rather than your local machine. By running code in Jupyter notebooks on a server, you can get started quickly without needing to install Python or other tools on your local computer. 
+- Run custom code on data in Azure Monitor Logs using your web browser, which lets you get started quickly without needing to install Python or other tools on your local computer. . 
+- Work with log data at big scales either by using in-memory processing using the [pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/latest/api/python/index.html), or by exporting data to external services.  
 
 ## Benefits 
 
-- Run KQL power queries and custom code in any language, using Azure Monitor REST API, Azure Monitor libraries for Python and other libraries, including custom machine learning algorithms. 
-- Create a multi-step process, running code in each step based on the results of the previous step with possibility for advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, performing advanced analytics analysis or creating troubleshooting guides for Support needs (TSGs). 
-- No user interface limits, and effective techniques for working with data at large scales  
-- Working on log data from Notebook using Pandas or Spark DataFrame lets you avoid the costs and maintenance overhead exporting data and using external services 
+- Run KQL power queries and custom code in any language, using the [Azure Monitor REST API](/rest/api/monitor/), [Azure Monitor libraries for Python](/python/api/overview/azure/monitor?view=azure-python) and other libraries, including custom machine learning algorithms. 
+- Create a multi-step process, running code in each step based on the results of the previous step with possibility for advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, performing advanced analysis, or creating troubleshooting guides for Support needs (TSGs). 
+- No user interface limits, and effective techniques for working with data at large scales.  
+- Avoid the costs and maintenance overhead exporting data and using external services. 
 
 ## Limitations 
 
-- Executing custom code on copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to running native KQL operators and functions directly in Azure Monitor. 
-- API-related limitations (which possible to overcome as suggested later) 
+- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
+- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome as suggested later. 
 
-## Activate Jupyter Notebooks 
+## Prerequisites 
+
+- A Log Analytics workspace with data in the `AzureDiagnostics` table. 
+- The following roles and permissions: Azure Machine Learning (???). 
+- Familiarity with data science concepts.  
+
+## Activate Jupyter Notebook 
 
 You can run Jupyter Notebook on log data in Azure Monitor Logs: 
-- In the cloud, using Microsoft services, such as Azure Machine Learning or Synapse Notebooks, or public services. 
-- pandasLocally, using Microsoft tools, such as Azure Data Studio or Visual Studio, or open source tools.  
+- In the cloud, using Microsoft services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Synapse Notebooks](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services. 
+- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance?view=azure-sqldw-latest) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.  
 
 For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).  
 
 In this tutorial, you learn how to: 
 
-Create new or open existing notebook in Azure Machine Learning 
+1. Create new or open existing notebook in Azure Machine Learning. 
+1. Connect to a Log Analytics workspace and run KQL queries and custom code. We will show two examples: 
 
-Connect to LA workspace and run KQL queries and custom code. We will show 2 examples: 
+    - Custom machine learning model: We'll use [Azure Monitor Query client library for Python](/python/api/overview/azure/monitor-query-readme?view=azure-python) to run a simple KQL query and send data from Azure Monitor Logs into a pandas DataFrame, where we'll train a regression model and score a new set of data to identify anomalies. 
+    - Built-in KQL time series and machine learning functions: We'll use the [MSTICPY library](https://msticpy.readthedocs.io/en/latest/) to explorer data with KQL queries and visualizations, and run a built-in templated query (in Python) to invoke a native KQL function for anomaly detection, and we'll apply custom code to refine anomalies and save them into a pandas DataFrame. 
 
-Custom ML model: Using Azure Monitor Query client library for Python, we will run simple KQL query/queries to bring results from Azure Monitor Logs into pandas dataframe, will train regression model, will save it and will score on new set of data. We’ll identify anomalies and save them into Pandas DataFrame 
+1. Ingest anomalies into a custom table in your Log Analytics workspace using the Logs Ingestion API for further investigation, alert creation, use in dashboards, and so on. 
 
-Built-in KQL Time series and ML functions: Using MSTICPY library, we will explorer data with KQL queries and visualizations,  then will run built-in templated query (in Python) which invokes native KQL function for anomalies detection, we will apply custom code to refine anomalies and save them into pandas DataFrame. 
-
-We will ingest found anomalies into custom table of LA workspace using Logs Ingestion API for further investigation,  alerts creation, dashboards etc’) 
-
-Prerequisites: 
-
-1.  LA Workspace with data in AzureDiagnostics table 
-
-2. Azure Machine Learning  
-
-@Guy – see as example: 
-
-https://learn.microsoft.com/en-us/azure/sentinel/notebooks-with-synapse#prerequisites 
-
-
-3. Basic knowledge of Data Science  
-
-Create new or open existing notebook in Azure Machine Learning 
+## Create new or open existing notebook in Azure Machine Learning 
 
 Access notebook from ML workspace 
 
