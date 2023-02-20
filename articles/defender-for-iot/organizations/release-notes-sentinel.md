@@ -17,7 +17,19 @@ For more information, see:
 - [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)
 - [Tutorial: Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
 
-## Version 2.1
+## Version 2.0.2
+
+**Released**: February 2023
+
+New features in this version include:
+
+- Improved analytic rules by adding the ability to filter by '**Is New**' property for creating incidents only when new alerts are triggered in Defender for IoT.
+
+- Enhanced **incident page with native Defender for IoT data embadded**, including deep link to 'Defender for IoT' alert page, product name display, remediation steps, and MITRE tactics and techniques.
+
+- Performance improvements for analytic rules queries.
+
+## Version 2.0.1
 
 **Released**: September 2022
 
@@ -35,7 +47,7 @@ New features in this version include:
 
 For more information, see [Updates to the Microsoft Defender for IoT solution](whats-new.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
 
-## Version 2.0
+## Version 2.0.0
 
 **Released**: September 2022
 
