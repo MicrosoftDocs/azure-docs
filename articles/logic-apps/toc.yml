@@ -348,8 +348,6 @@
       href: ../connectors/connectors-create-api-sftp.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
-    - name: SharePoint
-      href: ../connectors/connectors-create-api-sharepoint.md
     - name: Sliding Window
       href: ../connectors/connectors-native-sliding-window.md
     - name: SMTP
