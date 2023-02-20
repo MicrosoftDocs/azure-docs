@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/28/2022
+ms.date: 02/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -67,7 +67,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 - You need a sudo user account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
 - You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
 - Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
-- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
+- Azure Migrate supports the following Linux OS distributions for discovery using an account with sudo access:
 
     Operating system | Versions
     --- | ---
@@ -142,13 +142,30 @@ Support | Details
 **SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
-**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.<br /><br /> Identification of Failover Cluster and Always On availability groups is not supported.
-**Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) is not supported.
+**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.<br /><br /> Identification of Failover Cluster and Always On availability groups isn't supported.
+**Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) isn't supported.
 
 > [!NOTE]
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+## Web apps discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have a web server installed, Azure Migrate discovers web apps on the server.
+The user can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+After the appliance is connected, it gathers configuration data for ASP.NET web apps(IIS web server) and Java web apps(Tomcat servers). Web apps configuration data is updated once every 24 hours.
+
+Support | ASP.NET web apps | Java web apps
+--- | --- | ---
+**Stack** | VMware only. | VMware only.
+**Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
+**Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
+**Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.
+**Required privileges** | local admin | root or sudo user 
+
+> [!NOTE]
+> Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
