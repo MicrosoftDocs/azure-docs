@@ -198,8 +198,8 @@ To restore the database files to the *original path on the source server*, remov
 **Example**
 
     ```
-    USE [master] 
-    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>' 
+     USE [master] 
+     RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>' 
     ```  
 
 >[!Note]
@@ -208,16 +208,16 @@ To restore the database files to the *original path on the source server*, remov
 To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
 
     ```
-    USE [master] 
-    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'  MOVE N'<LogicalName1>' TO N'<TargetFilePath1OnDisk>',  MOVE N'<LogicalName2>' TO N'<TargetFilePath2OnDisk>' GO 
+     USE [master] 
+     RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'  MOVE N'<LogicalName1>' TO N'<TargetFilePath1OnDisk>',  MOVE N'<LogicalName2>' TO N'<TargetFilePath2OnDisk>' GO 
     ```
 
 **Example**
   
     ```  
-    USE [master] 
-    RESTORE DATABASE [test] FROM  DISK = N'J:\dbBackupFiles\test.bak' WITH  FILE = 1,  MOVE N'test' TO N'F:\data\test.mdf',  MOVE N'test_log' TO N'G:\log\test_log.ldf',  NOUNLOAD,  STATS = 5 
-    GO 
+     USE [master] 
+     RESTORE DATABASE [test] FROM  DISK = N'J:\dbBackupFiles\test.bak' WITH  FILE = 1,  MOVE N'test' TO N'F:\data\test.mdf',  MOVE N'test_log' TO N'G:\log\test_log.ldf',  NOUNLOAD,  STATS = 5 
+     GO 
     ```
 
 If there are more than two files for the database, you can add additional move clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. Learn more on [restoring an SQL database backup using SSMS]( /sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
