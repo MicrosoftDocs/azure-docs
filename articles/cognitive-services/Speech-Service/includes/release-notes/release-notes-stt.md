@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Pronunciation Assessment
 
-Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment?pivots=programming-language-csharp) now supports 5 additional languages generally available in `English (United Kingdom)`, `English (Australia)`, `French (France)`, `Spanish (Spain)`, and `Chinese (Mandarin, Simplified)`, with other [languages](../../language-support?tabs=pronunciation-assessment) available in preview. For more information, see the full language list for Pronunciation Assessment.
+Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 5 additional languages generally available in `English (United Kingdom)`, `English (Australia)`, `French (France)`, `Spanish (Spain)`, and `Chinese (Mandarin, Simplified)`, with other [languages](../../language-support.md?tabs=pronunciation-assessment) available in preview. For more information, see the full language list for Pronunciation Assessment.
 
 | Language | Locale (BCP-47) | 
 |--|--|
