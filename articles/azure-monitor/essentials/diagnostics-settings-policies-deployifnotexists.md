@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/18/2023
+ms.date: 02/25/2023
 ms.reviewer: lualderm
 --- 
 
@@ -21,47 +21,10 @@ The policies enable audit logging, sending logs belonging to the **audit** log c
 
 The policies' `effect` is set to `DeployIfNotExists` which deploys the policy as a default if there are not other settings defined.
 
-## Common parameters
-
-The following table describes the common parameters for each set of policies.
-
-|Parameter| Description| Valid Values|Default|
-|---|---|---|---|
-|effect| Enable or disable the execution of the policy|DeployIfNotExists,<br>AuditIfNotExists,<br>Disabled|DeployIfNotExists|
-|diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
-|categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
-
-## Log Analytics policy parameters
- This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
-
-|Parameter| Description| Valid Values|Default|
-|---|---|---|---|
-|resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*|
-|logAnalytics|Log Analytics Workspace|||
-
-## Event Hubs policy parameters
-
-This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
-
-|Parameter| Description| Valid Values|Default|
-|---|---|---|---|
-|resourceLocation|Resource Location must be the same location as the event hub Namespace|Supported locations||
-|eventHubAuthorizationRuleId|Event Hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
-|eventHubName|Event Hub Name||Monitoring|
-
-
-## Storage Accounts policy parameters
-This policy deploys a diagnostic setting using a category group to route logs to a Storage Account.
-
-|Parameter| Description| Valid Values|Default|
-|---|---|---|---|
-|resourceLocation|Resource Location must be in the same location as the Storage Account|Supported locations|
-|storageAccount|Storage Account resourceId|||
-
 
 ## Deploy policies and initiatives.
 Deploy the policies and initiatives using the Portal, CLI, PowerShell, or Azure Resource Management templates
-### [Azure portal](#portal/cli)
+### [Azure portal](#tab/portal)
 
 
 1. From the Policy page, select **Definitions**.
@@ -116,6 +79,44 @@ az policy remediation create --name EdRemediation1 --policy-assignment policyAss
 ### [PowerShell](#tab/Powershell)
 
 Get form dev
+
+---
+## Common parameters
+
+The following table describes the common parameters for each set of policies.
+
+|Parameter| Description| Valid Values|Default|
+|---|---|---|---|
+|effect| Enable or disable the execution of the policy|DeployIfNotExists,<br>AuditIfNotExists,<br>Disabled|DeployIfNotExists|
+|diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
+|categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
+
+## Log Analytics policy parameters
+ This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
+
+|Parameter| Description| Valid Values|Default|
+|---|---|---|---|
+|resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*|
+|logAnalytics|Log Analytics Workspace|||
+
+## Event Hubs policy parameters
+
+This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
+
+|Parameter| Description| Valid Values|Default|
+|---|---|---|---|
+|resourceLocation|Resource Location must be the same location as the event hub Namespace|Supported locations||
+|eventHubAuthorizationRuleId|Event Hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
+|eventHubName|Event Hub Name||Monitoring|
+
+
+## Storage Accounts policy parameters
+This policy deploys a diagnostic setting using a category group to route logs to a Storage Account.
+
+|Parameter| Description| Valid Values|Default|
+|---|---|---|---|
+|resourceLocation|Resource Location must be in the same location as the Storage Account|Supported locations|
+|storageAccount|Storage Account resourceId|||
 
 ## Supported Resources
 

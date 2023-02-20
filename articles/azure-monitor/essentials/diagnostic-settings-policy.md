@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 aliasms.topic: conceptual
-ms.date: 02/18/2023
+ms.date: 02/25/2023
 ms.reviewer: lualderm
 ---
 
@@ -14,9 +14,11 @@ ms.reviewer: lualderm
 
 In order to monitor Azure resources, it is necessary to create [diagnostic settings](./diagnostic-settings.md) for each resource. This can be difficult to manage when you have many resources. To simplify the process of creating and applying diagnostic settings at scale, use Azure Policy to automatically generate diagnostic settings for both new and existing resources. 
 
-Log category groups, group together similar types of logs for a resource. Categrory groups make it easy to refer to more than one log in a single command. An **allLogs** category group exists containg all of the logs. There is also an **audit** category group that groups together all log categories that are considered auto logs.  By referring to the **audit** group, you can define a policy that dynamically updates as new logs categories are added to group.
-
 Each Azure resource type has a unique set of categories that are listed in the diagnostic settings. Each resource type therefor requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you can create a custom definition.   
+
+## Log category groups
+
+Log category groups, group together similar types of logs. Categrory groups make it easy to refer to multiple logs in a single command. An **allLogs** category group exists containg all of the logs. There is also an **audit** category group that includes all audit logs.  By using to a category group, you can define a policy that dynamically updates as new log categories are added to group.
 
 ## Built-in policy definitions for Azure Monitor
 There are generally three built-in policy definitions for each resource type, corresponding to the three destinations that diagnostics can be sent to:
