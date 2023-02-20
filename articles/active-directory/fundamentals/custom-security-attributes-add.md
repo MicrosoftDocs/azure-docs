@@ -590,5 +590,5 @@ No, you can't delete custom security attribute definitions. You can only [deacti
 ## Next steps
 
 - [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
-- [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
