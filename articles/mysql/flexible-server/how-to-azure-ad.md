@@ -55,10 +55,6 @@ To create an Azure AD Admin user, follow the following steps.
     - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
     - [Application.Read.ALL](/graph/permissions-reference#application-resource-permissions): Allows access to Azure AD service principal (application) information.
 
-For guidance about how to grant and use the permissions, refer to [Overview of Microsoft Graph permissions](/graph/permissions-overview)
-
-After you grant the permissions to the UMI, they're enabled for all servers or instances created with the UMI assigned as a server identity.
-
 > [!IMPORTANT]  
 > Only a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) can grant these permissions.
 
@@ -66,6 +62,73 @@ After you grant the permissions to the UMI, they're enabled for all servers or i
 
     > [!NOTE]  
     > Only one Azure AD admin can be created per MySQL server, and selecting another overwrites the existing Azure AD admin configured for the server.
+
+### Grant permissions to User assigned managed identity
+
+The following sample PowerShell script grants the necessary permissions for a UMI. This sample assigns permissions to the UMI `umiservertest`. 
+
+To run the script, you must sign in as a user with a Global Administrator or Privileged Role Administrator role.
+
+The script grants the `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL` permissions to a UMI to access [Microsoft Graph](/graph/auth/auth-concepts#microsoft-graph-permissions).
+
+```powershell
+# Script to assign permissions to the UMI "umiservertest"
+
+import-module AzureAD
+$tenantId = '<tenantId>' # Your Azure AD tenant ID
+
+Connect-AzureAD -TenantID $tenantId
+# Log in as a user with a "Global Administrator" or "Privileged Role Administrator" role
+# Script to assign permissions to an existing UMI 
+# The following Microsoft Graph permissions are required: 
+#   User.Read.All
+#   GroupMember.Read.All
+#   Application.Read.ALL
+
+# Search for Microsoft Graph
+$AAD_SP = Get-AzureADServicePrincipal -SearchString "Microsoft Graph";
+$AAD_SP
+# Use Microsoft Graph; in this example, this is the first element $AAD_SP[0]
+
+#Output
+
+#ObjectId                             AppId                                DisplayName
+#--------                             -----                                -----------
+#47d73278-e43c-4cc2-a606-c500b66883ef 00000003-0000-0000-c000-000000000000 Microsoft Graph
+#44e2d3f6-97c3-4bc7-9ccd-e26746638b6d 0bf30f3b-4a52-48df-9a82-234910c4a086 Microsoft Graph #Change 
+
+$MSIName = "<managedIdentity>";  # Name of your user-assigned
+$MSI = Get-AzureADServicePrincipal -SearchString $MSIName 
+if($MSI.Count -gt 1)
+{ 
+Write-Output "More than 1 principal found, please find your principal and copy the right object ID. Now use the syntax $MSI = Get-AzureADServicePrincipal -ObjectId <your_object_id>"
+
+# Choose the right UMI
+
+Exit
+} 
+
+# If you have more UMIs with similar names, you have to use the proper $MSI[ ]array number
+
+# Assign the app roles
+
+$AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "User.Read.All"}
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id 
+$AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "GroupMember.Read.All"}
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+$AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "Application.Read.All"}
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+```
+
+In the final steps of the script, if you have more UMIs with similar names, you have to use the proper `$MSI[ ]array` number. An example is `$AAD_SP.ObjectId[0]`.
+
+### Check permissions for user-assigned managed identity
+
+To check permissions for a UMI, go to the [Azure portal](https://portal.azure.com). In the **Azure Active Directory** resource, go to **Enterprise applications**. Select **All Applications** for **Application type**, and search for the UMI that was created.
+
+Select the UMI, and go to the **Permissions** settings under **Security**.
+
+After you grant the permissions to the UMI, they're enabled for all servers created with the UMI assigned as a server identity.
 
 ## Connect to Azure Database for MySQL flexible server using Azure AD
 
