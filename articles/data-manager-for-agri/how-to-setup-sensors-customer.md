@@ -15,15 +15,15 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant AAD app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you are free to add your own sensors by being a sensor partner yourself. Follow [these steps](./sensor-partner.md) to sign up being a sensor partner on the platform.
+Each sensor partner has their own multi-tenant AAD app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./sensor-partner.md) to sign up being a sensor partner on the platform.
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 
-1. Login to [Azure Portal](https://portal.azure.com/) using "Global Administrator" or "Privileged Role Administrator" credentials. [How to find Global Administrator?](https://docs.microsoft.com/en-us/answers/questions/40421/unsure-how-to-find-global-administrator.html)  
+1. Log in to [Azure portal](https://portal.azure.com/) using "Global Administrator" or "Privileged Role Administrator" credentials. [How to find Global Administrator?](https://docs.microsoft.com/en-us/answers/questions/40421/unsure-how-to-find-global-administrator.html)  
 
 2. For Davis Instruments, click on this [link](https://login.microsoftonline.com/common/adminconsent?client_id=30b00405-3b4e-4003-933c-0d96ce47d670) to provide consent. 
 
-3. You will see the permission review page. AAD app will request for minimum "read user profile" permission and that should be sufficient for sensor integration with Data Manager for Agriculture.
+3. On the permission review page, AAD app will request for minimum "read user profile" permission. This permission level is sufficient for sensor integration with Data Manager for Agriculture.
 
 ![Sensor partner consent popup](./media/sensor-partner-consent.png)
 
@@ -39,7 +39,7 @@ To start using the on-boarded sensor partners, you need to give consent to the s
 
 The next step is to assign roles in the Azure portal to provide Authorization to the sensor partner application. Data Manager for Agriculture uses <a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a> to manage Authorization requests.
 
-Login to <a href="https://portal.azure.com" target=" blank">Azure Portal</a> and navigate to your Resource Group where you created the Data Manager for Agriculture resource. 
+Log in to <a href="https://portal.azure.com" target=" blank">Azure portal</a> and navigate to your Resource Group where you created the Data Manager for Agriculture resource. 
 
 > [!NOTE] Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox.
 
@@ -110,7 +110,7 @@ Sample output:
 armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<farmbeats-instance-name>?api-version=2021-09-01-preview
 ```
 
-3. To verify completed status, look at the **provisioningState** attribute. The status will  be “Succeeded” from “Creating” in the earlier step.  
+3. To verify completed status, look at the **provisioningState** attribute. The status needs to change to "Succeeded” from “Creating” in the earlier step.  
 
 Sample output: 
 ```json
@@ -144,33 +144,33 @@ Sample output:
   "name": "<customer-id>"
 }
 ```
-With the sensor integration step complete you can now create sensor integration objects. 
+With the sensor integration step complete, you can now create sensor integration objects. 
 
 ## Step 4: Create integration object
 
 Use the `SensorPartnerIntegrations` collection and call into the SensorPartnerIntegrations_CreateOrUpdate API to create an integration object for a given sensor partner. Every single customer of a sensor partner (for example: Davis) needs a unique integration ID created in their Data Manager for Agriculture resource.
 
-There are two different paths that can be taken:
+There are two different paths you need to evaluate:
 
-- If you are the owners of the sensors provided by the sensor partners, then create just one integration object (ID) for your account with sensor partner.
+- If you're the owners of the sensors provided by the sensor partners, then create just one integration object (ID) for your account with sensor partner.
 
-- If your end users (that is Farmers/Retailers/Agronomists) own the sensors then create a unique integration object (ID) for each end user. Because, each end user has their own accounts with the sensor partner.
+- If your end users (that is Farmers/Retailers/Agronomists) own the sensors, then create a unique integration object (ID) for each end user because each end user has their own accounts with the sensor partner.
 
 API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integrationID}
 
 
 ## Step 5: Generate consent link
 
-A section requesting for the consent link is part of the sensor partner integration flow. This consent link is way for sensor partners to validate if the customer is a valid user of the service. Sensor integrations are  tied to consent keys. 
+A section requesting for the consent link is part of the sensor partner integration flow. This consent link is way for sensor partners to validate if the customer is a valid user of the service. Sensor integration is tied to consent key. 
 
 >[Note]
 >Our sensor partner Davis Instruments uses this [UI](https://weatherlink.github.io/azure-farmbeats/setup), for enabling set-up and requesting for the consent link.
 
-Sensor partners call into the `check-consent` API endpoint to verify the users validity. To generate a consent link, you need to use the `SensorPartnerIntegrations_GenerateConsentLink` API and provide the integration ID created from the step (3). As a response, you get a string called consentLink. Copy this string and  provided it to the sensor partner for further validation. If you are using sensors from Davis Instruments, then follow instruction on this [page](https://weatherlink.github.io/azure-farmbeats/setup).
+Sensor partners call into the `check-consent` API endpoint to verify validity. To generate a consent link, you need to use the `SensorPartnerIntegrations_GenerateConsentLink` API and provide the integration ID created from the step (3). As a response, you get a string called consentLink. Copy this string and  provided it to the sensor partner for further validation. If you're using sensors from Davis Instruments, then follow instruction on this [page](https://weatherlink.github.io/azure-farmbeats/setup).
 
 API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integrationId}/:generate-consent-link
 
-This step marks the completion of the sensor partner on-boarding from a customer perspective. With this step the sensor partners get all the required information to call your API endpoints to create Sensor model, Device model, Sensors & Devices. The partners are now be able to push sensor events using the connection string generated for each sensor ID.
+This step marks the completion of the sensor partner on-boarding from a customer perspective. With this step the sensor partners get all the required information to call your API endpoints to create Sensor model, Device model, Sensors & Devices. The partners are now able to push sensor events using the connection string generated for each sensor ID.
 
 The final step is to start consuming sensor events. Before consuming the events, you need to create a mapping of every sensor ID to a specific Party ID & Boundary ID. 
 
