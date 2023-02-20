@@ -49,6 +49,9 @@ Use the following steps to prepare your project.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
+> [!NOTE]
+> Select only one way of the following step to create connection. If you already create tables with one of the connection, the tables can't be accessed/modified by other users. When you try the other way, application will throw error like "Permission denied". To fix this issue, please connect to a new database or delete/recreate existing one.
+
 ### [Using a passwordless connection with a managed identity for flexible server](#tab/Passwordlessflex)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
@@ -117,8 +120,6 @@ Use the following steps to bind your app.
 
 ---
 
-> [!NOTE]
-> One identity created table can not be modified by another identity. For example: Firstly, you created a connection with admin username and password. After connect successfully, the app created a table. Then you deleted the connection and created a new connection with a system-assigned managed identity, then the app try to create / modify the table created before, it will return error like "Permission denied". To fix this problem, just delete the table / database created first time.
 
 ## Next steps
 
