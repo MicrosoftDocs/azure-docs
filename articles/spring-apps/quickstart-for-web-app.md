@@ -67,7 +67,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
     ```
 
 ## Create an app
-1. Create an app.
+Create an app by this command:
     ```azurecli-interactive
     az spring app create \
         --resource-group <name-of-resource-group> \
