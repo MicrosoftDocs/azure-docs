@@ -5,8 +5,8 @@ summary: Microsoft Azure Data Manager for Agriculture enables the industry to ac
 
 metadata:
   title: Azure Data Manager for Agriculture Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Data Manager for Agriculture brings together and transforms data to simplify the process of building digital agriculture and sustainability applications. # Required; article description that is displayed in search results. < 160 chars.
-  ms.topic: landing-page # Required
+  description: description #Required; article description that is displayed in search results. < 160 chars.
+  ms.topic: landing-page #Required
   author: gourdsay #Required; your GitHub user alias, with correct capitalization.
   ms.author: angour #Required; microsoft alias of author; optional team alias.
   ms.date: 02/20/2023
@@ -43,19 +43,19 @@ landingContent:
         links:
           - text: Using ISV solutions 
             url: concepts-isv-solutions.md
-       - linkListType: how-to-guide
+      - linkListType: how-to-guide
         links:
           - text: Use ISV APIs
-       	URL: how-to-setup-isv-solution.md
+            url: how-to-setup-isv-solution.md
   - title: Using Sensors
     linkLists:
       - linkListType: concept
         links:
           - text: Sensor Data Ingestion
             url: concepts-ingest-sensor-data.md
-       - linkListType: how-to-guide
+      - linkListType: how-to-guide
         links:
-          - text: Set-up Sensors as a Partner
-       	URL: how-to-setup-sensors-partner.md
-          - text: Set-up Sensors as a Customer
-       	URL: how-to-setup-sensors-customer.md
+          - text: Set up Sensors as a Partner
+            url: how-to-setup-sensors-partner.md
+          - text: Set up Sensors as a Customer
+            url: how-to-setup-sensors-customer.md
