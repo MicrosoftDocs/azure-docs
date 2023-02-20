@@ -24,7 +24,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
 ## Prerequisites
 
 - [Git](https://git-scm.com/downloads)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 
