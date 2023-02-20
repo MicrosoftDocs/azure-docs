@@ -35,7 +35,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), <br> &#9679; Windows Server 2012, 2012 R2  <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2  <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
  
 
 ### Other Requirements
