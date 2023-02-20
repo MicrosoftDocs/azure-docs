@@ -10,7 +10,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Our Hierarchy Model
 
-Agriculture needs data related to Growers, farms, and fields to be organized in a well defined manner to enhance the ease of farming and also to keep data in an analysis ready state. Firms operating in the Agri space often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
+To generate actionable insights the data related to growers, farms, and fields needs to be organized in a well defined manner to keep data in an analysis ready state. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
@@ -22,19 +22,17 @@ Agriculture needs data related to Growers, farms, and fields to be organized in 
 ## Understanding farm hierarchy
 
 ### Party  
-* Party is the de facto owner and custodian of any data related to his/her farm. Party is the central authority to which all the data refers to (directly or indirectly). 
-* The onus of defining who is a Party is with the application building on top of Data Manager for Agriculture. In most cases, owners of the land or their nominees are an incorporated Party that runs the operations. 
+* Party is the owner and custodian of any data related to their farm. You could imagine this to be the legal entity that is running the business.  
+* The onus of defining the Party entity is with the customer setting up Data Manager for Agriculture. 
 
 ### Farm
 * Farms are logical entities. A farm is a collection of fields. 
-* Farms do not have any geometry associated with them. These are logical entities to help you organize your growing operations.
+* Farms do not have any geometry associated with them. These are logical entities to help you organize your growing operations. For example Contoso Inc is the Party that has farms in Oregon and Idaho.
 
 ### Field
 * Fields denote a stable boundary that is in general agnostic to seasons and other temporal constructs. For example, field could be the boundary denoted in government records.
 * Fields are multi-polygon. For example, a road might divide the farm in two or more parts
-* Fields are multi-boundary. Agriculture is a team sport. There are multiple parties, trusted advisors in the farming ecosystem (retailers, agronomists, farm equipment operators) who define the boundary of a field. Hence, at any point in time there could be various boundaries for a field. Only one among them will be designated as a primary boundary.
-* For any calculation where boundary is not explicitly defined, primary boundary will be used as the default boundary.    
-* For few customers the concept of field does not exist. In such a scenario, farms will be a collection of seasonal fields. 
+* Fields are multi-boundary.
 
 ### Seasonal field
 * This is the most important construct in the farming world. A seasonal field is defined by following things
@@ -43,14 +41,13 @@ Agriculture needs data related to Growers, farms, and fields to be organized in 
      * Crop
 * A seasonal field is associated with a field or a farm
 * In Data Manager for Agriculture, seasonal fields are mono crop entities. In cases where farmers are cultivating different crops simultaneously, they have to create one seasonal field per crop.
-* A seasonal field is associated with one season. If a farmer cultivates across multiple seasons, s/he has to create one seasonal field per season.
-* It is multi-polygon. Same crop can be planted in different areas within the farm.
-* It is multi-boundary. There are multiple entities in the farming ecosystem (farmers, retailers, agronomists, farm equipment operators, applications) who define the boundary of a seasonal field. Hence, at any point in time there could be various boundaries for a seasonal field. Only one among them will be designated as a primary boundary.
-* For any calculation where boundary is not explicitly defined, primary boundary will be used as the default boundary.
+* A seasonal field is associated with one season. If a farmer cultivates across multiple seasons, they have to create one seasonal field per season.
+* It's multi-polygon. Same crop can be planted in different areas within the farm.
+
 
 ### Boundary
 * Boundary represents the geometry of a field or a seasonal field.
-* It is represented as a multi-polygon GeoJSON consisting of vertices (lat/long).
+* It's represented as a multi-polygon GeoJSON consisting of vertices (lat/long).
 
 ### Season
 * Season represents the temporal aspect of farming. It is a function of local agronomic practices, procedures and weather.

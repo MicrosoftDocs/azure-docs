@@ -8,30 +8,29 @@ ms.date: 02/14/2023
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Working with farm operations data in Azure Data Manager for Agriculture 
-Farm operation data is one of the most important ground truth datasets in Agronomy. Users can choose to push this data into Azure Data Manager for Agriculture  using APIs OR choose to fetch them from farm equipment manufacturers like John Deere. 
+# Working with Farm Operations Data 
+Farm operation data is one of the most important ground truth datasets in Agronomy. Users can choose to push this data into Azure Data Manager for Agriculture using APIs OR choose to fetch them from farm equipment manufacturers like John Deere. 
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://forms.office.com/r/SDR0m3yjeS).
 
 ## Our Service supports the following types of farm Operations data:
-* **Planting Data** - Refer [this](./REST%20APIs/2021-07-31-preview/planting%20data/1.%20create_update_plantingdata.md) to know more on adding/creating planting data.
-* **Application Data** - Refer [this](./REST%20APIs/2021-07-31-preview/application%20data/1.%20create_update_applicationdata.md) to know more on adding/creating application data.
-* **Harvest Data** - Refer [this](./REST%20APIs/2021-07-31-preview/harvest%20data/1.%20create_update_harvestdata.md) to know more on adding/creating harvest data.
-* **Tillage Data** - Refer [this](./REST%20APIs/2021-07-31-preview/tillage%20data/1.%20create_update_tillagedata.md) to know more on adding/creating tillage data.
+* Planting Data
+* Application Data 
+* Harvest Data
+* Tillage Data 
 
 ### Supported farm management data
 
-As part of farm operations data ingestion job created to pull data from John Deere, Azure Data Manager for Agriculture  will also be ingesting farm management data associated with the end user (farmer) on John Deere side.
+As part of the data ingestion job created to ingest data from John Deere, our service will also ingest farm management data associated with the end user from John Deere.
 
 Below are the ingested farm management data:
-
 * Farm
 * Field
 * Boundary
 
-Azure Data Manager for Agriculture  will store the above mentioned farm management data in a **STAGED** state. The data stored in STAGED state needs to be queried explicitly as shown below as this data will not be visible by default.
+Azure Data Manager for Agriculture stores the above mentioned farm management data in a **STAGED** state. The data stored in STAGED state must be queried explicitly as shown below as this data is not visible by default.
 
 ### How to query the staged farm management data
 
@@ -45,7 +44,7 @@ Use the existing REST APIs present for farm, field & boundary and provide a prop
 }
 ```
 
-Using the above property filter, Azure Data Manager for Agriculture  will return all staged (farm, field, boundary) data that is present for a given partyid. You could also query for the source of the farm management data that was staged by using the below filter
+Using the above property filter, Azure Data Manager for Agriculture returns all staged (farm, field, boundary) data that is present for a given partyid. You can also query for the source of the farm management data that was staged by using the below filter
 
 ```json
 {
@@ -57,14 +56,13 @@ Using the above property filter, Azure Data Manager for Agriculture  will return
 ```
 
 ## Integration with John Deere
-Azure Data Manager for Agriculture  provides first class integration with farm equipment manufacturers like John Deere. Users can fetch farm operations data from John Deere to Azure Data Manager for Agriculture  directly. 
+Azure Data Manager for Agriculture provides first class integration with farm equipment manufacturers like John Deere. Users can fetch farm operations data from John Deere to Azure Data Manager for Agriculture directly. 
 
 # Configure oAuth based authorization
 
-Azure Data Manager for Agriculture  will be providing oAuth based authorization to connect your end-users (farmers) with their farm operations data provider (Ex: John Deere & Climate FieldView). **Configuring oAuth flow is a pre-requisite for integrating with John Deere** in fetching farm operations data from them. To be able to successfully integrate with oAuth callback service built by Azure Data Manager for Agriculture  follow the below steps.
+Azure Data Manager for Agriculture provides oAuth based authorization to connect your end-users with their farm operations data provider (Eg: John Deere & Climate FieldView). **Configuring oAuth flow is a pre-requisite for integrating with John Deere** in fetching farm operations data from them. To be able to successfully integrate with oAuth callback service built by Azure Data Manager for Agriculture follow the below steps.
 
 > [!NOTE]
->
 > Step 1 to Step 3 are part of the one-time initial configuration setup. Once integrated, you will be able to enable all your end users to use the existing oAuth workflow and call the config API (Step 4) per user (partyid) to get access token.
 
 ## Step 1: App Creation
@@ -81,7 +79,7 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderId}` | Resource name is the Azure Data Manager for Agriculture  resource name.|
+| PATCH | `https://{{resourceName}}.farmbeats.azure.net/oauth/providers/{oauthProviderId}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 > Important
 >The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
@@ -113,10 +111,10 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 |Name | Description|
 |-----|----|
 | 201 Success | Successful operation.|
-| 400 Bad Request | The server could not understand the request due to invalid syntax.|
+| 400 Bad Request | The server couldn't understand the request due to invalid syntax.|
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
-| 404 Not Found | Could not find the requested resource.|
+| 404 Not Found | Couldn't find the requested resource.|
 | 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
 
 #### Response body
@@ -171,13 +169,13 @@ Use the below `oAuthProvider` API to configure the oAuth provider (Ex: JOHNDEERE
 
 ## Step 3: Endpoint Configuration
 
-There are two endpoints that needs to be configured
+There are two endpoints that need to be configured
 
 1. **oAuth callback endpoint**: This endpoint is what the oAuth provider (Ex: John Deere) would be calling into during the oAuth flow. The oAuth callback endpoint will be generated in the following fashion **`https://<farmbeats-resource-name>.farmbeats.azure.net/oauth/callback`**.
 
-2. **User redirect endpoint**: This endpoint is where you want your users (farmers) to be redirected to once the oAuth flow is completed. This endpoint will be generated by you and provided to Azure Data Manager for Agriculture  as `userRedirectLink` in the oauth/tokens/:connect API explained below.
+2. **User redirect endpoint**: This endpoint is where you want your users (farmers) to be redirected to once the oAuth flow is completed. You need to generate and provide this endpoint to Azure Data Manager for Agriculture as `userRedirectLink` in the oauth/tokens/:connect API.
 
-**Register both these endpoints with your APP on John deere portal.**
+**Register both these endpoints with your APP on John Deere portal.**
 
 ## Step 4: Farmer (End-user) Integration
 
@@ -191,7 +189,7 @@ The below API returns Connection link needed in the OAuth flow.
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| POST | `https://{{resourceName}}.farmbeats.azure.net/oauth/tokens/:connect?api-version={{apiVersion}}` | Resource name is the Azure Data Manager for Agriculture  resource name.|
+| POST | `https://{{resourceName}}.farmbeats.azure.net/oauth/tokens/:connect?api-version={{apiVersion}}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 #### URI parameters
 
@@ -215,10 +213,10 @@ The below API returns Connection link needed in the OAuth flow.
 |Name | Description|
 |-----|----|
 | 200 Success | Successful operation.|
-| 400 Bad Request | The server could not understand the request due to invalid syntax.|
+| 400 Bad Request | The server couldn't understand the request due to invalid syntax.|
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
-| 404 Not Found | Could not find the requested resource.|
+| 404 Not Found | Couldn't find the requested resource.|
 | 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
 
 #### Response body
@@ -245,7 +243,7 @@ The below API returns Connection link needed in the OAuth flow.
 "https://www.oAuthAuthorizationLink.com"
 
 
-Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizationLink`, **end-user clicks on this link to go through the oAuth flow** (Ex: In case of John Deere, the user will be served a John Deere oAuth page). Once the oAuth flow is completed, Azure Data Manager for Agriculture  will redirect the user to the endpoint provided by customer (`userRedirectLink`) with the following query parameters in the url
+Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizationLink`, **end-user clicks on this link to go through the oAuth flow** (Ex: In case of John Deere, the user will be served a John Deere oAuth page). Once the oAuth flow is completed, Azure Data Manager for Agriculture will redirect the user to the endpoint provided by customer (`userRedirectLink`) with the following query parameters in the url
 
 1. **status** (success/failure)
 2. **state** (optional string to uniquely identify the user at customer end)
@@ -254,7 +252,7 @@ Once the `oauth/tokens/:connect` API successfully returns the `oauthAuthorizatio
 
 > [!NOTE]
 >
-> If the API returns 404, then it implies the oAuth flow failed and Azure Data Manager for Agriculture  could not acquire the access token.
+> If the API returns 404, then it implies the oAuth flow failed and Azure Data Manager for Agriculture  couldn't acquire the access token.
 
 ## Step 5: Check Access Token Info (Optional)
 
@@ -268,7 +266,7 @@ The below API returns a list of OAuthToken documents.
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| GET | `https://{{resourceName}}.Azure Data Manager for Agriculture .azure.net/oauth/tokens?api-version={{apiVersion}}` | Resource name is the Azure Data Manager for Agriculture  resource name.|
+| GET | `https://{{resourceName}}.Azure Data Manager for Agriculture .azure.net/oauth/tokens?api-version={{apiVersion}}` | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 #### URI parameters
 
@@ -296,10 +294,10 @@ No Body
 |Name | Description|
 |-----|----|
 | 200 Success | Successful operation.|
-| 400 Bad Request | The server could not understand the request due to invalid syntax.|
+| 400 Bad Request | The server couldn't understand the request due to invalid syntax.|
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
-| 404 Not Found | Could not find the requested resource.|
+| 404 Not Found | Couldn't find the requested resource.|
 | 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
 
 #### Response body
@@ -355,7 +353,7 @@ The below API creates a farm operation data ingestion job.
 
 |Method |Request URI | Description|
 |:-----:|----|----|
-| PUT | https://{{resourceName}}.farmbeats.azure.net/farm-operations/ingest-data/{jobId}?api-version={{apiVersion}} | Resource name is the Azure Data Manager for Agriculture  resource name.|
+| PUT | https://{{resourceName}}.farmbeats.azure.net/farm-operations/ingest-data/{jobId}?api-version={{apiVersion}} | Resource name is the Azure Data Manager for Agriculture resource name.|
 
 #### Note
 The contentType in the request header should be **application/merge-patch+json** for PATCH requests and **application/json** for all other requests.
@@ -387,10 +385,10 @@ The contentType in the request header should be **application/merge-patch+json**
 |Name | Description|
 |-----|----|
 | 202 Success | Successful operation. The job is created.|
-| 400 Bad Request | The server could not understand the request due to invalid syntax.|
+| 400 Bad Request | The server couldn't understand the request due to invalid syntax.|
 | 401 Unauthorized | The token is missing, invalid, or has expired.|
 | 403 Forbidden | Not authorized to perform the operation.|
-| 404 Not Found | Could not find the requested resource.|
+| 404 Not Found | Couldn't find the requested resource.|
 | 500 Internal Server Error | The server has encountered an unexpected situation. Retry after some time and if the problem persists, write to FarmBeatsSupport@microsoft.com|
 
 ### Response body
@@ -461,7 +459,7 @@ The contentType in the request header should be **application/merge-patch+json**
 }
 ```
 
-Based on the startYear & operations list provided, Azure Data Manager for Agriculture  will fetch the operations data from the start year to the current date. In addition to operations data, **Azure Data Manager for Agriculture  will also fetch the farm, field & boundary** information for the given `partyid` associated with the John Deere system. These farm hierarchy entities **would be stored in Azure Data Manager for Agriculture  as staged resources**. Read below to know how to query this staged resources which are not made available by default.
+Based on the startYear & operations list provided, Azure Data Manager for Agriculture will fetch the operations data from the start year to the current date. In addition to operations data, **Azure Data Manager for Agriculture will also fetch the farm, field & boundary** information for the given `partyid` associated with the John Deere system. These farm hierarchy entities **would be stored in Azure Data Manager for Agriculture as staged resources**. Read below to know how to query this staged resources which aren't made available by default.
 
 ## How to query the staged farm hierarchy resources
 
@@ -477,4 +475,4 @@ OR
 }
 ```
 
-Upon using the above property filter, Azure Data Manager for Agriculture  will return all staged (farm, field, boundary) resources that are present under a given partyid.
+Upon using the above property filter, Azure Data Manager for Agriculture will return all staged (farm, field, boundary) resources that are present under a given partyid.
