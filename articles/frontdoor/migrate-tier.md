@@ -134,7 +134,7 @@ Your old Azure Front Door (classic) instance uses a different fully qualified do
 
 You don't need to update your DNS records before or during the migration process. Azure Front Door automatically sends traffic that it receives on the Azure Front Door (classic) endpoint to your Azure Front Door Standard or Premium profile without you making any configuration changes.
 
-However, when your migration is finished, we strongly recommend that you update your DNS records to direct traffic to the new Azure Front Door Standard or Premium endpoint. Changing your DNS records helps to ensure that your profile continues to work in the future. You don't need to plan this update to happen at any specific time, and you can schedule it at your convenience.
+However, when your migration is finished, we strongly recommend that you update your DNS records to direct traffic to the new Azure Front Door Standard or Premium endpoint. Changing your DNS records helps to ensure that your profile continues to work in the future. The change in DNS record doesn't cause any downtime. You don't need to plan this update to happen at any specific time, and you can schedule it at your convenience.
 
 ## Next steps
 
