@@ -11,7 +11,7 @@ ms.date: 02/20/2023
 
 ---
 
-# Azure IoT Hub SDKs
+# Azure IoT SDKs
 
 The following tables list the various SDKs you can use to build IoT solutions.
 

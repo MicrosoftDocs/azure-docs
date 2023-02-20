@@ -1131,12 +1131,12 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-embedded-c-sdk.md",
       "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-develop-for-constrained-devices.md",
       "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-develop-for-mobile-devices.md",
@@ -1149,7 +1149,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-androids.md",
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-android.md",
       "redirect_url": "/azure/iot-develop/about-iot-sdks",
       "redirect_document_id": false
     }
