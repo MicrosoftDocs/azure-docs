@@ -158,7 +158,7 @@ Push the Docker image to the ACR created earlier.
 
     Example:
 
-    ```bash
+    ```docker
     docker push myregistry.azurecr.io/aspnetapp:v1
     ```
 
