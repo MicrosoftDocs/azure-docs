@@ -111,7 +111,7 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --system-identity \
         --connection <name-of-connection>
     ```
-3. Check connection to PostgreSQL.
+4. Check connection to PostgreSQL.
     ```azurecli-interactive
     az spring connection validate \
         --resource-group <name-of-resource-group> \
