@@ -18,7 +18,7 @@ ms.custom: mvc, engagement-fy23
 
 ## Update (January 2023)
 - Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate business case and assessments. ASP as a savings option assumption/setting is now available for business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment. 
-- Support for export of business case report into a .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
+- Support for export of business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
 - Azure Migrate is now supported in Sweden geography. [Learn more](migrate-support-matrix.md#public-cloud).
 
 ## Update (December 2022)

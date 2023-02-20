@@ -135,7 +135,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for server siz
 
 ## Collected data for Physical servers
 
-The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP etc.
+The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless [dependency analysis](concepts-dependency-visualization.md) is enabled) from physical servers or server running on other clouds like AWS, GCP, etc.
 
 ### Windows server metadata
 
