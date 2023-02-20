@@ -47,7 +47,7 @@ Defender for IoT's device inventories support the following categories of device
 |---------|---------|
 |**Network devices**     |  Switches, routers, controllers, or access points       |
 |**Endpoint devices**     |  Workstations, servers, or mobile devices       |
-|**IoT devices**     |  |
+|**OT/IoT devices**     |  |
 |Printing devices         |   Scanners, all-in-one printers, or printer servers       |
 |Audio and video devices     |   Smart TVs, speakers, digital signage, or headsets      |
 |Surveillance devices     |    DVRs, cameras, or video encoders / decoders     |
@@ -55,7 +55,6 @@ Defender for IoT's device inventories support the following categories of device
 |Smart appliance devices     |  Smart lights, smart switches, clocks, barcode scanners        |
 |Smart facility devices     |  Doors, fire alarms, elevators, turnstiles, HVAC systems       |
 |Miscellaneous devices     | Smart watches, ebook readers, Arduino devices, oscilloscopes     |
-|**OT devices**     |         |
 |Industrial devices     |  PLCs, historian devices, HMIs, robot controllers, slots, programmable boards       |
 |Operational equiptment    | Industrial printers, scales, pneumatic devices, packaging systems        |
 
@@ -108,6 +107,55 @@ Defender for IoT provides the following device groups out-of-the-box:
 ## Device inventory column data
 
 The following table lists the columns available in the Defender for IoT device inventory pages, across the Azure portal, OT sensor, and on-premises management console:
+
+|Name  |Description  |Available from...  |
+|---------|---------|---------|
+| **Application** | The application that exists on the device. | - Azure portal <br> |
+|**Authorization** / **Is Authorized**    |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         | - Azure portal <br>- OT sensor |
+|**Business Function**     | Editable. Describes the device's business function.        | - Azure portal <br> |
+| **Class** | Editable. The class of the device. <br>Default: `IoT`|- Azure portal <br> |
+| **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|- Azure portal <br> |
+| **Description** | Editable. The description of the device. | - Azure portal <br>- OT sensor |
+| **Firmware vendor** | Editable. The vendor of the device's firmware. |- Azure portal <br> |
+| **Firmware version** |Editable.  The version of the firmware. |- Azure portal <br>- OT sensor |
+| **First seen** / **Discovered** | The date, and time the device was first seen. Presented in format `MM/DD/YYYY HH:MM:SS AM/PM`. | - Azure portal <br>- OT sensor |
+| **FQDN** | The device's FQDN value |- OT sensor <br>|
+| **FQDN lookup time** | The device's FQDN lookup time |- OT sensor <br>|
+| **Groups** | The groups that this device participates in. |- OT sensor <br>|
+|**Hardware Model**     |  Editable.  Determines the device's hardware model.     |- Azure portal <br> |
+|**Hardware Vendor**     |Editable.  Determines the device's hardware vendor.        |- Azure portal <br> |
+| **Importance** | Editable. The level of importance of the device. |- Azure portal <br> |
+| **IP Address** | The IP address of the device. |- OT sensor <br>|
+| **IPv4 Address** | The IPv4 address of the device. |- Azure portal <br> |
+| **IPv6 Address** | The IPv6 address of the device. |- Azure portal <br> |
+| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format `MM/DD/YYYY HH:MM:SS AM/PM`. |- Azure portal <br> |
+| **Location** | Editable. The physical location of the device. |- Azure portal <br> |
+| **MAC Address** | The MAC address of the device. |- Azure portal <br> |
+| **Model** | The device's model. |- Azure portal <br> |
+| **Name** | Mandatory, and editable. The name of the device as the sensor discovered it, or as entered by the user. |- Azure portal <br> |
+| **OS architecture** | Editable. The architecture of the operating system. |- Azure portal <br> |
+| **OS distribution** | Editable. The distribution of the operating system, such as Android, Linux, and Haiku. |- Azure portal <br> |
+| **OS platform** | Editable. The OS of the device, if detected. |- Azure portal <br> |
+| **OS version** | Editable. The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |- Azure portal <br> |
+| **PLC mode** | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |- Azure portal <br> |
+| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state can be either `Program`, or `Remote`. |- Azure portal <br> |
+|**Programming device**     | Editable.  Determines whether the device is a *Programming Device*. |- Azure portal <br> |
+| **Programming time** | The last time the device was programmed.  |- Azure portal <br> |
+| **Protocols** | The protocols that the device uses. |- Azure portal <br> |
+| **Purdue level** | Editable. The Purdue level in which the device exists. |- Azure portal <br> |
+| **Scanner device** | Whether the device performs scanning-like activities in the network. |- Azure portal <br> |
+| **Sensor** | The sensor the device is connected to.  |- Azure portal <br> |
+| **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|- Azure portal <br> |
+| **Slots** | The number of slots the device has.  |- Azure portal <br> |
+| **Subtype** | Editable. The subtype of the device, such as speaker and smart TV. <br>**Default**: `Managed Device` |- Azure portal <br> |
+| **Tags** | Editable. Tagging data for each device. |- Azure portal <br> |
+| **Type** | Editable. The type of device, such as communication, and industrial. <br>**Default**: `Miscellaneous` |- Azure portal <br> |
+| **Underlying devices** | Any relevant underlying devices for the device |- Azure portal <br> |
+| **Underlying device region** | The region for an underlying device |- Azure portal <br> |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |- Azure portal <br> |
+| **VLAN** | The VLAN of the device. |- Azure portal <br> |
+| **Zone** | The zone that contains this device. |- Azure portal <br> |
+
 
 Azure portal:
 
