@@ -199,11 +199,11 @@ Each module can have multiple *input* and *output* queues declared in their code
 
 The sample C# code that comes with the project template uses the [ModuleClient Class](/dotnet/api/microsoft.azure.devices.client.moduleclient) from the IoT Hub SDK for .NET.
 
-1. Open the **Program.cs** file, which is inside the **modules/SampleModule/** folder.
+1. Open the **ModuleBackgroundService.cs** file, which is inside the **modules/SampleModule/** folder.
 
-2. In program.cs, find the **SetInputMessageHandlerAsync** method.
+2. In **ModuleBackgroundService.cs**, find the **SetInputMessageHandlerAsync** method.
 
-3. The [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
+   The [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/declare-input-queue.png" alt-text="Screenshot showing where to find the input name in the SetInputMessageCallback constructor." lightbox="./media/tutorial-develop-for-linux/declare-input-queue.png":::
 
@@ -233,7 +233,7 @@ You've reviewed the module code and the deployment template to understand some k
 
 Provide your container registry credentials to Docker so that it can push your container image to be stored in the registry.
 
-1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
+1. Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal** or `Ctrl` + `Shift` + **`** (backtick).
 
 2. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
 
@@ -243,7 +243,7 @@ Provide your container registry credentials to Docker so that it can push your c
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. Log in to Azure Container Registry. [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command.
+3. Log in to Azure Container Registry. Upi may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command will ask for your user name and password found in your container registry in **Settings** > **Access keys**.
 
    ```azurecli
    az acr login -n <ACR registry name>
