@@ -4,9 +4,9 @@ description: Shows different reports available for quality of service in Partner
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: emuench
-ms.author: smannepalle
-ms.date: 04/29/2022
+author: saurabhsharmaa
+ms.author: saurasharma
+ms.date: 02/20/2023
 ---
 
 # Quality of service (QoS) dashboard
@@ -31,61 +31,6 @@ Additionally, view [offer deployment details](#detailed-data) in tabular form.
 > This dashboard is currently only available for **Azure application** offers available to all (not private offers).
 
 This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
-
-## Access the Quality of service dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
-
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Illustrates the Insights tile in Partner Center.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, select **[Quality of Service](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/qos)**.
-
-    [ ![Illustrates the Quality of service dashboard.](./media/quality-of-service/quality-of-service-dashboard.png) ](./media/quality-of-service/quality-of-service-dashboard.png#lightbox)
-
-## Elements of the Quality of service dashboard
-
-The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
-
-### Download
-
-To download of the data for this dashboard, select **Download as PDF** from the **Download** list.
-
-:::image type="content" source="./media/quality-of-service/download.png" alt-text="Screenshot of the Download menu.":::
-
-Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
-
-### Share
-
-To share the dashboard widgets data via email, in the top menu, select **Share**.
-
-:::image type="content" source="./media/quality-of-service/share.png" alt-text="Screenshot of the Share menu.":::
-
-In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to Teams** button. To take a snapshot of the charts data, select the **Copy as image** button.
-
-### What's new
-
-To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
-
-:::image type="content" source="./media/quality-of-service/whats-new.png" alt-text="Screenshot of the What's new menu.":::
-
-### Data refresh details
-
-To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
-
-:::image type="content" source="./media/quality-of-service/data-refresh-details.png" alt-text="Screenshot of the Data refresh details option in the ellipsis menu.":::
-
-### Got feedback?
-
-To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
-
-:::image type="content" source="./media/quality-of-service/got-feedback.png" alt-text="Screenshot of the Got feedback option in the ellipsis menu.":::
-
-Provide your feedback in the dialog box that appears.
-
-> [!NOTE]
-> A screenshot is automatically sent to us with your feedback.
 
 ### Quality of service page dashboard filters
 
@@ -239,9 +184,12 @@ About this graph:
 
 ### Detailed data
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 This table shows all offer deployment details available. Download the report to view the raw data on offer deployments.
 
-Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
+Select the ellipsis (three dots) to copy the widget image, and download the image as a .PDF.
 
 :::image type="content" source="media/quality-of-service/deployment-details.png" alt-text="Shows a deployment details table.":::
 
@@ -284,10 +232,5 @@ About this table:
 - For information about deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 - For information about resource providers, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](./summary-dashboard.md).
-- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](./orders-dashboard.md).
-- For virtual machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- For information about your licenses, see [License dashboard in commercial marketplace analytics](./license-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and Reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
 - For FAQs about commercial marketplace analytics and a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](./analytics-faq.yml).

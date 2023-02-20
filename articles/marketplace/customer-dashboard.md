@@ -7,7 +7,7 @@ ms.topic: article
 author: saurabhsharmaa
 ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 12/23/2022
+ms.date: 02/20/2023
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -32,63 +32,6 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 > [!NOTE]
 > The maximum latency between customer acquisition and reporting in Partner Center is 48 hours.
-
-## Access the Customers dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    ![Screenshot showing the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
-
-1. In the left-nav menu, select **[Customers](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/customer)**.
-
-    :::image type="content" source="media/customer-dashboard/menu-customer.png" alt-text="Screenshot showing the Customer option in the left-nav menu.":::
-
-## Elements of the Customers dashboard
-
-The following sections describe how to use the Customers dashboard and how to read the data.
-
-### Download
-
-:::image type="content" source="media/customer-dashboard/button-download.png" alt-text="Screenshot showing the Download option on the Insights screen of the Customers dashboard.":::
-
-To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
-
-### Share
-
-:::image type="content" source="media/customer-dashboard/button-share.png" alt-text="Screenshot showing the Share option on the Insights screen of the Customers dashboard.":::
-
-To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
-
-:::image type="content" source="media/customer-dashboard/email-window.png" alt-text="Screenshot showing the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
-
-### What’s new
-
-:::image type="content" source="media/customer-dashboard/button-what-new.png" alt-text="Screenshot showing the What's New option on the Insights screen of the Customers dashboard.":::
-
-Use this to check on changes and enhancements.
-  
-### About data refresh
-
-:::image type="content" source="media/customer-dashboard/button-data.png" alt-text="Screenshot showing the Data Refresh Details menu option on the Insights screen of the Customers dashboard.":::
-
-View the data source and the data refresh details, such as frequency of the data refresh.
-
-### Got feedback?
-
-:::image type="content" source="media/customer-dashboard/button-feedback.png" alt-text="Screenshot showing the Feedback menu option on the Insights screen of the Customers dashboard.":::
-
-Submit feedback about the report/dashboard along with an optional screenshot.
-
-:::image type="content" source="media/customer-dashboard/feedback.png" alt-text="Screenshot showing the Feedback window for the Share function on the Insights screen of the Customers dashboard.":::
-
-### Month range
-
-A month range selection is at the top-right corner of each page.
-
-:::image type="content" source="media/customer-dashboard/month-range.png" alt-text="Screenshot showing the duration filter menu option on the Insights screen of the Customers dashboard.":::
-
- Customize the output of graphs by selecting a month range based on the last **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
 
 ### Customer page dashboard filters
 
@@ -191,19 +134,20 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 ### Customer details table
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 The **Customer details** table displays a numbered list of the top 1,000 customers sorted by the date they first acquired one of your offers. You can expand a section by selecting the expansion icon in the details ribbon.
 
 ![Screenshot showing the Customer Details table on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customer-details-table.png)
 
 - Customer personal information will only be available if the customer has provided consent. You can only view this information if you've signed in with an owner role level of permissions.
 - Each column in the grid is sortable.
-- The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000.
-- If records number is more than 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the table to display only the data you're interested in. Filter data by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
 - When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
 - Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or Microsoft AppSource transaction level.
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
+Select the ellipsis (...) to copy the widget image, or download the image as a PDF.
 
 _**Table 1: Dictionary of data terms**_
 

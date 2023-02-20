@@ -7,7 +7,7 @@ ms.topic: article
 author: saurabhsharmaa
 ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 12/23/2022
+ms.date: 02/20/2023
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -30,64 +30,6 @@ The [Orders dashboard](https://partner.microsoft.com/dashboard/insights/commerci
 
 > [!NOTE]
 > The maximum latency between customer acquisition and reporting in Partner Center is 48 hours.
-
-## Access the Orders dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, select **Orders**.
-
-## Elements of the Orders dashboard
-
-The following sections describe how to use the Orders dashboard and how to read the data.
-
-### Download
-
-To download of the data for this dashboard, select **Download as PDF** from the **Download** list.
-
-:::image type="content" source="./media/orders-dashboard/download-as-pdf.png" alt-text="Screenshot of the Download list.":::
-
-Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
-
-### Share
-
-To share the dashboard widgets data via email, in the top menu, select **Share**.
-
-:::image type="content" source="./media/orders-dashboard/share.png" alt-text="Screenshot of the Share button in the top menu.":::
-
-In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to teams** button. To take a snapshot of the charts data, select the **Copy as image** button.
-
-### What's new
-
-To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
-
-:::image type="content" source="./media/orders-dashboard/whats-new.png" alt-text="Screenshot of the What's new button in the top menu.":::
-
-### Data refresh details
-
-To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
-
-:::image type="content" source="./media/orders-dashboard/data-refresh-details.png" alt-text="Screenshot of the Data refresh details option in the ellipsis menu.":::
-
-### Got feedback?
-
-To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
-
-:::image type="content" source="./media/orders-dashboard/got-feedback.png" alt-text="Screenshot of the Got feedback option in the ellipsis menu.":::
-
-Provide your feedback in the dialog box that appears.
-
-> [!NOTE]
-> A screenshot is automatically sent to us with your feedback.
-
-### Month range
-
-A month range selection is at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
-
-[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/time-range.png) ](./media/orders-dashboard/time-range.png#lightbox)
 
 ### Orders dashboard filters
 
@@ -237,10 +179,12 @@ Note the following:
 
 ### Orders details table
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 This table displays a numbered list of the 500 top orders sorted by date of acquisition.
 
 - Each column in the grid is sortable.
-- The data can be extracted to a .CSV or .TSV file if the count of the records is less than 500.
 - If records number over 500, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the **Order details** table to display only the data you're interested in. Filter by Country/Region, Azure license type, commercial marketplace license type, Offer type, Order status, Free trails, commercial marketplace subscription ID, Customer ID, and Company name.
 - When an order is purchased by a protected customer, information in **Orders Detailed Data** is masked (************).
@@ -294,13 +238,6 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Not available |	Private Offer ID	|	ID to identify a private marketplace offer	|	PrivateOfferId	|
 | Not available |	Private Offer Name	|	The name provided during private offer creation	|	PrivateOfferName	|
 | Not available |	Billing ID	|	The Billing ID of the enterprise customer	|	BillingId	|
-
-### Orders page filters
-
-These filters are applied at the Orders page level. You can select one or multiple filters to render the chart for the criteria you choose to view and the data you want to see in 'Detailed orders data' grid / export. Filters are applied on the data extracted for the month range that you've selected on the top-right corner of the orders page.
-
-> [!TIP]
-> You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
 
 ## Next steps
 

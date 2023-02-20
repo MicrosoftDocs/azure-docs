@@ -4,10 +4,9 @@ description: The Revenue dashboard shows the summary of your billed sales of all
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
-ms.reviewer: sroy
-ms.date: 04/27/2022
+author: saurabhsharmaa
+ms.author: saurasharma
+ms.date: 02/20/2023
 ---
 
 # Revenue dashboard in commercial marketplace analytics
@@ -34,67 +33,6 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 - Customer leader board
 - Geographical spread
 - Details
-
-## Access the Revenue dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Screenshot of the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, under **Marketplace offers**, select **Revenue**.
-
-    [ ![Screenshot of the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
-
-## Elements of the Revenue dashboard
-
-The following sections describe how to use the Revenue dashboard and how to read the data.
-
-### Download
-
-To download data for this dashboard, select **Download as PDF** from the **Download** list.
-
-[ ![Screenshot of the Download as PDF button.](./media/revenue-dashboard/download-as-pdf.png) ](./media/revenue-dashboard/download-as-pdf.png#lightbox)
-
-Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
-
-### Share
-
-To share the dashboard widgets data via email, in the top menu, select Share.
-
-[ ![Screenshot of the Share button.](./media/revenue-dashboard/share.png) ](./media/revenue-dashboard/share.png#lightbox)
-
-In the dialog box that appears, provide the recipient email address and message. to share the report URL, select the **Copy link** or **Share to Teams** button. To take a snapshot of charts data, select the **Copy as image** button.
-
-### What's new?
-
-To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
-
-[ ![Screenshot of the What's new button.](./media/revenue-dashboard/whats-new.png) ](./media/revenue-dashboard/whats-new.png#lightbox)
-
-### About data refresh
-
-To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
-
-[ ![Screenshot of the Data refresh details option.](./media/revenue-dashboard/data-refresh-details.png) ](./media/revenue-dashboard/data-refresh-details.png#lightbox)
-
-### Got feedback
-
-To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
-
-[ ![Screenshot of the Got feedback option.](./media/revenue-dashboard/got-feedback.png) ](./media/revenue-dashboard/got-feedback.png#lightbox)
-
-Provide your feedback in the dialog box that appears.
-
-> [!NOTE]
-> A screenshot is automatically sent to us with your feedback.
-
-### Month range
-
-You can find a month range selection at the top-right corner of each page. Customize the output of the Revenue page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
-
-[ ![Screenshot of the month range filter on the revenue dashboard.](./media/revenue-dashboard/time-range.png) ](./media/revenue-dashboard/time-range.png#lightbox)
 
 ### Revenue dashboard filters
 
@@ -182,10 +120,12 @@ Note the following:
 
 ### Details
 
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
+
 The _Revenue details_ table displays a numbered list of the 1,000 top orders sorted by transaction month.
 
 - Each column in the grid is sortable.
-- The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000. To download the report, select **Download raw data** (down arrow icon) in the upper right of the widget.
 - If records number over 500, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order id_ and _line item id_.
 - Apply filters to the revenue details table to display only the data you're interested in. You can filter by order type, offer name, billing model, sales channel, payment instrument type, payout status, and estimated payout instrument.
@@ -202,10 +142,6 @@ Note the following:
 - Estimated revenue is tagged with different statuses as explained in the [data dictionary table](#data-dictionary-table).
 - Each row in the Details section has estimated revenue that is an aggregate of all revenue figures for a unique combination of purchase record ID and line-item ID.
 - Columns for customer attributes may contain empty values.
-
-### Providing feedback
-
-In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon. Selecting the thumbs down icon displays a dialog box that you can use to submit your feedback on the widget.
 
 ## Data dictionary table
 
