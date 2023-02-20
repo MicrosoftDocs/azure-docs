@@ -85,7 +85,8 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
         --name <name-of-database-server> \
         --database-name <name-of-database> \
         --admin-user <admin-username> \
-        --admin-password <admin-password>
+        --admin-password <admin-password> \
+        --active-directory-auth Enabled
     ```
 2. A CLI prompt asks if you want to enable access to your IP. Enter `y` to confirm.
 
