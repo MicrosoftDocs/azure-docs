@@ -1,6 +1,6 @@
 ---
 title: Sensor partner integration 
-description: Provides guidance to set-up your sensors as a partner
+description: Provides guidance to set up your sensors as a partner
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to #Required; leave this attribute/value as-is.
@@ -20,7 +20,7 @@ Onboarding covers the steps required by both customers & partners to integrate w
 
 From the above figure, the blocks highlighted in white are the steps taken by a partner, and the ones highlighted in black are done by customers.
 
-## Partner flow : Phase 1
+## Partner flow: Phase 1
 
 Below are the set of steps that a partner will be required to do for integrating with Data Manager for Agriculture. This is a one-time integration. At the end of phase 1, partners will have established their identity in Data Manager for Agriculture.
   
@@ -30,10 +30,10 @@ Partners need to be authenticated and authorized to access the Data Manager for 
 
 Hence to enable authentication & authorization, partners will need to do the following
 
-1. **Create an Azure account** (If you do not have one already created.)
-2. **Create a multi-tenant AAD app** - The multi-tenant AAD app as the name signifies, it will have access to multiple customers’ tenants, provided that the customers have given explicit consent to the partner app (explained in the role assignment step below).
+1. **Create an Azure account** (If you don't have one already created.)
+2. **Create a multi-tenant Azure Active Directory app** - The multi-tenant Azure Active Directory app as the name signifies, it will have access to multiple customers’ tenants, provided that the customers have given explicit consent to the partner app (explained in the role assignment step below).
 
-Partners can access the APIs in customer tenant using the multi-tenant AAD App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application which in turn accesses Data Manager for Agriculture.
+Partners can access the APIs in customer tenant using the multi-tenant Azure Active Directory App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application which in turn accesses Data Manager for Agriculture.
 
 Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
 
@@ -49,20 +49,20 @@ Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/act
 
 ### Registration
 
-Once the partner has created a multi-tenant AAD app successfully, partners will be manually sharing the APP ID and Partner ID with Data Manager for Agriculture through email madma@microsoft.com alias. Using this information Data Manager for Agriculture will validate if it’s an authentic partner and create a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners will be enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data telemetry that they would be pushing.
+Once the partner has created a multi-tenant Azure Active Directory app successfully, partners will be manually sharing the APP ID and Partner ID with Data Manager for Agriculture through email madma@microsoft.com alias. Using this information Data Manager for Agriculture will validate if it’s an authentic partner and create a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners will be enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data telemetry that they would be pushing.
 
 Getting the partner ID marks the completion of partner-Data Manager for Agriculture integration. Now, the partner will wait for input from any of their sensor customers to initiate their data ingestion into Data Manager for Agriculture.
 
 ## Customer flow
 
 Customers using Data Manager for Agriculture will now know all the supported Data Manager for Agriculture sensor partners and their respective APP IDs. This information will be available in the public documentation for all our customers.
-Based on the sensors that customers use and their respective sensor partner’s APP ID, all that a customer has to do is provide access to the partner (APP ID) to start pushing their sensor data into their Data Manager for Agriculture instance. This can be done using the following steps.
+Based on the sensors that customers use and their respective sensor partner’s APP ID, the customer has to provide access to the partner (APP ID) to start pushing their sensor data into their Data Manager for Agriculture instance. This can be done using the following steps:
 
 ### Role Assignment
 
 Customers who choose to onboard to a specific partner will know the app ID of that specific partner. Now using the app ID customer will need to do the following things in sequence.
 
-1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint (https://login.microsoft.com/common/adminconsent/clientId=[client_id]) and replace the [client_id] with the partners’ app ID. This enables the customers’ AAD to recognize this APP ID whenever they use it for role assignment.
+1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint (https://login.microsoft.com/common/adminconsent/clientId=[client_id]) and replace the [client_id] with the partners’ app ID. This enables the customers’ Azure Active Directory to recognize this APP ID whenever they use it for role assignment.
 
 2. **Identity Access Management (IAM)** – As part of Identity access management, customers will create a new role assignment to the above app ID which was provided consent. Data Manager for Agriculture will create a new role called Sensor Partner (In addition to the existing Admin, Contributor, Reader roles). Customers will choose the sensor partner role and add the partner app ID and provide access.
 
@@ -70,7 +70,7 @@ Customers who choose to onboard to a specific partner will know the app ID of th
 
 The customer has made Data Manager for Agriculture aware that they need to get sensor data from a specific partner. However, the partner doesn’t yet know for which customer should they send the sensor data. Hence as a next step, the customer would call into integration API within Data Manager for Agriculture to generate an integration link. Post acquiring the integration link, customers would be sharing the below information in sequence, either manually sharing or using the partner’s portal.
 
-1. **Consent link & Tenant ID** – In this step, the customer will provide an consent link & tenant ID. The integration link looks like the below example:
+1. **Consent link & Tenant ID** – In this step, the customer will provide a consent link & tenant ID. The integration link looks like shown in the example:
 
 `fb-resource-name.farmbeats.com/sensor-partners/partnerId/integrations/IntegrationId/:check-consent?key=jgtHTFGDR?api-version=2021-07-31-preview`
 
