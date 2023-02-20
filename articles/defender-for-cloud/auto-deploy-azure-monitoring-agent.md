@@ -109,7 +109,7 @@ The required [Log Analytics workspace solutions](../azure-monitor/insights/solut
 
 ### Additional extensions for Defender for Cloud
 
-The Azure Monitor Agent requires additional extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
+The Azure Monitor Agent requires more extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
 
 ### Additional security events collection
 
@@ -117,7 +117,7 @@ When you auto-provision the Log Analytics agent in Defender for Cloud, you can c
 
 If you want to collect security events when you auto-provision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events.
 
-Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500-MB of free data](enhanced-security-features-overview.md#faq---pricing-and-billing) daily on defined data types that include security events.
+Like for Log Analytics workspaces, Defender for Cloud users are eligible for [500 MB of free data](enhanced-security-features-overview.md#faq---pricing-and-billing) daily on defined data types that include security events.
 
 ## Next steps
 
