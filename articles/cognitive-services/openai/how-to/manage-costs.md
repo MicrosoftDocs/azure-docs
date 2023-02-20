@@ -1,6 +1,6 @@
 ---
-title: Plan to manage costs for Azure OpenAI
-description: Learn how to plan for and manage costs for Azure OpenAI Service by using cost analysis in the Azure portal.
+title: Plan to manage costs for Azure OpenAI Service
+description: Learn how to plan for and manage costs for Azure OpenAI by using cost analysis in the Azure portal.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: subject-cost-optimization
@@ -19,7 +19,7 @@ This article describes how you plan for and manage costs for Azure OpenAI Servic
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Estimate costs before using Azure OpenAI Service
+## Estimate costs before using Azure OpenAI
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of using Azure OpenAI.
 
