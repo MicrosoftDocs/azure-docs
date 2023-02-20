@@ -20,7 +20,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 >[!Note]
 >- If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
->- If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error Appliance cluster is not deployed with AAD authentication. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
+>- If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
 
 | **Requirement** | **Details** |
 | --- | --- |
