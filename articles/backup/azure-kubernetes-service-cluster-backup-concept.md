@@ -24,13 +24,13 @@ Backup Extension is installed in its own namespace *dataprotection-microsoft* by
 
 Backup Extension uses a blob container (provided in input during installation) as a default location for backup storage. To access this blob container, the Extension Identity requires *Storage Account Contributor* role on the storage account that has the container.
 
-Backup Extension also needs to be installed on the both source cluster to be backed up and the target cluster where the restore will happen.
+Backup Extension also needs to be installed on both the source cluster to be backed up and the target cluster where the restore will happen.
 
 ### Trusted Access
 
 Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Azure Active Directory (Azure AD) application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. 
 
-Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned Managed Identity authentication with the appropriate Kubernetes permissions via an Azure resource role. The Trusted Access feature allows you to access AKS clusters with different configurations, which isn’t limited to private clusters, clusters with local accounts disabled, Azure AD clusters, and authorized IP range clusters. 
+Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned Managed Identity authentication with the appropriate Kubernetes permissions via an Azure resource role. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Azure AD clusters, and authorized IP range clusters. 
 
 For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a pre-defined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
 
@@ -44,30 +44,44 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 - AKS backup uses CSI drivers snapshot capabilities to perform backups of Persistent Volumes. CSI Driver support is available for AKS clusters with Kubernetes version *1.21.1* or later. 
 - Currently, AKS backup only supports backup of Azure Disk based Persistent Volumes (enabled by CSI Driver). If you’re using Azure File Share and Azure Blob type Persistent Volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
 
-- In Tree, volumes aren't supported by AKS backup; only CSI Driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](../aks/csi-migrate-in-tree-volumes.md).
+- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](../aks/csi-migrate-in-tree-volumes.md).
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, AKS clusters using Service Principal aren't supported by ASK Backup. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.nd#update-an-aks-cluster-to-use-a-managed-identityn).
+- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.nd#update-an-aks-cluster-to-use-a-managed-identityn).
 
-   >[!Note]
-   >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
+  >[!Note]
+  >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
 
-- Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If a firewall is enabled on the AKS cluster, the extension installation process might fail due to access issues on the Registry. You can follow these steps to allow MCR access from behind the firewall.
+- The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
+## Required roles and permissions
 
+To perform AKS backup and restore operations as a user, you need to have specific roles on the AKS cluster, Backup vault, Storage account, and Snapshot resource group.
 
+| Scope | Preferred Role | Reason |
+| --- | --- | --- |
+| AKS Cluster | Owner | Owner role allows you to install Backup Extension, enable *Trusted Access* and grant permissions to Backup vault over cluster. |
+| Backup vault resource group | Backup Contributor | This role allows you to create Backup vault in a resource group, create backup policy, configure backup, and restore and assign missing roles required for Backup operations. |
+| Storage account | Owner | Owner role allows you to perform read and write operations on the storage account and assign required roles to other Azure resources as a part of backup operations. |
+| Snapshot resource group | Owner | Owner role allows you to perform read and write operations on the Snapshot resource group and assign required roles to other Azure resources as part of backup operations. |
 
+>[!Note]
+>Owner role on an Azure resource allows you to perform Azure RBAC operations of that resource. If it's not available, you need to get the *resource owner* to provide the required roles to the Backup vault and AKS cluster before initiating the backup or restore operations.
 
+Also, as part of the backup and restore operations, the following roles are assigned to the AKS cluster, Backup Extension Identity, and Backup vault.
 
+| Role | Assigned To | Assigned on | Reason |
+| --- | --- | --- | --- |
+| Reader | Backup vault | AKS cluster | This role allows the Backup vault to perform list and read operations on AKS cluster. |
+| Reader | Backup vault | Snapshot resource group | This role allows the Backup vault to perform list and read operations on snapshot resource group. |
+| Disk Snapshot Contributor | AKS cluster | Snapshot resource group | This role allows AKS cluster to store persistent volume snapshots in the resource group. |
+| Storage Account Contributor | Extension Identity | Storage account | This role allows Backup Extension to store cluster resource backups in the blob container. | 
 
-
-
-
-
-
+>[!Note]
+>AKS backup allows you to assign these roles during backup and restore processes through the Azure portal with a single click.
 
 ## Next steps
 
-- Learn [how to configure and manage private endpoints for Azure Backup](backup-azure-private-endpoints-configure-manage.md).
+- []()
 
