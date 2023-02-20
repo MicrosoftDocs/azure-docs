@@ -115,7 +115,7 @@ Get started with the Single to Flex migration tool by using any of the following
 * [Migrate using the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
 * [Migrate using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
 
-## Using Single to Flex migration tool for your database migration journey  
+## Best practices  
 
 Here, we go through the phases of an overall database migration journey, with guidance on how to use Single to Flex migration tool in the process. 
 
@@ -157,7 +157,7 @@ Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
 
 While most frequently a migration runs without a hitch, it’s good practice to plan for contingencies if there is additional time required for debugging or if a migration may need to be restarted. 
 
-#### Migration Pre-requisites
+#### Migration Prerequisites
 The following pre-requisites need to be taken care of before using the Single to Flex Migration tool for migration
 
 ##### Network connectivity between Single and Flexible Server
@@ -184,7 +184,7 @@ The following table summarizes the list of networking scenarios supported by the
 * If your single server is public access (case #1 and case #2 in the above table), there's nothing needed from your end. The single to flex migration tool automatically establishes connection between single and flexible server and the migration will go through.
 * If your single server is in private access, then the only supported scenario is when your Flexible server is inside a VNet. If your flexible server is deployed in the same VNet as the private end point of your Single server, connections between single server and flexible server should automatically work provided there is no network security group(NSGs) blocking the connectivity between subnets. If flexible server is deployed in another VNet, [peering should be established between the VNets](../../virtual-network/tutorial-connect-virtual-networks-portal.md) for the connection to work between Single and Flexible server.  
 
-##### Allow listing extensions used in Single Server on Flexible Server 
+##### Allow-list required extensions
 Use the following select command in the Single Server databases to list all the extensions that are being used.
 
 ```
