@@ -412,23 +412,6 @@
             - name: Java
               displayName: jobs
               href: iot-hub-java-java-schedule-jobs.md
-        - name: Use device and service SDKs
-          items:
-            - name: Azure IoT C SDK
-              items:
-                - name: Azure IoT C SDK resource information
-                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-                - name: Develop for constrained devices
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-devguide-develop-for-constrained-devices.md
-                - name: Develop for mobile devices
-                  displayName: Azure IoT C SDKs, iOS, C99, Objective-C, Swift
-                  href: iot-hub-how-to-develop-for-mobile-devices.md
-                - name: Develop for Android Things platform
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-how-to-android-things.md
-        - name: Control a device on Android
-          href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
