@@ -197,9 +197,6 @@
         - name: Develop without the SDK
           displayName: MQTT, protocols
           href: iot-hub-devguide-no-sdk.md
-        - name: Manage connectivity and reliable messaging
-          displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-          href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
       items:
         - name: MQTT support

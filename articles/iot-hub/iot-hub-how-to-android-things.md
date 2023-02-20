@@ -95,5 +95,5 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 ## Next steps
 
-* Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
+* Learn about [how to manage connectivity and reliable messaging](../iot-develop/how-to-use-reliability-features-in-sdks.md#retry-patterns) using the IoT Hub device SDKs.
 * Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
