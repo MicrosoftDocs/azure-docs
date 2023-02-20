@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration overview - Azure AD
+title: Azure AD B2B collaboration overview
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory
@@ -11,7 +11,7 @@ ms.author: cmulligan
 author: csmulligan
 manager: celestedg
 ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # B2B collaboration overview
