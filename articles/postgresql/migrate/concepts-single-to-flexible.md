@@ -1,7 +1,7 @@
 ---
 title: "Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server - Concepts"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Concepts about migrating your Single server to Azure database for PostgreSQL Flexible server.
+description: Concepts about migrating your Single server to Azure Database for PostgreSQL Flexible server.
 author: shriram-muthukrishnan
 ms.author: shriramm
 ms.service: postgresql
