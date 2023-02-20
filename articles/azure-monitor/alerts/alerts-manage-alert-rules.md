@@ -14,7 +14,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 ## Manage alert rules in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. The page shows all of your alert rules across subscriptions.
+1. From the top command bar, select **Alert rules**. The page shows all your alert rules across on all subscriptions.
 
     :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot of alerts rules page.":::
 
@@ -70,7 +70,7 @@ To enable recommended alert rules:
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Enable**.
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
 
 ## Manage metric alert rules with the Azure CLI
 
