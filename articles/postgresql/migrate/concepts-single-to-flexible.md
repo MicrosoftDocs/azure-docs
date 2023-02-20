@@ -37,7 +37,7 @@ In this article, we provide compelling reasons for single server customers to mi
 
 * **[Custom Maintenance Window](../flexible-server/concepts-maintenance.md)** - You can schedule the maintenance window of flexible server for a specific day and time of the week. Single server doesn't have this flexibility. 
 
-* **[High Availability](../flexible-server/concepts-high-availability.md)** - Flexible server supports HA within same availability zone and across availability zones by configuring a warm standby server that is in sync with the primary. An uptime SLA of 99.99% is offered for zone redundant HA and 99.95% for same zone HA.
+* **[High Availability](../flexible-server/concepts-high-availability.md)** - Flexible server supports HA within same availability zone and across availability zones by configuring a warm standby server that is in sync with the primary.
 
 * **[Security](../flexible-server/concepts-security.md)** - Flexible server offers multiple layers of information protection and encryption to protect your data.
 
@@ -103,7 +103,7 @@ The following table shows the time for performing offline migrations for databas
 ## Limitations
 * You can have only one active migration to your flexible server. 
 * You can select a max of eight databases in one migration attempt. If you've more than eight databases, you must wait for the first migration to be complete before initiating another migration for the rest of the databases. Support for migration of more than eight databases in a single migration will be introduced later. 
-* The source and target server must be in the same Azure region. Cross region migrations is not supported.
+* The source and target server must be in the same Azure region. Cross region migrations are not supported.
 * The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details, firewall rules, users, roles and permissions. In the later part of the document, we point you to docs that can help you perform the migration of users, roles and firewall rules from single server to flexible server. 
 * The migration tool shows the number of tables copied from source to target server. You need to validate the data in target server post migration. 
 * The tool only migrates user databases and not system databases like template_0, template_1, azure_sys and azure_maintenance.  
@@ -119,12 +119,12 @@ Get started with the Single to Flex migration tool by using any of the following
 
 Here, we go through the phases of an overall database migration journey, with guidance on how to use Single to Flex migration tool in the process. 
 
-### Pre-Migration  
+### Pre migration  
 
-#### Application Compatibility
+#### Application compatibility
 Single server supports PG version 9.6,10 and 11 while Flexible server supports PG version 11, 12, 13 and 14. Given the differences in supported versions, you might be moving across versions while migrating from single to flexible server. If that is the case, make sure your application works well with the version of flexible server you're trying to migrate to. If there are breaking changes, make sure to fix them on your application before migrating to flexible server. Use this [link](https://www.postgresql.org/docs/14/appendix-obsolete.html) to check for any breaking changes while migrating to the target version.   
 
-#### Database Migration Planning
+#### Database migration planning
 The most important thing to consider for performing offline migration using the single to flex migration tool is the downtime incurred by the application.
 
 ##### How to calculate the downtime?  
@@ -141,7 +141,7 @@ For calculating the total downtime to perform offline migration of production se
 * **Validation** - Once the offline migration completes for the production server, you need to verify if the data in flexible server is an exact copy of the single server. Customers can use opensource/thirdparty tools or can do the validation manually. Prepare the validation steps that you would like to do in advance of the actual migration. Validation can include: 
     * Row count match for all the tables involved in the migration.  
     * Matching counts for all the database object (tables, sequences, extensions, procedures, indexes)
-    * Comparing max or min ids of key application related columns 
+    * Comparing max or min IDs of key application related columns 
 >[!NOTE]
 > The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It is completely normal to have size differences between source and target servers. If there is an issue in the first three steps of validation, it indicates a problem with the migration. 
 
@@ -157,7 +157,7 @@ Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
 
 While most frequently a migration runs without a hitch, it’s good practice to plan for contingencies if there is additional time required for debugging or if a migration may need to be restarted. 
 
-#### Migration Prerequisites
+#### Migration prerequisites
 The following pre-requisites need to be taken care of before using the Single to Flex Migration tool for migration
 
 ##### Network connectivity between Single and Flexible Server
@@ -184,7 +184,7 @@ The following table summarizes the list of networking scenarios supported by the
 * If your single server is public access (case #1 and case #2 in the above table), there's nothing needed from your end. The single to flex migration tool automatically establishes connection between single and flexible server and the migration will go through.
 * If your single server is in private access, then the only supported scenario is when your Flexible server is inside a VNet. If your flexible server is deployed in the same VNet as the private end point of your Single server, connections between single server and flexible server should automatically work provided there is no network security group(NSGs) blocking the connectivity between subnets. If flexible server is deployed in another VNet, [peering should be established between the VNets](../../virtual-network/tutorial-connect-virtual-networks-portal.md) for the connection to work between Single and Flexible server.  
 
-##### Allow-list required extensions
+##### Allowlist required extensions
 Use the following select command in the Single Server databases to list all the extensions that are being used.
 
 ```
@@ -231,7 +231,7 @@ This command ensures any remaining applications or connections are disconnected.
 
 Trigger the migration of your production databases using the single to flex migration tool. The migration requires close monitoring, and the monitoring user interface of the migration tool comes in handy. Check the migration status over the period of time to ensure there is progress and wait for the migration to complete. 
 
-### Post Migration
+### Post migration
 * Once the migration is complete, verify the data on your flexible server and make sure it's an exact copy of the single server. 
 * Post verification, enable HA/ backup options as needed on your flexible server. 
 * Change the SKU of the flexible server to match the application needs. This change needs a database server restart. 
