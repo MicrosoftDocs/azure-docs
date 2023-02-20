@@ -84,7 +84,7 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
     1. Select the correct **Subscription**.
     1. In **Region**, select the Azure region for the host pool that’s right for you and your customers.
     1. In **Host Pool Name**, enter a unique name for your host pool.
-    1. In **Location**, enter a region where you create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. This location must match the Azure region you selected in steb b.
+    1. In **Location**, enter a region where you create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. This location must match the Azure region you selected previously, in step b.
     1. In **Workspace Name**, enter a unique name.
    
         :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-1.png" alt-text="Screenshot of the first part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-1.png" :::
@@ -99,12 +99,13 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
 
     1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to add to the host pool as session hosts. You can add multiple VMs. For example:
 
-    *“/subscriptions/<subscriptionID>/resourceGroups/Contoso-    rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”*
+        `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-        rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
     
     1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
     
     1. In **Tags**, enter values for tags in the following format:
-    {"CreatedBy": "name", "Test": "Test2”}
+    
+        {"CreatedBy": "name", "Test": "Test2”}
     
     1. In **Deployment Id**, enter the Deployment ID. A new GUID is created by default.
     
@@ -112,10 +113,11 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
     
         :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
 
-1. Select **Review+Create**.
+1. Select the **Review+Create** button.
 
 1. After validation passes, select **Create**.
-Once the deployment is complete, you see all the required objects created.
+
+    After the deployment is complete, you can see all the required objects created.
 
 ### Step 4: Manage application groups
 
@@ -123,9 +125,9 @@ You can add more application groups to a host pool and assign users to the appli
 
 ## Activate Windows operating system
 
-Windows VMs must be licensed and activated before you can use them on Azure Stack HCI.
+You must license and activate the Windows VMs before you use them on Azure Stack HCI.
 
-For activating your multi-session OS VMs (Windows 10, Windows 11, or later), enable Azure Benefits on the VM once it is created. Make sure that Azure Benefits are also enabled on the host computer. For more information, see [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits).
+For activating your multi-session OS VMs (Windows 10, Windows 11, or later), enable Azure Benefits on the VM once it is created. Make sure to enable Azure Benefits on the host computer also. For more information, see [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits).
 
 > [!NOTE]
 > You must manually enable access for each VM that requires Azure Benefits.
@@ -134,7 +136,7 @@ For all other OS images (such as Windows Server or single-session OS), Azure Ben
 
 ## Optional configurations
 
-Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few extra things you can do depending on your deployment's needs.
+Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few extra things you can do depending on your deployment needs:
 
 ### Create a profile container using a file share on Azure Stack HCI
 
@@ -162,7 +164,7 @@ You can add new session hosts to an existing host pool that was created either m
 
 Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
-The template will open in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+The template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 ### Download supported OS images from Azure Marketplace
 
@@ -226,19 +228,19 @@ To create an Azure managed disk:
 
 1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
-```console
-$urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
-$diskName = <disk name> #Name for new disk to be created
-$diskRG = <resource group> #Resource group that contains the new disk
-```
+    ```console
+    $urn = <URN of the Marketplace image> #Example:    “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
+    $diskName = <disk name> #Name for new disk to be created
+    $diskRG = <resource group> #Resource group that contains the new disk
+    ```
 
 1. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
 
-```azurecli
-az disk create -g $diskRG -n $diskName --image-reference $urn
-$sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
-$diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
-```
+    ```azurecli
+    az disk create -g $diskRG -n $diskName --image-reference $urn
+    $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
+    $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
+    ```
 
 ### Export a VHD from the managed disk to Azure Stack HCI cluster
 
@@ -268,10 +270,10 @@ az disk revoke-access --name $diskName --resource-group $diskRG
 az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
-This command may take a few minutes to finish, so be patient.
+This command may take a few minutes to finish.
 
->[!NOTE]
->Optionally, you can also convert the download VHD to a dynamic VHDx by running this command:
+> [!NOTE]
+> Optionally, you can also convert the download VHD to a dynamic VHDx by running this command:
 >
 > ```powershell
 > Convert-VHD -Path " destination_path_on_cluster\file_name.vhd" -DestinationPath " destination_path_on_cluster\file_name.vhdx" -VHDType Dynamic
@@ -376,9 +378,9 @@ Follow these steps for the automated deployment process:
 
 ## Activate Windows operating system
 
-Windows VMs must be licensed and activated before you can use them on Azure Stack HCI.
+You must license and activate Windows VMs before you use them on Azure Stack HCI.
 
-For activating your multi-session OS VMs (Windows 10, Windows 11, or later), enable Azure Benefits on the VM once it is created. Make sure that Azure Benefits are also enabled on the host computer. For more information, see [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits).
+For activating your multi-session OS VMs (Windows 10, Windows 11, or later), enable Azure Benefits on the VM once it is created. Make sure to enable Azure Benefits on the host computer also. For more information, see [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits).
 
 > [!NOTE]
 > You must manually enable access for each VM that requires Azure Benefits.
