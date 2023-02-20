@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 02/13/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -236,6 +236,11 @@ Does cross-tenant synchronization enhance any cross-tenant Microsoft 365 app acc
 
 - Cross-tenant synchronization utilizes a feature that improves the user experience by suppressing the first-time B2B consent prompt and redemption process in each tenant.
 - Synchronized users will have the same cross-tenant Microsoft 365 experiences available to any other B2B collaboration user.
+
+Can cross-tenant synchronization enable people search scenarios where synchronized users appear in the global address list of the target tenant?
+
+- Yes, but you must set the value for the **showInAddressList** attribute of synchronized users to **True**, which is not set by default. If you want to create a unified address list, you'll need to set up a [mesh peer-to-peer topology](./cross-tenant-synchronization-topology.md#mesh-peer-to-peer). For more information, see [Step 9: Review attribute mappings](./cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+- Cross-tenant synchronization creates B2B collaboration users and doesn't create contacts.
 
 #### Teams
 

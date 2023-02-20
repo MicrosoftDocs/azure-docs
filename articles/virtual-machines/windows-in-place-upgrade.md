@@ -21,7 +21,7 @@ Before you begin an in-place upgrade:
 
    - Upgrade options for Windows Server 2022 from Windows Server 2016 or Windows Server 2019
 
-- Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](/azure/virtual-machines/windows/expand-os-disk) to expand the operating system disk attached to the VM.  
+- Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](./windows/expand-os-disk.md) to expand the operating system disk attached to the VM.  
 
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
@@ -47,7 +47,7 @@ The in-place upgrade process requires the use of Managed Disks on the VM to be u
 
 ## Create snapshot of the operating system disk 
 
-We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This will enable you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](/azure/virtual-machines/snapshot-copy-managed-disk). 
+We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This will enable you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](./snapshot-copy-managed-disk.md). 
 
  
 ## Create upgrade media disk
@@ -224,15 +224,15 @@ Create an Azure VM that runs a supported version of the operating system, and th
 ## Recover from failure
 If the in-place upgrade process failed to complete successfully you can return to the previous version of the VM if snapshots of the operating system disk and data disk(s) were created. To revert the VM to the previous state using snapshots complete the following steps: 
 
-1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
+1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
 
 1. Stop the VM.
 
-1. [Swap the OS disk](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) of the VM. 
+1. [Swap the OS disk](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) of the VM. 
 
-1. [Detach any data disks](/azure/virtual-machines/windows/detach-disk) from the VM.
+1. [Detach any data disks](./windows/detach-disk.md) from the VM.
 
-1. [Attach data disks](/azure/virtual-machines/windows/attach-managed-disk-portal) created from the snapshots in step 1.
+1. [Attach data disks](./windows/attach-managed-disk-portal.md) created from the snapshots in step 1.
 
 1. Restart the VM.
 

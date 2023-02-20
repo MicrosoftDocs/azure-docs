@@ -1,12 +1,10 @@
 ---
-title: Use Azure Front Door with Azure Storage blobs - Azure Front Door | Microsoft Docs
+title: Use Azure Front Door with Azure Storage blobs
 description: Learn how to use Front Door with storage blobs for accelerating content delivery of static content, enabling a secure and scalable architecture.
 services: front-door
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/08/2022
 ms.author: jodowns

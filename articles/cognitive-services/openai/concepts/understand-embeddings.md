@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI embeddings
+title: Azure OpenAI Service embeddings
 titleSuffix: Azure OpenAI - embeddings and cosine similarity
 description: Learn more about Azure OpenAI embeddings API for document search and cosine similarity
 services: cognitive-services
@@ -14,7 +14,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Understanding embeddings in Azure OpenAI
+# Understanding embeddings in Azure OpenAI Service
 
 An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating-point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.
 
