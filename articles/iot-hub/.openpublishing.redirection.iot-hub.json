@@ -232,12 +232,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
-      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device.md?pivots=programming-language-ansi-c",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-intro.md",
-      "redirect_url": "/azure/iot-develop/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device.md?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-iothubclient.md",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device.md?pivots=programming-language-ansi-c",
       "redirect_document_id": false
     },
     {

@@ -416,9 +416,6 @@
           items:
             - name: Azure IoT C SDK
               items:
-                - name: Use the IoTHubClient
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-iothubclient.md
                 - name: Azure IoT C SDK resource information
                   href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
                 - name: Develop for constrained devices
