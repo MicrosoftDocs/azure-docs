@@ -189,11 +189,11 @@ If the total string size of files in a database is greater than a [particular li
 
 ## Recover a database from .bak file using SSMS
 
-You can use *Restore as Files* operation to restore the database files in `.bak` format while restoring from the Azure portal. Learn more on [how to restore as files](restore-sql-database-azure-vm.md#restore-as-files). 
+You can use *Restore as Files* operation to restore the database files in `.bak` format while restoring from the Azure portal. [Learn more](restore-sql-database-azure-vm.md#restore-as-files). 
 
 When the restoration of the `.bak` file to the Azure virtual machine is complete, you can trigger restore using **TSQL commands** through SSMS. 
  
-To restore the database files to the *original path on the source server*, remove the `MOVE` clause in from the TSQL restore query. 
+To restore the database files to the *original path on the source server*, remove the `MOVE` clause from the TSQL restore query. 
   
 **Example**
 
@@ -203,7 +203,7 @@ To restore the database files to the *original path on the source server*, remov
   ```
 
 >[!Note]
->You shouldn’t have the same database files on the target server (restore with replace).  Also you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
+>You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
 
 To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
 
@@ -220,7 +220,7 @@ To relocate the database files from the target restore server, you can frame a T
     GO
   ```
 
-If there are more than two files for the database, you can add additional move clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. Learn more on [restoring an SQL database backup using SSMS]( /sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
+If there are more than two files for the database, you can add additional move clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more]( /sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
 
 >[!Note]
 >For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.
