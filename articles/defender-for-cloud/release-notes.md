@@ -27,7 +27,7 @@ Updates in February include:
 
 ### Enhanced Cloud Security Explorer
 
-An improved version of the cloud security explorer that includes a refreshed user experience which removes query friction dramatically, added the ability to run multi-cloud and multi-resource queries, and embedded documentation for each query option.
+An improved version of the cloud security explorer includes a refreshed user experience that removes query friction dramatically, added the ability to run multicloud and multi-resource queries, and embedded documentation for each query option.
 
 The Cloud Security Explorer now allows you to run cloud-abstract queries across resources. You can use either the pre-built query templates or use the custom search to apply filters to build your query. Learn [how to manage Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
 

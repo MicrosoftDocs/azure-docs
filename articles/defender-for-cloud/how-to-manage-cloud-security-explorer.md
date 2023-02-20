@@ -9,11 +9,11 @@ ms.date: 02/07/2023
 
 # Cloud security explorer
 
-Defender for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
+Defenders for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
 
-By using the cloud security explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
+Use the cloud security explorer, to proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and across multiple clouds (Azure and AWS).
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, and lateral movement between resources and across multiple clouds (Azure and AWS).
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
@@ -66,7 +66,7 @@ The cloud security explorer allows you to build queries that can proactively hun
 
 1. Add subfilters as needed.
 
-1. After your query is built, select **Search** to run the query.
+1. After building your query, select **Search** to run the query.
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows where to select search to run the query and results populated." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
@@ -74,7 +74,7 @@ The cloud security explorer allows you to build queries that can proactively hun
 
 Query templates are pre-formatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
 
-:::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
+:::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you the location of the query templates." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
 You can modify any template to search for specific results by changing the query and selecting **Search**.
 
