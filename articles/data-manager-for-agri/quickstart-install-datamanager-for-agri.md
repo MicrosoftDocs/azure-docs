@@ -1,6 +1,7 @@
 ---
 title: How to Install Data Manager for Agriculture
 description: Provides step by step guidance to install Data Manager for Agriculture
+author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: quickstart
@@ -18,7 +19,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 
 After you have confirmation that your Azure subscription ID is in our allow list, then use the below steps to install Data Manager for Agriculture through Azure portal UI.
 
-Please follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)
+Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)
 
 In Step 5 in the above documentation, please search for `Microsoft.AgFoodPlatform` and register the same
 
@@ -33,21 +34,21 @@ Search for 'Data manager for agriculture' on the Azure marketplace search bar an
 
 ## Step 3: Create Data Manager for Agriculture instance 
 
-Provide the required details for creating an Azure Data Manager for Agriculture resource and resource group in a selected region. The following details will need to be provided:
+Provide the required details for creating an Azure Data Manager for Agriculture resource and resource group in a selected region. Provide the following details:
 
 1. **Subscription Id** : Select the whitelisted subscription Id for your tenant
 2. **Resource Group**: Select an existing resource group or create a new one
-3. **Instance Name**: Provide the Data Manager for Agriculture instance name
-4. **Region**: Select the region in which the resource instance shall be deployed. 
-5. **Tags**: You may choose to categorize the resource with a tag
+3. **Instance Name**: Provide the Data Manager for Agriculture instance a name
+4. **Region**: Select the region where you want the instance deployed 
+5. **Tags**: Choose to categorize the resource with a tag
 
-Post providing the details and acceptance of terms and conditions, clicking on review + create followed by create button, will start the process of deploying the Azure Data Manager for Agriculture resource.
+After providing the details and accepting terms and conditions, click on "review + create" followed by the create button. This starts the process of deploying the Azure Data Manager for Agriculture resource.
 
 ![Data Manager for Agriculture resource creation flow on Azure Portal](./media/ResourceCreation.PNG)
 
 ## Step 4: App Registration
 
-Data Manager for Agriculture resource can be accessed through an App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application which in turn accesses Data Manager for Agriculture.
+Data Manager for Agriculture resource can be accessed through an App registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
 
 Follow the steps provided in <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until the Step 8** to generate the following information:
 
@@ -69,9 +70,9 @@ Login to <a href="https://portal.azure.com" target=" blank">Azure Portal</a> and
 
 > [!NOTE] Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox to see the Data Manager for Agriculture resource that you had created.
 
-Click on the Azure Data Manager for Agriculture resource tab, you can find the IAM (Identity Access Management) menu option on the left hand side of the option pane as shown in the image below.
+Click on the Azure Data Manager for Agriculture resource tab, you can find the IAM menu option on the left hand side of the option pane as shown in the image:
 
-![Role Assignment in Farm Beats](./media/Role-Assignment.png)
+![Role Assignment in Data Manager](./media/Role-Assignment.png)
 
 Click **Add > Add role assignment**, and this opens up a pane the right side of the portal, choose one of the three roles from the dropdown:
 
