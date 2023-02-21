@@ -55,15 +55,16 @@ Defender for IoT's device inventories support the following categories of device
 |**Network devices**     |  Switches, routers, controllers, or access points       |
 |**Endpoint devices**     |  Workstations, servers, or mobile devices       |
 |**OT/IoT devices**     |  |
-|Printing devices         |   Scanners, all-in-one printers, or printer servers       |
 |Audio and video devices     |   Smart TVs, speakers, digital signage, or headsets      |
-|Surveillance devices     |    DVRs, cameras, or video encoders / decoders     |
 |Communication devices     |   VoIP phones, intercoms, analog telephone adapters      |
+|Industrial devices     |  PLCs, historian devices, HMIs, robot controllers, slots, programmable boards       |
+|Media and surveillance devices     |    DVRs, cameras, or video encoders / decoders     |
+|Medical devices| Glucose meters, monitors |
+|Miscellaneous devices     | Smart watches, ebook readers, Arduino devices, oscilloscopes     |
+|Operational equipment    | Industrial printers, scales, pneumatic devices, packaging systems        |
+|Printing devices         |   Scanners, all-in-one printers, or printer servers       |
 |Smart appliance devices     |  Smart lights, smart switches, clocks, barcode scanners        |
 |Smart facility devices     |  Doors, fire alarms, elevators, turnstiles, HVAC systems       |
-|Miscellaneous devices     | Smart watches, ebook readers, Arduino devices, oscilloscopes     |
-|Industrial devices     |  PLCs, historian devices, HMIs, robot controllers, slots, programmable boards       |
-|Operational equipment    | Industrial printers, scales, pneumatic devices, packaging systems        |
 
 *Unclassified* devices are devices that don't have an out-of-the-box category defined.
 
