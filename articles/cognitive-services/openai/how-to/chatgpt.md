@@ -7,7 +7,6 @@ ms.author: mbullwin #swap back to delegenz
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/01/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
 manager: nitinme
 keywords: ChatGPT
 ---
@@ -16,11 +15,11 @@ keywords: ChatGPT
 
 The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string that is formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
-The ChatGPT model is used with the same [completion API](https://learn.microsoft.com/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but requires a specific prompt format that's described below. It's important to use the recommended prompt format to get the best results. Without the right prompts, you’ll notice the model tends to be verbose and will often complete more than you want.
+The ChatGPT model is used with the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but requires a specific prompt format that's described below. It's important to use the recommended prompt format to get the best results. Without the right prompts, you’ll notice the model tends to be verbose and will often complete more than you want.
 
 ## Working with the ChatGPT model
 
-The following code snippet shows the most basic way to use the ChatGPT model. We also have a UI driven experience that you can learn about in the [ChatGPT Quickstart](../chatgpt-quickstart.md).
+The following code snippet shows the most basic way to use the ChatGPT model. <!--TODO:We also have a UI driven experience that you can learn about in the [ChatGPT Quickstart](../chatgpt-quickstart.md).-->
 
 > [!NOTE]  
 > OpenAI continues to improve the ChatGPT model and release new versions. During the preview of this model, we'll continue updating to the latest version of the model in place. This means that you may see small changes in the behavior of the model during the preview.
@@ -128,7 +127,7 @@ What is the IRS?
 
 #### Using data for grounding
 
-You can also include relevant data or information in the system message to give the model additional context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
+You can also include relevant data or information in the system message to give the model additional context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
 
 ```
 <|im_start|>system
@@ -252,4 +251,5 @@ assert tokens == [100264, 882, 198, 9906, 100265, 100264, 78191]
 
 ## Next steps
 
-Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
+[Learn more about Azure OpenAI](../overview.md).
+<!--Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).-->
