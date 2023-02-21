@@ -22,20 +22,21 @@ The policies enable audit logging, sending logs belonging to the **audit** log c
 The policies' `effect` is set to `DeployIfNotExists` which deploys the policy as a default if there are not other settings defined.
 
 
-## Deploy policies and initiatives.
+## Deploy policies.
 Deploy the policies and initiatives using the Portal, CLI, PowerShell, or Azure Resource Management templates
 ### [Azure portal](#tab/portal)
 
+The following steps show how to apply the policy to send audit logs to for key vaults to a log analytics workspace.
 
 1. From the Policy page, select **Definitions**.
-1. Select your scope.
+1. Select your scope. You can apply a policy to the entire subscription, a resource group, or an individual resource.
 1. From the **Definition type** dropdown, select **Policy**.
 1. Select **Monitoring** from the Category dropdown
 1. Enter *keyvault* in the **Search** field.
 1. Select the **Enable logging by category group for Key vaults (microsoft.keyvault/vaults) to Log Analytics** policy,
     :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" alt-text="A screenshot of the policy definitions page":::
 1. From the policy definition page, select **Assign**
-1. Select tge **Parameters** tab.
+1. Select the **Parameters** tab.
 1. Select the Log Analytics Workspace that you want to send the audit logs to.
 1. Select the **Remediation** tab.
  :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-parameters.png" alt-text="A screenshot of the assign policy page, parameters tab.":::
@@ -62,7 +63,7 @@ For example, to apply the policy to send audit logs to a log analytics workspace
 2. Assign the Contributor role to the identity created for the policy assignment
 
 ```azurecli
-az policy assignment identity assign --system-assigned -g <reource group name> --role Owner --identity-scope </scope> -n <policy assignment name>
+az policy assignment identity assign --system-assigned -g <reource group name> --role Log Analytics Contributor --identity-scope </scope> -n <policy assignment name>
 ```
 For example. 
 ```azurecli
@@ -70,12 +71,19 @@ az policy assignment identity assign --system-assigned -g rg-001  --role Owner -
 ```
 
 3. Create a remediation task to apply the policy to existing resources.
+1. az policy remediation create -g edtest-2002 -n rem-assignment-20-02-1 --policy-assignment assignment-20-02-1 
+1. 
 >>>>>>>>> doesnt work gets (InvalidApiVersionParameter) error
 ```azurecli
 az policy remediation create --name EdRemediation1 --policy-assignment policyAssigment-5
 /subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/ed-test-cli-assigned-policy/providers/Microsoft.Authorization/policyAssignments/policyAssigment-5
 ```
 
+
+az policy remediation create --policy-assignment <POLICY_ASSIGNMENT_NAME> --name <REMEDIATION_NAME> --definition <POLICY_DEFINITION_ID> --location <LOCATION> --resource <RESOURCE_ID> --filters <FILTERS_JSON_FILE> --params <PARAMETERS_JSON_FILE>
+
+
+For more information on policy assignment using CLI see [Azure CLI reference - az policy assignment]([https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 ### [PowerShell](#tab/Powershell)
 
 Get form dev
@@ -158,7 +166,7 @@ Built-in DeployIfNotExists policies exist for Log analytics, Event Hubs and Stor
 
 ## Next Steps
 
-* [Create diagnostic settings at scale using Azure Policy](./diagnostic-settings-policy)
-* [Azure Policy built-in definitions for Azure Monitor](../policy-reference)
-* [Azure Policy Overview](../../governance/policy/overview)
+* [Create diagnostic settings at scale using Azure Policy](./diagnostic-settings-policy.md)
+* [Azure Policy built-in definitions for Azure Monitor](../policy-reference.md)
+* [Azure Policy Overview](../../governance/policy/overview.md)
 * [Azure Enterprise Policy as Code](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-enterprise-policy-as-code-a-new-approach/ba-p/3607843)

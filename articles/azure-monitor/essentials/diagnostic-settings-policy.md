@@ -4,7 +4,7 @@ description: Use Azure Policy to create diagnostic settings in Azure Monitor to 
 author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
-aliasms.topic: conceptual
+ms.topic: conceptual
 ms.date: 02/25/2023
 ms.reviewer: lualderm
 ---
