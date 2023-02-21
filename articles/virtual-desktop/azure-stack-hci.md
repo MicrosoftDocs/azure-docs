@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
-This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview) manually or by using automated process.
+This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview) manually or through an automated process.
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
@@ -70,18 +70,18 @@ The custom template helps you:
 > [!NOTE]
 > If the host pool already exists, see [Expand an existing host pool with new session hosts](expand-existing-host-pool.md).
 
-After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy a custom template:
+After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) and [Step 2](#step-2-install-connected-machine-agent-on-the-virtual-machine), perform these steps to deploy from a custom template:
 
 1. Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
-    The template opens in the Azure portal. To find all the relevant custom     templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
-
-    > [!TIP] 
+    > [!TIP]
     > Hold down **CTRL** while selecting the button to open the Azure portal in a new browser tab.
+
+    The template opens in the Azure portal. To find all the relevant custom     templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 1. Select or enter the following values under **Project details**:
     
-    1. Select the correct **Subscription**.
+    1. From **Subscription**, select the correct subscription.
     1. In **Region**, select the Azure region for the host pool that’s right for you and your customers.
     1. In **Host Pool Name**, enter a unique name for your host pool.
     1. In **Location**, enter a region where you create the Host Pool, Workspace, and VMs. The metadata for these objects is stored in the geography associated with the region, such as **East US**. This location must match the Azure region you selected previously, in step b.
@@ -91,7 +91,7 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
 
     1. In **Domain**, enter the domain name to join your session hosts to the required domain.
     
-    1. In **O U Path**, enter the OU Path value for domain join. For example: OU=unit1,DC=contoso,DC=com.
+    1. In **O U Path**, enter the OU Path value for domain join. For example: `OU=unit1,DC=contoso,DC=com`.
    
     1. In **Domain Administrator Username** and **Domain Administrator Password**, enter the domain administrator credentials to join your session hosts to the domain.
 
@@ -109,7 +109,7 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
     
     1. In **Deployment Id**, enter the Deployment ID. A new GUID is created by default.
     
-    1. In **Validation Environment**, select the Validation Environment. The default is **false**.
+    1. In **Validation Environment**, select the validation environment. The default is **false**.
     
         :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-3.png" alt-text="Screenshot of the third part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-3.png" :::
 
