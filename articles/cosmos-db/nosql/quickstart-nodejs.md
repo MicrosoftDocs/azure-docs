@@ -160,7 +160,7 @@ From the project directory, open the *index.js* file. In your editor, import [@a
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="5-6":::
 
-Create an environment variables that specifies your Cosmos DB endpoint and key.
+Create environment variables that specify your Cosmos DB endpoint and key.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="8-11":::
 
@@ -201,7 +201,7 @@ The command line to create a database is for PowerShell, shown on multiple lines
 
 ## [Connection String](#tab/connection-string)
 
-Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method returns a reference to the existing or newly created database.
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="24-26":::
 
@@ -262,7 +262,7 @@ The partition key is specific to a container. In this Contoso Products container
 
 ### Query items
 
-Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that will manage the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual data objects.
+Add the following code to query for all items that match a specific filter. Create a [parameterized query expression](/javascript/api/@azure/cosmos/sqlqueryspec) then call the [``Container.Items.query``](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method. This method returns a [``QueryIterator``](/javascript/api/@azure/cosmos/queryiterator) that manages the pages of results. Then, use a combination of ``while`` and ``for`` loops to [``fetchNext``](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext) page of results as a [``FeedResponse``](/javascript/api/@azure/cosmos/feedresponse) and then iterate over the individual data objects.
 
 The query is programmatically composed to `SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'`.
 
