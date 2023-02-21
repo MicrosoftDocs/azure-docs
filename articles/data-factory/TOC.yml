@@ -339,7 +339,7 @@ items:
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Manage your environment with DataOps
-      href: applying-dataops.md
+      href: apply-dataops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
