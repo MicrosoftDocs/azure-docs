@@ -52,7 +52,7 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 500
 > [!NOTE]  
 > OpenAI continues to improve the ChatGPT model and the prompt format may change or evolve in the future. We'll keep this document updated with the latest information.
 
-OpenAI trained the ChatGPT model on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that to prime the model followed by a series of messages between the user and the assistant.
+OpenAI trained the ChatGPT model on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
 
 When starting a conversation, you should have a prompt that looks similar to the following code block:
 
@@ -75,7 +75,7 @@ The system message is included at the beginning of the prompt between the `<|im_
 * Instructions for the assistant
 * Data or information needed for the model
 
-You can customize the system prompt for your use case or just include a basic system prompt. The system prompt is optional, but it's recommended to at least include a basic one to get the best results.
+You can customize the system message for your use case or just include a basic system message. The system message is optional, but it's recommended to at least include a basic one to get the best results.
 
 ### Messages
 
@@ -91,7 +91,7 @@ To trigger a response from the model, the prompt should end with `<|im_start|>as
 
 ### Prompt examples
 
-The following section shows examples of different styles of prompts that you could use with the ChatGPT model. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your use case.
+The following section shows examples of different styles of prompts that you could use with the ChatGPT model. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your own use cases.
 
 #### Basic example
 
@@ -117,7 +117,7 @@ Assistant is an intelligent chatbot designed to help users answer their tax rela
 
 Instructions:
 - Only answer questions related to taxes. 
-- If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users got to the IRS website for more information.
+- If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.
 <|im_end|>
 <|im_start|>user
 What is the IRS?
@@ -134,12 +134,12 @@ You can also include relevant data or information in the system message to give 
 Assistant is an intelligent chatbot designed to help users answer technical questions about Azure OpenAI Serivce. Only answer questions using the context below and if you're not sure of an answer, you can say "I don't know".
 
 Context:
-- The Azure OpenAI service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
+- Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
 - Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 - At Microsoft, we're committed to the advancement of AI driven by principles that put people first. Microsoft has made significant investments to help guard against abuse and unintended harm, which includes requiring applicants to show well-defined use cases, incorporating Microsoft’s principles for responsible AI use
 <|im_end|>
 <|im_start|>user
-What is the Azure OpenAI Service?
+What is Azure OpenAI Service?
 <|im_end|>
 <|im_start|>assistant
 
@@ -185,7 +185,7 @@ openai.api_base = ""
 openai.api_version = "2022-12-01"
 openai.api_key = os.getenv('api_key')
 
-# defining a function to create the prompt from the system prompt and the messages
+# defining a function to create the prompt from the system message and the conversation messages
 def create_prompt(system_message, messages):
     prompt = system_message
     for message in messages:
@@ -193,9 +193,9 @@ def create_prompt(system_message, messages):
     prompt += "\n<|im_start|>assistant\n"
     return prompt
 
-# defining the user input and the system prompt
+# defining the user input and the system message
 user_input = "--the user's message--" # allow user input
-system_message = "<|im_start|>system\n{}\n<|im_end|>".format("--your system prompt--")
+system_message = "<|im_start|>system\n{}\n<|im_end|>".format("--your system message--")
 
 # creating a list of messages to track the conversation
 messages = [{"sender": "user", "text": user_input}]
