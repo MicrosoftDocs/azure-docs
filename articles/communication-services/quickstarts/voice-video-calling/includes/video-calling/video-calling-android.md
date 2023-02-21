@@ -84,7 +84,7 @@ dependencies {
 
 ## Add permissions to application manifest
 
-To request permissions required to make a call, you must first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
+To request permissions required to make a call, you must first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +127,7 @@ You need a text input for the caller ID or group call ID, a button for placing t
 
 Also need two buttons to turn on and turn off the local video. You need to place two containers for local and remote video streams. You can add these through the designer, or by editing the layout XML.
 
-Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following:
+Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +236,7 @@ Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of fi
 
 ## Create the main activity scaffolding and bindings
 
-With the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
+With, the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
 
 The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent`, as well as add the bindings for the call button. This occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
@@ -430,7 +430,7 @@ private void getAllPermissions() {
 ```
 
 > [!NOTE]
-> When you're designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
+> When you're designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see, the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
 
 ## Object model
 
