@@ -32,7 +32,7 @@ __Tracking__ refers to process of saving all experiment's related information th
 > - Evaluation visualizations (confusion matrix, importance plots)  
 > - Evaluation results (including some evaluation predictions)
 
-Some of this elements are automatically tracked by Azure Machine Learning when working with jobs (including code, environment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
+Some of these elements are automatically tracked by Azure Machine Learning when working with jobs (including code, environment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
 
 > [!NOTE] 
 > If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-synapse.md).
