@@ -69,8 +69,6 @@
   items:
     - name: Overview of Azure ML
       href: tutorial-azure-ml-in-a-day.md
-    - name: Run Jupyter notebooks
-      href: quickstart-run-notebooks.md
 - name: Tutorials
   expanded: true
   items:
@@ -80,6 +78,8 @@
           href: tutorial-explore-data.md
         - name: Develop on a cloud workstation
           href: tutorial-cloud-workstation.md
+        - name: Train a model
+          href: tutorial-train-model.md
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
     - name: Build models
