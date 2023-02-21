@@ -21,7 +21,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
-- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
@@ -101,7 +101,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that enable us to make and receive calls. 
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that enables to make and receive calls.
 
 Add the following code to **app.js**:
 
@@ -169,5 +169,5 @@ Open your browser and navigate to http://localhost:1234/. You should see the fol
 
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
-Calling `8:echo123` connects you with an echo bot, which is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
+Calling `8:echo123` connects you with an echo bot, which is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echo bot.
 To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.

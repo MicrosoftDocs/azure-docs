@@ -2,7 +2,7 @@
 ms.author: micahvivion
 title: Azure Communication Services Calling video WebJS video effects
 titleSuffix: An Azure Communication Services document
-description: In this document, you'll learn how to create video effects on an Azure Communication Services call.
+description: In this document, you learn how to create video effects on an Azure Communication Services call.
 author: sloanster
 services: azure-communication-services
 
@@ -28,7 +28,7 @@ ms.subservice: calling
 > [!NOTE]
 > Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
-The Azure Communication Calling SDK allows you to create video effects that other users on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. When background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
+The Azure Communication Calling SDK allows you to create video effects that other users on a call are able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. When the background blur is enabled, a user can feel more comfortable in doing a video call that the output video just show a user, and all other content will be blurred.
 
 ## Prerequisites
 ### Install the Azure Communication Services Calling SDK
@@ -50,7 +50,7 @@ Use ‘npm install’ command to install the Azure Communication Calling Effects
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects), for more details on the calling communication effects npm package page.
 
 ## Supported video effects:
 Currently the video effects support the following ability:
