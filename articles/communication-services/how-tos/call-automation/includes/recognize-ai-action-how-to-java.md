@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/16/2023
+ms.date: 02/16/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -90,6 +90,14 @@ In your POM file, add the following reference for the project
 ## Establish a call
 
 By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance we'll answer an incoming call.
+
+``` java
+AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
+answerCallOptions.setAzureCognitiveServicesEndpointUrl("https://sample-cognitive-service-resource.cognitiveservices.azure.com/");
+Response<AnswerCallResult> answerCallResult = callAutomationClient
+                                               .answerCallWithResponse(answerCallOptions)
+                                               .block();
+```
 
 ## Call the recognize action
 
