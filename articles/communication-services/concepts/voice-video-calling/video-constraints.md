@@ -103,7 +103,7 @@ There's an exception - when provided constraint value is too small, SDK chooses 
 > There is no gurantee that the sent video resolution will remain at the specified resolution.
 > This sender max video resolution constraint is supported on Desktop browsers and iOS Safari.
 
-The `height` in `VideoSendConstraints` has a different meaning when the mobile device is in portrait mode. This value indicates the shorter side of the device in portrait mode. For example, specifying `constraints.send.height.max` value with 240 on a 1080(W) x 1920(H) device in portrait mode, the constraint height is on 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)), the constraint hide is on 1080(H) side.
+The `height` in `VideoSendConstraints` has a different meaning when the mobile device is in portrait mode. In portrait mode, this value indicates the shorter side of the device. For example, specifying `constraints.send.height.max` value with 240 on a 1080(W) x 1920(H) device in portrait mode, the constraint height is on 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)), the constraint is on 1080(H) side.
 
 If you use MediaStats API to track the sent video resolution, you may find out that the sent resolution can change during the call. It can go up and down, but should be equal or smaller than the constraint value you provide. This resolution change is an expected behavior. The browser also has some degradation rule to adjust sent resolution based on cpu or network conditions.
 
