@@ -53,7 +53,7 @@ On the **Cache** page, specify the type and size of cache to create. These value
 Before you can choose throughput or storage capacity, you need to choose the cache type. Options include:
 
 * Read-write standard caching: A flexible general-purpose cache
-* Read-only caching: A high-throughput cache designed to minimize file access latency; modifications are handled with synchronous write-through operations.
+* Read-only caching: A high-throughput cache designed to minimize file access latency; modifications are handled with synchronous write-through operations
 * Read-write premium caching (Preview): An NVMe-optimized cache with the lowest latency and highest throughput
 <!-- * Read-only scalable standard caching (Preview): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
 
