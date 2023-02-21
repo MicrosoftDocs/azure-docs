@@ -210,13 +210,12 @@ The API call returns a **ModelPerformance** JSON object, which lists the model's
 The `imageanalysis:analyze` API does ordinary Image Analysis operations. By specifying some parameters, you can use this API to query your own custom model instead of the prebuilt Image Analysis models. Make the following changes to the cURL command below:
 
 1. Replace `<endpoint>` with your Computer Vision endpoint.
-1. Set the `features` query parameter to either `Tags` or `Objects`, depending on your project.
 1. Replace `<model-name>` with the name of your model.
 1. Replace `<subscription-key>` with your Computer Vision key.
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?features=Tags&model-version=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-version=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png'
 }"
 ```
