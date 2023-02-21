@@ -19,25 +19,11 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard tier
 
-This quickstart explains how to deploy a Spring Boot web application to Azure Spring Apps. Here is the diagram about the system:
+This quickstart explains how to deploy a Spring Boot web application to Azure Spring Apps. When you've completed this quickstart, the app will be accessible online, and you can manage it through the [Azure portal](https://ms.portal.azure.com/).
+
+Here is the diagram about the system:
 
 :::image type="content" source="media/quickstart-for-web-app/diagram.png" alt-text="Screenshot of Spring web app architecture." lightbox="media/quickstart-for-web-app/diagram.png":::
-
-This quickstart will go through the following steps:
-1. Build and run the sample code locally. (todo: update this after adding this content: connect Azure PostgreSQL in localhost)
-2. Prepare the cloud environment for running this application.
-   - Provision an Azure Spring Apps service instance.
-   - Create an app in created Azure Spring Apps instance.
-   - Create an Azure Database for PostgreSQL instance.
-   - Connect App to Azure Database for PostgreSQL.
-3. Deploy the code to cloud.
-
-The sample project is a typical 3 layers web application:
-1. Frontend is a bounded [React js](https://reactjs.org/) application.
-2. Backend is a spring web application that use Spring Data JPA to access a relational database.
-3. The [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) is used as the database.
-
-When you've completed this quickstart, the application will be accessible online, and you can manage it through the [Azure portal](https://ms.portal.azure.com/).
 
 ## Prerequisites
 
@@ -47,26 +33,40 @@ When you've completed this quickstart, the application will be accessible online
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 
-## Clone and build the sample project
-1. Clone sample project.
+## Build and run the sample project locally
+1. The sample project is ready on GitHub. Just clone sample project by this command:
     ```shell
     git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
     ```
-2. Build the sample project.
+    The sample project is a typical 3 layers web application:
+    1. Frontend is a bounded [React js](https://reactjs.org/) application.
+    2. Backend is a spring web application that use Spring Data JPA to access a relational database.
+    3. PostgreSQL is used as the relational database.
+2. Use docker to prepare the PostgreSQL database. Start a PostgreSQL docker container by this command:
+    ```shell
+    export POSTGRES_PASSWORD=mysecretpassword
+    docker run \
+        --name todo-postgres \
+        -e POSTGRES_DB=postgres \
+        -e POSTGRES_USER=postgres \
+        -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
+        -d \
+        -p 5432:5432 \
+        postgres:11.19-alpine
+    ```
+3. Build and run sample project.
     ```shell
     cd ASA-Samples-Web-Application
-    ./mvnw clean package
+    mvn clean package -DskipTests
+    mvn spring-boot:run -f web/pom.xml
     ```
-3. To run the sample in localhost, create a PostgreSQL by docker. (todo: Finish this)
-    ```shell
-    docker run \
-        --name some-postgres \
-        -e POSTGRES_PASSWORD=mysecretpassword \
-        -d postgres
-    ```
-4. Start the sample app in local host. (todo: Finish this)
+4. Access `http://localhost:8080` by browser, you will see a page like this:
 
-## Provision Azure Spring Apps
+> ![web.png](./assets/web.png)
+
+## Prepare the cloud environment
+
+### 1. Create resource group
 
 1. Login Azure ClI.
     ```azurecli-interactive
@@ -86,47 +86,55 @@ When you've completed this quickstart, the application will be accessible online
         --resource-group <name-of-resource-group> \
         --location eastus
     ```
-5. Create an Azure Spring Apps service instance.
+
+### Prepare Azure Spring Apps instance
+
+Azure Spring Apps will be used to host the spring web app. Let's create an Azure Spring Apps instance and create an app in the created Azure Spring Apps instance.
+
+1. Create an Azure Spring Apps service instance.
     ```azurecli-interactive
     az spring create \
         --resource-group <name-of-resource-group> \
         --name <name-of-azure-spring-apps-instance>
     ```
+2. Create an app in Azure Spring Apps instance:
+    ```azurecli-interactive
+    az spring app create \
+        --resource-group <name-of-resource-group> \
+        --service <name-of-azure-spring-apps-instance> \
+        --name <name-of-app> \
+        --runtime-version Java_17 \
+        --assign-endpoint true
+    ```
 
-## Create an app
-Create an app by this command:
+### Prepare PostgreSQL instance
+When run app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flesible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
+
 ```azurecli-interactive
-az spring app create \
+az postgres flexible-server create \
     --resource-group <name-of-resource-group> \
-    --service <name-of-azure-spring-apps-instance> \
-    --name <name-of-app> \
-    --runtime-version Java_17 \
-    --assign-endpoint true
+    --name <name-of-database-server> \
+    --database-name <name-of-database> \
+    --admin-user <admin-username> \
+    --admin-password <admin-password> \
+    --active-directory-auth Enabled
 ```
 
-## Provision Azure Database for PostgreSQL
-1. Create a PostgreSQL server.
-    ```azurecli-interactive
-    az postgres flexible-server create \
-        --resource-group <name-of-resource-group> \
-        --name <name-of-database-server> \
-        --database-name <name-of-database> \
-        --admin-user <admin-username> \
-        --admin-password <admin-password> \
-        --active-directory-auth Enabled
-    ```
-2. A CLI prompt asks if you want to enable access to your IP. Enter `y` to confirm.
+A CLI prompt asks if you want to enable access to your IP. Enter `n` to confirm.
 
-## Connect app to the Database
-1. Register the Service Connector resource provider.
+## Connect app instance to PostgreSQL instance
+
+After app instance and the PostgreSQL instance been created, the app instance can not access the PostgreSQL instance directly. Some network settings and connection information should be configured. [Service Connector](/azure/service-connector/overview) is used to help do this work.
+
+1. If you're using Service Connector for the first time, register the Service Connector resource provider first.
     ```azurecli-interactive
     az provider register --namespace Microsoft.ServiceLinker
     ```
-2. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI.
+2.  `serviceconnector-passwordless` is an Azure CLI extension. It can be used to help the app instance connect to the PostgreSQL instance without password. Add this extension by this command:
     ```azurecli-interactive
     az extension add --name serviceconnector-passwordless --upgrade
     ```
-3. Create a service connection between Azure Spring Apps and the PostgreSQL.
+3. Now preparation is ready, create a service connection between Azure Spring Apps and the PostgreSQL by this command:
     ```azurecli-interactive
     az spring connection create postgres-flexible \
         --resource-group <name-of-resource-group> \
@@ -139,7 +147,7 @@ az spring app create \
         --system-identity \
         --connection <name-of-connection>
     ```
-4. Check connection to PostgreSQL.
+4. After connection created, use this command to check connection:
     ```azurecli-interactive
     az spring connection validate \
         --resource-group <name-of-resource-group> \
@@ -147,7 +155,7 @@ az spring app create \
         --app <name-of-app> \
         --connection <name-of-connection>
     ```
-    The output may look like this:
+    If everything goes well, the output should look like this:
     ```json
     [
       {
@@ -177,11 +185,8 @@ az spring app create \
     ]
     ```
 
-## Connect Azure Database in localhost by passwordless
-(todo: 1. finish this. 2. Change order like this: create db -> connect db in localhost -> create asa -> deploy to asa)
-
 ## Deploy the app to Azure Spring Apps
-1. Deploy the app.
+1. Now the cloud environment is ready. Deploy the app by this command:
     ```azurecli-interactive
     az spring app deploy \
         --resource-group <name-of-resource-group> \
@@ -189,15 +194,14 @@ az spring app create \
         --name <name-of-app> \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-2. You can check the app's log by this command:
+2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like the page in localhost.
+3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
         --resource-group <name-of-resource-group> \
         --service <name-of-azure-spring-apps-instance> \
         --name <name-of-app>
     ```
-3. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. Then you can see a page like this:
-   :::image type="content" source="media/quickstart-for-web-app/todo-app.png" alt-text="Screenshot of ToDo app." lightbox="media/quickstart-for-web-app/todo-app.png":::
 
 ## Clean up resources
 1. Use the following commands to delete the resource group.
@@ -207,6 +211,7 @@ az spring app create \
 
 ## Next steps
 1. [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Secrets).
-2. [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
-3. [Spring on Azure](/azure/developer/java/spring/)
-4. [Spring Cloud Azure](/azure/developer/java/spring-framework/)
+1. [Create a service connection in Azure Spring Apps with the Azure CLI](/azure/service-connector/quickstart-cli-spring-cloud-connection).
+1. [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+1. [Spring on Azure](/azure/developer/java/spring/)
+1. [Spring Cloud Azure](/azure/developer/java/spring-framework/)
