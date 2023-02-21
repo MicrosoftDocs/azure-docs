@@ -30,10 +30,10 @@ This article lists common issues related to NFS Azure file shares and provides p
 Because Azure Files disallows alphanumeric UID/GID, you must disable idmapping.
 
 ### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
-Even if idmapping is correctly disabled, it can be automatically re-enabled in some cases. For example, when Azure Files encounters a bad file name, it sends back an error. Upon seeing this error code, an NFS 4.1 Linux client decides to re-enable idmapping, and sends future requests with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
+Even if you correctly disable idmapping, it can be automatically re-enabled in some cases. For example, when Azure Files encounters a bad file name, it sends back an error. Upon seeing this error code, an NFS 4.1 Linux client decides to re-enable idmapping, and sends future requests with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
 
 ### Workaround
-Check that idmapping is disabled and that nothing is re-enabling it. Then perform the following steps:
+Make sure you've disabled idmapping and that nothing is re-enabling it. Then perform the following steps:
 
 - Unmount the share
 - Disable idmapping with `# echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping`
@@ -64,7 +64,7 @@ Unlike SMB, NFS doesn't have user-based authentication. The authentication for a
 - [Service endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
     - Accessed by the public endpoint.
     - Only available in the same region.
-    - VNet peering won't give access to your share.
+    - You can't use VNet peering for share access.
     - You must add each virtual network or subnet individually to the allowlist.
     - For on-premises access, you can use service endpoints with ExpressRoute, point-to-site, and site-to-site VPNs. We recommend using a private endpoint because it's more secure.
 
@@ -90,7 +90,7 @@ Disable **secure transfer required** in your storage account's configuration bla
 
 :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
-### Cause 3: nfs-common package is not installed
+### Cause 3: nfs-common package isn't installed
 Before running the `mount` command, install the nfs-common package.
 
 To check if the NFS package is installed, run: `rpm qa | grep nfs-utils`
@@ -127,7 +127,7 @@ Verify that port 2049 is open on your client by running the following command: `
 ## ls hangs for large directory enumeration on some kernels
 
 ### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.
-Some kernel versions have a bug that causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call won't have the problem.
+Some kernel versions have a bug that causes directory listings to result in an endless READDIR sequence. Small directories where all entries can be shipped in one call don't have this problem.
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 has this kernel version.
 
 #### Workaround: Downgrade or upgrade the kernel
