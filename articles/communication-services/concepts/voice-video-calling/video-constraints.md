@@ -20,7 +20,7 @@ ms.subservice: calling
 Video Constraints API enables developers to set video constraints.
 There are some scenarios we don't have to send higher resolution video.
 For example, you may only want to provide low resolution video stream in a screen-sharing application.
-When video quality isn't a top priority, you may want to limit the video bandwidth usage in the application.
+Also, when video quality isn't a top priority, you may want to limit the video bandwidth usage in the application.
 
 Currently we only support the max video resolution constraint on the sender side in the beginning of a call.
 Other constraints, such as max fps or max bandwidth isn't supported at this moment.
