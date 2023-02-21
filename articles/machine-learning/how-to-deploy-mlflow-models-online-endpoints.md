@@ -565,35 +565,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __score.py__
 
-    ```python
-    import logging
-    import mlflow
-    import os
-    from io import StringIO
-    from mlflow.pyfunc.scoring_server import infer_and_parse_json_input, predictions_to_json
-
-    def init():
-        global model
-        global input_schema
-        # The path 'model' corresponds to the path where the MLflow artifacts where stored when
-        # registering the model using MLflow format.
-        model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model')
-        model = mlflow.pyfunc.load_model(model_path)
-        input_schema = model.metadata.get_input_schema()
-    
-    def run(raw_data):
-        json_data = json.loads(raw_data)
-        if "input_data" not in json_data.keys():
-            raise Exception("Request must contain a top level key named 'input_data'")
-        
-        serving_input = json.dumps(json_data["input_data"])
-        data = infer_and_parse_json_input(serving_input, input_schema)
-        result = model.predict(data)
-        
-        result = StringIO()
-        predictions_to_json(raw_predictions, result)
-        return result.getvalue()
-    ```
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/src/score.py":::
 
     > [!TIP]
     > The previous scoring script is provided as an example about how to perform inference of an MLflow model. You can adapt this example to your needs or change any of its parts to reflect your scenario.
@@ -607,21 +579,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    ```yaml
-    channels:
-    - conda-forge
-    dependencies:
-    - python=3.7.11
-    - pip
-    - pip:
-      - mlflow
-      - scikit-learn==0.24.1
-      - cloudpickle==2.0.0
-      - psutil==5.8.0
-      - pandas==1.3.5
-      - azureml-inference-server-http
-    name: mlflow-env
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yml":::
 
     > [!NOTE]
     > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 
@@ -666,20 +624,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     Create a deployment configuration file:
     
-    ```yaml
-    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-    name: sklearn-diabetes-custom
-    endpoint_name: my-endpoint
-    model: azureml:sklearn-diabetes@latest
-    environment: 
-      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-      conda_file: mlflow/sklearn-diabetes/environment/conda.yml
-    code_configuration:
-      code: mlflow/sklearn-diabetes/src
-      scoring_script: score.py
-    instance_type: Standard_F2s_v2
-    instance_count: 1
-    ```
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-deployment-with-script.yaml":::
     
     Create the deployment:
     
