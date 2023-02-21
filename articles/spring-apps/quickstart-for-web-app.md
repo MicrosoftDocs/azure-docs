@@ -87,7 +87,7 @@ Here is the diagram about the system:
         --location eastus
     ```
 
-### Prepare Azure Spring Apps instance
+### 2. Prepare Azure Spring Apps instance
 
 Azure Spring Apps will be used to host the spring web app. Let's create an Azure Spring Apps instance and create an app in the created Azure Spring Apps instance.
 
@@ -107,7 +107,7 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
         --assign-endpoint true
     ```
 
-### Prepare PostgreSQL instance
+### 3. Prepare PostgreSQL instance
 When run app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flesible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
 
 ```azurecli-interactive
@@ -122,7 +122,7 @@ az postgres flexible-server create \
 
 A CLI prompt asks if you want to enable access to your IP. Enter `n` to confirm.
 
-## Connect app instance to PostgreSQL instance
+### 4. Connect app instance to PostgreSQL instance
 
 After app instance and the PostgreSQL instance been created, the app instance can not access the PostgreSQL instance directly. Some network settings and connection information should be configured. [Service Connector](/azure/service-connector/overview) is used to help do this work.
 
