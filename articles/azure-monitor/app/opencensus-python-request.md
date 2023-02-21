@@ -28,7 +28,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -70,7 +70,7 @@ You can find a Django sample application in the sample Azure Monitor OpenCensus 
     
     ```
 
-2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -101,7 +101,7 @@ You can find a Flask sample application that tracks requests in the Azure Monito
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. You can configure your `pyramid` tween directly in the code. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can configure your `pyramid` tween directly in the code. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     settings = {
