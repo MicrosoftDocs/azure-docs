@@ -71,7 +71,6 @@ Object detection is similar to tagging, but the API returns the bounding box coo
 
 :::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
 
-
 ### Detect brands (v3.2 only)
 
 Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. [Detect brands](concept-brand-detection.md)
@@ -89,6 +88,10 @@ The version 4.0 image captioning model is a more advanced implementation and wor
 [Describe an image (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describing-images-40.md)
 
 :::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
+
+### Generate dense captions (v4.0 preview only)
+
+Dense captioning lets you generate detailed captions for individual objects that are found in an image. It's similar to object detection but uses the latest Florence AI models to generate rich captions for each object, instead of simply naming the object. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image. [Dense captions](concept-dense-captioning.md)
 
 ### Detect faces (v3.2 only)
 

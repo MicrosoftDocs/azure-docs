@@ -148,8 +148,10 @@ items:
         href: concept-object-detection-40.md
       - name: Content tags
         href: concept-tagging-images-40.md
-      - name: Image descriptions
+      - name: Image captions
         href: concept-describing-images-40.md
+      - name: Dense captions
+        href: concept-dense-captioning.md
       - name: Reading text
         href: concept-ocr.md
       - name: Smart-cropped thumbnails
