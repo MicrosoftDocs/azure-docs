@@ -47,6 +47,9 @@ To complete registration, provide the application a name and specify the support
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
+>[!NOTE]
+> The **Supported account types** can be changed by referring to [Modify the accounts supported by an application](howto-modify-supported-accounts.md). 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
