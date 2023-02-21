@@ -214,7 +214,7 @@ for pager.More() {
 
 ### Download the blob
 
-The code sample downloads a blob using the [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method, and creates a retry reader for reading data. If a connection fails while reading, the retry reader makes other requests to re-establish a connection and continue reading. You can specify retry reader options using the [RetryReaderOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#RetryReaderOptions) struct.
+The code sample downloads a blob using the [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method. If a connection fails, the client will re-try the download according to the [RetryOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/policy#RetryOptions) specified when creating the client.
 
 The following code example downloads a blob and writes the contents to the console:
 
@@ -223,12 +223,7 @@ The following code example downloads a blob and writes the contents to the conso
 get, err := client.DownloadStream(ctx, containerName, blobName, nil)
 handleError(err)
 
-downloadedData := bytes.Buffer{}
-retryReader := get.NewRetryReader(ctx, &azblob.RetryReaderOptions{})
-_, err = downloadedData.ReadFrom(retryReader)
-handleError(err)
-
-err = retryReader.Close()
+_, err = downloadedData.ReadFrom(get.Body)
 handleError(err)
 
 // Print the contents of the blob we created
