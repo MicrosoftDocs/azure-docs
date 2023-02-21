@@ -1,5 +1,5 @@
 ---
-title: "Intent recognition quickstart - Speech service"
+title: "Intent recognition with CLU quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you recognize intents from audio data with the Speech service and Language service.
 services: cognitive-services

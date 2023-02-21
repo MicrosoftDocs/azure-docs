@@ -22,7 +22,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Recognize speech from a microphone
+## Recognize intents from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
@@ -40,6 +40,7 @@ Follow these steps to create a new console application and install the Speech SD
     
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
+    using namespace Microsoft::CognitiveServices::Speech::Intent;
     
     std::string GetEnvironmentVariable(const char* name);
     
@@ -51,7 +52,10 @@ Follow these steps to create a new console application and install the Speech SD
         auto languageEndpoint = GetEnvironmentVariable("LANGUAGE_ENDPOINT");
         auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
         auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
-        
+    
+        auto cluProjectName = "YourProjectNameGoesHere";
+        auto cluDeploymentName = "YourDeploymentNameGoesHere";
+    
         if ((size(languageKey) == 0) || (size(languageEndpoint) == 0) || (size(speechKey) == 0) || (size(speechRegion) == 0)) {
             std::cout << "Please set LANGUAGE_KEY, LANGUAGE_ENDPOINT, SPEECH_KEY, and SPEECH_REGION environment variables." << std::endl;
             return -1;
@@ -62,14 +66,35 @@ Follow these steps to create a new console application and install the Speech SD
         speechConfig->SetSpeechRecognitionLanguage("en-US");
     
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+        auto intentRecognizer = IntentRecognizer::FromConfig(speechConfig, audioConfig);
+    
+        std::vector<std::shared_ptr<LanguageUnderstandingModel>> models;
+    
+        auto cluModel = ConversationalLanguageUnderstandingModel::FromResource(
+            languageKey,
+            languageEndpoint,
+            cluProjectName,
+            cluDeploymentName);
+    
+        models.push_back(cluModel);
+        intentRecognizer->ApplyLanguageModels(models);
     
         std::cout << "Speak into your microphone.\n";
-        auto result = recognizer->RecognizeOnceAsync().get();
+        auto result = intentRecognizer->RecognizeOnceAsync().get();
     
-        if (result->Reason == ResultReason::RecognizedSpeech)
+        if (result->Reason == ResultReason::RecognizedIntent)
         {
             std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            std::cout << "  Intent Id: " << result->IntentId << std::endl;
+    
+            // The IntentService_DetailedResult property is a temporary preview and will be replaced 
+            // by LanguageUnderstandingServiceResponse_JsonResult in a future release.
+            std::cout << "  Intent Service JSON: " << result->Properties.GetProperty("IntentService_DetailedResult") << std::endl;
+            //std::cout << "  Intent Service JSON: " << result->Properties.GetProperty(PropertyId::LanguageUnderstandingServiceResponse_JsonResult) << std::endl;
+        }
+        else if (result->Reason == ResultReason::RecognizedSpeech)
+        {
+            std::cout << "RECOGNIZED: Text=" << result->Text << " (intent could not be recognized)" << std::endl;
         }
         else if (result->Reason == ResultReason::NoMatch)
         {
@@ -84,7 +109,7 @@ Follow these steps to create a new console application and install the Speech SD
             {
                 std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
                 std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-                std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
+                std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
             }
         }
     }

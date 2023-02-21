@@ -22,7 +22,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Recognize speech from a microphone
+## Recognize intents from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
@@ -74,7 +74,7 @@ Follow these steps to create a new console application and install the Speech SD
                 collection.Add(cluModel);
                 intentRecognizer.ApplyLanguageModels(collection);
     
-                Console.WriteLine("Say something ...");
+                Console.WriteLine("Speak into your microphone.");
                 var recognitionResult = await intentRecognizer.RecognizeOnceAsync().ConfigureAwait(false);
                 
                 // Checks result.
