@@ -44,7 +44,7 @@ In general, there will be four stages in a graceful shutdown process:
 
     Azure SignalR Service will try to reroute the client connection on this server to another valid server. 
     
-    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `Context`, which can be used to identify if the client connection was being migrated-in or migrated-out. It could be useful especially for stateful scenarios.
+    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `Context`, which can be used to identify if the client connection was being migrated-in or migrated-out. This feature could be useful especially for stateful scenarios.
 
     The client connection will be immediately migrated after the current message has been delivered, which means the next message will be routed to the new server.
 
