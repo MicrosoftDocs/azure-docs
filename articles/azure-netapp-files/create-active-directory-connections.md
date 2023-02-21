@@ -100,7 +100,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * **AD Site Name (required)**  
         This is the AD DS site name that will be used by Azure NetApp Files for domain controller discovery.  
         
-        The default site name for both ADDS and AADDS is `Default-First-Site-Name`. Follow the [naming conventions for site names](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#site-names) if you want to rename the site name.
+        The default site name for both AD DS and Azure AD DS is `Default-First-Site-Name`. Follow the [naming conventions for site names](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#site-names) if you want to rename the site name.
 
          >[!NOTE]
          > See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md). Ensure that your AD DS site design and configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
