@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 02/17/2023
 ---
 
 # Change data capture resource overview
@@ -32,6 +32,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Avro
 * Azure Cosmos DB (SQL API)
 * Azure SQL Database
+* Azure SQL Managed Instance
 * Delimited Text
 * JSON
 * ORC
@@ -43,6 +44,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 * Avro
 * Azure SQL Database
+* SQL Managed Instance
 * Delimited Text
 * Delta
 * JSON
