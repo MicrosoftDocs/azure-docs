@@ -12,7 +12,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Add sign in to an application
 
-In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
+In the [previous tutorial](web-app-tutorial-02-prepare-application.md), an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
 
 In this tutorial:
 
@@ -27,7 +27,7 @@ In this tutorial:
 
 ## Install identity packages
 
-Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
+Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -41,24 +41,23 @@ Identity related **NuGet packages** must be installed in the project for authent
 1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
 
     ```powershell
-    dotnet add package Microsoft.Identity.Web 
-    dotnet add package Microsoft.Identity.Web.UI 
-    dotnet add package Microsoft.Identity.Web.Diagnostics 
-    ```
+    dotnet add package Microsoft.Identity.Web
+    dotnet add package Microsoft.Identity.Web.UI
+    dotnet add package Microsoft.Identity.Web.Diagnostics
+    ``` 
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
 1. In the top menu, select **Tools** > **Manage NuGet Packages**.
-1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
+1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**. 
 1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
 1. In the pop-up, ensure the correct project is selected, then select **Ok**.
-1. Select **Accept** if additional **License Acceptance** windows appear. 
+1. Select **Accept** if additional **License Acceptance** windows appear.
 ---
-
 
 ## Implement authentication and acquire tokens
 
-1. Open *Program.cs* and replace the entire file contents with the following snippet: 
+1. Open *Program.cs* and replace the entire file contents with the following snippet:
 
     ```csharp
     // Imports packages

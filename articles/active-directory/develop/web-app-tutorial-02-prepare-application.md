@@ -8,16 +8,18 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
+
+# Review Stage 3: PM Review - (ADO-54212)
 ---
 
 # Tutorial: Prepare an application for authentication
 
-This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment (IDE). You'll create and upload a self-signed certificate and configure the application for authentication.
+After registration is complete, a .NET web application can be created using an integrated development environment (IDE). This tutorial demonstrates how to create an **ASP.NET Core Web App** using an IDE. You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
 
 In this tutorial:
 
 > [!div class="checklist"]
-> * Create an ASP.NET Core project
+> * Create an **ASP.NET Core Web App**
 > * Create a self-signed certificate
 > * Configure the settings for the application
 > * Define platform settings and URLs
@@ -25,16 +27,15 @@ In this tutorial:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application with the Microsoft identity platform](web-app-tutorial-01-register-application.md).
-* Although any IDE that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* You can download an IDE used in this tutorial [here](https://visualstudio.microsoft.com/downloads).
     - Visual Studio 2022
     - Visual Studio Code
     - Visual Studio 2022 for Mac
-* Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
 * A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 ## Create an ASP.NET Core project
 
-After registering an application on the Azure portal, a .NET web application needs to be created using an IDE. Use the tabs to create an ASP.NET Core project with your IDE.
+Use the following tabs to create an ASP.NET Core project within an IDE.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -47,10 +48,10 @@ After registering an application on the Azure portal, a .NET web application nee
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
+1. Open Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
 1. Open a new terminal by selecting **Terminal > New Terminal**.
-1. Run the following commands in the terminal to change into the directory and create the project:
+1. To create an **ASP.NET Core Web App** template, run the following commands in the terminal to change into the directory and create the project:
 
 ```powershell
 cd NewWebAppLocal
@@ -70,7 +71,7 @@ dotnet new webapp
 
 ## Create and upload a self-signed certificate
 
-The use of certificates is suggested for securing the application. For the purpose of this tutorial, a self-signed certificate will be created in the project directory. Certificates issued by a certificate authority should be used for production.
+The use of certificates is a suggested way of securing communication between client and server. For the purpose of this tutorial, a self-signed certificate will be created in the project directory. Learn more about self-signed certificates [here](howto-create-self-signed-certificate.md).
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -92,7 +93,7 @@ The use of certificates is suggested for securing the application. For the purpo
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. Locate the **Terminal** option in your project. 
+1. Locate the **Terminal** option in your project.
 
 1. Enter the following command to create a new self-signed certificate:
 
@@ -110,7 +111,7 @@ To make the certificate available to the application, it must be uploaded into t
 
     :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
-1. Select the folder icon, then browse for and select the certificate that was previously created.
+1. Select the **folder** icon, then browse for and select the certificate that was previously created.
 1. Enter a description for the certificate and select **Add**.
 1. Record the **Thumbprint** value, which will be used in the next step.
 
@@ -120,7 +121,7 @@ To make the certificate available to the application, it must be uploaded into t
 
 The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. As the application will also call into a web API, it must also contain a reference to it.
 
-1. Open *appsettings.json* and replace the file contents with the following snippet:
+1. Open *appsettings.json* and replace the file contents with the following snippet: 
   
     ``` json
     {
@@ -155,12 +156,11 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
-    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. 
+    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
     * `DownstreamApi` - Is an identifier that defines an endpoint for accessing Microsoft Graph. The application URI is combined with the specified scope. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different.
 1. Save changes to the file.
 1. In the **Properties** folder, open the *launchSettings.json* file.
 1. Find and record the `https` value within *launchSettings.json*, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
-
 
 ## Define the platform and URLs
 

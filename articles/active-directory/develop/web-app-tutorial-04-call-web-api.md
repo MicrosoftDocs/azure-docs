@@ -12,7 +12,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Call an API and display the results
 
-The application can now be configured to call an API. For the purposes of this tutorial, the Microsoft Graph API will be called to display the profile information of the logged-in user. 
+The application can now be configured to call an API. For the purposes of this tutorial, the Microsoft Graph API will be called to display the profile information of the logged-in user.
 
 In this tutorial:
 
@@ -26,7 +26,7 @@ In this tutorial:
 
 ## Call the API and display the results
 
-1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet. Check that the project `namespace` matches your project name. 
+1. Under **Pages**, open the *Index.cshtml.cs* file and replace the entire contents of the file with the following snippet. Check that the project `namespace` matches your project name.
 
     ```csharp
     using System.Text.Json;
@@ -42,7 +42,7 @@ In this tutorial:
     {
         // Define API object and gets added to the logger
         private readonly IDownstreamWebApi _downstreamWebApi;
-        private readonly ILogger<IndexModel> _logger;    
+        private readonly ILogger<IndexModel> _logger;
         public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
         {
           _logger = logger;
@@ -66,8 +66,8 @@ In this tutorial:
         }
     }
     ```
-  
-1. Open the *Index.cshtml* file, which handles how the API is displayed to the user. Add the following code at the bottom of the file:
+
+1. Open *Index.cshtml* and add the following code to the bottom of the file. This will handle how the information received from the API is displayed:
 
 	```html
     <p>Before rendering the page, the Page Model was able to make a call to Microsoft Graph's <code>/me</code> API for your user and received the following:</p>
@@ -90,11 +90,11 @@ In this tutorial:
     ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
-1. Start the application by selecting the **Play** icon. 
+1. Start the application by selecting the **Play** icon.
 
 ---
 
-2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account with which to sign in.
+2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign in window appears, select the account in which to sign in with. Ensure the account matches the criteria of the app registration.
 
     :::image type="content" source="./media/web-app-tutorial-04-call-web-api/pick-account.png" alt-text="Screenshot depicting account options to sign in.":::
  
