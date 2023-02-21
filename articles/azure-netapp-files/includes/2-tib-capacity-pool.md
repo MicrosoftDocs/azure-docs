@@ -13,4 +13,5 @@ ms.custom: include file
 # azure-netapp-files-resize-capacity-pools-or-volumes.md
 ---
 
-2 TiB capacity pool sizing is currently in preview. The 2-TiB minimum is only supported with Standard network features. With Basic network features, the minimum size is 4 TiB.
+2-TiB capacity pool sizing is currently in preview. You can only take advantage of the 2-TiB minimum if you are using Standard network features. With Basic network features, the minimum size is 4 TiB.
+
