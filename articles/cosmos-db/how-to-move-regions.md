@@ -75,7 +75,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 1. Delete any resources that you no longer need.
 
-    With requests now fully redirected to the new instance, you can delete the old Azure Cosmos DB account and the Live Data Migrator tool.
+    With requests now fully redirected to the new instance, you can delete the old Azure Cosmos DB account and stop the Live Data Migrator sample.
 
 ## Next steps
 
