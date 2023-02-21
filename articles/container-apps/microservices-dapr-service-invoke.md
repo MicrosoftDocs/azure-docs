@@ -666,3 +666,16 @@ Upon successful completion of the `azd up` command:
 
 
 ::: zone-end
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete the Azure resources you've provisioned with the following command:
+
+```azdeveloper
+azd down
+```
+
+## Next steps
+
+- Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- Learn more about [Azure Developer CLI](/developer/azure-developer-cli/overview.md) and [making your applications compatible with `azd`](/developer/azure-developer-cli/make-azd-compatible.md).
