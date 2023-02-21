@@ -4,7 +4,7 @@ description: How to create an Azure Virtual Desktop host pool by using the Azure
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 02/24/2023
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
 ---
@@ -312,24 +312,6 @@ If you'd rather use an automated process, [download our Azure Resource Manager t
 
 >[!NOTE]
 >If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file.
-
-## Give personal host pools a friendly name
-
-You can give personal host pools you create *friendly names* to help users distinguish them in their feeds.
-
-To give a host pool a friendly name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Enter **Azure Virtual Desktop** into the search bar.
-1. Under **Services**, select **Azure Virtual Desktop**.
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-1. Select the host pool where the session host you want to rename is located.
-1. Select **Session hosts**.
-1. Select the name of the session host you’d like to give a friendly name.
-1. In the *Friendly name* field, enter the name you’d like to give the session host. If a session host in a personal host pool has a non-null friendly name set, the friendly name will be shown in the feed instead of the application name.
-
->[!NOTE]
->You can also set the friendly name by using [PowerShell](create-host-pools-powershell.md#give-personal-host-pools-a-friendly-name) or a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
 
 ## Next steps
 

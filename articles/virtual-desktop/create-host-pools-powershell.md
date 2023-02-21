@@ -3,7 +3,7 @@ title: Create Azure Virtual Desktop host pool - Azure
 description: How to create a host pool in Azure Virtual Desktop with PowerShell or the Azure CLI.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 07/23/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -183,33 +183,6 @@ To update the agent:
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. Once you've uninstalled these items, this should remove all associations with the old host pool. If you want to reregister this host to the service, follow the instructions in [Register the virtual machines to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
-
-## Give personal host pools a friendly name
-
-You can give personal host pools you create *friendly names* to help users distinguish them in their feeds.
-
-To give a host pool a friendly name, run the following command:
-
-```powershell
-$body = @{
-    'properties.friendlyName' = 'friendlyName'
-} | ConvertTo-Json
-
-$subscriptionId = '11111111-1111-1111-1111-111111111111'
-$resourceGroupName = 'MyResourceGroupName'
-$hostPoolName = 'MyHostPoolName'
-
-$parameters = @{
-    Method = 'Post'
-    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
-    Payload = $body
-}
-
-Invoke-AzRestMethod @parameters
-```
-
->[!NOTE]
->You can also set the friendly name by using [the Azure portal](create-host-pools-azure-marketplace.md#give-personal-host-pools-a-friendly-name) or a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
 
 ## Next steps
 

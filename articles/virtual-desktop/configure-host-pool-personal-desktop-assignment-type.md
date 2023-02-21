@@ -3,12 +3,12 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 02/24/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Configure the personal desktop host pool assignment type
+# Configure personal desktop host pool assignment
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
@@ -122,6 +122,33 @@ To reassign a personal desktop in the Azure portal:
 
 8. Select the user you want to assign the session host to from the list of available users.
 9. When you're done, select **Select**.
+
+## Give session hosts within a personal host pools a friendly name
+
+You can give personal host pools you create *friendly names* to help users distinguish them in their feeds.
+
+To give a host pool a friendly name, run the following command:
+
+```powershell
+$body = @{
+    'properties.friendlyName' = 'friendlyName'
+} | ConvertTo-Json
+
+$subscriptionId = '11111111-1111-1111-1111-111111111111'
+$resourceGroupName = 'MyResourceGroupName'
+$hostPoolName = 'MyHostPoolName'
+
+$parameters = @{
+    Method = 'Post'
+    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
+    Payload = $body
+}
+
+Invoke-AzRestMethod @parameters
+```
+
+>[!NOTE]
+>You can also set the friendly name by using a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
 
 ## Next steps
 
