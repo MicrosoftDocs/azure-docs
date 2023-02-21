@@ -16,7 +16,7 @@ Azure Monitor collects and aggregates the data from every layer and component of
 
 Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (Operations Manager) installation to the cloud in Azure.
 
-Use Azure Monitor to monitor these types resources in Azure, other clouds, or on-premises: 
+Use Azure Monitor to monitor these types of resources in Azure, other clouds, or on-premises: 
   - Applications 
   - Virtual machines
   - Guest operating systems 

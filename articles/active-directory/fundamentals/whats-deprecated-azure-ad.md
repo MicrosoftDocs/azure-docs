@@ -29,7 +29,7 @@ Use the following table to learn about changes including deprecations, retiremen
 
 |Functionality, feature, or service|Change|Change date |
 |---|---|---:|
-|Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|Feb 27, 2023|
+|Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|May 8, 2023|
 |Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|
 |[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|*Mar 31, 2023|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|
