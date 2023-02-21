@@ -21,7 +21,7 @@ ms.custom: references_regions
     > [!NOTE]
     > Application Insights resources can use availability zones only if they're workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources can't use availability zones.
     
-## Data resiliency - supported regions
+## Data resilience - supported regions
 
 Availability zones protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. 
 
@@ -39,9 +39,9 @@ Azure Monitor currently supports data resilience for availability-zone-enabled d
   | West US 2 | Switzerland North | | | |
   | West US 3 | | | | |
 
-## Service resiliency - supported regions
+## Service resilience - supported regions
 
-When available in your region, Azure Monitor availability zones enhance your Azure Monitor service resiliency automatically. Physical separation and independent infrastructure makes interruption of service availability in your Log Analytics workspace far less likely because the Log Analytics workspace can rely on resources from a different zone. 
+When available in your region, Azure Monitor availability zones enhance your Azure Monitor service resilience automatically. Physical separation and independent infrastructure makes interruption of service availability in your Log Analytics workspace far less likely because the Log Analytics workspace can rely on resources from a different zone. 
 
 Azure Monitor currently supports service resilience for availability-zone-enabled dedicated clusters in these regions:
 
