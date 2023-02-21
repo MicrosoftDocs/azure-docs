@@ -9,7 +9,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: compute-evergreen 
-author: tagore
+
 ---
 
 # Azure Cloud Services (classic) Config NetworkConfiguration Schema
