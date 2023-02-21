@@ -329,16 +329,6 @@ List of linked servers | sys.servers
 List of agent job |	[msdb].[dbo].[sysjobs], [sys].[syslogins], [msdb].[dbo].[syscategories]
 Always On Availability Groups, Replicas, and their states | sys.availability_groups, sys.dm_hadr_availability_group_states, sys.availability_group_listeners, sys.availability_group_listener_ip_addresses, sys.availability_replicas, sys.dm_hadr_availability_replica_states 
 Always On Failover Clustered Instance | sys.dm_hadr_cluster, sys.dm_hadr_cluster_members, sys.dm_hadr_cluster_networks 
-Availability groups and replicas | sys.availability_groups
-Always On Availability Groups, Replicas, and their states | sys.dm_hadr_availability_group_states
-Returns a row for each of the availability replicas that belong to any Always On availability group in the WSFC failover cluster. | sys.availability_replicas
-Local replicas, remote replica in the same Always On availability group as a local replica, and its state | sys.dm_hadr_availability_replica_states
-Cluster name and information about the quorum. | sys.dm_hadr_cluster
-Members of the quorum and their state.  | sys.dm_hadr_cluster_members
-Every WSFC cluster member that is participating in an availability group's subnet configuration. | sys.dm_hadr_cluster_networks
-For each Always On availability group, returns either zero rows indicating that no network name is associated with the availability group, or returns a row for each availability-group listener configuration in the Windows Server Failover Clustering (WSFC) cluster. | sys.availability_group_listeners
-IP address of Always On availability group listener in the WSFC cluster. | sys.availability_group_listener_ip_addresses
-Database of Always On availability group, replicas, and their states. | sys.dm_hadr_database_replica_states
 
 ### Performance metadata
 

@@ -195,14 +195,6 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 ### Servers to SQL Server on Azure VM configuration
 For *All servers to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-performance-based).
 
-### Recommendation details 
-
-Once the readiness and sizing calculation is complete, the optimization preference is applied to arrive at a recommended target and configuration. The Recommendation Details provide a detailed explanation of the readiness and sizing calculations behind the recommendation.   
-
-### Migration Guidance 
-
-This section provides guidance to configure the target resource and steps to migrate. The steps are specific to the source and the target deployment combinations. This guidance is specifically useful for users who intend to migrate Always On Failover Cluster Instances (FCI) and Availability Groups (AG).  
-
 ### Confidence ratings 
 Each Azure SQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
 - The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment.
@@ -238,6 +230,18 @@ Here are a few reasons why an assessment could get a low confidence rating:
 
 > [!NOTE]
 > As Azure SQL assessments are performance-based assessments, if the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
+
+## Recommendation details 
+
+Once the readiness and sizing calculation is complete, the optimization preference is applied to arrive at a recommended target and configuration. The Recommendation Details provide a detailed explanation of the readiness and sizing calculations behind the recommendation.   
+
+:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/recommendation-details.png" alt-text="Screenshot of Recommendation details for assessment.":::
+
+## Migration Guidance 
+
+This section provides guidance to configure the target resource and steps to migrate. The steps are specific to the source and the target deployment combinations. This guidance is specifically useful for users who intend to migrate Always On Failover Cluster Instances (FCI) and Availability Groups (AG).  
+
+:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/migration-guidance.png" alt-text="Screenshot of Migration guidance section.":::
 
 ## Calculate monthly costs
 After sizing recommendations are complete, Azure SQL assessment calculates the compute and storage costs for the recommended Azure SQL configurations using an internal pricing API. It aggregates the compute and storage cost across all instances to calculate the total monthly compute cost. 
