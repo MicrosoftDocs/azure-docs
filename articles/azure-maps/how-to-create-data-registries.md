@@ -1,7 +1,7 @@
 ---
-title: Create Data Registries (preview)
+title: Create Data Registry (preview)
 titleSuffix: Azure Maps
-description: Learn how to create data registries.
+description: Learn how to create Data Registry.
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 2/14/2023
@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# How to create data registries (preview)
+# How to create data registry (preview)
 
 The [data registry][data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
@@ -369,10 +369,10 @@ If you need to replace a previously registered file with another file, rerun the
 
 When you register a file in Azure Maps using the data registry API, an MD5 hash is created from the contents of the file, encoding it into a 128-bit fingerprint and saving it in the `AzureBlob` as the `contentMD5` property. The MD5 hash stored in the `contentMD5` property is used to ensure the data integrity of the file. Since the MD5 hash algorithm always produces the same output given the same input, the data validation process can compare the `contentMD5` property of the file when it was registered against a hash of the file in the Azure storage account to check that it's intact and unmodified. If the hash isn't the same, the validation fails. If the file in the underlying storage account changes, the validation will fail. If you need to modify the contents of a file that has been registered in Azure Maps, you'll need to register it again.
 
-[data registry]: /rest/api/maps/2022-12-01-preview/data-registries
-[list]: /rest/api/maps/2022-12-01-preview/data-registries/list
-[Register Or Replace]: /rest/api/maps/2022-12-01-preview/data-registries/register-or-replace
-[Get operation]: /rest/api/maps/2022-12-01-preview/data-registries/get-operation
+[data registry]: /rest/api/maps/2022-12-01-preview/data-registry
+[list]: /rest/api/maps/2022-12-01-preview/data-registry/list
+[Register Or Replace]: /rest/api/maps/2022-12-01-preview/data-registry/register-or-replace
+[Get operation]: /rest/api/maps/2022-12-01-preview/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [storage account overview]: /azure/storage/common/storage-account-overview
