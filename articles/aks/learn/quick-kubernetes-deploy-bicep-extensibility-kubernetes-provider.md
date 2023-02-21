@@ -1,27 +1,30 @@
 ---
-title: Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider
-description: Learn how to quickly create a Kubernetes cluster and deploy Azure applications in Azure Kubernetes Service (AKS) by using Bicep extensibility Kubernetes provider.
+title: Quickstart: Deploy Azure applications to Azure Kubernetes Service clusters using Bicep extensibility Kubernetes provider
+description: Learn how to quickly create a Kubernetes cluster and deploy Azure applications in Azure Kubernetes Service (AKS) using Bicep extensibility Kubernetes provider.
 services: container-service
 ms.topic: quickstart
 ms.date: 02/03/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep extensibility Kubernetes provider (Preview)
+# Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) clusters using Bicep extensibility Kubernetes provider (Preview)
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll deploy a sample multi-container application with a web front-end and a Redis instance to an AKS cluster. This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll deploy a sample multi-container application with a web front-end and a Redis instance to an AKS cluster.
+
+This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-The Bicep Kubernetes provider is currently in preview. To enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features).
-
-```json
-{
-  "experimentalFeaturesEnabled": {
-    "extensibility": true,
-  }
-}
-```
+> [!IMPORTANT]
+> The Bicep Kubernetes provider is currently in preview. You can enable the feature from the [Bicep configuration file](../../azure-resource-manager/bicep/bicep-config.md#enable-experimental-features) by adding:
+>
+> ```json
+> {
+>  "experimentalFeaturesEnabled": {
+>    "extensibility": true,
+>  }
+> }
+> ```
 
 ## Prerequisites
 
@@ -29,11 +32,11 @@ The Bicep Kubernetes provider is currently in preview. To enable the feature fro
 
 * To set up your environment for Bicep development, see [Install Bicep tools](../../azure-resource-manager/bicep/install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
-* To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the Bicep file](#review-the-bicep-file) section.
+* To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see [Create an SSH key pair](#create-an-ssh-key-pair). If not, skip to [Review the Bicep file](#review-the-bicep-file).
 
-* The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* The identity you use to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
-* To deploy a Bicep file, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+* To deploy a Bicep file, you need write access on the resources you deploy and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to deploy a virtual machine, you need `Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair
 
@@ -51,35 +54,31 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the Bicep file
 
-The Bicep file used to create AKS cluster is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/).
+The Bicep file used to create an AKS cluster is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/aks/). For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.kubernetes/aks/main.bicep":::
 
-The resource defined in the Bicep file:
+The resource defined in the Bicep file is [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep).
 
-* [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep)
-
-For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
-
-Save a copy of the file as **main.bicep** to your local computer.
+Save a copy of the file as `main.bicep` to your local computer.
 
 ## Add the application definition
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
-In this quickstart, you'll use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+In this quickstart, you use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
 
-* The sample Azure Vote Python applications.
-* A Redis instance.
+* The sample Azure Vote Python applications
+* A Redis instance
 
 Two [Kubernetes Services][kubernetes-service] are also created:
 
-* An internal service for the Redis instance.
-* An external service to access the Azure Vote application from the internet.
+* An internal service for the Redis instance
+* An external service to access the Azure Vote application from the internet
 
 Use the following procedure to add the application definition:
 
-1. Create a file named **azure-vote.yaml** in the same folder as **main.bicep** with the following YAML definition:
+1. Create a file named `azure-vote.yaml` in the same folder as `main.bicep` with the following YAML definition:
 
     ```yaml
     apiVersion: apps/v1
@@ -171,20 +170,20 @@ Use the following procedure to add the application definition:
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-1. Open **main.bicep** in Visual Studio Code.
+1. Open `main.bicep` in Visual Studio Code.
 1. Press <kbd>Ctrl+Shift+P</kbd> to open **Command Palette**.
-1. Type **bicep**, and then select **Import kubernetes Manifest**.
+1. Search for **bicep**, and then select **Bicep: Import Kubernetes Manifest**.
 
     :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
 
-1. Select **azure-vote.yml** from the prompt. This process creates an **azure-vote.bicep** in the same folder.
-1. Open **azure-vote.bicep**, add the following line at the end of the file to output the load balancer public IP.
+1. Select `azure-vote.yaml` from the prompt. This process creates an `azure-vote.bicep` file in the same folder.
+1. Open `azure-vote.bicep` and add the following line at the end of the file to output the load balancer public IP:
 
     ```bicep
     output frontendIp string = coreService_azureVoteFront.status.loadBalancer.ingress[0].ip
     ```
 
-1. Before the `output` statement in **main.bicep**, add the following Bicep to reference the newly created **azure-vote.bicep** module:
+1. Before the `output` statement in `main.bicep`, add the following Bicep to reference the newly created `azure-vote.bicep` module:
 
     ```bicep
     module kubernetes './azure-vote.bicep' = {
@@ -195,13 +194,13 @@ Use the following procedure to add the application definition:
     }
     ```
 
-1. At the end of **main.bicep**, add the following line to output the load balancer public IP:
+1. At the bottom of `main.bicep`, add the following line to output the load balancer public IP:
 
     ```bicep
     output lbPublicIp string = kubernetes.outputs.frontendIp
     ```
 
-1. Save both **main.bicep** and **azure-vote.bicep**.
+1. Save both `main.bicep` and `azure-vote.bicep`.
 
 ## Deploy the Bicep file
 
@@ -232,7 +231,7 @@ Use the following procedure to add the application definition:
 
     It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
-2. From the deployment output, look for the **outputs** section. For example:
+2. From the deployment output, look for the `outputs` section. For example:
 
     ```json
     "outputs": {
@@ -247,7 +246,7 @@ Use the following procedure to add the application definition:
     },
     ```
 
-    Make a note of the value of lbPublicIp.
+3. Take note of the value of lbPublicIp.
 
 ## Validate the Bicep deployment
 
@@ -259,7 +258,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ### [Azure CLI](#tab/azure-cli)
 
-To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [`az group delete`][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -267,7 +266,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
@@ -276,16 +275,16 @@ Remove-AzResourceGroup -Name myResourceGroup
 ---
 
 > [!NOTE]
-> In this quickstart, the AKS cluster was created with a system-assigned managed identity (the default identity option). This identity is managed by the platform and does not require removal.
+> In this quickstart, the AKS cluster was created with a system-assigned managed identity (the default identity option). This identity is managed by the platform and doesn't require removal.
 
 ## Next steps
 
 In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial:
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [Kubernetes on Azure tutorial: Prepare an application][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
