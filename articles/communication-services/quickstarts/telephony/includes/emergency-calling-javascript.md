@@ -84,7 +84,7 @@ async function init() {
 
 ## Start a call to 933 test call service
 
-Add the following code to your **client.js** to add functionality to your emergency call button. For US only, a temporary Caller Id will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
+Add the following code to your **client.js** to add functionality to your emergency call button. For US only, a temporary Caller ID will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
 
 ```javascript
 emergencyButton.addEventListener("click", () => {
