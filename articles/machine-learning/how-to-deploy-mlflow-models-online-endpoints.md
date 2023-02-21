@@ -21,11 +21,11 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is usually referred as __no-code deployment__. 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is referred as __no-code deployment__. 
 
 For no-code-deployment, Azure Machine Learning 
 
-* Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
+* Dynamically installs Python packages provided in the `conda.yaml` file. Hence, dependencies are installed during container runtime.
 * Provides a MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
@@ -37,11 +37,11 @@ For no-code-deployment, Azure Machine Learning
 
 ## About this example
 
-This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
+This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients. It also contains the response of interest, a quantitative measure of disease progression one year after baseline (regression).
 
-The model has been trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
+The model was trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/online` if you are using the Azure CLI or `sdk/endpoints/online` if you are using our SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to the `cli/endpoints/online` if you are using the Azure CLI or `sdk/endpoints/online` if you are using our SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -58,9 +58,9 @@ Before following the steps in this article, make sure you have the following pre
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-- You must have a MLflow model registered in your workspace. Particularly, this example will register a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
+- You must have a MLflow model registered in your workspace. Particularly, this example registers a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
 
-Additionally, you will need to:
+Additionally, you need to:
 
 # [Azure CLI](#tab/cli)
 
@@ -86,7 +86,7 @@ Additionally, you will need to:
 
 # [Studio](#tab/studio)
 
-There are no additional prerequisites when working in Azure Machine Learning studio.
+There are no more prerequisites when working in Azure Machine Learning studio.
 
 ---
 
@@ -104,7 +104,7 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 
 # [Python (Azure ML SDK)](#tab/sdk)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
 
 1. Import the required libraries:
 
@@ -587,7 +587,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
             raise Exception("Request must contain a top level key named 'input_data'")
         
         serving_input = json.dumps(json_data["input_data"])
-        data = infer_and_parse_json_input(raw_data, input_schema)
+        data = infer_and_parse_json_input(serving_input, input_schema)
         result = model.predict(data)
         
         result = StringIO()
@@ -675,7 +675,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
       conda_file: mlflow/sklearn-diabetes/environment/conda.yml
     code_configuration:
-      source: mlflow/sklearn-diabetes/src
+      code: mlflow/sklearn-diabetes/src
       scoring_script: score.py
     instance_type: Standard_F2s_v2
     instance_count: 1

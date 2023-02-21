@@ -73,6 +73,8 @@ container resources:
   the internal resources from outside.
 - Accessible from specified networks: In this configuration, administrators must access the Azure
   portal from a computer running in the appropriate network to be able to use Cloud Shell.
+- Disabled: When the networking for relay is set to disabled, the computer running Azure Cloud Shell
+  must be able to reach the private endpoint connected to the relay.
 
 ## Storage requirements
 

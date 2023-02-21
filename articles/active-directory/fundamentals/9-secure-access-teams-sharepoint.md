@@ -73,7 +73,7 @@ For the Collaboration restrictions option, the organization's business requireme
 
 ## External users and guest users in Teams
 
-Teams differentiates between external users (outside your organization) and guest users (guest accounts). You can manage collaboration setting in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. Authorized account credentials are required to sign in to the Teams Admin portal.
+Teams differentiates between external users (outside your organization) and guest users (guest accounts). You can manage collaboration setting in the [Microsoft Teams admin center](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. Authorized account credentials are required to sign in to the Teams Admin portal.
 
 * **External Access** - Teams allows external access by default. The organization can communicate with all external domains 
   * Use External Access setting to restrict or allow domains
@@ -86,7 +86,7 @@ The External Identities collaboration feaure in Azure AD controls permissions. Y
 Learn more:
 
 * [Manage external meetings and chat in Microsoft Teams](/microsoftteams/manage-external-access)
-* [Microsoft 365 identity models and Azure AD](/microsoft-365/enterprise/about-microsoft-365-identity)
+* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/about-microsoft-365-identity)
 * [Identity models and authentication for Microsoft Teams](/microsoftteams/identify-models-authentication)
 * [Sensitivity labels for Microsoft Teams](/microsoftteams/sensitivity-labels)
 

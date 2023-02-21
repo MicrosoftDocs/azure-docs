@@ -26,7 +26,7 @@ To enable calling and chat between your Communication Services users and your Te
 
 
 ## Enabling calling and chat interoperability in your Teams tenant
-Azure AD user with [Teams administrator role](/azure/active-directory/roles/permissions-reference#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. First, open the PowerShell and validate the existence of the Teams module with the following command:
+Azure AD user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. First, open the PowerShell and validate the existence of the Teams module with the following command:
 
 ```script
 Get-module *teams* 

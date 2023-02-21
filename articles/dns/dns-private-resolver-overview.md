@@ -64,7 +64,8 @@ Azure DNS Private Resolver is available in the following regions:
 | South Central US | France Central   | Korea Central     |
 | North Central US | Sweden Central   | South Africa North|
 | West Central US  | Switzerland North| Australia East    |
-| West US 3        |                  | Central India     |
+| West US 2        |                  | Central India     |
+| West US 3        |                  |                   |
 | Canada Central   |                  |                   |
 | Brazil South     |                  |                   |
 

@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI models
+title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
 description: Learn about the different models that are available in Azure OpenAI. 
 ms.service: cognitive-services
@@ -13,7 +13,7 @@ recommendations: false
 keywords: 
 ---
 
-# Azure OpenAI models
+# Azure OpenAI Service models
 
 The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Please refer to the capability table at the bottom for a full breakdown. 
 
@@ -185,6 +185,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 ### Embeddings Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |

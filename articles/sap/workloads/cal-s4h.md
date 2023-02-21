@@ -11,10 +11,11 @@ keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 02/15/2023
 ms.author: hobruche
 
 ---

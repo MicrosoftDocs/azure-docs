@@ -41,7 +41,7 @@ Make sure that the following prerequisites are in place:
 
 ## Steps to configure and test Azure AD CBA
 
-Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role can configure the CA.
+Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Global Administrator](../roles/permissions-reference.md#global-administrator) role can configure the CA.
 
 Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor authentication, and configure username bindings to map the certificate field to an attribute of the user object. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can configure user-related settings. Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 

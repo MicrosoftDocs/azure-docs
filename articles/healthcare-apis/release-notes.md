@@ -21,14 +21,14 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ## January 2023
 
-### Azure Health Data Services
+#### Azure Health Data Services
 
 **Azure Health Data services General Available (GA) in new regions**
 
 General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
 
 
-### DICOM service
+#### DICOM service
 
 **Added support for `ModalitiesInStudy` attribute**
 
@@ -39,7 +39,7 @@ The DICOM service now supports `ModalitiesInStudy` as a [searchable attribute](d
 
 Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#additional-series-tags).  
 
-### Toolkit and Samples Open Source
+#### Toolkit and Samples (Open Source)
 **New sample app has been released**
 
 One new sample app has been released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
@@ -61,10 +61,10 @@ Azure Health Data Services [Events](events/events-overview.md) now include a pub
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+Bug is now fixed and Resource will be updated if matches the Etag header. For details, see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
 
 
-#### Toolkit and Samples Open Source
+#### Toolkit and Samples (Open Source)
 
 
 **Azure Health Data Services Toolkit is released**
@@ -92,7 +92,7 @@ Customers can now determine if their mappings are working as intended, as they c
 
 **Fixed issue where Querying with :not operator was returning more results than expected** 
 
-The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). |
+The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). 
 
 
 
@@ -135,11 +135,11 @@ The service will now accept the following:
 * IS, DS, SV, and UV VRs that are not valid numbers
 * Invalid private creator tags
 
-#### Toolkit and Samples Open Source
+#### Toolkit and Samples (Open Source)
 
 **The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is now in the public preview.** 
 
-The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations.  
+The toolkit is open-source and allows you to easily customize and extend the functionality of their Azure Health Data Services implementations.  
 
 ## **August 2022**
 
@@ -170,7 +170,7 @@ Analytics pipeline can process FHIR extensions to generate parquet data. See [FH
 
 **Fixed issue related to History bundles being sorted with the oldest version first.** 
 
-We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last.This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
+We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
 
 **Fixed issue where Queries were not providing consistent result count after appended with `_sort` operator.**
 The issue is now fixed and queries should provide consistent result count, with and without sort operator. 
@@ -203,7 +203,7 @@ The modality worklists (UPS-RS) service is now generally available. Learn more a
 We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 
-### MedTech service 
+#### MedTech service 
 
 **Improvements to documentations for Events and MedTech and availability zones.**
 
@@ -216,7 +216,6 @@ Tested and enhanced usability and functionality. Added new documents to enable c
 
 #### DICOM service
 
-#### **Features**
 
 **DICOM Service availability expands to new regions.**
 
@@ -277,7 +276,7 @@ Attributes that are defined to have a single value but have specified multiple v
 #### FHIR service
 
 
-** Added FHIRPath Patch**
+**Added FHIRPath Patch**
 FHIRPath Patch was added as a feature to both the Azure API for FHIR. This implements FHIRPath Patch as defined on the [HL7](http://hl7.org/fhir/fhirpatch.html) website. 
 
 
@@ -312,14 +311,17 @@ Currently, WADO with Accept: multipart/related; type=application/dicom will thro
 
 Handle race conditions during parallel instance inserts in the same study. For more information, see [PR #1491](https://github.com/microsoft/dicom-server/pull/1491) and [PR #1496](https://github.com/microsoft/dicom-server/pull/1496). 
 
+
+
 ## March 2022
+
 
 #### Azure Health Data Services 
 
 **Private Link is now available**
 With Private Link, you can access Azure Health Data Services securely from your VNet as a first-party service without having to go through a public Domain Name System (DNS). For more information, see [Configure Private Link for Azure Health Data Services](./../healthcare-apis/healthcare-apis-configure-private-link.md).   
 
-### FHIR service
+#### FHIR service
 
 **FHIRPath Patch operation available**
 |This new feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md). 
@@ -352,6 +354,8 @@ Updated docs to allow for better understanding, knowledge, and help for Events a
 Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces.  
 
 ## January 2022
+
+#### FHIR service
 
 
 **Export FHIR data behind firewalls**
@@ -412,7 +416,6 @@ If SQL Server timed out, the PUT `/resource{id}` returned a 500 error. Now we ha
 
 #### FHIR service
 
-#### **Feature enhancements**
 
 **Process Patient-everything links**
 
@@ -470,7 +473,6 @@ We've updated Azure Health Data Services GitHub samples repo to include a 
 #### **DICOM service**
 
 
-**Regions**
 
 **South Brazil and Central Canada.** For more information about Azure regions and availability zones, see [Azure services that support availability zones](https://azure.microsoft.com/global-infrastructure/services/). 
 
@@ -489,43 +491,65 @@ Enabled DICOM service to work with workspaces that have names beginning with a l
 #### FHIR service
 
 
-|Enhancements |  |
-| :------------------- | :------------------------------- |
-|Added support for conditional patch | [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
-|Conditional patch | [#2163](https://github.com/microsoft/fhir-server/pull/2163) |
-|Added conditional patch audit event. | [#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-|Allow JSON patch in bundles | |
-| :------------------- | :-------------------------------|
-|Allows for search history bundles with Patch requests. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
-|Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
-|Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+**Added support for conditional patch [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)**
 
-| Running a reindex job | |
-| :------------------- | :-------------------------------|
-|Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
-|Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
-|Added final reindex count check. |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
-|Bug fixes |  |
-| :------------------- | :-------------------------------- |
-| Wider catch for exceptions during applying patch | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
-|Fix history with PATCH in STU3 |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
+Conditional patch [#2163](https://github.com/microsoft/fhir-server/pull/2163) 
 
-|Custom search bugs |  |
-| :------------------- | :------------------------------- |
-|Addresses the delete failure with Custom Search parameters |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
-|Added retry logic while Deleting Search parameter | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
-|Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
-|Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-|Resolved SQL batch reindex if one resource fails |  |
-| :------------------- | :------------------------------- |
-|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
+Added conditional patch audit event. [#2213](https://github.com/microsoft/fhir-server/pull/2213) 
 
-|GitHub issues closed |  |
-| :------------------- | :------------------------------- |
-|Unclear error message for conditional create with no ID |[#2168](https://github.com/microsoft/fhir-server/issues/2168) |
+
+**Allow JSON patch in bundles** 
+
+
+Allows for search history bundles with Patch requests. [#2156](https://github.com/microsoft/fhir-server/pull/2156) 
+
+
+Enabled JSON patch in bundles using Binary resources.[#2143](https://github.com/microsoft/fhir-server/pull/2143) 
+
+
+Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details) [#2170](https://github.com/microsoft/fhir-server/pull/2170) 
+
+**Running a reindex job**
+
+Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters.[#2103](https://github.com/microsoft/fhir-server/pull/2103)
+
+
+Updated error message for reindex parameter boundaries.[#2109](https://github.com/microsoft/fhir-server/pull/2109)
+
+
+Added final reindex count check. [#2099](https://github.com/microsoft/fhir-server/pull/2099)
+
+**Bug Fixes**
+
+
+Provided Wider catch for exceptions during applying patch [#2192](https://github.com/microsoft/fhir-server/pull/2192)
+
+
+Fixed history with PATCH in STU3 [#2177](https://github.com/microsoft/fhir-server/pull/2177) 
+
+
+Addressed the delete failure with Custom Search parameters [#2133](https://github.com/microsoft/fhir-server/pull/2133) 
+
+
+Added retry logic while Deleting Search parameter  [#2121](https://github.com/microsoft/fhir-server/pull/2121)
+
+
+Set max item count in search options in SearchParameterDefinitionManager [#2141](https://github.com/microsoft/fhir-server/pull/2141) 
+
+
+Better exception if there's a bad expression in a search parameter [#2157](https://github.com/microsoft/fhir-server/pull/2157) 
+
+
+Resolved SQL batch reindex if one resource fails 
+
+Updated SQL batch reindex retry logic [#2118](https://github.com/microsoft/fhir-server/pull/2118) 
+
+**GitHub issues closed**
+
+Unclear error message for conditional create with no ID [#2168](https://github.com/microsoft/fhir-server/issues/2168) 
 
 #### **DICOM service**
 

@@ -6,15 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/17/2022
+ms.date: 02/10/2023
 ms.author: lajanuar
 recommendations: false
 ---
 
+<!-- markdownlint-disable MD051 -->
 
 ## Set up your Java environment
 
-For this quickstart, we'll use the Gradle build automation tool to create and run the application.
+For this quickstart, we use the Gradle build automation tool to create and run the application.
 
 * You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
@@ -23,11 +24,14 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
-* If you aren't using VS Code, make sure you have the following installed in your development environment:
+* If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
 
 ## Create a new Gradle project
 
@@ -41,7 +45,7 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
     mkdir document-translation; cd document-translation
    ```
 
-1. Run the `gradle init` command from the document-translation directory. This command will create essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from the document-translation directory. This command creates essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -73,6 +77,9 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
   }
   ```
 
+  > [!div class="nextstepaction"]
+  > [I ran into creating a Gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-gradle-project)
+
 ## Translate all documents in a storage container
 
 1. From the document-translation directory, run the following command:
@@ -81,7 +88,7 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
     mkdir -p src/main/java
     ```
 
-   You'll create the following directory structure:
+   The command creates the following directory structure:
 
     :::image type="content" source="../../media/java-directories.png" alt-text="Screenshot: Java directory structure.":::
 
@@ -172,4 +179,7 @@ public class DocumentTranslation {
 
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents will be listed in your target container.
+* The translated documents are listed in your target container.
+
+  > [!div class="nextstepaction"]
+  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
