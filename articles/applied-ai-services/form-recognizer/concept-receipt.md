@@ -168,7 +168,7 @@ The receipt model supports all English receipts and the following locales:
 |&bullet; French | France (fr-fr), Canada (fr-ca) |
 |&bullet; German | Germany (de-de) |
 |&bullet; Italian | Italy (it-it) |
-|&bullet; Japanese | Japan (ja-ja)|
+|&bullet; Japanese | Japan (ja-jp)|
 |&bullet; Portuguese| Portugal (pt-pt), Brazil (pt-br)|
 |&bullet; Spanish | Spain (es-es) |
 ::: moniker-end

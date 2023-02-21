@@ -25,7 +25,7 @@ ms.custom: references_regions
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 >[!NOTE]
-> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2023-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
 ## February 2023
 
@@ -72,12 +72,12 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt ID document model** now has added support for the following document types:
 
-  * Passport, driver's license, and residence permit ID expansion
+  * Driver's License expansion supporting India, Canada, Unitied Kingdom and Australia
   * US military ID cards and documents
-  * India ID cards and documents
-  * Australia ID cards and documents
-  * Canada ID cards and documents
-  * United Kingdom ID cards and documents
+  * India ID cards and documents (PAN and Aadhaar)
+  * Australia ID cards and documents (photo card, Key-pass ID)
+  * Canada ID cards and documents (identification card, Maple card)
+  * United Kingdom ID cards and documents (national identity card)
 
 ## December 2022
 
@@ -297,7 +297,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
   * [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolve to the existing fields TotalTax and Line/Tax respectively.
-  * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
+  * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
   * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
 
