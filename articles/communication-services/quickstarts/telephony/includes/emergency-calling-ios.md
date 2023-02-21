@@ -85,7 +85,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!, options: callA
 
 ## Start a call to 933 test call service
 
-Add the following code to your **ContentView.swift** to add functionality to your emergency call button. For US only, a temporary Caller Id will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
+Add the following code to your **ContentView.swift** to add functionality to your emergency call button. For US only, a temporary Caller ID will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
 
 ```swift
 func emergencyCall() {
