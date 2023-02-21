@@ -20,8 +20,8 @@ If you already have an existing storage account or blob container, you can skip 
 1. [Create a new storage account][create storage account].
 1. [Create a blob container][create blob container] inside your storage account. Set **Public access level** to **Private** to ensure that your source maps aren't publicly accessible.
 
-> [!div class="mx-imgBorder"]
->![Screenshot that shows setting the container access level to Private.](./media/source-map-support/container-access-level.png)
+    > [!div class="mx-imgBorder"]
+    >![Screenshot that shows setting the container access level to Private.](./media/source-map-support/container-access-level.png)
 
 ## Push your source maps to your blob container
 

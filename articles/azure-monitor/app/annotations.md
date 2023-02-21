@@ -44,7 +44,7 @@ If you can't use one of the deployment tasks in the previous section, you need t
 
     :::image type="content" source="./media/annotations/add-azure-cli.png" alt-text="Screenshot that shows adding a new task and selecting Azure CLI." lightbox="./media/annotations/add-azure-cli.png":::
 1. Specify the relevant Azure subscription. Change **Script Type** to **PowerShell** and **Script Location** to **Inline**.
-1. Add the [PowerShell script from step 2 in the next section](#create-release-annotations-with-azure-cli) to **Inline Script**.
+1. Add the [PowerShell script from step 2 in the next section](#create-release-annotations-with-the-azure-cli) to **Inline Script**.
 1. Add the following arguments. Replace the angle-bracketed placeholders with your values to **Script Arguments**. The `-releaseProperties` are optional.
 
     ```powershell
@@ -74,7 +74,7 @@ If you can't use one of the deployment tasks in the previous section, you need t
      "TeamFoundationCollectionUri"="$(System.TeamFoundationCollectionUri)" }
     ```            
 
-1. Save.
+1. Select **Save**.
 
 ## Create release annotations with the Azure CLI
 
@@ -119,18 +119,18 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
               "TriggerBy"="<Your name>" }
     ```
 
-|Argument | Definition | Note|
-|--------------|-----------------------|--------------------|
-|`aiResourceId` | The resource ID to the target Application Insights resource. | Example:<br> /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyRGName/providers/microsoft.insights/components/MyResourceName|
-|`releaseName` | The name to give the created release annotation. | | 
-|`releaseProperties` | Used to attach custom metadata to the annotation. | Optional|
-
+    |Argument | Definition | Note|
+    |--------------|-----------------------|--------------------|
+    |`aiResourceId` | The resource ID to the target Application Insights resource. | Example:<br> /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyRGName/providers/microsoft.insights/components/MyResourceName|
+    |`releaseName` | The name to give the created release annotation. | |
+    |`releaseProperties` | Used to attach custom metadata to the annotation. | Optional|
+    
 ## View annotations
 
 > [!NOTE]
-> Release annotations aren't currently available in the **Metrics** pane of Application Insights
+> Release annotations aren't currently available in the **Metrics** pane of Application Insights.
 
-Whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. You can view the annotations in the following locations:
+Whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. You can view annotations in the following locations:
 
 - **Performance:**
 
@@ -149,9 +149,9 @@ Whenever you use the release template to deploy a new release, an annotation is 
     
     :::image type="content" source="./media/annotations/workbooks-annotations.png" alt-text="Screenshot that shows the Workbooks pane with a time series log-based query with annotations displayed." lightbox="./media/annotations/workbooks-annotations.png":::
     
-    To enable annotations in your workbook, go to **Advanced Settings** and select **Show annotations**.
+To enable annotations in your workbook, go to **Advanced Settings** and select **Show annotations**.
     
-    :::image type="content" source="./media/annotations/workbook-show-annotations.png" alt-text="Screenshot that shows the Advanced Settings menu with the show annotations checkbox highlighted.":::
+:::image type="content" source="./media/annotations/workbook-show-annotations.png" alt-text="Screenshot that shows the Advanced Settings menu with the show annotations checkbox highlighted.":::
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
@@ -160,7 +160,7 @@ Select any annotation marker to open details about the release, including reques
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
 > [!IMPORTANT]
-> Annotations using API keys is deprecated. We recommend using the [Azure CLI](#create-release-annotations-with-azure-cli) instead.
+> Annotations using API keys is deprecated. We recommend using the [Azure CLI](#create-release-annotations-with-the-azure-cli) instead.
 
 ### Install the annotations extension (one time)
 
@@ -221,7 +221,7 @@ Create a separate API key for each of your Azure Pipelines release templates.
 To use the new release annotations:
 1. [Remove the Release Annotations extension](/azure/devops/marketplace/uninstall-disable-extensions).
 1. Remove the Application Insights Release Annotation task in your Azure Pipelines deployment.
-1. Create new release annotations with [Azure Pipelines](#release-annotations-with-azure-pipelines-build) or the [Azure CLI](#create-release-annotations-with-azure-cli).
+1. Create new release annotations with [Azure Pipelines](#release-annotations-with-azure-pipelines-build) or the [Azure CLI](#create-release-annotations-with-the-azure-cli).
 
 ## Next steps
 
