@@ -32,7 +32,7 @@ items:
   items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-v3-form-recognizer-studio.md
+      href: quickstarts/try-form-recognizer-studio.md
     - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md

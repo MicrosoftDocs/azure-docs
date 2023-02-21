@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/16/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -93,21 +93,11 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
 There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optional, as noted below.
  
-## Enable AKS
+## Verify AKS is enabled
 
-1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure portal. In the **Overview** pane, select the **Azure Kubernetes Service** tile.
 
-1.	Run the following command to enable AKS:
-
-    ```azurepowershell
-    Enable-HcsAzureKubernetesService –f
-    ```
-
-    This step doesn't deploy the Kubernetes cluster. The cluster is deployed later in the section for [Set up Kubernetes cluster and enable Arc](azure-stack-edge-deploy-aks-on-azure-stack-edge.md#set-up-kubernetes-cluster-and-enable-arc).
-
-1.	To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure portal. In the **Overview** pane, select the **Azure Kubernetes Service** tile.
-
-    [![Screenshot showing the Azure Kubernetes Service tile in the Overview pane of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png#lightbox)
+   [![Screenshot showing the Azure Kubernetes Service tile in the Overview pane of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png#lightbox)
 
 ## Set custom locations (optional)
 
@@ -221,7 +211,7 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure AKS.
 
-1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. In this example, we have selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**. 
 
    > [!NOTE]
    > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.

@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-With data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
+With data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
 
 ## Benefits
 
@@ -139,7 +139,7 @@ For Azure Database for MySQL flexible server, the support for encryption of data
 
 ## Next steps
 
-- [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
-- [Data encryption with Azure portal (Preview)](how-to-data-encryption-portal.md)
+- [Data encryption with Azure CLI](how-to-data-encryption-cli.md)
+- [Data encryption with Azure portal](how-to-data-encryption-portal.md)
 - [Security in encryption rest](../../security/fundamentals/encryption-atrest.md)
-- [Active Directory authentication (Preview)](concepts-azure-ad-authentication.md)
+- [Active Directory authentication](concepts-azure-ad-authentication.md)

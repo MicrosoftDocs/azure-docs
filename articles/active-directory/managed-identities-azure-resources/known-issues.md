@@ -59,7 +59,6 @@ For more information, see [Transfer an Azure subscription to a different Azure A
 In rare cases, you may see error messages indicating errors related to assignment of managed identities with Azure resources. Some of the example error messages are as follows: 
 - Azure resource ‘azure-resource-id' does not have access to identity 'managed-identity-id'.  
 - No managed service identities are associated with resource ‘azure-resource-id'
-- Managed service identities referenced with URL 'https://control-....virtualMachineScaleSets/<vmss_name>/credentials/v2/systemassigned' are not valid. Ensure all assigned identities associated with the resource are valid.
 
 **Workaround**
 In these rare cases the best next steps are
@@ -67,6 +66,12 @@ In these rare cases the best next steps are
 1. For identities no longer needed to be assigned to the resource, remove them from the resource.
 2. For User Assigned Managed Identity, reassign the identity to the Azure resource. 
 3. For System Assigned Managed Identity, disable the identity and enable it again. 
+
+>[!NOTE]
+>To assign/unassign Managed identities please follow below links
+
+- [Documentation for VM](qs-configure-portal-windows-vm.md)
+- [Documentation for VMSS](qs-configure-portal-windows-vmss.md)
 
 ## Next steps
 

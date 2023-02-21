@@ -7,7 +7,7 @@ metadata:
   keywords: azure ddos protection
   author: AbdullahBell
   ms.author: abell
-  ms.date: 10/12/2022
+  ms.date: 02/06/2023
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection, ignite-2022
@@ -55,8 +55,19 @@ landingContent:
             url: telemetry.md
           - text: View and configure DDoS diagnostic logging
             url: diagnostic-logging.md
-          - text: View and configure DDoS protection alerts
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure DDoS Protection metric alerts through portal
             url: alerts.md
+          - text: Configure Azure DDoS Protection diagnostic logging alerts
+            url: ddos-diagnostic-alert-templates.md
+  # Card
+  - title: View attack analytics
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
+          url: ddos-view-alerts-defender-for-cloud.md
 
   # Card
   - title: Responding to DDoS attacks
@@ -75,4 +86,10 @@ landingContent:
             url: test-through-simulations.md
           - text: Engage DDoS Rapid Response (DRR)
             url: ddos-rapid-response.md
-  
+    # Card
+  - title: Planning 
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Azure DDoS Solution for Microsoft Sentinel
+          url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-azure-ddos-solution-for-microsoft-sentinel/ba-p/3732013

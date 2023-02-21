@@ -1,6 +1,5 @@
 ---
 title: Internet peering - FAQs
-titleSuffix: Azure
 description: Internet peering - FAQs
 services: internet-peering
 author: halkazwini

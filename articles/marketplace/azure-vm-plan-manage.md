@@ -25,9 +25,10 @@ Complete these steps when you are notified that new vCPU sizes are now supported
 1. On the **Offer overview** page, under **Plan overview**, select a plan within your offer.
 1. In the left-nav menu, select **Pricing and availability**.
 1. Do one of the following:
-    - If either the _Per_ *vCPU* _size_ or _Per market and_ vCPU _size_ price entry options are used, under **Pricing**, verify the price and make any necessary adjustments for the new vCPU sizes that have been added.
-    - If your price entry option is set to _Free_, _Flat rate_, or _Per_ *vCPU*, go to step 7.
+    - If either the _Per_ *vCPU* _size_ or _Per market and_ vCPU _size_ price input options are used, under **Pricing**, verify the price and make any necessary adjustments for the new vCPU sizes that have been added.
+    - If your price input option is set to _Free_, _Flat rate_, or _Per_ *vCPU*, go to step 7.
    
 1. Select **Save draft** and then **Review and publish**. After the offer is republished, the new vCPU sizes will be available to your customers at the prices that you have set.
    
+
 

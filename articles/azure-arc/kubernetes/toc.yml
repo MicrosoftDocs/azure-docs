@@ -70,6 +70,10 @@
             href: use-gitops-with-helm.md
           - name: At-scale deployment of Flux v1 configurations using Azure Policy
             href: use-azure-policy.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Frequently Asked Questions
     href: faq.md
 - name: How-to guides

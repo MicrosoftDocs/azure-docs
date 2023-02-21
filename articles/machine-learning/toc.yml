@@ -64,6 +64,8 @@
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
+      href: quickstart-spark-data-wrangling.md
     - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
@@ -151,7 +153,7 @@
               href: concept-automated-ml.md
             - name: Time series forecasting
               items:
-              - name: Overview of forecasting methods
+              - name: Forecasting methods
                 displayName: auto ML, time series, forecasting, methods
                 href: concept-automl-forecasting-methods.md
               - name: Model sweeping and selection
@@ -282,6 +284,8 @@
           href: how-to-assign-roles.md
     - name: Network security
       items:
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -552,6 +556,14 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
+            - name: Time series forecasting
+              items:
+              - name: Auto-train a forecasting model (Python)
+                displayName: forecasting, time series, auto ML, automl, SDK 
+                href: how-to-auto-train-forecast.md
+              - name: Frequently asked questions
+                displayName: auto ML, time series, forecasting, FAQ
+                href: how-to-automl-forecasting-faq.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
             - name: Use ONNX model in .NET application
@@ -601,6 +613,8 @@
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+            - name: Debug scoring script with inference HTTP server
+              href: how-to-inference-server-http.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
@@ -635,15 +649,12 @@
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
-                - name: Invoke batch endpoints from Azure Data Factory
+                - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
-                - name: Invoke batch endpoints from Event Grid events in storage
+                - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: Inference HTTP server
-          displayName: local debug
-          href: how-to-inference-server-http.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -754,6 +765,7 @@
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
+    
       items:
         - name: Generate Responsible AI insights
           items:
@@ -769,6 +781,18 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Use R with Azure ML
+      items:
+        - name: Bring R workloads
+          href: how-to-r-overview-r-capabilities.md
+        - name: Interactive R development
+          href: how-to-r-interactive-development.md
+        - name: Adapt R scripts for production
+          href: how-to-r-modify-script-for-production.md
+        - name: Train R model
+          href: how-to-r-train-model.md
+        - name: Deploy R model
+          href: how-to-r-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity

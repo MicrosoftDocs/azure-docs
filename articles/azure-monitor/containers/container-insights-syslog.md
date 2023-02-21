@@ -17,13 +17,15 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 - You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
 - Minimum versions of Azure components
-  - **Azure CLI**: Minimum version required for Azure CLI is [2.44.1 (link to release notes)](/cli/azure/release-notes-azure-cli#january-11-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
+  - **Azure CLI**: Minimum version required for Azure CLI is [2.45.0 (link to release notes)](/cli/azure/release-notes-azure-cli#february-07-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
   - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
   
 Use the following command in Azure CLI to enable syslog collection when you create a new AKS cluster.
+
+### Using Azure CLI commands
 
 ```azurecli
 az aks create -g syslog-rg -n new-cluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --enable-syslog --generate-ssh-key
@@ -35,6 +37,56 @@ Use the following command in Azure CLI to enable syslog collection on an existin
 az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-syslog -g syslog-rg -n existing-cluster
 ```
 
+### Using ARM templates
+
+You can also use ARM templates for enabling syslog collection
+
+1. Download the template in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
+
+1. Download the parameter file in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save it as **existingClusterParam.json**.
+
+1. Edit the values in the parameter file:
+
+   - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
+   - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
+   - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
+   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+   - `enableSyslog`: Set to true
+   - `syslogLevels`: Array of syslog levels to collect. Default collects all levels.
+   - `syslogFacilities`: Array of syslog facilities to collect. Default collects all facilities
+
+> [!NOTE]
+> Syslog level and facilities customization is currently only available via ARM templates.
+
+### Deploy the template
+
+Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+
+#### Deploy with Azure PowerShell
+
+```powershell
+New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+```
+
+The configuration change can take a few minutes to complete. When it's finished, a message similar to the following example includes this result:
+
+```output
+provisioningState       : Succeeded
+```
+
+#### Deploy with Azure CLI
+
+```azurecli
+az login
+az account set --subscription "Subscription Name"
+az deployment group create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+```
+
+The configuration change can take a few minutes to complete. When it's finished, a message similar to the following example includes this result:
+
+```output
+provisioningState       : Succeeded
+```
 
 ## How to access Syslog data
  
@@ -84,5 +136,4 @@ Select the minimum log level for each facility that you want to collect.
 ## Next steps
 
 - Read more about [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
-
 

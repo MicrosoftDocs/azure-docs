@@ -761,6 +761,8 @@ items:
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
       displayName: variables, control flow
+    - name: Set Pipeline Return Value
+      href: tutorial-pipeline-return-value.md
     - name: Switch activity
       href: control-flow-switch-activity.md
       displayName: control flow
@@ -1291,6 +1293,24 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+- name: Managed Airflow
+  items:
+  - name: Tutorials
+    items:
+    - name: Run an existing pipeline with Airflow
+      href: tutorial-run-existing-pipeline-with-airflow.md
+    - name: Refresh a Power BI dataset with Airflow
+      href: tutorial-refresh-power-bi-dataset-with-airflow.md
+  - name: Concepts
+    href: concept-managed-airflow.md
+  - name: How-to
+    items:
+    - name: How does Managed Airflow work
+      href: how-does-managed-airflow-work.md
+    - name: How to change the Airflow password
+      href: password-change-airflow.md
+  - name: Pricing
+    href: airflow-pricing.md
 - name: Reference
   items:
   - name: Data flow script

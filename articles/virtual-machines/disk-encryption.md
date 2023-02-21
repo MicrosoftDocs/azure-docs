@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 09/03/2021
+ms.date: 02/06/2023
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
@@ -73,6 +73,10 @@ To enable end-to-end encryption using encryption at host, see our articles cover
 ## Double encryption at rest
 
 High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation, or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys. This new layer can be applied to persisted OS and data disks, snapshots, and images, all of which will be encrypted at rest with double encryption.
+
+### Restrictions
+
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
 ### Supported regions
 

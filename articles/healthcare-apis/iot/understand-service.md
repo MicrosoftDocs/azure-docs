@@ -1,34 +1,37 @@
 ---
 title: Understand the MedTech service device message data transformation - Azure Health Data Services
-description: This article will provide you with an understanding of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data into the FHIR service.
+description: This article provides an overview of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 1/25/2023
+ms.date: 02/14/2023
 ms.author: jasteppe
 ---
 
 # Understand the MedTech service device message data transformation
 
-This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into Fast Healthcare Interoperability Resources (FHIR&#174;) [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence on the [FHIR service](../fhir/overview.md).
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into FHIR [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence in the [FHIR service](../fhir/overview.md).
 
 The MedTech service device message data processing follows these steps and in this order:
 
 > [!div class="checklist"]
 > - Ingest
 > - Normalize - Device mappings applied.
-> - Group
+> - Group - (Optional)
 > - Transform - FHIR destination mappings applied.
 > - Persist
 
-:::image type="content" source="media/understand-service/iot-data-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/iot-data-flow.png":::
+:::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
 
 ## Ingest
 Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
-The device message event hub uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
+The device message event hub uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the device message event hub.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device message data.
@@ -49,7 +52,7 @@ Normalize is the next stage where device message data is processed using user-se
 
 The normalization process not only simplifies data processing at later stages, but also provides the capability to project one device message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single device message. This device message would create four separate FHIR Observation resources. Each resource would represent a different vital sign, with the device message projected into four different normalized messages.
 
-## Group
+## Group - (Optional)
 Group is the next *optional* stage where the normalized messages available from the MedTech service normalization stage are grouped using three different parameters:
 
 > [!div class="checklist"]
@@ -67,7 +70,7 @@ At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, alon
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming device messages. If set to `Create`, the MedTech service will create minimal Device and Patient resources on the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to `Create`, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
@@ -75,9 +78,9 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service.
 
 ## Persist
-Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it will be created in the FHIR service. If the FHIR Observation resource already existed, it will get updated in the FHIR service.
+Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it's created in the FHIR service. If the FHIR Observation resource already existed, it gets updated in the FHIR service.
 
-The FHIR service uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the FHIR service.
+The FHIR service uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the FHIR service.
 
 ## Next steps
 
