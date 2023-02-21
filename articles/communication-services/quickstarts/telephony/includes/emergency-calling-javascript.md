@@ -19,7 +19,7 @@ ms.author: zehangzheng
 - If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it is required to set the ISO code to the US   
 - Supported ISO codes are US, PR, CA, and GB only
 - Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So emergency dialing is out of scope for Azure Communication Services direct routing.
-- The emergency calling service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in 2022.   
+- The emergency calling service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in the future.   
 - Calls to an emergency number are capped at 10 concurrent calls per Azure Resource.
 
 
