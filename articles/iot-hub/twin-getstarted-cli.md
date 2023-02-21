@@ -182,7 +182,7 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
     
 ## Query your IoT hub for device twins
 
-IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. In this section, you use the second CLI session to execute two queries on the set of device twins for your IoT hub: the first query selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network. Both queries return only the first 100 devices in the result set. For more information about device twin queries, see [Queries for IoT Hub device and module twins](query_twins.md).
+IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. In this section, you use the second CLI session to execute two queries on the set of device twins for your IoT hub: the first query selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network. Both queries return only the first 100 devices in the result set. For more information about device twin queries, see [Queries for IoT Hub device and module twins](query-twins.md).
 
 1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
 
