@@ -12,8 +12,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/14/2021
-ms.author: anfdocs
+ms.date: 02/21/2023
+ms.author: anfdoc
 ---
 # Storage hierarchy of Azure NetApp Files
 
@@ -25,7 +25,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
 
-![Conceptual diagram of storage hierarchy](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png":::
 
 ## <a name="azure_netapp_files_account"></a>NetApp accounts
 
