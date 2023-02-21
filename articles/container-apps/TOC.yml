@@ -151,6 +151,8 @@
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
       href: microservices-dapr-azure-resource-manager.md
+    - name: Microservices communication using Dapr pub/sub messaging
+      href: microservices-dapr-pubsub.md
     - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
     - name: Background processing
