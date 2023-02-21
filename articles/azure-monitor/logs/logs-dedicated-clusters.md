@@ -19,20 +19,7 @@ Capabilities that require dedicated clusters:
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
 - **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
 - **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that aren't eligible for commitment tier discount.
-- **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with zones being separated physically by locations and equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resiliency automatically. Dedicated clusters are created as Availability zones enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. This setting can’t be altered once created, and can be verified in cluster’s property `isAvailabilityZonesEnabled`. Availability zones clusters are created in the following regions currently, and more regions are added periodically. 
-
-  | Americas | Europe | Middle East | Africa | Asia Pacific |
-  |---|---|---|---|---|
-  | Brazil South | France Central | UAE North | South Africa North | Australia East |
-  | Canada Central | Germany West Central | | | Central India |
-  | Central US | North Europe | | | Japan East |
-  | East US | Norway East | | | Korea Central |
-  | East US 2 | UK South | | | Southeast Asia |
-  | South Central US | West Europe | | | East Asia |
-  | US Gov Virginia | Sweden Central | | | China North 3 |
-  | West US 2 | Switzerland North | | | |
-  | West US 3 | | | | |
-
+- **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with zones being separated physically by locations and equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resiliency automatically. Dedicated clusters are created as availability-zone-enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. This setting can’t be altered once created, and can be verified in cluster’s property `isAvailabilityZonesEnabled`. 
 
 ## Cluster management
 
