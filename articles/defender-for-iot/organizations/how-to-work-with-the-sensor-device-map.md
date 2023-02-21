@@ -55,8 +55,8 @@ Use any of the following map tools to modify the data shown and how it's display
 |**Multicast/broadcast**     | Select to edit the filter that shows or hides multicast and broadcast devices.    By default, multicast and broadcast traffic is hidden.      |
 |**Add filter**  (Last seen)   | Select to filter devices displayed by those shown in a specific time period, from the last five minutes to the last seven days.       |
 |**Reset filters**     |   Select to reset the *Last seen* filter.      |
-|**Highlight**     | Select to highlight the devices in a specific [device group](device-inventory.md#built-in-device-groups). Highlighted devices are shown on the map in blue. <br><br>Use the **Search groups** box to search for device groups to highlight, or expand your group options, and then select the group you want to highlight.       |
-|**Filter**     |  Select to filter the map to show only the devices in a specific [device group](device-inventory.md#built-in-device-groups). <br><br>Use the **Search groups** box to search for device groups, or expand your group options, and then select the group you want to filter by.        |
+|**Highlight**     | Select to highlight the devices in a specific [device group](#built-in-device-map-groups). Highlighted devices are shown on the map in blue. <br><br>Use the **Search groups** box to search for device groups to highlight, or expand your group options, and then select the group you want to highlight.       |
+|**Filter**     |  Select to filter the map to show only the devices in a specific [device group](#built-in-device-map-groups). <br><br>Use the **Search groups** box to search for device groups, or expand your group options, and then select the group you want to filter by.        |
 | **Zoom** <br>:::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: / :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in on the map to view the connections between each device, either using the mouse or the **+**/**-** buttons on the right of the map. |
 | **Fit to screen** <br>:::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false":::    |  Zooms out to fit all devices on the screen      |
 |**Fit to selection**<br>:::image type="icon" source="media/how-to-work-with-maps/fit-to-selection-icon.png" border="false":::     |  Zooms out enough to fit all selected devices on the screen      |
@@ -89,7 +89,7 @@ By default, IT devices are automatically aggregated by [subnet](how-to-control-w
 
 ## Create a custom device group from an OT sensor device map
 
-In addition to OT sensor's [built-in device groups](device-inventory.md#built-in-device-groups), create new custom groups as needed to use when highlighting or filtering devices on the map.
+In addition to OT sensor's [built-in device groups](#built-in-device-map-groups), create new custom groups as needed to use when highlighting or filtering devices on the map.
 
 1. Either select **+ Create Custom Group** in the toolbar, or right-click a device in the map and then select **Add to custom group**.
 
@@ -216,6 +216,26 @@ On the on-premises management console, zone maps show all network elements relat
 
 1. Right-click a device shown in red and select **View alerts** to jump to the **Alerts page**, with alerts filtered only for the selected device.
 
+
+## Built-in device map groups
+
+The following table lists the device groups available out-of-the-box on the OT sensor **Device map** page. [Create extra, custom groups](#create-a-custom-device-group-from-an-ot-sensor-device-map) as needed for your organization.
+
+| Group name | Description |
+|--|--|
+| **Attack vector simulations** | Vulnerable devices detected in attack vector reports, where the **Show in Device Map** option is [toggled on](how-to-create-attack-vector-reports.md).|
+| **Authorization** | Devices that were either discovered during an initial learning period or were later manually marked as *authorized* devices.|
+| **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
+| **Device inventory filters** | Any devices based on a [filter](how-to-investigate-sensor-detections-in-a-device-inventory.md) created in the OT sensor's **Device inventory** page. |
+| **Known applications** | Devices that use reserved ports, such as TCP.  |
+| **Last activity** | Devices grouped by the time frame they were last active, for example: One hour, six hours, one day, or seven days. |
+| **Non-standard ports** | Devices that use non-standard ports or ports that haven't been assigned an alias. |
+| **Not In Active Directory** | All non-PLC devices that aren't communicating with the Active Directory. |
+| **OT protocols** | Devices that handle known OT traffic. |
+| **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any other interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
+| **Programming** | Engineering stations, and programming machines. |
+| **Subnets** | Devices that belong to a specific subnet. |
+| **VLAN** | Devices associated with a specific VLAN ID. |
 
 ## Next steps
 

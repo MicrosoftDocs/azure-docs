@@ -27,7 +27,7 @@ While you can view device details from any of these locations, each location als
 
 |Location  |Description   | Extra inventory support |
 |---------|---------|---------|
-|**Azure portal**     | Devices detected from all cloud-connected OT sensors and Enterprise IoT sensors. <br><br>      |     - If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) on your Azure subscription, the device inventory also includes devices detected by Defender for Endpoint agents.  <br><br>- If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.     |
+|**Azure portal**     | Devices detected from all cloud-connected OT sensors and Enterprise IoT sensors. <br><br>      |     - If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) on your Azure subscription, the device inventory also includes devices detected by Microsoft Defender for Endpoint agents.  <br><br>- If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.     |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
 
@@ -36,6 +36,13 @@ For more information, see:
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+
+> [!NOTE]
+> If you have an Enterprise IoT plan to integrate with Microsoft Defender for Endpoint, devices detected by an Enterprise IoT sensor are also listed in Defender for Endpoint. For more information, see:
+> 
+> - [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
+> - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
+>
 
 ## Supported device categories
 
@@ -81,28 +88,6 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 - [Attack vector reports](how-to-create-attack-vector-reports.md): Devices marked as *important* are included in an attack vector simulation as possible attack targets.
 
 - [Risk assessment reports](how-to-create-risk-assessment-reports.md): Devices marked as *important* are counted in risk assessment reports when calculating security scores
-
-## Built-in device groups
-
-Defender for IoT's device inventories can be viewed and grouped by *device* group. Device groups include both out-of-the-box groups and [custom groups](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group-from-an-ot-sensor-device-map) created on your OT sensor's device map.
-
-Defender for IoT provides the following device groups out-of-the-box:
-
-| Group name | Description |
-|--|--|
-| **Attack vector simulations** | Vulnerable devices detected in attack vector reports, where the **Show in Device Map** option is [toggled on](how-to-create-attack-vector-reports.md).|
-| **Authorization** | Devices that were either discovered during an initial learning period or were later manually marked as *authorized* devices.|
-| **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
-| **Device inventory filters** | Any devices based on a [filter](how-to-investigate-sensor-detections-in-a-device-inventory.md) created in the OT sensor's **Device inventory** page. |
-| **Known applications** | Devices that use reserved ports, such as TCP.  |
-| **Last activity** | Devices grouped by the time frame they were last active, for example: One hour, six hours, one day, or seven days. |
-| **Non-standard ports** | Devices that use non-standard ports or ports that haven't been assigned an alias. |
-| **Not In Active Directory** | All non-PLC devices that aren't communicating with the Active Directory. |
-| **OT protocols** | Devices that handle known OT traffic. |
-| **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any other interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
-| **Programming** | Engineering stations, and programming machines. |
-| **Subnets** | Devices that belong to a specific subnet. |
-| **VLAN** | Devices associated with a specific VLAN ID. |
 
 ## Device inventory column data
 
