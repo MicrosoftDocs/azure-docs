@@ -7,4 +7,8 @@ ms.topic: include
 ms.author: eur
 ---
 
-In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) and the Language Understanding (LUIS) service to recognize intents from audio data captured from a microphone. Specifically, you'll use the Speech SDK to capture speech, and a prebuilt domain from LUIS to identify intents for home automation, like turning on and off a light. 
+In this quickstart, you'll use Speech and Language services to recognize intents from audio data captured from a microphone. Specifically, you'll use the Speech service to recognize speech, and a Conversational Language Understanding (CLU) model to identify intents. 
+
+> [!IMPORTANT]
+> Conversational Language Understanding (CLU) is available for C# and C++ with the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) version 1.25 or later. 
+

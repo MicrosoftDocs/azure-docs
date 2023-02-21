@@ -22,6 +22,12 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
+## Create a Conversational Language Understanding project
+
+[!INCLUDE [Deploy CLU model](deploy-clu-model.md)]
+
+You'll need the project name and deployment name in the next section.
+
 ## Recognize intents from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
@@ -114,6 +120,7 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
+1. In `Program.cs` set the `cluProjectName` and `cluDeploymentName` variables to the names of your project and deployment. For information about how to create a CLU project and deployment, see [Create a Conversational Language Understanding project](#create-a-conversational-language-understanding-project).
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start speech recognition from a microphone:
