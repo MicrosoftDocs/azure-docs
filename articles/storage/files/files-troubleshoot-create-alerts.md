@@ -4,7 +4,7 @@ description: Troubleshoot performance issues with SMB Azure file shares by recei
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As a system admin, I want to troubleshoot performance issues with Azure file shares to improve performance for applications and users.

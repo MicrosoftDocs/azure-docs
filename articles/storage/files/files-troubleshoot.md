@@ -4,7 +4,7 @@ description: Troubleshoot issues with Azure file shares. See common issues and e
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files 
 ---

@@ -4,7 +4,7 @@ description: Troubleshoot problems connecting to and accessing SMB Azure file sh
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
