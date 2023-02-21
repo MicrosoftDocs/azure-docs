@@ -223,11 +223,11 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-checkout-svc.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
 
 1. Do the same for the `order-processor` service to verify that it's receiving messages from the subscribed Azure Service Bus topic.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-order-processor-svc.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
 
 
 ## What happened?
@@ -424,11 +424,11 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-checkout-svc.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
 
 1. Do the same for the `order-processor` service to verify that it's receiving messages from the subscribed Azure Service Bus topic.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-order-processor-svc.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
 
 
 ## What happened?
@@ -627,11 +627,11 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-checkout-svc.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the checkout service container's log stream in the Azure portal.":::
 
 1. Do the same for the `order-processor` service to verify that it's receiving messages from the subscribed Azure Service Bus topic.
 
-   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view-order-processor-svc.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
+   :::image type="content" source="media/microservices-dapr-azd/pubsub-diagram.png" alt-text="Screenshot of the order processor service container's log stream in the Azure portal.":::
 
 
 ## What happened?
