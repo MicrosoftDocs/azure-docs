@@ -94,8 +94,11 @@ To configure a custom destination workspace for the Azure Monitor Agent:
     :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings in Monitoring coverage column." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
 
 1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
+
     :::image type="content" source="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png" alt-text="screenshot showing where to select edit configuration for Log Analytics agent/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
+
 1. Select **Custom workspace**, and select the workspace that you want to send data to.
+
     :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision-custom.png" alt-text="screenshot showing selection of custom workspace." lightbox="media/auto-deploy-azure-monitoring-agent/select-azure-monitor-agent-auto-provision-custom.png":::
 
 ### Log analytics workspace solutions
