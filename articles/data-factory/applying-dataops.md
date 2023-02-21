@@ -34,7 +34,7 @@ Specifically, once you bring your own GitHub or Azure DevOps repository into dat
 
 All artifacts in Azure Data Factory, whether they're pipelines, linked services, triggers, etc. have corresponding “code” representations in JSON behind the visual UI integration. These artifacts act in compliance with [Azure Resource Manager templates](/azure-resource-manager/templates/overview.md) standards. You can find the code by clicking on the bracket icon on the top right of the canvas. Sample JSON “code” would look like this:
 
-:::image type="content" source="media/applying-dataops/view-json-button.png" alt-text="Screenshot showing the 'View JSON' button on the pipeline UI.":::
+:::image type="content" source="media/applying-dataops/view-json-button.png" alt-text="Screenshot showing the View JSON button on the pipeline UI.":::
 
 :::image type="content" source="media/applying-dataops/json-example.png" alt-text="Screenshot showing example JSON for a pipeline.":::
 
@@ -70,7 +70,7 @@ The use of Git in your Azure Data Factory projects is a highly recommended best 
 
 After you create your data factory, you can also connect to your repo through the Azure Data Factory Studio. In the **Manage** tab, you'll see the option to configure your repo and repo settings.
 
-:::image type="content" source="media/applying-dataops/data-factory-studio-git-configuration.png" alt-text="Screenshot showing the Azure Data Factory Studio on the Manage tab with the Git Configuration section selected.":::
+:::image type="content" lightbox="media/applying-dataops/data-factory-studio-git-configuration.png" source="media/applying-dataops/data-factory-studio-git-configuration.png" alt-text="Screenshot showing the Azure Data Factory Studio on the Manage tab with the Git Configuration section selected.":::
 
 Through a guided process, you're directed through a series of steps to help you easily configure and connect to your repository of choice. Once fully set up, you can start to work collaboratively and save your resources to your repo.
 
@@ -146,15 +146,15 @@ We recommend that you follow these best practices for pull requests.
 
 #### Automated deployment of changes
 
-To help with automated deployments, we recommend using the Azure Data Factory utilities NPM package. Using the NPM package helps validate all the resources in a pipeline and generate the ARM templates for the user.
+To help with automated deployments, we recommend using the Azure Data Factory utilities npm package. Using the npm package helps validate all the resources in a pipeline and generate the ARM templates for the user.
 
-To get started with the [Azure Data Factory utilities NPM package](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities), refer to [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md#package-overview).
+To get started with the [Azure Data Factory utilities npm package](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities), refer to [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md#package-overview).
 
 #### Manual deployment of changes
 
 After you've merged your branch back to the main collaboration branch in your Git repository, you can manually publish your changes to the live Azure Data Factory service. The service provides UI control over publishing from non-development factories with the **Disable publish (from ADF Studio)** option.
 
-:::image type="content" source="media/applying-dataops/disable-publish-option.png" alt-text="Screenshot showing the Git repository edit page and the 'Disable publish (from ADF Studio)' button.":::
+:::image type="content" source="media/applying-dataops/disable-publish-option.png" alt-text="Screenshot showing the Git repository edit page and the Disable publish (from ADF Studio) button.":::
 
 ### Selective deployment
 
@@ -168,11 +168,11 @@ Once you've cherry picked the changes and merged to the main collaboration pipel
 
 Unit testing is an important part of the process of developing new pipelines or editing existing data factory artifacts, which focuses on testing components of the code. Data Factory allows for individual unit testing at both the pipeline and data flow artifact level by using the pipeline [debug feature](iterative-development-debugging.md?tabs=data-factory#debugging-a-pipeline).
 
-:::image type="content" source="media/applying-dataops/pipeline-debugging.png" alt-text="Screenshot showing the pipeline editor canvas with the debug option.":::
+:::image type="content" lightbox="media/applying-dataops/pipeline-debugging.png" source="media/applying-dataops/pipeline-debugging.png" alt-text="Screenshot showing the pipeline editor canvas with the debug option.":::
 
 When developing data flows, you'll be able to gain insights into each individual transformation and code change by using the [data preview feature](concepts-data-flow-debug-mode.md?tabs=data-factory) to achieve unit testing before deploying your changes to production.
 
-:::image type="content" source="media/applying-dataops/data-preview-feature.png" alt-text="Screenshot showing the data preview feature.":::
+:::image type="content" lightbox="media/applying-dataops/data-preview-feature.png" source="media/applying-dataops/data-preview-feature.png" alt-text="Screenshot showing the data preview feature.":::
 
 The service provides live and interactive feedback of your pipeline activities in the UI when debugging and unit testing in Azure Data Factory.
 
@@ -206,11 +206,11 @@ Native integration with Microsoft Purview further provides lineage, impact analy
 
 With native integration into your Purview Data Catalog, data factory enables easy search and discovery of data assets to use in your data integration pipelines across the full breadth of your organization’s data estate.
 
-:::image type="content" source="media/applying-dataops/purview-data-catalog.png" alt-text="Screenshot showing the Microsoft Purview Data Catalog.":::
+:::image type="content" lightbox="media/applying-dataops/purview-data-catalog.png" source="media/applying-dataops/purview-data-catalog.png" alt-text="Screenshot showing the Microsoft Purview Data Catalog.":::
 
 You can use the main search bar from the Azure Data Factory Studio to find data assets in your Purview catalog.
 
-:::image type="content" source="media/applying-dataops/purview-search.png" alt-text="Screenshot showing Purview results from a search in the Azure Data Factory Studio search bar.":::
+:::image type="content" lightbox="media/applying-dataops/purview-search.png" source="media/applying-dataops/purview-search.png" alt-text="Screenshot showing Purview results from a search in the Azure Data Factory Studio search bar.":::
 
 ## Next steps
 
