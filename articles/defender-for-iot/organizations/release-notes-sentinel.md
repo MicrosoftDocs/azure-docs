@@ -25,7 +25,7 @@ New features in this version include:
 
 - Improved analytics rules, with the new ability to have incidents created only when new alerts are triggered in Defender for IoT. When configuring your incident creation in Microsoft Sentinel, filter alerts by the **Is New** property.
 
-- Enhanced **incident page with native Defender for IoT data embadded**, including deep link to 'Defender for IoT' alert page, product name display, remediation steps, and MITRE tactics and techniques.
+- An enhanced incident details page that includes Defender for IoT data, including a deep link to the Defender for IoT alert details page, the product name, remediation steps, and MITRE tactics and techniques.
 
 - Performance improvements for analytic rules queries.
 
