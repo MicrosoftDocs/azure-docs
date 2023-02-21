@@ -15,7 +15,7 @@ This article describes how to use CalculatedContent mappings with MedTech servic
 
 ## Overview of CalculatedContent mappings
 
-The MedTech service provides an expression-based content template to both match the wanted template and extract values. Either JSONPath or JMESPath can use *expressions*. Each expression within the template can use its own expression language.
+The MedTech service provides an expression-based content template to both match the wanted template and extract values. Either JSONPath or JMESPath can use expressions. Each expression within the template can use its own expression language.
 
 > [!NOTE]
 > If you don't define an expression language, MedTech service device mappings use the default expression language that's configured for the template. The default is JSONPath, but you can overwrite it if necessary.
@@ -71,8 +71,8 @@ CalculatedContent mappings allow matching on, and extracting values from, an Azu
 
 |Property|Description|Example|
 |--------|-----------|-------|
-|`TypeName`|The type to associate with measurements that match the template.|`heartrate` value|
-|`TypeMatchExpression`|The expression that the MedTech service evaluates against the `EventData` payload. If it finds a matching `JToken` value, it considers the template a match. The MedTech service evaluates all later expressions against the extracted `JToken` value matched here.|`$..[?(@heartRate)]`|
+|`TypeName`|The type to associate with measurements that match the template.|`heartrate`|
+|`TypeMatchExpression`|The expression that the MedTech service evaluates against the `EventData` payload. If the service finds a matching `JToken` value, it considers the template a match. The service evaluates all later expressions against the extracted `JToken` value matched here.|`$..[?(@heartRate)]`|
 |`TimestampExpression`|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|
 |`DeviceIdExpression`|The expression to extract the device identifier.|`$.matchedToken.deviceId`|
 |`PatientIdExpression`|The expression to extract the patient identifier. *Required* when `IdentityResolution` is in `Create` mode, and *optional* when `IdentityResolution` is in `Lookup` mode.|`$.matchedToken.patientId`|
@@ -102,7 +102,7 @@ A set of custom functions for the MedTech service is also available. The MedTech
 
 ## Matched token
 
-The MedTech service evaluates `TypeMatchExpression` against the incoming `EventData` payload. If it finds a matching `JToken` value, it considers the template a match.
+The MedTech service evaluates `TypeMatchExpression` against the incoming `EventData` payload. If the service finds a matching `JToken` value, it considers the template a match.
 
 The MedTech service evaluates all later expressions against a new `JToken` value. This new `JToken` value contains both the original `EventData` payload and the extracted `JToken` value matched here.
 
