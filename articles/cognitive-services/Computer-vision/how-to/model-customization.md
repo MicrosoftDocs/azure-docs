@@ -14,7 +14,7 @@ ms.custom:
 
 # Create a custom Image Analysis model (preview)
 
-Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection).
+Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection). Image Analysis 4.0 models are especially effective at few-shot learning, so you don't need a lot of training images to get accurate models.
 
 This guide shows you how to create and train a custom image classification model. The few differences between this and object detection models are noted.
 
@@ -23,7 +23,7 @@ This guide shows you how to create and train a custom image classification model
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
-* A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images.
+* A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
 #### [Vision Studio](#tab/studio)
 
@@ -31,9 +31,7 @@ This guide shows you how to create and train a custom image classification model
 
 Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile or the **Detect common objects in images** tile, depending on whether you want to train an image classification model or object detection model. This guide will demonstrate a custom image classification model. 
 
-![Model customization tab]( ../media/customization/generic-image-classification-vision-stuido.png)
-
-The **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
+On the next screen, the **Choose the model you want to try out** drop-down lets you select the Pretrained Vision model (to do ordinary Image Analysis) or a custom trained model. Since you don't have a custom model yet, select **Train a custom model**.
 
 ![Choose Resource Page]( ../media/customization/generic-image-classification-vision-studio-step1.png)
 
@@ -57,8 +55,6 @@ To create a new dataset, select **add new dataset**. Enter a name and select a d
 ![Choose Blob Storage]( ../media/customization/vision-studio-create-dataset.png)
 
 Then, select the container from the Azure Blob Storage account where you stored the training images. Check the box to allow Vision Studio to read and write to the blob storage container. This is a necessary step to import labeled data. Create the dataset.
-
-![Dataset details page]( ../media/customization/incomplete-dataset-details.png)
 
 ## Create an AML labeling project
 
@@ -107,13 +103,13 @@ Select your dataset, which is now associated with the COCO file containing the l
 
 ![Choose dataset]( ../media/customization/vision-studio-train-model-choosedataset.png)
 
-Select a time budget and train the model. For small examples, you can use a `1 hour` budget.
+Then select a time budget and train the model. For small examples, you can use a `1 hour` budget.
 
-![Train model]( ../media/customization/vision-studio-train-test-model.png)
+It may take some time for the training to complete. Image Analysis 4.0 models can be very accurate with only a small set of training data, but they take longer to train than previous models.
 
 ## Evaluate the trained model
 
-It may take some time for the training to complete. After training has completed, you can view the model's performance evaluation. See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
+After training has completed, you can view the model's performance evaluation. See the [Vision Evaluation repository](https://github.com/microsoft/vision-evaluation/blob/main/README.md) for the list of metrics we use for model evaluation.
 
 By default, performance is estimated based on data in the training dataset. You can optionally create evaluation datasets (using the same process as above) to use at this step for further model evaluation.
 
@@ -126,8 +122,6 @@ Once you've built a custom model, you can go back to the **Extract common tags f
 ![Screenshot of selecing test model in Vision Studio.]( ../media/customization/evaluate-model.png)
 
 The prediction results will appear in the right column.
-
-![Screenshot of an image being scored in Vision Studio.]( ../media/customization/vision-studio-model-output.png)
 
 #### [REST API](#tab/rest)
 
