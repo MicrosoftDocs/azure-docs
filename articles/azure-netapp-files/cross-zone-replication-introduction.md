@@ -40,7 +40,6 @@ The preview of cross-zone replication is available in the following regions:
 * Korea Central
 * North Europe
 * Norway East 
-* Norway West
 * South Africa North
 * Southeast Asia
 * South Central US 
