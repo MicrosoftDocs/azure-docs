@@ -37,7 +37,7 @@ Applications that use the TLS Offload Library use one or more PKCS#11 attributes
 ### Key Generation   
 The TLS Offload Library includes a key creation tool -  mhsm_p11_create_key. Running the tool without any command line arguments shows the correct usage of the tool.
 
-The key creation tool requires a Service Principal which is assigned to the "Managed HSM Crypto User" role at the "/keys" scope.
+The key creation tool requires a Service Principal, which is assigned to the "Managed HSM Crypto User" role at the "/keys" scope.
 
 The key creation tool reads the Service Principal credentials from the environment variables MHSM_CLIENT_ID and MHSM_CLIENT_SECRET.
 - MHSM_CLIENT_ID – must be set to the Service Principal's Application (Client) ID
@@ -55,20 +55,20 @@ Managed HSM Key ID: https://myhsm.managedhsm.azure.net/keys/p11-6a2155dc40c94367
 Key Name: p11-6a2155dc40c94367a0f97ab452dc216f
 ```
 
-The --label argument to the key creation tool specifies the desired CKA_LABEL for the private and public keys generated. These attributes are typically required to configure supported TLS Offload solutions (e.g., the nginx SSL configuration setting `ssl_certificate_key').
+The --label argument to the key creation tool specifies the desired CKA_LABEL for the private and public keys generated. These attributes are typically required to configure supported TLS Offload solutions (for example, the nginx SSL configuration setting `ssl_certificate_key').
 
 You'll need the key name for any role assignment changes via the Azure CLI.
 
 ### Access Control
 
-The TLS Offload Library translates the C_FindObjectsInit into an Azure Key Vault REST API call which operates at the /keys scope. The MHSM service will require the Read permission at this scope for the TLS Offload Library User to authorize the find operation for the keys created via the key creation tool.
+The TLS Offload Library translates the C_FindObjectsInit into an Azure Key Vault REST API call, which operates at the /keys scope. The MHSM service requires the Read permission at this scope for the TLS Offload Library User to authorize the find operation for the keys created via the key creation tool.
 
-Refer to the following documentation for more information on Azure Managed HSM local RBAC.
+For more information on Azure Managed HSM local RBAC, see:
 
 - [Azure Managed HSM local RBAC built-in roles](built-in-roles.md)
 - [Azure Managed HSM role management](role-management.md)
 
-The following section below describes different approaches to implement access control for the TLS Offload Library Service Principal._
+The following section describes different approaches to implement access control for the TLS Offload Library Service Principal.
 
 #### TLS Offload Service Principal
 
@@ -78,7 +78,7 @@ Service Principal used by the application that uses TLS Offload Library to acces
 
 #### Admin User
 
-Admin User will be creating a custom role definition and role assignments. Hence the Admin User should be assigned to one of the following Built-in roles at the "/" scope.
+Admin User will create a custom role definition and role assignments. Hence, the Admin User should be assigned to one of the following Built-in roles at the "/" scope:
 - Managed HSM Crypto Officer
 - Managed HSM Policy Administrator
 - Managed HSM Administrator
@@ -89,7 +89,7 @@ Service Principal that will be used with the key creation tool (mhsm_p11_create_
 
 #### Azure CLI
 
-In the description below, Azure CLI is used to perform tasks like Role Assignment, etc.
+Azure CLI can be used to perform tasks such as Role Assignment.
 
 ### Permissive Approach
 
@@ -152,10 +152,11 @@ az keyvault role assignment create --hsm-name ContosoMHSM  \
 
 ## How To
 
-### How to generate keys using the TLS Offload Library?
+### How to generate keys using the TLS Offload Library
+
 The TLS Offload Library includes a key creation tool -  mhsm_p11_create_key. Running the tool without any command line arguments shows the correct usage of the tool.
 
-The key creation tool requires a Service Principal which is assigned to the "Managed HSM Crypto User" role at the "/keys" scope.
+The key creation tool requires a Service Principal, which is assigned to the "Managed HSM Crypto User" role at the "/keys" scope.
 
 The key creation tool reads the Service Principal credentials from the environment variables MHSM_CLIENT_ID and MHSM_CLIENT_SECRET.
 - MHSM_CLIENT_ID – must be set to the Service Principal's Application (Client) ID
@@ -173,11 +174,11 @@ Managed HSM Key ID: https://myhsm.managedhsm.azure.net/keys/p11-6a2155dc40c94367
 Key Name: p11-6a2155dc40c94367a0f97ab452dc216f
 ```
 
-The --label argument to the key creation tool specifies the desired CKA_LABEL for the private and public keys generated. These attributes are typically required to configure supported TLS Offload solutions (e.g., the nginx SSL configuration setting `ssl_certificate_key').
+The --label argument to the key creation tool specifies the desired CKA_LABEL for the private and public keys generated. These attributes are typically required to configure supported TLS Offload solutions (for example, the nginx SSL configuration setting `ssl_certificate_key').
 
 The key name is required if you are planning to implement granular access to keys.
 
-### How to implement Key Less TLS?
+### How to implement Key Less TLS
 
 There are two approaches to generating a key and using the key for the Key Less TLS. The approaches differ in implementation effort and security enforcement.
 - Simpler, more permissive approach
@@ -185,17 +186,15 @@ There are two approaches to generating a key and using the key for the Key Less 
 
 #### Simpler Permissive Approach
 
-1. Create a Service Principal for the TLS Offload Library (e.g., TLSOffload ServicePrincipal)
+1. Create a Service Principal for the TLS Offload Library (for example, TLSOffload ServicePrincipal)
 2. Assign "Managed HSM Crypto User" role to the TLS Offload Service Principal at the "/keys" scope.
-
-```azurecli
-az keyvault role assignment create --hsm-name ContosoMHSM \
---role "Managed HSM Crypto User"  \
---assignee TLSOffloadServicePrincipal@contoso.com  \
---scope /keys
-```
-
-3. Generate key with required label following How to generate keys using the TLS Offload Library.  
+  ```azurecli
+  az keyvault role assignment create --hsm-name ContosoMHSM \
+  --role "Managed HSM Crypto User"  \
+  --assignee TLSOffloadServicePrincipal@contoso.com  \
+  --scope /keys
+  ```
+3. Generate key with required label following the steps in [How to generate keys using the TLS Offload Library](#how-to-generate-keys-using-the-tls-offload-library).
 4. Configure the TLS server to use the Managed HSM TLS Offload Library as the PKCS#11 interface library
 5. Configure the TLS server (e.g., the nginx SSL configuration setting `ssl_certificate_key') with the key label and the TLS Offload Service Principal credentials
 
@@ -207,39 +206,34 @@ az keyvault role assignment create --hsm-name ContosoMHSM \
   a. "Managed HSM Crypto User" role at the "/keys" scope.
 1. Create a Service Principal for the TLS Offloading (e.g., TLSOffload   ServicePrincipal)
 1. The Admin User creates the following custom role definition:
-  
-```azurecli
-az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{ \
-"roleName": "TLS Library User Read Role", \
-"description": "Grant Read access to keys", \ 
-"actions": [], \
-"notActions": [], \
-"dataActions": ["Microsoft.KeyVault/managedHsm/keys/read/action"], \
-"notDataActions": []
-}'
-```
-
+  ```azurecli
+  az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{ \
+  "roleName": "TLS Library User Read Role", \
+  "description": "Grant Read access to keys", \ 
+  "actions": [], \
+  "notActions": [], \
+  "dataActions": ["Microsoft.KeyVault/managedHsm/keys/read/action"], \
+  "notDataActions": []
+  }'
+  ```
 1. Generate key with required label following "How to generate keys using the TLS Offload Library". Use the Key Generation Service Principal (e.g., TLSOffloadKeyGenServicePrincipal) created above while generating keys. Note down the Key Label and Key Name. E.g.,
   a. Key Label: tlsKey
   b. Key Name: p11-6a2155dc40c94367a0f97ab452dc216f  
 1. Admin User assigns the following roles to the TLS Offload Service Principal
   a. "TLS Library User Read Role" role at the "/keys" scope
   b. "Managed HSM Crypto User" role at the "/keys/{key name}" scope
-
-```azurecli
-az keyvault role assignment create --hsm-name ContosoMHSM  \
---role " TLS Library User Read Role"  \
---assignee TLSOffloadServicePrincipal @contoso.com  \
---scope /keys
-
-az keyvault role assignment create --hsm-name ContosoMHSM  \
---role "Managed HSM Crypto User"  \
---assignee TLSOffloadServicePrincipal@contoso.com  \
---scope /keys/p11-6a2155dc40c94367a0f97ab452dc216f
-```
-
+  ```azurecli
+  az keyvault role assignment create --hsm-name ContosoMHSM  \
+  --role " TLS Library User Read Role"  \
+  --assignee TLSOffloadServicePrincipal @contoso.com  \
+  --scope /keys
+  
+  az keyvault role assignment create --hsm-name ContosoMHSM  \
+  --role "Managed HSM Crypto User"  \
+  --assignee TLSOffloadServicePrincipal@contoso.com  \
+  --scope /keys/p11-6a2155dc40c94367a0f97ab452dc216f
+  ```
 1. Configure the TLS server to use the Managed HSM TLS Offload Library as the PKCS#11 interface library
-
 1. Configure the TLS server (e.g., the nginx SSL configuration setting `ssl_certificate_key') with the key label and the TLS Offload Service Principal credentials
 
 ## Next steps
