@@ -12,7 +12,7 @@ ms.date: 02/16/2023
 
 Azure Static Web apps database connections work with various Azure databases.
 
-As you connect a database to your static web app, you need to:
+Before you connect a database to your static web app, you need to:
 
 - Configure your database's firewall to accept network access from the Static Web Apps workers.
 - If you're using the Managed Identity authentication type, then you need to configure your static web app's Managed Identity profile to access your database.
@@ -47,9 +47,9 @@ Linking a database to your static web app establishes the production connection 
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select the connection type required to connect to your database. |
 
-## Configuration
+## Configuration folder
 
-As you link a database to your static web app, you need to define a database configuration. A file named *staticwebapp.database.config.json* stores the database configuration information. By default this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
+The runtime behavior of the database connection is defined by the `staticwebapp.database.config.json` file found in your repository. Before you link a database to your static web app, you need to define create this file within your repository. By convention, this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
 
 The purpose of the configuration file is to:
 
@@ -108,7 +108,7 @@ The following sample configuration file shows you how to connect to an Azure SQL
 | Property | Description |
 |---|---|
 | `$schema` | The version of the [Database Application Builder](https://github.com/Azure/data-api-builder) used by Azure Static Web Apps to interpret the configuration file. |
-| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>In development, the connection string defined here used to connect to the database. In production, the connection established during the [link a database process](#link-a-database) manages the connection. |
+| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The entire data-source object is overwritten upon deployment when a database is connected to your Static Web Apps resource. When developing locally, the connection string defined here is used to connect to the database.  |
 | `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your  localhost address and port. |
 | `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities. |
 
