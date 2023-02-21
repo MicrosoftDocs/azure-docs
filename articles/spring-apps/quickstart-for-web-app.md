@@ -194,7 +194,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --name <name-of-app> \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like the page in localhost.
+2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
 3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
@@ -204,7 +204,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 
 ## Clean up resources
-1. Use the following commands to delete the resource group.
+1. To avoid unnecessary cost, use the following commands to delete the resource group.
     ```azurecli-interactive
     az group delete --name <name-of-resource-group>
     ```
