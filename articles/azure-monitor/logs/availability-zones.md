@@ -1,17 +1,18 @@
 ---
 title: Availability zones in Azure Monitor
-description: Learn about the data and service resiliency benefits Azure Monitor availability zones provide by default to dedicated clusters in supported regions. 
+description: Learn about the data and service resiliency benefits Azure Monitor availability zones provide in the event of datacenter failure. 
 ms.subservice: logs
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 08/18/2021
+ms.date: 02/21/2023
 ms.custom: references_regions
+
+#customer-intent: As an IT manager, I want to understand the data and service resiliency benefits Azure Monitor availability zones provide so that can ensure my data and services are sufficiently protected in the event of datacenter failure.
 ---
+# Enhance data protection and service continuity with Availability zones in Azure Monitor
 
-# Availability zones in Azure Monitor
-
-[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can provide resilience for Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resiliency benefits Azure Monitor availability zones provide by default to [dedicated clusters](logs-dedicated-clusters.md) in supported regions.
+[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resiliency benefits Azure Monitor availability zones provide by default to [dedicated clusters](logs-dedicated-clusters.md) in supported regions.
 
 ## Prerequisites
 
