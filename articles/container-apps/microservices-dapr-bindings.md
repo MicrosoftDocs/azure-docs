@@ -18,7 +18,7 @@ zone_pivot_groups: dapr-languages-set
 - Seamlessly updates Dapr versions
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-In this tutorial, you'll create a microservice to demonstrate [Dapr's bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
+In this tutorial, you create a microservice to demonstrate [Dapr's bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
 > * Use the Dapr CLI to locally run a microservice application that leverages the Dapr bindings APIs. 
 > * Redeploy the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
@@ -141,9 +141,9 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -203,8 +203,8 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 ::: zone-end
 
@@ -310,9 +310,9 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -372,8 +372,8 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -479,9 +479,9 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -541,8 +541,8 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 ::: zone-end
 
