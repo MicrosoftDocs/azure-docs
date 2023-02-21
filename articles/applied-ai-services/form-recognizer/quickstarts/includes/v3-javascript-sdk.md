@@ -220,7 +220,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrlLayout);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", formUrl);
 
     const {
         pages,
