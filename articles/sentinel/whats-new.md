@@ -38,6 +38,7 @@ Microsoft Sentinel's **health monitoring feature is now available for analytics 
 Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
 - [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
 - [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+- Explore the new [Analytics Health & Audit workbook](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook).
 
 ### Microsoft 365 Defender data connector is now generally available
 
