@@ -223,6 +223,7 @@ The following code example downloads a blob and writes the contents to the conso
 get, err := client.DownloadStream(ctx, containerName, blobName, nil)
 handleError(err)
 
+downloadedData := bytes.Buffer{}
 _, err = downloadedData.ReadFrom(get.Body)
 handleError(err)
 
