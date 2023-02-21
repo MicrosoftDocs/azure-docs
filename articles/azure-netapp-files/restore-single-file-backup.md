@@ -55,7 +55,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Under the **Backups** menu, select the backup you want to use to restore files.
 1. Select the three dots `...` associated with the backup you want to use, then select **Restore Files**.
 
-    :::image type="content" source="./media/restore-single-file-backup/restore-files-select.jpg" alt-text="Screenshot depicting restore file options: restore to a new volume, delete, or restore files." lightbox="./media/restore-single-file-backup/azure-netapp-files/restore-files-select.jpg":::
+    :::image type="content" source="./media/restore-single-file-backup/restore-files-select.jpg" alt-text="Screenshot depicting restore file options: restore to a new volume, delete, or restore files." lightbox="./media/restore-single-file-backup/restore-files-select.jpg":::
 
 1. In the **File paths** field, enter the file names with the complete file path for each file, for example `/dir/file1.txt`. Multiple files can be entered as a comma-separated list or with line breaks between entries.
 
