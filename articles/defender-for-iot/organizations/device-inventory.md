@@ -38,7 +38,7 @@ For more information, see:
 - [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 > [!NOTE]
-> If you have an Enterprise IoT plan to integrate with Microsoft Defender for Endpoint, devices detected by an Enterprise IoT sensor are also listed in Defender for Endpoint. For more information, see:
+> If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) to [integrate with Microsoft Defender for Endpoint](concept-enterprise.md), devices detected by an Enterprise IoT sensor are also listed in Defender for Endpoint. For more information, see:
 > 
 > - [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
 > - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
