@@ -36,6 +36,8 @@ This article requires that you already have a disk encryption set in each region
 
 When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:
 
+- Encryption key sets must be in the same subscription as your image.
+
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
 
 - After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
