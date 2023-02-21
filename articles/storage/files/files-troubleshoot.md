@@ -77,15 +77,15 @@ If you can't open port 445, you can set up a VPN or ExpressRoute connection from
 
 Run the `Resolve-DnsName` PowerShell cmdlet or use `nslookup` to perform a DNS query for your domain name.
 
-## Common troubleshooting subject areas
+## Common troubleshooting areas
 
 For more detailed information, choose the subject area that you'd like to troubleshoot.
 
-- [Connecting and accessing Azure Files (SMB)](files-troubleshoot-smb-connectivity.md)
-- [Azure Files identity-based authentication and authorization issues (SMB)](files-troubleshoot-smb-authentication.md)
-- [Azure Files performance issues](files-troubleshoot-performance.md)
-- [Azure Files general SMB issues on Linux](files-troubleshoot-linux-smb.md)
-- [Azure Files general NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md)
+- [Identity-based authentication and authorization issues (SMB)](files-troubleshoot-smb-authentication.md)
+- [Performance issues (SMB/NFS)](files-troubleshoot-performance.md)
+- [General issues on Linux (SMB)](files-troubleshoot-linux-smb.md)
+- [General issues on Linux (NFS)](files-troubleshoot-linux-nfs.md)
 - [Azure File Sync issues](../file-sync/file-sync-troubleshoot.md)
 
 Some issues can be related to more than one subject area (both connectivity and performance, for example).
@@ -95,4 +95,3 @@ If you still need help, [contact support](https://portal.azure.com/?#blade/Micro
 
 ## See also
 - [Monitor Azure Files](storage-files-monitoring.md)
-

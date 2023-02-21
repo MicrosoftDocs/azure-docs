@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot Azure Files problems in Linux (SMB)
-description: Troubleshooting Azure Files problems in Linux. See general issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
+title: Troubleshoot Azure Files issues in Linux (SMB)
+description: Troubleshooting Azure Files issues in Linux. See general issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Linux (SMB)
+# Troubleshoot Azure Files issues in Linux (SMB)
 
-This article lists common problems that are related to SMB Azure file shares when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
+This article lists common issues that can occur when using SMB Azure file shares with Linux clients. It also provides possible causes and resolutions for these problems.
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has the correct prerequisites and automate symptom detection. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure file shares.
+You can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to automate symptom detection and ensure that the Linux client has the correct prerequisites. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
 
 > [!IMPORTANT]
 > This article only applies to SMB shares. For details on NFS shares, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).
@@ -88,7 +88,7 @@ You can then create symlinks as suggested on the [wiki](https://wiki.samba.org/i
 
 ## Unable to access folders or files which name has a space or a dot at the end
 
-You're unable to access folders or files from the Azure file share while mounted on Linux. Commands like du and ls and/or third-party applications might fail with a "No such file or directory" error while accessing the share; however, you're able to upload files to said folders via the portal.
+You can't access folders or files from the Azure file share while mounted on Linux. Commands like du and ls and/or third-party applications might fail with a "No such file or directory" error while accessing the share; however, you're able to upload files to these folders via the Azure portal.
 
 ### Cause
 
@@ -113,7 +113,7 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 <a id="dns-account-migration"></a>
 ## DNS issues with live migration of Azure storage accounts
 
-File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client will have repeated errors like:
+File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client show repeated errors like:
 
 Status code returned 0xc000006d STATUS_LOGON_FAILURE
 cifs_setup_session: 2 callbacks suppressed
@@ -123,15 +123,15 @@ You'll also see that the server FQDN now resolves to a different IP address than
 
 ### Cause
 
-For capacity load balancing purposes, storage accounts are sometimes live-migrated from one storage cluster to another. Account migration triggers Azure Files traffic to be redirected from the source cluster to the destination cluster by updating the DNS mappings to point to the destination cluster. This causes all traffic to the source cluster from that account to be blocked. It’s expected that the SMB client picks up the DNS updates and redirects further traffic to the destination cluster. However, due to a bug in the Linux SMB kernel client, this redirection didn't take effect. As a result, the data traffic kept going to the source cluster, which had stopped serving this account post migration.
+For capacity load balancing purposes, storage accounts are sometimes live-migrated from one storage cluster to another. Account migration triggers Azure Files traffic to be redirected from the source cluster to the destination cluster by updating the DNS mappings to point to the destination cluster. This blocks all traffic to the source cluster from that account. It’s expected that the SMB client picks up the DNS updates and redirects further traffic to the destination cluster. However, due to a bug in the Linux SMB kernel client, this redirection doesn't take effect. As a result, the data traffic keeps going to the source cluster, which has stopped serving this account post migration.
 
 ### Workaround
 
-This issue can be mitigated by rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
+You can mitigate this issue by rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
 
 ### Solution
 
-For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel. Kernel version 5.15+ and Keyutils-1.6.2+ have the fixes. However, these fixes are yet to be backported by popular Linux distros into their stable kernels. Some distros have backported these fixes, and you can check if the following fixes exist in the distro version you're using:
+For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Several fixes for the Linux SMB kernel client have been submitted to the mainline Linux kernel. Kernel version 5.15+ and Keyutils-1.6.2+ have the fixes. Some distros have backported these fixes, and you can check if the following fixes exist in the distro version you're using:
 
 [cifs: On cifs_reconnect, resolve the hostname again](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e456b30f78c429b183db420e23b26cde7e03a78)
 

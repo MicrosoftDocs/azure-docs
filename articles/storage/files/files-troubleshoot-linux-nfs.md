@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot NFS file share problems - Azure Files
-description: Troubleshoot NFS Azure file share problems.
+title: Troubleshoot NFS file shares - Azure Files
+description: Troubleshoot issues with NFS Azure file shares.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Troubleshoot NFS Azure file share problems
+# Troubleshoot NFS Azure file shares
 
-This article lists some common problems and known issues related to NFS Azure file shares and provides potential causes and workarounds.
+This article lists common issues related to NFS Azure file shares and provides potential causes and workarounds.
 
 > [!IMPORTANT]
 > The content of this article only applies to NFS shares. To troubleshoot SMB issues in Linux, see [Troubleshoot Azure Files problems in Linux (SMB)](files-troubleshoot-linux-smb.md). NFS Azure file shares aren't supported for Windows clients.
@@ -26,17 +26,17 @@ This article lists some common problems and known issues related to NFS Azure fi
 
 ## chgrp "filename" failed: Invalid argument (22)
 
-### Cause 1: idmapping is not disabled
-Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled.
+### Cause 1: idmapping isn't disabled
+Because Azure Files disallows alphanumeric UID/GID, you must disable idmapping.
 
 ### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
-Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, an NFS 4.1 Linux client decides to re-enable idmapping, and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
+Even if idmapping is correctly disabled, it can be automatically re-enabled in some cases. For example, when Azure Files encounters a bad file name, it sends back an error. Upon seeing this error code, an NFS 4.1 Linux client decides to re-enable idmapping, and future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
 
 ### Workaround
-Check that idmapping is disabled and nothing is re-enabling it. Then perform the following steps:
+Check that idmapping is disabled and that nothing is re-enabling it. Then perform the following steps:
 
 - Unmount the share
-- Disable idmapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Disable idmapping with `# echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping`
 - Mount the share back
 - If running rsync, run rsync with the "—numeric-ids" argument from a directory that doesn't have a bad dir/file name.
 
@@ -58,7 +58,7 @@ Follow the instructions in [How to create an NFS share](storage-files-how-to-cre
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
-Unlike SMB, NFS doesn't have user-based authentication. The authentication for a share is based on your network security rule configuration. Due to this, to ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up a VPN or ExpressRoute connection. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
+Unlike SMB, NFS doesn't have user-based authentication. The authentication for a share is based on your network security rule configuration. To ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up a VPN or ExpressRoute connection. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
 
 
 - [Service endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
@@ -66,7 +66,7 @@ Unlike SMB, NFS doesn't have user-based authentication. The authentication for a
     - Only available in the same region.
     - VNet peering won't give access to your share.
     - Each virtual network or subnet must be individually added to the allowlist.
-    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs but, we recommend using private endpoint because it's more secure.
+    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs. We recommend using a private endpoint because it's more secure.
 
 The following diagram depicts connectivity using public endpoints.
 
@@ -75,14 +75,14 @@ The following diagram depicts connectivity using public endpoints.
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
     - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premises).
-    - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
+    - Virtual network peering with virtual networks hosted in the private endpoint give the NFS share access to the clients in peered virtual networks.
     - Private endpoints can be used with ExpressRoute, point-to-site VPNs, and site-to-site VPNs.
 
 :::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### Cause 2: Secure transfer required is enabled
 
-Double encryption isn't currently supported for NFS Azure file shares. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. NFS shares can only be accessed from trusted virtual networks and over VPN tunnels. No additional transport layer encryption is available on NFS shares.
+NFS Azure file shares don't currently support double encryption. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. You can only access NFS shares from trusted virtual networks and over VPN tunnels. No extra transport layer encryption is available on NFS shares.
 
 #### Solution
 
@@ -91,13 +91,13 @@ Disable **secure transfer required** in your storage account's configuration bla
 :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
 ### Cause 3: nfs-common package is not installed
-Before running the mount command, install the package by running the distro-specific command from below.
+Before running the `mount` command, install the nfs-common package.
 
 To check if the NFS package is installed, run: `rpm qa | grep nfs-utils`
 
 #### Solution
 
-If the package isn't installed, install the package on your distribution.
+If the package isn't installed, install the package using your distro-specific command.
 
 ##### Ubuntu or Debian
 
@@ -105,6 +105,7 @@ If the package isn't installed, install the package on your distribution.
 sudo apt update
 sudo apt install nfs-common
 ```
+
 ##### Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
 
 Use the dnf package manager: `sudo dnf install nfs-utils`.
@@ -125,11 +126,11 @@ Verify that port 2049 is open on your client by running the following command: `
 
 ## ls hangs for large directory enumeration on some kernels
 
-### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
+### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.
 Some kernel versions have a bug that causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call won't have the problem.
-The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
+The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 has this kernel version.
 
-#### Workaround: Downgrading or upgrading the kernel
+#### Workaround: Downgrade or upgrade the kernel
 Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue.
 
 ## Need help?
