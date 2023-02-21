@@ -29,6 +29,7 @@ Deploy the policies and initiatives using the Portal, CLI, PowerShell, or Azure 
 The following steps show how to apply the policy to send audit logs to for key vaults to a log analytics workspace.
 
 1. From the Policy page, select **Definitions**.
+
 1. Select your scope. You can apply a policy to the entire subscription, a resource group, or an individual resource.
 1. From the **Definition type** dropdown, select **Policy**.
 1. Select **Monitoring** from the Category dropdown
@@ -46,6 +47,8 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Review + create**, then select **Create** .
   :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
+The policy will be applied to resources after approximately 30 minutes.
+
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
 
@@ -57,33 +60,30 @@ To apply a policy using the CLI, use the following commands:
 For example, to apply the policy to send audit logs to a log analytics workspace
 
 ```azurecli
-  az policy assignment create --name "Policy-assignment-1"  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg-001 --params "{\"logAnalytics\": {\"value\": \"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/rg-001/providers/microsoft.operationalinsights/workspaces/workspace001\"}}" --mi-system-assigned --location eastus
+  az policy assignment create --name "policy-assignment-1"  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg-001 --params "{\"logAnalytics\": {\"value\": \"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/rg-001/providers/microsoft.operationalinsights/workspaces/workspace001\"}}" --mi-system-assigned --location eastus
 ```
 
 2. Assign the Contributor role to the identity created for the policy assignment
 
 ```azurecli
-az policy assignment identity assign --system-assigned -g <reource group name> --role Log Analytics Contributor --identity-scope </scope> -n <policy assignment name>
+az policy assignment identity assign --system-assigned -g <resource group name> --role Contributor --identity-scope </scope> -n <policy assignment name>
 ```
 For example. 
 ```azurecli
-az policy assignment identity assign --system-assigned -g rg-001  --role Owner --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 -n Policy-assignment-1
+az policy assignment identity assign --system-assigned -g rg-001  --role Owner --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 -n policy-assignment-1
 ```
 
 3. Create a remediation task to apply the policy to existing resources.
-1. az policy remediation create -g edtest-2002 -n rem-assignment-20-02-1 --policy-assignment assignment-20-02-1 
-1. 
->>>>>>>>> doesnt work gets (InvalidApiVersionParameter) error
+
 ```azurecli
-az policy remediation create --name EdRemediation1 --policy-assignment policyAssigment-5
-/subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/ed-test-cli-assigned-policy/providers/Microsoft.Authorization/policyAssignments/policyAssigment-5
+az policy remediation create -g <resource group name> --policy-assignment <policy assignment name> --name <remediation name> 
+```
+For example,
+```azurecli
+az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  policy-assignment-1
 ```
 
-
-az policy remediation create --policy-assignment <POLICY_ASSIGNMENT_NAME> --name <REMEDIATION_NAME> --definition <POLICY_DEFINITION_ID> --location <LOCATION> --resource <RESOURCE_ID> --filters <FILTERS_JSON_FILE> --params <PARAMETERS_JSON_FILE>
-
-
-For more information on policy assignment using CLI see [Azure CLI reference - az policy assignment]([https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+For more information on policy assignment using CLI see [Azure CLI reference - az policy assignment](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 ### [PowerShell](#tab/Powershell)
 
 Get form dev
