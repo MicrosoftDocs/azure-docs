@@ -46,13 +46,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-ae)
-  * Dutch - Netherlands (nl-nl)
-  * French - Canada (fr-ca)
-  * German - (de-de)
-  * Italian - (it-it)
-  * Japanese - Japan (ja-jp)
-  * Portuguese - Brazil (pt-br)
+  * English - United Arab Emirates (en-AE)
+  * Dutch - Netherlands (nl-NL)
+  * French - Canada (fr-CA)
+  * German - (de-DE)
+  * Italian - (it-IT)
+  * Japanese - Japan (ja-JP)
+  * Portuguese - Brazil (pt-BR)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
@@ -72,7 +72,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt ID document model** now has added support for the following document types:
 
-  * Driver's License expansion supporting India, Canada, Unitied Kingdom and Australia
+  * Driver's license expansion supporting India, Canada, Unitied Kingdom and Australia
   * US military ID cards and documents
   * India ID cards and documents (PAN and Aadhaar)
   * Australia ID cards and documents (photo card, Key-pass ID)

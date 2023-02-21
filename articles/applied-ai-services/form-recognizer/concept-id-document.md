@@ -177,7 +177,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker range="form-recog-3.0.0"
 
-### Supported document types
+## Supported document types
 
 | Region | Document Types |
 |--------|----------------|
