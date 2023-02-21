@@ -9,7 +9,7 @@ ms.author: juliako
 ms.date: 02/21/2023
 ---
 
-# Language support in Azure Video Indexer**
+# Language support in Azure Video Indexer
 
 This article explains Video Indexer's language options and provides a list of language support for each one. It includes the languages support for Video Indexer features, translation, language identification, customization, and the language settings of the Video Indexer website.
 
