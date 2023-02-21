@@ -48,7 +48,7 @@ Use the following tabs to create an ASP.NET Core project within an IDE.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
+1. Open Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAppLocal*.
 1. Open a new terminal by selecting **Terminal > New Terminal**.
 1. To create an **ASP.NET Core Web App** template, run the following commands in the terminal to change into the directory and create the project:
