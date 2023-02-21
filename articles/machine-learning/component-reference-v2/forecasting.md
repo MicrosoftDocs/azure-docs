@@ -21,7 +21,7 @@ Use this component to create a machine learning model that is based on the AutoM
 
 ## How to configure 
 
-This component creates a forecasting model. Because forecasting is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows. Follow this link to get more information on [how to prepare your dataset.](../how-to-prepare-datasets-for-automl-images) The dataset will need a *labeled dataset* that includes a label column with a value for all rows.
+This component creates a forecasting model. Because forecasting is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows. Follow this link to get more information on [how to prepare your dataset.](../how-to-prepare-datasets-for-automl-images.md) The dataset will need a *labeled dataset* that includes a label column with a value for all rows.
 
 This model requires a training dataset. Validation and test datasets are optional. 
 
