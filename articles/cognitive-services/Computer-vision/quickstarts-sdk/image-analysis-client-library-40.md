@@ -34,7 +34,7 @@ Get started with the Image Analysis 4.0 REST API or client libraries to set up a
 
 ::: zone pivot="programming-language-cpp"
 
-[!INCLUDE [Java SDK quickstart](../includes/quickstarts-sdk/image-analysis-cpp-sdk-40.md)]
+[!INCLUDE [C++ SDK quickstart](../includes/quickstarts-sdk/image-analysis-cpp-sdk-40.md)]
 
 ::: zone-end
 
