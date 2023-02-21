@@ -23,8 +23,7 @@ When you configure to be zone redundant, the platform automatically spreads the 
 
 ## Prerequisites
 
-- You configure availability zones when you create your App Service Environment.
-  - All App Service plans created in that App Service Environment will need a minimum of 3 instances and those will automatically be zone redundant.
+- All App Service plans created in that App Service Environment will need a minimum of 3 instances and those will automatically be zone redundant.
 - You can only specify availability zones when creating a **new** App Service Environment. A pre-existing App Service Environment can't be converted to use availability zones.
 - Availability zones are only supported in a [subset of regions](../app-service/environment/overview.md#regions).
 
