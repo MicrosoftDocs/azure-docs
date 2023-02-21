@@ -23,17 +23,17 @@ Learn how start prototyping and developing machine learning models on an Azure M
 
 Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
 
-You'll also learn how to use MLFlow to track your model development process, all from within a notebook. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
+You'll also learn how to use MLFlow to track your model metrics, all from within a notebook. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
-- Download this [conda environment file, *workstation_env.yml*](), which you'll use to create a new environment for running a notebook.
+- Download this conda environment file, [*workstation_env.yml*](), which you'll use to create a new environment for running a notebook.
 
 ## Start with notebooks
 
-A Jupyter notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  
+A Jupyter Notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already open.
@@ -55,8 +55,10 @@ If you do have a compute instance, start it if it's not already running.
 
     :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
-1. Name your new notebook **develop-on-cloud-workstation.ipynb** (or enter your preferred name).
-1. On the top right, observe the kernel dropdown menu. While you can use any of the built-in kernels right away, in this tutorial you're going to create a new kernel.  
+1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
+1. On the top right, observe the kernel dropdown menu. While you can use any of the built-in kernels right away, in this tutorial you're going to create a new kernel to generate an environment that has all the packages and libraries you need.
+
+  
 1. Copy and paste the following import code into the first cell of your notebook, _but don't run it yet._
 
     ```python
@@ -72,18 +74,18 @@ If you do have a compute instance, start it if it's not already running.
 
 ## Set up a new environment for prototyping
 
-In order for your script to run, you'll need to make sure you have a development environment configured with the dependencies and libraries the code expects. To create a new kernel (development environment), you'll use a yaml file with the dependencies defined.
+In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. To create the new Jupyter kernel your notebook will connect to, you'll use a yaml file that defines the dependencies.
 
 ### Upload a file
 
-Upload the yml file you downloaded earlier to your workspace. Your files are stored in an Azure file share, so that they can be used for all compute instances in the workspace. 
+Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
 1. Select **+** and select **Upload files**
 2. Select **Browse and select file(s)** 
 3. Select **workstation_env.yml** file you downloaded earlier.
 4. Select **Upload**
 
-You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it installs.
+You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
 
 :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
 
@@ -132,9 +134,9 @@ Now use the Azure Machine Learning terminal to generate a new kernel, using the 
 
 ## Connect notebook to the new kernel
 
-Now that you created the kernel, connect the notebook to this kernel to start running code. 
+Now that you created the kernel, connect the notebook to this kernel to start running code.
 
-In the top right kernel selector of the notebook, check to see if the new kernel is listed. If it is, select it. If you don't see it, select the refresh button to load the new kernel, then select it.
+In the top right kernel selector of the notebook, check to see if the new kernel is listed. If it is, select it. If you don't see it, select the refresh button to load the new kernel, and then select it.
 
 ## Execute notebook cells in the new environment
 
@@ -142,7 +144,7 @@ Run a python training script that creates a credit card default prediction, usin
 
 This code uses sklearn for training and MLflow for logging the metrics.
 
-1. Run the cell you created now, which imports the dependencies.
+1. Run the first cell in the notebook that you created early in the tutorial. This code imports the dependencies that are now installed on your kernel.
 1. Start an MLFlow run, so that you can track the metrics and results.
 
     ```python
@@ -292,5 +294,5 @@ Learn more about:
 This tutorial showed you the early steps of creating a model, prototyping on the same machine where the code resides.  For your production training, learn how to use that training script on more powerful remote compute resources:
 
 > [!div class="nextstepaction"]
-> Train a model
+> [Train a model]()
 >
