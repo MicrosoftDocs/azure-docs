@@ -52,8 +52,8 @@ The following diagram summarizes sources of data in Azure Monitor and, conceptua
 ## Taxonomy of alerts (classic)
 Azure uses the following terms to describe classic alerts and their functions:
 * **Alert**: A definition of criteria (one or more rules or conditions) that becomes activated when met.
-* **Active**: The state when the criteria defined by a classic alert is met.
-* **Resolved**: The state when the criteria defined by a classic alert is no longer met after it was previously met.
+* **Active**: The state when the criteria defined by a classic alert are met.
+* **Resolved**: The state when the criteria defined by a classic alert are no longer met after they were previously met.
 * **Notification**: The action taken based off of a classic alert becoming active.
 * **Action**: A specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
 
