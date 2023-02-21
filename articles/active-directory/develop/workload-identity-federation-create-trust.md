@@ -64,7 +64,6 @@ To add a federated identity for GitHub actions, follow these steps:
 
     :::image type="content" source="media/workload-identity-federation-create-trust/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
 
-
 Use the following values from your Azure AD application registration for your GitHub workflow:
 
 - `AZURE_CLIENT_ID` the **Application (client) ID** 
@@ -309,6 +308,7 @@ az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 ::: zone pivot="identity-wif-apps-methods-powershell"
 
 ## Prerequisites
+
 - To run the example scripts, you have two options:
   - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
