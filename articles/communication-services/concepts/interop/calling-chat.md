@@ -133,7 +133,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Third-party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) aren't supported.
 
 ## Chat
-With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users to create chats with Teams users instead. Here is an example of how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants, and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
+With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Azure Active Directory (Azure AD) object ID. You can easily modify an existing application that creates chats with other Communication Services users to create chats with Teams users instead. Here is an example of how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants, and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
 
 Creating a chat with a Teams user:
 ```js
