@@ -41,10 +41,11 @@ The doc will work through these steps:
 
 ## Prerequisites
 
-- [Git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
+- [Docker](https://www.docker.com/).
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 
 ## Clone and build the sample project
 1. Clone sample project.
@@ -55,7 +56,15 @@ The doc will work through these steps:
     ```shell
     cd ASA-Samples-Web-Application
     ./mvnw clean package
-   ```
+    ```
+3. To run the sample in localhost, create a PostgreSQL by docker. (todo: Finish this)
+    ```shell
+    docker run \
+        --name some-postgres \
+        -e POSTGRES_PASSWORD=mysecretpassword \
+        -d postgres
+    ```
+4. Start the sample app in local host. (todo: Finish this)
 
 ## Provision Azure Spring Apps
 
@@ -167,6 +176,9 @@ az spring app create \
       }
     ]
     ```
+
+## Connect Azure Database in localhost by passwordless
+(todo: 1. finish this. 2. Change order like this: create db -> connect db in localhost -> create asa -> deploy to asa)
 
 ## Deploy the app to Azure Spring Apps
 1. Deploy the app.
