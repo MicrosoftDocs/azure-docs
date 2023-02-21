@@ -418,7 +418,7 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 :::image type="content" source="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png" alt-text="Screenshot showing links on the endpoint details page to view online endpoint and deployment metrics." lightbox="media/tutorial-deploy-model/deployment-metrics-from-endpoint-details-page.png":::
 
-If you open the metrics for the online endpoint, you can set it up to see metrics.
+If you open the metrics for the online endpoint, you can set up the page to see metrics such as the average request latency as shown in the following figure.
 
 :::image type="content" source="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png" alt-text="Screenshot showing online endpoint metrics in the Azure portal." lightbox="media/tutorial-deploy-model/view-endpoint-metrics-in-azure-portal.png":::
 
