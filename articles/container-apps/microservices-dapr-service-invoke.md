@@ -98,7 +98,7 @@ Start by running the `order-processor` callee service with Dapr.
 
    **Expected output:**
 
-   In both terminals, you'll see messages indicating orders passed and receivedin a loop:
+   In both terminals, the `checkout` service is calling orders to the `order-processor` service in a loop:
 
    `checkout` output:
 
@@ -176,9 +176,9 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -242,8 +242,8 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs/tree/main/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 
 ::: zone-end
@@ -307,7 +307,7 @@ Start by running the `order-processor` callee service with Dapr.
 
    **Expected output:**
 
-   In both terminals, you'll see messages indicating orders passed and receivedin a loop:
+   In both terminals, the `checkout` service is calling orders to the `order-processor` service in a loop:
 
    `checkout` output:
 
@@ -385,9 +385,9 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -451,8 +451,8 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-python/tree/main/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-python/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 ::: zone-end
 
@@ -517,7 +517,7 @@ Start by running the `order-processor` callee service with Dapr.
 
    **Expected output:**
 
-   In both terminals, you'll see messages indicating orders passed and receivedin a loop:
+   In both terminals, the `checkout` service is calling orders to the `order-processor` service in a loop:
 
    `checkout` output:
 
@@ -595,9 +595,9 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -661,8 +661,8 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-csharp/tree/main/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-csharp/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 
 ::: zone-end
