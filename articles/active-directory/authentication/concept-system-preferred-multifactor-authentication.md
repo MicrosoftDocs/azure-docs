@@ -41,15 +41,17 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/systemCredentialPre
 ```
 
 >[!NOTE]
->In Graph Explorer, you'll need to consent to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
+>In Graph Explorer, you'll need to consent to the **Policy.ReadWrite.AuthenticationMethod** permission. 
 
 ## Examples
 
 
 ## Known issues
 
-
-
 ## Common questions
+
+### How does system-preferred MFA affect AD FS or NPS extension?
+
+System-preferred MFA has no affect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. 
 
 ## Next steps
