@@ -16,7 +16,7 @@ As part of your migration journey to Azure, you assess your on-premises workload
 
 This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Migrate. AVS is a managed service that allows you to run the VMware platform in Azure.
 
-In this tutorial, you will learn how to:
+In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 - Run an assessment based on server metadata and configuration information.
 - Run an assessment based on performance data.
@@ -55,7 +55,7 @@ Run an assessment as follows:
 
 1.  In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**.
 
-1. In **Azure Migrate: Discovery and assessment**, click **Assess**.
+1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 
 1. In **Assess servers** > **Assessment type**, select **Azure VMware Solution (AVS)**.
 
@@ -64,7 +64,7 @@ Run an assessment as follows:
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
     - If you discovered servers using an imported CSV file, select **Imported servers**. 
     
-1. Click **Edit** to review the assessment properties.
+1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
  
@@ -82,10 +82,10 @@ Run an assessment as follows:
    Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
    Target and pricing settings | **VM uptime** | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for SQL Server on Azure VM where you're aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
    Target and pricing settings | **Azure Hybrid Benefit** | Specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have a SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
-   Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. 
+   Assessment criteria | **Sizing criteria** | Set to be *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. 
    Assessment criteria | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Assessment criteria | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
-   Assessment criteria | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of * GB memory, the assessmnet considers effective memory as 16 GB.
+   Assessment criteria | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of 8 GB memory, the assessment considers effective memory as 16 GB.
    Assessment criteria | **Optimization preference** | Specify the preference for the recommended assessment report. Selecting **Minimize cost** would result in the Recommended assessment report recommending those deployment types that have least migration issues and are most cost effective, whereas selecting **Modernize to PaaS** would result in Recommended assessment report recommending PaaS(Azure SQL MI or DB) deployment types over IaaS Azure(VMs), wherever the SQL Server instance is ready for migration to PaaS irrespective of cost.
    Azure SQL Managed Instance sizing | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Managed Instance:<br/><br/>Select *Recommended* if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select *General Purpose* if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select *Business Critical* if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
    Azure SQL Managed Instance sizing | **Instance type** | Defaulted to *Single instance*.
@@ -101,11 +101,11 @@ Run an assessment as follows:
    High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md?view=azuresql&tabs=powershell#cloud-witness) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
    High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.
 
-1. Click **Save** if you make changes.
+1. Select **Save** if you make changes.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Assessment properties":::
 
-1. In **Assess Servers**, click **Next**.
+1. In **Assess Servers**, select **Next**.
 
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment. 
  
@@ -113,9 +113,9 @@ Run an assessment as follows:
     
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
  
-1. Select the appliance and select the servers that you want to add to the group. Then click **Next**.
+1. Select the appliance and select the servers that you want to add to the group. Then select **Next**.
 
-1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
@@ -127,19 +127,17 @@ An AVS assessment describes:
 - **Azure VMware Solution (AVS) readiness**: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
 - **Number of Azure VMware Solution nodes**: Estimated number of Azure VMware Solution nodes required to run the servers.
 - **Utilization across AVS nodes**: Projected CPU, memory, and storage utilization across all nodes.
-    - Utilization includes upfront factoring in the cluster management overheads such as the vCenter Server, NSX Manager (large),
-NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75GB of RAM and 722GB of storage before 
-compression and deduplication.
+    - Utilization includes upfront factoring in the cluster management overheads such as the vCenter Server, NSX Manager (large), NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75 GB of RAM and 722 GB of storage before compression and deduplication.
     - Limiting factor determines the number of hosts/nodes required to accommodate the resources.
 - **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
-You can click on  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties or recalculate the assessment.
+You can select  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties or recalculate the assessment.
 
 ## View an assessment
 
 To view an assessment:
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click the number next to **Azure VMware Solution**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
@@ -150,18 +148,18 @@ To view an assessment:
 
 ### Review readiness
 
-1. Click **Azure readiness**.
+1. Select **Azure readiness**.
 2. In **Azure readiness**, review the readiness status.
 
-    - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
+    - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It starts in AVS with full AVS support.
     - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance that the assessment suggests.
-    - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a CD-ROM the VMware VMotion operation will fail (if using VMware VMotion).
+    - **Not ready for AVS**: The VM won't start in AVS. For example, if the on-premises VMware VM has an external device attached such as a CD-ROM the VMware VMotion operation fails (if using VMware VMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 3. Review the suggested tool.
 
     - VMware HCX or Enterprise: For VMware servers, the VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud.
-    - Unknown: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution.
-4. Click on an AVS readiness status. You can view the server readiness details, and drill down to see server details, including compute, storage, and network settings.
+    - Unknown: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it's suggested to use the VMware Hybrid Cloud Extension (HCX) solution.
+4. Select an AVS readiness status. You can view the server readiness details, and drill down to see server details, including compute, storage, and network settings.
 
 ### Review cost estimates
 
@@ -170,7 +168,7 @@ The assessment summary shows the estimated compute and storage cost of running s
 1. Review the monthly total costs. Costs are aggregated for all servers in the assessed group.
 
     - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the servers in total.
-    - As the pricing is per node, the total cost does not have compute cost and storage cost distribution.
+    - As the pricing is per node, the total cost doesn't have compute cost and storage cost distribution.
     - The cost estimation is for running the on-premises servers in AVS. The AVS assessment doesn't consider PaaS or SaaS costs.
 
 2. Review monthly storage estimates. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
