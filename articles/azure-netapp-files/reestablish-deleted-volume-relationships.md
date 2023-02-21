@@ -45,7 +45,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. In the **Replication** tab, select the **Re-establish** button. 
     :::image type="content" source="./media/reestablish-deleted-volume-relationships/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. A red box surrounds the re-establish button." lightbox="./media/reestablish-deleted-volume-relationships/reestablish-button.png":::
 1. A dropdown list appears with a selection of all volumes that formerly had either a source or destination replication relationship with the selected volume. From the dropdown menu, select the volume you want to reestablish a relationship with. Select **OK** to reestablish the relationship.
-    :::image type="content" source="./media/reestablish-deleted-volume-relationshipsreestablish-confirm.png" alt-text="Screenshot of a dropdown menu with available volume relationships to restore." lightbox="./media/reestablish-deleted-volume-relationships/reestablish-confirm.png":::
+    :::image type="content" source="./media/reestablish-deleted-volume-relationships/reestablish-confirm.png" alt-text="Screenshot of a dropdown menu with available volume relationships to restore." lightbox="./media/reestablish-deleted-volume-relationships/reestablish-confirm.png":::
 
 ## Next steps  
 
