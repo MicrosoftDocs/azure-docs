@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to change an existing virtual machine's [VM size](sizes.md).
 
-After creating a virtual machine (VM), you can scale its resources up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available in the same datacenter cluster that is currently hosting the VM.
+After creating a virtual machine (VM), you can scale its resources up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available in the same cluster that is currently hosting the VM.
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
@@ -45,7 +45,7 @@ If your VM is still running and you don't see the size you want in the list, sto
 
 To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
-1. View the list of available VM sizes on the current datacenter cluster using [az vm list-vm-resize-options](/cli/azure/vm). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
+1. View the list of available VM sizes on the current cluster using [az vm list-vm-resize-options](/cli/azure/vm). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
    
     ```azurecli-interactive
     az vm list-vm-resize-options \
