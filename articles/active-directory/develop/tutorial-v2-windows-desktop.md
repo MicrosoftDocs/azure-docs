@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40
 
 In this tutorial, you build a native Windows Desktop .NET (XAML) app that signs in users and gets an access token to call the Microsoft Graph API.
 
-When you've completed the guide, your application will be able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). The application will also use work and school accounts from any company or organization that uses Azure Active Directory (Azure AD).
+When you've completed the guide, your application is able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). The application will also use work and school accounts from any company or organization that uses Azure Active Directory (Azure AD).
 
 In this tutorial:
 
@@ -68,7 +68,7 @@ The application that you create with this guide displays a button that's used to
 > [!NOTE]
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
 
-To create your application, do the following:
+To create your application, follow these steps:
 
 1. In Visual Studio, select **File** > **New** > **Project**.
 1. In the **Create a new project** window, choose **C#** from the Language list, choose **Windows** from the Platform list and choose **All Project types** from the Project types list.
@@ -96,15 +96,15 @@ You can register your application in either of two ways.
 
 ### Option 1: Express mode
 
-You can quickly register your application by doing the following:
+To quickly register your application, you can follow these steps.
 
 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application with just one click.
+1. Follow the instructions to download and automatically configure your new application.
 
 ### Option 2: Advanced mode
 
-To register your application and add your application registration information to your solution, do the following:
+To register and configure your application, follow these steps:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
@@ -165,7 +165,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
 
 This section shows how an application can query a protected back-end server such as Microsoft Graph.
 
-A _MainWindow.xaml_ file should automatically be created as a part of your project template. Open this file, and then replace your application's _\<Grid>_ node with the following code:
+A _MainWindow.xaml_ file is automatically be created as a part of your project template. Open this file, and then replace your application's _\<Grid>_ node with the following code:
 
 ```xml
 <Grid>
@@ -192,7 +192,7 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
    using Microsoft.Identity.Client;
    ```
 
-2. Replace the `MainWindow` class code with the following:
+2. Replace the `MainWindow` class code with the following code:
 
    ```csharp
    public partial class MainWindow : Window
@@ -271,9 +271,9 @@ Calling the `AcquireTokenInteractive` method results in a window that prompts us
 
 The `AcquireTokenSilent` method handles token acquisitions and renewals without any user interaction. After `AcquireTokenInteractive` is executed for the first time, `AcquireTokenSilent` is the usual method to use to obtain tokens that access protected resources for subsequent calls, because calls to request or renew tokens are made silently.
 
-Eventually, the `AcquireTokenSilent` method will fail. Reasons for failure might be that the user has either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
+Eventually, the `AcquireTokenSilent` method fails. Reasons for failure might be that the user has either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
 
-- It can make a call against `AcquireTokenInteractive` immediately. This call results in prompting the user to sign in. This pattern is usually used in online applications where there is no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample.
+- It can make a call against `AcquireTokenInteractive` immediately. This call results in prompting the user to sign in. This pattern is used in online applications where there's no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample.
 
 - Because no user has used the application, `PublicClientApp.Users.FirstOrDefault()` contains a null value, and an `MsalUiRequiredException` exception is thrown.
 
@@ -347,7 +347,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 ### More information about user sign-out
 
-The `SignOutButton_Click` method removes users from the MSAL user cache, which effectively tells MSAL to forget the current user so that a future request to acquire a token will succeed only if it is made to be interactive.
+The `SignOutButton_Click` method removes users from the MSAL user cache, which effectively tells MSAL to forget the current user so that a future request to acquire a token succeeds only if it's made to be interactive.
 
 Although the application in this sample supports single users, MSAL supports scenarios where multiple accounts can be signed in at the same time. An example is an email application where a user has multiple accounts.
 
@@ -372,7 +372,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 ### More information
 
-In addition to the access token that's used to call the Microsoft Graph API, after the user signs in, MSAL also obtains an ID token. This token contain a small subset of information that's pertinent to users. The `DisplayBasicTokenInfo` method displays the basic information that's contained in the token. For example, it displays the user's display name and ID, as well as the token expiration date and the string representing the access token itself. You can select the _Call Microsoft Graph API_ button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
+In addition to the access token that's used to call the Microsoft Graph API, after the user signs in, MSAL also obtains an ID token. This token contains a small subset of information that's pertinent to users. The `DisplayBasicTokenInfo` method displays the basic information that's contained in the token. For example, it displays the user's display name and ID, as well as the token expiration date and the string representing the access token itself. You can select the _Call Microsoft Graph API_ button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it's time to renew the token.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
 
