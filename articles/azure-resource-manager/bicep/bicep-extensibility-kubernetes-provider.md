@@ -7,7 +7,7 @@ ms.date: 02/21/2023
 
 # Bicep extensibility Kubernetes provider (Preview)
 
-The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Anything you can deploy with the [Kubernetes command-line client (kubectl)]https://kubernetes.io/docs/reference/kubectl/kubectl/ and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests) can alternatively be done with a Bicep deployment.
+The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
 ## Enable the preview feature
 
@@ -23,8 +23,8 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 
 ## Import Kubernetes provider
 
-In order to safely pass secrets for the Kubernetes deployment, you must invoke the Kubernetes code with a [Bicep module](./modules.md) so that the parameter can be passed as a secret.
-To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML does not include any programmability support.
+To safely pass secrets for the Kubernetes deployment, you must invoke the Kubernetes code with a Bicep module and pass the parameter as a secret.
+To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML doesn't include any programmability support.
 
 The following sample imports the Kubernetes provider:
 
