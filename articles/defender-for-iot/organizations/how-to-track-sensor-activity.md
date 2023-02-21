@@ -29,7 +29,7 @@ Administrator or Security Analyst permissions are required to perform the proced
 
 ## View the event timeline
 
-1. Sign in to the sensor console, and select **Event Timeline** on the left.
+1. Sign in to the sensor console, and select **Event Timeline** from the left menu.
 
 1. Review and [filter the events](#filter-events-on-the-timeline) as needed.
 
@@ -76,7 +76,7 @@ You can also view the event timeline of a specific device from the **Device inve
 
 ## Export the event timeline to CSV
 
-You can export the event timeline to a CSV file, the exported data will be according to any filters applied when exporting.
+You can export the event timeline to a CSV file, the exported data is according to any filters applied when exporting.
 
 **To export the event timeline**:
 
@@ -100,7 +100,7 @@ In addition to viewing the events that the sensor has detected, you can manually
 
 1. Select **Save** to add the event to the timeline.
 
-For example: 
+For example:
 
 :::image type="content" source="media/track-sensor-activity/create-new-event.png" alt-text="Screenshot of creating a new event in the timeline.":::
 
