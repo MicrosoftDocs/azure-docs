@@ -2,7 +2,7 @@
 title: Configure Container insights cost optimization data collection rules | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/23/2023
 ms.reviewer: aul
 ---
 
@@ -28,7 +28,7 @@ The following table describes the supported data collection settings
 
 ## Log Analytics data collection
 
-The below table outlines the list of the container insights Log Analytics tables for which data collection settings applied and what data collection settings applicable.
+The table below outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
 
 >[!NOTE]
 >This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
@@ -309,7 +309,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 
 ## Data Collection Settings Updates
 
-To update your data collection Settings, modify the values in parameter files, and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster.
+To update your data collection Settings, modify the values in parameter files and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster. Or select your new options through the Monitoring Settings in the portal.
 
 ## Troubleshooting
 
