@@ -53,7 +53,7 @@ On the **Cache** page, specify the type and size of cache to create. These value
 Before you can choose throughput or storage capacity, you need to choose the cache type. Options include:
 
 * Read-write standard caching: A flexible general-purpose cache
-* Read-optimized caching: A high-throughput cache designed to minimize file access latency; modifications are handled with synchronous write-through operations.
+* Read-only caching: A high-throughput cache designed to minimize file access latency; modifications are handled with synchronous write-through operations.
 * Read-write premium caching (Preview): An NVMe-optimized cache with the lowest latency and highest throughput
 <!-- * Read-only scalable standard caching (Preview): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
 
@@ -64,7 +64,7 @@ Read more about these cache types below in [Choose the cache type for your needs
 > [!TIP]
 > "Read-write" cache types can be configured with storage targets using either read caching or read-write caching usage models. "Read-only" cache types only support NFS and ADLS-NFS storage target types with read-caching usage models only. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
 
-The "Standard" cache SKU lets you choose the cache's capacity for a given throughput selection, while the "Premium" and "read-optimized" caches have fixed capacities for each given throughput selection. The cache's capabilities are defined by two deployment choices:
+The "Standard" cache SKU lets you choose the cache's capacity for a given throughput selection, while the "Premium" and "read-only" caches have fixed capacities for each given throughput selection. The cache's capabilities are defined by two deployment choices:
 
 * **Maximum throughput** - The data transfer rate for the cache, in GB/second
 * **Cache size** - The amount of storage allocated for cached data, in TB
@@ -102,7 +102,7 @@ Cache options include:
 
 * **Read-only caching**
 
-  This type of cache provides higher throughput and lower latency than a standard cache, but is designed to optimize file and directory read access only. You cannot configure a read-optimized cache to use read-write cache usage models, but a read-after-write workload will result in a cache-hit, as the writes are persisted synchronously to the storage target. This type of cache has only one cache size option for each throughput choice.
+  This type of cache provides higher throughput and lower latency than a standard cache, but is designed to optimize file and directory read access only. You cannot configure a read-only cache to use read-write cache usage models, but a read-after-write workload will result in a cache-hit, as the writes are persisted synchronously to the storage target. This type of cache has only one cache size option for each throughput choice.
 
 * **Read-write premium caching (Preview)**
   
