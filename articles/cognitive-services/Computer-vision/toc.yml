@@ -150,8 +150,6 @@ items:
         href: concept-tagging-images-40.md
       - name: Image captions
         href: concept-describing-images-40.md
-      - name: Dense captions
-        href: concept-dense-captioning.md
       - name: Optical Character Recognition
         href: concept-ocr.md
       - name: Smart-cropped thumbnails

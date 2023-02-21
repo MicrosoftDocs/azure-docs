@@ -85,13 +85,12 @@ Generate a caption of an image in human-readable language, using complete senten
 
 The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Describe an image (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describing-images-40.md)
+Version 4.0 also lets you use dense captioning, which generates detailed captions for individual objects that are found in the image. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image.
+
+[Image captions (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describing-images-40.md)
 
 :::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
 
-### Generate dense captions (v4.0 preview only)
-
-Dense captioning lets you generate detailed captions for individual objects that are found in an image. It's similar to object detection but uses the latest Florence AI models to generate rich captions for each object, instead of simply naming the object. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image. [Dense captions](concept-dense-captioning.md)
 
 ### Detect faces (v3.2 only)
 
