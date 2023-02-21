@@ -734,7 +734,9 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 ### Issue
 Your runbook uses parameters and fails with the following error:
 
-*Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.*
+```error
+Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.
+```
 
 ### Cause
 There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
