@@ -12,7 +12,7 @@ ms.date: 02/15/2022
 
 # Built-in and preinstalled components on Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article lists all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on SSIS Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines.  To provision SSIS IR in ADF, follow the instructions in [Provision Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 

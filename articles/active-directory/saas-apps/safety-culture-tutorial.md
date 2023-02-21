@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2022
+ms.date: 02/15/2023
 ms.author: jeedes
 
 ---
@@ -38,7 +38,7 @@ For more information, see [Azure built-in roles](../roles/permissions-reference.
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SafetyCulture supports **SP and IdP** initiated SSO.
+* SafetyCulture supports **SP and IDP** initiated SSO.
 
 ## Add SafetyCulture from the gallery
 
@@ -51,7 +51,7 @@ To configure the integration of SafetyCulture into Azure AD, you need to add Saf
 1. In the **Add from the gallery** section, type **SafetyCulture** in the search box.
 1. Select **SafetyCulture** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SafetyCulture
 
@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    b. Open the downloaded **Certificate (PEM)** from the Azure portal into Notepad and paste the content into the **SAML Signing Certificate** textbox.
+    b. Upload the **Certificate (PEM)** you downloaded from the Azure portal into the **Signing certificate** field.
 
     c. Click **Complete setup**.
 
@@ -156,19 +156,19 @@ In this section, you create a user called Britta Simon in SafetyCulture. Work wi
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-### SP-initiated
+#### SP-initiated
 
-1. Click on **Test this application** in the Azure portal. This will redirect you to the SafetyCulture sign-on URL where you can initiate the login flow.
+1. Click on **Test this application** in the Azure portal. This will redirect you to the SafetyCulture Sign-on URL where you can initiate the login flow.
 1. On the SafetyCulture login page, initiate the SSO login by entering the test user's email address.
 1. Click **Log in with single sign-on (SSO)**.
 
     ![Screenshot shows the log in with SSO option on SafetyCulture.](./media/safety-culture-tutorial/test-sso.png "Log in with SSO on SafetyCulture")
 
-### IdP-initiated
+#### IDP-initiated
 
 * Click on **Test this application** in Azure portal and you should be automatically logged in to SafetyCulture for which you set up the SSO.
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SafetyCulture tile in My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IdP mode, you should be automatically logged in to SafetyCulture for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SafetyCulture tile in My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IdP mode, you should be automatically logged in to SafetyCulture for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

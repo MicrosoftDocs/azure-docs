@@ -77,7 +77,7 @@ Metrics having to do with data ingress:
 
 ### Bulk operation metrics (from the Import Jobs API)
 
-Metrics having to do with bulk operations using the [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
+Metrics having to do with bulk operations from the [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |

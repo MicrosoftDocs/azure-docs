@@ -203,7 +203,6 @@ This is a list of common deployment errors that are reported as part of the depl
 
 * [ImageBuildFailure](#error-imagebuildfailure)
 * [OutOfQuota](#error-outofquota)
-* [OutOfCapacity](#error-outofcapacity)
 * [BadArgument](#error-badargument)
 * [ResourceNotReady](#error-resourcenotready)
 * [ResourceNotFound](#error-resourcenotfound)
@@ -245,6 +244,7 @@ This is a list of common resources that might run out of quota when using Azure 
 * [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
+* [Region-wide VM capacity](#region-wide-vm-capacity)
 * [Other](#other-quota)
 
 Additionally, this is a list of common resources that might run out of quota only for Kubernetes online endpoint: 
@@ -260,9 +260,10 @@ A possible mitigation is to check if there are unused deployments that you can d
 #### Disk quota
 
 This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more disk space or reducing the image and model size.
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more disk space or reducing the image and model size.
 
 #### Memory quota
-This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more memory.
 
 #### Endpoint quota
 
@@ -270,21 +271,31 @@ Try to delete some unused endpoints in this subscription. If all of your endpoin
 
 #### Role assignment quota
 
-When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
+When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by navigating to the Access Control menu.
+
+#### Endpoint quota
+
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
+
+#### Region-wide VM capacity
+
+Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
+
+#### Endpoint quota
+
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
+
+#### Region-wide VM capacity
+
+Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
 
 #### Kubernetes quota
 
 This issue happens when the requested CPU or memory couldn't be satisfied due to all nodes are unschedulable for this deployment, such as nodes are cordoned or nodes are unavailable.
 
-Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](how-to-manage-quotas.md#endpoint-quota-increases) to request endpoint quota increase.
+The error message will typically indicate which resource you need more of. For instance, if you see an error message detailing `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, that means that the service requires GPUs and there are three nodes in the cluster that don't have sufficient GPUs. This can be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU-enabled SKU if you aren't, or changing your environment to not require GPUs.
 
-Adjust your request in the cluster, you can directly [adjust resource request of the instance type](how-to-manage-kubernetes-instance-types.md). 
-
-##### Container can't be scheduled
-
-When you are deploying a model to a Kubernetes compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
-
-The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that don't have available GPUs. This could be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU enabled SKU if you aren't or changing your environment to not require GPUs.  
+You can also try adjusting your request in the cluster, you can directly [adjust the resource request of the instance type](how-to-manage-kubernetes-instance-types.md).
 
 #### Other quota
 
@@ -319,10 +330,6 @@ Use the **Endpoints** in the studio:
 1. Use the dropdown to select the deployment whose log you want to see.
 
 ---
-
-### ERROR: OutOfCapacity
-
-For managed online endpoint, the specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
 ### ERROR: BadArgument
 
@@ -628,7 +635,7 @@ The reason you might run into this error when creating/updating Kubernetes onlin
 
 In this case, you can detach and then **re-attach** your compute. 
 
-> [!NOTE]
+> [!]
 >
 > To troubleshoot errors by reattaching, please guarantee to reattach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
 

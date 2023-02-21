@@ -245,7 +245,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 [k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 

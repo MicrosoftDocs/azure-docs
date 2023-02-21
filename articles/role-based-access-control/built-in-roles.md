@@ -65,7 +65,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Elastic SAN Owner](#elastic-san-owner) | Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access | 80dcbedb-47ef-405d-95bd-188a1b4ac406 |
 > | [Elastic SAN Reader](#elastic-san-reader) | Allows for control path read access to Azure Elastic SAN | af6a70f8-3c9f-4105-acf1-d719e9fca4ca |
 > | [Elastic SAN Volume Group Owner](#elastic-san-volume-group-owner) | Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access | a8281131-f312-4f34-8d98-ae12be9f0d23 |
-> | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
+> | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but 
+. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Storage Account Backup Contributor](#storage-account-backup-contributor) | Lets you perform backup and restore operations using Azure Backup on the storage account. | e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Permits listing and regenerating storage account access keys. | 81a9662b-bebf-436f-a333-f67b29880f12 |
@@ -302,6 +303,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Digital Twins Data Owner](#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | [Azure Digital Twins Data Reader](#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | [Grafana Admin](#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
+> | [Grafana Editor](#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
+> | [Grafana Viewer](#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
 > | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can not make any changes. | 749a398d-560b-491b-bb21-08924219302e |
 > | [Load Test Owner](#load-test-owner) | Execute all operations on load test resources and load tests | 45bb0b16-2f0c-4e78-afaa-a07599b003f6 |
 > | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can not make any changes | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
@@ -2759,7 +2763,7 @@ Allows for full access to a volume group in Azure Elastic SAN including changing
 
 ### Reader and Data Access
 
-Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys.
+Lets you view everything but will not let you delete or create a storage account. It will also allow read/write/delete access to all data contained in a storage account via access to storage account keys.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2779,7 +2783,7 @@ Lets you view everything but will not let you delete or create a storage account
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys.",
+  "description": "Lets you view everything but will not let you delete or create a storage account. It will also allow read/write/delete access to all data contained in a storage account via access to storage account keys.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c12c1c16-33a1-487b-954d-41c89c60f349",
   "name": "c12c1c16-33a1-487b-954d-41c89c60f349",
   "permissions": [
@@ -15335,6 +15339,123 @@ Lets you manage BizTalk services, but not access to them.
     }
   ],
   "roleName": "BizTalk Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Grafana Admin
+
+Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Built-in Grafana admin role",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/22926164-76b3-42b3-bc55-97df8dab3e41",
+  "name": "22926164-76b3-42b3-bc55-97df8dab3e41",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Dashboard/grafana/ActAsGrafanaAdmin/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Grafana Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Grafana Editor
+
+View and edit a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Built-in Grafana Editor role",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a79a5197-3a5c-4973-a920-486035ffd60f",
+  "name": "a79a5197-3a5c-4973-a920-486035ffd60f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Dashboard/grafana/ActAsGrafanaEditor/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Grafana Editor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Grafana Viewer
+
+View a Grafana instance, including its dashboards and alerts. [Learn more](../managed-grafana/how-to-share-grafana-workspace.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Dashboard](resource-provider-operations.md#microsoftdashboard)/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role.|
+> | **NotDataActions** |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Built-in Grafana Viewer role",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/60921a7e-fef1-4a43-9b16-a26c52ad4769",
+  "name": "60921a7e-fef1-4a43-9b16-a26c52ad4769",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Grafana Viewer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

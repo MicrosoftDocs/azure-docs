@@ -317,10 +317,10 @@ For single-page applications, reference plug-in documentation for guidance speci
 
 | Plug-ins |
 |---------------|
-| [React](javascript-react-plugin.md#enable-correlation)|
-| [React Native](javascript-react-native-plugin.md#enable-correlation)|
-| [Angular](javascript-angular-plugin.md#enable-correlation)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
+| [React](javascript-framework-extensions.md#enable-correlation)|
+| [React Native](javascript-framework-extensions.md#enable-correlation)|
+| [Angular](javascript-framework-extensions.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md#enable-correlation)|
 
 ### Advanced correlation
 
@@ -368,10 +368,10 @@ When you use an npm-based configuration, a location must be determined to store 
 
 | Extensions |
 |---------------|
-| [React](javascript-react-plugin.md)|
-| [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
+| [React](javascript-framework-extensions.md)|
+| [React Native](javascript-framework-extensions.md)|
+| [Angular](javascript-framework-extensions.md)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md)|
 
 ## Explore browser/client-side data
 
