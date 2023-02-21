@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/16/2023
+ms.date: 02/16/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -23,11 +23,22 @@ Only requests that use the `GET` request method are cacheable. All other request
 
 ## Delivery of large files
 
-Azure Front Door delivers large files without a cap on file size. If caching is enabled, Front Door uses a technique called *object chunking*. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full or byte-range file request, the Front Door environment requests the file from the origin in chunks of 8 MB.
+Azure Front Door delivers large files without a cap on file size. If caching is enabled, Front Door uses a technique called *object chunking*. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full file request or byte-range file request, the Azure Front Door environment requests the file from the origin in chunks of 8 MB.
 
-After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection. For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
+After the chunk arrives at the Azure Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection. For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 
-Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the origin. This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, this optimization isn't effective.
+Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Subsequent requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the origin.
+
+This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, or if it doesn't handle range requests correctly, then this optimization isn't effective.
+
+When your origin responds to a request with a `Range` header, it must respond in one of the following ways:
+
+- **Return a ranged response.** The response must use HTTP status code 206. Also, the `Content-Range` response header must be present, and must match the actual length of the content that your origin returns. If your origin doesn't send the correct response headers with valid values, Azure Front Door doesn't cache the response, and you might see inconsistent behavior.
+
+  > [!TIP]
+  > If your origin compresses the response, ensure that the `Content-Range` header value matches the actual length of the compressed response.
+
+- **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a non-ranged response. Ensure that the origin returns a response status code other than 206. For example, the origin might return a 200 OK response.
 
 ## File compression
 
@@ -154,7 +165,7 @@ These formats are supported in the lists of paths to purge:
 > **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specfic subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
 >
 
-Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, meaning purging a URL will purge all query-string variations of it. 
+Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, which means that purging a URL purges all query string variations of it. 
 
 ::: zone-end
 
@@ -190,8 +201,8 @@ If the origin response is cacheable, then the `Set-Cookie` header is removed bef
 
 In addition, Front Door attaches the `X-Cache` header to all responses. The `X-Cache` response header includes one of the following values:
 
-- `TCP_HIT` or `TCP_REMOTE_HIT`: The first 8MB chunk of the response is a cache hit, and the content is served from the Front Door cache.
-- `TCP_MISS`: The first 8MB chunk of the response is a cache miss, and the content is fetched from the origin.
+- `TCP_HIT` or `TCP_REMOTE_HIT`: The first 8 MB chunk of the response is a cache hit, and the content is served from the Front Door cache.
+- `TCP_MISS`: The first 8 MB chunk of the response is a cache miss, and the content is fetched from the origin.
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
@@ -211,7 +222,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 * **When caching is disabled**, Azure Front Door doesn’t cache the response contents, irrespective of the origin response directives.
 
-* **When caching is enabled**, the cache behavior is different based on the cache behavior value applied by the Rules Engine:
+* **When caching is enabled**, the cache behavior differs based on the cache behavior value applied by the Rules Engine:
 
    * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from one to three days.  
    * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.

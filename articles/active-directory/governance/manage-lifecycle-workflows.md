@@ -4,7 +4,7 @@ description: Learn how to manage user lifecycles with Lifecycle Workflows
 services: active-directory
 documentationcenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

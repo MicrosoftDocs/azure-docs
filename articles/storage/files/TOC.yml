@@ -111,6 +111,8 @@
         href: storage-files-identity-ad-ds-mount-file-share.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable Azure AD Kerberos authentication for hybrid accounts
