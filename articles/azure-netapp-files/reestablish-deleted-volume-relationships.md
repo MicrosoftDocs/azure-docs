@@ -1,6 +1,6 @@
 ---
-title: Re-establish deleted volume replication relationships | Microsoft Docs
-description: You can reestablish the replication relationship between volumes. 
+title: Re-establish deleted volume replication relationships 
+description: You can re-establish the replication relationship between volumes. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.author: anfdocs
@@ -39,12 +39,13 @@ The re-establish deleted volume replication relationships capability is currentl
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Reestablish the Relationship
+## Re-establish the relationship
+
 1. From the **Volumes** menu under **Storage service**, select the volume that was formerly the _destination_ volume in the replication relationship you want to restore. Then select the **Replication** tab. 
 1. In the **Replication** tab, select the **Re-establish** button. 
-    :::image type="content" source="../media/azure-netapp-files/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. A red box surrounds the re-establish button." lightbox="../media/azure-netapp-files/reestablish-button.png":::
+    :::image type="content" source="./media/reestablish-deleted-volume-relationships/reestablish-button.png" alt-text="Screenshot of volume menu that depicts no existing volume relationships. A red box surrounds the re-establish button." lightbox="./media/reestablish-deleted-volume-relationships/reestablish-button.png":::
 1. A dropdown list appears with a selection of all volumes that formerly had either a source or destination replication relationship with the selected volume. From the dropdown menu, select the volume you want to reestablish a relationship with. Select **OK** to reestablish the relationship.
-    :::image type="content" source="../media/azure-netapp-files/reestablish-confirm.png" alt-text="Screenshot of a dropdown menu with available volume relationships to restore." lightbox="../media/azure-netapp-files/reestablish-confirm.png":::
+    :::image type="content" source="./media/reestablish-deleted-volume-relationshipsreestablish-confirm.png" alt-text="Screenshot of a dropdown menu with available volume relationships to restore." lightbox="./media/reestablish-deleted-volume-relationships/reestablish-confirm.png":::
 
 ## Next steps  
 
