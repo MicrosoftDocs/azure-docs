@@ -1,5 +1,5 @@
 ---
-title: High availability
+title: High availability 
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
 description: Learn about high availability in Azure Cosmos DB for MongoDB vCore.
 ms.service: cosmos-db
