@@ -146,13 +146,13 @@ items:
       items:
       - name: Object detection
         href: concept-object-detection-40.md
-      - name: Content tags
+      - name: Image tagging
         href: concept-tagging-images-40.md
       - name: Image captions
         href: concept-describing-images-40.md
       - name: Dense captions
         href: concept-dense-captioning.md
-      - name: Reading text
+      - name: Optical Character Recognition
         href: concept-ocr.md
       - name: Smart-cropped thumbnails
         href: concept-generating-thumbnails-40.md
@@ -166,7 +166,7 @@ items:
         href: concept-object-detection.md
       - name: Brand detection
         href: concept-brand-detection.md
-      - name: Content tags
+      - name: Image tagging
         href: concept-tagging-images.md
       - name: Image categorization
         href: concept-categorizing-images.md
