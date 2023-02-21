@@ -13,9 +13,11 @@ Your app uses DNS when making calls to dependent resources. Resources could be A
 
 ## How name resolution works in App Service
 
-If your app isn't integrated with a virtual network and you haven't configured custom DNS, your app will use [Azure DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution). If your app is integrated with a virtual network, your app will use the DNS configuration of the virtual network. The default for virtual network is also to use Azure DNS, but through the virtual network it's also possible to link to [Azure DNS private zones](../dns/private-dns-overview.md) and use that for private endpoint resolution or private domain name resolutions. From your virtual network, you would also inherit any custom DNS servers configured. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully.
+If your app isn't integrated with a virtual network and you haven't configured custom DNS, your app will use [Azure DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution). If your app is integrated with a virtual network, your app uses the DNS configuration of the virtual network. The default for virtual network is also to use Azure DNS, but through the virtual network it's also possible to link to [Azure DNS private zones](../dns/private-dns-overview.md) and use that for private endpoint resolution or private domain name resolution. 
 
-The individual app will also allow you to override the DNS configuration by specifying the `dnsServers` property in the `dnsConfiguration` site property object. You can specify up to five custom DNS servers. Custom DNS servers can be configured using the Azure CLI.
+If your virtual network is configured with a list of custom DNS servers, name resolution will use these servers. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully. You'll also need to consider that your custom DNS servers will have to resolve any public DNS records need for your app either by forwarding requests to a public DNS server including Azure DNS in the list of custom DNS servers.
+
+The individual app allows you to override the DNS configuration by specifying the `dnsServers` property in the `dnsConfiguration` site property object. You can specify up to five custom DNS servers. Custom DNS servers can be configured using the Azure CLI.
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.dnsConfiguration.dnsServers="['168.63.169.16','1.1.1.1']"
@@ -43,9 +45,24 @@ az resource show --resource-group <group-name> --name <app-name> --resource-type
 
 If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. We allow you to modify retry attempts, retry timeout and cache timeout. Default timeout for retry attempts is 3 seconds, and you can configure it from 1-30 seconds. Default retry count is 1, but you can configure up to five retry attempts. DNS Cache timeout can be configured from 0-60 seconds. Default is 30 seconds and 0 means caching is disabled. Disabling or lowering cache duration may impact performance.
 
+>[!NOTE]
+> Windows Container apps currently does not support changing the name resolution behavior.
+
+Configure the name resolution behavior by using these CLI commands:
+
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --set properties.dnsConfiguration. --resource-type "Microsoft.Web/sites"
+az resource update --resource-group <group-name> --name <app-name> --set properties.dnsConfiguration.dnsMaxCacheTimeout=[0-60] --resource-type "Microsoft.Web/sites"
+az resource update --resource-group <group-name> --name <app-name> --set properties.dnsConfiguration.dnsRetryAttemptCount=[1-5] --resource-type "Microsoft.Web/sites"
+az resource update --resource-group <group-name> --name <app-name> --set properties.dnsConfiguration.dnsRetryAttemptTimeout=[1-30] --resource-type "Microsoft.Web/sites"
 ```
+
+Validate the settings by using this CLI command:
+
+```azurecli-interactive
+az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
+```
+
+
 
 ## Next steps
 
