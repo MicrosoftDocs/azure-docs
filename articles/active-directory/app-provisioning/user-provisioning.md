@@ -52,7 +52,7 @@ The provisioning mode supported by an application is also visible on the **Provi
 
 ## Benefits of automatic provisioning
 
-The number of applications used in modern organizations continues to grow. IT admins must manage access management at scale. Admins use standards such as SAML or OIDC for single sign-on (SSO), but access also requires users to be provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week. These processes are time-consuming, expensive, and error prone. Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning. Enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
+The number of applications used in modern organizations continues to grow. IT admins must manage access management at scale. Admins use standards such as SAML or OIDC for single sign-on (SSO), but access also requires users are provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week. These processes are time-consuming, expensive, and error prone. Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning. Enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
 
 Some common motivations for using automatic provisioning include:
 
