@@ -21,11 +21,11 @@ zone_pivot_groups: acs-csharp-java
 This guide will help you get started with playing audio to participants by using the play action provided through Azure Communication Services Call Automation SDK. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Play audio with .NET]()]
+[!INCLUDE [Play audio with .NET](./includes/play-audio-with-ai-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Play audio with Java]()]
+[!INCLUDE [Play audio with Java](./includes/play-audio-with-ai-java.md)]
 ::: zone-end
 
 ## Clean up resources
