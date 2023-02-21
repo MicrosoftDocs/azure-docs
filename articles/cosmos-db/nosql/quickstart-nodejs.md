@@ -115,8 +115,6 @@ You'll use the following JavaScript classes to interact with these resources:
 - [Authenticate the client](#authenticate-the-client)
 - [Create a database](#create-a-database)
 - [Create a container](#create-a-container)
-- [Get a database](#get-a-database)
-- [Get a container](#get-a-container)
 - [Create an item](#create-an-item)
 - [Get an item](#get-an-item)
 - [Query items](#query-items)
@@ -135,26 +133,26 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
-## Authenticate using DefaultAzureCredential
+#### Authenticate using DefaultAzureCredential
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 From the project directory, open the *index.js* file. In your editor, add npm packages to work with Cosmos DB and authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`@azure/identity`](https://www.npmjs.com/package/@azure/identity) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
-:::code language="javascript" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/index.js" range="5-9":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/002-quickstart-passwordless/index.js" range="5-9":::
 
 Create an environment variable that specifies your Cosmos DB endpoint.
 
-:::code language="javascript" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/index.js" range="11-13":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/002-quickstart-passwordless/index.js" range="11-13":::
 
 Create constants for the database and container names.
 
-:::code language="javascript" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/index.js" range="15-17":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/002-quickstart-passwordless/index.js" range="15-17":::
 
 
 Create a new client instance of the [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) class constructor with the `DefaultAzureCredential` object and the endpoint.
 
-:::code language="javascript" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/index.js" range=19-23:::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/002-quickstart-passwordless/index.js" range="19-23":::
 
 ## [Connection String](#tab/connection-string)
 
@@ -172,7 +170,7 @@ Create constants for the database and container names.
 
 Create a new client instance of the [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) class constructor with the endpoint and key.
 
-:::code language="javascript" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/index.js" range=21-22:::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="21-22":::
 
 ---
 
@@ -210,6 +208,8 @@ Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotE
 ---
 
 ### Create a container
+
+## [Passwordless (Recommended)](#tab/passwordless)
 
 The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 
