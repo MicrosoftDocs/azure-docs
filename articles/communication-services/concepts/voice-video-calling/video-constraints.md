@@ -28,7 +28,7 @@ We don't support changing constraints dynamically in a call as well.
 However, we'll be enabling these capabilities in the future.
 
 > [!NOTE]
-> Video Constraints is currently supported only for our JavaScript / Web SDK, and is available starting on the version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
+> Video Constraints is currently supported only for our JavaScript / Web SDK, and is available starting on the version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1) of the Calling SDK.
 
 ## Using Video Constraints
 
