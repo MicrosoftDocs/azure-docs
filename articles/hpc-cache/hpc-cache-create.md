@@ -62,7 +62,7 @@ Before you can choose throughput or storage capacity, you need to choose the cac
 Read more about these cache types below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
 
 > [!TIP]
-> Cache types that are named "Read-write" can be configured for either read-only caching or read/write caching. Cache types that are labeled "Read-only" only support read-only caching. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
+> "Read-write" cache types can be configured with storage targets using either read caching or read-write caching usage models. "Read-only" cache types only support NFS and ADLS-NFS storage target types with read-caching usage models only. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
 
 The "Standard" cache SKU lets you choose the cache's capacity for a given throughput selection, while the "Premium" and "read-optimized" caches have fixed capacities for each given throughput selection. The cache's capabilities are defined by two deployment choices:
 
