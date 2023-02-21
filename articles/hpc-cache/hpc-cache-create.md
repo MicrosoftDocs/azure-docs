@@ -92,7 +92,7 @@ There are two basic cache types: "standard" and "premium".
 
 **Standard** caches are general-use HPC Cache systems. You can select from multiple storage sizes after choosing your throughput value, and you can attach any of the HPC Cache supported storage target types.
 
-**Premium** caches are designed for the fastest possible file service. They use high-throughput disks, which means that premium caches have a different pricing structure and slightly different capabilities.
+**Premium** caches are designed for the highest-performance file service. They use high-throughput NVMe storage devices, which means that premium caches have a different pricing structure, static cache capacities, and cannot be temporarily stopped.
 
 Cache options include:
 
