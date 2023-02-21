@@ -21,7 +21,7 @@ The Microsoft Sentinel content hub enables discovery and on-demand installation 
 
 ## Content hub changes
 
-To centralize all out-of-the-box content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
+To centralize all OOTB content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
 
 To facilitate this transition, we're publishing a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
 
@@ -60,13 +60,13 @@ For the Microsoft Sentinel GitHub repo, OOTB content packaged in solutions in th
 
 This change does not affect active or custom items (created from templates or otherwise). Specifically, this change doesn't affect the following items:
 
-- Data connectors with `Status = Connected`.
+- Data connectors with **Status** = **Connected**.
 - Alert rules or detections (enabled or disabled) on the **Active rules** tab in the analytics gallery.
 - Saved workbooks on the **My workbooks** tab in the workbooks gallery.
-- Cloned content or `Content source = Custom` in the hunting gallery.
+- Cloned content or **Content source** = **Custom** in the hunting gallery.
 - Active playbooks (enabled or disabled) on the **Active playbooks** tab in the automation gallery.
 
-This change also doesn't affect any OOTB content templates installed from content hub (identifiable as `Content source = Content hub`).
+This change also doesn't affect any OOTB content templates installed from the content hub (identifiable as **Content source** = **Content hub**).
 
 ### What's changing?
 
@@ -78,11 +78,11 @@ The following table lists specific impacts to the content templates for each of 
 
 | Content type | Impact |
 | ------- | ------- |
-| [Data connectors](connect-data-sources.md) | Templates identifiable as `content source = "Gallery content"` and `Status = "Not connected"` will no longer appear in the data connectors gallery. |
-| [Analytics](detect-threats-built-in.md#view-built-in-detections) | Templates identifiable as `source name = "Gallery content"` will no longer appear in the analytics gallery. |
-| [Hunting](hunting.md#use-built-in-queries) | Templates with `Content source = "Gallery content"` will no longer appear in the hunting gallery. |
-| [Playbooks](use-playbook-templates.md#explore-playbook-templates) | Templates identifiable as `source name = "Gallery content"` will no longer appear in the automation playbooks gallery. |
-| [Workbooks](get-visibility.md#use-built-in-workbooks) | Templates with `Content source = "Gallery content"` will no longer appear in the workbooks gallery. |
+| [Data connectors](connect-data-sources.md) | Templates identifiable as **Content source** = **Gallery content** and **Status** = **Not connected** will no longer appear in the data connectors gallery. |
+| [Analytics](detect-threats-built-in.md#view-built-in-detections) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the analytics gallery. |
+| [Hunting](hunting.md#use-built-in-queries) | Templates with **Content source** = **Gallery content** will no longer appear in the hunting gallery. |
+| [Playbooks](use-playbook-templates.md#explore-playbook-templates) | Templates identifiable as **Source name** = **Gallery content** will no longer appear in the automation playbooks gallery. |
+| [Workbooks](get-visibility.md#use-built-in-workbooks) | Templates with **Content source** = **Gallery content** will no longer appear in the workbooks gallery. |
 
 Here's an example of an analytics rule before and after the centralization changes and the tool has run:
 
@@ -132,13 +132,13 @@ New REST API operations on the content hub will be available soon to enable OOTB
 
 ### How will the central tool identify my in-use OOTB content templates?
 
-The tool builds a list of solutions based on two criteria: data connectors with `Status = "Connected"` and **IN USE** playbook templates. After the tool builds the proposed list of solutions, it will present the list for approval. If the list is approved, the tool installs all those solutions. Because the OOTB content is reinstated based on solutions, you might get more templates than you actually use.  
+The tool builds a list of solutions based on two criteria: data connectors with **Status** = **Connected** and **IN USE** playbook templates. After the tool builds the proposed list of solutions, it will present the list for approval. If the list is approved, the tool installs all those solutions. Because the OOTB content is reinstated based on solutions, you might get more templates than you actually use.  
 
 This central tool is a best effort to get your **IN USE** OOTB content templates reinstated from the content hub. You can install omitted OOTB content directly from the content hub.
 
 ### What if I'm using APIs to connect data sources in my Microsoft Sentinel workspace?
   
-Currently, if an API data connection matches the data connector data type, it will appear as `Status = "Connected"` in the data connectors gallery. After the centralization changes go live, the specific data connector needs to be installed from a respective solution to get the same behavior.  
+Currently, if an API data connection matches the data connector data type, it will appear as **Status** = **Connected** in the data connectors gallery. After the centralization changes go live, the specific data connector needs to be installed from a respective solution to get the same behavior.  
 
 **Action needed:** Plan to update processes or tooling for your data connector deployments to install from content hub solutions before connecting with data ingestion APIs. The REST API operator for installing a solution will be coming in Q2 2023 with the OOTB content management APIs.
 
