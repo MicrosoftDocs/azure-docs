@@ -210,7 +210,7 @@ To create a data registry:
         "azureBlob": {
             "dataFormat": "geojson",
             "msiClientId": "{The client ID of the managed identity}",
-            "linkedResource": "{datastore name}",
+            "linkedResource": "{datastore ID}",
             "blobUrl": "https://teststorageaccount.blob.core.windows.net/testcontainer/test.geojson"
         }
     }
