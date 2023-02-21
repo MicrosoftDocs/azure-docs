@@ -34,7 +34,7 @@ However, we'll be enabling these capabilities in the future.
 
 The video constraints setting is implemented on `Call` interface.
 To use the Video Constraints, we can specify the constraints in CallOptions when we make a call, accept a call, or join a call.
-To make the constraints work, you also have to specify `localVideoStreams` in `videoOptions`. The constraint will not work if you join a call with audio only option and turn on the camera later.
+To make the constraints work, you also have to specify `localVideoStreams` in `videoOptions`. The constraint doesn't work if you join a call with audio only option and turn on the camera later.
 
 ```javascript
 const callOptions = {
@@ -101,12 +101,11 @@ There's an exception - when provided constraint value is too small, SDK chooses 
 > [!NOTE]
 > The resolution constraint is a `max` constraint, which means the possible resolutions can be the specified resolution or smaller.
 > There is no gurantee that the sent video resolution will remain at the specified resolution.
+> This sender max video resolution constraint is supported on Desktop browsers and iOS Safari.
 
 The `height` in `VideoSendConstraints` has a different meaning when the mobile device is in portrait mode. This value indicates the shorter side of the device in portrait mode. For example, specifying `constraints.send.height.max` value with 240 on a 1080(W) x 1920(H) device in portrait mode, the constraint height is on 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)), the constraint hide is on 1080(H) side.
 
-If you use MediaStats API to track the sent video resolution, you may find out that the sent resolution can change during the call. It can go up and down, but should be equal or smaller than the constraint value if you provide one. This is an expected behavior. The browser also has some degradation rule to adjust sent resolution based on cpu or network conditions.
-
-This sender max video resolution constraint is supported on Desktop browsers and iOS Safari.
+If you use MediaStats API to track the sent video resolution, you may find out that the sent resolution can change during the call. It can go up and down, but should be equal or smaller than the constraint value you provide. This resolution change is an expected behavior. The browser also has some degradation rule to adjust sent resolution based on cpu or network conditions.
 
 ### Media stats
 To evaluate and compare the video quality after applying the video constraints, you can access [MediaStats API](./media-quality-sdk.md) to get video resolution and bitrate information of the sending stream. The media stats also include other granular stats related to the streams, such as jitter, packet loss, round trip time, etc.
