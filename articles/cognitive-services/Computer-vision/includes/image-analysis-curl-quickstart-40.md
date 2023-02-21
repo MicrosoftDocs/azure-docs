@@ -48,7 +48,7 @@ To analyze an image for various visual features, do the following steps:
 
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Caption,Text&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Caption,Text&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'}"
     ```
 
 > [!div class="nextstepaction"]

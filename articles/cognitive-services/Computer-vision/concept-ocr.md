@@ -33,7 +33,7 @@ The text extraction feature is part of the [v4.0 Analyze Image REST API](https:/
 For an example, copy the following command into a text editor and replace the `<key>` with your API key and optionally, your API endpoint URL. Then open a command prompt window and run the command.
 
 ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     
 ```
 
