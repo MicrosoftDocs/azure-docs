@@ -25,7 +25,7 @@ ExpressRoute lets you extend your on-premises networks into the Microsoft cloud 
 
 ### Azure Private Link
 
-Azure Private Link enables you to access Azure PaaS services and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can access your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links provide you with flexibility to connect your devices located in different regions. With private endpoint, you can also disable the access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md)
+Azure Private Link enables you to access Azure PaaS services and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can access your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links provide you with flexibility to connect your devices located in different regions. With private endpoint, you can also disable the access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md).
 
 ### Azure DNS Private Resolver
 
