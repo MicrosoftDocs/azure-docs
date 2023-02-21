@@ -17,6 +17,11 @@ In this article, you'll learn how to:
 - [Monitor workspaces, entities, and files](#monitor-workspaces-entities-and-files)
 - [Compare baselines using File Integrity Monitoring](#compare-baselines-using-file-integrity-monitoring)
 
+> [!NOTE]
+> Be aware that this service may create the following account on any SQL Servers monitored: \
+> `NT Service\HealthService`
+> If you delete this account it will be automatically recreated.
+
 ## Availability
 
 |Aspect|Details|
