@@ -14,7 +14,15 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-If you frequently use the portal to deploy Linux VMs, you can simplify using SSH keys by integrating them into Azure. You can create SSH keys when you first create a VM, create SSH keys in the Azure portal seperate from a VM, or create them externally and upload them to Azure. Your keys stored in Azure can be reused in a variety of applications to fit your organizations needs. 
+If you frequently use the portal to deploy Linux VMs, you can simplify using SSH keys by integrating them into Azure. There are several ways to create SSH keys for use with Azure. 
+
+- You can create SSH keys when you first create a VM. These keys are not tied to a specific VM and can be used in future applications.
+
+- You can create SSH keys in the Azure portal separate from a VM. These can be applied to both new and old VMs.
+
+- You can create SSH keys externally and upload them for use in Azure.
+
+You can reuse your stored keys in a variety of applications to fit your organization's needs. 
 
 For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
@@ -30,21 +38,21 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
-1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+1. In **Region** select a region to store your keys. You can use the keys in any region, this option is just the region where they're stored.
 
 1. Type a name for your key in **Key pair name**.
 
 1. In **SSH public key source**, select **Generate public key source**. 
 
-1. When you are done, select **Review + create**.
+1. When you're done, select **Review + create**.
 
 1. After it passes validation, select **Create**.
 
-1. You will then get a pop-up window to, select **Download private key and create resource**. This will download the SSH key as a .pem file.
+1. You'll get a pop-up window to, select **Download private key and create resource**. This downloads the SSH key as a .pem file.
 
    :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
 
-1. Once the .pem file is downloaded, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
+1. Once you have downloaded the .pem file, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
 
 
 ## Connect to the VM
@@ -72,7 +80,7 @@ You can also upload a public SSH key to store in Azure. For information about ho
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
-1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+1. In **Region** select a region to store your keys. You can use the keys in any region, this option is just the region where they're stored.
 
 1. Type a name for your key in **Key pair name**.
 
@@ -86,7 +94,7 @@ Once the key has been uploaded, you can choose to use it when you create a VM.
 
 ## List keys
 
-SSH keys created in the portal are stored as resources, so you can filter your resources view to see all of them.
+Your SSH keys created in the portal are stored as resources, so you can filter your resources view to see all of them.
 
 1. In the portal, select **All resource**.
 1. In the filters, select **Type**, unselect the **Select all** option to clear the list.
@@ -96,7 +104,7 @@ SSH keys created in the portal are stored as resources, so you can filter your r
 
 ## Get the public key
 
-If you need your public key, you can easily copy it from the portal page for the key. Just list your keys (using the process in the last section) then select a key from the list. The page for your key will open and you can click the **Copy to clipboard** icon next to the key to copy it.
+If you need your public key, you can easily copy it from the portal page for the key. Just list your keys (using the process in the last section) then select a key from the list. The page for your key opens and you can click the **Copy to clipboard** icon next to the key to copy it.
 
 ## Next steps
 
