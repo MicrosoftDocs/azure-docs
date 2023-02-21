@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 02/28/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,6 +16,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+
+- February 2023
+  - [Azure Kubernetes Service cluster backup (preview)](#azure-kubernetes-service-cluster-backup-preview)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
@@ -49,6 +52,16 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Azure Kubernetes Service cluster backup (preview)
+
+Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for both cluster state and application data (persistent volumes - CSI driver based Azure Disks). 
+
+The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore with the ability to store backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning test or developer environments, or cluster upgrade scenarios. 
+
+AKS backup integrates with Backup center (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
+ 
+For more information, see [Overview of AKS backup (preview)](azure-kubernetes-service-cluster-backup-concept.md).
 
 ## Multi-user authorization using Resource Guard for Backup vault (in preview)
 
