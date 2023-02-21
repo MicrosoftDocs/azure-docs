@@ -10,7 +10,7 @@ ms.custom: include file
 |Language                                 |1.x         |2.x<sup>1</sup> | 3.x<sup>1</sup> | 4.x |
 |-----------------------------------------|------------|---| --- | --- |
 |[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA (.NET Framework 4.8)|GA (.NET Core 2.1)| GA (.NET Core 3.1)<br/> | GA (.NET 6.0)<br/>[GA (.NET 7.0)](../articles/azure-functions/dotnet-isolated-process-guide.md)<br/>[GA (.NET Framework 4.8)](../articles/azure-functions/dotnet-isolated-process-guide.md) |
-|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Node.js 6)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | GA (Node.js 14)<br/>GA (Node.js 16)<br/>Preview (Node.js 18) |
+|[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Node.js 6)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | GA (Node.js 18, 16, & 14) |
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA (.NET Framework 4.8)|GA (.NET Core 2.1<sup>1</sup>)| GA (.NET Core 3.1) | GA (.NET 6.0)<br/> GA (.NET 7.0)|
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|GA (Java 8)| GA (Java 11 & 8)| GA (Java 11 & 8) <br/> GA (Java 17)|
 |[PowerShell](../articles/azure-functions/functions-reference-powershell.md) |N/A|N/A|N/A| GA (PowerShell 7.2)|

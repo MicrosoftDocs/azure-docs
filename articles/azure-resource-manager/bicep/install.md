@@ -16,7 +16,7 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 |  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension

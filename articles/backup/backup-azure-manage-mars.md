@@ -4,10 +4,10 @@ description: Learn how to manage and monitor Microsoft Azure Recovery Services (
 ms.reviewer: srinathv
 ms.topic: how-to
 ms.date: 12/28/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 

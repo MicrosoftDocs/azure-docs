@@ -562,6 +562,9 @@
     - name: Defender for DevOps FAQ
       displayName: DevOps, FAQ
       href: devops-faq.md
+    - name: Credential scanner rules
+      displayName: credential, scanner, rules, DevOps
+      href: concept-credential-scanner-rules.md
 
 - name: Reference
   items:
@@ -656,6 +659,8 @@
       href: episode-twenty-four.md
     - name: AWS ECR coverage in Defender for Containers
       href: episode-twenty-five.md
+    - name: Governance capability improvements in Defender for Cloud
+      href: episode-twenty-six.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

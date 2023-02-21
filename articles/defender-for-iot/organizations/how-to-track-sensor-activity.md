@@ -50,7 +50,7 @@ You can also view the event timeline of a specific device from the **Device inve
 
 1. Select the **Event timeline** tab to view all events associated with this device, and [filter the events](#filter-events-on-the-timeline) as needed.
 
-    For example: 
+    For example:
 
     :::image type="content" source="media/track-sensor-activity/device-properties-page-event-timeline.png" alt-text="Screenshot of event timeline tab in device properties page.":::
 
@@ -108,7 +108,7 @@ For example:
 
 The amount of data that can be stored in the event timeline depends on various factors, such as the size of the network, the frequency of events, and the storage capacity of your sensor. The data stored in the event timeline can include information about network traffic, security events, and other relevant data points.
 
-The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation. Each hardware profile has a maximum capacity of events. For more information on the maximum event capacity for each hardware profile, see [OT event timeline retention](/azure/defender-for-iot/organizations/references-data-retention?branch=pr-en-us-221446).
+The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation. Each hardware profile has a maximum capacity of events. For more information on the maximum event capacity for each hardware profile, see [OT event timeline retention](references-data-retention.md#ot-event-timeline-retention).
 
 ## Next steps
 

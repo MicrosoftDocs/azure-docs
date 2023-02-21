@@ -22,11 +22,11 @@ Azure Communication Services offers logging capabilities that you can use to mon
 
 ## Enable diagnostic logs in your resource
 
-Logging is turned off by default when a resource is created. To enable logging, navigate to the **Diagnostic settings** blade in the resource menu under the **Monitoring** section. Then click on **Add diagnostic setting**.
+Logging is turned off by default when a resource is created. To enable logging, navigate to the **Diagnostic settings** tab in the resource menu under the **Monitoring** section. Then select **Add diagnostic setting**.
 
 Next, select the archive target you want. Currently, we support storage accounts and Log Analytics as archive targets. After selecting the types of logs that you'd like to capture, save the diagnostic settings.
  
-New settings take effect in about ten minutes. Logs will begin appearing in the configured archival target within the Logs pane of your Communication Services resource.
+New settings take effect in about 10 minutes. Logs will begin appearing in the configured archival target within the Logs pane of your Communication Services resource.
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Azure Communication Services Diagnostic Settings Options.":::
 
@@ -44,6 +44,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Email Send Mail operational logs** - provides detailed information related to the Email service send mail requests.
 * **Email Status Update operational logs** - provides message and recipient level delivery status updates related to the Email service send mail requests.
 * **Email User Engagement operational logs** - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
+* **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call (using Correlation ID or Server Call ID) or query all requests made by a specific service application in the call (using Participant ID).
 
 ### Usage logs schema
 
@@ -51,7 +52,7 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | Timestamp | The timestamp (UTC) of when the log was generated. |
 | Operation Name | The operation associated with log record. |
-| Operation Version | The `api-version` associated with the operation, if the operationName was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| Operation Version | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | Correlation ID | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
 | Properties | Other data applicable to various modes of Communication Services. |
@@ -67,7 +68,7 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | OperationName | The operation associated with log record. |
 | CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
-| OperationVersion | The api-version associated with the operation, if the operationName was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The api-version associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | ResultType | The status of the operation. |
 | ResultSignature | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
@@ -89,7 +90,7 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | OperationName | The operation associated with log record. |
 | CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
-| OperationVersion | The api-version associated with the operation, if the operationName was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The api-version associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | ResultType | The status of the operation. |
 | ResultSignature | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
@@ -114,7 +115,7 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | OperationName | The operation associated with log record. |
 | CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
-| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | ResultType | The status of the operation. |
 | ResultSignature | The sub-status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
@@ -134,9 +135,9 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated    | The timestamp (UTC) of when the log was generated.                                                                                                    |
 | OperationName    | The operation associated with log record.                                                                                                             |
 | CorrelationId    | The ID for correlated events. Can be used to identify correlated events between multiple tables.                                                      |
-| OperationVersion | The API-version associated with the operation or version of the operation (if there is no API version).                                               |
+| OperationVersion | The API-version associated with the operation or version of the operation (if there's no API version).                                               |
 | Category         | The log category of the event. Logs with the same log category and resource type will have the same properties fields.                                |
-| ResultType       | The status of the operation (e.g. Succeeded or Failed).                                                                                               |
+| ResultType       | The status of the operation (for example, Succeeded or Failed).                                                                                               |
 | ResultSignature  | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
 | DurationMs       | The duration of the operation in milliseconds.                                                                                                        |
 | Level            | The severity level of the operation.                                                                                                                  |
@@ -144,7 +145,7 @@ Communication Services offers the following types of logs that you can enable:
 | Identity         | The request sender's identity, if provided.                                                                                                           |
 | SdkType          | The SDK type being used in the request.                                                                                                               |
 | PlatformType     | The platform type being used in the request.                                                                                                          |
-| RouteType        | The routing methodology to where the ICE server will be located from the client (e.g. Any or Nearest).                                                |
+| RouteType        | The routing methodology to where the ICE server will be located from the client (for example, Any or Nearest).                                                |
 
 
 ### Email Send Mail operational logs
@@ -154,9 +155,9 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | Location | The region where the operation was processed. |
 | OperationName | The operation associated with log record. |
-| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
 | Size | Represents the total size in megabytes of the email body, subject, headers and attachments. |
 | ToRecipientsCount | The total # of unique email addresses on the To line. |
 | CcRecipientsCount | The total # of unique email addresses on the Cc line. | 
@@ -172,9 +173,9 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | Location | The region where the operation was processed. |
 | OperationName | The operation associated with log record. |
-| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
 | RecipientId | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | DeliveryStatus | The terminal status of the message. |
 
@@ -185,10 +186,33 @@ Communication Services offers the following types of logs that you can enable:
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | Location | The region where the operation was processed. |
 | OperationName | The operation associated with log record. |
-| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
 | RecipientId | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | EngagementType | The type of user engagement being tracked. |
 | EngagementContext | The context represents what the user interacted with. |
 | UserAgent | The user agent string from the client. |
+
+
+### Call Automation operational logs
+
+| Property | Description |
+| -------- | ---------------|
+| TimeGenerated | The timestamp (UTC) of when the log was generated. |
+| OperationName | The operation associated with log record. |
+| CorrelationID | The identifier to identify a call and correlate events for a unique call.  |
+| OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
+| ResultType | The status of the operation. |
+| ResultSignature | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+| DurationMs | The duration of the operation in milliseconds. |
+| CallerIpAddress | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
+| Level | The severity level of the event. |
+| URI | The URI of the request. |
+| CallConnectionId | ID representing the call connection, if available. This ID is different for each participant and is used to identify their connection to the call.  |
+| ServerCallId | A unique ID to identify a call. |
+| SDKVersion | SDK version used for the request. |
+| SDKType | The SDK type used for the request. |
+| ParticipantId | ID to identify the call participant that made the request. |
+| SubOperationName | Used to identify the sub type of media operation (play, recognize) |

@@ -188,13 +188,14 @@ $sourceDiskName = <sourceDiskNameHere>
 $targetDiskName = <targetDiskNameHere>
 $targetRG = <targetResourceGroupHere>
 $targetLocate = <yourTargetLocationHere>
+$targetVmGeneration = "V1" # either V1 or V2
 #Expected value for OS is either "Windows" or "Linux"
 $targetOS = <yourOSTypeHere>
 
 $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
 # Adding the sizeInBytes with the 512 offset, and the -Upload flag
-$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload' -HyperVGeneration $targetVmGeneration
 
 $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
 

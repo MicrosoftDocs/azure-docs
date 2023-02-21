@@ -1104,7 +1104,7 @@ channels:
 **Resources**
 * See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-## *Deprecated environment property issues*
+## *Miscellaneous environment issues*
 ### R section is deprecated
 <!--issueDescription-->
 **Potential causes:**
@@ -1130,25 +1130,25 @@ env.r = None
 
 See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started training R models using the Azure CLI v2
 
-## **Image build problems**
-
-## *Miscellaneous issues*
-### Build log unavailable
+### No definition exists for environment
 <!--issueDescription-->
 **Potential causes:**
-* AzureML isn't authorized to store your build logs in your storage account
-* A transient error occurred while saving your build logs
-* Your image build didn't occur due to a system error before the build had a chance to start
+* You specified an environment that doesn't exist or hasn't been registered
+* There was a misspelling or syntactical error in the way you specified your environment name or environment version
 
 **Affected areas (symptoms):**
-* A successful build, but no available logs.
-* Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in registering your environment
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-A rebuild may fix the issue if it's transient
+Ensure that you are specifying your environment name correctly, along with the correct version
+* `path-to-resource:version-number`
+
+The 'latest' version of your environment is specified in a slightly different way
+* `path-to-resource@latest`
+
+## **Image build problems**
 
 ## *ACR issues*
 ### ACR unreachable
@@ -1741,3 +1741,21 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 * Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
 * For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
 * See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)
+
+## *Miscellaneous build issues*
+### Build log unavailable
+<!--issueDescription-->
+**Potential causes:**
+* AzureML isn't authorized to store your build logs in your storage account
+* A transient error occurred while saving your build logs
+* A system error occurred before an image build was triggered
+
+**Affected areas (symptoms):**
+* A successful build, but no available logs.
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+A rebuild may fix the issue if it's transient

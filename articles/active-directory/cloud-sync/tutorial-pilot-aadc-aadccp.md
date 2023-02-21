@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Pilot Azure AD Connect cloud sync for an existing synced AD forest
+title: Tutorial - Migrate to Azure AD Connect cloud sync for an existing synced AD forest
 description: Learn how to pilot cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 services: active-directory
 author: billmath
@@ -7,16 +7,19 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2023
+ms.date: 01/23/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 
-# Pilot cloud sync for an existing synced AD forest
+# Migrate to Azure AD Connect cloud sync for an existing synced AD forest
 
-This tutorial walks you through piloting cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
+This tutorial walks you through how you would migrate to cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.  
+
+> [!NOTE]
+> This article provides information for a basic migration and you should review the [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
 ![Diagram that shows the Azure AD Connect cloud sync flow.](media/tutorial-migrate-aadc-aadccp/diagram-2.png)
 
@@ -24,23 +27,21 @@ This tutorial walks you through piloting cloud sync for a test Active Directory 
 
 Before you try this tutorial, consider the following items:
 
-1. Ensure that you're familiar with basics of cloud sync.
-
-1. Ensure that you're running Azure AD Connect sync version 1.4.32.0 or later and have configured the sync rules as documented. 
-
-1. When piloting, you'll be removing a test OU or group from Azure AD Connect sync scope. Moving objects out of scope leads to deletion of those objects in Azure AD.
+ 1. Ensure that you're familiar with basics of cloud sync.
+ 2. Ensure that you're running Azure AD Connect sync version 1.4.32.0 or later and have configured the sync rules as documented.
+ 3. When piloting, you'll be removing a test OU or group from Azure AD Connect sync scope. Moving objects out of scope leads to deletion of those objects in Azure AD.  
 
     - User objects, the objects in Azure AD are soft-deleted and can be restored. 
     - Group objects, the objects in Azure AD are hard-deleted and can't be restored. 
-    
-    A new link type has been introduced in Azure AD Connect sync, which will prevent the deletion in a piloting scenario.
+ 
+     A new link type has been introduced in Azure AD Connect sync, which will prevent the deletion in a piloting scenario.
 
-1. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud sync hard matches the objects.
+ 4. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud sync hard matches the objects.
 
    > [!NOTE]
    > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects.
 
-1. This configuration is for advanced scenarios. Ensure that you follow the steps documented in this tutorial precisely.
+ 5. This configuration is for advanced scenarios. Ensure that you follow the steps documented in this tutorial precisely.
 
 ## Prerequisites
 
@@ -54,6 +55,9 @@ The following are prerequisites required for completing this tutorial
 ## Update Azure AD Connect
 
 As a minimum, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. To update Azure AD Connect sync, complete the steps in [Azure AD Connect: Upgrade to the latest version](../hybrid/how-to-upgrade-previous-version.md).  
+
+## Back up your Azure AD Connect configuration
+Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can role-back.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
 
 ## Stop the scheduler
 

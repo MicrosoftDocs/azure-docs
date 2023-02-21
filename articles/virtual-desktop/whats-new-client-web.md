@@ -13,9 +13,9 @@ We regularly update the Remote Desktop Web client for Azure Virtual Desktop, add
 You can find more detailed information about the Windows Desktop client at [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md) and [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](users/client-features-web.md).
 
 > [!NOTE]
-> What's new information used to be combined for the Remote Desktop Web client for Azure Virtual Desktop and Remote Desktop Services. You can find information for versions earlier than 2.0.0.3 at [What's new in the web client](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew).
+> What's new information used to be combined for the Remote Desktop Web client for Azure Virtual Desktop and Remote Desktop Services. You can find information for versions earlier than 2.0.0.4 at [What's new in the web client](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew).
 
-## Updates for version 2.0.0.3 (preview)
+## Updates for version 2.0.0.4 (preview)
 
 *Date published: January 26th 2023*
 

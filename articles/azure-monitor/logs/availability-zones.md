@@ -3,15 +3,15 @@ title: Availability zones in Azure Monitor
 description: Availability zones in Azure Monitor 
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 08/18/2021
 ms.custom: references_regions
 ---
 
 # Availability zones in Azure Monitor
 
-[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can provide resilience for Azure Monitor features that rely on a Log Analytics workspace. When a workspace is linked to an availability zone, it remains active and operational even if a specific datacenter is malfunctioning or even down, by relying on the availability of other zones in the region. You don’t need to do anything in order to switch to an alternative zone, or even be aware of the incident. 
+[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can provide resilience for Azure Monitor features that rely on a Log Analytics workspace. When a workspace is linked to an availability-zone-enabled dedicated cluster, it remains active and operational even if a specific datacenter is malfunctioning or even down, by relying on the availability of other zones in the region. You don’t need to do anything in order to switch to an alternative zone, or even be aware of the incident. 
 
 
 ## Regions

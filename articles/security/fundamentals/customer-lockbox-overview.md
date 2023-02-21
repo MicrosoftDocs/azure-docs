@@ -94,7 +94,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+7. At the customer organization, the users who have the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription and/or the [Azure Active Directory Global Administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
 
     Example email:
 

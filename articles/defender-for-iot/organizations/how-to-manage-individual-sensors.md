@@ -49,6 +49,21 @@ If there are any connection issues, a disconnection message is shown in the **Ge
 
     :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
+
+## Download software for OT sensors
+
+You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
+
+In Defender for IoT in the Azure portal, use one of the following options:
+
+- For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
+
+- If you're updating your OT sensor, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ## Manage sensor activation files
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
@@ -134,11 +149,11 @@ Sensor Administrators may be required to update certificates that were uploaded 
     - Upload a CRT file and key file.
     - Upload a PEM file if necessary.
 
-If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+If the upload fails, contact your security or IT administrator, or review the information in [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [Verify CRL server access](how-to-deploy-certificates.md#verify-crl-server-access) for more information.
 
 1. Select **Save**.
 
@@ -153,23 +168,23 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 1. Sign in to the on-premises management console.
 
-2. Select **System Settings**.
+1. Select **System Settings**.
 
-3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
+1. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
    :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Screenshot of the Connection string screen.":::
 
-4. Sign in to the sensor console.
+1. Sign in to the sensor console.
 
-5. On the left pane, select **System Settings**.
+1. On the left pane, select **System Settings**.
 
-6. Select **Management Console Connection**.
+1. Select **Management Console Connection**.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/management-console-connection-screen.png" alt-text="Screenshot of the Management Console Connection dialog box.":::
 
-7. Paste the connection string in the **Connection string** box and select **Connect**.
+1. Paste the connection string in the **Connection string** box and select **Connect**.
 
-8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
+1. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
 Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configure-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
@@ -215,9 +230,9 @@ If you create a new IP address, you might be required to sign in again.
 
 1. On the side menu, select **System Settings**.
 
-2. In the **System Settings** window, select **Network**.
+1. In the **System Settings** window, select **Network**.
 
-3. Set the parameters:
+1. Set the parameters:
 
     | Parameter | Description |
     |--|--|
@@ -228,7 +243,7 @@ If you create a new IP address, you might be required to sign in again.
     | Hostname | The sensor hostname |
     | Proxy | Proxy host and port name |
 
-4. Select **Save**.
+1. Select **Save**.
 
 ## Synchronize time zones on the sensor
 
@@ -244,13 +259,13 @@ You can configure the sensor's time and region so that all the users see the sam
 
 1. On the side menu, select **System settings** >  **Basic**, > **Time & Region**.
 
-3. Set the parameters and select **Save**.
+1. Set the parameters and select **Save**.
 
 ## Set up backup and restore files
 
-System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`.
+System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`. You can automatically transfer this file to the internal network.
 
-You can automatically transfer this file to the internal network.
+For more information, see [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
 
 > [!NOTE]
 >
@@ -279,33 +294,33 @@ Sensor backup files are automatically named through the following format: `<sens
 
     Get the folder path, username, and password required to access the SMB server.
 
-2. In the sensor, make a directory for the backups:
+1. In the sensor, make a directory for the backups:
 
     - `sudo mkdir /<backup_folder_name_on_cyberx_server>`
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edit `fstab`:
+1. Edit `fstab`:
 
     - `sudo nano /etc/fstab`
 
     - `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifsrw,credentials=/etc/samba/user,vers=X.X,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0`
 
-4. Edit and create credentials to share for the SMB server:
+1. Edit and create credentials to share for the SMB server:
 
     `sudo nano /etc/samba/user`
 
-5. Add:
+1. Add:
 
     - `username=&gt:user name&lt:`
 
     - `password=<password>`
 
-6. Mount the directory:
+1. Mount the directory:
 
     `sudo mount -a`
 
-7. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
+1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
 
     - `sudo nano /var/cyberx/properties/backup.properties`
 
@@ -315,7 +330,9 @@ Sensor backup files are automatically named through the following format: `<sens
 
 You can restore a sensor from a backup file using the sensor console or the CLI.
 
-**To restore from the sensor console:**
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
+
+# [Restore from the sensor console](#tab/restore-from-sensor-console)
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
@@ -337,9 +354,11 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
      1. When the restore process is complete, select **Close**.
 
-**To restore the latest backup file by using the CLI:**
+# [Restore the latest backup file by using the CLI](#tab/restore-using-cli)
 
 - Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+---
 
 ## Configure SMTP settings
 
@@ -394,27 +413,19 @@ For more information about forwarding rules, see [Forward alert information](how
 
 When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
 
-To view the PCAP player in your sensor console, you'll first need to configure the relevant advanced configuration option.
+The **Play PCAP** option is enabled by default in the sensor console's settings.
 
 Maximum size for uploaded files is 2 GB.
-
-**To show the PCAP player in your sensor console**:
-
-1. On your sensor console, go to **System settings > Sensor management > Advanced Configurations**.
-
-1. In the **Advanced configurations** pane, select the **Pcaps** category.
-
-1. In the configurations displayed, change `enabled=0` to `enabled=1`, and select **Save**.
-
-The **Play PCAP** option is now available in the sensor console's settings, under: **System settings > Basic > Play PCAP**.
 
 **To upload and play a PCAP file**:
 
 1. On your sensor console, select **System settings > Basic > Play PCAP**.
 
-1. In the **PCAP PLAYER** pane, select **Upload** and then navigate to and select the file you want to upload.
+1. In the **PCAP PLAYER** pane, select **Upload** and then navigate to and select the file or multiple files you want to upload.
 
 1. Select **Play** to play your PCAP file, or **Play All** to play all PCAP files currently loaded.
+
+:::image type="content" source="media/how-to-manage-individual-sensors/upload-and-play-pcaps.png" alt-text="Screenshot of uploading PCAP files on the PCAP PLAYER pane in the sensor console." lightbox="media/how-to-manage-individual-sensors/upload-and-play-pcaps.png":::
 
 > [!TIP]
 > Select **Clear All** to clear the sensor of all PCAP files loaded.
@@ -429,9 +440,9 @@ To access system properties:
 
 1. Sign in to the on-premises management console or the sensor.
 
-2. Select **System Settings**.
+1. Select **System Settings**.
 
-3. Select **System Properties** from the **General** section.
+1. Select **System Properties** from the **General** section.
 
 ## Download a diagnostics log for support
 
@@ -464,7 +475,7 @@ Use Defender for IoT data mining reports on an OT network sensor to retrieve for
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
+Each type of data has a different retention period and maximum capacity. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
 ## Clearing sensor data
 

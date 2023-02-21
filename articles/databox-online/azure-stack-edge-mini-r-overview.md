@@ -89,4 +89,4 @@ For a discussion of considerations for choosing a region for the Azure Stack Edg
 
 ## Next steps
 
-- Review the [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).
+- Review the [Azure Stack Edge Mini R system requirements](azure-stack-edge-mini-r-system-requirements.md).

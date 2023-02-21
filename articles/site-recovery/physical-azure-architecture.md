@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.service: site-recovery
 ---
 
 # Physical server to Azure disaster recovery architecture

@@ -1,12 +1,12 @@
 ---
-title: Move Azure internal Load Balancer to another Azure region using Azure PowerShell
+title: Move Azure internal Load Balancer to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure internal Load Balancer from one Azure region to another using Azure PowerShell
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, template-how-to
 ---
 
 # Move Azure internal Load Balancer to another region using PowerShell
