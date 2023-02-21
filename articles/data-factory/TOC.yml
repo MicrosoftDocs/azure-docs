@@ -761,6 +761,8 @@ items:
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
       displayName: variables, control flow
+    - name: Set Pipeline Return Value
+      href: tutorial-pipeline-return-value.md
     - name: Switch activity
       href: control-flow-switch-activity.md
       displayName: control flow

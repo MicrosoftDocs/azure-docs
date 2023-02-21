@@ -21,9 +21,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Agent provides the following benefits over legacy agents:
 
-- **Security and performance**
+- **Security**
   - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
-  - Same events-per-second (EPS) upload rate with less resource utilization.
+- **Performance**
+  - The AMA agent event throughput is 25% better than the MMA agent.
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md). Using DCRs is one of the most useful advantages of using Azure Monitor Agent:
   - DCRs let you configure data collection for specific machines connected to a workspace as compared to the "all or nothing" approach of legacy agents.
   - With DCRs, you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.

@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 02/09/2022
 ms.author: allensu
 ms.custom: template-how-to, fasttrack-edit
 ---
@@ -84,7 +84,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net <br/> privatelink.applicationinsights.azure.com| monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net <br/> applicationinsights.azure.com |
-| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com   | cognitiveservices.azure.com <br/> openai.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  {region}.privatelink.afs.azure.net  |  {region}.afs.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
@@ -103,7 +103,7 @@ For Azure services, use the recommended zone names as described in the following
 | Microsoft PowerBI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Bot | privatelink.directline.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
-| Azure Data Health Data Services (Microsoft.HealthcareApis/workspaces) / healthcareworkspace | workspace.privatelink.azurehealthcareapis.com </br> fhir.privatelink.azurehealthcareapis.com </br> dicom.privatelink.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
+| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) / healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 | Azure Databricks (Microsoft.Databricks/workspaces) / databricks_ui_api, browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
