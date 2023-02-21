@@ -46,6 +46,10 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
+## Limitations
+
+If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default.
+
 ## Using node OS auto-upgrade
 
 Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. By default, a cluster's node OS auto-upgrade channel is set to `Unmanaged`.
@@ -57,10 +61,10 @@ The following upgrade channels are available:
 
 |Channel|Description|OS-specific behavior|
 |---|---|
-| `None`| Your nodes will not have security updates applied automatically. This means you are solely responsible for your security updates|N/A|
-| `Unmanaged`|OS updates will be applied automatically through the OS built-in patching infrastructure. Newly allocated machines will be unpatched initially and will be patched at some point by the OS's infrastructure|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows and Mariner do not apply security patches automatically, so this option behaves equivalently to `None`|
-| `SecurityPatch`|AKS will update the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only" on a regular basis. Where possible, patches will also be applied without disruption to existing nodes. Some patches, such as kernel patches, cannot be applied to existing nodes without disruption. For such patches, the VHD will be updated and existing machines will be upgraded to that VHD following maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group.|N/A|
-| `NodeImage`|AKS will update the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option.|
+| `None`| Your nodes won't have security updates applied automatically. This means you're solely responsible for your security updates|N/A|
+| `Unmanaged`|OS updates will be applied automatically through the OS built-in patching infrastructure. Newly allocated machines will be unpatched initially and will be patched at some point by the OS's infrastructure|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows and Mariner don't apply security patches automatically, so this option behaves equivalently to `None`|
+| `SecurityPatch`|AKS will update the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only" on a regular basis. Where possible, patches will also be applied without disruption to existing nodes. Some patches, such as kernel patches, can't be applied to existing nodes without disruption. For such patches, the VHD will be updated and existing machines will be upgraded to that VHD following maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group.|N/A|
+| `NodeImage`|AKS will update the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades] will be disabled by default.|
 
 To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
 
@@ -90,3 +94,4 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [upgrade-aks-cluster]: upgrade-cluster.md
+[unattended-upgrades]: https://help.ubuntu.com/community/AutomaticSecurityUpdates
