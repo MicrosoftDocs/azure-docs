@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 1/11/2023
+ms.date: 02/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -37,6 +37,8 @@ This article requires that you already have a disk encryption set in each region
 When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:
 
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
+
+- After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
 - VM image version source doesn't currently support customer-managed key encryption.
 
