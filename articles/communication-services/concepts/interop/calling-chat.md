@@ -59,6 +59,7 @@ Connect-MicrosoftTeams
 ### 3. Enable tenant configuration
 
 Interoperability with Communication Services resources is controlled via tenant configuration and assigned policy. Teams tenant has a single tenant configuration, and Teams users have assigned global policy or custom policy. The following table shows possible scenarios and impacts on interoperability.
+
 | Tenant configuration | Global policy | Custom policy | Assigned policy | Interoperability |
 | --- | --- | --- | --- | --- |
 | True | True | True | Global | **Enabled** |
