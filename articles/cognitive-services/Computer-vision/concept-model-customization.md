@@ -37,9 +37,9 @@ In order to train your model effectively, use images with visual variety. Select
 
 Additionally, make sure all of your training images meet the following criteria:
 
-- _.jpg_ or _.png_ format
-- no greater than 6MB in size (4MB for prediction images)
-- no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the service
+- The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format
+- The file size of the image must be less than 20 megabytes (MB)
+- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 ### Association file
 
