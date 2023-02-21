@@ -2,8 +2,8 @@ items:
 - name: Azure Communication Services documentation
   href: index.yml
 - name: Overview
-  items:
   expanded: true
+  items:
   - name: What's new
   - name: Fundamentals
     items:
@@ -20,8 +20,8 @@ items:
     - name: Designing your architecture
       href: concepts/client-and-server-architecture.md
   - name: Services
+    expanded: true
     items:
-    expanded:true
     - name: SMS
     - name: Voice and Video Calling
     - name: Chat
@@ -42,8 +42,8 @@ items:
 - name: Quickstart 
   items:
   - name: SMS
-    items:
     expanded: true
+    items:
     - name: Get a phone numbers
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
