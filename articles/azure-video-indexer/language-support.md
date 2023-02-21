@@ -26,7 +26,8 @@ This section explains the Video Indexer language options and has a table of the 
 - **Language identification** -   Whether the language can be automatically detected by Video Indexer when language identification is used for indexing. To learn more, see [Use Azure Video Indexer to auto identify spoken languages](language-identification-model.md) and the **Language Identification** section.
 - **Customization (language model)** - Whether the language can be used when customizing language models in Video Indexer. To learn more, see [Customize a Language model in Azure Video Indexer](customize-language-model-overview.md)
 - **Website Translation** – Whether the language is supported for translation when using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the translated language in the language drop-down menu.
-    <!-- ![](media/303d21a81909bb008e8d998e43986b50.png) -->
+
+    :::image type="content" source="media/language-support/website-translation.png" alt-text="A menu with download, english and views as menu items. A tooltip is shown as mouseover on the english item and says Translation is set to English.":::
 
     The following insights are translated:
 
@@ -40,7 +41,7 @@ This section explains the Video Indexer language options and has a table of the 
 
 - **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the **Settings icon** then select the language in the **Language settings** dropdown.
 
-<!-- ![](media/d4397cc1972298a204e03abbb2f2d92f.png) -->
+    :::image type="content" source="media/language-support/website-language.jpg" alt-text="A menu with user settings show them all toggled to on":::
 
 | **Language**                     | **Code**   | **Supported source language** | **Language identification** | **Customization (language model)** | **Website Translation** | **Website Language** |
 |:----------------------------------|:----------:|:-----------------------------:|:---------------------------:|:----------------------------------:|:-----------------------:|:--------------------:|
@@ -177,7 +178,7 @@ If you need to use languages for identification that aren't used by default, you
 1. Select the **Language ID** tab under Model customization. The list of languages is specific to the Video Indexer account you're using and for the signed-in user. The default list of languages is saved per user on their local device, per device, and browser. As a result, each user can configure their own default identified language list.
 1. Use **Add language** to search and add more languages. If 10 languages are already selected, you first must remove one of the existing detected languages before adding a new one.
 
-<!--![Graphical user interface, text, application Description automatically generated](media/9903104004b75cbe8c5703631d779e1a.png)-->
+    :::image type="content" source="media/language-support/default-language.png" alt-text="A table showing all of the selected languages.":::
 
 ### Use the API to change the list
 
