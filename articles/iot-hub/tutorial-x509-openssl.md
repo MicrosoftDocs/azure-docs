@@ -16,7 +16,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy is adequate for testing IoT Hub device authentication. 
 
-The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
+The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This example is presented for demonstration purposes only.
 
 https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md
 
@@ -28,7 +28,7 @@ https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertif
 Create a directory structure for the certification authority.
 
 * The *certs* directory stores new certificates.
-* The *db* directory is used for the certificate database.
+* The *db* directory stores the certificate database.
 * The *private* directory stores the CA private key.
 
 ```bash
@@ -119,7 +119,7 @@ First, generate a private key and the certificate signing request (CSR) in the *
   openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
 ```
 
-Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the `ca_ext` configuration file extensions on the command line. These indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
+Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the `ca_ext` configuration file extensions on the command line. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
 
 ```bash
   openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
@@ -210,7 +210,7 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
+This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and a subordinate CA issues client certificates.
 
 From the *subca* directory, use the configuration file to generate a private key and a certificate signing request (CSR).
 
