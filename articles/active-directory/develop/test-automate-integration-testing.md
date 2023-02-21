@@ -122,7 +122,11 @@ To exclude a test application:
 
 ## Write your application tests
 
-Now that you're set up, you can write your automated tests.  The following .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
+Now that you're set up, you can write your automated tests. The following are tests for:
+1. .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
+1. JavaScript example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [Playwright](https://playwright.dev/), a common testing framework.
+
+## [.NET](#tab/dotnet)
 
 ### Set up your appsettings.json file
 
@@ -252,3 +256,112 @@ public class ApiTests : IClassFixture<ClientFixture>
     }
 }
 ```
+
+## [JavaScript](#tab/JavaScript)
+
+### Set up your authConfig.json file
+
+Add the client ID and the tenant ID of the test app you previously created, the key vault URI and the secret name to the authConfig.js file of your test project.
+
+```javascript
+export const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Id_Here',
+    },
+};
+
+export const keyVaultConfig = {
+    keyVaultUri: 'https://<your-unique-keyvault-name>.vault.azure.net',
+    secretName: 'Enter_the_Secret_Name',
+};
+```
+
+### Initialize MSAL.js and fetch the user credentials from Key Vault
+
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) with a [Configuration](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration) object. The minimum required configuration property is the `clientID` of the application.
+
+Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
+
+[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/@azure/identity/defaultazurecredential) content.
+
+Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
+
+
+```javascript
+import { test, expect } from '@playwright/test';
+import { DefaultAzureCredential } from '@azure/identity';
+import { SecretClient } from '@azure/keyvault-secrets';
+import { PublicClientApplication, CacheKVStore } from '@azure/msal-node';
+import { msalConfig, keyVaultConfig } from '../authConfig';
+
+let tokenCache;
+const KVUri = keyVaultConfig.keyVaultUri;
+const secretName = keyVaultConfig.secretName;
+
+async function getCredentials() {
+    try {
+        const credential = new DefaultAzureCredential();
+        const secretClient = new SecretClient(KVUri, credential);
+        const secret = await secretClient.getSecret(keyVaultConfig.secretName);
+        const password = secret.value;
+        return [secretName, password];
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+test.beforeAll(async () => {
+    const pca = new PublicClientApplication(msalConfig);
+    const [username, password] = await getCredentials();
+    const usernamePasswordRequest = {
+        scopes: ['user.read', 'User.ReadBasic.All'],
+        username: username,
+        password: password,
+    };
+    await pca.acquireTokenByUsernamePassword(usernamePasswordRequest);
+    tokenCache = pca.getTokenCache().getKVStore();
+});
+```
+
+### Run the test suite
+
+In the same file, add the tests as shown below: 
+
+```javascript
+/**
+ * Stores the token in the session storage and reloads the page
+ */
+async function setSessionStorage(page, tokens) {
+    const cacheKeys = Object.keys(tokens);
+    for (let key of cacheKeys) {
+        const value = JSON.stringify(tokenCache[key]);
+        await page.context().addInitScript(
+            (arr) => {
+                window.sessionStorage.setItem(arr[0], arr[1]);
+            },
+            [key, value]
+        );
+    }
+    await page.reload();
+}
+
+test.describe('Testing Authentication with MSAL.js ', () => {
+    test('Test user has signed in successfully', async ({ page }) => {
+        await page.goto('http://localhost:<port>/');
+        let signInButton = page.getByRole('button', { name: /Sign In/i });
+        let signOutButton = page.getByRole('button', { name: /Sign Out/i });
+        let welcomeDev = page.getByTestId('WelcomeMessage');
+        expect(await signInButton.count()).toBeGreaterThan(0);
+        expect(await signOutButton.count()).toBeLessThanOrEqual(0);
+        expect(await welcomeDev.innerHTML()).toEqual('Please sign-in to see your profile and read your mails');
+        await setSessionStorage(page, tokenCache);
+        expect(await signInButton.count()).toBeLessThanOrEqual(0);
+        expect(await signOutButton.count()).toBeGreaterThan(0);
+        expect(await welcomeDev.innerHTML()).toContain(`Welcome`);
+    });
+});
+
+```
+
+For more information, please check the following code sample [MSAL.js Testing Example](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/TestingSample).

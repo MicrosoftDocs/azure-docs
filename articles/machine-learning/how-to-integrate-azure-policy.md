@@ -56,9 +56,6 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 To control who can access your Azure Machine Learning workspace, use Azure Active Directory [Conditional Access](../active-directory/conditional-access/overview.md).
 
-> [!IMPORTANT]
-> Azure Machine Learning studio cannot be added in cloud apps in Azure AD Conditional Access, as the studio UI is a client application.
-
 ## Enable self-service using landing zones
 
 Landing zones are an architectural pattern to set up Azure environments that accounts for scale, governance, security, and productivity. A data landing zone is an administator-configured environment that an application team uses to host a data and analytics workload.

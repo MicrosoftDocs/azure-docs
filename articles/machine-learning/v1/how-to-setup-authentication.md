@@ -257,9 +257,6 @@ ws = Workspace(subscription_id="your-sub-id",
 As an administrator, you can enforce [Azure AD Conditional Access policies](../../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
 can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
 
-> [!IMPORTANT]
-> Azure Machine Learning studio cannot be added in cloud apps in Azure AD Conditional Access, as the studio UI is a client application.
-
 ## Next steps
 
 * [How to use secrets in training](../how-to-use-secrets-in-runs.md).
