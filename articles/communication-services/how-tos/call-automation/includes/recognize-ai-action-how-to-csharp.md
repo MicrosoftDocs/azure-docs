@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/15/2023
+ms.date: 02/15/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
