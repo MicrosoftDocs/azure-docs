@@ -16,11 +16,35 @@ ms.collection: M365-identity-device-management
 ---
 # System-preferred multifactor authentication  - Authentication methods policy
 
-Intro - what is system-preferred multifactor authentication? 
+System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method available. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
+
+For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method that's available to them. 
+
+Authentication Policy Administrators can enable system-preferred MFA by using Microsoft Graph API. 
 
 ## How does system-preferred multifactor authentication work?
 
-## Enable system-preferred multifactor authentication
+When a 
+
+## Prerequisites
+
+
+
+## Enable system-preferred MFA
+
+By default, system-preferred MFA is Microsoft managed and set as disabled during preview. When system-preferred MFA becomes generally available, the Microsoft managed setting will change to be enabled. 
+
+To enable system-preferred MFA, you'll need to choose a single target group for the schema configuration. Then use the following API endpoint to change the systemCredentialPreferences property under featureSettings to **enabled**, and include or exclude groups:
+
+```
+https://graph.microsoft.com/beta/authenticationMethodsPolicy/systemCredentialPreferences
+```
+
+>[!NOTE]
+>In Graph Explorer, you'll need to consent to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
+
+## Examples
+
 
 ## Known issues
 
