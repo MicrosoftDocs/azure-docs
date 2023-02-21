@@ -29,7 +29,7 @@ AKS backup is available in all the Azure public cloud regions.
 
 - Before you install the Backup Extension in the AKS cluster, ensure that the *CSI drivers*, and *snapshot* are enabled for your cluster. If  disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- The Backup Extension uses the AKS cluster's Managed System Identity to perform backup operations. So, AKS clusters using *Service Principal* aren't supported by ASK backup. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identityn).
+- The Backup Extension uses the AKS cluster's Managed System Identity to perform backup operations. So, AKS clusters using *Service Principal* aren't supported by ASK backup. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity).
 
 - You must install Backup Extension in the AKS cluster. If you're using Azure CLI to install the Backup Extension, ensure that the CLI version is to  *2.41* or later. Use `az upgrade` command to upgrade Azure CLI.
 
@@ -54,4 +54,6 @@ AKS backup is available in all the Azure public cloud regions.
 
 ## Next steps
 
-- [Back up Azure Managed Disks](backup-managed-disks.md)
+- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
+- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)

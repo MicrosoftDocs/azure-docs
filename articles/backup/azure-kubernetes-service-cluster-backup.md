@@ -28,7 +28,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Ensure that the `Microsoft.KubernetesConfiguration` and `Microsoft.DataProtection` providers are registered for your subscription before initiating backup configuration and restore operations.
 
-For more information on the supported scenarios, limitations, and availability, see the [support matrix]().
+For more information on the supported scenarios, limitations, and availability, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
 ## Create a Backup vault
 
@@ -144,5 +144,7 @@ If you want to check specific cluster resources, you can use labels attached to 
 
 ## Next steps
 
-- []()
-
+- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
+- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
+- []
+- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)

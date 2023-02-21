@@ -23,7 +23,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
   >[!Note]
   >The AKS backup portal experience directs you to perform both - Backup Extension installation and Trusted Access enablement, required to get the AKS cluster ready for restore.
 
-For more information on the limitations and supported scenarios, see the [support matrix]().
+For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
 ## Restore the AKS clusters
 
@@ -71,5 +71,6 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
 
 ## Next steps
 
-- []()
+- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
+- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
 

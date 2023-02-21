@@ -70,9 +70,8 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 >[!Note]
 >AKS backup experience via Azure portal allows you to perform both Backup Extension installation and Trusted Access enablement, required to make the AKS cluster ready for backup and restore operations.
 
-
-
 ## Next steps
 
-- []()
-
+- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
+- [Supported scenarios for backing up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
