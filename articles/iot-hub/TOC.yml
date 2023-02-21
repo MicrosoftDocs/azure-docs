@@ -53,9 +53,6 @@
         - name: Use Microsoft-supplied scripts to create test certificates
           displayName: PowerShell scripts, Windows Certificate Store, CA certificate
           href: tutorial-x509-scripts.md
-        - name: Create self-signed certificates
-          displayName: X.509 certificates, OpenSSL, CSR, thumbprint
-          href: tutorial-x509-self-sign.md
         - name: Upload and verify CA certificates
           displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
@@ -571,7 +568,7 @@
     - name: Azure Policy built-ins
       href: ./policy-reference.md
     - name: X.509 certificates
-      displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS 
+      displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint 
       href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
