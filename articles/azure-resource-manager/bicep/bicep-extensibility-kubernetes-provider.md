@@ -7,7 +7,7 @@ ms.date: 02/21/2023
 
 # Bicep extensibility Kubernetes provider (Preview)
 
-Learn how to Bicep extensibility Kubernetes provider to deploy .NET applications to [Azure Kubernetes Service clusters (AKS)](../../aks/intro-kubernetes.md).
+The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Anything you can deploy with the [Kubernetes command-line client (kubectl)]https://kubernetes.io/docs/reference/kubectl/kubectl/ and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests) can alternatively be done with a Bicep deployment.
 
 ## Enable the preview feature
 
@@ -23,7 +23,8 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 
 ## Import Kubernetes provider
 
-Kubernetes deployments must be contained within a [Bicep module file](./modules.md). To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML does not include any programmability support.
+In order to safely pass secrets for the Kubernetes deployment, you must invoke the Kubernetes code with a [Bicep module](./modules.md) so that the parameter can be passed as a secret.
+To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML does not include any programmability support.
 
 The following sample imports the Kubernetes provider:
 
@@ -55,7 +56,7 @@ module kubernetes './kubernetes.bicep' = {
 }
 ```
 
-The AKS cluster can be a new resource or an existing resource. The [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands) from Visual Studio Code can automatically add the import snippet.
+The AKS cluster can be a new resource or an existing resource. The `Import Kubernetes manifest` command from Visual Studio Code can automatically add the import snippet. For the details, see [Import Kubernetes manifest command](./visual-studio-code.md#bicep-commands).
 
 ## Visual Studio Code import
 
