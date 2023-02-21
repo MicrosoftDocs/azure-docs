@@ -28,7 +28,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
+3. Make sure AzureExporter is configured properly in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     OPENCENSUS = {
