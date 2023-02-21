@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Track incoming requests with OpenCensus Python
 
-Incoming request data is collected using OpenCensus Python and its various integrations. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. The data is then sent to Application Insights under Azure Monitor as `requests` telemetry.
+OpenCensus Python and its integrations collect incoming request data. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. Application Insights receives the data as `requests` telemetry
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
@@ -28,7 +28,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -70,7 +70,7 @@ You can find a Django sample application in the sample Azure Monitor OpenCensus 
     
     ```
 
-2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -101,7 +101,7 @@ You can find a Flask sample application that tracks requests in the Azure Monito
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. You can configure your `pyramid` tween directly in the code. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
+2. You can configure your `pyramid` tween directly in the code. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     settings = {
@@ -182,7 +182,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 ## Next steps
 
 * [Application Map](./app-map.md)
-* [Availability](./monitor-web-app-availability.md)
+* [Availability](./availability-overview.md)
 * [Search](./diagnostic-search.md)
 * [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)

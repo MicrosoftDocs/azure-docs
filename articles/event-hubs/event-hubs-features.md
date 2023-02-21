@@ -166,7 +166,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Log compaction 
 
-Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-baesd retention rather than using the coarser-grained time-based retention. 
+Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-based retention rather than using the coarser-grained time-based retention. 
 
 For more information on log compaction, see [Log compaction](log-compaction.md). 
 
