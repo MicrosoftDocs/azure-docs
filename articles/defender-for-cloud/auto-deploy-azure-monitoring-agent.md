@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 02/21/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
