@@ -26,7 +26,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Deploy CLU model](deploy-clu-model.md)]
 
-You'll need the project name and deployment name in the next section.
+You'll use the project name and deployment name in the next section.
 
 ## Recognize intents from a microphone
 
@@ -154,6 +154,84 @@ Say something ...
 RECOGNIZED: Text=Go ahead and delete the e-mail.
     Intent Id: Delete.
     Language Understanding JSON: {"kind":"ConversationResult","result":{"query":"go ahead and delete the email","prediction":{"topIntent":"Delete","projectKind":"Conversation","intents":[{"category":"Delete","confidenceScore":0.95413816},{"category":"Cancel","confidenceScore":0.8985081},{"category":"SendEmail","confidenceScore":0.76236105},{"category":"Confirm","confidenceScore":0.7585944},{"category":"QueryLastText","confidenceScore":0.7434454},{"category":"CheckMessages","confidenceScore":0.70770377},{"category":"SearchMessages","confidenceScore":0.7021245},{"category":"ReadAloud","confidenceScore":0.6168782},{"category":"AddMore","confidenceScore":0.6116944},{"category":"Reply","confidenceScore":0.6059992},{"category":"ShowNext","confidenceScore":0.5359252},{"category":"AddFlag","confidenceScore":0.504695},{"category":"ShowPrevious","confidenceScore":0.49446106},{"category":"Forward","confidenceScore":0.41094807},{"category":"None","confidenceScore":0.34945187}],"entities":[]}}}.
+```
+
+The intents are returned in the probability order of most likely to least likely. Here's a formatted version of the JSON output where the `topIntent` is `Delete` with a confidence score of 0.95413816 (95.41%):
+
+```json
+{
+	"kind": "ConversationResult",
+	"result": {
+		"query": "go ahead and delete the email",
+		"prediction": {
+			"topIntent": "Delete",
+			"projectKind": "Conversation",
+			"intents": [
+				{
+					"category": "Delete",
+					"confidenceScore": 0.95413816
+				},
+				{
+					"category": "Cancel",
+					"confidenceScore": 0.8985081
+				},
+				{
+					"category": "SendEmail",
+					"confidenceScore": 0.76236105
+				},
+				{
+					"category": "Confirm",
+					"confidenceScore": 0.7585944
+				},
+				{
+					"category": "QueryLastText",
+					"confidenceScore": 0.7434454
+				},
+				{
+					"category": "CheckMessages",
+					"confidenceScore": 0.70770377
+				},
+				{
+					"category": "SearchMessages",
+					"confidenceScore": 0.7021245
+				},
+				{
+					"category": "ReadAloud",
+					"confidenceScore": 0.6168782
+				},
+				{
+					"category": "AddMore",
+					"confidenceScore": 0.6116944
+				},
+				{
+					"category": "Reply",
+					"confidenceScore": 0.6059992
+				},
+				{
+					"category": "ShowNext",
+					"confidenceScore": 0.5359252
+				},
+				{
+					"category": "AddFlag",
+					"confidenceScore": 0.504695
+				},
+				{
+					"category": "ShowPrevious",
+					"confidenceScore": 0.49446106
+				},
+				{
+					"category": "Forward",
+					"confidenceScore": 0.41094807
+				},
+				{
+					"category": "None",
+					"confidenceScore": 0.34945187
+				}
+			],
+			"entities": []
+		}
+	}
+}
 ```
 
 ## Remarks

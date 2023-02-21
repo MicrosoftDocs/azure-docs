@@ -21,7 +21,7 @@ Once the upload is complete, you will land on **Schema definition** page. For th
 
 ### Train your model
 
-Typically, after you create a project, you should [build a schema](../../how-to/build-schema.md) and [label utterances](../../how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and labeled utterances. 
+Typically, after you create a project, you should [build a schema](../../../../language-service/conversational-language-understanding/how-to/build-schema.md) and [label utterances](../../../../language-service/conversational-language-understanding/how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and labeled utterances. 
  
 To train a model, you need to start a training job. The output of a successful training job is your trained model.
 
@@ -33,7 +33,4 @@ Generally after training a model you would review its evaluation details. In thi
 
 [!INCLUDE [Deploy model](../../../../language-service/conversational-language-understanding/includes/language-studio/deploy-model.md)]
 
-### Test your model
-
-[!INCLUDE [Test model](../../../../language-service/conversational-language-understanding/includes/language-studio/test-model.md)]
 
