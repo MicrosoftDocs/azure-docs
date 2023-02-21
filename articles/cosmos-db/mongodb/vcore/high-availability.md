@@ -1,7 +1,7 @@
 ---
 title: High availability
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
-description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results4.
+description: Learn about high availability in Azure Cosmos DB for MongoDB vCore.
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
@@ -10,17 +10,21 @@ ms.author: gahllevy
 ms.date: 02/07/2023
 ---
 
-# High availability in Azure Cosmos DB for MongoDB (vCore)
+# High availability in Azure Cosmos DB for MongoDB vCore
 
-{TODO: Briefly describe this concept in a paragraph}
+High availability (HA) avoids database downtime by maintaining standby replicas of every node in a cluster. If a node goes down, Azure Cosmos DB for MongoDB vCore switches incoming connections from the failed node to its standby replica.
 
-## {TODO: Major idea}
+## How it works
 
-{TODO: One or more paragraphs describing major idea}
+When HA is enabled, all primary nodes in a cluster are provisioned into one availability zone for better latency between the nodes. The replica nodes, similar to standbys in this case (since they don't receive database requests), are provisioned into another zone, if the region supports multiple zones and has available capacity.
 
-## {TODO: Another major idea}
+Even without HA enabled, each node has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, it’s detected by Azure Storage service and is transparently re-created. For LRS storage durability, see metrics on [this page](https://learn.microsoft.com/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
 
-{TODO: One or more paragraphs describing major idea}
+When HA is enabled, Azure Cosmos DB for MongoDB vCore runs one replica node for each primary node in the cluster. The primary and its replica use synchronous replication. In a nutshell, our service detects a failure on primary nodes and fails over to the replica node with zero data loss. The MongoDB connection string remains the same during node failures.
+
+## Configure high availability
+
+High availability (HA) can be specified when creating the cluster or in the Scale section in the Azure Portal.
 
 ## Next steps
 
