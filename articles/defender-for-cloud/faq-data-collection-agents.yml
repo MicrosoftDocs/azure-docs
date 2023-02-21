@@ -72,7 +72,7 @@ sections:
         answer: |
           The location of the default workspace depends on your Azure region:
           
-          - For VMs in the United States and Brazil the workspace location is the United States
+          - For VMs in the United States and Brazil, the workspace location is the United States
           - For VMs in Canada, the workspace location is Canada
           - For VMs in Europe, the workspace location is Europe
           - For VMs in the UK, the workspace location is the UK
@@ -184,17 +184,17 @@ sections:
           
            To disable automatic provisioning for a specific agent or extension:
           
-          1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
-          1. Select the relevant subscription.
-          1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+            1. From [the Azure portal](https://portal.azure.com), open **Defender for Cloud** and select **Environment settings**.
+            1. Select the relevant subscription.
+            1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
 
-            :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting service plan settings for server." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+              :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting service plan settings for server." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
           
-          1. Turn off the extension you want to stop being automatically provisioned.
+            1. Turn off the extension you want to stop being automatically provisioned.
         
-            :::image type="content" source="media/enable-data-collection/turn-off-agent.png" alt-text="Screenshot showing turn off specific agent." lightbox="media/enable-data-collection/turn-off-agent.png":::
+              :::image type="content" source="media/enable-data-collection/turn-off-agent.png" alt-text="Screenshot showing turn off specific agent." lightbox="media/enable-data-collection/turn-off-agent.png":::
           
-          1. Select **Save**.
+            1. Select **Save**.
           
           
       - question: |
