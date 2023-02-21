@@ -1192,7 +1192,7 @@ Add the following binding code to the configuration file:
 <!--Link references-->
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
-[availability]: ./monitor-web-app-availability.md
+[availability]: ./availability-overview.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: #explore-java-trace-logs-in-application-insights
 [metrics]: ../essentials/metrics-charts.md

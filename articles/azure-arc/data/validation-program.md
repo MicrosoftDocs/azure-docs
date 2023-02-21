@@ -34,8 +34,8 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| Unity XT |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
-| PowerStore T|1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [Unity XT](https://www.dell.com/en-us/dt/storage/unity.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
+| [PowerStore T](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance.htm) |1.25.4|1.15.0_2023-01-10|16.0.816.19223 |Not validated|
 | Dell EMC PowerFlex |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerFlex version 3.6 |1.21.5|1.4.1_2022-03-08|15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |
 | PowerFlex CSI version 1.4 |1.21.5|1.4.1_2022-03-08 | 15.0.2255.119 | postgres 12.3 (Ubuntu 12.3-1) |

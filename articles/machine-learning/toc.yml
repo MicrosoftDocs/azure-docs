@@ -284,6 +284,8 @@
           href: how-to-assign-roles.md
     - name: Network security
       items:
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -763,6 +765,7 @@
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
+    
       items:
         - name: Generate Responsible AI insights
           items:
@@ -778,6 +781,18 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Use R with Azure ML
+      items:
+        - name: Bring R workloads
+          href: how-to-r-overview-r-capabilities.md
+        - name: Interactive R development
+          href: how-to-r-interactive-development.md
+        - name: Adapt R scripts for production
+          href: how-to-r-modify-script-for-production.md
+        - name: Train R model
+          href: how-to-r-train-model.md
+        - name: Deploy R model
+          href: how-to-r-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
