@@ -45,15 +45,12 @@ Using a CA-signed certificate chain backed by a PKI to authenticate a device pro
 
 - For testing purposes, we recommend using OpenSSL to create an X.509 certificate chain. OpenSSL is used widely across the industry to work with X.509 certificates. You can follow the steps in [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md) to create a root CA and intermediate CA certificate with which to create and sign device certificates. The tutorial also shows how to upload and verify a CA certificate. Then, follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
-- Several of the Azure IoT SDKs provide convenience scripts to help you create test certificate chains. For instructions about how to create certificate chains in PowerShell or Bash using scripts provided in the Azure IoT C SDK, see [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md). The tutorial also shows how to upload and verify a CA certificate. Then follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
-
 ## Next steps
 
 To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
 * [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
 * [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
 
