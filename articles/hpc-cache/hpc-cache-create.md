@@ -98,7 +98,7 @@ Cache options include:
 
 * **Read-write standard caching**
 
-  With standard caches, you can choose from several cache size values. These caches can be configured for read-only or for read and write caching.
+  With standard caches, you can choose from several cache size values. These caches can be configured with storage target usage models for both read (write-through) and  read-write caching.
 
 * **Read-only caching**
 
