@@ -28,6 +28,9 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+> [!NOTE]
+> The support for property queries is being deprecated from the IoT Central REST API and we will soon remove this from the existing API releases. 
+
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
