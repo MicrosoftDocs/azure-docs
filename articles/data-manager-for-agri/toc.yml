@@ -18,6 +18,8 @@
       href: concepts-ingest-farmoperations-data.md
     - name: Satellite Data Ingestion
       href: concepts-ingest-satellite-imagery.md
+    - name: Weather Data Ingestion
+      href: concepts-ingest-weather-data.md
     - name: Sensor Data Ingestion
       href: concepts-ingest-sensor-data.md
 - name: How-to guides
@@ -34,10 +36,10 @@
   items:
   - name: REST API
     items:
-    - name: Data plane
-      href: https://microsoft.github.io/meds-samples/
-- name: Resources
-  items:
+    - name: Overview
+      href: https://review.learn.microsoft.com/en-us/rest/api/data-manager-for-agri/
+  - name: Resources
+    items:
   - name: Region availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
 

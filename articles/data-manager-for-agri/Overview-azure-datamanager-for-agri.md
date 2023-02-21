@@ -24,7 +24,7 @@ Microsoft Azure Data Manager for Agriculture brings together data from across th
 
 Our Data Manager for Agriculture helps reduce data engineering investments through an industry validated data model. This enables standardization and enables use of pre-existing data solutions and agronomic models to avoid undifferentiated work. Customers can seamlessly orchestrate between highly specialized ISV point solutions, our solution framework for ISVs enables industry leading models to help farmers increase yield, reduce risk and minimize waste on the farm. An example is Bayer’s crop water use maps.  
 
-![PubP](./Media/About_ADS.png)
+![PubP](./media/About_ADS.png)
 
 ## Our Key Features
 

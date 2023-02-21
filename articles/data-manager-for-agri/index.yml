@@ -35,6 +35,8 @@ landingContent:
             url: concepts-ingest-farmoperations-data.md
           - text: Satellite Data Ingestion
             url: concepts-ingest-satellite-imagery.md
+          - text: Weather Forecast Data Ingestion
+            url: concepts-ingest-weather-data.md
           - text: Sensor Data Ingestion
             url: concepts-ingest-sensor-data.md
   - title: Understanding ISV Solutions
