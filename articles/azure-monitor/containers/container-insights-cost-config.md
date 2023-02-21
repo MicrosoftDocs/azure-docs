@@ -71,7 +71,7 @@ resources
 | order by tolower(name) asc
 ```
 
-Please reference the [Limitations](./container-insights-cost-config.md#Limitations) section below for information on migrating your Recommended alerts.
+Please reference the [Limitations](./container-insights-cost-config.md#limitations) section below for information on migrating your Recommended alerts.
 
 ## Pre-requisites
 
