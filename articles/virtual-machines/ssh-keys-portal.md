@@ -52,7 +52,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
    :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
 
-1. Once you have downloaded the .pem file, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
+1. Once you've downloaded the .pem file, you might want to move it somewhere on your computer where it's easy to point to from your SSH client.
 
 
 ## Connect to the VM
