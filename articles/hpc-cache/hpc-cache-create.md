@@ -64,7 +64,7 @@ Read more about these cache types below in [Choose the cache type for your needs
 > [!TIP]
 > Cache types that are named "Read-write" can be configured for either read-only caching or read/write caching. Cache types that are labeled "Read-only" only support read-only caching. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
 
-Each cache type also lets you customize the cache's capacity. The capacity is made up of two values:
+The "Standard" cache SKU lets you choose the cache's capacity for a given throughput selection, while the "Premium" and "read-optimized" caches have fixed capacities for each given throughput selection. The cache's capabilities are defined by two deployment choices:
 
 * **Maximum throughput** - The data transfer rate for the cache, in GB/second
 * **Cache size** - The amount of storage allocated for cached data, in TB
