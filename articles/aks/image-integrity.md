@@ -5,12 +5,10 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 02/17/2023
+ms.date: 02/21/2023
 ---
 
 # Build, sign, and verify images using Notation in Azure Kubernetes Service (AKS) (Preview)
-
-
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -203,11 +201,13 @@ If you don't have an existing certificate, create an x509 self-signed certificat
     notation ls $IMAGE
     ```
 
-## Create AKS cluster
+## Create an AKS cluster
 
-## Assign the Image Integrity policy initiative
+Create an AKS cluster using the [`az aks create`](https://learn.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create) command.
 
-## Create identity with AKV and ACR permissions
+```azurecli
+az aks create --resource-group myResourceGroup --name myAKSCluster
+```
 
 ## Create federated credential to bind with the Ratify add-on service account
 
@@ -221,11 +221,3 @@ az identity federated-credential create --name federatedIdentityName --identity-
 
 > [!NOTE]
 > It takes a few seconds for the federated identity credential to be propagated after being added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a few minutes, as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
-
-## Dispatch Ratify Verify Config through CRDs
-
-## Deploy application on AKS cluster
-
-## If image wasn't signed with a trusted cert, the policy will show non-compliant
-
-## Next steps
