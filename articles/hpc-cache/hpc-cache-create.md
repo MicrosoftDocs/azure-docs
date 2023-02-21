@@ -102,7 +102,7 @@ Cache options include:
 
 * **Read-only caching**
 
-  This type of cache provides higher throughput than a standard cache, but is designed to optimize file read access only. You can't configure a read-only cache to also cache client writes. This type of cache has only one cache size option for each throughput option.
+  This type of cache provides higher throughput and lower latency than a standard cache, but is designed to optimize file and directory read access only. You cannot configure a read-optimized cache to use read-write cache usage models, but a read-after-write workload will result in a cache-hit, as the writes are persisted synchronously to the storage target. This type of cache has only one cache size option for each throughput choice.
 
 * **Read-write premium caching (Preview)**
   
