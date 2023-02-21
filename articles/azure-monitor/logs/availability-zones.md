@@ -18,6 +18,9 @@ ms.custom: references_regions
 Azure Monitor currently supports the following regions:
 - East US 2
 - West US 2
+- Canada Central
+- France Central
+- Japan East
 
 ## Dedicated clusters
 Azure Monitor support for availability zones requires a Log Analytics workspace linked to an [Azure Monitor dedicated cluster](logs-dedicated-clusters.md). Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
