@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 02/14/2023
+ms.date: 02/21/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -37,6 +37,8 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 For more information, see [Use the Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters](tutorial-akv-secrets-provider.md).
 
 ## Microsoft Defender for Containers
+
+- **Supported distributions**: AKS hybrid clusters provisioned from Azure, Cluster API Azure, Azure Red Hat OpenShift, Red Hat OpenShift (version 4.6 or newer), Google Kubernetes Engine Standard, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid, Rancher Kubernetes Engine, Canonical Kubernetes Distribution
 
 Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. It gathers information related to security like audit log data from the Kubernetes cluster, and provides recommendations and threat alerts based on gathered data.
 
