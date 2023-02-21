@@ -223,7 +223,7 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 ## Next steps 
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Modify Active Directory connections](modify-active-directory-connections.md)
-* [Enable ADDS LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
+* [Enable AD DS LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)
