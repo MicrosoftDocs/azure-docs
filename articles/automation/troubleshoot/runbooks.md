@@ -729,17 +729,16 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 
 [Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
 
-## Scenario: 
-Runbook fails with ‘Parameter length exceeded’ error.
+## Scenario: Runbook fails with "Parameter length exceeded" error
 
-### Issue: 
+### Issue
 Your runbook uses parameters and fails with the following error:
 *Total Length of Runbook Parameter names and values exceeds the limit of 30000 characters. To avoid this issue, use Automation Variables to pass values to runbook.*
 
-### Cause: 
-There is a limit to the total length of characters of all Parameters that can be provided in Python2.7, Python3.8 and PowerShell7.1 runbooks. The total length of all Parameter names, Parameter values must not exceed 30,000 characters.
+### Cause
+There is a limit to the total length of characters of all Parameters that can be provided in Python2.7, Python3.8, and PowerShell7.1 runbooks. The total length of all Parameter names, Parameter values must not exceed 30,000 characters.
 
-### Resolution: 
+### Resolution
 To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30000 characters. 
 
 
