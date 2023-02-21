@@ -42,7 +42,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     }
     ```
 
-You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/givenscj/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
+You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 ## Tracking Flask applications
 
 1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/) and instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application will be tracked.
