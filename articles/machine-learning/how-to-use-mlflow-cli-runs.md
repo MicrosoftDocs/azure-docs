@@ -32,12 +32,14 @@ __Tracking__ refers to process of saving all experiment's related information th
 > - Evaluation visualizations (confusion matrix, importance plots)  
 > - Evaluation results (including some evaluation predictions)
 
-Some of these elements are automatically tracked by Azure Machine Learning when working with jobs (including code, environment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
+Some of these elements are automatically tracked by Azure Machine Learning when working with jobs (including code, environment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. 
+
+In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
 
 > [!NOTE] 
 > If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-synapse.md).
 
-## Benefits
+## Benefits of tracking experiments
 
 We highly encourage machine learning practitioners to instrument their experimentation by tracking them, regardless if they are training with jobs in Azure Machine Learning or interactively in notebooks. Benefits include:
 
@@ -46,8 +48,7 @@ We highly encourage machine learning practitioners to instrument their experimen
 - Reproduce or re-run experiments to validate results.
 - Improve collaboration by seeing what everyone is doing, sharing experiment results, and access experiment data programmatically.
 
-
-## Using MLflow for tracking
+### Why MLflow
 
 Azure Machine Learning workspaces are MLflow-compatible, which means you can use MLflow to track runs, metrics, parameters, and artifacts with your Azure Machine Learning workspaces. By using MLflow for tracking, you don't need to change your training routines to work with Azure Machine Learning or inject any cloud-specific syntax, which is one of the main advantages of the approach. 
 
@@ -237,13 +238,15 @@ The metrics and artifacts from MLflow logging are tracked in your workspace. To 
 
 Select the logged metrics to render charts on the right side. You can customize the charts by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
 
-Retrieve run metric using MLflow SDK, use [mlflow.get_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.get_run).
+You can also access or __query metrics, parameters and artifacts programatically__ using the MLflow SDK. Use [mlflow.get_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.get_run) as explained bellow:
 
-```Python
-from mlflow.tracking import MlflowClient
+> [!TIP]
+> For more details about how to retrieve information from experiments and runs in Azure Machine Learning using MLflow view [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
-client = MlflowClient()
-run = MlflowClient().get_run("<RUN_ID>")
+```python
+import mlflow
+
+run = mlflow.get_run("<RUN_ID>")
 
 metrics = run.data.metrics
 tags = run.data.tags
@@ -252,19 +255,11 @@ params = run.data.params
 print(metrics,tags,params)
 ```
 
-To view the artifacts of a run, you can use [MlFlowClient.list_artifacts()](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.list_artifacts)
+To download artifacts you have logged, like files and models, you can use [mlflow.artifacts.download_artifacts()](https://www.mlflow.org/docs/latest/python_api/mlflow.artifacts.html#mlflow.artifacts.download_artifacts)
 
-```Python
-client.list_artifacts(run_id)
+```python
+mlflow.artifacts.download_artifacts(run_id="<RUN_ID>", artifact_path="helloworld.txt")
 ```
-
-To download an artifact to the current directory, you can use [MLFlowClient.download_artifacts()](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts)
-
-```Python
-client.download_artifacts(run_id, "helloworld.txt", ".")
-```
-
-For more details about how to retrieve information from experiments and runs in Azure Machine Learning using MLflow view [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
 ## Example notebooks
 
