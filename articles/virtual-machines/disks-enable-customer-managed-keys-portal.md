@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 01/19/2023
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -20,7 +20,7 @@ Azure Disk Storage allows you to manage your own keys when using server-side enc
 
 For now, customer-managed keys have the following restrictions:
 
-- If this feature is enabled for your disk, you can't disable it.
+- If this feature is enabled for a disk with incremental snapshots, it can't be disabled on that disk or its snapshots.
     If you need to work around this, you must copy all the data to an entirely different managed disk that isn't using customer-managed keys:
 
     - For Linux: [Copy a managed disk](./linux/disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)
