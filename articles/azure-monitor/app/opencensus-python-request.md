@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Track incoming requests with OpenCensus Python
 
-Incoming request data is collected using OpenCensus Python and its various integrations. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. The data is then sent to Application Insights under Azure Monitor as `requests` telemetry.
+OpenCensus Python and its integrations collect incoming request data. Track incoming request data sent to your web applications built on top of the popular web frameworks `django`, `flask` and `pyramid`. Application Insights receives the data as `requests` telemetry
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
@@ -30,6 +30,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
 
 3. Make sure AzureExporter is configured properly in your `settings.py` under `OPENCENSUS`. For requests from urls that you don't wish to track, add them to `EXCLUDELIST_PATHS`.
 
+
     ```python
     OPENCENSUS = {
         'TRACE': {
@@ -42,7 +43,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     }
     ```
 
-You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/givenscj/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
+You can find a Django sample application in the sample Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 ## Tracking Flask applications
 
 1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/) and instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application will be tracked.
@@ -181,7 +182,7 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 ## Next steps
 
 * [Application Map](./app-map.md)
-* [Availability](./monitor-web-app-availability.md)
+* [Availability](./availability-overview.md)
 * [Search](./diagnostic-search.md)
 * [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
