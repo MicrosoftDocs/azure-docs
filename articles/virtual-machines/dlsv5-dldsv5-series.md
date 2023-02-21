@@ -3,9 +3,9 @@ title: 'Dlsv5 and Dldsv5 (preview)' #Required; page title is displayed in search
 description: Specifications for the Dlsv5 and Dldsv5-series VMs. #Required; this appears in search as the short description
 author: iamwilliew 
 ms.author: wwilliams 
-ms.service: virtual-machines #Required
-ms.subservice: sizes #Required
-ms.topic: reference l #Required 
+ms.service: virtual-machines 
+ms.subservice: sizes 
+ms.topic: reference 
 ms.date: 02/16/2023
 
 ---
@@ -16,7 +16,7 @@ The Dlsv5 and Dldsv5-series Virtual Machines runs on the Intel&reg; Xeon&reg; Pl
 
 
 > [!NOTE]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Dlsv5-series
 Dlsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cose when running non-memory intensive applications.
