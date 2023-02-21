@@ -1,5 +1,5 @@
 ---
-title: Restore individual files using single-file backup restore | Microsoft Docs
+title: Restore individual files using single-file backup restore in Azure NetApp Files
 description: With single-file backup restore, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory.
 services: azure-netapp-files
 documentationcenter: ''
@@ -52,11 +52,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Steps
 
-<!-- 1. Navigate to **Backup Vaults**. Select the backup vault containing the backup you want to use.-->
 1. Under the **Backups** menu, select the backup you want to use to restore files.
 1. Select the three dots `...` associated with the backup you want to use, then select **Restore Files**.
 
-    :::image type="content" source="../media/azure-netapp-files/restore-files-select.jpg" alt-text="The three-dog menu with each backup has three options: restore to a new volume, delete, or restore files." lightbox="../media/azure-netapp-files/restore-files-select.jpg":::
+    :::image type="content" source="./media/restore-single-file-backup/restore-files-select.jpg" alt-text="Screenshot depicting restore file options: restore to a new volume, delete, or restore files." lightbox="./media/restore-single-file-backup/azure-netapp-files/restore-files-select.jpg":::
 
 1. In the **File paths** field, enter the file names with the complete file path for each file, for example `/dir/file1.txt`. Multiple files can be entered as a comma-separated list or with line breaks between entries.
 
@@ -67,7 +66,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * **Destination path**: The field specifies the directory to which the files will be restored. The destination path must already exist in the destination volume.  If no value is specified, the files will be restored to the original volume.
 
-    :::image type="content" source="../media/azure-netapp-files/restore-files-file-path.jpg" alt-text="The restore individual files from backup menu includes four fields: file paths, NetApp account, destination volume, and destination path." lightbox="../media/azure-netapp-files/restore-files-file-path.jpg":::
+    :::image type="content" source="./media/restore-single-file-backup/restore-files-file-path.jpg" alt-text="Screenshot of restore interface." lightbox="./media/restore-single-file-backup/restore-files-file-path.jpg":::
 
 1. Select **Restore** to complete the operation. 
 

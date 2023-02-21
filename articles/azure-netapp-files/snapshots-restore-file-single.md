@@ -1,5 +1,5 @@
 ---
-title: Restore individual files in Azure NetApp Files using single-file snapshot restore | Microsoft Docs
+title: Restore individual files in Azure NetApp Files using single-file snapshot restore
 description: Describes how to recover individual files directly within a volume from a snapshot. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -28,7 +28,7 @@ The single-file snapshot restore feature enables you to restore a single file or
 * You can restore up to 10 files at a time, specified in a total length of 1024 characters.    
 * All the directories in the destination path that you specify must be present in the active file system. 
 The restore operation doesn't create directories in the process. If the specified destination path is invalid (doesn't exist in Active file system), the restore operation fails.
-* If you don’t specify a destination path, the files will be restored to the original file location. If the files already exist in the original location, the files restored from the snapshot will overwrote the existing files. 
+* If you don’t specify a destination path, the files will be restored to the original file location. If the files already exist in the original location, the files restored from the snapshot will overwrite the existing files. 
 * A volume can have only one active file-restore operation. If you want to restore additional files, you must wait until the current restore operation is complete before triggering another restore operation.   
 * *During the file restore operation*, the following restrictions apply: 
     * You can't create new snapshots on the volume.  
