@@ -14,6 +14,8 @@ AKS rotates the key automatically and periodically. If you don't want to wait, y
 > [!WARNING]
 > Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
 
+In this article, you learn how to create, update, and manage the OIDC Issuer for your cluster.
+
 ## Prerequisites
 
 * The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
