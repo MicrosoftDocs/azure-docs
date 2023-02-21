@@ -214,6 +214,27 @@ Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on
     }
 ]
 ```
+### Example of how you can deserialize the *RecognizeCompleted* event:
+``` java
+if (callEvent instanceof RecognizeCompleted) {
+                RecognizeCompleted recognizeCompleted = (RecognizeCompleted) callEvent;
+                RecognizeResult recognizeResult = recognizeCompleted.getRecognizeResult().get();
+                if(recognizeResult instanceof CollectChoiceResult)
+                {
+                    // Take action on collect choices
+                    CollectChoiceResult collectChoiceResult = (CollectChoiceResult) recognizeResult;
+                    String LabelDetected = collectChoiceResult.getLabel();
+                    String PhraseDetected = collectChoiceResult.getRecognizedPhrase();
+                }
+                else if(recognizeResult instanceof CollectTonesResult)
+                {
+                    // Take action on collect tones
+                    CollectTonesResult collectTonesResult = (CollectTonesResult) recognizeResult;
+                    List<DtmfTone> tones = collectTonesResult.getTones();
+                }
+            }
+```
+
 
 ### Example of DTMF *RecognizeFailed* event:
 ``` json
@@ -269,25 +290,50 @@ Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on
 ]
 ```
 
-### Example of how you can deserialize the *RecognizeCompleted* and *RecognizeFailed* event:
-``` java
-post("/api/callback", (request, response) -> {
-    
-   List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(request.body());
-    for (CallAutomationEventBase acsEvent : acsEvents) {
-        
-       if (acsEvent.getClass() == RecognizeCompleted.class) {
-            RecognizeCompleted recognizeCompleted = (RecognizeCompleted) acsEvent;
-            for (Tone tone : recognizeCompleted.getCollectTonesResult().getTones()) {
-                // work on each of the Dtmf tones
+### Example of how you can deserialize the *RecognizeFailed* event:
+``` java 
+if (callEvent instanceof RecognizeFailed) {
+          
+                Logger.logMessage(Logger.MessageType.INFORMATION, "Recognize timed out");
+                RecognizeFailed recognizeFailed = (RecognizeFailed) callEvent;
+                
+                if(ReasonCode.Recognize.INITIAL_SILENCE_TIMEOUT.equals(recognizeFailed.getReasonCode()))
+                {
+                    PlaySource playSource = new TextSource()
+                        .setText("No input recieved and recognition timed out, Disconnecting the call. Thank you!")
+                        .setPlaySourceId("RecognitionTimedOut");
+                    Response<?> response = callMedia.playToAllWithResponse(playSource, new PlayOptions(), null);
+                }
+                
+                if(ReasonCode.Recognize.SPEECH_OPTION_NOT_MATCHED.equals(recognizeFailed.getReasonCode()) ||
+                 ReasonCode.Recognize.INCORRECT_TONE_DETECTED.equals(recognizeFailed.getReasonCode()))
+                {
+                    PlaySource playSource = new TextSource()
+                        .setText("Invalid speech phrase or tone detected, Disconnecting the call. Thank you!")
+                        .setPlaySourceId("InavlidInput");
+                    Response<?> response = callMedia.playToAllWithResponse(playSource, new PlayOptions(), null);
+                }
             }
-        } else if (acsEvent.getClass() == RecognizeFailed.class) {
-            
-           RecognizeFailed recognizeFailed = (RecognizeFailed) acsEvent;
-            
-           Logger.getAnonymousLogger().info("Recognize failed due to: " + recognizeFailed.getResultInformation().getMessage());
-            
-       }
+```
+
+### Example of *RecognizeCanceled* event:
+``` json 
+[
+    {
+        "id": "d4f2e476-fb8f-43c2-abf8-0981f8e70df9",
+        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+        "type": "Microsoft.Communication.RecognizeCanceled",
+        "data": {
+            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "operationContext": "AppointmentChoiceMenu",
+            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
+            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
+        },
+        "time": "2023-01-10T00:31:15.3606572+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
     }
-});
+]
 ```
