@@ -14,7 +14,7 @@ Application Insights monitors the availability, performance, and usage of your a
 > Because of security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites.
 
 ## Create an Application Insights resource
-In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
+In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. For **Application Type**, select **ASP.NET**.
 
 ![Screenshot that shows selecting Properties, selecting the key, and selecting Ctrl+C.](./media/sharepoint/001.png)
 
@@ -47,7 +47,7 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> The URL for SharePoint uses a different module format "...\ai.2.gbl.min.js" (note the additional **.gbl.**). This alternate module format is required to avoid an issue caused by the order that scripts are loaded, which will cause the SDK to fail to initialize and result in the loss of telemetry events.
+> The URL for SharePoint uses a different module format `"...\ai.2.gbl.min.js"` (note the extra `.gbl`.). This alternate module format is required to avoid an issue caused by the order in which scripts are loaded. The issue causes the SDK to fail to initialize and results in the loss of telemetry events.
 >
 > The issue is caused by `requireJS` being loaded and initialized before the SDK.
 
@@ -60,7 +60,7 @@ The script contains the instrumentation key that directs the telemetry to your A
 You can add the code to your main page or individual pages.
 
 #### Main page
-If you can edit the site's main page, that will provide monitoring for every page in the site.
+If you can edit the site's main page, you can provide monitoring for every page in the site.
 
 Check out the main page and edit it by using SharePoint Designer or any other editor.
 
@@ -84,13 +84,13 @@ Redeploy your app.
 
 Return to your application pane in the [Azure portal](https://portal.azure.com).
 
-The first events appear in Search.
+The first events appear in **Search**.
 
 ![Screenshot that shows the new data that you can view in the app.](./media/sharepoint/09-search.png)
 
 Select **Refresh** after a few seconds if you're expecting more data.
 
-## Capture user ID
+## Capture the user ID
 The standard webpage code snippet doesn't capture the user ID from SharePoint, but you can do that with a small modification.
 
 1. Copy your app's instrumentation key from the **Essentials** dropdown in Application Insights.
@@ -100,55 +100,55 @@ The standard webpage code snippet doesn't capture the user ID from SharePoint, b
 1. Substitute the instrumentation key for `XXXX` in the following snippet.
 1. Embed the script in your SharePoint app instead of the snippet you get from the portal.
 
-```
-
-
-<SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
-<SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
-
-<script type="text/javascript"> 
-var personProperties; 
-
-// Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
-SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
-
-function getUserProperties() { 
-    // Get the current client context and PeopleManager instance. 
-    var clientContext = new SP.ClientContext.get_current(); 
-    var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
-
-    // Get user properties for the target user. 
-    // To get the PersonProperties object for the current user, use the 
-    // getMyProperties method. 
-
-    personProperties = peopleManager.getMyProperties(); 
-
-    // Load the PersonProperties object and send the request. 
-    clientContext.load(personProperties); 
-    clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
-} 
-
-// This function runs if the executeQueryAsync call succeeds. 
-function onRequestSuccess() { 
-var appInsights=window.appInsights||function(config){
-function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
-    }({
-        instrumentationKey:"XXXX"
-    });
-    window.appInsights=appInsights;
-    appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
-} 
-
-// This function runs if the executeQueryAsync call fails. 
-function onRequestFail(sender, args) { 
-} 
-</script> 
-
-
-```
+    ```
+    
+    
+    <SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
+    <SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
+    
+    <script type="text/javascript"> 
+    var personProperties; 
+    
+    // Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
+    SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
+    
+    function getUserProperties() { 
+        // Get the current client context and PeopleManager instance. 
+        var clientContext = new SP.ClientContext.get_current(); 
+        var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
+    
+        // Get user properties for the target user. 
+        // To get the PersonProperties object for the current user, use the 
+        // getMyProperties method. 
+    
+        personProperties = peopleManager.getMyProperties(); 
+    
+        // Load the PersonProperties object and send the request. 
+        clientContext.load(personProperties); 
+        clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
+    } 
+    
+    // This function runs if the executeQueryAsync call succeeds. 
+    function onRequestSuccess() { 
+    var appInsights=window.appInsights||function(config){
+    function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+        }({
+            instrumentationKey:"XXXX"
+        });
+        window.appInsights=appInsights;
+        appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
+    } 
+    
+    // This function runs if the executeQueryAsync call fails. 
+    function onRequestFail(sender, args) { 
+    } 
+    </script> 
+    
+    
+    ```
 
 ## Next steps
-* [Availability overview](./availability-overview.md) to monitor the availability of your site.
-* [Application Insights](./app-insights-overview.md) for other types of app.
+* See the [Availability overview](./availability-overview.md) to monitor the availability of your site.
+* See [Application Insights](./app-insights-overview.md) for other types of apps.
 
 <!--Link references-->
