@@ -6,11 +6,6 @@
             "redirect_document_id": false
          },
          {
-            "source_path_from_root": "/articles/azure-monitor/monitor-reference.md",
-            "redirect_url": "/azure/azure-monitor/data-sources",
-            "redirect_document_id": false
-         },
-         {
             "source_path_from_root": "/articles/azure-monitor/observability-data.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
@@ -33,6 +28,26 @@
         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-native-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-angular-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-click-analytics-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-feature-extensions",
             "redirect_document_id": false
         },
         {

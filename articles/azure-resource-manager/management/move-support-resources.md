@@ -454,6 +454,21 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
 > | virtualmachinescalesets | **Yes** | **Yes** | No |
 
+
+> [!IMPORTANT]
+> See [Cloud Services (extended support) deployment move guidance](./move-limitations/classic-model-move-limitations.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | capabilities | No | No | No |
+> | domainnames | **Yes** | No | No |
+> | quotas | No | No | No |
+> | resourcetypes | No | No | No |
+> | validatesubscriptionmoveavailability | No | No | No |
+> | virtualmachines | **Yes** | **Yes** | No |
+
+
 ## Microsoft.Confluent
 
 > [!div class="mx-tableFixed"]

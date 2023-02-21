@@ -7,7 +7,7 @@ ms.author: yili7
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 10/19/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java
 ---
 
 # Deploy web static files
