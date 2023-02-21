@@ -141,7 +141,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         **Custom applications are not supported with SMB Continuous Availability.**
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume.." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
 
 5. Click **Review + Create** to review the volume details.  Then click **Create** to create the SMB volume.
 
