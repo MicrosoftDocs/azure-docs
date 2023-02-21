@@ -3,15 +3,13 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 02/16/2023
+ms.date: 02/21/2023
 
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 
-Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview). Pod Sandboxing provides an isolation boundary between the container application, and the shared kernel and compute resources of the container host. For example CPU, memory, and networking.
-
-Pod Sandboxing complements other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+To help secure and protect your container workloads from untrusted or potentially malicious code, AKS now includes a mechanism called Pod Sandboxing (preview). Pod Sandboxing provides an isolation boundary between the container application, and the shared kernel and compute resources of the container host. For example CPU, memory, and networking. Pod Sandboxing complements other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
 This article helps you understand this new feature, and how to implement it.
 
@@ -23,7 +21,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - The `KataVMIsolationPreview` feature is registered in your Azure subscription.
 
-- Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
+- Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
