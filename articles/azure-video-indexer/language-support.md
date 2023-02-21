@@ -31,13 +31,13 @@ This section explains the Video Indexer language options and has a table of the 
 
     The following insights are translated:
 
-      - Transcript
-      - Keywords
-      - Topics
-      - Labels
-      - Frame patterns (Only to Hebrew as of now)
+    - Transcript
+    - Keywords
+    - Topics
+    - Labels
+    - Frame patterns (Only to Hebrew as of now)
 
-   All other insights appear in English when using translation.
+    All other insights appear in English when using translation.
 
 - **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the **Settings icon** then select the language in the **Language settings** dropdown.
 
