@@ -57,6 +57,7 @@ Orchestration workflow is only available in some Azure regions. Some regions are
 | North Central US   |           | ✓           |
 | North Europe       | ✓         | ✓           |
 | Norway East        |           | ✓           |
+| Qatar Central      |           | ✓           |
 | South Africa North |           | ✓           |
 | South Central US   | ✓         | ✓           |
 | Southeast Asia     |           | ✓           |
@@ -66,6 +67,9 @@ Orchestration workflow is only available in some Azure regions. Some regions are
 | UK South           | ✓         | ✓           |
 | West Central US    |           | ✓           |
 | West Europe        | ✓         | ✓           |
+| West US            |            | ✓           |
+| West US 2          | ✓         | ✓           |
+| West US 3          | ✓         | ✓           |
 
 ## API limits
 

@@ -1,7 +1,6 @@
 ---
 title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
-services: container-service
 ms.topic: article
 ms.date: 11/01/2022
 ms.custom: devx-track-azurepowershell
@@ -125,6 +124,20 @@ creating a node pool to run Windows Server containers, the default value for `-V
 **Standard_D2s_v3**. If you choose to set the `-VmSize` parameter, check the list of
 [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is **Standard_D2s_v3**. The
 previous command also uses the default subnet in the default vnet created when running `New-AzAksCluster`.
+
+## Add a Windows Server 2019 or Windows Server 2022 node pool
+
+AKS supports Windows Server 2019 and 2022 node pools. For Kubernetes version 1.25.0 and higher, Windows Server 2022 is the default operating system. For earlier Kubernetes versions, Windows Server 2019 is the default OS. To use Windows Server 2019, you need to specify the following parameters:
+- **osType** set the value to `Windows`
+- **osSKU** set the value to `Windows2019`
+
+> [!NOTE]
+> OsSKU requires PowerShell Az module version "9.2.0" or higher.
+> Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+
+```azurepowershell-interactive
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
+```
 
 ## Connect to the cluster
 

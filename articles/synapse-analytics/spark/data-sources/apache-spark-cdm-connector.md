@@ -6,7 +6,7 @@ ms.author: AvinandaC
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 03/10/2022
+ms.date: 02/03/2023
 author: AvinandaMS
 ---
 
@@ -14,7 +14,7 @@ author: AvinandaMS
 
 The Synapse Spark Common Data Model (CDM) format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes.
 
-For information on defining CDM documents using CDM 1.0 see. [What is CDM and how to use it](/common-data-model/).
+For information on defining CDM documents using CDM 1.2 see. [What is CDM and how to use it](/common-data-model/).
 
 ## High level functionality
 
@@ -35,6 +35,7 @@ The following capabilities are supported:
 * Supports writing data using user modifiable partition patterns.
 * Supports use of managed identity Synapse and credentials.
 * Supports resolving CDM aliases locations used in imports using CDM adapter definitions described in a config.json.
+* Parallel writes are not supported. It is not recommended. There is no locking mechanism at the storage layer.
 
 ## Limitations
 
@@ -47,7 +48,10 @@ The following scenarios aren't supported:
 * Write support for model.json isn't supported.
 * Executing ```com.microsoft.cdm.BuildInfo.version``` will verify the version
 
-Spark 2.4 and Spark 3.1 are supported.
+Spark 2.4, 3.1, and 3.2 are supported.
+
+## Samples
+Checkout the [sample code and CDM files](https://github.com/Azure/spark-cdm-connector/tree/spark3.2/samples) for a quick start.
 
 ## Reading data
 
@@ -61,8 +65,6 @@ When reading CSV data, the connector uses the Spark FAILFAST option by default. 
 ```scala
   .option("entity", "permissive") or .option("mode", "failfast")
 ```
-
-For example, [here's an example Python sample.](https://github.com/Azure/spark-cdm-connector/blob/master/samples/SparkCDMsamplePython.ipynb)
 
 ## Writing data
 
@@ -214,7 +216,7 @@ SaS Token Credential authentication to storage accounts is an extra option for a
 
 | **Option**   |**Description**  |**Pattern and example usage**  |
 |----------|---------|:---------:|
-| sasToken |The sastoken to access the relative storageAccount with the correct permissions |	\<token\>|
+| sasToken |The sastoken to access the relative storageAccount with the correct permissions | \<token\>|
 
 ### Credential-based access control options
 
@@ -292,8 +294,7 @@ df.write.format("com.microsoft.cdm")
  .option("manifestPath", "cdmdata/Teams/root.manifest.cdm.json")
  .option("entity", "TeamMembership")
  .option("useCdmStandardModelRoot", true)
- .option("entityDefinitionPath", "core/applicationCommon/TeamMembership.cdm.json/Tea
-mMembership")
+ .option("entityDefinitionPath", "core/applicationCommon/TeamMembership.cdm.json/TeamMembership")
  .option("useSubManifest", true)
  .mode(SaveMode.Overwrite)
  .save()
@@ -432,103 +433,6 @@ val df= spark.createDataFrame(spark.sparkContext.parallelize(data, 2), schema)
         |-- <data folder>
         +-- ...
 ```
-
-## Samples
-
-See https://github.com/Azure/spark-cdm-connector/tree/master/samples for sample code and CDM files.
-
-### Examples
-
-The following examples all use appId, appKey and tenantId variables initialized earlier in the code based on an Azure app registration that has been given Storage Blob Data Contributor permissions on the storage for write and Storage Blob Data Reader permissions for read.
-
-#### Read
-
-This code reads the Person entity from the CDM folder with manifest in `mystorage.dfs.core.windows.net/cdmdata/contacts/root.manifest.cdm.json`.
-
-```scala
-val df = spark.read.format("com.microsoft.cdm")
- .option("storage", "mystorage.dfs.core.windows.net")
- .option("manifestPath", "cdmdata/contacts/root.manifest.cdm.json")
- .option("entity", "Person")
- .load()
-```
-
-#### Implicit write – using dataframe schema only
-
-This code writes the dataframe _df_ to a CDM folder with a manifest to `mystorage.dfs.core.windows.net/cdmdata/Contacts/default.manifest.cdm.json` with an Event entity.
-
-Event data is written as Parquet files, compressed with gzip, that are appended to the folder (new files
-are added without deleting existing files).
-
-```scala
-
-df.write.format("com.microsoft.cdm")
- .option("storage", "mystorage.dfs.core.windows.net")
- .option("manifestPath", "cdmdata/Contacts/default.manifest.cdm.json")
- .option("entity", "Event")
- .option("format", "parquet")
- .option("compression", "gzip")
- .mode(SaveMode.Append)
- .save()
-```
-
-#### Explicit write - using an entity definition stored in ADLS
-
-This code writes the dataframe _df_ to a CDM folder with manifest at
-`https://mystorage.dfs.core.windows.net/cdmdata/Contacts/root.manifest.cdm.json` with the entity Person. Person data is written as new CSV files (by default) which overwrite existing files in the folder.
-The Person entity definition is retrieved from
-`https://mystorage.dfs.core.windows.net/models/cdmmodels/core/Contacts/Person.cdm.json`
-
-```scala
-df.write.format("com.microsoft.cdm")
- .option("storage", "mystorage.dfs.core.windows.net")
- .option("manifestPath", "cdmdata/contacts/root.manifest.cdm.json")
- .option("entity", "Person")
- .option("entityDefinitionModelRoot", "cdmmodels/core")
- .option("entityDefinitionPath", "/Contacts/Person.cdm.json/Person")
- .mode(SaveMode.Overwrite)
- .save()
-```
-
-#### Explicit write - using an entity defined in the CDM GitHub
-
-This code writes the dataframe _df_ to a CDM folder with the manifest at `https://_mystorage_.dfs.core.windows.net/cdmdata/Teams/root.manifest.cdm.json` and a submanifest containing the TeamMembership entity, created in a TeamMembership subdirectory. TeamMembership data is written to CSV files (the default) that overwrite any existing data files. The TeamMembership entity definition is retrieved from the CDM CDN, at:
-[https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json](https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json)
-
-```scala
-df.write.format("com.microsoft.cdm")
- .option("storage", "mystorage.dfs.core.windows.net")
- .option("manifestPath", "cdmdata/Teams/root.manifest.cdm.json")
- .option("entity", "TeamMembership")
- .option("useCdmStandardModelRoot", true)
- .option("entityDefinitionPath", "core/applicationCommon/TeamMembership.cdm.json/Tea
-mMembership")
- .option("useSubManifest", true)
- .mode(SaveMode.Overwrite)
- .save()
-```
-
-### Other considerations
-
-#### Spark to CDM datatype mapping
-
-The following datatype mappings are applied when converting CDM to/from Spark.
-
-|**Spark**  |**CDM**|
-|---------|---------|
-|ShortType|SmallInteger|
-|IntegerType|Integer|
-|LongType |BigInteger|
-|DateType |Date|
-|Timestamp|DateTime (optionally Time, see below)|
-|StringType|String|
-|DoubleType|Double|
-|DecimalType(x,y)|Decimal (x,y) (default scale and precision are 18,4)|
-|FloatType|Float|
-|BooleanType|Boolean|
-|ByteType|Byte|
-
-The CDM Binary datatype isn't supported.
 
 ## Troubleshooting and known issues
 

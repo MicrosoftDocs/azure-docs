@@ -23,7 +23,7 @@ To have exceptions reported from your server-side application, consider the foll
 
   * Add the [Application Insights Extension](./azure-web-apps.md) for Azure web apps.
   * Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md) for Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps.
-  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./status-monitor-v2-overview.md) for IIS web servers, or enable the [Java agent](./java-in-process-agent.md) for Java web apps.
+  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./status-monitor-v2-overview.md) for IIS web servers, or enable the [Java agent](./opentelemetry-enable.md?tabs=java) for Java web apps.
 
 ### Client side
 

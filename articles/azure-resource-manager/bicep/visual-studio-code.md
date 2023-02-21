@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 02/21/2023
 ---
 
 # Create Bicep files by using Visual Studio Code

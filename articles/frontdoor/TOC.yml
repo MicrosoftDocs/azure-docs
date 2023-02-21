@@ -147,8 +147,14 @@
         href: endpoint.md
       - name: Origin
         href: origin.md?pivots=front-door-standard-premium
-      - name: Wildcard domain
-        href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
+      - name: Domains
+        items:
+        - name: Overview
+          href: domain.md
+        - name: Apex domains
+          href: apex-domain.md
+        - name: Wildcard domains
+          href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
       - name: Health probes
         href: health-probes.md
       - name: Rules Engine
@@ -269,12 +275,14 @@
           href: how-to-configure-origin.md
         - name: Set up managed identity
           href: managed-identity.md
-        - name: Add a custom domain
-          href: standard-premium/how-to-add-custom-domain.md
-        - name: Add a root or apex domain
-          href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
-        - name: Configure HTTPS on a custom domain
-          href: standard-premium/how-to-configure-https-custom-domain.md
+        - name: Domains
+          items:
+          - name: Add a custom domain
+            href: standard-premium/how-to-add-custom-domain.md
+          - name: Add a root or apex domain
+            href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+          - name: Configure HTTPS on a custom domain
+            href: standard-premium/how-to-configure-https-custom-domain.md
         - name: Configure caching
           href: how-to-configure-caching.md
         - name: Rules Engine

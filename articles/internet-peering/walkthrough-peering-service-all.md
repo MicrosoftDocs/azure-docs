@@ -1,13 +1,13 @@
 ---
 title: Peering Service partner walkthrough
-titleSuffix: Azure
-description: Peering Service partner walkthrough
+description: Peering Service partner walkthrough.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: halkazwini
+ms.custom: template-how-to
 ---
 
 # Peering Service partner walkthrough

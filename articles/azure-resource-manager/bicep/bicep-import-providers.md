@@ -2,7 +2,7 @@
 title: Import Bicep extensibility providers
 description: Describes how to import Bicep extensibility providers.
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 02/21/2023
 ---
 
 # Import Bicep extensibility providers

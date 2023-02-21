@@ -57,6 +57,8 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
+    - name: Azure NetApp Files datastore performance benchmarks for AVS 
+      href: performance-benchmarks-azure-vmware-solution.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -235,6 +237,8 @@
         href: configure-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Configure customer-managed keys 
+        href: configure-customer-managed-keys.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

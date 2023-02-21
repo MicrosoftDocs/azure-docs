@@ -18,7 +18,7 @@ ms.reviewer: ardhanap, brianokoyo, jesakowi
 
 Publisher verification gives app users and organization admins information about the authenticity of the developer's organization, who publishes an app that integrates with the Microsoft identity platform.
 
-An app that's publisher verified means that the app's publisher (app developer) has verified the authenticity of their organization with Microsoft. Verifying an app includes using a Microsoft Partner Network (MPN) account that's been [verified](/partner-center/verification-responses) and associating the MPN account with an app registration.
+When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a Microsoft Cloud Partner Program (MCPP), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
 
 When the publisher of an app has been verified, a blue *verified* badge appears in the Azure Active Directory (Azure AD) consent prompt for the app and on other webpages:
 
@@ -47,7 +47,7 @@ Publisher verification for an app has the following benefits:
 
 App developers must meet a few requirements to complete the publisher verification process. Many Microsoft partners will have already satisfied these requirements.
 
-- The developer must have an MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. The MPN account must be the [partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for the developer's organization.
+- The developer must have an MPN ID for a valid [Microsoft Cloud Partner Program](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. The MPN account must be the [partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for the developer's organization.
 
   > [!NOTE]
   > The MPN account you use for publisher verification can't be your partner location MPN ID. Currently, location MPN IDs aren't supported for the publisher verification process.
@@ -80,7 +80,7 @@ Publisher verification currently isn't supported in national clouds. Apps that a
 
 Review frequently asked questions about the publisher verification program. For common questions about requirements and the process, see [Mark an app as publisher verified](mark-app-as-publisher-verified.md).
 
-- **What does publisher verification *not* tell me about the app or its publisher?**  The blue *verified* badge doesn't imply or indicate quality criteria you might look for in an app. For example, you might want to know whether the app or its publisher have specific certifications, comply with industry standards, or adhere to best practices. Publisher verification doesn't give you this information. Other Microsoft programs, like [Microsoft 365 App Certification](/microsoft-365-app-certification/overview), do provide this information.
+- **What does publisher verification *not* tell me about the app or its publisher?**  The blue *verified* badge doesn't imply or indicate quality criteria you might look for in an app. For example, you might want to know whether the app or its publisher have specific certifications, comply with industry standards, or adhere to best practices. Publisher verification doesn't give you this information. Other Microsoft programs, like [Microsoft 365 App Certification](/microsoft-365-app-certification/overview), do provide this information. Verified publisher status is only one of the several criteria to consider while evaluating the security and [OAuth consent requests](../manage-apps/manage-consent-requests.md) of an application.
 
 - **How much does publisher verification cost for the app developer? Does it require a license?** Microsoft doesn't charge developers for publisher verification. No license is required to become a verified publisher.
 

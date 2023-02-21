@@ -4,12 +4,8 @@ description: In this article, you learn how to limit and restrict virtual networ
 services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
-manager: ''
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to

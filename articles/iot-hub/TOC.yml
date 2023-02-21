@@ -96,9 +96,6 @@
           href: query-twins.md
         - name: Job queries
           href: query-jobs.md
-      - name: Quotas and throttling
-        displayName: operations, traffic, connections, latency
-        href: iot-hub-devguide-quotas-throttling.md
       - name: Compare IoT Hub and Event Hubs
         href: iot-hub-compare-event-hubs.md
       - name: React to IoT Hub events with Event Grid
@@ -114,6 +111,9 @@
       - name: Choose the right IoT Hub tier
         displayName: basic, standard, partitions, message throughput
         href: iot-hub-scaling.md
+      - name: Quotas and throttling
+        displayName: operations, traffic, connections, latency
+        href: iot-hub-devguide-quotas-throttling.md
       - name: Pricing examples
         href: iot-hub-devguide-pricing.md
     - name: Messaging
@@ -225,9 +225,6 @@
             - name: X.509 certificate concepts
               displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
               href: iot-hub-x509-certificate-concepts.md
-            - name: Certificate fields
-              displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
-              href: tutorial-x509-certificates.md
             - name: X.509 CA certificate security concepts
               displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
               href: iot-hub-x509ca-concept.md
@@ -386,6 +383,9 @@
               href: iot-hub-c-c-module-twin-getstarted.md
         - name: Get started with device management
           items:
+            - name: CLI
+              displayName: device management, status updates, device maintenance windows
+              href: device-management-cli.md
             - name: .NET
               displayName: device management, status updates, device maintenance windows
               href: iot-hub-csharp-csharp-device-management-get-started.md
@@ -400,6 +400,9 @@
               href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
+            - name: CLI
+              displayName: jobs
+              href: schedule-jobs-cli.md
             - name: .NET
               displayName: jobs
               href: iot-hub-csharp-csharp-schedule-jobs.md
@@ -567,6 +570,9 @@
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
       href: ./policy-reference.md
+    - name: X.509 certificates
+      displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS 
+      href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
         - name: TLS 1.0 and 1.1 deprecation
@@ -612,13 +618,13 @@
         href: https://github.com/Azure/azure-iot-sdk-csharp#samples
       - name: Node.js
         displayName: samples, azure-iot-samples-node
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+        href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
       - name: Java
         displayName: samples, azure-iot-samples-java
         href: https://github.com/Azure/azure-iot-sdk-java#samples
       - name: Python
         displayName: samples, azure-iot-samples-python 
-        href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+        href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
       - name: iOS Platform
         displayName: samples, azure-iot-samples-iot, XCode, CocoaPods, Swift
         href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/

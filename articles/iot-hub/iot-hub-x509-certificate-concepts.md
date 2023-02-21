@@ -117,7 +117,7 @@ Digital signing can be used to determine whether the data has been modified in t
 
 ## Next steps
 
-To learn more about the fields that make up an X.509 certificate, see [Understand X.509 public key certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 

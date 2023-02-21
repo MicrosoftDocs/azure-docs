@@ -5,7 +5,8 @@ author: yvonne-dq
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 11/10/2022
+ms.date: 02/08/2023
+ROBOTS: NOINDEX
 ---
 
 # Retirement of Azure Percept DK

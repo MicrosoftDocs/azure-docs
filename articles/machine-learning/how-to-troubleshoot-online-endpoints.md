@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/04/2022
+ms.date: 01/27/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -203,7 +203,6 @@ Below is a list of common deployment errors that are reported as part of the dep
 
 * [ImageBuildFailure](#error-imagebuildfailure)
 * [OutOfQuota](#error-outofquota)
-* [OutOfCapacity](#error-outofcapacity)
 * [BadArgument](#error-badargument)
 * [ResourceNotReady](#error-resourcenotready)
 * [ResourceNotFound](#error-resourcenotfound)
@@ -247,6 +246,7 @@ Below is a list of common resources that might run out of quota when using Azure
 * [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
+* [Region-wide VM capacity](#region-wide-vm-capacity)
 * [Other](#other-quota)
 
 Additionally,  below is a list of common resources that might run out of quota only for Kubernetes online endpoint: 
@@ -261,34 +261,30 @@ A possible mitigation is to check if there are unused deployments that can be de
 
 #### Disk quota
 
-This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a SKU with more disk space.
-* Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more disk space.
-* Try reducing image and model size.
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more disk space or reducing the image and model size.
 
 #### Memory quota
-This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
-
-#### Endpoint quota
-
-Try to delete some unused endpoints in this subscription.
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more memory.
 
 #### Role assignment quota
 
-When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
+When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by navigating to the Access Control menu.
+
+#### Endpoint quota
+
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
+
+#### Region-wide VM capacity
+
+Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
 
 #### Kubernetes quota
 
-This issue happens when the requested CPU or memory couldn't be satisfied, such as nodes are cordoned or nodes are unavailable, which means all nodes are unschedulable.
+This issue happens when the requested CPU, memory could not be provided. At times, nodes may be retained or unavailable, meaning that these nodes are unschedulable. When you are deploying a model to a Kubernetes compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. To work around this, try to delete some unused endpoints in this subscription. You can also address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service.
 
-Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](how-to-manage-quotas.md#endpoint-quota-increases) to request endpoint quota increase.
+The error message will typically indicate which resource you need more of. For instance, if you see an error message detailing `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, that means that the service requires GPUs and there are three nodes in the cluster that don't have sufficient GPUs. This can be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU-enabled SKU if you aren't, or changing your environment to not require GPUs.
 
-Adjust your request in the cluster, you can directly [adjust resource request of the instance type](how-to-manage-kubernetes-instance-types.md). 
-
-##### Container can't be scheduled
-
-When you are deploying a model to a Kubernetes compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
-
-The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that don't have available GPUs. This could be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU enabled SKU if you aren't or changing your environment to not require GPUs.  
+You can also try adjusting your request in the cluster, you can directly [adjust the resource request of the instance type](how-to-manage-kubernetes-instance-types.md).
 
 #### Other quota
 
@@ -324,10 +320,6 @@ Use the **Endpoints** in the studio:
 
 ---
 
-### ERROR: OutOfCapacity
-
-For managed online endpoint, the specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
-
 ### ERROR: BadArgument
 
 Below is a list of reasons you might run into this error when using either managed online endpoint or Kubernetes online endpoint:
@@ -353,15 +345,15 @@ For more information about Azure subscriptions, refer to the [prerequisites sect
 
 #### Authorization error
 
-After you provisioned the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
+After you've provisioned the compute resource (while creating a deployment), Azure tries to pull the user container image from the workspace Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
-First, check if there's a permissions issue accessing ACR.
+To do these, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account and the container registry.
 
-To pull blobs, Azure uses [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to access the storage account.
+- If you created the associated endpoint with System Assigned Identity, Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
 
-  - If you created the associated endpoint with SystemAssigned, Azure role-based access control (RBAC) permission is automatically granted, and no further permissions are needed.
+- If you created the associated endpoint with User Assigned Identity, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission.
 
-  - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
+For more information, please see [Container Registry Authorication Error](#container-registry-authorization-error).
 
 #### Unable to download user container image
 
@@ -580,7 +572,7 @@ The reason you might run into this error when creating/updating Kubernetes onlin
 
 In this case, you can detach and then **re-attach** your compute. 
 
-> [!NOTE]
+> [!]
 >
 > To troubleshoot errors by re-attaching, please guarantee to re-attach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
 

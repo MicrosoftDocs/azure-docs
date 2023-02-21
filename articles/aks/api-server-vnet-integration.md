@@ -23,9 +23,7 @@ API Server VNet Integration is supported for public or private clusters, and pub
 
 ## Region availability
 
-API Server VNet Integration is available in all global Azure regions except the following:
-
-- Southcentralus
+API Server VNet Integration is available in all global Azure regions.
 
 ## Prerequisites
 
@@ -132,17 +130,20 @@ az group create -l <location> -n <resource-group>
 ```azurecli-interactive
 # Create the virtual network
 az network vnet create -n <vnet-name> \
+    -g <resource-group> \
     -l <location> \
     --address-prefixes 172.19.0.0/16
 
 # Create an API server subnet
-az network vnet subnet create --vnet-name <vnet-name> \
+az network vnet subnet create -g <resource-group> \
+    --vnet-name <vnet-name> \
     --name <apiserver-subnet-name> \
     --delegations Microsoft.ContainerService/managedClusters \
     --address-prefixes 172.19.0.0/28
 
 # Create a cluster subnet
-az network vnet subnet create --vnet-name <vnet-name> \
+az network vnet subnet create -g <resource-group> \
+    --vnet-name <vnet-name> \
     --name <cluster-subnet-name> \
     --address-prefixes 172.19.1.0/24
 ```
@@ -151,7 +152,7 @@ az network vnet subnet create --vnet-name <vnet-name> \
 
 ```azurecli-interactive
 # Create the identity
-az identity create -n <managed-identity-name> -l <location>
+az identity create -g <resource-group> -n <managed-identity-name> -l <location>
 
 # Assign Network Contributor to the API server subnet
 az role assignment create --scope <apiserver-subnet-resource-id> \
