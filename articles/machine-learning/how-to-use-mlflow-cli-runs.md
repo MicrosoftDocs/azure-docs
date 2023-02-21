@@ -20,12 +20,6 @@ ms.devlang: azurecli
 > * [v1](./v1/how-to-use-mlflow.md)
 > * [v2 (current version)](how-to-use-mlflow-cli-runs.md)
 
-Azure Machine Learning workspaces are MLflow-compatible, which means you can use MLflow to track runs, metrics, parameters, and artifacts with your Azure Machine Learning workspaces. By using MLflow for tracking, you don't need to change your training routines to work with Azure Machine Learning or inject any cloud-specific syntax, which is one of the main advantages of the approach. 
-
-See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
-
-## What's tracking is and why's it importance?
-
 __Tracking__ refers to process of saving all experiment's related information that you may find relevant for every experiment you run. Such metadata varies based on your project, but it may include:
 
 > [!div class="checklist"]
@@ -38,19 +32,26 @@ __Tracking__ refers to process of saving all experiment's related information th
 > - Evaluation visualizations (confusion matrix, importance plots)  
 > - Evaluation results (including some evaluation predictions)
 
-Some of this elements are automatically tracked by Azure Machine Learning when working with jobs (including code, envrionment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
+Some of this elements are automatically tracked by Azure Machine Learning when working with jobs (including code, environment, and input and output data). However, others like models, parameters, and metrics, need to be instrumented by the model builder as it is specific to the particular scenario. In this article, you will learn how to use MLflow for tracking your experiments and runs in Azure Machine Learning workspaces.
 
 > [!NOTE] 
 > If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](how-to-use-mlflow-azure-synapse.md).
 
-### Benefits
+## Benefits
 
-We highly encourage machine learning practitioners to instrument their experiments and jobs and track them, regardless if they are training with jobs in Azure Machine Learning or interactively. Benefits include:
+We highly encourage machine learning practitioners to instrument their experimentation by tracking them, regardless if they are training with jobs in Azure Machine Learning or interactively in notebooks. Benefits include:
 
 - All of your ML experiments are organized in a single place, allowing you to search and filter experiments to find the information and drill down to see what exactly it was that you tried before.
 - Compare experiments, analyze results, and debug model training with little extra work.
 - Reproduce or re-run experiments to validate results.
 - Improve collaboration by seeing what everyone is doing, sharing experiment results, and access experiment data programmatically.
+
+
+## Using MLflow for tracking
+
+Azure Machine Learning workspaces are MLflow-compatible, which means you can use MLflow to track runs, metrics, parameters, and artifacts with your Azure Machine Learning workspaces. By using MLflow for tracking, you don't need to change your training routines to work with Azure Machine Learning or inject any cloud-specific syntax, which is one of the main advantages of the approach. 
+
+See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
 
 ## Prerequisites
 
