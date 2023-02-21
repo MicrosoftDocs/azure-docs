@@ -3,14 +3,14 @@ title: "Office 365 connector for Microsoft Sentinel"
 description: "Learn how to install the connector Office 365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Office 365 connector for Microsoft Sentinel
 
-The Office 365 activity log connector provides insight into ongoing user activities. You will get details of operations such as file downloads, access requests sent, changes to group events, set-mailbox and details of the user who performed the actions.​ By connecting Office 365 logs into Microsoft Sentinel you can use this data to view dashboards, create custom alerts, and improve your investigation process.​
+The Office 365 activity log connector provides insight into ongoing user activities. You will get details of operations such as file downloads, access requests sent, changes to group events, set-mailbox and details of the user who performed the actions. By connecting Office 365 logs into Microsoft Sentinel you can use this data to view dashboards, create custom alerts, and improve your investigation process. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2219943&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

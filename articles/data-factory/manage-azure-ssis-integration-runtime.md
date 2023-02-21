@@ -11,7 +11,7 @@ ms.author: chugu
 
 # Reconfigure the Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR), see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
 

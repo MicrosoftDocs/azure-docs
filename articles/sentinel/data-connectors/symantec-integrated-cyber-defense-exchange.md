@@ -3,7 +3,7 @@ title: "Symantec Integrated Cyber Defense Exchange connector for Microsoft Senti
 description: "Learn how to install the connector Symantec Integrated Cyber Defense Exchange to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -46,11 +46,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-AE)
-  * Dutch - Netherlands (nl-NL)
-  * French - Canada (fr-CA)
-  * Japanese - Japan (ja-JP)
-  * Portuguese - Brazil (pt-BR)
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
+  * German - (de-de)
+  * Italian - (it-it)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 

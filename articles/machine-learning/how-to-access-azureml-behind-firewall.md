@@ -62,7 +62,7 @@ __Inbound traffic__
 
 | Source | Source<br>ports | Destination | Destination<b>ports| Purpose |
 | ----- |:-----:| ----- |:-----:| ----- |
-| `AzureLoadBalancer` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
+| `AzureMachineLearning` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
 
 > [!TIP]
 > A network security group (NSG) is created by default for this traffic. For more information, see [Default security rules](../virtual-network/network-security-groups-overview.md#inbound).

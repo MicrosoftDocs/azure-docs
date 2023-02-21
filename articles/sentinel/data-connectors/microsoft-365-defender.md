@@ -3,7 +3,7 @@ title: "Microsoft 365 Defender connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft 365 Defender to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,6 +18,8 @@ Microsoft 365 Defender suite includes:
 - Microsoft Defender for Office 365
 - Threat & Vulnerability Management
 - Microsoft Defender for Cloud Apps
+
+For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2220004&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 
