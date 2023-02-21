@@ -60,7 +60,7 @@ Some common motivations for using automatic provisioning include:
 - Saving on costs associated with hosting and maintaining custom-developed provisioning solutions and scripts.
 - Securing your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 - Easily importing a large number of users into a particular SaaS application or system.
-- Having a single set of policies to determine who is provisioned and who can sign in to an app.
+- A single set of policies to determine who is provisioned and who can sign in to an app.
 
 Azure AD user provisioning can help address these challenges. To learn more about how customers have been using Azure AD user provisioning, read the [ASOS case study](https://aka.ms/asoscasestudy). The following video provides an overview of user provisioning in Azure AD.
 
