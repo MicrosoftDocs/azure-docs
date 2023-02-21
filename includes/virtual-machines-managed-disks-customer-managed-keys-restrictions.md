@@ -5,13 +5,13 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/12/2022
+ ms.date: 02/21/2023
  ms.author: rogarana
  ms.custom: include file
 ---
 - Only [software and HSM RSA keys](../articles/key-vault/keys/about-keys.md) of sizes 2,048-bit, 3,072-bit and 4,096-bit are supported, no other keys or sizes.
     - [HSM](../articles/key-vault/keys/hsm-protected-keys.md) keys require the **premium** tier of Azure Key vaults.
-- For Ultra Disks and Premium SSD v2 only: Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys. Your disks and their images must be in the same subscription, the keys used to encrypt your disks can be in a different subscription.
+- Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys. Your disks and their images must be in the same subscription, the keys used to encrypt your disks can be in a different subscription.
 - For Ultra Disks and Premium SSD v2 only: Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Most resources related to your customer-managed keys (disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
     - Azure Key Vaults may be used from a different subscription but must be in the same region as your disk encryption set. As a preview, you can use Azure Key Vaults from [different Azure Active Directory tenants](../articles/virtual-machines/disks-cross-tenant-customer-managed-keys.md).
