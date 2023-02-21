@@ -60,7 +60,7 @@ this.callAgent.join({ groupId }, callOptions);
 this.incomingCall.accept(callOptions)
 ```
 
-Video constraints type is described as follows:
+Video constraints types are described as follows:
 ```javascript
 export declare interface VideoOptions {
     localVideoStreams?: LocalVideoStream[];
