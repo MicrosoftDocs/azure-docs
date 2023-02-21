@@ -198,19 +198,31 @@ Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* event
 
 ### Example of how you can deserialize the *RecognizeCompleted* event:
 ``` csharp
-app.MapPost("<WEB_HOOK_ENDPOINT>", async (
-    [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId) =>{
-    foreach (var cloudEvent in cloudEvents)
-    {
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        If (@event is RecognizeCompleted recognizeCompleted)
+        if (@event is RecognizeCompleted { OperationContext: "AppointmentReminderMenu" })
         {
-            // Access to the Collected Tones
-            foreach(DtmfTone tone in recognizeCompleted.CollectTonesResult.Tones) {
-                   // work on each of the Dtmf tones.
+            logger.LogInformation($"RecognizeCompleted event received for call connection id: {@event.CallConnectionId}");
+            var recognizeCompletedEvent = (RecognizeCompleted)@event;
+            string labelDetected = null;
+            string phraseDetected = null;
+            switch (recognizeCompletedEvent.RecognizeResult)
+            {
+                // Take action for Recongition through Choices
+                case ChoiceResult choiceResult:
+                    labelDetected = choiceResult.Label;
+                    phraseDetected = choiceResult.RecognizedPhrase;
+                    //If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected,
+                    // if choice is detected using dtmf tone, phrase will be null
+                    break;
+                //Take action for Recongition through DTMF
+                case CollectTonesResult collectTonesResult: 
+                    var tones = collectTonesResult.Tones;
+                    break;
+
+                default:
+                    logger.LogError($"Unexpected recognize event result identified for connection id: {@event.CallConnectionId}");
+                    break;
+            }
         }
-    }
 ```
 
 ### Example of DTMF *RecognizeFailed* event:
@@ -269,15 +281,61 @@ app.MapPost("<WEB_HOOK_ENDPOINT>", async (
 
 ### Example of how you can deserialize the *RecognizeFailed* event:
 ``` csharp
-app.MapPost("<WEB_HOOK_ENDPOINT>", async (
-    [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId) =>{
-    foreach (var cloudEvent in cloudEvents)
-    {
-        CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        If (@event is RecognizeFailed recognizeFailed)
+if (@event is RecognizeFailed { OperationContext: "AppointmentReminderMenu" })
         {
-            Log.error($”Recognize failed due to: {recognizeFailed.ResultInformation.Message}”);
+            logger.LogInformation($"RecognizeFailed event received for call connection id: {@event.CallConnectionId}");
+            var recognizeFailedEvent = (RecognizeFailed)@event;
+
+            // Check for time out, and then take action like play audio
+            if (ReasonCode.RecognizeInitialSilenceTimedOut.Equals(recognizeFailedEvent.ReasonCode))
+            {
+                logger.LogInformation($"Recognition timed out for call connection id: {@event.CallConnectionId}");
+                var playSource = new TextSource("No input recieved and recognition timed out, Disconnecting the call. Thank you!");
+                //Play audio for time out
+                await callConnectionMedia.PlayToAllAsync(playSource, new PlayOptions { OperationContext = "ResponseToChoice", Loop = false });
+            }
+
+            //Check for invalid speech or tone detection and take action like playing audio
+            if (ReasonCode.RecognizeSpeechOptionNotMatched.Equals(recognizeFailedEvent.ReasonCode) ||
+            ReasonCode.RecognizeIncorrectToneDetected.Equals(recognizeFailedEvent.ReasonCode))
+            {
+                logger.LogInformation($"Recognition failed for invalid speech or incorrect tone detected, connection id: {@event.CallConnectionId}");
+                var playSource = new TextSource("Invalid speech phrase detected, Disconnecting the call. Thank you!");
+
+                //Play text prompt for speech option not matched
+                await callConnectionMedia.PlayToAllAsync(playSource, new PlayOptions { OperationContext = "ResponseToChoice", Loop = false });
+            }
         }
+```
+
+### Example of *RecognizeCanceled* event:
+``` csharp
+[
+    {
+        "id": "d4f2e476-fb8f-43c2-abf8-0981f8e70df9",
+        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+        "type": "Microsoft.Communication.RecognizeCanceled",
+        "data": {
+            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "operationContext": "AppointmentChoiceMenu",
+            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
+            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
+        },
+        "time": "2023-01-10T00:31:15.3606572+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
     }
+]
+```
+
+### Example of how you can deserialize the *RecognizeCanceled* event:
+``` csharp
+if (@event is RecognizeCanceled { OperationContext: "AppointmentReminderMenu" })
+        {
+            logger.LogInformation($"RecognizeCanceled event received for call connection id: {@event.CallConnectionId}");
+            //Take action on recognize canceled operation
+           await callConnection.HangUpAsync(forEveryone: true);
+        }
 ```
