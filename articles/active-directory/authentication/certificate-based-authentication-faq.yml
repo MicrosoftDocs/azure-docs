@@ -7,9 +7,9 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 10/05/2022
+  ms.date: 02/21/2023
   ms.author: justinha
-  author: vimrang
+  author: justinha
   manager: amycolannino
   ms.reviewer: vimrang
   ms.collection: M365-identity-device-management
@@ -146,7 +146,16 @@ sections:
            GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
            ```
 
-       
+      - question: |
+           After a CRL endpoint is configured, end users are not able to login with the following diagnostic message:
+           
+           ```http
+           AADSTS500173: Unable to download CRL. Invalid status code Forbidden from CRL distribution point
+           errorCode: 500173
+           ```
+           
+        answer: |
+          This is commonly seen when a firewall rule setting blocks access to the CRL endpoint. 
           
 additionalContent: |
   ## Next steps
