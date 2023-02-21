@@ -227,6 +227,9 @@ downloadedData := bytes.Buffer{}
 _, err = downloadedData.ReadFrom(get.Body)
 handleError(err)
 
+err = get.Body.Close()
+handleError(err)
+
 // Print the contents of the blob we created
 fmt.Println("Blob contents:")
 fmt.Println(downloadedData.String())
