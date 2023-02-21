@@ -26,9 +26,9 @@ Use device twins to:
 
 * Query your device metadata, configuration, or state.
 
-Device twins are designed for synchronization and for querying device configurations and conditions. More information on when to use device twins can be found in [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+Device twins are designed for synchronization and for querying device configurations and conditions. For more information about device twins, including when to use device twins, see [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Device twins are stored in an IoT hub and contain the following elements:
+IoT hubs store device twins, which contain the following elements:
 
 * **Tags**. Device metadata accessible only by the solution back end.
 
@@ -36,7 +36,7 @@ Device twins are stored in an IoT hub and contain the following elements:
 
 * **Reported properties**. JSON objects modifiable by the device app and readable by the solution back end.
 
-Tags and properties cannot contain arrays, but objects can be nested.
+Tags and properties can't contain arrays, but can contain nested objects.
 
 The following illustration shows device twin organization:
 
