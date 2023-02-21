@@ -65,4 +65,4 @@ If deep learning is enabled, validation is limited to _train_validation split_. 
 
 ## Next steps
 
-See the [set of components available](../component-reference.md) to Azure Machine Learning.
+See the [set of components available](../component-reference/component-reference.md) to Azure Machine Learning.
