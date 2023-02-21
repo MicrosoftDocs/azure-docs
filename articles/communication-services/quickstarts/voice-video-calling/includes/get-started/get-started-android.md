@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Android.
+In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Android.
 
 ## Sample Code
 
@@ -19,7 +19,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -90,7 +90,7 @@ dependencies {
 
 ### Add permissions to application manifest
 
-In order to request permissions required to make a call, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
+In order to request permissions required to make a call, they must be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
 
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -131,7 +131,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
 
 ### Set up the layout for the app
 
-Two inputs are needed: a text input for the callee ID, and a button for placing the call. These can be added through the designer or by editing the layout xml. Create a button with an ID of `call_button` and a text input of `callee_id`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
+Two inputs are needed: a text input for the callee ID, and a button for placing the call. These inputs can be added through the designer or by editing the layout xml. Create a button with an ID of `call_button` and a text input of `callee_id`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -168,7 +168,7 @@ Two inputs are needed: a text input for the callee ID, and a button for placing 
 
 ### Create the main activity scaffolding and bindings
 
-With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This will occur only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity handlesrequesting runtime permissions, creating the call agent, and placing the call when the button is press ed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This event occur only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### Request permissions at runtime
 
-For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. In order to support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, permissions are granted at runtime instead of when the app is installed. In order to support it, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
 
 ```java
 /**
@@ -261,7 +261,7 @@ private void getAllPermissions() {
 ```
 
 > [!NOTE]
-> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information see the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
+> When designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information see, the [Android Permissions Guide.](https://developer.android.com/training/permissions/requesting)
 
 ## Object model
 
@@ -272,7 +272,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `allClient`| The `CallClient` is the main entry point to the Calling SDK.|
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-| `CommunicationIdentifier` | The `CommunicationIdentifier` is used as different type of participant that would could be part of a call.|
+| `CommunicationIdentifier` | The `CommunicationIdentifier` is used as different type of participant that could be part of a call.|
 
 ## Create an agent from the user access token
 
@@ -322,6 +322,6 @@ private void startCall() {
 
 ## Launch the app and call the echo bot
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you're able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you're able to place calls by calling `8:echo123`. A pre-recorded messages plays then repeat your message back to you.
 
 :::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::

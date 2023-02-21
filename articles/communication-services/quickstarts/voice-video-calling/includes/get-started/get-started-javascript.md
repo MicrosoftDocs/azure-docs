@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for JavaScript.
+In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample code
 
@@ -22,7 +22,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -101,7 +101,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that will enable us to make and receive calls. 
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that enable us to make and receive calls. 
 
 Add the following code to **app.js**:
 
@@ -163,7 +163,7 @@ The `forEveryone` property ends the call for all call participants.
 
 Use the command `npx parcel index.html` to run your application.
 
-Open your browser and navigate to http://localhost:1234/. You should see the following:
+Open your browser and navigate to http://localhost:1234/. You should see the following screen:
 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot of the completed JavaScript Application.":::
 

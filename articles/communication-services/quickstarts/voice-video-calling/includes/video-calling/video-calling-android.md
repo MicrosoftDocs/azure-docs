@@ -15,7 +15,7 @@ If you want to get started with sample code, you can [download the sample app](h
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -236,7 +236,7 @@ Go to *app/src/main/res/layout/activity_main.xml*, and replace the content of fi
 
 ## Create the main activity scaffolding and bindings
 
-With the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
+With the layout created, you can add the bindings, as well as the basic scaffolding of the activity. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
 
 The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent`, as well as add the bindings for the call button. This occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
@@ -409,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## Request permissions at runtime
 
-For Android 6.0 and later (API level 23), and `targetSdkVersion` 23 or later, permissions are granted at runtime instead of when the app is installed. In order to support this, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
+For Android 6.0 and later (API level 23), and `targetSdkVersion` 23 or later, permissions are granted at runtime instead of when the app is installed. In order to support it, `getAllPermissions` can be implemented to call `ActivityCompat.checkSelfPermission` and `ActivityCompat.requestPermissions` for each required permission.
 
 ```java
 /**

@@ -19,7 +19,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You'll need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -505,18 +505,19 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following:
+Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following screen:
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
 On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).
-On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
+On both tabs, click on the "Initialize Call Agent" buttons. You should see the following screen:
+
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
 
 On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
 
-From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following:
+From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following screen:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page - d":::
 
 Both tabs are now successfully in a 1 to 1 video call. Both tabs can hear each other's audio and see each other video stream.

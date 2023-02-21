@@ -37,13 +37,13 @@ See the [Rule concepts](router-rule-concepts.md) page for more information.
 Each job carries a collection of worker selectors, that are evaluated against the worker labels.  These are conditions that need to be true of a worker to be a match.
 You can use the classification policy to attach these conditions to a job.  You can do this by specifying one or more selector attachments.
 
-For more information see the section [below](#using-label-selector-attachments).
+For more information see, the section [below](#using-label-selector-attachments).
 
 ## Queue selectors
 
 You can also specify a collection of label selector attachments to select the Queue based on its labels.
 
-For more information see the section [below](#using-label-selector-attachments).
+For more information see, the section [below](#using-label-selector-attachments).
 
 ## Using label selector attachments
 

@@ -40,7 +40,7 @@ When a user runs a network diagnostic, the tool collects and store service and c
 
 ## Support
 
-The test provides a **unique identifier** for your test which you can provide our support team who can provide further help. For more information see [help and support options](../../support.md)
+The test provides a **unique identifier** for your test which you can provide our support team who can provide further help. For more information, see [help and support options](../../support.md)
   
 ## Next Steps
 
