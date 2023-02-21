@@ -167,8 +167,8 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources are deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -234,7 +234,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus/tree/main/infra) were provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
 - The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 
@@ -368,8 +368,8 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources are deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -435,7 +435,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus/tree/main/infra) were provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
 - The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 
@@ -571,8 +571,8 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location where your resources are deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
+   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
@@ -638,7 +638,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 Upon successful completion of the `azd up` command:
 
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus/tree/main/infra) were provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
 - The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 ::: zone-end
