@@ -229,7 +229,7 @@ WHERE STEP in (3,4,6);
 
 - **Cause**: The target database doesn't have enough space.
 
-- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension).
 
 - **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
 
