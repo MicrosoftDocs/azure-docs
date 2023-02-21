@@ -97,8 +97,9 @@ The value you have to provide for this constraint is `height`.
 In SDK, we will choose the nearest resolution, which height doesn't exceed the constraint value.
 There is an exception - when provided constraint value is too small, SDK chooses the smallest available resolution. The height of chosen resolution can be larger than the constraint value.
 
-> [!NOTE] The resolution constraint is a `max` constraint, which means the possible resolutions can be the specified resolution or smaller.
-There is no gurantee that the sent video resolution will remain at the specified resolution.
+> [!NOTE]
+> The resolution constraint is a `max` constraint, which means the possible resolutions can be the specified resolution or smaller.
+> There is no gurantee that the sent video resolution will remain at the specified resolution.
 
 The `height` in `VideoSendConstraints` has a different meaning when the mobile device is in portrait mode. This value indicates the shorter side of the device in portrait mode. For example, specifying `constraints.send.height.max` value with 240 on an 1080(W) x 1920(H) device in portrait mode, the constraint height is on 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)) , the constraint hide is on 1080(H) side.
 
@@ -122,5 +123,5 @@ mediaStatsCollector.on('sampleReported', (sample: SDK.MediaStatsReportSample) =>
 ## Next steps
 For more information, see the following articles:
 
-- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
+- [Enable Media Quality Statistics in your application](./media-quality-sdk.md)
+- Learn about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
