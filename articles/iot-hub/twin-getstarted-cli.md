@@ -1,18 +1,18 @@
 ---
-title: Get started with Azure IoT Hub device twins (.NET/.NET) | Microsoft Docs
-description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for .NET to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
+title: Get started with Azure IoT Hub device twins (Azure CLI)
+description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query to filter device twins. You use the Azure CLI to create and simulate a device on your IoT hub, add tags to its corresponding device twin, and then run IoT Hub queries to filter the device twins on your IoT hub.
 author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: csharp
+ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: kgremban
-ms.custom: "mqtt, devx-track-csharp"
+ms.custom: "mqtt, devx-track-azurecli"
 ---
 
-# Get started with device twins (.NET)
+# Get started with device twins (Azure CLI)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -22,231 +22,256 @@ This article shows you how to:
 
 * Query devices using filters on the tags and properties previously created.
 
-In this article, you create two .NET console apps:
+This article shows you how to create two Azure CLI sessions:
 
-* **AddTagsAndQuery**: a back-end app that adds tags and queries device twins.
+* A session that creates a simulated device. The simulated device is configured to report its connectivity channel as a reported property on the device's corresponding device twin when initialized.
 
-* **ReportConnectivity**: a simulated device app that connects to your IoT hub and reports its connectivity condition.
-
-> [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+* A session that updates the tags of the device twin for the simulated device, then queries devices from your IoT hub using filters on the tags and properties previously updated in both sessions.
 
 ## Prerequisites
 
-* Visual Studio.
+* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](/azure/cloud-shell/overview), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* Make sure that port 8883 is open in your firewall. The samples in this article use MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+## Prepare the Cloud Shell
 
-## Get the IoT hub connection string
+If you want to use the Azure Cloud Shell, you must first launch and configure it. If you use the CLI locally, skip to the [Prepare two CLI sessions](#prepare-two-cli-sessions) section.
 
-[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+1. Select the **Cloud Shell** icon from the page header in the Azure portal.
 
-[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
+    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-button.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
 
-## Create a device app that updates reported properties
+    > [!NOTE]
+    > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
 
-In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to confirm that it's connected using a cellular network.
+2. Use the environment selector in the Cloud Shell toolbar to select your preferred CLI environment. This article uses the **Bash** environment. You can also use the **PowerShell** environment. 
 
-1. Open Visual Studio and select **Create new project**.
+    > [!NOTE]
+    > Some commands require different syntax or formatting in the **Bash** and **PowerShell** environments.  For more information, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively?tabs=bash%2Cbash2).
 
-1. Choose **Console App (.NET Framework)**, then select **Next**.
+    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-environment.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the environment selector in the toolbar.":::
 
-1. In **Configure your new project**, name the project **ReportConnectivity**, then select **Next**.
+## Prepare two CLI sessions
 
-1. In Solution Explorer, right-click the **ReportConnectivity** project, and then select **Manage NuGet Packages**.
+Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, you run these sessions in separate Cloud Shell tabs. If using a local CLI client, you run separate CLI instances. Use the separate CLI sessions for the following tasks:
+- The first session simulates an IoT device that communicates with your IoT hub. 
+- The second session updates your simulated device and queries your IoT hub. 
 
-1. Keep the default .NET Framework, then select **Create** to create the project.
+> [!NOTE]
+> Azure CLI requires you to be logged into your Azure account. If you're using the Cloud Shell, you're automatically logged into your Azure account. If you're using a local CLI client, you must log into each CLI session. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about logging in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. Select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**. Select **Install**.
+1. In the first CLI session, run the [az extension add](/cli/azure/extension#az-extension-add) command. The command adds the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI. After you install the extension, you don't need to install it again in any Cloud Shell session.
 
-   This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
-
-1. Add the following `using` statements at the top of the **Program.cs** file:
-
-   ```csharp  
-   using Microsoft.Azure.Devices.Client;
-   using Microsoft.Azure.Devices.Shared;
-   using Newtonsoft.Json;
+   ```azurecli
+   az extension add --name azure-iot
    ```
 
-1. Add the following fields to the **Program** class. Replace `{device connection string}` with the device connection string you saw when you registered a device in the IoT Hub:
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-   ```csharp  
-   static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
-   static DeviceClient Client = null;
-   ```
+1. Open the second CLI session.  If you're using the Cloud Shell in a browser, select the **Open new session** icon on the toolbar of your first CLI session. If using the CLI locally, open a second CLI instance.
 
-1. Add the following method to the **Program** class:
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-new-session.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the Open New Session icon in the toolbar.":::
 
-   ```csharp
-   public static async void InitClient()
-   {
-       try
-       {
-           Console.WriteLine("Connecting to hub");
-           Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
-             TransportType.Mqtt);
-           Console.WriteLine("Retrieving twin");
-           await Client.GetTwinAsync();
-       }
-       catch (Exception ex)
-       {
-           Console.WriteLine();
-           Console.WriteLine("Error in sample: {0}", ex.Message);
-       }
-   }
-   ```
+## Create and simulate a device
 
-   The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above initializes the **Client** object, and then retrieves the device twin for **myDeviceId**.
+In this section, you create a device identity for your IoT hub in the first CLI session, and then simulate a device using that device identity. The simulated device responds to the jobs that you schedule in the second CLI session.
 
-1. Add the following method to the **Program** class:
+To create and start a simulated device:
 
-   ```csharp  
-   public static async void ReportConnectivity()
-   {
-       try
-       {
-           Console.WriteLine("Sending connectivity data as reported property");
+1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the device identity for your simulated device.
 
-           TwinCollection reportedProperties, connectivity;
-           reportedProperties = new TwinCollection();
-           connectivity = new TwinCollection();
-           connectivity["type"] = "cellular";
-           reportedProperties["connectivity"] = connectivity;
-           await Client.UpdateReportedPropertiesAsync(reportedProperties);
-       }
-       catch (Exception ex)
-       {
-           Console.WriteLine();
-           Console.WriteLine("Error in sample: {0}", ex.Message);
-       }
-   }
-   ```
+    *{DeviceName}*. The name of your simulated device.
 
-   The code above updates the reported property of  **myDeviceId** with the connectivity information.
+    *{HubName}*. The name of your IoT hub.
 
-1. Finally, add the following lines to the **Main** method:
+    ```azurecli
+    az iot hub device-identity create --device-id {DeviceName} --hub-name {HubName} 
+    ```
 
-   ```csharp
-   try
-   {
-       InitClient();
-       ReportConnectivity();
-   }
-   catch (Exception ex)
-   {
-       Console.WriteLine();
-       Console.WriteLine("Error in sample: {0}", ex.Message);
-   }
-   Console.WriteLine("Press Enter to exit.");
-   Console.ReadLine();
-   ```
+1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates the device you created in the previous step. The simulated device is configured to report its connectivity channel as a reported property on the device's corresponding device twin when initialized. 
 
-1. In Solution Explorer, right-click on your solution, and select **Set StartUp Projects**.
+    *{DeviceName}*. The name of your simulated device.
 
-1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**. For **ReportConnectivity**, select **Start** as the **Action**. Select **OK** to save your changes.  
+    *{HubName}*. The name of your IoT hub.
+    
+    ```azurecli
+    az iot device simulate --device-id {DeviceName} --hub-name {HubName} \
+                           --init-reported-properties '{"connectivity":{"type": "cellular"}}'
+    ```
 
-1. Run this app by right-clicking the **ReportConnectivity** project and selecting **Debug**, then **Start new instance**. You should see the app getting the twin information, and then sending connectivity as a ***reported property***.
+    > [!TIP]
+    > By default, the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command sends 100 device-to-cloud messages with an interval of 3 seconds between messages. The simulation ends after all messages have been sent. If you want the simulation to run longer, you can use the `--msg-count` parameter to specify more messages or the `--msg-interval` parameter to specify a longer interval between messages. You can also run the command again to restart the simulated device. 
 
-   ![Run device app to report connectivity](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
+## Update the device twin 
 
-   After the device reported its connectivity information, it should appear in both queries.
+Once a device identity is created, a device twin is implicitly created in IoT Hub. In this section, you use the second CLI session to update a set of tags on the device twin associated with the device identity you created in the previous section.
 
-1. Right-click the **AddTagsAndQuery** project and select **Debug** > **Start new instance** to run the queries again. This time, **myDeviceId** should appear in both query results.
+1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
 
-   ![Device connectivity reported successfully](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
+1. In the second CLI session, run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple tags on the device twin for the device identity we created in the previous section.
 
-## Create a service app that updates desired properties and queries twins
+    *{DeviceName}*. The name of your device.
 
-In this section, you create a .NET console app, using C#, that adds location metadata to the device twin associated with **myDeviceId**. The app queries IoT hub for devices located in the US and then queries devices that report a cellular network connection.
+    *{HubName}*. The name of your IoT hub.
 
-1. In Visual Studio, select **File > New > Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
+    ```azurecli
+    az iot hub device-twin update --device-id {DeviceName} --hub-name {HubName} \
+                                  --tags '{"location":{"region":"US","plant":"Redmond43"}}'
+    ```
 
-1. In **Configure your new project**, name the project **AddTagsAndQuery**, the select **Next**.
+1. In the second CLI session, confirm that the JSON response shows the results of the update operation. In the following JSON response example, we used `SampleDevice` for the `{DeviceName}` placeholder in the `az iot hub device-twin update` CLI command. 
 
-   :::image type="content" source="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png" alt-text="Screenshot of how to create a new Visual Studio project." lightbox="./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png":::
+    ```json
+    {
+      "authenticationType": "sas",
+      "capabilities": {
+        "iotEdge": false
+      },
+      "cloudToDeviceMessageCount": 0,
+      "connectionState": "Connected",
+      "deviceEtag": "MTA2NTU1MDM2Mw==",
+      "deviceId": "SampleDevice",
+      "deviceScope": null,
+      "etag": "AAAAAAAAAAI=",
+      "lastActivityTime": "0001-01-01T00:00:00+00:00",
+      "modelId": "",
+      "moduleId": null,
+      "parentScopes": null,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2023-02-21T10:40:10.5062402Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "$metadata": {
+            "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
+            "connectivity": {
+              "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
+              "type": {
+                "$lastUpdated": "2023-02-21T10:40:43.8539917Z"
+              }
+            }
+          },
+          "$version": 2,
+          "connectivity": {
+            "type": "cellular"
+          }
+        }
+      },
+      "status": "enabled",
+      "statusReason": null,
+      "statusUpdateTime": "0001-01-01T00:00:00+00:00",
+      "tags": {
+        "location": {
+          "plant": "Redmond43",
+          "region": "US"
+        }
+      },
+      "version": 4,
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      }
+    }
+    ```
+    
+## Query your IoT hub for devices
 
-1. Accept the default version of the .NET Framework, then select **Create** to create the project.
+IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. In this section, you use the second CLI session to execute two queries on the set of device twins for your IoT hub: the first query selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network. Both queries are configured to return only the first 100 devices in the result set.
 
-1. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then select **Manage NuGet Packages**.
+1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
 
-1. Select **Browse** and search for and select **Microsoft.Azure.Devices**. Select **Install**.
+1. In the second CLI session, run the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command, replacing the following placeholders with their corresponding values. In this example, we're filtering the query to return only the device twins of devices located in the **Redmond43** plant.
 
-   ![NuGet Package Manager window](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
+    *{HubName}*. The name of your IoT hub.
 
-   This step downloads, installs, and adds a reference to the [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet package and its dependencies.
+    ```azurecli
+    az iot hub query --hub-name {HubName} \
+                     --query-command "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'" \
+                     --top 100
+    ```
 
-1. Add the following `using` statements at the top of the **Program.cs** file:
+1. In the second CLI session, confirm that the JSON response shows the results of the query. 
 
-   ```csharp  
-   using Microsoft.Azure.Devices;
-   ```
+    ```json
+    {
+      "authenticationType": "sas",
+      "capabilities": {
+        "iotEdge": false
+      },
+      "cloudToDeviceMessageCount": 0,
+      "connectionState": "Connected",
+      "deviceEtag": "MTA2NTU1MDM2Mw==",
+      "deviceId": "SampleDevice",
+      "deviceScope": null,
+      "etag": "AAAAAAAAAAI=",
+      "lastActivityTime": "0001-01-01T00:00:00+00:00",
+      "modelId": "",
+      "moduleId": null,
+      "parentScopes": null,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2023-02-21T10:40:10.5062402Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "$metadata": {
+            "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
+            "connectivity": {
+              "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
+              "type": {
+                "$lastUpdated": "2023-02-21T10:40:43.8539917Z"
+              }
+            }
+          },
+          "$version": 2,
+          "connectivity": {
+            "type": "cellular"
+          }
+        }
+      },
+      "status": "enabled",
+      "statusReason": null,
+      "statusUpdateTime": "0001-01-01T00:00:00+00:00",
+      "tags": {
+        "location": {
+          "plant": "Redmond43",
+          "region": "US"
+        }
+      },
+      "version": 4,
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      }
+    }
+    ```
 
-1. Add the following fields to the **Program** class. Replace `{iot hub connection string}` with the IoT Hub connection string that you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+1. In the second CLI session, run the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command, replacing the following placeholders with their corresponding values. In this example, we're filtering the query to return only the device twins of devices located in the **Redmond43** plant that are also connected through a cellular network.
 
-   ```csharp  
-   static RegistryManager registryManager;
-   static string connectionString = "{iot hub connection string}";
-   ```
+    *{HubName}*. The name of your IoT hub.
 
-1. Add the following method to the **Program** class:
+    ```azurecli
+    az iot hub query --hub-name {HubName} \
+                     --query-command "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' \
+                                      AND properties.reported.connectivity.type = 'cellular'" \
+                     --top 100
+    ```
 
-   ```csharp  
-   public static async Task AddTagsAndQuery()
-   {
-       var twin = await registryManager.GetTwinAsync("myDeviceId");
-       var patch =
-           @"{
-               tags: {
-                   location: {
-                       region: 'US',
-                       plant: 'Redmond43'
-                   }
-               }
-           }";
-       await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
-
-       var query = registryManager.CreateQuery(
-         "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
-       var twinsInRedmond43 = await query.GetNextAsTwinAsync();
-       Console.WriteLine("Devices in Redmond43: {0}", 
-         string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
-
-       query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
-       var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
-       Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
-         string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
-   }
-   ```
-
-   The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
-
-   After updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
-
-   The previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins, for example, results of aggregation queries.
-
-1. Finally, add the following lines to the **Main** method:
-
-   ```csharp  
-   registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-   AddTagsAndQuery().Wait();
-   Console.WriteLine("Press Enter to exit.");
-   Console.ReadLine();
-   ```
-
-1. Run this application by right-clicking on the **AddTagsAndQuery** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
-
-   ![Query results in window](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
+1. In the second CLI session, confirm that the JSON response shows the results of the query. The results of this query should match the results of the previous query in this section.
 
 In this article, you:
 
-* Added device metadata as tags from a back-end app
-* Reported device connectivity information in the device twin
-* Queried the device twin information, using SQL-like IoT Hub query language
+* Added device metadata as tags from an Azure CLI session
+* Simulated a device that reported device connectivity information in the device twin
+* Queried the device twin information, using SQL-like IoT Hub query language in an Azure CLI session
 
 ## Next steps
 
