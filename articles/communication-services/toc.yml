@@ -127,6 +127,8 @@ items:
     items:
     - name: Authenticate with Azure AD
       href: quickstarts/identity/service-principal.md
+    - name: Use Postman to send SMS messages
+      href: tutorials/postman-tutorial.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
@@ -140,6 +142,12 @@ items:
       - name: Log SMS events
   - name: Voice and Video Calling
     items:
+    - name: Prepare a Node.js web app for Calling
+      href: tutorials/building-app-start.md
+    - name: Build an authentication service using Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+    - name: Add video calling to your Android WebView client app
+      href: quickstarts/voice-video-calling/get-started-android-webview.md
     - name: Call management
       items:
       - name: Manage calls
@@ -190,6 +198,12 @@ items:
         href: quickstarts/voice-video-calling/handle-calling-events.md
   - name: Chat
     items:
+    - name: Build an authentication service using Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+    - name: Add a bot to your chat app
+      href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Add file sharing to your application with UI Library
+      href: tutorials/file-sharing-tutorial.md
     - name: Events
       items:
       - name: View Chat events
@@ -211,51 +225,28 @@ items:
           href: how-tos/ui-library-sdk/troubleshooting.md
   - name: Phone Calling
     items:
+    - name: Add emergency calling to your app
+      href: quickstarts/telephony/emergency-calling.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
-    - name: Build a workflow for customer interactions 
-      href: quickstarts/call-automation/callflows-for-customer-interactions.md
-    - name: Record a call
-      href: quickstarts/voice-video-calling/get-started-call-recording.md
-    - name: Add emergency calling to your app
-      href: quickstarts/telephony/emergency-calling.md
+    - name: Call Automation
+      items:
+      - name: Build a workflow for customer interactions 
+        href: quickstarts/call-automation/callflows-for-customer-interactions.md
+      - name: Record a call
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
+      - name: Control and steer calls
+        href: how-tos/call-automation/actions-for-call-control.md
+      - name: Customize voice prompts to users with Play action 
+        href: how-tos/call-automation/play-action.md
+      - name: Gather user input with Recognize action 
+        href: how-tos/call-automation/recognize-action.md
   - name: Email
     items:
     - name: View email events
       href: quickstarts/email/handle-email-events.md
-- name: Tutorials 
-  items:
-  - name: SMS
-    items:
-    - name: Use Postman to send SMS messages
-      href: tutorials/postman-tutorial.md
-  - name: Voice and Video Calling
-    items:
-    - name: Prepare a Node.js web app for Calling
-      href: tutorials/building-app-start.md
-    - name: Build an authentication service using Azure Functions
-      href: tutorials/trusted-service-tutorial.md
-    - name: Add video calling to your Android WebView client app
-      href: quickstarts/voice-video-calling/get-started-android-webview.md
-  - name: Chat
-    items:
-    - name: Build an authentication service using Azure Functions
-      href: tutorials/trusted-service-tutorial.md
-    - name: Add a bot to your chat app
-      href: quickstarts/chat/quickstart-botframework-integration.md
-    - name: Add file sharing to your application with UI Library
-      href: tutorials/file-sharing-tutorial.md
-  - name: Phone Calling
-    items:
-    - name: Control and steer calls
-      href: how-tos/call-automation/actions-for-call-control.md
-    - name: Customize voice prompts to users with Play action 
-      href: how-tos/call-automation/play-action.md
-    - name: Gather user input with Recognize action 
-      href: how-tos/call-automation/recognize-action.md
-  - name: Email
 - name: Samples 
   items:
   - name: SMS
