@@ -130,7 +130,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
    - For an Azure AD user account:
 
      ```azurepowershell
-     $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query objectId -o tsv)
+     $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query id -o tsv)
      ```
 
    - For an Azure AD application:
