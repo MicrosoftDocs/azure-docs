@@ -21,7 +21,7 @@ A container runtime is software that executes containers and manages container i
 
 With a `containerd`-based node and node pools, instead of talking to the `dockershim`, the kubelet talks directly to `containerd` using the CRI (container runtime interface) plugin, removing extra hops in the data flow when compared to the Docker CRI implementation. As such, you see better pod startup latency and less resource (CPU and memory) usage.
 
-By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enables kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow.
+By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements through this new architecture enable kubelet communicating directly to `containerd` through the CRI plugin. While in a Moby/docker architecture, kubelet communicates to the `dockershim` and docker engine before reaching `containerd`, therefore having extra hops in the data flow.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
@@ -62,7 +62,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs use the new [AKS Ub
 
 When you create a new cluster or add a new node pool to an existing cluster, by default the OS disk size is determined by the number for vCPUs. The number of vCPUs is based on the VM SKU, and in the following table we list the default values:
 
-|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
+|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mbps) |
 |--|--|--|--|
 | 1 - 7 | P10/128G | 500 | 100 |
 | 8 - 15 | P15/256G | 1100 | 125 |

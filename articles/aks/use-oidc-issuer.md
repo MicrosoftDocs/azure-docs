@@ -59,7 +59,6 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 ## Next steps
 
 * See [configure creating a trust relationship between an app and an external identity provider](../active-directory/develop/workload-identity-federation-create-trust.md) to understand how a federated identity credential creates a trust relationship between an application on your cluster and an external identity provider.
-* 
 * Review [Azure AD workload identity][azure-ad-workload-identity-overview] (preview). This authentication method integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 * See [Secure pod network traffic][secure-pod-network-traffic] to understand how to use the Network Policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS.
 
