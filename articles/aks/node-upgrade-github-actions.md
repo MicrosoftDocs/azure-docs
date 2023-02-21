@@ -95,7 +95,7 @@ Download and sign in to the Azure CLI.
 
           steps:
             - name: Azure Login
-              uses: Azure/login@v1.1
+              uses: Azure/login@v1.4.3
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }}
       ```
@@ -110,11 +110,16 @@ Download and sign in to the Azure CLI.
 
     ```output
     {
-      "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "displayName": "azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "name": "http://azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "password": "xXxXxXxXx",
-      "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "clientSecret": "xXxXxXxXx",
+      "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"      
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
     }
     ```
 
@@ -149,11 +154,11 @@ To create the steps to execute Azure CLI commands.
 
         steps:
           - name: Azure Login
-            uses: Azure/login@v1.1
+            uses: Azure/login@v1.4.3
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
           - name: Upgrade node images
-            uses: Azure/cli@v1.0.0
+            uses: Azure/cli@v1.0.6
             with:
               inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
@@ -190,7 +195,7 @@ jobs:
 
     steps:
       - name: Azure Login
-        uses: Azure/login@v1.1
+        uses: Azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 

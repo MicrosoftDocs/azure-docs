@@ -1,8 +1,8 @@
 ---
 title: Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster
 description: Add or update your Red Hat pull secret on existing 4.x ARO clusters
-author: konghot
-ms.author: pkonghot
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/21/2020

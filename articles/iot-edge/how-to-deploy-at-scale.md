@@ -5,7 +5,7 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -50,7 +50,7 @@ The steps for creating a deployment and a layered deployment are very similar. A
 There are five steps to create a deployment. The following sections walk through each one.
 
 >[!NOTE]
->The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
+>The steps in this article reflect the latest schema version of the IoT Edge agent and hub.
 >
 >If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
 

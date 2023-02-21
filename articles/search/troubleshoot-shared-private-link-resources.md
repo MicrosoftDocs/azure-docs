@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting shared private link resources
+title: Troubleshoot shared private link resources
 titleSuffix: Azure Cognitive Search
-description: Troubleshooting guide for common problems when managing shared private link resources.
+description: Troubleshooting guide for common problems when managing shared private link resources in Azure Cognitive Search.
 
 manager: nitinme
 author: arv100kri
@@ -9,10 +9,10 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/26/2022
+ms.date: 01/18/2023
 ---
 
-# Troubleshooting common issues with Shared Private Links
+# Troubleshoot issues with Shared Private Links in Azure Cognitive Search
 
 A shared private link allows Azure Cognitive Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur.
 
@@ -53,9 +53,10 @@ Some common errors that occur during the creation phase are listed below.
   | Azure Storage | `Microsoft.Storage/storageAccounts`| `2020-08-01` |
   | Azure Cosmos DB | `Microsoft.DocumentDb/databaseAccounts`| `2020-08-01` |
   | Azure SQL Database | `Microsoft.Sql/servers`| `2020-08-01` |
-  | Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
   | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
+  | Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
   | Azure Functions (preview) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
+  | Azure SQL Managed Instance (preview) | `Microsoft.Sql/managedInstance` | `2020-08-01-Preview` |
 
   In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it can't be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
@@ -63,7 +64,7 @@ Some common errors that occur during the creation phase are listed below.
 
 ## Deployment failures
 
-A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#check-endpoint-status) in the portal or by query, and address any errors that might occur.
+A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#1---create-a-shared-private-link) in the portal or by query, and address any errors that might occur.
 
 Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the following table.
 

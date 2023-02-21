@@ -1,11 +1,11 @@
 ---
 title: Integrate Palo Alto with Microsoft Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ms.topic: tutorial
 ---
 
-# Tutorial: Integrate Palo-Alto with Microsoft Defender for IoT
+# Integrate Palo-Alto with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate, and use Palo Alto with Microsoft Defender for IoT.
 

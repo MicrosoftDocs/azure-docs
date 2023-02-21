@@ -36,14 +36,15 @@ The Logs Ingestion API can send data to any custom table that you create and to 
 
 ### Built-in tables
 
-The Logs Ingestion API can send data to the following built-in tables. Other tables may be added to this list as support for them is implemented. Columns extended on top of built-in tables must have the suffix `_CF`. Columns in a custom table don't need this suffix. Column names can consist of alphanumeric characters and the characters `_` and `-`, and they must start with a letter. 
+The Logs Ingestion API can send data to the following built-in tables. Other tables may be added to this list as support for them is implemented. Columns extended on top of built-in tables must have the suffix `_CF`. Columns in a custom table don't need this suffix.
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
 - [Syslog](/azure/azure-monitor/reference/tables/syslog)
 - [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
-
+> [!NOTE]
+> Column names can consist of alphanumeric characters and the characters `_` and `-`, and they must start with a letter. 
 
 ## Authentication
 
@@ -85,7 +86,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 
 ### Body
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Additionally, it is important to ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
 
 ## Sample call
 

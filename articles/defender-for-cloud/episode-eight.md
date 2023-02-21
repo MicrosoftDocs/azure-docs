@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT
 description: Learn how Defender for IoT discovers devices to monitor and how it fits in the Microsoft Security portfolio.
 ms.topic: reference
-ms.date: 06/01/2022
+ms.date: 01/24/2023
 ---
 
 # Microsoft Defender for IoT

@@ -36,7 +36,7 @@ Select a detection to view its details.
 Smart detection detects and notifies about various issues, such as:
 
 * [Smart detection - Failure Anomalies](./proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load, and other factors. Notifies if the failure rate goes outside the expected envelope.
-* [Smart detection - Performance Anomalies](./proactive-performance-diagnostics.md). Notifies if response time of an operation or dependency duration is slowing down, compared to historical baseline. It also notifies if we identify an anomalous pattern in response time, or page load time.   
+* [Smart detection - Performance Anomalies](./smart-detection-performance.md). Notifies if response time of an operation or dependency duration is slowing down, compared to historical baseline. It also notifies if we identify an anomalous pattern in response time, or page load time.   
 * General degradations and issues, like [Trace degradation](./proactive-trace-severity.md), [Memory leak](./proactive-potential-memory-leak.md), [Abnormal rise in Exception volume](./proactive-exception-volume.md) and [Security anti-patterns](./proactive-application-security-detection-pack.md).
 
 (The help links in each notification take you to the relevant articles.)

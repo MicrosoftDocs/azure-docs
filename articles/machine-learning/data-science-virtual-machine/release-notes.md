@@ -21,6 +21,16 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## January 10, 2023
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version: `23.01.06`
+
+Main changes:
+
+- Added R package "ranger"
+- Pinned `pandas==1.1.5` and `numpy==1.23.0` in `azureml_py38` environment
+
 ## November 30, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 

@@ -3,15 +3,15 @@ title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machines off
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to SQL Server on Azure Virtual Machines offline by using Azure Data Studio and Azure Database Migration Service.
 services: dms
-author: kbarlett001
-ms.author: kebarlet
+author: croblesm
+ms.author: roblescarlos
 manager: 
 ms.reviewer: cawrites
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 01/12/2023
 ---
 
 # Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machines offline in Azure Data Studio
@@ -252,8 +252,16 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
 After all database backups are restored on the instance of SQL Server on Azure Virtual Machines, an automatic migration cutover is initiated by Database Migration Service to ensure that the migrated database is ready to use. The migration status changes from **In progress** to **Succeeded**.
 
+## Limitations
+
+Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+
 ## Next steps
 
 - Complete a quickstart to [migrate a database to SQL Server on Azure Virtual Machines by using the T-SQL RESTORE command](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide).
 - Learn more about [SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
--Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+- Learn how to [connect apps to SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+- To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

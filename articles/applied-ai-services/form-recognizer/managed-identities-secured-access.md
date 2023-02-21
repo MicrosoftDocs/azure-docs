@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 01/18/2023
 ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -41,7 +41,7 @@ To get started, you'll need:
 
 * An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. You'll create a virtual network to deploy your application resources to train models and analyze documents.
 
-* An [**Azure data science VM**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) optionally deploy a data science VM in the virtual network to test the secure connections being established.
+* An **Azure data science VM** for [**Windows**](../../machine-learning/data-science-virtual-machine/provision-vm.md) or [**Linux/Ubuntu**](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md) to optionally deploy a data science VM in the virtual network to test the secure connections being established.
 
 ## Configure resources
 
@@ -280,4 +280,3 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
 > [!div class="nextstepaction"]
 > [Access Azure Storage from a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)
-

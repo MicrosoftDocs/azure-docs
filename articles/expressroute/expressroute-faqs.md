@@ -414,7 +414,7 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 Yes. Microsoft 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Check with your organization's networking team if the network at your location is configured to connect to Microsoft 365 services through ExpressRoute.
 
 ### How can I plan for high availability for Microsoft 365 network traffic on Azure ExpressRoute?
-See the recommendation for [High availability and failover with Azure ExpressRoute](/azure/expressroute/designing-for-high-availability-with-expressroute)
+See the recommendation for [High availability and failover with Azure ExpressRoute](./designing-for-high-availability-with-expressroute.md)
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
 

@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
 ms.custom: kr2b-contr-experiment
-
+ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/31/2022
@@ -16,7 +16,7 @@ ms.date: 05/31/2022
 
 [!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
-In this article, you learn how to integrate client applications with Azure Machine Learning endpoints. For more information on writing application code, see [Consume an Azure Machine Learning endpoint](v1/how-to-consume-web-service.md).
+In this article, you learn how to integrate client applications with Azure Machine Learning endpoints. 
 
 This article is part of the ML Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see [the migration overview article](migrate-overview.md).
 
@@ -61,7 +61,7 @@ You can call your Azure Machine Learning pipeline as a step in an Azure Data Fac
 
 ## Next steps
 
-In this article, you learned how to find schema and sample code for your pipeline endpoints. For more information on consuming endpoints from the client application, see [Consume an Azure Machine Learning endpoint](v1/how-to-consume-web-service.md).
+In this article, you learned how to find schema and sample code for your pipeline endpoints. For more information on authenticating to an endpoint, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
 See the rest of the articles in the Azure Machine Learning migration series:
 

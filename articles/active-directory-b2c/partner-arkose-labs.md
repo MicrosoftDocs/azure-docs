@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/4/2023
+ms.date: 01/18/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -37,7 +37,7 @@ Arkose Labs products integration includes the following components:
   - Custom HTML, JavaScript, and API connectors integrate with the Arkose platform
 - **Azure Functions** - Your hosted API endpoint that works with the API connectors feature 
   - This API validates the server-side of the Arkose Labs session token
-  - Learn more in the [Azure Functions Overview](/azure/azure-functions/functions-overview)
+  - Learn more in the [Azure Functions Overview](../azure-functions/functions-overview.md)
 
 The following diagram illustrates how the Arkose Labs platform integrates with Azure AD B2C.
 
@@ -179,7 +179,7 @@ Username and password are stored as environment variables, not part of the repos
 
 #### Deploy the application to the web
 
-1. Deploy your Azure Function to the cloud. Learn more with [Azure Functions documentation](/azure/azure-functions/).
+1. Deploy your Azure Function to the cloud. Learn more with [Azure Functions documentation](../azure-functions/index.yml).
 2. Copy the endpoint web URL of your Azure Function.
 3. After deployment, select the **Upload settings** option. 
 4. Your environment variables are uploaded to the Application settings of the app service. Learn more on [Application settings in Azure](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure). 

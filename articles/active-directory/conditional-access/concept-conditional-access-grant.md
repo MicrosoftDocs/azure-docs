@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 02/16/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -144,10 +144,12 @@ Applications must have the Intune SDK with policy assurance implemented and must
 
 The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
 
+- Adobe Acrobat Reader mobile app
 - iAnnotate for Office 365
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow Mobile
 - Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office
@@ -168,6 +170,7 @@ The following client apps are confirmed to support this setting, this list isn't
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
+- Provectus - Secure Contacts
 - Yammer (Android, iOS, and iPadOS)
 
 This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.

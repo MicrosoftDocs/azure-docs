@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 11/15/2022
+ms.date: 01/18/2023
 ms.topic: conceptual
 ---
 
@@ -72,6 +72,17 @@ Before you recreate or resize your pool, you should download any node agent logs
 
 > [!NOTE]
 > For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
+#### Operating system updates
+
+It's recommended that the VM image selected for a Batch pool should be up-to-date with the latest publisher provided security updates.
+Some images may perform automatic updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
+as retrieving package repository updates (for example, `apt update`) or installing packages during actions such as a
+[StartTask](jobs-and-tasks.md#start-task).
+
+Azure Batch doesn't verify or guarantee that images allowed for use with the service have the latest security updates.
+Updates to images are under the purview of the publisher of the image, and not that of Azure Batch. For certain images published
+under `microsoft-azure-batch`, there's no guarantee that these images are kept up-to-date with their upstream derived image.
 
 ### Pool lifetime and billing
 

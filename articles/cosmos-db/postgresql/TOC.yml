@@ -103,6 +103,8 @@
       items:
         - name: Scheduled maintenance
           href: concepts-maintenance.md
+        - name: Burstable compute
+          href: concepts-burstable-compute.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity

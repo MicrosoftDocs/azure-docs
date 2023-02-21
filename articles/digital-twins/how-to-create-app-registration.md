@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Create an Azure Active Directory app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/25/2022
+ms.date: 01/11/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q4
@@ -219,10 +219,14 @@ Use these steps to create the role assignment for your registration.
     | Setting | Value |
     | --- | --- |
     | Role | Select as appropriate |
-    | Assign access to | User, group, or service principal |
-    | Members | Search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
+    | Members > Assign access to | User, group, or service principal |
+    | Members > Members | **+ Select members**, then search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
     
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the Roles tab in the Add role assignment page." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+
+   :::image type="content" source="media/how-to-create-app-registration/add-role.png" alt-text="Screenshot of the Members tab in the Add role assignment page." lightbox="media/how-to-create-app-registration/add-role.png":::
+
+    Once the role has been selected, **Review + assign** it.
 
 #### Verify role assignment
 

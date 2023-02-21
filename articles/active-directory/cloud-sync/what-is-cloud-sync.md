@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/17/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow basic customization for attribute flows |● |● |
 | Synchronize Exchange online attributes |● |● |
 | Synchronize extension attributes 1-15 |● |● |
-| Synchronize customer defined AD attributes (directory extensions) |● | |
+| Synchronize customer defined AD attributes (directory extensions) |●|●|
 | Support for Password Hash Sync |●|●|
 | Support for Pass-Through Authentication |●||
 | Support for federation |●|●|
@@ -64,7 +64,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
 | Support for password writeback |● |● |
-| Support for device writeback|● | |
+| Support for device writeback|● |Customers should use [Cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust?tabs=intune) for this moving forward|
 | Support for group writeback|● | |
 | Support for merging user attributes from multiple domains|● | |
 | Azure AD Domain Services support|● | |

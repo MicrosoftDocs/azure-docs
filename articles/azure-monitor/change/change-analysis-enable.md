@@ -93,5 +93,5 @@ foreach ($webapp in $webapp_list)
 
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
-- Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).
+- Enable Application Insights for [Azure web apps](../../azure-monitor/app/azure-web-apps.md).
 - Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md).

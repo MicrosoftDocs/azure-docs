@@ -91,7 +91,7 @@ Authentication issues can happen because you're using an *N* SKU of Windows on y
 
 ### Authentication issues when TLS 1.2 not enabled
 
-Authentication issues can happen when your local Windows device doesn't have TLS 1.2 enabled. This is most likely with Windows 7 where TLS 1.2 isn't enabled by default. To enable TLS 1.2 on Windows 7, you need to set the following registry values:
+Authentication issues can happen when your local Windows device doesn't have TLS 1.2 enabled. To enable TLS 1.2, you need to set the following registry values:
 
 - **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client`
 

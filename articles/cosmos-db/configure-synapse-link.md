@@ -193,7 +193,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 #### Python V4 SDK
 
-The following Java code creates a Synapse Link enabled container by setting the `analytical_storage_ttl` property. To update an existing container, use the `replace_container` method.
+The following Python code creates a Synapse Link enabled container by setting the `analytical_storage_ttl` property. To update an existing container, use the `replace_container` method.
 
 ```python
 # Client

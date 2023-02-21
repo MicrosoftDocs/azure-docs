@@ -210,7 +210,7 @@ items:
     items:
     - name: Integration runtime overview
       href: concepts-integration-runtime.md
-    - name: Choose the right integration-runtime configuration for your scenario
+    - name: Choose the right integration runtime configuration for your scenario
       href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
@@ -296,8 +296,12 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
-  - name: Change Data Capture
-    href: concepts-change-data-capture.md
+  - name: Change data capture
+    items:
+    - name: Change data capture
+      href: concepts-change-data-capture.md    
+    - name: Change data capture resource
+      href: concepts-change-data-capture-resource.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -354,6 +358,8 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Author a change data capture resource
+      href: how-to-change-data-capture-resource.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Continuous integration and delivery
@@ -435,6 +441,9 @@ items:
       displayName: upsert
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
+      displayName: polybase
+    - name: Azure Synapse Analytics (Artifacts)
+      href: connector-azure-synapse-analytics-artifacts.md
       displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -719,6 +728,10 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Notebook activity
+      href: transform-data-synapse-notebook.md
+    - name: Synapse Spark job definition activity
+      href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow
     items:
     - name: Append Variable activity
@@ -748,6 +761,8 @@ items:
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
       displayName: variables, control flow
+    - name: Set Pipeline Return Value
+      href: tutorial-pipeline-return-value.md
     - name: Switch activity
       href: control-flow-switch-activity.md
       displayName: control flow
@@ -1167,6 +1182,11 @@ items:
     - name: Activities
       href: data-factory-troubleshoot-guide.md
       displayName: timeout, troubleshooting
+    - name: Change data capture
+      items:
+      - name: Change data capture troubleshooting
+        href: change-data-capture-troubleshoot.md
+        displayName: change data capture, troubleshooting
     - name: Connectors
       items:
       - name: Overview and general copy activity errors
@@ -1273,6 +1293,24 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+- name: Managed Airflow
+  items:
+  - name: Tutorials
+    items:
+    - name: Run an existing pipeline with Airflow
+      href: tutorial-run-existing-pipeline-with-airflow.md
+    - name: Refresh a Power BI dataset with Airflow
+      href: tutorial-refresh-power-bi-dataset-with-airflow.md
+  - name: Concepts
+    href: concept-managed-airflow.md
+  - name: How-to
+    items:
+    - name: How does Managed Airflow work
+      href: how-does-managed-airflow-work.md
+    - name: How to change the Airflow password
+      href: password-change-airflow.md
+  - name: Pricing
+    href: airflow-pricing.md
 - name: Reference
   items:
   - name: Data flow script

@@ -26,9 +26,6 @@ Available sessions shows the number of available sessions in the host pool. The 
 
 The client operating system (OS) shows which version of the OS end-users accessing Azure Virtual Desktop resources are currently using. The client OS also shows which version of the web (HTML) client and the full Remote Desktop client the users have. For a full list of Windows OS versions, see [Operating System Version](/windows/win32/sysinfo/operating-system-version).
 
->[!IMPORTANT]
->Windows 7 support will end on January 10, 2023. The client OS version for Windows 7 is Windows 6.1.
-
 ## Connection success
 
 This item shows connection health. "Connection success" means that the connection could reach the host, as confirmed by the stack on that virtual machine. A failed connection means that the connection couldn't reach the host.

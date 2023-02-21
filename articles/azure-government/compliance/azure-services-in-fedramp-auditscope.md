@@ -1,11 +1,13 @@
 ---
 title: Azure and other Microsoft cloud services compliance scope
 description: This article tracks FedRAMP and DoD compliance scope for Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services across Azure, Azure Government, and Azure Government Secret cloud environments.
+author: stevevi
+ms.author: stevevi
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/05/2023
+ms.date: 01/31/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -75,9 +77,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Active Directory Provisioning Service](../../active-directory/app-provisioning/how-provisioning-works.md)| &#x2705; | &#x2705; |
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](../../cosmos-db/index.yml) | &#x2705; | &#x2705; |
 | [Azure Database for MariaDB](../../mariadb/index.yml) | &#x2705; | &#x2705; |
@@ -91,9 +93,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; |
@@ -107,9 +109,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; |
 | [Bastion](../../bastion/index.yml) | &#x2705; | &#x2705; |
 | [Batch](../../batch/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Blueprints](../../governance/blueprints/index.yml) | &#x2705; | &#x2705; |
 | [Bot Service](/azure/bot-service/) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; |
 | [Cognitive Search](../../search/index.yml) (formerly Azure Search) | &#x2705; | &#x2705; |
@@ -123,9 +125,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services: Personalizer](../../cognitive-services/personalizer/index.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services: QnA Maker](../../cognitive-services/qnamaker/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; |
 | [Cognitive Services: Speech](../../cognitive-services/speech-service/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Cognitive Services: Text Analytics](../../cognitive-services/language-service/concepts/migrate.md#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) <br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; |
 | [Cognitive Services: Translator](../../cognitive-services/translator/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Container Instances](../../container-instances/index.yml) | &#x2705; | &#x2705; |
 | [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; |
@@ -139,9 +141,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dataverse](/powerapps/maker/data-platform/) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | &#x2705; | &#x2705; |
 | [DDoS Protection](../../ddos-protection/index.yml) | &#x2705; | &#x2705; |
 | [Dedicated HSM](../../dedicated-hsm/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [DevTest Labs](../../devtest-labs/index.yml) | &#x2705; | &#x2705; |
 | [DNS](../../dns/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; |
 | [Dynamics 365 Commerce](/dynamics365/commerce/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)| &#x2705; | &#x2705; |
@@ -155,9 +157,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Event Hubs](../../event-hubs/index.yml) | &#x2705; | &#x2705; |
 | [ExpressRoute](../../expressroute/index.yml) | &#x2705; | &#x2705; |
 | [File Sync](../../storage/file-sync/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Firewall](../../firewall/index.yml)  | &#x2705; | &#x2705; |
 | [Firewall Manager](../../firewall-manager/index.yml)  | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) | &#x2705; | &#x2705; |
 | [Front Door](../../frontdoor/index.yml) | &#x2705; | &#x2705; |
 | [Functions](../../azure-functions/index.yml) | &#x2705; | &#x2705; |
@@ -171,9 +173,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; |
 | [Key Vault](../../key-vault/index.yml) | &#x2705; | &#x2705; |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Lighthouse](../../lighthouse/index.yml) | &#x2705; | &#x2705; |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; |
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
@@ -187,9 +189,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Sentinel](../../sentinel/index.yml)  | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
@@ -203,9 +205,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power Apps Portal](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; |
 | [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; |
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Power Virtual Agents](/power-virtual-agents/) | &#x2705; | &#x2705; |
 | [Private Link](../../private-link/index.yml) | &#x2705; | &#x2705; |
 | [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; |
@@ -219,9 +221,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
 | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | &#x2705; | &#x2705; |
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; |
@@ -235,9 +237,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Time Series Insights](../../time-series-insights/index.yml) | &#x2705; | &#x2705; |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; |
 | [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; |
@@ -284,8 +286,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](../../cosmos-db/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Database for MariaDB](../../mariadb/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -299,8 +301,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; |  |  |  |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -435,6 +438,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [VM Image Builder](../../virtual-machines/image-builder-overview.md) | &#x2705; | &#x2705; |  |  |  |
 | [VPN Gateway](../../vpn-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 

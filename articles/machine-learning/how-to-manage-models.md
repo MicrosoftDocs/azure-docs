@@ -29,6 +29,21 @@ Azure Machine Learning allows you to work with different types of models. In thi
 * The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
 * The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
 
+Additionally, you will need to:
+
+# [Azure CLI](#tab/cli)
+
+- Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+
+# [Python SDK](#tab/python)
+
+- Install the Azure Machine Learning SDK for Python
+    
+    ```bash
+    pip install azure-ai-ml
+    ```
+---
+
 ## Supported paths
 
 When you provide a model you want to register, you'll need to specify a `path` parameter that points to the data or job location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
@@ -76,6 +91,42 @@ These snippets use `custom` and `mlflow`.
 - `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure ML.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
+### Connect to your workspace
+
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Python SDK](#tab/python)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import Model
+    from azure.ai.ml.constants import AssetTypes
+    from azure.identity import DefaultAzureCredential
+    ```
+
+2. Configure workspace details and get a handle to the workspace:
+
+    ```python
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AML_WORKSPACE_NAME>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
+
+---
+
 ### Register your model as an asset in Machine Learning by using the CLI
 
 Use the following tabs to select where your model is located.
@@ -115,10 +166,10 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```cli
-az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --type mlflow_model
+az ml model create --name my-model --version 1 --path runs:/<run-id>/model/ --type mlflow_model
 ```
 
 ### azureml job
@@ -129,18 +180,18 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 
 ```cli
-az ml model create --name my-model --version 1 --path azureml://jobs/$RUN_ID/outputs/trained-model
+az ml model create --name my-model --version 1 --path azureml://jobs/<run-id>/outputs/trained-model
 ```
 
 For a complete example, see the [CLI reference](/cli/azure/ml/model).
@@ -176,14 +227,14 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```python
 from azure.ai.ml.entities import Model
 from azure.ai.ml.constants import ModelType
 
 run_model = Model(
-    path="runs:/$RUN_ID/model/"
+    path="runs:/<run-id>/model/"
     name="run-model-example",
     description="Model created from run.",
     type=ModelType.MLFLOW
@@ -200,13 +251,13 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 

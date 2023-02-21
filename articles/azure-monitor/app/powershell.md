@@ -11,7 +11,7 @@ ms.reviewer: vitalyg
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Manager. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](../logs/cost-logs.md#application-insights-billing), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Manager. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./availability-overview.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](../logs/cost-logs.md#application-insights-billing), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is:
 
@@ -472,7 +472,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
 
 See these other automation articles:
 
-* [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) via a quick method without using a template.
+* [Create an Application Insights resource](./create-new-resource.md#create-a-resource-automatically) via a quick method without using a template.
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert).
 * [Send Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md).
 * [Create release annotations](annotations.md).

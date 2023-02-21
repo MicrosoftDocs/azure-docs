@@ -224,7 +224,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!NOTE]
 > The beta client shouldn't be used in production environments.
 
-You can download the beta client for Android and Chrome OS from the [Google Play Store](https://play.google.com/apps/testing/com.microsoft.rdc.androidx). You'll need to give consent to access preview versions and download the client. You'll receive preview versions directly through the Google Play Store.
+You can download the beta client for Android and Chrome OS from [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx). You'll need to give consent to access preview versions and download the client. You'll receive preview versions directly through the Google Play Store.
 
 ## Provide feedback
 
