@@ -38,6 +38,8 @@ landingContent:
           - text: Deploy a Node.js web app
             url: quickstart-nodejs.md
           - text: Deploy a PHP web app
+            url: quickstart-php.md
+          - text: Deploy a GO web app
             url: quickstart-golang.md           
           - text: Deploy a Java app
             url: quickstart-java.md
