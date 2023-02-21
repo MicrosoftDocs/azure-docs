@@ -22,12 +22,6 @@ This guide assumes you've already <a href="https://portal.azure.com/#create/Micr
 
 The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
 
-#### [REST](#tab/rest)
-
-When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
-
-To analyze a local image, you'd put the binary image data in the HTTP request body.
-
 #### [C#](#tab/csharp)
 
 In your main class, save a reference to the URL of the image you want to analyze.
@@ -60,6 +54,15 @@ Save a reference to the URL of the image you want to analyze.
 auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg");
 ```
 
+> [!TIP]
+> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+
+#### [REST](#tab/rest)
+
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
+
+To analyze a local image, you'd put the binary image data in the HTTP request body.
+
 ---
 
 
@@ -69,21 +72,6 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two.
 
-#### [REST](#tab/rest)
-
-You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
-
-|URL parameter | Value | Description|
-|---|---|--|
-|`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
-|`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
-|`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
-|`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
-|`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
-
-A populated URL might look like this:
-
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people`
 
 #### [C#](#tab/csharp)
 
@@ -147,6 +135,23 @@ analysisOptions->SetFeatures(
 });
 ```
 
+#### [REST](#tab/rest)
+
+You can specify which features you want to use by setting the URL query parameters of the [Analysis 4.0 API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
+
+|URL parameter | Value | Description|
+|---|---|--|
+|`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
+|`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
+|`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
+|`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
+|`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
+
+A populated URL might look like this:
+
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people`
+
+
 ---
 
 
@@ -154,21 +159,6 @@ analysisOptions->SetFeatures(
 
 You can also specify the language of the returned data. 
 
-#### [REST](#tab/rest)
-
-The following URL query parameter specifies the language. The default value is `en`.
-
-|URL parameter | Value | Description|
-|---|---|--|
-|`language`|`en` | English|
-|`language`|`es` | Spanish|
-|`language`|`ja` | Japanese|
-|`language`|`pt` | Portuguese|
-|`language`|`zh` | Simplified Chinese|
-
-A populated URL might look like this:
-
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people&language=en`
 
 #### [C#](#tab/csharp)
 
@@ -216,6 +206,23 @@ Use the *language* property of your **ImageAnalysisOptions** object to specify a
 analysisOptions->SetLanguage("en");
 ```
 
+#### [REST](#tab/rest)
+
+The following URL query parameter specifies the language. The default value is `en`.
+
+|URL parameter | Value | Description|
+|---|---|--|
+|`language`|`en` | English|
+|`language`|`es` | Spanish|
+|`language`|`ja` | Japanese|
+|`language`|`pt` | Portuguese|
+|`language`|`zh` | Simplified Chinese|
+
+A populated URL might look like this:
+
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,smartCrops,objects,people&language=en`
+
+
 ---
 
 
@@ -224,105 +231,6 @@ analysisOptions->SetLanguage("en");
 This section shows you how to parse the results of the API call. It includes the API call itself.
 
 
-#### [REST](#tab/rest)
-
-The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following text is an example of a JSON response.
-
-```json
-{
-    "captionResult":
-    {
-        "text": "a person using a laptop",
-        "confidence": 0.55291348695755
-    },
-    "objectsResult":
-    {
-        "values":
-        [
-            {"boundingBox":{"x":730,"y":66,"w":135,"h":85},"tags":[{"name":"kitchen appliance","confidence":0.501}]},
-            {"boundingBox":{"x":523,"y":377,"w":185,"h":46},"tags":[{"name":"computer keyboard","confidence":0.51}]},
-            {"boundingBox":{"x":471,"y":218,"w":289,"h":226},"tags":[{"name":"Laptop","confidence":0.85}]},
-            {"boundingBox":{"x":654,"y":0,"w":584,"h":473},"tags":[{"name":"person","confidence":0.855}]}
-        ]
-    },
-    "modelVersion": "2023-02-01-preview",
-    "metadata":
-    {
-        "width": 1260,
-        "height": 473
-    },
-    "tagsResult":
-    {
-        "values":
-        [
-            {"name":"computer","confidence":0.9865934252738953},
-            {"name":"clothing","confidence":0.9695653915405273},
-            {"name":"laptop","confidence":0.9658201932907104},
-            {"name":"person","confidence":0.9536289572715759},
-            {"name":"indoor","confidence":0.9420197010040283},
-            {"name":"wall","confidence":0.8871886730194092},
-            {"name":"woman","confidence":0.8632704019546509},
-            {"name":"using","confidence":0.5603535771369934}
-        ]
-    },
-    "readResult":
-    {
-        "stringIndexType": "TextElements",
-        "content": "",
-        "pages":
-        [
-            {"height":473,"width":1260,"angle":0,"pageNumber":1,"words":[],"spans":[{"offset":0,"length":0}],"lines":[]}
-        ],
-        "styles": [],
-        "modelVersion": "2022-04-30"
-    },
-    "smartCropsResult":
-    {
-        "values":
-        [
-            {"aspectRatio":1.94,"boundingBox":{"x":158,"y":20,"w":840,"h":433}}
-        ]
-    },
-    "peopleResult":
-    {
-        "values":
-        [
-            {"boundingBox":{"x":660,"y":0,"w":584,"h":471},"confidence":0.9698998332023621},
-            {"boundingBox":{"x":566,"y":276,"w":24,"h":30},"confidence":0.022009700536727905},
-            {"boundingBox":{"x":587,"y":273,"w":20,"h":28},"confidence":0.01859394833445549},
-            {"boundingBox":{"x":609,"y":271,"w":19,"h":30},"confidence":0.003902678843587637},
-            {"boundingBox":{"x":563,"y":279,"w":15,"h":28},"confidence":0.0034854013938456774},
-            {"boundingBox":{"x":566,"y":299,"w":22,"h":41},"confidence":0.0031260766554623842},
-            {"boundingBox":{"x":570,"y":311,"w":29,"h":38},"confidence":0.0026493810582906008},
-            {"boundingBox":{"x":588,"y":275,"w":24,"h":54},"confidence":0.001754675293341279},
-            {"boundingBox":{"x":574,"y":274,"w":53,"h":64},"confidence":0.0012078586732968688},
-            {"boundingBox":{"x":608,"y":270,"w":32,"h":59},"confidence":0.0011869356967508793},
-            {"boundingBox":{"x":591,"y":305,"w":29,"h":42},"confidence":0.0010676260571926832}
-        ]
-    }
-}
-```
-
-### Error codes
-
-See the following list of possible errors and their causes:
-
-* 400
-    * `InvalidImageUrl` - Image URL is badly formatted or not accessible.
-    * `InvalidImageFormat` - Input data is not a valid image.
-    * `InvalidImageSize` - Input image is too large.
-    * `NotSupportedVisualFeature` - Specified feature type isn't valid.
-    * `NotSupportedImage` - Unsupported image, for example child pornography.
-    * `InvalidDetails` - Unsupported `detail` parameter value.
-    * `NotSupportedLanguage` - The requested operation isn't supported in the language specified.
-    * `BadArgument` - More details are provided in the error message.
-* 415 - Unsupported media type error. The Content-Type isn't in the allowed types:
-    * For an image URL, Content-Type should be `application/json`
-    * For a binary image data, Content-Type should be `application/octet-stream` or `multipart/form-data`
-* 500
-    * `FailedToProcess`
-    * `Timeout` - Image processing timed out.
-    * `InternalServerError`
 
 
 #### [C#](#tab/csharp)
@@ -590,6 +498,107 @@ else if (result->GetReason() == ImageAnalysisResultReason::Error)
     std::cout << " Did you set the computer vision endpoint and key?" << std::endl;
 }
 ```
+
+#### [REST](#tab/rest)
+
+The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following text is an example of a JSON response.
+
+```json
+{
+    "captionResult":
+    {
+        "text": "a person using a laptop",
+        "confidence": 0.55291348695755
+    },
+    "objectsResult":
+    {
+        "values":
+        [
+            {"boundingBox":{"x":730,"y":66,"w":135,"h":85},"tags":[{"name":"kitchen appliance","confidence":0.501}]},
+            {"boundingBox":{"x":523,"y":377,"w":185,"h":46},"tags":[{"name":"computer keyboard","confidence":0.51}]},
+            {"boundingBox":{"x":471,"y":218,"w":289,"h":226},"tags":[{"name":"Laptop","confidence":0.85}]},
+            {"boundingBox":{"x":654,"y":0,"w":584,"h":473},"tags":[{"name":"person","confidence":0.855}]}
+        ]
+    },
+    "modelVersion": "2023-02-01-preview",
+    "metadata":
+    {
+        "width": 1260,
+        "height": 473
+    },
+    "tagsResult":
+    {
+        "values":
+        [
+            {"name":"computer","confidence":0.9865934252738953},
+            {"name":"clothing","confidence":0.9695653915405273},
+            {"name":"laptop","confidence":0.9658201932907104},
+            {"name":"person","confidence":0.9536289572715759},
+            {"name":"indoor","confidence":0.9420197010040283},
+            {"name":"wall","confidence":0.8871886730194092},
+            {"name":"woman","confidence":0.8632704019546509},
+            {"name":"using","confidence":0.5603535771369934}
+        ]
+    },
+    "readResult":
+    {
+        "stringIndexType": "TextElements",
+        "content": "",
+        "pages":
+        [
+            {"height":473,"width":1260,"angle":0,"pageNumber":1,"words":[],"spans":[{"offset":0,"length":0}],"lines":[]}
+        ],
+        "styles": [],
+        "modelVersion": "2022-04-30"
+    },
+    "smartCropsResult":
+    {
+        "values":
+        [
+            {"aspectRatio":1.94,"boundingBox":{"x":158,"y":20,"w":840,"h":433}}
+        ]
+    },
+    "peopleResult":
+    {
+        "values":
+        [
+            {"boundingBox":{"x":660,"y":0,"w":584,"h":471},"confidence":0.9698998332023621},
+            {"boundingBox":{"x":566,"y":276,"w":24,"h":30},"confidence":0.022009700536727905},
+            {"boundingBox":{"x":587,"y":273,"w":20,"h":28},"confidence":0.01859394833445549},
+            {"boundingBox":{"x":609,"y":271,"w":19,"h":30},"confidence":0.003902678843587637},
+            {"boundingBox":{"x":563,"y":279,"w":15,"h":28},"confidence":0.0034854013938456774},
+            {"boundingBox":{"x":566,"y":299,"w":22,"h":41},"confidence":0.0031260766554623842},
+            {"boundingBox":{"x":570,"y":311,"w":29,"h":38},"confidence":0.0026493810582906008},
+            {"boundingBox":{"x":588,"y":275,"w":24,"h":54},"confidence":0.001754675293341279},
+            {"boundingBox":{"x":574,"y":274,"w":53,"h":64},"confidence":0.0012078586732968688},
+            {"boundingBox":{"x":608,"y":270,"w":32,"h":59},"confidence":0.0011869356967508793},
+            {"boundingBox":{"x":591,"y":305,"w":29,"h":42},"confidence":0.0010676260571926832}
+        ]
+    }
+}
+```
+
+### Error codes
+
+See the following list of possible errors and their causes:
+
+* 400
+    * `InvalidImageUrl` - Image URL is badly formatted or not accessible.
+    * `InvalidImageFormat` - Input data is not a valid image.
+    * `InvalidImageSize` - Input image is too large.
+    * `NotSupportedVisualFeature` - Specified feature type isn't valid.
+    * `NotSupportedImage` - Unsupported image, for example child pornography.
+    * `InvalidDetails` - Unsupported `detail` parameter value.
+    * `NotSupportedLanguage` - The requested operation isn't supported in the language specified.
+    * `BadArgument` - More details are provided in the error message.
+* 415 - Unsupported media type error. The Content-Type isn't in the allowed types:
+    * For an image URL, Content-Type should be `application/json`
+    * For a binary image data, Content-Type should be `application/octet-stream` or `multipart/form-data`
+* 500
+    * `FailedToProcess`
+    * `Timeout` - Image processing timed out.
+    * `InternalServerError`
+
 
 ---
 

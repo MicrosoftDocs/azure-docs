@@ -55,7 +55,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 ## Use the API
 
-The people detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `People` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
+The people detection feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `People` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
 
 ## Next steps
 

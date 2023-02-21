@@ -1,7 +1,7 @@
 ---
 title: OCR for images - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Extract text from in-the-wild and non-document images with a fast and synchronous Computer Vision API.
+description: Extract text from in-the-wild and non-document images with a fast and synchronous Computer Vision Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 02/20/2023
 ms.author: pafarley
 ---
 
@@ -24,22 +24,22 @@ OCR traditionally started as a machine-learning based technique for extracting t
 
 ## What is Computer Vision v4.0 Read OCR (preview)
 
-The new Computer Vision v4.0 Image Analysis REST API preview offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
+The new Computer Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 
 ## Use the V4.0 REST API preview
 
-The text extraction feature is part of the [v4.0 Analyze Image REST API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+The text extraction feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `Read` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
 
 For an example, copy the following command into a text editor and replace the `<key>` with your API key and optionally, your API endpoint URL. Then open a command prompt window and run the command.
 
 ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Read&model-version=latest&language=en&api-version=2023-02-01-preview" -d "{'url':'https://learn.microsoft.com/en-us/azure/cognitive-services/computer-vision/Images/handwritten-note.jpg'}"
     
 ```
 
 ## Text extraction output
 
-The following JSON response illustrates what the v4.0 Analyze Image API returns when extracting text from the given image.
+The following JSON response illustrates what the Image Analysis 4.0 API returns when extracting text from the given image.
 
 ![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg)
 
@@ -282,4 +282,4 @@ The following JSON response illustrates what the v4.0 Analyze Image API returns 
 
 ## Next steps
 
-Follow the v4.0 REST API sections in the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Analysis 4.0 API.
+Follow the [Image Analysis quickstart](./quickstarts-sdk/image-analysis-client-library.md) to extract text from an image using the Image Analysis 4.0 API.

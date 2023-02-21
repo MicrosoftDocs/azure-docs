@@ -44,7 +44,7 @@ For a more structured approach, follow a Training module for Image Analysis.
 
 ## Image Analysis features
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the Analyze Image API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
 ### Model customization (v4.0 preview only)
 
@@ -81,7 +81,7 @@ Identify and categorize an entire image, using a [category taxonomy](Category-Ta
 
 ### Generate image captions
 
-Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The captions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. 
+Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. 
 
 The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 

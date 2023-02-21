@@ -39,7 +39,7 @@ The generated bounding box can vary widely depending on what you specify for asp
 ## Use the API
 
 
-The smart cropping feature is available through the [Analyze](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `SmartCrops` in the **visualFeatures** query parameter. Also include a **smartcrops-aspect-ratios** query parameter, and set it to a decimal value for the aspect ratio you want (defined as width / height). Multiple aspect ratio values should be comma-separated.
+The smart cropping feature is available through the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `SmartCrops` in the **features** query parameter. Also include a **smartcrops-aspect-ratios** query parameter, and set it to a decimal value for the aspect ratio you want (defined as width / height) in the range [0.75, 1.80]. Multiple aspect ratio values should be comma-separated. If no aspect ratio value is provided the API will return a crop with an aspect ratio that best preserves the image’s most important region.  
 
 
 * [Generate a thumbnail (how-to)](./how-to/generate-thumbnail.md)
