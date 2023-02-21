@@ -51,16 +51,6 @@ Azure Monitor currently supports service resiliency for availability-zone-enable
 - France Central
 - Japan East
 
-## Create dedicated cluster with availability zone
-Move your workspace to an availability zone by [creating a new dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) in a region that supports availability zones. The cluster will automatically be enabled for availability zones. Then [link your workspace to the new cluster](logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
-
-> [!IMPORTANT]
-> Availability zone is defined on the cluster at creation time and can’t be modified.
-
-Transitioning to a new cluster can be a gradual process. Don't remove the previous cluster until it has been purged of any data. For example, if your workspace retention is set 60 days, you may want to keep your old cluster running for that period before removing it. To learn more, see [Migrate Log Analytics workspaces to availability zone support](../../availability-zones/migrate-monitor-log-analytics.md).
-
-Any queries against your workspace will query both clusters to provide you with a single, unified result set. This allows Azure Monitor experiences, such as workbooks and dashboards, to keep getting the full result set, based on data from both clusters.
-
 ## Next steps
 
 - See [Using queries in Azure Monitor Log Analytics](queries.md) to see how users interact with query packs in Log Analytics.
