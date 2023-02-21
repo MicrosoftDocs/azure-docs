@@ -15,7 +15,7 @@ Your app uses DNS when making calls to dependent resources. Resources could be A
 
 If you aren't integrating your app with a virtual network and you haven't configured custom DNS, your app uses [Azure DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution). If you integrate your app with a virtual network, your app uses the DNS configuration of the virtual network. The default for virtual network is also to use Azure DNS. Through the virtual network, it's also possible to link to [Azure DNS private zones](../dns/private-dns-overview.md) and use that for private endpoint resolution or private domain name resolution. 
 
-If you configured your virtual network with a list of custom DNS servers, name resolution uses these servers. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully. You also need to consider that your custom DNS servers have to resolve any public DNS records need for your app. Your DNS configuration needs to either forward requests to a public DNS server or include a public DNS server like Azure DNS in the list of custom DNS servers.
+If you configured your virtual network with a list of custom DNS servers, name resolution uses these servers. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully. You also need to consider that your custom DNS servers have to resolve any public DNS records used by your app. Your DNS configuration needs to either forward requests to a public DNS server or include a public DNS server like Azure DNS in the list of custom DNS servers.
 
 The individual app allows you to override the DNS configuration by specifying the `dnsServers` property in the `dnsConfiguration` site property object. You can specify up to five custom DNS servers. You can configure custom DNS servers using the Azure CLI:
 
@@ -27,7 +27,7 @@ You can still use the existing `WEBSITE_DNS_SERVER` app setting, and you can add
 
 When your app needs to resolve a domain name using DNS, the app sends a name resolution request to all configured DNS servers. The app evaluates the DNS server responses in the order you've configured the servers. If a higher order server doesn't respond within the configured timeout, it will fall back to the next server in the list.
 
-**Note:** When using custom DNS servers from your virtual network and if your virtual network had more than two custom DNS servers configured, Windows code apps used to sort the servers, and only use the first two servers. This behavior has changed for new apps, but hasn't changed for existing apps to maintain backwards compatibility.
+**Note:** When using custom DNS servers from your virtual network and if your virtual network have more than two custom DNS servers configured, Windows code apps used to sort the servers, and only use the first two servers. This behavior has changed for new apps, but hasn't changed for existing apps to maintain backwards compatibility.
 
 If you would like to adopt the new default behavior for Windows code apps, you can run this CLI command:
 
