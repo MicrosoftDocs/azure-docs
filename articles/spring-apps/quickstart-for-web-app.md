@@ -23,21 +23,21 @@ This quickstart explains how to deploy a Spring Boot web application to Azure Sp
 
 :::image type="content" source="media/quickstart-for-web-app/diagram.png" alt-text="Screenshot of Spring web app architecture." lightbox="media/quickstart-for-web-app/diagram.png":::
 
-The sample project is a typical 3 layers web application:
-1. Frontend is a bounded [React js](https://reactjs.org/) application.
-2. Backend is a spring web application that use Spring Data JPA to access a relational database.
-3. The [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) is used as the database.
-
-When you've completed this quickstart, the application will be accessible online, and you can manage it through the [Azure portal](https://ms.portal.azure.com/). The architecture in Azure is like this:
-
-The doc will work through these steps:
-1. Build and run the sample code locally.
+This quickstart will go through the following steps:
+1. Build and run the sample code locally. (todo: update this after adding this content: connect Azure PostgreSQL in localhost)
 2. Prepare the cloud environment for running this application.
    - Provision an Azure Spring Apps service instance.
    - Create an app in created Azure Spring Apps instance.
    - Create an Azure Database for PostgreSQL instance.
    - Connect App to Azure Database for PostgreSQL.
 3. Deploy the code to cloud.
+
+The sample project is a typical 3 layers web application:
+1. Frontend is a bounded [React js](https://reactjs.org/) application.
+2. Backend is a spring web application that use Spring Data JPA to access a relational database.
+3. The [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) is used as the database.
+
+When you've completed this quickstart, the application will be accessible online, and you can manage it through the [Azure portal](https://ms.portal.azure.com/).
 
 ## Prerequisites
 
