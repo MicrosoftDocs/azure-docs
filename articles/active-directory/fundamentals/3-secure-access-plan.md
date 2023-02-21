@@ -26,11 +26,11 @@ Before you create an external-access security plan, review the following two art
 
 For your security plan, document the following information:
 
-* Applications and resources to be grouped for access
+* Applications and resources grouped for access
 * Sign-in conditions for external users
   * Device state, sign-in location, client application requirements, user risk, etc.
 * Policies to determine timing for reviews and access removal 
-* User populations to be grouped for similar experiences
+* User populations grouped for similar experiences
 
 To implement the security plan, you can use Microsoft identity and access management policies, or another identity provider (IdP).
 
@@ -50,14 +50,14 @@ See the following links to articles about resource grouping strategies:
 * Define access for external user application groups
   *  [Overview: Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md) 
 
-Document the applications to be grouped. Considerations include:
+Document the grouped applications. Considerations include:
 
 * **Risk profile** - assess the risk if a bad actor gains access to an application 
-  * Identify application as High, Medium, or Low risk. It's recommended you don't group High-risk with Low-risk.
+  * Identify application as High, Medium, or Low risk. We recommend you don't group High-risk with Low-risk.
   * Document applications that can't be shared with external users
 * **Compliance frameworks** - determine compliance frameworks for apps
   * Identify access and review requirements
-* **Applications for roles or departments** - assess applications to be grouped for role, or department, access
+* **Applications for roles or departments** - assess applications grouped for role, or department, access
 * **Collaboration applications** - identify collaboration applications external users can access, such as Teams or SharePoint
   * For productivity applications, external users might have licenses, or you might provide access
 
@@ -66,7 +66,7 @@ Document the following information for application and resource group access by 
 * Descriptive group name, for example High_Risk_External_Access_Finance 
 * Applications and resources in the group
 * Application and resource owners and their contact information
-* Access is controlled by the IT team, or is delegated to a business owner
+* The IT team controls access, or control is delegated to a business owner
 * Prerequisites for access: background check, training, etc.
 * Compliance requirements to access resources
 * Challenges, for example multi-factor authentication (MFA) for some resources
@@ -106,11 +106,11 @@ Use the following table to help assess policy to address risk.
 | Identity protection is High risk| Require user to change password |
 | Network location| To access confidential projects, require sign-in from an IP address range |
 
-To use device state as policy input, the device is registered or joined to your tenant. To trust the device claims from the home tenant, configure cross-tenant access settings. See, [Modify inbound access settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings).
+To use device state as policy input, register or join the device to your tenant. To trust the device claims from the home tenant, configure cross-tenant access settings. See, [Modify inbound access settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings).
 
 You can use identity-protection risk policies. However, mitigate issues in the user home tenant. See, [Common Conditional Access policy: Sign-in risk-based multifactor authentication](../conditional-access/howto-conditional-access-policy-risk.md).
 
-For network locations, you can restrict access to IP addresses ranges you own. Use this method if external partners access applications while at your location. See, [Conditional Access: Block access by location](../conditional-access/howto-conditional-access-policy-location.md)
+For network locations, you can restrict access to IP addresses ranges that you own. Use this method if external partners access applications while at your location. See, [Conditional Access: Block access by location](../conditional-access/howto-conditional-access-policy-location.md)
 
 ## Document access review policies
 
@@ -120,7 +120,7 @@ Document policies that dictate when to review resource access, and remove accoun
 * Internal business policies and processes
 * User behavior
 
-Generally, policies are customized, however consider the following parameters:
+Generally, organizations customize policy, however consider the following parameters:
 
 * **Entitlement management access reviews**:
   * [Change lifecycle settings for an access package in entitlement management](../governance/entitlement-management-access-package-lifecycle-policy.md)
@@ -135,7 +135,7 @@ Generally, policies are customized, however consider the following parameters:
 
 ## Access control methods
 
-Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. Learn more in the following entitlement managment section.
+Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. Learn more in the following entitlement management section.
 
 > [!NOTE]
 > Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
@@ -148,7 +148,7 @@ Azure AD P2 and Microsoft 365 E5 have all the security and governance tools.
 
 ### Provision, sign-in, review access, and deprovision access
 
-Entries in bold are recommended.
+Entries in bold are recommended actions.
 
 | Feature| Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
 | - | - | - | - | - |
@@ -159,7 +159,7 @@ Entries in bold are recommended.
 
 ### Resource access 
  
-Entries in bold are recommended.
+Entries in bold are recommended actions.
 
 |Feature | App and resource access| SharePoint and OneDrive access| Teams access| Email and document security |
 | - |-|-|-|-|
@@ -170,7 +170,7 @@ Entries in bold are recommended.
 
 ### Entitlement management 
 
-Use entitlement management to provision and deprovision access to groups and teams, applications, and SharePoint sites. Define the connected organizations gramted access, self-service requests, and approval workflows. To ensure access ends correctly, define expiration policies and access reviews for packages. 
+Use entitlement management to provision and deprovision access to groups and teams, applications, and SharePoint sites. Define the connected organizations granted access, self-service requests, and approval workflows. To ensure access ends correctly, define expiration policies and access reviews for packages. 
 
 Learn more: [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 
@@ -178,7 +178,7 @@ Learn more: [Create a new access package in entitlement management](../governanc
 
 ### Provision, sign-in, review access, and deprovision access
 
-Items in bold are recommended.
+Items in bold are recommended actions.
 
 |Feature | Provision external users| Enforce sign-in requirements| Review access| Deprovision access |
 | - |-|-|-|-|
