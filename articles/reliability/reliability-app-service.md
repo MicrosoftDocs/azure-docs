@@ -24,9 +24,6 @@ Azure App Service adds the power of Microsoft Azure to your application, such as
 
 To explore how Azure App Service can bolster the resiliency of your application workload, see [Why use App Service?](/azure/app-service/overview#why-use-app-service)
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans. Availability zones are only supported on App Service Environment v3. If you're using App Service Environment v1 or v2 and want to use availability zones, you'll need to migrate to App Service Environment v3.
-
 ## Availability zone support
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if the one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
