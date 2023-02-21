@@ -1,16 +1,16 @@
 ---
-title: "Microservices communication using Dapr Service Invocation"
-description: Enable two sample Dapr applications to communicate and leverage Azure Container Apps.
+title: "Microservices communication using Dapr Pub/sub messaging"
+description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/21/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Service Invocation 
+# Microservices communication using Dapr Pub/sub messaging 
 
 [Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. While you can deploy and manage the Dapr OSS project yourself, deploying your Dapr applications to the Container Apps platform:
 
