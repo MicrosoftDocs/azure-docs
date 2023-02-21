@@ -26,8 +26,6 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 > [!IMPORTANT]
 > The Azure NetApp Files customer-manged keys feature is currently in preview. To access this preview program, contact your account team. Wait for an official confirmation email from the Azure NetApp Files team before using customer-managed keys.
 
-The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page.
-
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * Switching from user-assigned identity to the system-assigned identity isn't currently supported.
