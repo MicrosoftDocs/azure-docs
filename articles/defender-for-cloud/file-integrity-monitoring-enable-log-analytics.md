@@ -19,7 +19,7 @@ In this article, you'll learn how to:
 
 > [!NOTE]
 > Be aware that this service may create the following account on any SQL Servers monitored: \
-> `NT Service\HealthService`
+> `NT Service\HealthService` \
 > If you delete this account it will be automatically recreated.
 
 ## Availability
