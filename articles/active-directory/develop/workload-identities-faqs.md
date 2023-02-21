@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 [Workload identities](workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
-Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the Cloud Solution Providers program. Azure and Microsoft 365 subscribers can also purchase Workload
+Program](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), and the [Cloud Solution Providers program](../lighthouse/concepts/cloud-solution-provider.md). Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
 
 For more information, see [what are workload identities?](workload-identities-overview.md)
