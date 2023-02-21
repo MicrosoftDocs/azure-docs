@@ -54,7 +54,7 @@ Before you can choose throughput or storage capacity, you need to choose the cac
 
 * Read-write standard caching: A flexible general-purpose cache
 * Read-only caching: A high-throughput cache designed to minimize file access latency
-* Read-write premium caching (Preview): A disk-optimized cache with the lowest latency and highest throughput
+* Read-write premium caching (Preview): An NVMe-optimized cache with the lowest latency and highest throughput
 <!-- * Read-only scalable standard caching (Preview): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
 
 ![Screenshot of the cache tab in the Azure portal create wizard, with the Cache type selector open.](media/cache-type-dropdown-with-premium.png)
