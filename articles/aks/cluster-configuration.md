@@ -60,7 +60,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs use the new [AKS Ub
 
 ## Default OS disk sizing
 
-By default, when creating a new cluster or adding a new node pool to an existing cluster, the OS disk size is determined by the number for vCPUs. The number of vCPUs is based on the VM SKU and the default values are shown in the following table:
+When you create a new cluster or add a new node pool to an existing cluster, by default the OS disk size is determined by the number for vCPUs. The number of vCPUs is based on the VM SKU, and in the following table we list the default values:
 
 |VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
 |--|--|--|--|
@@ -74,40 +74,41 @@ By default, when creating a new cluster or adding a new node pool to an existing
 
 ## Ephemeral OS
 
-By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss if the VM needs to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
+By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This configuration provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
-Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you don't incur more storage costs.
+Like the temporary disk, included in the price of the VM is an ephemeral OS disk.
 
 > [!IMPORTANT]
-> When you don't explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
+> When you don't explicitly request managed disks for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
 
 If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. Size requirements and recommendations for VM cache are available in the [Azure VM documentation](../virtual-machines/ephemeral-os-disks.md).
 
-If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you'll receive a validation error.
+If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
 
-If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60GB OS disk, this configuration would default to ephemeral OS. The requested size of 60GB is smaller than the maximum cache size of 86 GB.
+If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60 GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
 
-If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
+If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
 
-The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks, but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you'll receive a validation error.
+The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
 
-If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
+If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
 
-If you chose to use [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS and has 150 GiB of temporary storage. If you don't specify the OS disk type, the node pool is provisioned with an ephemeral OS by default.
+If you chose to use [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
+and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
 
 Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
 
 ### Use Ephemeral OS on new clusters
 
-Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
+Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as described below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add other ephemeral OS node pools as described below.
 
 ### Use Ephemeral OS on existing clusters
 
@@ -319,27 +320,27 @@ Similarly, you can specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_
 
 ## Custom resource group name
 
-When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group is created for the worker nodes. By default, AKS names the node resource group `MC_resourcegroupname_clustername_location`, but you can also specify a custom name.
+When you deploy an Azure Kubernetes Service cluster in Azure, it also creates a second resource group for the worker nodes. By default, AKS names the node resource group `MC_resourcegroupname_clustername_location`, but you can specify a custom name.
 
-To specify a custom resource group name, install the `aks-preview` Azure CLI extension version 0.3.2 or later. When using the Azure CLI, include the `--node-resource-group` parameter of the `az aks create` command to specify a custom name for the resource group. If you use an Azure Resource Manager template to deploy an AKS cluster, you can define the resource group name by using the `nodeResourceGroup` property.
+To specify a custom resource group name, install the `aks-preview` Azure CLI extension version 0.3.2 or later. When using the Azure CLI, include the `--node-resource-group` parameter with the `az aks create` command to specify a custom name for the resource group. To deploy an AKS cluster with an Azure Resource Manager template, you can define the resource group name by using the `nodeResourceGroup` property.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name when the cluster is created.
+The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name during cluster creation.
 
 As you work with the node resource group, keep in mind that you can't:
 
 - Specify an existing resource group for the node resource group.
 - Specify a different subscription for the node resource group.
-- Change the node resource group name after the cluster has been created.
+- Change the node resource group name after creating the cluster.
 - Specify names for the managed resources within the node resource group.
 - Modify or delete Azure-created tags of managed resources within the node resource group.
 
 ## Node Restriction (Preview)
 
-The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you're using an older version, use the below commands to create a cluster with Node Restriction, or update an existing cluster to add Node Restriction.
+The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you're using an older version, use the following commands to create a cluster with Node Restriction, or update an existing cluster to add Node Restriction.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
