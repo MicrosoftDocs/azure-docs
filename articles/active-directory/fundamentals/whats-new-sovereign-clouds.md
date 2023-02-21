@@ -22,6 +22,58 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.
 
 
+## January 2023
+
+### General Availability - Azure AD Domain Services: Deeper Insights
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services             
+**Product capability:** Azure AD Domain Services        
+
+Now within the Azure Portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](/azure/active-directory-domain-services/fleet-metrics).
+
+---
+
+### General Availability - Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
+
+**Type:** New feature   
+**Service category:** B2B        
+**Product capability:** B2B/B2C   
+
+An IT admin can now add multiple domains to a single SAML/WS-Fed identity provider configuration to invite users from multiple domains to authenticate from the same identity provider endpoint. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+---
+
+### General Availability - New risk in Identity Protection: Anomalous user activity
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
+
+---
+
+### General Availability - Administrative unit support for devices
+
+**Type:** New feature   
+**Service category:** Directory Management             
+**Product capability:** AuthZ/Access Delegation       
+
+You can now use administrative units to delegate management of specified devices in your tenant by adding devices to an administrative unit, and assigning built-in and custom device management roles scoped to that administrative unit. For more information, see: [Device management](../roles/administrative-units.md#device-management).
+
+---
+
+### General Availability - Azure AD Terms of Use (ToU) API
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
+
+---
+
 ## December 2022
 
 ### General Availability - Risk-based Conditional Access for workload identities
