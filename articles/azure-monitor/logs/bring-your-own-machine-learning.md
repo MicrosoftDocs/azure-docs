@@ -14,7 +14,7 @@ ms.date: 25/01/2023
 
 Machine learning offers powerful methods of processing, analyzing, and acting on data in Azure Monitor Logs. 
 
-Machine learning can be used for various data-driven tasks, including detection of security threats, monitoring resources for predicting device failures, predicting capacity usage, detecting anomalous behaviors in virtual machines, containers, and other resources. 
+Machine learning can be used for various data-driven tasks, including detection of security threats, monitoring resources for predicting device failures, predicting capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
 Azure Monitor provides multiple built-in features using machine learning capabilities as well as tools to write and run your own machine learning. 
 
