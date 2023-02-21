@@ -18,13 +18,13 @@ ms.subservice: calling
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 Video Constraints API enables developers to set video constraints.
-There are some scenarios which the higher resolution video is not always needed.
+There are some scenarios that the higher resolution video is not always needed.
 For example, you may only want to provide low resolution video stream in a screen-sharing application,
 or you want to limit the video bandwidth usage when video quality is not a top priority in the application.
 
-Currently only the max video resolution constraint on the sender side is supported.
-Other constraints, such as max fps or max bandwidth are not supported at this moment.
-Dynamically changing constraints in a call is not supported as well.
+Currently we only support the max video resolution constraint on the sender side.
+Other constraints, such as max fps or max bandwidth is not supported at this moment.
+We don't support changing constraints dynamically in a call as well.
 However, we will be enabling these capabilities in the future.
 
 > [!NOTE]
@@ -107,7 +107,7 @@ If you use MediaStats API to track the sent video resolution, you may find out t
 This sender max video resolution constraint is supported on Desktop browsers and iOS Safari.
 
 ### Media stats
-To evaluate and compare the video quality after applying the video constraints, you can access [MediaStats API](./media-quality-sdk.md) to get video resolution and bitrate information of the sending stream. The media stats also include other granular stats related to the streams, such as jitter, packet loss, rtt, etc.
+To evaluate and compare the video quality after applying the video constraints, you can access [MediaStats API](./media-quality-sdk.md) to get video resolution and bitrate information of the sending stream. The media stats also include other granular stats related to the streams, such as jitter, packet loss, round trip time, etc.
 
 ```javascript
 const mediaStatsFeature = call.feature(Features.MediaStats);
