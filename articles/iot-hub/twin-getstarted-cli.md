@@ -18,9 +18,9 @@ ms.custom: "mqtt, devx-track-csharp"
 
 This article shows you how to:
 
-* Use a simulated device app to report its connectivity channel as a reported property on the device twin.
+* Use a simulated device to report its connectivity channel as a reported property on the device twin.
 
-* Query devices from your back-end app using filters on the tags and properties previously created.
+* Query devices using filters on the tags and properties previously created.
 
 In this article, you create two .NET console apps:
 
