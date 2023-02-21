@@ -215,6 +215,8 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify isolation configuration
 
+
+
 1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example you're accessing the container inside the *untrusted* pod.
 
     ```bash
@@ -285,8 +287,6 @@ kubectl delete pod pod-name
 ```
 
 ## Next steps
-
-* Learn about [Confidential virtual machines on AKS][cvm-on-aks] with AMD SEV-SNP support to protect data-in-use with full VM memory encryption for your highly sensitive container workloads.
 
 * Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
