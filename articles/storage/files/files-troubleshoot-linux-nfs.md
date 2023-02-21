@@ -30,7 +30,7 @@ This article lists common issues related to NFS Azure file shares and provides p
 Because Azure Files disallows alphanumeric UID/GID, you must disable idmapping.
 
 ### Cause 2: idmapping was disabled, but got re-enabled after encountering bad file/dir name
-Even if idmapping is correctly disabled, it can be automatically re-enabled in some cases. For example, when Azure Files encounters a bad file name, it sends back an error. Upon seeing this error code, an NFS 4.1 Linux client decides to re-enable idmapping, and future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
+Even if idmapping is correctly disabled, it can be automatically re-enabled in some cases. For example, when Azure Files encounters a bad file name, it sends back an error. Upon seeing this error code, an NFS 4.1 Linux client decides to re-enable idmapping, and sends future requests with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters.
 
 ### Workaround
 Check that idmapping is disabled and that nothing is re-enabling it. Then perform the following steps:
@@ -58,15 +58,15 @@ Follow the instructions in [How to create an NFS share](storage-files-how-to-cre
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
-Unlike SMB, NFS doesn't have user-based authentication. The authentication for a share is based on your network security rule configuration. To ensure only secure connections are established to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up a VPN or ExpressRoute connection. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
+Unlike SMB, NFS doesn't have user-based authentication. The authentication for a share is based on your network security rule configuration. To ensure that clients only establish secure connections to your NFS share, you must use either the service endpoint or private endpoints. To access shares from on-premises in addition to private endpoints, you must set up a VPN or ExpressRoute connection. IPs added to the storage account's allowlist for the firewall are ignored. You must use one of the following methods to set up access to an NFS share:
 
 
 - [Service endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
     - Accessed by the public endpoint.
     - Only available in the same region.
     - VNet peering won't give access to your share.
-    - Each virtual network or subnet must be individually added to the allowlist.
-    - For on-premises access, service endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs. We recommend using a private endpoint because it's more secure.
+    - You must add each virtual network or subnet individually to the allowlist.
+    - For on-premises access, you can use service endpoints with ExpressRoute, point-to-site, and site-to-site VPNs. We recommend using a private endpoint because it's more secure.
 
 The following diagram depicts connectivity using public endpoints.
 
@@ -76,7 +76,7 @@ The following diagram depicts connectivity using public endpoints.
     - Access is more secure than the service endpoint.
     - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premises).
     - Virtual network peering with virtual networks hosted in the private endpoint give the NFS share access to the clients in peered virtual networks.
-    - Private endpoints can be used with ExpressRoute, point-to-site VPNs, and site-to-site VPNs.
+    - You can use private endpoints with ExpressRoute, point-to-site VPNs, and site-to-site VPNs.
 
 :::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
@@ -131,7 +131,7 @@ Some kernel versions have a bug that causes directory listings to result in an e
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 has this kernel version.
 
 #### Workaround: Downgrade or upgrade the kernel
-Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue.
+Downgrading or upgrading the kernel to anything outside the affected kernel should resolve the issue.
 
 ## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
