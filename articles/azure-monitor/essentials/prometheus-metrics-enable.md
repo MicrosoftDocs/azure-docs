@@ -295,7 +295,7 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Verify Deployment
 
-Run the following command to which verify that the daemon set was deployed properly:
+Run the following command to verify that the daemon set was deployed properly:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
