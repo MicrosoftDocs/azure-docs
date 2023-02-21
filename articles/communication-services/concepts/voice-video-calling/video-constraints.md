@@ -18,12 +18,12 @@ ms.subservice: calling
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 Video Constraints API enables developers to set video constraints.
-There are some scenarios that the higher resolution video is not always needed.
-For example, you may only want to provide low resolution video stream in a screen-sharing application,
-or you want to limit the video bandwidth usage when video quality is not a top priority in the application.
+There are some scenarios that the higher resolution video isn't always needed.
+For example, you may only want to provide low resolution video stream in a screen-sharing application.
+When video quality isn't a top priority, you may want to limit the video bandwidth usage in the application.
 
 Currently we only support the max video resolution constraint on the sender side.
-Other constraints, such as max fps or max bandwidth is not supported at this moment.
+Other constraints, such as max fps or max bandwidth isn't supported at this moment.
 We don't support changing constraints dynamically in a call as well.
 However, we will be enabling these capabilities in the future.
 
@@ -95,7 +95,7 @@ The value you have to provide for this constraint is `height`.
 }
 ```
 In SDK, we will choose the nearest resolution, which height doesn't exceed the constraint value.
-There is an exception - when provided constraint value is too small, SDK will choose the smallest available resolution. The height of chosen resolution can be larger than the constraint value.
+There is an exception - when provided constraint value is too small, SDK chooses the smallest available resolution. The height of chosen resolution can be larger than the constraint value.
 
 > [!NOTE] The resolution constraint is a `max` constraint, which means the possible resolutions can be the specified resolution or smaller.
 There is no gurantee that the sent video resolution will remain at the specified resolution.
