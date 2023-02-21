@@ -43,9 +43,7 @@ To create the container app and container apps environment using the Azure CLI, 
 
 In the next step, you will add the connection string of your App Configuration store to the secret of your Container App and add an environment variable to your container to reference the secret. You use the [Service Connector](../service-connector/overview.md) to do this in a few steps without managing the connection information yourself.
 
-#### [Portal](#tab/azure-portal)
-
-Connect the container app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md). While following the steps of the quickstart:
+In the Azure portal, connect the container app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md). While following the steps of the quickstart:
 
 - In the **Basics** tab:
 
@@ -59,31 +57,6 @@ Connect the container app to Azure App Configuration following the [Service Conn
 - Use default values for everything else.
 
 Once done, an environment variable named **ConnectionStrings__AppConfig** will be added to the container of your Container App. Its value is a reference of the Container App secret, the connection string of your App Configuration store. The _ConnectionStrings__AppConfig_ is the environment variable your app built from the quickstart will look for.
-
-#### [Azure CLI](#tab/azure-cli)
-
- Run the Azure CLI command `az containerapp connection connection create` to create a service connection from the container app, using a connection string.
-
- ```azurecli
- az containerapp connection create appconfig \
-     --name my-container-app \ # the name of the container app
-     --resource-group myresourcegroup \ # the resource group that contains the container app
-     --container containerapps-helloworld \ #container where the connection information will be saved
-     --target-resource-group AppConfigTestResources \ # the resource group that contains the App Configuration store
-     --app-config MyAppConfiguration \  # the name of the App Configuration store
-     --secret #the authentication method
- ```
-
-| Parameter                 | Suggested value                | Description                                                           |
-|---------------------------|--------------------------------|-----------------------------------------------------------------------|
-| `--name`                  | `my-container-app`             | Enter the name of the container app.                                  |
-| `--resource-group`        | `myresourcegroup`              | Enter the name of the resource group that contains the container app. |
-| `--container`             | `containerapps-helloworld`     | Enter the name of the container.                                  |
-| `--target-resource-group` | `AppConfigTestResources`       | Enter the resource group that contains the App Configuration store.   |
-| `--app-config`            | `MyAppConfiguration`           | Enter the name of the App Configuration store.                        |
-| `--secret`                | Leave blank                    | Enter `--secret` to authenticate with connection string               |
-
----
 
 ## Build the container
 
@@ -171,7 +144,7 @@ Update the existing container app by importing the docker image you created and 
 1. Open your Azure Container Apps instance.
 1. In the left menu, under **Application**, select **Containers**.
 1. Select **Edit and deploy**.
-1. Under **Container image**, select the name of the existing container image.
+1. Under **Container image**, click on the name of the existing container image.
 1. Update the following settings:
 
     | Setting               | Suggested value                                                                                         | Description                                                                                                                                                                       |
