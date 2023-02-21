@@ -166,4 +166,4 @@ As a quick reference, the articles listed above and the articles in the followin
 
 Samples are available on GitHub. See [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).
 
-Know feature updates about Azure Spring Apps, see [What's New](https://azure.microsoft.com/updates/?query=spring).
+For feature updates about Azure Spring Apps, see [Azure updates](https://azure.microsoft.com/updates/?query=spring).
