@@ -14,9 +14,9 @@ ms.author: zehangzheng
 ## Important considerations
 - The capability to dial an emergency number and receive a call-back may be a requirement for your application. Verify the emergency calling requirements with your legal counsel. 
 - Microsoft uses country codes according to ISO 3166-1 alpha-2 standard 
-- If the country ISO code is not provided to the SDK, the IP address will be used to determine the country of the caller. 
-- In case IP address cannot provide reliable geolocation, for example the user is on a Virtual Private Network, it is required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
-- If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it is required to set the ISO code to the US   
+- If the country ISO code isn't provided to the SDK, the IP address will be used to determine the country of the caller. 
+- In case IP address can't provide reliable geolocation, for example, the user is on a Virtual Private Network, it's required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
+- If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it's required to set the ISO code to the US   
 - Supported ISO codes are US, PR, CA, and GB only
 - Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So emergency dialing is out of scope for Azure Communication Services direct routing.
 - The emergency calling service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in the future.   
@@ -24,7 +24,7 @@ ms.author: zehangzheng
 
 
 ## Setting up
-Replace the code for `NavigationView` in your **ContentView.swift** with following snippet. It will add a new button for testing emergency calls.
+Replace the code for `NavigationView` in your **ContentView.swift** with following snippet. It adds a new button for testing emergency calls.
 
 ```swift
 NavigationView {
@@ -48,7 +48,7 @@ NavigationView {
 }
 ```
 ## Emergency test call to phone 
-Specify the ISO code of the country where the caller is located. If the ISO code is not provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling.   
+Specify the ISO code of the country where the caller is located. If the ISO code isn't provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling.   
 
 In your **ContentView.swift**, replace your code with the following snippet in your `NavigationView`'s `onAppear` method to specify the emergency country:
 
