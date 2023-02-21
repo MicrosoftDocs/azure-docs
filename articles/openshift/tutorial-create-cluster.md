@@ -11,7 +11,7 @@ ms.date: 10/26/2020
 
 # Tutorial: Create an Azure Red Hat OpenShift 4 cluster
 
-In this tutorial, part one of three, you'll prepare your environment to create an Azure Red Hat OpenShift cluster running OpenShift 4, and create a cluster. You'll learn how to:
+In this tutorial, part one of three, you prepare your environment to create an Azure Red Hat OpenShift cluster running OpenShift 4, and create a cluster. You learn how to:
 > [!div class="checklist"]
 > * Setup the prerequisites 
 > * Create the required virtual network and subnets
@@ -21,7 +21,7 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
+Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription doesn't meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
 * For example to check the current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3":
 
@@ -34,7 +34,7 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
 
 ### Verify your permissions
 
-During this tutorial, you will create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
+During this tutorial, you create a resource group, which contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
 
 You will also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest user assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guest users](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) for more details.
 
@@ -74,9 +74,9 @@ You will also need sufficient Azure Active Directory permissions (either a membe
 ### Get a Red Hat pull secret (optional)
 
    > [!NOTE] 
-   > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
+   > ARO pull secret doesn't change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended. Please note that the field `cloud.openshift.com` will be removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended. Note that the field `cloud.openshift.com` will be removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
@@ -206,7 +206,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
 ## Create the cluster
 
 Run the following command to create a cluster. If you choose to use either of the following options, modify the command accordingly:
-* Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content. Add the `--pull-secret @pull-secret.txt` argument to your command.
+* Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional), which enables your cluster to access Red Hat container registries along with additional content. Add the `--pull-secret @pull-secret.txt` argument to your command.
 * Optionally, you can [use a custom domain](#prepare-a-custom-domain-for-your-cluster-optional). Add the `--domain foo.example.com` argument to your command, replacing `foo.example.com` with your own custom domain.
 
 > [!NOTE]
