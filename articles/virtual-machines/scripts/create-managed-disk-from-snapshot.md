@@ -57,10 +57,10 @@ diskSize=128
 #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
 storageType=Premium_LRS
 
-#Provide the name of the disk encryption set
+#Provide the name of the target disk encryption set
 diskEncryptionSetName=myName
 
-#Provide the disk encryption set resource group
+#Provide the target disk encryption set resource group
 diskEncryptionResourceGroup=myGroup
 
 #Set the context to the subscription Id where Managed Disk will be created

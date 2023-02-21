@@ -42,10 +42,10 @@ sourceResourceGroupName=mySourceResourceGroupName
 #Provide the name of the managed disk
 managedDiskName=myDiskName
 
-#Provide the name of the disk encryption set
+#Provide the name of the target disk encryption set
 diskEncryptionSetName=myName
 
-#Provide the disk encryption set resource group
+#Provide the target disk encryption set resource group
 diskEncryptionResourceGroup=myGroup
 
 #Set the context to the subscription Id where managed disk exists
