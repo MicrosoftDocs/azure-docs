@@ -95,7 +95,7 @@ The value you have to provide for this constraint is `height`.
     }
 }
 ```
-In SDK, we choose the nearest resolution which falls within the constraint, so sent height won't exceed the constraint value.
+In SDK, we choose the nearest resolution that falls within the constraint, so sent height doesn't exceed the constraint value.
 There's an exception - when provided constraint value is too small, SDK chooses the smallest available resolution. In this case, the height of chosen resolution can be larger than the constraint value.
 
 > [!NOTE]
