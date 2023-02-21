@@ -62,7 +62,7 @@ Here is the diagram about the system:
     ```
 4. Access `http://localhost:8080` by browser, you will see a page like this:
 
-> ![web.png](./assets/web.png)
+> ![ToDo app home page](./media/quickstart-for-web-app/todo-app.png)
 
 ## Prepare the cloud environment
 
