@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/08/2023
+ms.date: 02/21/2023
 ms.author: mattmcinnes
 ms.custom: kr2b-contr-experiment
 ---
@@ -21,9 +21,8 @@ ms.custom: kr2b-contr-experiment
 Azure Hybrid Benefit for Linux virtual machines enables you to take advantage of discounted reserved instance rates for your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) VMs. This results in cost savings by applying the licensing costs for RHEL and SLES on top of the discounted rate of reserved instances. This article explains the two Azure Hybrid Benefit licensing models and the process of converting to and between them. 
 
 > [!Note]
-> “Customers may see savings estimated to up to 76% with Azure Hybrid Benefit for Linux."             
+> “Customers may see savings estimated to up to 76% with Azure Hybrid Benefit for Linux."     
 
-> [!Disclaimer] 
 > The 76% savings is based on one standard D2s v3 Azure VM with RHEL or SLES subscription in the East US region running at a pay-as-you-go rate vs a reduced rate for a 3-year reserved instance plan. Based on Azure pricing as of October 2022. Prices subject to change. Actual savings may vary based on location, instance type, or usage.
 
 ## Defining Pay-as-you-go (PAYG) and Bring-your-own-subscription (BYOS)
