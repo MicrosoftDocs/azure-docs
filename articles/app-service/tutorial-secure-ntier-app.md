@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secure n-tier web app'
 description: Learn how to securely deploy your n-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/19/2023
+ms.date: 2/212023
 ms.author: jordanselig
 ---
 
@@ -267,15 +267,15 @@ To set up continuous deployment, you should use the Azure portal. For detailed g
 
     New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
 
-A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
+    A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
 
-Repeat the same steps for your backend web app. The inputs for the continuous deployment settings are given in the table.
+1. Repeat the same steps for your backend web app. The inputs for the continuous deployment settings are given in the table.
     
-|Setting       |Value                        |
-|--------------|-----------------------------|
-|Organization  |`<your-GitHub-organization>` |
-|Repository    |nodejs-backend               |
-|Branch        |main                         |
+    |Setting       |Value                        |
+    |--------------|-----------------------------|
+    |Organization  |`<your-GitHub-organization>` |
+    |Repository    |nodejs-backend               |
+    |Branch        |main                         |
 
 ### Create the GitHub Actions workflow
 
@@ -369,9 +369,7 @@ Completing these steps triggers another deployment to your apps. Unlike previous
 
     In the textbox, input the URL for your backend web app, which should look like `https://<backend-app-name>.azurewebsites.net`. If you set up the connections properly, you should get the message "Hello from the backend web app!", which is the entire content of the backend web app. If something is wrong with your connections, your frontend web app crashes.
 
-1. If you haven't already, try navigating to your backend web app to verify that direct access is forbidden. The URL is `https://<backend-app-name>.azurewebsites.net`. If you can reach your backend web app, ensure you've configured the private endpoint and that the access restrictions for your app are set to disable public access.
-
-    :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-disable-public-access.png" alt-text="Screenshot of Access Restrictions showing public access is disabled.":::
+1. If you haven't already, try navigating to your backend web app to verify that direct access is forbidden. The URL is `https://<backend-app-name>.azurewebsites.net`. If you can reach your backend web app, ensure you've configured the private endpoint and that the access restrictions for your app are set to Deny all traffic for the main site.
 
 1. To further validate that the frontend web app is reaching the backend web app over private link, SSH to one of your front end's instances. To SSH, run the following command, which establishes an SSH session to the web container of your app and opens a remote shell in your browser.
 
