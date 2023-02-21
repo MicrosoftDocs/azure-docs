@@ -332,6 +332,8 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
+            - name: Create an OIDC Issuer for your cluster
+              href: use-oidc-issuer.md
             - name: Workload identity (preview)
               items:
                 - name: Overview
