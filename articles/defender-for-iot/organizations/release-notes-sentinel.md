@@ -27,7 +27,7 @@ New features in this version include:
 
 - An enhanced incident details page that includes Defender for IoT data, including a deep link to the Defender for IoT alert details page, the product name, remediation steps, and MITRE tactics and techniques.
 
-- Performance improvements for analytic rules queries.
+- Performance improvements for analytics rule queries.
 
 ## Version 2.0.1
 
