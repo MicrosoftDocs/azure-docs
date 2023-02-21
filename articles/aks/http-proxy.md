@@ -60,6 +60,12 @@ The schema for the config file looks like this:
 > [!IMPORTANT]
 > For compatibility with Go-based components that are part of the Kubernetes system, the certificate **must** support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
+> [!IMPORTANT]
+> There are differencies from Application to another on how to comply with Environment variable http_proxy,https_proxy,no_proxy , for example curl & python  doesnt support CIDR in no_proxy but for Ruby it support, 
+https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/
+we need to show to customer that it depend on application deployed on AKS 
+
+
 Example input:
 
 > [!NOTE]
