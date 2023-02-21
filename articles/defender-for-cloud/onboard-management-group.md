@@ -11,7 +11,7 @@ You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure
 
 ## Prerequisites
 
-- Enable the resource provider `_Microsoft.Security_` for the management group using the following Azure CLI command:
+Enable the resource provider `_Microsoft.Security_` for the management group using the following Azure CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.Security --management-group-id …
