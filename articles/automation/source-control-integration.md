@@ -55,7 +55,7 @@ This example uses Azure PowerShell to show how to assign the Contributor role in
 
     ```powershell
     New-AzRoleAssignment `
-        -ObjectId <automation-Identity-object-id> `
+        -ObjectId <automation-Identity-Principal-id> `
         -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
         -RoleDefinitionName "Contributor"
     ```
