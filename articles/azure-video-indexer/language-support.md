@@ -27,7 +27,7 @@ This section explains the Video Indexer language options and has a table of the 
 - **Customization (language model)** - Whether the language can be used when customizing language models in Video Indexer. To learn more, see [Customize a Language model in Azure Video Indexer](customize-language-model-overview.md)
 - **Website Translation** – Whether the language is supported for translation when using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the translated language in the language drop-down menu.
 
-    :::image type="content" source="media/language-support/website-translation.png" alt-text="A menu with download, english and views as menu items. A tooltip is shown as mouseover on the english item and says Translation is set to English.":::
+    :::image type="content" source="media/language-support/website-translation.png" alt-text="Screenshow showing a menu with download, English and views as menu items. A tooltip is shown as mouseover on the English item and says Translation is set to English." lightbox="media/language-support/website-translation.png":::
 
     The following insights are translated:
 
@@ -41,7 +41,7 @@ This section explains the Video Indexer language options and has a table of the 
 
 - **Website Language** - Whether the language can be selected for use on the [Azure Video Indexer website](https://aka.ms/vi-portal-link). Select the **Settings icon** then select the language in the **Language settings** dropdown.
 
-    :::image type="content" source="media/language-support/website-language.jpg" alt-text="A menu with user settings show them all toggled to on":::
+    :::image type="content" source="media/language-support/website-language.jpg" alt-text="Screenshow showing a menu with user settings show them all toggled to on." lightbox="media/language-support/website-language.jpg":::
 
 | **Language**                     | **Code**   | **Supported source language** | **Language identification** | **Customization (language model)** | **Website Translation** | **Website Language** |
 |:----------------------------------|:----------:|:-----------------------------:|:---------------------------:|:----------------------------------:|:-----------------------:|:--------------------:|
@@ -153,11 +153,11 @@ The API returns a list of supported languages with the following values:
 
 ## Language Identification
 
-When uploading a media file to Video Indexer, you can specify the media file's source language. If indexing a file through the Video Indexer website, this can be done by selecting a language during the file upload. If you are submitting the indexing job through the API, it is done by using the language parameter. The selected language is then used to generate the transcription of the file.
+When uploading a media file to Video Indexer, you can specify the media file's source language. If indexing a file through the Video Indexer website, this can be done by selecting a language during the file upload. If you're submitting the indexing job through the API, it's done by using the language parameter. The selected language is then used to generate the transcription of the file.
 
 If you aren't sure of the source language of the media file or it may contain multiple languages, Video Indexer can detect the spoken languages. If you select either Auto-detect single language (LID) or multi-language (MLID) for the media file’s source language, the detected language or languages will be used to transcribe the media file. To learn more about LID and MLID, see Use Azure Video Indexer to auto identify spoken languages, see [Automatically identify the spoken language with language identification model](language-identification-model.md) and [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md)
 
-There is a limit of 10 languages allowed for identification during the indexing of a media file for both LID and MLID. The following are the 9 *default* languages of Language identification (LID) and Multi-language identification (MILD):
+There's a limit of 10 languages allowed for identification during the indexing of a media file for both LID and MLID. The following are the 9 *default* languages of Language identification (LID) and Multi-language identification (MILD):
 
 - German (de-DE)
 - English United States (en-US)
@@ -178,7 +178,7 @@ If you need to use languages for identification that aren't used by default, you
 1. Select the **Language ID** tab under Model customization. The list of languages is specific to the Video Indexer account you're using and for the signed-in user. The default list of languages is saved per user on their local device, per device, and browser. As a result, each user can configure their own default identified language list.
 1. Use **Add language** to search and add more languages. If 10 languages are already selected, you first must remove one of the existing detected languages before adding a new one.
 
-    :::image type="content" source="media/language-support/default-language.png" alt-text="A table showing all of the selected languages.":::
+    :::image type="content" source="media/language-support/default-language.png" alt-text="Screenshot showing a table showing all of the selected languages." lightbox="media/language-support/default-language.png":::
 
 ### Use the API to change the list
 
