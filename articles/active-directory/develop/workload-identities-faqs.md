@@ -1,6 +1,6 @@
 ---
-title: Workload identities license plan faq
-description: Learn about workload identities license plan, features and capabilities. 
+title: Workload identities license plans faq
+description: Learn about workload identities license plans, features and capabilities. 
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -14,9 +14,9 @@ ms.custom: aaddev
 #Customer intent: I want to know about workload identities licensing plans 
 ---
 
-# Frequently asked questions about workload identities license plan
+# Frequently asked questions about workload identities license plans
 
-[Workload identities](workload-identities-overview.md) is now available in two editions **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
+[Workload identities](workload-identities-overview.md) is now available in two editions: **Free** and **Workload Identities Premium**. The free edition of workload identities is included with a subscription of a commercial online service such as [Azure](https://azure.microsoft.com/) and [Power Platform](https://powerplatform.microsoft.com/). The Workload
 Identities Premium offering is available through a Microsoft representative, the [Open Volume License
 Program](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy), and the Cloud Solution Providers program. Azure and Microsoft 365 subscribers can also purchase Workload
 Identities Premium online.
@@ -29,7 +29,7 @@ For more information, see [what are workload identities?](workload-identities-ov
 Learn more about [workload identities
 pricing](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).
 
-## What are the features included in Workload Identities Premium plan and which features are free? 
+## What features are included in Workload Identities Premium plan and which features are free? 
 
 |Capabilities | Description | Free | Premium |                 
 |:--------|:----------|:------------|:-----------|
@@ -62,8 +62,7 @@ with your credentials to buy Workload Identities licenses.
 
 ## Through what channels can I purchase Workload Identities Premium plan? 
 
-You can purchase the plan through Enterprise Agreement (EA)/Enterprise
-Subscription (EAS), Cloud Solution Providers (CSPs), or Web Direct.
+You can purchase the plan through Enterprise Agreement (EA)/Enterprise Subscription (EAS), Cloud Solution Providers (CSPs), or Web Direct.
 
 ## Where can I find more feature details to determine if I need a license(s)?
 
@@ -93,8 +92,7 @@ applications for connecting resources that support Azure AD authentication.
 
 ## How many licenses do I need to purchase? Do I need to license all workload identities including Microsoft and Managed Service Identities? 
 
-All Workload Identities - Service principles, Microsoft apps and
-Managed identities, configured in your directory for a Microsoft Entra
+All workload identities - service principles, apps and managed identities, configured in your directory for a Microsoft Entra
 Workload Identities Premium feature require a license. Select and prioritize the identities based on the available licenses. Remove
 the workload identities from the directory that are no longer required.
 
