@@ -97,4 +97,4 @@ This script uses following commands to create a new managed disk in the target s
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+More virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
