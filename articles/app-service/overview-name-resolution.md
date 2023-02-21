@@ -62,10 +62,8 @@ Validate the settings by using this CLI command:
 az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
 ```
 
-
-
 ## Next steps
 
-- [Configure virtual network integration](./configure-vnet-integration-enable.md.md)
+- [Configure virtual network integration](./configure-vnet-integration-enable.md)
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 - [General networking overview](./networking-features.md)
