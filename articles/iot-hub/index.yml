@@ -73,7 +73,7 @@ landingContent:
    - linkListType: tutorial
      links:
      - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-introduction.md
+       url: tutorial-x509-prove-possession.md
    - linkListType: concept
      links:
      - text: Security best practices
