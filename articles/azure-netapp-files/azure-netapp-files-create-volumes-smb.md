@@ -141,7 +141,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         **Custom applications are not supported with SMB Continuous Availability.**
 
-    ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume.." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
 
 5. Click **Review + Create** to review the volume details.  Then click **Create** to create the SMB volume.
 
@@ -178,7 +178,7 @@ You can modify SMB share permissions using Microsoft Management Console (MMC).
 * [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
 * [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
+* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
