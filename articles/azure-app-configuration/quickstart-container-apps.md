@@ -41,7 +41,7 @@ To create the container app and container apps environment using the Azure CLI, 
 
 ## Connect Azure Container Apps to Azure App Configuration
 
-In the next step, you will add the connection string of your App Configuration store to the secret of your Container App and add an environment variable to your container to reference the secret. You use the [Service Connector](../service-connector/overview.md) to do this in a few steps without managing the connection information yourself.
+In the next step, you'll add the connection string of your App Configuration store to the secret of your Container App and add an environment variable to your container to reference the secret. You use the [Service Connector](../service-connector/overview.md) to do this in a few steps without managing the connection information yourself.
 
 In the Azure portal, connect the container app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md). While following the steps of the quickstart:
 
@@ -66,7 +66,7 @@ Once done, an environment variable named **ConnectionStrings__AppConfig** will b
     dotnet publish -c Release -o published
     ```
 
-1. Create a file named *Dockerfile* in the directory containing your .csproj file, open it in a text editor, and enter the content below. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
+1. Create a file named *Dockerfile* in the directory containing your .csproj file, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
     ```docker
     FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
@@ -75,7 +75,7 @@ Once done, an environment variable named **ConnectionStrings__AppConfig** will b
     ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
     ```
 
-1. Build the container by running the command below
+1. Build the container by running the following command.
 
     ```docker
     docker build --tag aspnetapp .
