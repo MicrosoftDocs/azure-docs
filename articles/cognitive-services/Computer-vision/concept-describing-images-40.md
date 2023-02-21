@@ -16,7 +16,7 @@ ms.custom: seodec18, ignite-2022
 
 # Image caption generation (version 4.0 preview)
 
-Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several captions based on different visual features, and each caption is given a confidence score. The final output is a list of captions ordered from highest to lowest confidence.
+Computer Vision can analyze an image and generate a human-readable phrase that describes its contents.
 
 At this time, English is the only supported language for image captioning.
 
@@ -43,9 +43,11 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 ## Use the API
 
 > [!IMPORTANT]
-> Image captioning is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. You need to create a resource in one of these regions in order to use the feature.
+> Image captioning in Image Analysis 4.0 is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. You need to create a resource in one of these regions in order to use the feature.
+>
+> If you need to use a Computer Vision resource outside these regions and want to perform image captioning, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Computer Vision regions.  
 
-The image captioning feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Caption` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"caption"` section.
+The image captioning feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. Include `Caption` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"caption"` section.
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
 
