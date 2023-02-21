@@ -13,9 +13,9 @@ keywords: ChatGPT
 
 # Learn how to work with the ChatGPT model (preview)
 
-The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string that is formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
+The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
-The ChatGPT model is used with the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but requires a specific prompt format that's described below. It's important to use the recommended prompt format to get the best results. Without the right prompts, you’ll notice the model tends to be verbose and will often complete more than you want.
+The ChatGPT model uses the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
 ## Working with the ChatGPT model
 
@@ -43,18 +43,18 @@ response = openai.Completion.create(
 print(response['choices'][0]['text'])
 ```
 
-The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. When you include the `<|im_end|>` token as a stop sequence, this will ensure that the model will stop generating text when it reaches the end of the message.
+The `<|im_end|>` token indicates the end of a message. We recommend including `<|im_end|>` token as a stop sequence to ensure that the model stops generating text when it reaches the end of the message. When you include the `<|im_end|>` token as a stop sequence, this ensures that the model stops generating text when it reaches the end of the message.
 
-Consider setting `max_tokens` to a slightly higher value than normal such as 500 or 800. This will ensure that the model doesn't stop generating text before it reaches the end of the message.
+Consider setting `max_tokens` to a slightly higher value than normal such as 500 or 800. This ensures that the model doesn't stop generating text before it reaches the end of the message.
 
 ## ChatGPT prompt format
 
 > [!NOTE]  
 > OpenAI continues to improve the ChatGPT model and the prompt format may change or evolve in the future. We'll keep this document updated with the latest information.
 
-The ChatGPT model was trained on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that can be used to prime the model followed by a series of messages between the user and the assistant.
+OpenAI trained the ChatGPT model on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that to prime the model followed by a series of messages between the user and the assistant.
 
-When starting a conversation, you should have a prompt that looks similar to the following:
+When starting a conversation, you should have a prompt that looks similar to the following code block:
 
 ```
 <|im_start|>system 
@@ -68,7 +68,7 @@ The user’s message goes here
 
 ### System message
 
-The system message is included at the beginning of the prompt between the `<|im_start|>system` and `<|im_end|>` tokens. This message is used to provide initial instructions to the model. You can provide a variety of information including:
+The system message is included at the beginning of the prompt between the `<|im_start|>system` and `<|im_end|>` tokens. This message provides the initial instructions to the model. You can provide a variety of information including:
 
 * A brief description of the assistant
 * The personality of the assistant
@@ -91,7 +91,7 @@ To trigger a response from the model, the prompt should end with `<|im_start|>as
 
 ### Prompt examples
 
-The section below shows examples of different styles of prompts that you could use with the ChatGPT model. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your use case.
+The following section shows examples of different styles of prompts that you could use with the ChatGPT model. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your use case.
 
 #### Basic example
 
@@ -173,9 +173,9 @@ You can check the status of your tax refund by visiting https://www.irs.gov/refu
 
 The token limit of the ChatGPT model is 4096 tokens. This limit includes the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under 4096 or you'll receive an error.
 
-It’s your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you’ll need to keep track of the token count and only send the model a prompt that falls within the token limit.
+It’s your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the token limit.
 
-The code sample below shows a simple example of how you could keep track of the separate messages in the conversation.
+The following code sample shows a simple example of how you could keep track of the separate messages in the conversation.
 
 ```python
 import os
@@ -217,11 +217,11 @@ print(response['choices'][0]['text'])
 
 ## Staying under the token limit
 
-The simplest approach to staying under the token limit is to truncate the oldest messages in the conversation when the token limit is reached.
+The simplest approach to staying under the token limit is to truncate the oldest messages in the conversation when you reach the token limit.
 
-You can choose to always include as many tokens as possible while staying under the limit or you could always include a set number of previous messages assuming those messages stay within the limit. It's important to keep in mind that longer prompts will take longer to generate a response and will incur a higher cost than shorter prompts.
+You can choose to always include as many tokens as possible while staying under the limit or you could always include a set number of previous messages assuming those messages stay within the limit. It's important to keep in mind that longer prompts take longer to generate a response and incur a higher cost than shorter prompts.
 
-You can estimate the number of tokens in a string by using the [tiktoken](https://github.com/openai/tiktoken) Python library. While the precise encoding used by ChatGPT is not yet supported in tiktoken, you can recreate it yourself by building off of the cl100k_base encoding.
+You can estimate the number of tokens in a string by using the [tiktoken](https://github.com/openai/tiktoken) Python library. While the exact encoding used by ChatGPT isn't supported yet in tiktoken, you can recreate it yourself by building off of the cl100k_base encoding.
 
 ```python
 import tiktoken 
