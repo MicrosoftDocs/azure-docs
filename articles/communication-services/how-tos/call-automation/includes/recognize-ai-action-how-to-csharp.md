@@ -60,6 +60,16 @@ The NuGet package can be obtained by configuring your package manager to use fee
 
 By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
 
+``` csharp
+var callAutomationClient = new CallAutomationClient("<ACS connection string>");
+
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
+    {
+        AzureCognitiveServicesEndpointUrl = new Uri("https://sample-cognitive-service-resource.cognitiveservices.azure.com/") // for Speech-To-Text (choices)
+    };
+    var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
+```
+
 ## Call the recognize action
 
 When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
