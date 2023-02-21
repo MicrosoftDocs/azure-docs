@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/21/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -24,6 +24,20 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 * Option to **delete base snapshot** when you [restore a snapshot to a new volume using Azure NetApp Files](snapshots-restore-new-volume.md) 
 
     By default, the new volume includes a copy of the snapshot that it uses for the restore operation. If you don’t want the new volume to contain this snapshot copy, you can select the **delete base snapshot** option during volume creation. 
+
+## February 2023
+
+* [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
+
+    Azure NetApp Files volumes now support encryption with customer-managed keys and Azure Key Vault to enable an extra layer of security for data at rest.  
+    
+    Data encryption with customer-managed keys for Azure NetApp Files allows you to bring your own key for data encryption at rest. You can use this feature to implement separation of duties for managing keys and data. Additionally, you can centrally manage and organize keys using Azure Key Vault. With customer-managed encryption, you are in full control of, and responsible for, a key's lifecycle, key usage permissions, and auditing operations on keys. 
+ 
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md) (Preview)
+
+    Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
+
+    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using standard network features. This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md#supported-regions).
 
 ## December 2022
 
