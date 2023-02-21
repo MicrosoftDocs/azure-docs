@@ -45,8 +45,8 @@ sourceSubscriptionId="<subscriptionId>"
 #Provide the name of your resource group where snapshot exists
 sourceResourceGroupName=mySourceResourceGroupName
 
-#Provide the disk encryption set ID
-diskEncrpytonSetId=myID
+#Provide the name of the disk encryption set
+diskEncryptionSetName=myName
 
 #Provide the disk encryption set resource group
 diskEncryptionResourceGroup=myGroup

@@ -57,8 +57,8 @@ diskSize=128
 #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
 storageType=Premium_LRS
 
-#Provide the disk encryption set ID
-diskEncrpytonSetId=myID
+#Provide the name of the disk encryption set
+diskEncryptionSetName=myName
 
 #Provide the disk encryption set resource group
 diskEncryptionResourceGroup=myGroup

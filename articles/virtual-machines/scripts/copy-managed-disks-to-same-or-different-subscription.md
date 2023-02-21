@@ -45,9 +45,6 @@ managedDiskName=myDiskName
 #Provide the name of the disk encryption set
 diskEncryptionSetName=myName
 
-#Provide the disk encryption set ID
-diskEncrpytonSetId=myID
-
 #Provide the disk encryption set resource group
 diskEncryptionResourceGroup=myGroup
 
