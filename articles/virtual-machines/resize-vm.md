@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 2/21/2023
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to move a VM to a different [VM size](sizes.md).
+This article shows you how to change an existing virtual machine's [VM size](sizes.md).
 
-After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size isn't available on the hardware cluster that is currently hosting the VM.
+After creating a virtual machine (VM), you can scale its resources up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size isn't available in the same datacenter cluster that is currently hosting the VM.
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
@@ -30,7 +30,8 @@ If your VM uses Premium Storage, make sure that you choose an **s** version of t
 1. Pick a new size from the list of available sizes and then select **Resize**.
 
 
-If the virtual machine is currently running, changing its size will cause it to restart. 
+   > [!Note] 
+   > If the virtual machine is currently running, changing its size will cause it to restart. 
 
 If your VM is still running and you don't see the size you want in the list, stopping the virtual machine may reveal more sizes.
 
