@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -20,7 +20,7 @@ To publish a managed application to your service catalog, do the following tasks
 - Decide which user, group, or application needs access to the resource group in the user's subscription.
 - Create the managed application definition that points to the _.zip_ package and requests access for the identity.
 
-If your managed application definition is more than 120-MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
+If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
 > [!NOTE]
 > You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.
@@ -31,7 +31,7 @@ If your managed application definition is more than 120-MB or if you want to use
 
 To complete this quickstart, you need the following items:
 
-- An Azure account with an active subscription and permissions to Azure Active Directory. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). If you're using Bicep, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -251,12 +251,12 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name storageGroup -Location eastus
+New-AzResourceGroup -Name storageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
   -ResourceGroupName storageGroup `
   -Name "demostorageaccount" `
-  -Location eastus `
+  -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
 
@@ -274,12 +274,12 @@ Set-AzStorageBlobContent `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group create --name storageGroup --location eastus
+az group create --name storageGroup --location westus3
 
 az storage account create \
     --name demostorageaccount \
     --resource-group storageGroup \
-    --location eastus \
+    --location westus3 \
     --sku Standard_LRS \
     --kind StorageV2
 ```
@@ -356,13 +356,13 @@ Create a resource group for your managed application definition.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westus3
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group create --name appDefinitionGroup --location westcentralus
+az group create --name appDefinitionGroup --location westus3
 ```
 
 ---
@@ -377,12 +377,12 @@ The `blob` command that's run from Azure PowerShell or Azure CLI creates a varia
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
-  -Name "ManagedStorage" `
-  -Location "westcentralus" `
+  -Name "sampleManagedAppDefinition" `
+  -Location "westus3" `
   -ResourceGroupName appDefinitionGroup `
   -LockLevel ReadOnly `
-  -DisplayName "Managed Storage Account" `
-  -Description "Managed Azure Storage Account" `
+  -DisplayName "Sample Managed application definition" `
+  -Description "Sample Managed application definition" `
   -Authorization "${principalid}:$roleid" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
@@ -399,12 +399,12 @@ blob=$(az storage blob url \
   --name app.zip --output tsv)
 
 az managedapp definition create \
-  --name "ManagedStorage" \
-  --location "westcentralus" \
+  --name "sampleManagedAppDefinition" \
+  --location "westus3" \
   --resource-group appDefinitionGroup \
   --lock-level ReadOnly \
-  --display-name "Managed Storage Account" \
-  --description "Managed Azure Storage Account" \
+  --display-name "Sample Managed application definition" \
+  --description "Sample Managed application definition" \
   --authorizations "$principalid:$roleid" \
   --package-file-uri "$blob"
 ```
@@ -416,7 +416,7 @@ When the command completes, you have a managed application definition in your re
 Some of the parameters used in the preceding example are:
 
 - **resource group**: The name of the resource group where the managed application definition is created.
-- **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. When `ReadOnly` is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
+- **lock level**: The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 - **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
 
   - **Azure PowerShell**: `"${principalid}:$roleid"` or you can use curly braces for each variable `"${principalid}:${roleid}"`. Use a comma to separate multiple values: `"${principalid1}:$roleid1", "${principalid2}:$roleid2"`.

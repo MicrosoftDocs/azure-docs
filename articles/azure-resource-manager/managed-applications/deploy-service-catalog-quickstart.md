@@ -4,7 +4,7 @@ description: Shows consumers of Azure Managed Applications how to deploy a servi
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 08/17/2022
+ms.date: 02/21/2023
 ---
 
 # Quickstart: Deploy service catalog managed application from Azure portal
@@ -71,7 +71,7 @@ Go to the managed resource group with the name prefix **mrg-ManagedStorage** to 
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resource deployed by the managed application.":::
 
-The storage account that's created by the managed application has a role assignment. In the [publish the definition](publish-service-catalog-app.md#create-an-azure-active-directory-user-group-or-application) article, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed storage account.
+The storage account that's created by the managed application has a role assignment. In the [publish the definition](publish-service-catalog-app.md#get-group-id-and-role-definition-id) article, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed storage account.
 
 To see the role assignment from the Azure portal:
 

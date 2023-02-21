@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 02/15/2023
+ms.date: 02/21/2023
 ---
 
 # Quickstart: Bring your own storage to publish an Azure Managed Application definition
@@ -31,7 +31,7 @@ If you're managed application definition is less than 120 MB and you don't want 
 
 To complete this quickstart, you need the following items:
 
-- An Azure account with an active subscription and permissions to Azure Active Directory. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). If you're using Bicep, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -251,12 +251,12 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name storageGroup -Location eastus
+New-AzResourceGroup -Name storageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
   -ResourceGroupName storageGroup `
   -Name "demostorageaccount" `
-  -Location eastus `
+  -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
 
@@ -274,12 +274,12 @@ Set-AzStorageBlobContent `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group create --name storageGroup --location eastus
+az group create --name storageGroup --location westus3
 
 az storage account create \
     --name demostorageaccount \
     --resource-group storageGroup \
-    --location eastus \
+    --location westus3 \
     --sku Standard_LRS \
     --kind StorageV2
 ```
@@ -314,21 +314,21 @@ You store your managed application definition in your own storage account so tha
 > [!NOTE]
 > Bring your own storage is only supported with ARM template or REST API deployments of the managed application definition.
 
-### Create a storage account
+### Create the storage account
 
-Create a storage account for your managed application definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
+Create the storage account for your managed application definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
 
-This example creates a new resource group named `byosStorageRG`. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
+This example creates a new resource group named `byosDefinitionStorageGroup`. In the `Name` parameter, replace the placeholder `definitionstorage` with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name byosStorageRG -Location eastus
+New-AzResourceGroup -Name byosDefinitionStorageGroup -Location westus3
 
 New-AzStorageAccount `
-  -ResourceGroupName byosStorageRG `
+  -ResourceGroupName byosDefinitionStorageGroup `
   -Name "definitionstorage" `
-  -Location eastus `
+  -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
 ```
@@ -336,18 +336,18 @@ New-AzStorageAccount `
 Use the following command to store the storage account's resource ID in a variable named `storageId`. You use this variable's value when you deploy the managed application definition.
 
 ```azurepowershell-interactive
-$storageId = (Get-AzStorageAccount -ResourceGroupName byosStorageRG -Name definitionstorage).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group create --name byosStorageRG --location eastus
+az group create --name byosDefinitionStorageGroup --location westus3
 
 az storage account create \
     --name definitionstorage \
-    --resource-group byosStorageRG \
-    --location eastus \
+    --resource-group byosDefinitionStorageGroup \
+    --location westus3 \
     --sku Standard_LRS \
     --kind StorageV2
 ```
@@ -355,7 +355,7 @@ az storage account create \
 Use the following command to store the storage account's resource ID in a variable named `storageId`. You use this variable's value when you deploy the managed application definition.
 
 ```azurecli-interactive
-storageId=$(az storage account show --resource-group byosStorageRG --name definitionstorage --query id)
+storageId=$(az storage account show --resource-group byosDefinitionStorageGroup --name definitionstorage --query id)
 ```
 
 ---
@@ -433,9 +433,9 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 ---
 
-## Create the managed application definition template
+## Create the definition deployment template
 
-Use the following ARM template to deploy the managed application definition in your service catalog. The definition files are stored in your storage account.
+Use the following ARM template to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your bring your own storage account.
 
 Open Visual Studio Code, create a file with the name _azuredeploy.json_ and save it.
 
@@ -459,7 +459,7 @@ Add the following JSON and save the file.
     "definitionStorageResourceID": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID for the storage account where the definition is stored."
+        "description": "Resource ID for the bring your own storage account where the definition is stored."
       }
     },
     "packageFileUri": {
@@ -482,9 +482,9 @@ Add the following JSON and save the file.
     }
   },
   "variables": {
-    "lockLevel": "ReadOnly",
-    "description": "Sample BYOS Managed application definition",
-    "displayName": "Sample BYOS Managed application definition"
+    "definitionLockLevel": "ReadOnly",
+    "definitionDescription": "Sample BYOS Managed application definition",
+    "definitionDisplayName": "Sample BYOS Managed application definition"
   },
   "resources": [
     {
@@ -493,9 +493,9 @@ Add the following JSON and save the file.
       "name": "[parameters('managedApplicationDefinitionName')]",
       "location": "[parameters('location')]",
       "properties": {
-        "lockLevel": "[variables('lockLevel')]",
-        "description": "[variables('description')]",
-        "displayName": "[variables('displayName')]",
+        "lockLevel": "[variables('definitionLockLevel')]",
+        "description": "[variables('definitionDescription')]",
+        "displayName": "[variables('definitionDisplayName')]",
         "packageFileUri": "[parameters('packageFileUri')]",
         "storageAccountId": "[parameters('definitionStorageResourceID')]",
         "authorizations": [
@@ -513,21 +513,11 @@ Add the following JSON and save the file.
 
 For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template).
 
-Parameters used in the template:
-
-- **applicationName**: The name of the managed application definition.
-- **definitionStorageResourceID**: The resource ID of the managed application definition.
-- **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
-- **authorizations**: Describes the principal ID and the role definition ID that grant permission to the managed resource group.
-
-  - `principalId`: The object ID of the user, group, or service principal. The `principalid` variable's value.
-  - `roleDefinitionId`: The role ID for the Owner or Contributor role. The `roleid` variable's value.
-
-- **package file URI**: The location of the _.zip_ package file that contains the managed application definition's files.
+The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
 ## Create the parameter file
 
-The managed application definition's template needs input for several parameters. The deployment command prompts you for the values or you can create a parameter file for the values. In this example, we use a parameter file to pass the parameter values to the deployment command.
+The managed application definition's deployment template needs input for several parameters. The deployment command prompts you for the values or you can create a parameter file for the values. In this example, we use a parameter file to pass the parameter values to the deployment command.
 
 In Visual Studio Code, create a new file named _azuredeploy-parameters.json_ and save it.
 
@@ -561,7 +551,7 @@ The following table describes the parameter values for the managed application d
 
 | Parameter | Value |
 | ---- | ---- |
-| `applicationName` | Name of the managed application definition. For this example, use  _sampleManagedAppDefintion_.|
+| `managedApplicationDefinitionName` | Name of the managed application definition. For this example, use  _sampleByosManagedAppDefinition_.|
 | `definitionStorageResourceID` | Resource ID for the storage account where the definition is stored. Use the `storageId` variable's value. |
 | `packageFileUri` | Enter the URI for your _.zip_ package file. Use the URI for the _.zip_ [package file](#package-the-files) you created in an earlier step. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
 | `principalId` | The publishers Principal ID that needs permissions to manage resources in the managed resource group. Use your `principalid` variable's value. |
@@ -571,15 +561,15 @@ The following table describes the parameter values for the managed application d
 
 When you deploy the managed application's definition, it becomes available in your service catalog. This process doesn't deploy the managed application's resources.
 
-Create a resource group named _byosDefinitionRG_ and deploy the managed application definition to your storage account.
+Create a resource group named _byosAppDefinitionGroup_ and deploy the managed application definition to your storage account.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name byosDefinitionRG -Location eastus
+New-AzResourceGroup -Name byosAppDefinitionGroup -Location westus3
 
 New-AzResourceGroupDeployment `
-  -ResourceGroupName byosDefinitionRG `
+  -ResourceGroupName byosAppDefinitionGroup `
   -TemplateFile .\azuredeploy.json `
   -TemplateParameterFile .\azuredeploy-parameters.json
 ```
@@ -587,10 +577,10 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group create --name byosDefinitionRG --location eastus
+az group create --name byosAppDefinitionGroup --location westus3
 
 az deployment group create \
-  --resource-group byosDefinitionRG \
+  --resource-group byosAppDefinitionGroup \
   --template-file ./azuredeploy.json \
   --parameters ./azuredeploy-parameters.json
 ```
@@ -606,7 +596,7 @@ You can use the following commands to verify that the managed application defini
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Get-AzStorageAccount -ResourceGroupName byosStorageRG -Name definitionstorage |
+Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage |
 Get-AzStorageContainer -Name applicationdefinitions |
 Get-AzStorageBlob | Select-Object -Property *
 ```
