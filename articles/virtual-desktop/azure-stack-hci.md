@@ -162,9 +162,9 @@ To create a profile container using a file share:
 
 You can add new session hosts to an existing host pool that was created either manually or using the custom template.
 
-Select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
+To get started, select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
 
-The template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
+The custom template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
 ### Download supported OS images from Azure Marketplace
 
