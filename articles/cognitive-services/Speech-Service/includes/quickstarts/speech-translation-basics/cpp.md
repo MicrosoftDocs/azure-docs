@@ -25,7 +25,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio named `SpeechTranslation`.
+1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechTranslation`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech

@@ -19,7 +19,7 @@ Use the Custom Vision client library for .NET to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/customvision) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(prediction)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Package (NuGet) [(training)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(prediction)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Samples](/samples/browse/?products=azure&term=vision&terms=vision)
+[Reference documentation](/dotnet/api/overview/azure/custom-vision) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(prediction)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Package (NuGet) [(training)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(prediction)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Samples](/samples/browse/?products=azure&term=vision&terms=vision)
 
 ## Prerequisites
 
@@ -219,4 +219,4 @@ Now you've done every step of the object detection process in code. This sample 
 
 * [What is Custom Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs)
-* [SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
+* [SDK reference documentation](/dotnet/api/overview/azure/custom-vision)

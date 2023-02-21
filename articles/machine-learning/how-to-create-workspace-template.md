@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 08/12/2022
+ms.date: 11/09/2022
 #Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
@@ -29,6 +29,18 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 ## Limitations
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+* The example template may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+
+    > [!TIP]
+    > Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
+
+    To update the API version, find the `"apiVersion": "YYYY-MM-DD"` entry for the resource type and update it to the latest version. The following example is an entry for Azure Machine Learning:
+
+    ```json
+    "type": "Microsoft.MachineLearningServices/workspaces",
+    "apiVersion": "2020-03-01",
+    ```
 
 ### Multiple workspaces in the same VNet
 
@@ -382,40 +394,6 @@ New-AzResourceGroupDeployment `
 
 ---
 
-<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
-
-> [!IMPORTANT]
-> The deployment is only valid in regions which support private endpoints.
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="new" \
-      vnetName="examplevnet" \
-      privateEndpointType="AutoApproval"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -vnetOption "new" `
-  -vnetName "examplevnet" `
-  -privateEndpointType "AutoApproval"
-```
-
---- -->
 
 ### Use an existing virtual network & resources
 
@@ -493,47 +471,6 @@ To deploy a workspace with existing associated resources you have to set the **v
       -privateEndpointType "AutoApproval"
     ```
     ---
-
-<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
-
-> [!IMPORTANT]
-> The deployment is only valid in regions which support private endpoints.
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="existing" \
-      vnetName="examplevnet" \
-      vnetResourceGroupName="rg" \
-      privateEndpointType="AutoApproval" \
-      subnetName="subnet" \
-      subnetOption="existing"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -vnetOption "existing" `
-  -vnetName "examplevnet" `
-  -vnetResourceGroupName "rg"
-  -privateEndpointType "AutoApproval"
-  -subnetName "subnet"
-  -subnetOption "existing"
-```
-
---- -->
 
 ## Use the Azure portal
 

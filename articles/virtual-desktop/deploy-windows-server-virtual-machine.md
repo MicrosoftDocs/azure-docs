@@ -12,26 +12,19 @@ ms.custom: how-to
 # Deploy Windows Server-based virtual machines on Azure Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects.
 
 The process for deploying Windows Server-based virtual machines (VMs) on Azure Virtual Desktop is slightly different than the one for VMs running other versions of Windows, such as Windows 10 or Windows 11. This guide will walk you through the process.
 
 > [!NOTE]
-> Windows Server scenarios support the following versions of Azure Active Directory (AD)-joined session hosts:
+> You can use Azure Active Directory-join with the following versions of Windows Server for your session hosts:
 > 
-> - Windows Server 2019
 > - Windows Server 2022
-> 
-> However, Windows Server scenarios don't support the following versions of Azure AD-joined session hosts:
-> 
-> - Windows Server 2012
-> - Windows Server 2016
+> - Windows Server 2019
 
 ## Prerequisites
 
 Before you get started, you'll need to make sure you have the following things:
-
-- Azure Virtual Desktop host pools support running Windows Server 2012 R2 and later.
 
 - Running Windows Server-based host VMs on Azure Virtual Desktop requires a Remote Desktop Services (RDS) Licensing Server. This server should be a separate server or remote VM in your environment that you've assigned the Remote Desktop Licensing Server role to.
   

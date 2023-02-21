@@ -3,7 +3,7 @@ title: Application Insights SDK support guidance
 description: Support guidance for Application Insights legacy and preview SDKs
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 11/15/2022
 ms.reviewer: vgorbenko
 ---
 

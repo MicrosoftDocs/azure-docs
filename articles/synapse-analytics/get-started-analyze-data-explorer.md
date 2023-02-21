@@ -2,7 +2,7 @@
 title: 'Quickstart: Get started analyzing with Data Explorer pools (Preview)'
 description: In this quickstart, you'll learn to analyze data with Data Explorer.
 ms.topic: quickstart
-ms.date: 09/30/2021
+ms.date: 11/18/2022
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir

@@ -184,7 +184,7 @@ For users who need full read/write access, find each user, and then under **Sele
 
 ## Configure clusters with Azure AD registrations
 
-In the Azure portal, open the [Service Fabric Clusters](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.ServiceFabric%2Fclusters) pane.
+In the Azure portal, open the [Service Fabric Clusters](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.ServiceFabric%2Fclusters) pane.
 
 ### Service Fabric managed cluster configuration
 

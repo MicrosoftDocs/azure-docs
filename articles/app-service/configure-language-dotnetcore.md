@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 # Configure an ASP.NET Core app for Azure App Service
 
 > [!NOTE]
-> For ASP.NET in .NET Framework, see [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md)
+> For ASP.NET in .NET Framework, see [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md). If your ASP.NET Core app runs in a custom Windows or Linux container, see [Configure a custom container for Azure App Service](configure-custom-container.md).
 
 ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
@@ -122,7 +122,7 @@ namespace SomeNamespace
 }
 ```
 
-If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets your run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets you run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
 
 ::: zone pivot="platform-linux"
 > [!NOTE]

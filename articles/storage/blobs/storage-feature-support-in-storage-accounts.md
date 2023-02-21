@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 02/06/2023
 ms.author: normesta
 ---
 
@@ -17,7 +17,7 @@ Feature support is impacted by the type of account that you create and the setti
 
 Each table uses the following icons to indicate support level:
 
-| Icon | Description | 
+| Icon | Description |
 |---------------|-------------------|
 | &#x2705; | Fully supported |
 | &#x1F7E6; | Supported at the preview level |
@@ -42,11 +42,11 @@ The following table describes whether a feature is supported in a standard gener
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
-| [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
+| [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
+| [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup>| &#x2705;<sup>3</sup> |
+| [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
@@ -72,6 +72,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
@@ -81,6 +82,8 @@ The following table describes whether a feature is supported in a standard gener
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
+
+<sup>3</sup>    Setting the tier of a blob by using the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchial namespace.
 
 ## Premium block blob accounts
 
@@ -94,10 +97,10 @@ The following table describes whether a feature is supported in a premium block 
 | [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Blob index tags](storage-manage-find-blobs.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -121,6 +124,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md)	| &#x2705; | &#x2705;  | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Salesforce for automatic user provisioning

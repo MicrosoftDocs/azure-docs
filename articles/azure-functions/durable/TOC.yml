@@ -10,12 +10,19 @@
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
     href: durable-functions-versions.md
+  - name: Durable Functions for .NET isolated
+    href: durable-functions-dotnet-isolated-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create durable function - C#
-    href: durable-functions-create-first-csharp.md
-    displayName: get started, chaining
+    items: 
+      - name: In-process
+        href: durable-functions-create-first-csharp.md
+        displayName: get started, chaining
+      - name: Isolated worker process
+        href: durable-functions-isolated-create-first-csharp.md
+        displayName: get started, chaining
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
@@ -28,6 +35,12 @@
   - name: Create durable function - Java
     displayName: get started, chaining
     href: quickstart-java.md
+  - name: Configure storage provider - Netherite
+    href: quickstart-netherite.md
+  - name: Configure storage provider - MSSQL
+    href: quickstart-mssql.md
+  - name: Configure Durable Functions with Azure Active Directory
+    href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:
   - name: Function chaining
@@ -96,12 +109,24 @@
     href: durable-functions-bindings.md
   - name: HTTP API
     href: durable-functions-http-api.md
-  - name: .NET API
+  - name: .NET in-process API
     href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+  - name: .NET isolated API
+    items:
+    - name: Durable Functions bindings for .NET isolated
+      href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
+    - name: Durable Task core SDK for .NET isolated
+      href: /dotnet/api/microsoft.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Java API
+    items:
+    - name: Durable Functions bindings for Java
+      href: /java/api/com.microsoft.durabletask.azurefunctions
+    - name: Durable Task core SDK for Java
+      href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides

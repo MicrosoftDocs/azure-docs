@@ -256,7 +256,7 @@ Here are some examples of high-level tasks:
     - Depending on the test results, you may need to fine-tune your workspace with a caching policy, partitioning policy, workspace sizing, or other optimizations. For recommendations, see [Optimize for high concurrency](/azure/data-explorer/high-concurrency?context=/azure/synapse-analytics/context/context).
 1. Monitor for troubleshooting and performance:
     - For more information, see [Monitor Data Explorer performance, health, and usage with metrics](../data-explorer/data-explorer-monitor-pools.md).
-    - For technical issues, please [create a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support).
+    - For technical issues, please [create a support ticket](https://portal.azure.com/#create/Microsoft.Support).
 1. Estimating the pricing:
     - At the end of the POC, you should use what you learned in the POC to [estimate the cost](https://azure.microsoft.com/pricing/calculator/?service=synapse-analytics) of a workspace that meets your requirements.
 1. Close the POC:

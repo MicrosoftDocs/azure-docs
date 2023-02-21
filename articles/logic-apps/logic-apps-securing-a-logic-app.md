@@ -145,7 +145,7 @@ Many triggers and actions have settings to secure inputs, outputs, or both from 
 
 Before using these settings to help you secure this data, review these considerations:
 
-* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
+* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](monitor-workflows-collect-diagnostic-data.md#other-destinations) to that trigger or action for monitoring.
 
 * The [Azure Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.
 
@@ -665,7 +665,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
    | Property | Required | Type | Description |
    |----------|----------|------|-------------|
    | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | String | The claim types and values that your workflow accepts from inbound calls. Here are the available claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. <br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | **Claims** | Yes | String | The claim types and values that your workflow accepts from inbound calls. Here are the available claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. <br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
@@ -696,7 +696,7 @@ In your ARM template, define an authorization policy following these steps and s
 
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
-   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value.
+   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value.
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, review [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
@@ -1271,4 +1271,4 @@ For more information about isolation, review the following documentation:
 
 * [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
 * [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)

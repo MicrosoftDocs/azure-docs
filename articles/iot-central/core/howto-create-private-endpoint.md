@@ -49,7 +49,7 @@ To create a private endpoint on an existing IoT Central application:
 
 1. On the **DNS** tab,  select **Yes** for **Integrate with private DNS zone.** The private DNS resolves all the required endpoints to private IP addresses in your virtual network.
 
-    :::image type="content" source="media/howto-create-private-endpoint/private-dns-integration​.png" alt-text="Screenshot from Azure portal that shows private D N S integration.":::
+    :::image type="content" source="media/howto-create-private-endpoint/private-dns-integration​.png" alt-text="Screenshot from Azure portal that shows private DNS integration.":::
 
     > [!NOTE]
     > Because of the autoscale capabilities in IoT Central, you should use the **Private DNS integration** option if at all possible. If for some reason you can't use this option, see [Use a custom DNS server](#use-a-custom-dns-server).
@@ -156,7 +156,7 @@ When you configure a private endpoint for your IoT Central application, the IoT 
 
 Update your device code to use the direct DPS endpoint.
 
-:::image type="content" source="media/howto-create-private-endpoint/direct-dps-endpoint.png" alt-text="Screenshot from I o T Central application that shows the direct D P S endpoint.":::
+:::image type="content" source="media/howto-create-private-endpoint/direct-dps-endpoint.png" alt-text="Screenshot from I o T Central application that shows the direct DPS endpoint." lightbox="media/howto-create-private-endpoint/direct-dps-endpoint.png":::
 
 ## Best practices
 

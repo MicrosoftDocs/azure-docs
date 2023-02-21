@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to attach and manage Spark pools with Azure Synapse 
 author: ynpandey
 ms.author: franksolomon
-ms.reviewer: scottpolly
+ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 10/25/2022
+ms.date: 12/01/2022
 ms.custom: template-how-to 
 ---
 
@@ -23,14 +23,36 @@ In this article, you will learn how to attach a [Synapse Spark Pool](../synapse-
 - Using Azure Machine Learning Python SDK
 
 ## Prerequisites
+# [Studio UI](#tab/studio-ui)
+- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
+- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
+- [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
+- [Create an Apache Spark pool using the Azure portal](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- To enable this feature:
+  1. Navigate to Azure Machine Learning studio UI.
+  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
+  :::image type="content" source="media/how-to-manage-synapse-spark-pool/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 
+# [CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+- An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
+- An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
+- [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
+- [Create an Apache Spark pool using the Azure portal](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- [Create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
+- [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
+
+# [Python SDK](#tab/sdk)
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 - [Create an Apache Spark pool using the Azure portal](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
-- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/installv2)
-- [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
+- [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme).
+
+---
 
 ## Attach a Synapse Spark pool in Azure Machine Learning
 Azure Machine Learning provides multiple options for attaching and managing a Synapse Spark pool.  
@@ -60,7 +82,7 @@ The **Attach Synapse Spark pool (preview)** panel will open on the right side of
 
 1. Select a managed **Identity type** to use with this attached Synapse Spark Pool.
 
-1. Click **Update**, to complete the Synapse Spark Pool attach process.
+1. Select **Update**, to complete the Synapse Spark Pool attach process.
 
 # [CLI](#tab/cli)
 
@@ -97,16 +119,16 @@ To define an attached Synapse Spark pool using YAML syntax, the YAML file should
     - `system_assigned`
     - `user_assigned`
 
-    ```YAML
-    name: <ATTACHED_SPARK_POOL_NAME>
-  
-    type: synapsespark
+        ```YAML
+        name: <ATTACHED_SPARK_POOL_NAME>
+    
+        type: synapsespark
 
-    resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Synapse/workspaces/<SYNAPSE_WORKSPACE_NAME>/bigDataPools/<SPARK_POOL_NAME>
+        resource_id: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Synapse/workspaces/<SYNAPSE_WORKSPACE_NAME>/bigDataPools/<SPARK_POOL_NAME>
 
-    identity:
-      type: system_assigned
-    ```
+        identity:
+        type: system_assigned
+        ```
 
 - For the `identity` type `user_assigned`, you should also provide a list of `user_assigned_identities` values. Each user-assigned identity should be declared as an element of the list, by using the `resource_id` value of the user-assigned identity. The first user-assigned identity in the list will be used for submitting a job by default.
 
@@ -157,7 +179,6 @@ Class SynapseSparkCompute: This is an experimental class, and may change at any 
     "spark_version": "3.2",
     "type": "synapsespark"
 }
-
 ```
 
 If the attached Synapse Spark pool, with the name specified in the YAML specification file, already exists in the workspace, then `az ml compute attach` command execution will update the existing pool with the information provided in the YAML specification file. You can update the
@@ -206,7 +227,7 @@ This sample shows the expected output of the above command:
 To see a list of all computes, including the attached Synapse Spark pools in a workspace, use the `az ml compute list` command. Use the name parameter to pass the name of the workspace, as shown: 
 
 ```azurecli
-   az ml compute list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
+az ml compute list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
 ```
 
 This sample shows the expected output of the above command:
@@ -275,7 +296,6 @@ synapse_resource = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GR
 
 synapse_comp = SynapseSparkCompute(name=synapse_name, resource_id=synapse_resource)
 ml_client.begin_create_or_update(synapse_comp)
-
 ```
 
 To attach a Synapse Spark pool that uses system-assigned identity, pass [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration), with type set to `SystemAssigned`, as the `identity` parameter of the `SynapseSparkCompute` class. This code snippet attaches a Synapse Spark pool that uses system-assigned identity.
@@ -302,13 +322,11 @@ synapse_comp = SynapseSparkCompute(
     name=synapse_name, resource_id=synapse_resource, identity=synapse_identity
 )
 ml_client.begin_create_or_update(synapse_comp)
-    
 ```
 
 A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the [UserAssignedIdentity](/python/api/azure-ai-ml/azure.ai.ml.entities.userassignedidentity) class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet attaches a Synapse Spark pool that uses a user-assigned identity:
 
 ```python
-
 # import required libraries
 from azure.ai.ml import MLClient
 from azure.ai.ml.entities import (
@@ -341,7 +359,6 @@ synapse_comp = SynapseSparkCompute(
     name=synapse_name, resource_id=synapse_resource, identity=synapse_identity
 )
 ml_client.begin_create_or_update(synapse_comp)
-
 ```
 
 > [!NOTE] 
@@ -378,7 +395,7 @@ To ensure that the attached Synapse Spark Pool works properly, assign the [Admin
 
     1. In the **Select user** search box, start typing the name of your Azure Machine Learning Workspace. It will show you a list of attached Synapse Spark pools. Select your desired Synapse Spark pool from the list.
 
-    1. Click **Apply**.
+    1. Select **Apply**.
 
         :::image type="content" source="media/how-to-manage-synapse-spark-pool/workspace-add-role-assignment.png" alt-text="Screenshot showing Add Role Assignment.":::
 
@@ -400,20 +417,19 @@ To update managed identity for the attached Synapse Spark pool:
 
 1. To assign a system-assigned managed identity:
    1.  Select **System-assigned** as the **Identity type**.
-   1.  Click **Update**.
+   1.  Select **Update**.
 
 1. To assign a user-assigned managed identity:
    1. Select **User-assigned** as the **Identity type**.
    1. Select an Azure **Subscription** from the dropdown menu.
    1. Type the first few letters of the name of user-assigned managed identity in the box showing text **Search by name**. A list with matching user-assigned managed identity names will appear. Select the user-assigned managed identity you want from the list. You can select multiple user-assigned managed identities, and assign them to the attached Synapse Spark pool.
-   1. Click **Update**.
+   1. Select **Update**.
 
 # [CLI](#tab/cli)
-
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 Execute the `az ml compute update` command, with appropriate parameters, to update the identity associated with an attached Synapse Spark pool. To assign a system-assigned identity, set the `--identity` parameter in the command to `SystemAssigned`, as shown:
 
 ```azurecli
-
 az ml compute update --identity SystemAssigned --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME> --name <ATTACHED_SPARK_POOL_NAME>
 ```
 
@@ -449,15 +465,12 @@ Class SynapseSparkCompute: This is an experimental class, and may change at any 
     "spark_version": "3.2",
     "type": "synapsespark"
 }
-
 ```
 
 To assign a user-assigned identity, set the parameter `--identity` in the command to `UserAssigned`. Additionally, you should pass the resource ID, for the user-assigned identity, using the `--user-assigned-identities` parameter as shown:
 
 ```azurecli
-
 az ml compute update --identity UserAssigned --user-assigned-identities /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<AML_USER_MANAGED_ID> --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME> --name <ATTACHED_SPARK_POOL_NAME>
-
 ```
 
 This sample shows the expected output of the above command:
@@ -497,18 +510,16 @@ Class SynapseSparkCompute: This is an experimental class, and may change at any 
   "spark_version": "3.2",
   "type": "synapsespark"
 }
-
 ```
 
 > [!NOTE]
 > The parameter `--user-assigned-identities` can take a list of resource IDs and assign multiple user-defined identities to an attached Synapse Spark pool. The first user-assigned identity in the list will be used for submitting a job by default.
 
 # [Python SDK](#tab/sdk)
-
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 To use system-assigned identity, pass `IdentityConfiguration`, with type set to `SystemAssigned`, as the `identity` parameter of the `SynapseSparkCompute` class. This code snippet updates a Synapse Spark pool to use a system-assigned identity:
 
 ```python
-
 # import required libraries 
 from azure.ai.ml import MLClient
 from azure.ai.ml.entities import SynapseSparkCompute, IdentityConfiguration 
@@ -527,13 +538,11 @@ synapse_resource ="/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GRO
 synapse_identity = IdentityConfiguration(type="SystemAssigned") 
 
 synapse_comp = SynapseSparkCompute(name=synapse_name, resource_id=synapse_resource,identity=synapse_identity) ml_client.begin_create_or_update(synapse_comp) 
-
 ```
 
 A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the [UserAssignedIdentity](/python/api/azure-ai-ml/azure.ai.ml.entities.userassignedidentity) class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet updates a Synapse Spark pool to use a user-assigned identity:
 
 ```python
-
 # import required libraries
 from azure.ai.ml import MLClient
 from azure.ai.ml.entities import (
@@ -566,7 +575,6 @@ synapse_comp = SynapseSparkCompute(
     name=synapse_name, resource_id=synapse_resource, identity=synapse_identity
 )
 ml_client.begin_create_or_update(synapse_comp)
-
 ```
 
 > [!NOTE]
@@ -595,16 +603,13 @@ The Azure Machine Learning studio UI also provides a way to detach an attached S
 An attached Synapse Spark pool can be detached by executing the `az ml compute detach` command with name of the pool passed using `--name` parameter as shown here:
 
 ```azurecli
-
 az ml compute detach --name <ATTACHED_SPARK_POOL_NAME> --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
- 
 ```
 
 This sample shows the expected output of the above command:
 
 ```azurecli 
 Are you sure you want to perform this operation? (y/n): y
-
 ```
 
 # [Python SDK](#tab/sdk)
@@ -629,14 +634,12 @@ ml_client = MLClient(
 
 synapse_name = "<ATTACHED_SPARK_POOL_NAME>"
 ml_client.compute.begin_delete(name=synapse_name, action="Detach")
-
 ```
-
 ---
 
 ## Managed Synapse Spark Pool in Azure Machine Learning
 
-Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Click here to learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a Managed (Automatic) Spark compute experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the Managed (Automatic) Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 

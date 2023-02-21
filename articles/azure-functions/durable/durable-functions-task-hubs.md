@@ -3,7 +3,7 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -82,13 +82,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```java
 @FunctionName("Example")
-public String exampleOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        Task<Void> t1 = ctx.callActivity("MyActivity", 1);
-        Task<Void> t2 = ctx.callActivity("MyActivity", 2);
-        ctx.allOf(List.of(t1, t2)).await();
-    });
+public void exampleOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Void> t1 = ctx.callActivity("MyActivity", 1);
+    Task<Void> t2 = ctx.callActivity("MyActivity", 2);
+    ctx.allOf(List.of(t1, t2)).await();
 }
 ```
 

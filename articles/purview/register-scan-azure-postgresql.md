@@ -1,18 +1,18 @@
 ---
 title: 'Connect to and manage an Azure Database for PostgreSQL'
 description: This guide describes how to connect to an Azure Database for PostgreSQL single server in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Database for PostgreSQL source.
-author: evangelinew
-ms.author: evwhite
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/13/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an Azure Database for PostgreSQL in Microsoft Purview
+# Connect to and manages an Azure Database for PostgreSQL in Microsoft Purview
 
-This article outlines how to register an Azure Database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure Database for PostgreSQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
+This article outlines how to register an Azure Database for PostgreSQL deployed with single server deployment option, and how to authenticate and interact with an Azure Database for PostgreSQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -32,7 +32,7 @@ This article outlines how to register an Azure Database for PostgreSQL deployed 
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -44,14 +44,14 @@ Currently, to be able to manage and interact with an Azure Database for PostgreS
 
 #### SQL Authentication
 
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure Database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
+Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure Database for PostgreSQL if you don't have this available. You'll need **username** and **password** for the next steps.
 
-1. If you do not have an Azure Key vault already, follow [this guide to create an Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
+1. If you don't have an Azure Key vault already, follow [this guide to create an Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure PostgreSQL Database
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to set up your scan
 
 ### Steps to register
@@ -112,7 +112,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)

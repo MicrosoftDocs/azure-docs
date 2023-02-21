@@ -50,19 +50,19 @@ When you deploy your application, add another step to your CI/CD pipeline to dep
 
 > **Best practice**
 >
-> Azure Traffic Manager can direct you to your closest AKS cluster and application instance. For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.
+> For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.
 
-If you have multiple AKS clusters in different regions, use Traffic Manager to control traffic flow to the applications running in each cluster. [Azure Traffic Manager](../traffic-manager/index.yml) is a DNS-based traffic load balancer that can distribute network traffic across regions. Use Traffic Manager to route users based on cluster response time or based on geography.
+If you have multiple AKS clusters in different regions, use Traffic Manager to control traffic flow to the applications running in each cluster. [Azure Traffic Manager](../traffic-manager/index.yml) is a DNS-based traffic load balancer that can distribute network traffic across regions. Use Traffic Manager to route users based on cluster response time or based on priority.
 
 ![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
 If you have a single AKS cluster, you typically connect to the service IP or DNS name of a given application. In a multi-cluster deployment, you should connect to a Traffic Manager DNS name that points to the services on each AKS cluster. Define these services by using Traffic Manager endpoints. Each endpoint is the *service load balancer IP*. Use this configuration to direct network traffic from the Traffic Manager endpoint in one region to the endpoint in a different region.
 
-![Geographic routing through Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
+Traffic Manager performs DNS lookups and returns your most appropriate endpoint. With priority routing you can enable a primary service endpoint and multiple backup endpoints in case the primary or one of the backup endpoints is unavailable.
 
-Traffic Manager performs DNS lookups and returns your most appropriate endpoint. Nested profiles can prioritize a primary location. For example, you should connect to their closest geographic region. If that region has a problem, Traffic Manager directs you to a secondary region. This approach ensures that you can connect to an application instance even if your closest geographic region is unavailable.
+![Priority routing through Traffic Manager](media/operator-best-practices-bc-dr/traffic-manager-priority-routing.png)
 
-For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
+For information on how to set up endpoints and routing, see [Configure priority traffic routing method in Traffic Manager](../traffic-manager/traffic-manager-configure-priority-routing-method.md).
 
 ### Application routing with Azure Front Door Service
 

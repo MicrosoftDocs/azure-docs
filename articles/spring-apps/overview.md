@@ -155,7 +155,7 @@ As a quick reference, the articles listed above and the articles in the followin
 * [Use Tanzu Service Registry](how-to-enterprise-service-registry.md)
 * [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
 * [Use Spring Cloud Gateway for Tanzu](how-to-use-enterprise-spring-cloud-gateway.md)
-* [Deploy non-Java enterprise applications](how-to-enterprise-deploy-non-java-apps.md)
+* [Deploy polyglot enterprise applications](how-to-enterprise-deploy-polyglot-apps.md)
 * [Enable system-assigned managed identity](how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier)
 * [Application Insights using Java In-Process Agent](how-to-application-insights.md?pivots=sc-enterprise-tier)
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/23/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -61,7 +61,7 @@ Combined registration supports the authentication methods and actions in the fol
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords* | Yes | No | Yes |
-| FIDO2 security keys*| Yes | Yes | Yes |
+| FIDO2 security keys*| Yes | No | Yes |
 
 > [!NOTE]
 > <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
@@ -93,7 +93,7 @@ For both modes, users who have previously registered a method that can be used f
 
 ### Interrupt mode
 
-Combined registration adheres to both multifactor authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip the registration interruption and complete it at a later time.
+Combined registration adheres to both multifactor authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip (indefinitely) the registration interruption and complete it at a later time.
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 

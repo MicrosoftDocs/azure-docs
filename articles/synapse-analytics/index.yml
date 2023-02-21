@@ -118,11 +118,18 @@ landingContent:
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
             url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+          - text: Azure Synapse Link for SQL
+            url: ./synapse-link/sql-synapse-link-overview.md
+                        
       - linkListType: quickstart
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
             url: quickstart-connect-synapse-link-cosmos-db.md
-
+          - text: Connect to Azure Synapse Link for Azure SQL DB
+            url: ./synapse-link/connect-synapse-link-sql-database.md
+          - text: Connect to Azure Synapse Link for SQL Server 2022
+            url: ./synapse-link/connect-synapse-link-sql-server-2022.md
+            
   # Card
   - title: Machine Learning
     linkLists:

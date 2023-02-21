@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 6/17/2022
+ms.date: 1/18/2023
 ---
 
 # Disaster recovery guidance for Azure Container Apps
@@ -33,10 +33,10 @@ Additionally, the following resources can help you create your own disaster reco
 
 ## Set up zone redundancy in your Container Apps environment
 
-To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include a virtual network (VNET) with an infrastructure subnet.  To ensure proper distribution of replicas, you should configure your app's minimum and maximum replica count with values that are divisible by three.  The minimum replica count should be at least three. 
+To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include a virtual network (VNET) with an available subnet.  To ensure proper distribution of replicas, you should configure your app's minimum and maximum replica count with values that are divisible by three.  The minimum replica count should be at least three.
 
-### Enable zone redundancy via the Azure portal 
- 
+### Enable zone redundancy via the Azure portal
+
 To create a container app in an environment with zone redundancy enabled using the Azure portal:
 
 1. Navigate to the Azure portal.
@@ -62,6 +62,9 @@ Create a VNET and infrastructure subnet to include with the Container Apps envir
 
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -77,25 +80,29 @@ az network vnet subnet create \
   --resource-group <RESOURCE_GROUP_NAME> \
   --vnet-name <VNET_NAME> \
   --name infrastructure \
-  --address-prefixes 10.0.0.0/23
+  --address-prefixes 10.0.0.0/21
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az network vnet create `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --name <VNET_NAME> `
-  --location <LOCATION> `
-  --address-prefix 10.0.0.0/16
+
+```azurepowershell
+$SubnetArgs = @{
+    Name = 'infrastructure-subnet'
+    AddressPrefix = '10.0.0.0/21'
+}
+$subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```powershell
-az network vnet subnet create `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --vnet-name <VNET_NAME> `
-  --name infrastructure-subnet `
-  --address-prefixes 10.0.0.0/23
+```azurepowershell
+$VnetArgs = @{
+    Name = <VNetName>
+    Location = <Location>
+    ResourceGroupName = <ResourceGroupName>
+    AddressPrefix = '10.0.0.0/16'
+    Subnet = $subnet 
+}
+$vnet = New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
@@ -108,10 +115,10 @@ Next, query for the infrastructure subnet ID.
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv)
+```azurepowershell
+$InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
 ---
@@ -129,15 +136,37 @@ az containerapp env create \
   --zone-redundant
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az containerapp env create `
-  --name <CONTAINER_APP_ENV_NAME> `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --location "<LOCATION>" `
-  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET `
-  --zone-redundant
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+
+```azurepowershell
+$WorkspaceArgs = @{
+    Name = 'myworkspace'
+    ResourceGroupName = <ResourceGroupName>
+    Location = <Location>
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
+}
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName <ResourceGroupName> -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName <ResourceGroupName> -Name $WorkspaceArgs.Name).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```azurepowershell
+$EnvArgs = @{
+    EnvName = <EnvironmentName>
+    ResourceGroupName = <ResourceGroupName>
+    Location = <Location>
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+    VnetConfigurationInfrastructureSubnetId = $InfrastructureSubnet
+    VnetConfigurationInternal = $true
+}
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---

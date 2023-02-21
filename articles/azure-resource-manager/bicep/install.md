@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 11/03/2022
+ms.date: 01/10/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -16,7 +16,7 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 |  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension
@@ -211,6 +211,8 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
 
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
+
+When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`. See [CI/CD with Azure Pipelines and Bicep files](./add-template-to-azure-pipelines.md) for an example.
 
 ## Install the nightly builds
 

@@ -1,15 +1,14 @@
 ---
-title: Azure Active Directory Authentication Libraries | Microsoft Docs
+title: Azure Active Directory Authentication Libraries
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/29/2022
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
@@ -31,7 +30,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 
 
 > [!WARNING]
-> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
+> Support for Active Directory Authentication Library (ADAL) [will end](https://aka.ms/adal-eos) in June 2023. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
 
 ## Microsoft-supported Client Libraries
 

@@ -37,7 +37,7 @@ Connections that don't reach Azure Virtual Desktop won't show up in diagnostics 
 Azure Monitor lets you analyze Azure Virtual Desktop data and review virtual machine (VM) performance counters, all within the same tool. This article will tell you more about how to enable diagnostics for your Azure Virtual Desktop environment.
 
 >[!NOTE]
->To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Monitor glossary](./azure-monitor-glossary.md) for a better understanding of your user experience on the session host.
+>To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Virtual Desktop Insights glossary](./insights-glossary.md) for a better understanding of your user experience on the session host.
 
 ## Before you get started
 

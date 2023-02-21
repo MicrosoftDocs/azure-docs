@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -32,7 +32,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
-|  Minimum size of a single capacity pool   |  4 TiB     |    No  |
+|  Minimum size of a single capacity pool   |  2 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No    |
@@ -43,11 +43,14 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |
+|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
+|  Number of cross-zone replication data protection volumes (destination volumes)     |    10    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 1 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
+
+\* [!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
@@ -90,15 +93,23 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 |    > 4 TiB                 |     106,255,630   |
 
 >[!IMPORTANT]
-> If your volume has a quota of at least 4 TiB and you want to increase the quota, you must initiate [a support request](#request-limit-increase).
+> If your volume has a volume size (quota) of more than 4 TiB and you want to increase the `maxfiles` limit, you must initiate [a support request](#request-limit-increase).
 
-If you have allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the maxfiles (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the maxfiles limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+If you've allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the `maxfiles` (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the `maxfiles` limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at least 20 TiB. 
+
+>[!IMPORTANT]
+> Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
+
+You cannot set `maxfiles` limits for data protection volumes via a quota request.  Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume.  When a failover happens to a data protection volume, the `maxfiles` limit remains the last value before the failover.  In this situation, you can submit a `maxfiles` [quota request](#request-limit-increase) for the volume.
 
 ## Request limit increase
 
 You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
+
+>[!NOTE]
+> Depending on available resources in the region and the limit increase requested, Azure support may require additional information in order to determine the feasibility of the request.
 
 1. Go to **New Support Request** under **Support + troubleshooting**.   
 
@@ -109,7 +120,7 @@ You can create an Azure support request to increase the adjustable limits from t
 
     ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
 
-3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
+3. Under the **Additional details** tab, select **Enter details** in the Request Details field.  
 
     ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
 
@@ -127,7 +138,7 @@ You can create an Azure support request to increase the adjustable limits from t
     
     ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-5. Click **Save and continue**. Click **Review + create** to create the request.
+5. Select **Save and continue**. Select **Review + create** to create the request.
 
 ## Next steps  
 

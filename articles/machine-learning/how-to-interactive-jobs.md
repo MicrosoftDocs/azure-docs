@@ -5,7 +5,7 @@ description: Debug or monitor your Machine Learning job as it runs on AzureML co
 services: machine-learning
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -14,7 +14,12 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the machine learning space, looking to build ML models using data in Azure Machine Learning with full control of the model training including debugging and monitoring of live jobs.
 ---
 
-# Debug jobs and monitor training progress
+# Debug jobs and monitor training progress (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Machine learning model training is usually an iterative process and requires significant experimentation. With the Azure Machine Learning interactive job experience, data scientists can use the Azure Machine Learning Python SDKv2, Azure Machine Learning CLIv2 or the Azure Studio to access the container where their job is running.  Once the job container is accessed, users can iterate on training scripts, monitor training progress or debug the job remotely like they typically do on their local machines. Jobs can be interacted with via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting to the job container directly via **SSH**.  
 
@@ -22,6 +27,7 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 
 ## Prerequisites
 - Review [getting started with training on Azure Machine Learning](./how-to-train-model.md).
+- To use this feature in Azure Machine Learning Studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
@@ -64,11 +70,12 @@ By specifying interactive applications at job creation, you can connect directly
 
 6. Review and create the job.
 
+If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
-   Note that you have to import the `JobService` class from the `azure.ai.entities` package to configure interactive services via the SDKv2. 
+   Note that you have to import the `JobService` class from the `azure.ai.ml.entities` package to configure interactive services via the SDKv2. 
 
     ```python
     command_job = command(...
@@ -176,16 +183,16 @@ To interact with your running job, click the button **Debug and monitor** on the
 
 Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
 
-:::image type="content" source="media/interactive-jobs/interactive-jobs-right-panel.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the users data":::
+:::image type="content" source="media/interactive-jobs/interactive-jobs-application-list.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the user's data.":::
 
-It might take a few minutes to start the job and the training applications specified during job creation.
+It might take a few minutes to start the job and the training applications specified during job creation. If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
 # [Python SDK](#tab/python)
 - Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
     
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the Azure Machine Learning CLIv2, follow this [guide](./how-to-configure-cli.md). 
   
-You can find the reference documentation for the SDKv2 [here](/sdk/azure/ml).
+You can find the reference documentation for the SDKv2 [here](./index.yml).
 
 You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 
@@ -203,7 +210,7 @@ You can access the applications only when they are in **Running** status and onl
 ### Interact with the applications
 When you click on the endpoints to interact when your job, you're taken to the user container under your working directory, where you can access your code, inputs, outputs, and logs. If you run into any issues while connecting to the applications, the interactive capability and applications logs can be found from **system_logs->interactive_capability** under **Outputs + logs** tab.
 
-:::image type="content" source="./media/interactive-jobs/interactive-jobs-logs.png" alt-text="Screenshot of interactive jobs interactive logs panel location.":::
+:::image type="content" source="./media/interactive-jobs/interactive-logs.png" alt-text="Screenshot of interactive jobs interactive logs panel location.":::
 
 - You can open a terminal from Jupyter Lab and start interacting within the job container. You can also directly iterate on your training script with Jupyter Lab. 
 
@@ -216,6 +223,8 @@ When you click on the endpoints to interact when your job, you're taken to the u
 - If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
 
   :::image type="content" source="./media/interactive-jobs/tensorboard-open.png" alt-text="Screenshot of interactive jobs tensorboard panel when first opened. This information will vary depending upon customer data":::
+  
+If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
 ### End job
 Once you're done with the interactive training, you can also go to the job details page to cancel the job which will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
@@ -249,4 +258,4 @@ To submit a job with a debugger attached and the execution paused, you can use d
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).

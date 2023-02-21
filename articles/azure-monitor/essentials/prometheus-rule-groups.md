@@ -81,6 +81,9 @@ Below is a sample template that creates a Prometheus rule group, including one r
                     {
                         "record": "instance:node_cpu_utilisation:rate5m",
                         "expression": "1 - avg without (cpu) (sum without (mode)(rate(node_cpu_seconds_total{job=\"node\", mode=~\"idle|iowait|steal\"}[5m])))",
+                        "labels": {
+                            "workload_type": "job"
+                        },
                         "enabled": true
                     },
                     {
@@ -138,6 +141,7 @@ The `rules` section will have the following properties for recording rules.
 |:---|:---|:---|:---|
 | `record` | True | string | Recording rule name. This is the name that will be used for the new time series. |
 | `expression` | True | string | PromQL expression to calculate the new time series value. |
+| `labels` | True | string | Prometheus rule labels key-value pairs, will be added to the recorded time series. |
 | `enabled` | False | boolean | Enable/disable group. Default is true. |
 
 
@@ -149,7 +153,7 @@ The `rules` section will have the following properties for alerting rules.
 | `alert` | False | string | Alert rule name  |
 | `expression` | True | string | PromQL expression to evaluate. |
 | `for` | False | string | Alert firing timeout. Values - 'PT1M', 'PT5M' etc. |
-| `labels` | False | object | labels key-value pairs | Prometheus alert rule labels |
+| `labels` | False | object | labels key-value pairs | Prometheus alert rule labels, will be added to the fired alert. |
 | `rules.annotations` | False | object | Annotations key-value pairs to add to the alert. |
 | `enabled` | False | boolean | Enable/disable group. Default is true. |
 | `rules.severity` | False | integer | Alert severity. 0-4, default is 3 (informational) |

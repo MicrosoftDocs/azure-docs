@@ -2,8 +2,7 @@
 title: 'Tutorial: Deploy your Node.js app to Azure Web App by using DevOps Starter for GitHub Actions'
 description: DevOps Starter makes it easy to get started on Azure and to deploy your Node.js app to Azure Web App in a few quick steps.
 ms.author: ninallam
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam

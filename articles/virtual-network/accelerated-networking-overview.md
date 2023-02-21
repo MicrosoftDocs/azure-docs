@@ -2,12 +2,8 @@
 title: Accelerated Networking overview
 description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
-documentationcenter: ''
 author: asudbring
 manager: gedegrac
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: how-to
@@ -72,6 +68,9 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
 
 The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
+
+> [!NOTE]
+> Although NC and NV sizes will show in the command below, they do not support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs will have no effect.
 
 ```azurecli-interactive
 az vm list-skus \

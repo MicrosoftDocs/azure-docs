@@ -29,10 +29,12 @@ items:
     items:
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md
-      - name: Using Chat SDK with React Native
+      - name: Use the Chat SDK with React Native
         href: quickstarts/chat/react-native.md
-      - name: Send Chat messages in Azure Logic Apps
+      - name: Send chat messages by using Power Automate
         href: quickstarts/chat/logic-app.md
+      - name: Add a bot to your chat app
+        href: quickstarts/chat/quickstart-botframework-integration.md
   - name: Email
     items:
       - name: Create an Email Communication Services resource
@@ -45,8 +47,10 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Handle Email events
+        href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md        
+        href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -73,12 +77,26 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Add video calling to your WebView client app
+      href: quickstarts/voice-video-calling/get-started-webview.md
     - name: Record calls
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
+    - name: Accessing call volume levels
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+    - name: Modifying and replacing the background image
+      href: quickstarts/voice-video-calling/get-started-video-effects.md
+  - name: Call Automation
+    items:
+      - name: Handle an inbound phone call
+        href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+      - name: Build a workflow for customer interactions 
+        href: quickstarts/call-automation/callflows-for-customer-interactions.md
+      - name: Record calls
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
   - name: Rooms
     items:
       - name: Create and manage a room resource
@@ -87,8 +105,10 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
   - name: UI Library
     items:
-    - name: Get started with UI Library
+    - name: Get started with Calling
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Get started with Chat
+      href: quickstarts/ui-library/get-started-chat-ui-library.md
     - name: Design with UI Library Design Kit
       href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Teams interoperability
@@ -136,7 +156,7 @@ items:
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
-    href: concepts/client-and-server-architecture.md
+    href: https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture
   - name: Identity and authentication
     items:
     - name: Identity 
@@ -147,6 +167,8 @@ items:
       href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
+    - name: Use cases for string identifiers
+      href: concepts/raw-id-use-cases.md
   - name: Chat
     items:
       - name: Chat SDK overview
@@ -211,6 +233,10 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Customizing the video background
+        href: concepts/voice-video-calling/video-effects.md
+      - name: Pre-Call diagnostics
+        href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Call networking internals
@@ -221,6 +247,20 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
+  - name: Call Automation
+    items:
+      - name: Overview
+        href: concepts/call-automation/call-automation.md
+      - name: Learn about inbound calls
+        href: concepts/call-automation/incoming-call-notification.md
+      - name: Play audio in call
+        href: concepts/call-automation/play-action.md
+      - name: Gathering user input 
+        href: concepts/call-automation/recognize-action.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -264,6 +304,9 @@ items:
       - name: Presence Events
         href: ../event-grid/communication-services-presence-events.md
         maintainContext: true
+      - name: Email Events
+        href: ../event-grid/communication-services-email-events.md
+        maintainContext: true
   - name: Teams interoperability
     items:
       - name: Overview
@@ -278,10 +321,14 @@ items:
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+          - name: Logs & metrics
+            href: concepts/interop/guest/monitor-logs-metrics.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
             href: concepts/interop/guest/government-cloud.md
+          - name: Security
+            href: concepts/interop/guest/security.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -308,8 +355,14 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Security
+            href: concepts/interop/teams-user/security.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
+  - name: Developer Tools
+    items:
+      - name: Network Diagnostic Tool 
+        href: concepts/developer-tools/network-diagnostic.md 
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government
@@ -334,6 +387,10 @@ items:
     href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
 - name: How-to guides
   items:
   - name: Using the Calling SDK
@@ -360,6 +417,10 @@ items:
         href: how-tos/calling-sdk/events.md
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
+      - name: Verify if an application is active in multiple tabs of a browser
+        href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Integrate with CallKit in iOS
+        href: how-tos/calling-sdk/callkit-integration.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
@@ -368,6 +429,20 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
+  - name: Using the Call Automation library
+    items: 
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Customize voice prompts to users with Play action 
+      href: how-tos/call-automation/play-action.md
+    - name: Gather user input with Recognize action 
+      href: how-tos/call-automation/recognize-action.md
+  - name: Using the Chat SDK
+    items: 
+    - name: Integrate with Data Loss Prevention policies
+      href: how-tos/chat-sdk/data-loss-prevention.md
 - name: Samples
   items:
   - name: Overview
@@ -382,6 +457,8 @@ items:
     href: samples/web-calling-sample.md
   - name: UI Library cross platform samples
     href: samples/ui-library-cross-platform.md
+  - name: Call Automation appointment reminder sample
+    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview
@@ -398,6 +475,12 @@ items:
       href: /java/api/com.azure.android.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+  - name: Call Automation libraries
+    items:
+    - name: Call Automation (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
+    - name: Call Automation (Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
   - name: Chat libraries
     items:
     - name: Chat (JavaScript)
@@ -448,16 +531,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
     - name: Common (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
       href: /javascript/api/@azure/communication-react/
-    - name: UI Library (iOS)
+    - name: UI Library for Calling (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
-    - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
+    - name: UI Library for Calling (Android)
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-calling/com/azure/android/communication/ui/calling/models/package-summary.html   
 - name: Resources
   items:
   - name: Release notes

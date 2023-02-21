@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 10/28/2022
+ms.date: 02/15/2023
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -78,8 +78,8 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
 
-- Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Perform a backup and restore operation on a storage account behind a firewall.
+- Access the FTPS endpoint using a custom domain suffix.
 
 ## Pricing
 
@@ -100,12 +100,12 @@ App Service Environment v3 is available in the following regions:
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
-| Australia Central    |                              |                             | ✅                           | 
-| Australia Central 2  |                           |                             | ✅                           | 
+| Australia Central    | ✅                           |                             | ✅                           | 
+| Australia Central 2  | ✅*                          |                             | ✅                           | 
 | Australia East       | ✅                           | ✅                          | ✅                           | 
 | Australia Southeast  | ✅                           |                             | ✅                           | 
 | Brazil South         | ✅                           | ✅                          | ✅                           | 
-| Brazil Southeast     |                              |                             | ✅                           |
+| Brazil Southeast     | ✅                           |                             | ✅                           |
 | Canada Central       | ✅                           | ✅                          | ✅                           |
 | Canada East          | ✅                           |                             | ✅                           | 
 | Central India        | ✅                           | ✅                          | ✅                           | 
@@ -114,36 +114,39 @@ App Service Environment v3 is available in the following regions:
 | East US              | ✅                           | ✅                          | ✅                           | 
 | East US 2            | ✅                           | ✅                          | ✅                           |
 | France Central       | ✅                           | ✅                          | ✅                           | 
-| France South         |                              |                             | ✅                           | 
-| Germany North        |                              |                             | ✅                           | 
+| France South         | ✅                           |                             | ✅                           | 
+| Germany North        | ✅                           |                             | ✅                           | 
 | Germany West Central | ✅                           | ✅                          | ✅                           | 
 | Japan East           | ✅                           | ✅                          | ✅                           | 
 | Japan West           |                              |                             | ✅                           | 
 | Jio India West       |                              |                             | ✅                           | 
 | Korea Central        | ✅                           | ✅                          | ✅                           | 
-| Korea South          |                              |                             | ✅                           | 
+| Korea South          | ✅                           |                             | ✅                           | 
 | North Central US     | ✅                           |                             | ✅                           | 
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
-| Norway West          |                              |                             | ✅                           | 
+| Norway West          | ✅                           |                             | ✅                           | 
+| Qatar Central        | ✅                           | ✅                          |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
-| South Africa West    |                              |                             | ✅                           | 
+| South Africa West    | ✅                           |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |
-| South India          |                              |                             | ✅                           | 
+| South India          | ✅                           |                             | ✅                           | 
 | Southeast Asia       | ✅                           | ✅                          | ✅                           |
 | Sweden Central       | ✅                           | ✅                          |                              |
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
-| Switzerland West     |                              |                             | ✅                           | 
+| Switzerland West     | ✅                           |                             | ✅                           | 
 | UAE Central          |                              |                             | ✅                           | 
 | UAE North            | ✅                           |                             | ✅                           | 
 | UK South             | ✅                           | ✅                          | ✅                           | 
 | UK West              | ✅                           |                             | ✅                           | 
 | West Central US      | ✅                           |                             | ✅                           | 
 | West Europe          | ✅                           | ✅                          | ✅                           | 
-| West India           |                           |                             | ✅                           | 
+| West India           | ✅*                          |                             | ✅                           | 
 | West US              | ✅                           |                             | ✅                           | 
 | West US 2            | ✅                           | ✅                          | ✅                           | 
 | West US 3            | ✅                           | ✅                          | ✅                           | 
+
+\* Limited availability and no support for dedicated host deployments
 
 ### Azure Government:
 
@@ -161,7 +164,7 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
-|                      | App Service Environment v3 (preview)   | App Service Environment v3 (preview)  | App Service Environment v1/v2 |
+|                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
 | China East 2         |                              |                             | ✅                          |
 | China East 3         | ✅                          |                              |                             |
 | China North 2        |                              |                             | ✅                          |

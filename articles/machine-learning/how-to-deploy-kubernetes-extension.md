@@ -28,22 +28,25 @@ In this article, you can learn:
 
 ## Prerequisites
 
-* An AKS cluster is up and running in Azure.
-  * If you have not previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
+* An AKS cluster running in Azure. If you have not previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
-  * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kuberenetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
-* The Kubernetes cluster must have minimum of 4 vCPU cores and 8-GB memory.
-* Cluster running behind an outbound proxy server or firewall needs extra [network configurations](./how-to-access-azureml-behind-firewall.md#kubernetes-compute)
+  * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
+* For production purposes, the Kubernetes cluster must have a minimum of **4 vCPU cores and 14-GB memory**. For more information on resource detail and cluster size recommendations, see [Recommended resource planning](./reference-kubernetes.md).
+* Cluster running behind an outbound proxy server or firewall needs extra [network configurations](./how-to-access-azureml-behind-firewall.md).
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
 * Install or upgrade Azure CLI extension `k8s-extension` to version 1.2.3 or higher.
   
 
 ## Limitations
 
-- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a **system-assigned managed identity** instead.
+- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a **managed identity** instead. Both **system-assigned managed identity** and **user-assigned managed identity** are supported. For more information, see [Use a managed identity in Azure Kubernetes Service](../aks/use-managed-identity.md).
 - [Disabling local accounts](../aks/managed-aad.md#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When the AKS Cluster is deployed, local accounts are enabled by default.
 - If your AKS cluster has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions. Without access to the API server, the machine learning pods can't be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
-- If you've previously followed the steps from [AzureML AKS v1 document](./v1/how-to-create-attach-kubernetes.md) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) before you continue the next step. 
+- Azure Machine Learning does not guarantee support for all preview stage features in AKS. For example, [Azure AD pod identity](../aks/use-azure-ad-pod-identity.md) is not supported.
+- If you've previously followed the steps from [AzureML AKS v1 document](./v1/how-to-create-attach-kubernetes.md) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) before you continue the next step.
+- We currently don't support attaching your AKS cluster across subscription, which means that your AKS cluster must be in the same subscription as your workspace. 
+   - The workaround to meet your cross-subscription requirement is to first connect AKS to Azure-ARC and then attach this ARC-Kubernetes resource.
+
 
 ## Review AzureML extension configuration settings
 
@@ -56,10 +59,10 @@ You can use AzureML CLI command `k8s-extension create` to deploy AzureML extensi
    | `allowInsecureConnections` |`True` or `False`, default `False`. **Can** be set to `True` to use inference HTTP endpoints for development or test purposes. |N/A| Optional |  Optional |
    | `inferenceRouterServiceType` |`loadBalancer`, `nodePort` or `clusterIP`.  **Required** if `enableInference=True`. | N/A| **&check;** |   **&check;** |
    | `internalLoadBalancerProvider` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. Set to `azure` to allow the inference router using internal load balancer.  | N/A| Optional |  Optional |
-   |`sslSecret`| The name of Kubernetes secret in `azureml` namespace to store `cert.pem` (PEM-encoded TLS/SSL cert) and `key.pem` (PEM-encoded TLS/SSL key), required for inference  HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. You can find a sample YAML definition of sslSecret [here](./reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl). Use this config or combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
-   |`sslCname` |An TLS/SSL CName is used by inference HTTPS endpoint. **Required** if `allowInsecureConnections=False`  |  N/A | Optional | Optional|
+   |`sslSecret`| The name of the Kubernetes secret in the `azureml` namespace. This config is used to store `cert.pem` (PEM-encoded TLS/SSL cert) and `key.pem` (PEM-encoded TLS/SSL key), which are required for inference HTTPS endpoint support when ``allowInsecureConnections`` is set to `False`. For a sample YAML definition of `sslSecret`, see [Configure sslSecret](./how-to-secure-kubernetes-online-endpoint.md#configure-sslsecret). Use this config or a combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
+   |`sslCname` |An TLS/SSL CNAME is used by inference HTTPS endpoint. **Required** if `allowInsecureConnections=False`  |  N/A | Optional | Optional|
    | `inferenceRouterHA` |`True` or `False`, default `True`. By default, AzureML extension will deploy three inference router replicas for high availability, which requires at least three worker nodes in a cluster. Set to `False` if your cluster has fewer than three worker nodes, in this case only one inference router service is deployed. | N/A| Optional |  Optional |
-   |`nodeSelector` | By default, the deployed kubernetes resources are randomly deployed to one or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
+   |`nodeSelector` | By default, the deployed kubernetes resources and your machine learning workloads are randomly deployed to one or more nodes of the cluster, and DaemonSet resources are deployed to ALL nodes. If you want to restrict the extension deployment and your training/inference workloads to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
    |`installNvidiaDevicePlugin`  | `True` or `False`, default `False`. [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on NVIDIA GPU hardware. By default, AzureML extension deployment won't install NVIDIA Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to `True`, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
    |`installPromOp`|`True` or `False`, default `True`. AzureML extension needs prometheus operator to manage prometheus. Set to `False` to reuse the existing prometheus operator. For more information about reusing the existing  prometheus operator, refer to [reusing the prometheus operator](./how-to-troubleshoot-kubernetes-extension.md#prometheus-operator)| Optional| Optional |  Optional |
    |`installVolcano`| `True` or `False`, default `True`. AzureML extension needs volcano scheduler to schedule the job. Set to `False` to reuse existing volcano scheduler. For more information about reusing the existing volcano scheduler, refer to [reusing volcano scheduler](./how-to-troubleshoot-kubernetes-extension.md#volcano-scheduler)   | Optional| N/A |  Optional |
@@ -82,7 +85,7 @@ If you plan to deploy AzureML extension for real-time inference workload and wan
       * Type `LoadBalancer`. Exposes `azureml-fe` externally using a cloud provider's load balancer. To specify this value, ensure that your cluster supports load balancer provisioning. Note most on-premises Kubernetes clusters might not support external load balancer.
       * Type `NodePort`. Exposes `azureml-fe` on each Node's IP at a static port. You'll be able to contact `azureml-fe`, from outside of cluster, by requesting `<NodeIP>:<NodePort>`. Using `NodePort` also allows you to set up your own load balancing solution and TLS/SSL termination for `azureml-fe`.
       * Type `ClusterIP`. Exposes `azureml-fe` on a cluster-internal IP, and it makes `azureml-fe` only reachable from within the cluster. For `azureml-fe` to serve inference requests coming outside of cluster, it requires you to set up your own load balancing solution and TLS/SSL termination for `azureml-fe`. 
-   * To ensure high availability of `azureml-fe` routing service, AzureML extension deployment by default creates three replicas of `azureml-fe` for clusters having three nodes or more. If your cluster has **less than 3 nodes**, set `inferenceLoadbalancerHA=False`.
+   * To ensure high availability of `azureml-fe` routing service, AzureML extension deployment by default creates three replicas of `azureml-fe` for clusters having three nodes or more. If your cluster has **less than 3 nodes**, set `inferenceRouterHA=False`.
    * You also want to consider using **HTTPS** to restrict access to model endpoints and secure the data that clients submit. For this purpose, you would need to specify either `sslSecret` config setting or combination of `sslKeyPemFile` and `sslCertPemFile` config-protected settings. 
    * By default, AzureML extension deployment expects config settings for **HTTPS** support. For development or testing purposes, **HTTP** support is conveniently provided through config setting `allowInsecureConnections=True`.
 
@@ -126,22 +129,22 @@ The UI experience to deploy extension is only available for **[Arc Kubernetes](.
 1. In the [Azure portal](https://portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
 1. Select **Extensions** (under **Settings**), and then select **+ Add**.
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
 
 1. From the list of available extensions, select **Azure Machine Learning extension** to deploy the latest version of the extension.
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of selecting AzureML extension from Azure portal.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of selecting AzureML extension from Azure portal.":::
 
 1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installation in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings](#review-azureml-extension-configuration-settings).
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-settings.png" alt-text="Screenshot of configuring AzureML extension settings from Azure portal.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-settings.png" alt-text="Screenshot of configuring AzureML extension settings from Azure portal.":::
 1. On the **Review + create** tab, select **Create**.
    
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-create.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-create.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
 
 1. After the deployment completes, you're able to see the AzureML extension in **Extension** page.  If the extension installation succeeds, you can see **Installed** for the **Install status**.
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of installed AzureML extensions listing in Azure portal.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of installed AzureML extensions listing in Azure portal.":::
 
 ---
 
@@ -167,7 +170,7 @@ Upon AzureML extension deployment completes, you can use `kubectl get deployment
 
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
    |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Relayserver is only created for Arc Kubernetes cluster, and **not** in AKS cluster. Relayserver works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
+   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Relay server is only created for Arc Kubernetes cluster, and **not** in AKS cluster. Relay server works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
@@ -187,7 +190,7 @@ Upon AzureML extension deployment completes, you can use `kubectl get deployment
 
 > [!IMPORTANT]
    > * Azure Relay resource  is under the same resource group as the Arc cluster resource. It is used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
-   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described as below.
+   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described in [configuration settings table](#review-azureml-extension-configuration-settings).
 
 > [!NOTE]
    > * **{EXTENSION-NAME}:** is the extension name specified with `az k8s-extension create --name` CLI command. 

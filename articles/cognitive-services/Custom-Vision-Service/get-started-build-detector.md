@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
@@ -75,7 +75,7 @@ In this section, you'll upload and manually tag images to help train the detecto
 
     ![Images uploaded, in Untagged section](./media/get-started-build-detector/images-untagged.png)
 
-1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
+1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, select the arrow on the right to save your tags and move on to the next image.
 
     ![Tagging an object with a rectangular selection](./media/get-started-build-detector/image-tagging.png)
 

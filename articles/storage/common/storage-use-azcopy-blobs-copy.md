@@ -1,5 +1,5 @@
 ---
-title: Copy blobs between Azure storage accounts with AzCopy v10 | Microsoft Docs
+title: Copy blobs between Azure storage accounts with AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you copy blobs between storage accounts.
 author: normesta
 ms.service: storage
@@ -23,9 +23,9 @@ AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [AP
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD) and that your Azure AD identity has the proper role assignments for both source and destination accounts. 
+> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD) and that your Azure AD identity has the proper role assignments for the destination account. The source account, if different from the destination, must use a SAS token with the proper read permissions or allow public access. For example: azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'. 
 >
-> Alternatively you can append a SAS token to either the source or destination URL in each AzCopy command. For example: `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'`.
+> Alternatively you can also append a SAS token to the destination URL in each AzCopy command. For example: azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'.
 
 ## Guidelines
 
@@ -123,7 +123,7 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 ## Copy blobs and add index tags
 
-Copy blobs to another storage account and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.
+Copy blobs to another storage account and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
 If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 

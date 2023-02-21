@@ -458,6 +458,9 @@
       - name: Use explicit values for module location parameters
         displayName: linter
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: Use parent property
+        displayName: linter
+        href: linter-rule-use-parent-property.md
       - name: use recent API versions
         displayName: linter
         href: linter-rule-use-recent-api-versions.md

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 01/30/2023
 ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
@@ -30,13 +30,13 @@ This article covers the following tasks:
 
 Your index in Azure Cognitive Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
 
-You must have Azure AD administrator permissions, required in this walkthrough for creating users, groups, and associations. 
+You must have Azure AD administrator permissions (Owner or administrator), required in this walkthrough for creating users, groups, and associations. 
 
 Your application must also be registered with Azure AD as a multi-tenant app, as described in the following procedure.
 
 ### Register your application with Azure Active Directory
 
-This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you are not a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
+This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
 1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
@@ -44,9 +44,9 @@ This step integrates your application with Azure AD for the purpose of accepting
 
 1. Give the registration a name, perhaps a name that is similar to the search application name. Select **Register**.
 
-1. Once the app registration is created, copy the Application ID. You will need to provide this string to your application.
+1. Once the app registration is created, copy the Application ID. You'll need to provide this string to your application.
 
-   If you are stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), paste this value into the **app.config** file.
+   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), paste this value into the **app.config** file.
 
    Repeat for the Tenant ID.
 
@@ -66,7 +66,7 @@ Microsoft Graph provides an API that allows programmatic access to Azure AD thro
 
 ## Create users and groups
 
-If you are adding search to an established application, you might have existing user and group identifiers in Azure AD. In this case, you can skip the next three steps. 
+If you're adding search to an established application, you might have existing user and group identifiers in Azure AD. In this case, you can skip the next three steps. 
 
 However, if you don't have existing users, you can use Microsoft Graph APIs to create the security principals. The following code snippets demonstrate how to generate identifiers, which become data values for the security field in your Azure Cognitive Search index. In our hypothetical college admissions application, this would be the security identifiers for admissions staff.
 
@@ -118,7 +118,7 @@ Microsoft Graph is designed to handle a high volume of requests. If an overwhelm
 
 Query operations in Azure Cognitive Search are executed over an Azure Cognitive Search index. In this step, an indexing operation imports searchable data into an index, including the identifiers used as security filters. 
 
-Azure Cognitive Search does not authenticate user identities, or provide logic for establishing which content a user has permission to view. The use case for security trimming assumes that you provide the association between a sensitive document and the group identifier having access to that document, imported intact into a search index. 
+Azure Cognitive Search doesn't authenticate user identities, or provide logic for establishing which content a user has permission to view. The use case for security trimming assumes that you provide the association between a sensitive document and the group identifier having access to that document, imported intact into a search index. 
 
 In the hypothetical example, the body of the PUT request on  an Azure Cognitive Search index would include an applicant's college essay or transcript along with the group identifier having permission to view that content. 
 
@@ -149,7 +149,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](/graph/api/directoryobject-getmembergroups) request.
+If the user's groups weren't already cached, or the cache has expired, issue the [groups](/graph/api/directoryobject-getmembergroups) request.
 
 ```csharp
 private static async void RefreshCache(IEnumerable<User> users)
@@ -189,7 +189,7 @@ The response includes a filtered list of documents, consisting of those that the
 
 ## Next steps
 
-In this walkthrough, you learned a pattern for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that do not match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
+In this walkthrough, you learned a pattern for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that don't match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
 
 - [Security filters for trimming results](search-security-trimming-for-azure-search.md)
 - [Security in Azure Cognitive Search](search-security-overview.md)

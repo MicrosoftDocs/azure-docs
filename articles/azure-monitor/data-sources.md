@@ -4,7 +4,7 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/21/2022
+ms.date: 11/17/2022
 ms.reviewer: shseth
 
 ---
@@ -14,8 +14,10 @@ ms.reviewer: shseth
 Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes 
 - [Metrics](essentials/data-platform-metrics.md)
 - [Logs](logs/data-platform-logs.md)
-- Traces 
-- Changes. This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
+- [Traces](app/asp-net-trace-logs.md) 
+- [Changes](change/change-analysis.md) 
+
+This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
 
 This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
 
@@ -121,8 +123,8 @@ The configuration requirements and content of resource logs vary by resource typ
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](essentials/resource-logs.md#send-to-azure-storage) |
-| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](essentials/resource-logs.md#send-to-azure-storage) |
 | Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## Operating system (guest)

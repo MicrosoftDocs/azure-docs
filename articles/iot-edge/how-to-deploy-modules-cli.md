@@ -13,7 +13,7 @@ services: iot-edge
 
 # Deploy Azure IoT Edge modules with Azure CLI
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
@@ -115,7 +115,7 @@ Here's a basic deployment manifest with one module as an example:
 
 You deploy modules to your device by applying the deployment manifest that you configured with the module information.
 
-Change directories into the folder where your deployment manifest is saved. If you used one of the VS Code IoT Edge templates, use the `deployment.json` file in the **config** folder of your solution directory and not the `deployment.template.json` file.
+Change directories into the folder where your deployment manifest is saved. If you used one of the Visual Studio Code IoT Edge templates, use the `deployment.json` file in the **config** folder of your solution directory and not the `deployment.template.json` file.
 
 Use the following command to apply the configuration to an IoT Edge device:
 

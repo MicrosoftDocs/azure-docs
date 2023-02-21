@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -69,6 +69,8 @@ Sometimes, your users may get messages from Multi-Factor Authentication because 
 | **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
 | **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
+| **AuthenticationThrottled** | Too many attempts by user in a short period of time. Throttling. | Microsoft may limit repeated authentication attempts that are performed by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes. |
+| **AuthenticationMethodLimitReached** | Authentication Method Limit Reached. Throttling. | Microsoft may limit repeated authentication attempts that are performed by the same user using the same authentication method type in a short period of time, specifically Voice call or SMS. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.|
 
 ## Errors that require support
 

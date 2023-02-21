@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates.
 ---
 
-# Tutorial: Using OpenSSL to create test certificates
+# Tutorial: Use OpenSSL to create test certificates
 
 Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
 
@@ -332,7 +332,7 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
 
 ```bash
 openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx

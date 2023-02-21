@@ -3,11 +3,11 @@ title: Deploy a Java application with Red Hat JBoss Enterprise Application Platf
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster.
 author: yersan
 ms.author: edburns
-ms.date: 06/06/2022
+ms.date: 12/20/2022
 ms.topic: article
 ms.service: azure-redhat-openshift
 keywords: java, jakartaee, microprofile, EAP, JBoss EAP, ARO, OpenShift, JBoss Enterprise Application Platform
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro
 ---
 
 # Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift (ARO) 4 cluster
@@ -33,9 +33,9 @@ The application is a stateful application that stores information in an HTTP Ses
 [!INCLUDE [aro-quota](includes/aro-quota.md)]
 
 1. Prepare a local machine with a Unix-like operating system that is supported by the various products installed (such as [WSL](/windows/wsl/) on Windows).
-1. Install a Java SE implementation (for example, [Oracle JDK 11](https://www.oracle.com/java/technologies/downloads/#java11)).
-1. Install [Maven](https://maven.apache.org/download.cgi) 3.6.3 or higher.
-1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.29.2 or later.
+1. Install a Java SE implementation. The local development steps in this article were tested with JDK 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
+1. Install [Maven](https://maven.apache.org/download.cgi) 3.8.6 or later.
+1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.40 or later.
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md).
 
@@ -87,6 +87,7 @@ Before deploying the application on OpenShift, we are going to run it locally to
 
 To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
 
+* For **Resource group** use the resource group you created previously.
 * For **Database name** use `todos_db`.
 * For **Server admin login** use `azureuser`.
 * For **Password** use `Passw0rd!`.
@@ -99,11 +100,11 @@ On the **Additional settings** page, you don't have to choose the option to pre-
 Once the database has been created with the above database name, Server admin login and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this aside for use later (we will set a variable named `MSSQLSERVER_HOST` to this value).
 
 > [!NOTE]
-> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview).
+> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update -g $RESOURCEGROUP -s $RESOURCEGROUP -n todos_db --auto-pause-delay -1`
 
 Follow the next steps to build and run the application locally.
 
-1. Build the Bootable JAR. When we are building the Bootable JAR, we need to specify the database driver version we want to use:
+1. Build the Bootable JAR. Because we are using the `eap-datasources-galleon-pack` with MS SQL Server database, we must specify the database driver version we want to use with this specific environment variable. For more information on the `eap-datasources-galleon-pack` and MS SQL Server, see the [documentation from Red Hat](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md)
 
     ```bash
     export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
@@ -136,7 +137,7 @@ Follow the next steps to build and run the application locally.
 
    Your steps to ensure the network traffic is permitted above were ineffective. Ensure the IP address from the error message is included in the firewall rules.
 
-   If you receive an message with text similar to the following:
+   If you receive a message with text similar to the following:
 
    ```bash
    Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'TODOS' in the database.
@@ -183,7 +184,7 @@ Follow the next steps to build and run the application locally.
    {"status":"UP","checks":[{"name":"SuccessfulCheck","status":"UP"}]}
    ```
 
-   To check the status of readyness, run:
+   To check the status of readiness, run:
    
    ```bash   
    curl http://localhost:9990/health/ready
@@ -244,27 +245,37 @@ The next steps explain how you can deploy the application with a Helm chart usin
 1. Create `todo-list-secret`.
 
     ```bash
+    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
     oc create secret generic todo-list-secret \
     --from-literal app-cluster-password=mut2UTG6gDwNDcVW \
     --from-literal app-driver-version=${MSSQLSERVER_DRIVER_VERSION} \
     --from-literal app-ds-jndi=${MSSQLSERVER_JNDI}
     ```
 
-1. Open the OpenShift console and navigate to the developer view.  Select the **</> Developer** perspective from the drop down menu at the top of the navigation pane.
+1. Open the OpenShift console and navigate to the developer view. You can discover the console URL for your OpenShift cluster by running this command. Log in with the `kubeadmin` userid and password you obtained from a preceding step.
 
-    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png" alt-text="Screenshot of OpenShift console developer view.":::
+   ```bash
+   az aro show \
+   --name $CLUSTER \
+   --resource-group $RESOURCEGROUP \
+   --query "consoleProfile.url" -o tsv
+   ```
 
-1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop down menu.
+   Select the **</> Developer** perspective from the drop-down menu at the top of the navigation pane.
+
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png" alt-text="Screenshot of OpenShift console developer view.":::
+
+1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop-down menu.
 
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
-1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You'll arrive at the Helm Chart catalog available on your ARO cluster. In the **Filter by keyword** box, type **eap**. You should see two options similar to this:
+1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You'll arrive at the Helm Chart catalog available on your ARO cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
 
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
    Because our application uses MicroProfile capabilities, we'll select the Helm Chart for EAP Xp. The `Xp` stands for Expansion Pack. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
-1. Select the **EAP Xp** Helm Chart, and then select **Install Helm Chart**.
+1. Select the **EAP Xp4** Helm Chart, and then select **Install Helm Chart**.
 
 At this point, we need to configure the chart to build and deploy the application:
 
@@ -273,6 +284,8 @@ At this point, we need to configure the chart to build and deploy the applicatio
 1. Change the YAML content to configure the Helm Chart by copying and pasting the content of the Helm Chart file available at _deployment/application/todo-list-helm-chart.yaml_ instead of the existing content:
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-inline.png" alt-text="OpenShift console EAP Helm Chart YAML content" lightbox="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-expanded.png":::
+   
+   Note that this content makes references to the secrets you set earlier.
 
 1. Finally, select **Install** to start the application deployment. This will open the **Topology** view with a graphical representation of the Helm release (named **eap-todo-list-demo**) and its associated resources.
 
@@ -282,7 +295,9 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    If you select the icon with two arrows in a circle at the lower left of the **D** box, you will be taken to the **Logs** pane. Here you can observe the progress of the build.  To return to the topology view, select **Topology** in the left navigation pane.
 
-1. When the build is finished (the bottom-left icon will display a green check) and the application is deployed (the circle outline is in dark blue), you can go to application the URL (using the top-right icon) from the route associated with the deployment. 
+1. When the build is finished, the bottom-left icon will display a green check
+
+1. When the deployment is completed, the circle outline will be dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to "3 Running".  When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment. 
 
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
 
@@ -323,6 +338,10 @@ $ oc delete project eap-demo
 ### Delete the ARO cluster
 
 Delete the ARO cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md)
+
+### Delete the resource group
+
+If you want to delete all of the resources created by the preceding steps, simply delete the resource group you created for the ARO cluster.
 
 ## Next steps
 

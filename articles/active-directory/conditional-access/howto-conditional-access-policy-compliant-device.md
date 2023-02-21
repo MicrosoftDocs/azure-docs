@@ -55,7 +55,7 @@ The following steps will help create a Conditional Access policy to require mult
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 > [!NOTE]
-> You can enroll your new devices to Intune even if you select **Require device to be marked as compliant** for **All users** and **All cloud apps** using the steps above. **Require device to be marked as compliant** control does not block Intune enrollment. 
+> You can enroll your new devices to Intune even if you select **Require device to be marked as compliant** for **All users** and **All cloud apps** using the steps above. **Require device to be marked as compliant** control does not block Intune enrollment and the access to the Microsoft Intune Web Company Portal application. 
 
 ### Known behavior
 
@@ -63,7 +63,7 @@ On Windows 7, iOS, Android, macOS, and some third-party web browsers, Azure AD i
 
 #### Subscription activation
 
-Organizations that use the [Subscription Activation](/windows/deployment/windows-10-subscription-activation) feature to enable users to “step-up” from one version of Windows to another, may want to exclude the Universal Store Service APIs and Web Application, AppID 45a330b1-b1ec-4cc1-9161-9f03992aa49f from their device compliance policy.
+Organizations that use the [Subscription Activation](/windows/deployment/windows-10-subscription-activation) feature to enable users to “step-up” from one version of Windows to another, may want to exclude the Universal Store Service APIs and Web Application, AppID 45a330b1-b1ec-4cc1-9161-9f03992aa49f from their Conditional Access policy.
 
 ## Next steps
 

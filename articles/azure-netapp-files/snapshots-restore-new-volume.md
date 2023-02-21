@@ -12,13 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 12/06/2022
 ms.author: anfdocs
 ---
 
 # Restore a snapshot to a new volume using Azure NetApp Files
 
-[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. Currently, you can restore a snapshot only to a new volume. 
+[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. Currently, you can [restore a snapshot only to a new volume](snapshots-introduction.md#restoring-cloning-an-online-snapshot-to-a-new-volume). 
 
 ## Steps
 

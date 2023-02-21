@@ -5,8 +5,8 @@ description: Learn to deploy your AutoML model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
@@ -156,7 +156,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     az ml online-deployment create -f automl_deployment.yml
     ```
     
-After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 
 # [Python SDK](#tab/python)
@@ -168,10 +168,10 @@ After you create a deployment, you can score it as described in [Invoke the endp
 If you haven't installed Python SDK v2 yet, please install with this command:
 
 ```azurecli
-pip install --pre azure-ai-ml
+pip install azure-ai-ml
 ```
 
-For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
 
 ## Put the scoring file in its own directory
 
@@ -293,4 +293,4 @@ You can learn to deploy to managed online endpoints with SDK more in [Deploy mac
 ## Next steps
 
 - [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)

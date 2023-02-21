@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 11/10/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -85,7 +85,9 @@ Premium detections are visible only to Azure AD Premium P2 customers. Customers 
 | Risk detection |  Detection type | Description |
 | --- | --- | --- |
 | Possible attempt to access Primary Refresh Token (PRT) | Offline | This risk detection type is detected by Microsoft Defender for Endpoint (MDE). A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, Windows Server 2016, and later versions, iOS, and Android devices. A PRT is a JSON Web Token (JWT) that's specially issued to Microsoft first-party token brokers to enable single sign-on (SSO) across the applications used on those devices. Attackers can attempt to access this resource to move laterally into an organization or perform credential theft. This detection will move users to high risk and will only fire in organizations that have deployed MDE. This detection is low-volume and will be seen infrequently by most organizations. However, when it does occur it's high risk and users should be remediated. |
-| Anomalous user activity | Offline | This risk detection indicates that suspicious patterns of activity have been identified for an authenticated user. The post-authentication behavior of users is assessed for anomalies. This behavior is based on actions occurring for the account, along with any sign-in risk detected. |
+| Anomalous user activity | Offline | This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. |
+| User reported suspicious activity | Offline | This risk detection is reported by a user who denied a multifactor authentication (MFA) prompt and [reported it as suspicious activity](../authentication/howto-mfa-mfasettings.md#report-suspicious-activity). An MFA prompt that wasn't initiated by the user may mean that the user’s credentials have been compromised. | 
+
 
 #### Nonpremium user risk detections
 

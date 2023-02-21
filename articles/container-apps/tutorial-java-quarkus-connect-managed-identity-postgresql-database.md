@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: karler
 ms.service: container-apps
 ms.date: 09/26/2022
-ms.custom: passwordless-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
@@ -29,7 +29,7 @@ What you will learn:
 
 ## 1. Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
@@ -340,6 +340,12 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --resource-group $RESOURCE_GROUP \
        --server-name $DB_SERVER_NAME \
        --name fruits
+   ```
+
+1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity, using the connection command.

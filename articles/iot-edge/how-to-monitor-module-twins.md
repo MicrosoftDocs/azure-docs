@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/29/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 ---
 # Monitor module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 
@@ -195,7 +195,7 @@ If you see the message "A module identity doesn't exist for this module", this e
 
 To review and edit a module twin:
 
-1. If not already installed, install the [Azure IoT Tools Extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
+1. If not already installed, install the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
 1. In the **Explorer**, expand the **Azure IoT Hub**, and then expand the device with the module you want to monitor.
 1. Right-click the module and select **Edit Module Twin**. A temporary file of the module twin is downloaded to your computer and displayed in Visual Studio Code.
 

@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/30/2022
 ms.author: caoling
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
@@ -51,7 +51,7 @@ The application settings that you use as REST API [request parameters](#request-
 
 The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. 
 
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-speech-to-text.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -93,7 +93,7 @@ speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
 ```
 ::: zone-end
 
-To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md#choose-a-voice-for-text-to-speech), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#voice-element), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -318,4 +318,4 @@ The HTTP status code for each response indicates success or common errors.
 
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
-- [Long Audio API](long-audio-api.md)
+- [Batch synthesis](batch-synthesis.md)

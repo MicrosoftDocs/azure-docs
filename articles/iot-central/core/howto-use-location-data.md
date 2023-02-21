@@ -26,7 +26,7 @@ The following screenshot shows a device template with examples of a device prope
 
 :::image type="content" source="media/howto-use-location-data/location-device-template.png" alt-text="Screenshot showing location property definition in device template" lightbox="media/howto-use-location-data/location-device-template.png":::
 
-For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definitions for these capabilities look like the following snippet:
+For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) definitions for these capabilities look like the following snippet:
 
 ```json
 {
@@ -55,7 +55,7 @@ For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 ## Send location data from a device
 

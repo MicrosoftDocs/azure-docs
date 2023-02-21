@@ -31,10 +31,8 @@ With a private endpoint and Private Link, you can:
 
 - Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
-> [!IMPORTANT]
-> * API Management support for private endpoints is currently in **preview**.
-> * To enable private endpoints, the API Management instance can't already be configured with an external or internal [virtual network](virtual-network-concepts.md).  
-> * A private endpoint connection supports only incoming traffic to the API Management instance. 
+[!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
+
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

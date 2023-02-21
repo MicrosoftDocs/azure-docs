@@ -5,9 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
-editor: ''
-tags:
-ms.assetid:
 ms.service: virtual-network
 ms.topic: sample
 ms.tgt_pltfrm:

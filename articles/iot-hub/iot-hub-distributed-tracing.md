@@ -209,7 +209,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 ### Update by using Azure IoT Hub for Visual Studio Code
 
-1. With Visual Studio Code installed, install the latest version of [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
+1. With Visual Studio Code installed, install the latest version of [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for Visual Studio Code.
 
 1. Open Visual Studio Code, and go to the **Explorer** tab and the **Azure IoT Hub** section. 
 

@@ -3,14 +3,13 @@ title: Azure Load Balancer and Availability Zones
 titleSuffix: Azure Load Balancer
 description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: mbender
+ms.custom: template-concept
 ---
 
 # Load Balancer and Availability Zones
@@ -51,7 +50,7 @@ For an internal load balancer frontend, add a **zones** parameter to the interna
 
 ## Non-Zonal
 
-Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend. In these scenarios, a public load balancer would use a public IP or public IP prefix, an internal load balancer would use a private IP an internal load balancer.  This option doesn't give a guarantee of redundancy. 
+Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend. In these scenarios, a public load balancer would use a public IP or public IP prefix, an internal load balancer would use a private IP.  This option doesn't give a guarantee of redundancy. 
 
 >[!NOTE]
 >All public IP addresses that are upgraded from Basic SKU to Standard SKU will be of type "no-zone". Learn how to [Upgrade a public IP address in the Azure portal](../virtual-network/ip-services/public-ip-upgrade-portal.md).

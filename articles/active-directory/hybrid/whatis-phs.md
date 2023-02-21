@@ -6,14 +6,14 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 # What is password hash synchronization with Azure AD?
-Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.
+Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.
 
 Password hash synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. You can use this feature to sign in to Azure AD services like Microsoft 365. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
 

@@ -46,7 +46,7 @@ sections:
       - question: |
           What is a customer billing account ID and where can I find it for my customer?
         answer: |
-          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal under Cost Management + Billing > Settings > Properties. The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
+          To create a private offer, you need the billing account ID of your customer. Customers can find the billing account information in the Azure portal either in 1) Cost Management + Billing > Settings > Properties or 2) If customer knows the subscription they plan to use for the purchase: Subscriptions > click on the relevant Subscription > Properties (or Billing Properties). The customer must be an owner or contributor on the billing account to access this information. If a customer doesn't have a billing account, they can create one by signing up on Azure.com. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
 
           Applying the private offer at the Billing Account ID level means that if new subscriptions are added to the customer's Azure plan, the private offer will automatically apply to those subscriptions also and no edits need to be made to the private offer.
 
@@ -208,7 +208,7 @@ sections:
       - question: |
           I have customers who have subscribed to private plans. How do I move those customers to private offers?
         answer: |
-          To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure marketplace.
+          To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure Marketplace.
 
           It is not recommended for an ISV to have both a private plan and a private offer for the same customer, product, and time period. Private plans can continue to exist for existing deals and ISVs can also use private offers for new deals.
           

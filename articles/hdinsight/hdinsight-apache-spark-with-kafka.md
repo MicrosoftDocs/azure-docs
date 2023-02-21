@@ -4,7 +4,8 @@ description: Learn how to use Apache Spark to stream data into or out of Apache 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/18/2022
+ROBOTS: NOINDEX
+ms.date: 02/16/2023
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
@@ -80,4 +81,3 @@ In this example, you learned how to use Spark to read and write to Kafka. Use th
 
 * [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

@@ -18,7 +18,7 @@ In the [Azure portal](https://portal.azure.com), create a new Application Insigh
 
 ![Click Properties, select the key, and press ctrl+C](./media/sharepoint/001.png)
 
-The window that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
+The window that opens is the place where you'll see performance and usage data about your app. To get back to it next time you sign in to Azure, you should find a tile for it on the start screen. Alternatively select Browse to find it.
 
 ## Add the script to your web pages
 
@@ -47,7 +47,7 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> The Url for SharePoint uses a different module format "...\ai.2.gbl.min.js" (note the additional **.gbl.**) this alternate module format is required to avoid an issue caused by the order that scripts are loaded, which will cause the SDK to fail to initialize and will result in the lose of telemetry events.
+> The Url for SharePoint uses a different module format "...\ai.2.gbl.min.js" (note the additional **.gbl.**) this alternate module format is required to avoid an issue caused by the order that scripts are loaded, which will cause the SDK to fail to initialize and will result in the loss of telemetry events.
 >
 > The issue is caused by requireJS being loaded and initialized before the SDK.
 
@@ -79,16 +79,16 @@ Insert a web part and embed the code snippet in it.
 ## View data about your app
 Redeploy your app.
 
-Return to your application blade in the [Azure portal](https://portal.azure.com).
+Return to your application pane in the [Azure portal](https://portal.azure.com).
 
-The first events will appear in Search. 
+The first events appear in Search. 
 
 ![Screenshot that shows the new data that you can view in the app.](./media/sharepoint/09-search.png)
 
-Click Refresh after a few seconds if you're expecting more data.
+Select Refresh after a few seconds if you're expecting more data.
 
 ## Capturing User Id
-The standard web page code snippet doesn't capture the user id from SharePoint, but you can do that with a small modification.
+The standard web page code snippet doesn't capture the user ID from SharePoint, but you can do that with a small modification.
 
 1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
 
@@ -147,7 +147,7 @@ function onRequestFail(sender, args) {
 
 
 ## Next Steps
-* [Web tests](./monitor-web-app-availability.md) to monitor the availability of your site.
+* [Availability overview](./availability-overview.md) to monitor the availability of your site.
 * [Application Insights](./app-insights-overview.md) for other types of app.
 
 <!--Link references-->

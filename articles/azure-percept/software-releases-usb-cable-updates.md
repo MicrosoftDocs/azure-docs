@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 02/08/2023
 ms.custom: template-concept
+ROBOTS: NOINDEX
 ---
 
 # Software releases for USB cable updates
@@ -48,3 +49,4 @@ Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download
 ## Next steps
 
 - [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md)
+

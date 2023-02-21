@@ -2,14 +2,11 @@
 title: Application Insights Agent overview | Microsoft Docs
 description: Learn how to use Application Insights Agent to monitor website performance without redeploying the website. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2023
 ms.reviewer: abinetabate
 ---
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
-
-> [!IMPORTANT]
-> This guidance is recommended for on-premises and non-Azure cloud deployments of Application Insights Agent. We recommend a [different deployment approach for Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md).
 
 Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces Status Monitor.
@@ -40,7 +37,7 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 
@@ -53,7 +50,7 @@ Yes. There are multiple ways to download Application Insights Agent:
 
 Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
 
-### Does Status Monitor v2 support ASP.NET Core applications?
+### Does Application Insights Agent support ASP.NET Core applications?
 
   Yes. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
 
@@ -101,6 +98,6 @@ View your telemetry:
 
 Add more telemetry:
 
-* [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Availability overview](availability-overview.md)
 * [Add web client telemetry](./javascript.md) to see exceptions from webpage code and to enable trace calls.
 * [Add the Application Insights SDK to your code](./asp-net.md) so that you can insert trace and log calls.

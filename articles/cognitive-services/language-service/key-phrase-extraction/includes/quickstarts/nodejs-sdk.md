@@ -4,12 +4,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 02/17/2023
 ms.author: jboback
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)
+[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
 
 Use this quickstart to create a key phrase extraction application with the client library for Node.js. In the following example, you will create a JavaScript application that can identify key words and phrases found in text.
 
@@ -50,7 +50,7 @@ npm init
 Install the npm package:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-language-text
 ```
 
 > [!div class="nextstepaction"]
@@ -60,40 +60,56 @@ npm install --save @azure/ai-text-analytics@5.1.0
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+const { TextAnalysisClient, AzureKeyCredential } = require("@azure/ai-language-text");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
-const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
 
-// Example method for extracting key phrases from text
-async function keyPhraseExtraction(client){
+//example sentence for performing key phrase extraction
+const documents = ["Dr. Smith has a very modern medical office, and she has great staff."];
 
-    const keyPhrasesInput = [
-        "Dr. Smith has a very modern medical office, and she has great staff.",
-    ];
-    const keyPhraseResult = await client.extractKeyPhrases(keyPhrasesInput);
-    
-    keyPhraseResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Key Phrases: ${document.keyPhrases}`);
-    });
-}
-keyPhraseExtraction(textAnalyticsClient);
+//example of how to use the client to perform entity linking on a document
+async function main() {
+    console.log("== key phrase extraction sample ==");
+  
+    const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+  
+    const results = await client.analyze("KeyPhraseExtraction", documents);
+  
+    for (const result of results) {
+      console.log(`- Document ${result.id}`);
+      if (!result.error) {
+        console.log("\tKey phrases:");
+        for (const phrase of result.keyPhrases) {
+          console.log(`\t- ${phrase}`);
+        }
+      } else {
+        console.error("  Error:", result.error);
+      }
+    }
+  }
+  
+  main().catch((err) => {
+    console.error("The sample encountered an error:", err);
+  });
+  
 ```
 
 ### Output
 
 ```console
-ID: 0
-    Document Key Phrases: modern medical office,Dr. Smith,great staff
+== key phrase extraction sample ==
+- Document 0
+    Key phrases:
+    - modern medical office
+    - Dr. Smith
+    - great staff
 ```
 
 > [!div class="nextstepaction"]

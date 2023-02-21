@@ -265,7 +265,7 @@ You can use a service principal for Azure CLI commands. For more information, se
 
 ---
 
-The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
+The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/). You use the Azure Active Directory [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
 > [!IMPORTANT]
 > If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support ended June 30, 2022.

@@ -1,8 +1,7 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for .NET with Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. It helps you launch a .NET app on an Azure service of your choice in few quick steps.
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 services: azure-devops-project
 documentationcenter: vs-devops-build
 author: georgewallace

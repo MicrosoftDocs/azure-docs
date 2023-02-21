@@ -15,20 +15,11 @@ Run the following commands in [Azure Cloud Shell](https://shell.azure.com) or a 
 
 The Azure function requires a bearer token to be passed to it. To make sure the bearer token is passed, grant the function app the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance, which will give the function app permission to perform data plane activities on the instance.
 
-1. Use the following command to see the details of your function's [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
+1. Use the following command to create a [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) for your function (if the function already has one, this command will print its details). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
 
     ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name>	
+    az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
     ```
-
-    >[!NOTE]
-    > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
-    > 
-    >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
-    >```
-    >
-    > The output displays details of the identity, including the `principalId` value required for the next step. 
 
 1. Use the `principalId` value in the following command to give the function the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
