@@ -565,7 +565,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __score.py__
 
-    :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/src/score.py":::
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/src/score.py" highlight="14":::
 
     > [!TIP]
     > The previous scoring script is provided as an example about how to perform inference of an MLflow model. You can adapt this example to your needs or change any of its parts to reflect your scenario.
@@ -624,7 +624,20 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     Create a deployment configuration file:
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-deployment-with-script.yaml":::
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+    name: sklearn-diabetes-custom
+    endpoint_name: my-endpoint
+    model: azureml:sklearn-diabetes@latest
+    environment: 
+      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+      conda_file: sklearn-diabetes/environment/conda.yml
+    code_configuration:
+      code: sklearn-diabetes/src
+      scoring_script: score.py
+    instance_type: Standard_F2s_v2
+    instance_count: 1
+    ```
     
     Create the deployment:
     
