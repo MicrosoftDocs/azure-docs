@@ -1,6 +1,6 @@
 ---
-title: Transition to governed collaboration with Azure Active Directory B2B Collaboration 
-description: Move to governed collaboration with Azure Ad B2B collaboration.
+title: Transition to governed collaboration with Azure Active Directory B2B collaboration 
+description: Move to governed collaboration with Azure Ad B2B collaboration by using controls, tools, and settings. 
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 02/22/2023
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Transition to governed collaboration with Azure Active Directory B2B collaboration 
 
-Understanding collaboration helps secure external access to your resources. We recommend you read the following articles, first:
+Understanding collaboration helps secure external access to your resources. For context and needed information we recommend you read the first four articles in the series of ten articles. 
 
 * [Determine your security posture for external access](1-secure-access-posture.md)
 * [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
