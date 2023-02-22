@@ -125,3 +125,4 @@ You have now learned how to scale compute for dedicated SQL pool in a Synapse wo
 
 - To get started with Azure Synapse Analytics, see [Get Started with Azure Synapse Analytics](../get-started.md).
 - To learn more about dedicated SQL pools in Azure Synapse Analytics, see [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+- [Quickstart: Scale compute for an Azure Synapse dedicated SQL pool in a Synapse workspace with the Azure portal](quickstart-scale-compute-workspace-portal.md)

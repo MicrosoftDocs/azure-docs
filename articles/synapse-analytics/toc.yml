@@ -290,6 +290,12 @@ items:
         displayName: sql pool
     - name: Workload management
       items: 
+      - name: Scale compute using the Azure portal
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-portal.md
+      - name: Scale compute using PowerShell
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-powershell.md
+      - name: Scale compute using T-SQL
+        href: ./sql-data-warehouse/quickstart-scale-compute.md?context=/azure/synapse-analytics/context/context 
       - name: Create workload classifier
         items:
         - name: Portal
