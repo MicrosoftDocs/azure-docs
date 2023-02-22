@@ -29,7 +29,7 @@ In order to use the first option, you must sync your AD DS to Azure Active Direc
 
 ## Linux SMB client limitations
 
-You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use [autofs](storage-how-to-use-files-linux?tabs=smb311#dynamically-mount-with-autofs) to mount the share as it's accessed.
+You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use [autofs](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share as it's accessed.
 
 ## Prerequisites
 
