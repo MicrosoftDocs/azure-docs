@@ -635,7 +635,7 @@ The reason you might run into this error when creating/updating Kubernetes onlin
 
 In this case, you can detach and then **re-attach** your compute. 
 
-> [!]
+> [!NOTE]
 >
 > To troubleshoot errors by reattaching, please guarantee to reattach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
 
