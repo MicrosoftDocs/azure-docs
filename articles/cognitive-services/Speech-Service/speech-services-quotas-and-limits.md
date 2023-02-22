@@ -28,12 +28,12 @@ For information about adjustable quotas for Standard (S0) Speech resources, see 
 
 This section describes speech-to-text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
 
-#### Online transcription
+#### Online transcription and speech translation
 
 You can use online transcription with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
 
 > [!IMPORTANT]
-> These limits apply to concurrent speech-to-text [online transcription](#online-transcription) requests and [speech translation](#speech-translation-quotas-and-limits-per-resource) requests combined. For example, if you have 60 concurrent speech-to-text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
+> These limits apply to concurrent speech-to-text online transcription requests and speech translation requests combined. For example, if you have 60 concurrent speech-to-text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -96,18 +96,6 @@ This section describes text-to-speech quotas and limits per Speech resource. Unl
 | File size  | 3,000 characters per file | 20,000 characters per file |
 | Export to audio library | 1 concurrent task | N/A |
 
-### Speech translation quotas and limits per resource
-
-This section describes speech translation quotas and limits per Speech resource. 
-
-> [!IMPORTANT]
-> These limits apply to concurrent speech-to-text [online transcription](#online-transcription) requests and [speech translation](#speech-translation-quotas-and-limits-per-resource) requests combined. For example, if you have 60 concurrent speech-to-text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.
-
-| Quota | Free (F0) | Standard (S0) |
-|--|--|--|
-| Concurrent request limit - base model endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit). |
-| Concurrent request limit - custom endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit). |
-
 ### Speaker recognition quotas and limits per resource
 
 Speaker recognition is limited to 20 transactions per second (TPS).
@@ -118,9 +106,9 @@ Some of the Speech service quotas are adjustable. This section provides addition
 
 The following quotas are adjustable for Standard (S0) resources. The Free (F0) request limits aren't adjustable.
 
-- Speech-to-text [concurrent request limit](#online-transcription) for base model endpoint and custom endpoint
+- Speech-to-text [concurrent request limit](#online-transcription-and-speech-translation) for base model endpoint and custom endpoint
 - Text-to-speech [maximum number of transactions per time period](#text-to-speech-quotas-and-limits-per-resource) for prebuilt neural voices and custom neural voices
-- Speech translation [concurrent request limit](#speech-translation-quotas-and-limits-per-resource)
+- Speech translation [concurrent request limit](#online-transcription-and-speech-translation)
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Speech service uses autoscaling technologies to bring the required computational resources in on-demand mode. At the same time, Speech service tries to keep your costs low by not maintaining an excessive amount of hardware capacity.
 
@@ -139,7 +127,7 @@ The next sections describe specific cases of adjusting quotas.
 
 ### Speech-to-text: increase online transcription concurrent request limit
 
-By default, the number of concurrent speech-to-text [online transcription](#online-transcription) requests and [speech translation](#speech-translation-quotas-and-limits-per-resource) requests combined is limited to 100 per resource in the base model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+By default, the number of concurrent speech-to-text [online transcription requests and speech translation requests](#online-transcription-and-speech-translation) combined is limited to 100 per resource in the base model, and 100 per custom endpoint in the custom model. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 >[!NOTE]
 > Concurrent request limits for base and custom models need to be adjusted separately. You can have a Speech service resource that's associated with many custom endpoints hosting many custom model deployments. As needed, the limit adjustments per custom endpoint must be requested separately. 
