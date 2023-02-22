@@ -43,18 +43,6 @@ The following versions of the Windows and Linux operating system are officially 
 * Amazon Linux 2
 * Oracle Linux 7 and 8
 
-> [!NOTE]
-> On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include Windows Subsystem for Linux (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
-
-> [!WARNING]
-> If the Linux hostname or Windows computer name uses a reserved word or trademark, attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
-
-> [!NOTE]
-> While Azure Arc-enabled servers support Amazon Linux, the following features are not supported by this distribution:
->
-> * The Dependency agent used by Azure Monitor VM insights
-> * Azure Automation Update Management
-
 ### Client operating system guidance
 
 The Azure Arc service and Azure Connected Machine Agent are supported on Windows 10 and 11 client operating systems only when those computers are being used in a server-like environment. That is, the computer should always be:
