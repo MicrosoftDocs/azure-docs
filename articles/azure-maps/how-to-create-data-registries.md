@@ -3,7 +3,7 @@ title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
 author: stevemunk
-ms.author: v-munksteve
+ms.author: eriklind
 ms.date: 2/14/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,22 +12,22 @@ services: azure-maps
 
 # How to create data registry (preview)
 
-The [data registry][data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
+The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][subscription key].
-- An [Azure storage account][create storage account].
+- [Azure Maps account]
+- [Subscription key]
+- An [Azure storage account][create storage account]
 
 >[!IMPORTANT]
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 > - In the URL examples in this article you will need to replace:
->   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key][subscription key].
+>   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key].
 >   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID](#the-user-data-id).
 
-## Preparing to register data in Azure Maps
+## Prepare to register data in Azure Maps
 
 Before you can register data in Azure Maps, you need to create an environment containing all of the required components. You need a storage account with one or more containers that hold the files you wish to register and managed identities for authentication. This section explains how to prepare your Azure environment to register data in Azure Maps.
 
@@ -41,7 +41,7 @@ Use the following steps to create a managed identity, add it to your Azure Maps 
 
 Create a system assigned managed identity:
 
-1. Go to your Azure Maps account in the [Azure portal][Azure portal].
+1. Go to your Azure Maps account in the [Azure portal].
 1. Select **Identity** from the left menu.
 1. Toggle the **Status** to **On**.
 
@@ -49,7 +49,7 @@ Create a system assigned managed identity:
 
 Create a user assigned managed identity:
 
-1. Go to the [Azure portal][Azure portal] and select **Create a resource**.
+1. Go to the [Azure portal] and select **Create a resource**.
 1. In the **Search services and marketplace** control, enter **user assigned managed identity**.
 1. In the **Create User Assigned Managed Identity** page, select your subscription, resource group, region and a name for your managed identify.
 1. Select **Review + create**, then once ready, **Create**.
@@ -62,7 +62,7 @@ Create a user assigned managed identity:
 1. In the **Add user assigned managed identity** screen, select the desired **Subscription** and managed identity.
 1. Select **Add**
 
-    :::image type="content" source="./media/data-registry/add-user-assigned-managed-identity.png" lightbox="./media/data-registry/add-user-assigned-managed-identity.png" alt-text="Add user assigned managed identity screenshot.":::
+    :::image type="content" source="./media/data-registry/add-user-assigned-managed-identity.png" lightbox="./media/data-registry/add-user-assigned-managed-identity.png" alt-text="A screenshot that demonstrates how to add a user assigned managed identity.":::
 
 The user defined managed identity should now be added to your Azure Maps account.
 
@@ -74,7 +74,7 @@ For more information, see [managed identities for Azure resources][managed ident
 
 Before adding files to a data registry, you must upload them into a container in your [Azure storage account][storage account overview]. Containers are similar to a directory in a file system, they're how your files are organized in your Azure storage account.
 
-To create a container in the [Azure portal][Azure portal], follow these steps:
+To create a container in the [Azure portal], follow these steps:
 
 1. From within your Azure storage account, select **Containers** from the **Data storage** section in the navigation pane.
 1. Select **+ Container** in the **Containers** pane to bring up the **New container** pane.
@@ -174,7 +174,7 @@ The value used for the `msiClientId` property is the client ID of a user assigne
 #### The blobUrl property
 
 The `blobUrl` property is the path to the file being registered. You can get this value from the container that it was added to.
-
+[data registry]
 1. Select your **storage account** in the **Azure portal**.
 1. Select **Containers** from the left menu.
 1. A list of containers will appear. Select the container that contains the file you wish to register.
@@ -196,7 +196,7 @@ The user data ID (`udid`) of the data registry is a user-defined GUID that must 
 
 ## Create a data registry
 
-Now that you have your storage account with the desired files linked to your Azure Maps account through the datastore and have gathered all required properties, you're ready to use the [data registry][data registry] API to register those files. If you have multiple files in your Azure storage account that you want to register, you'll need to run the register request for each file (`udid`).
+Now that you have your storage account with the desired files linked to your Azure Maps account through the datastore and have gathered all required properties, you're ready to use the [data registry] API to register those files. If you have multiple files in your Azure storage account that you want to register, you'll need to run the register request for each file (`udid`).
 
 > [!NOTE]
 > The maximum size of a file that can be registered with an Azure Maps datastore is one gigabyte.
@@ -238,24 +238,19 @@ The value of the **Operation-Location** key is the status URL that you'll use to
 
 ### Check the data registry creation status
 
-To (optionally) check the status of the data registry creation process:
+To (optionally) check the status of the data registry creation process, enter the status URL you copied in the [Create a data registry](#create-a-data-registry) section, and add your subscription key as a query string parameter. The request should look similar to the following URL:
 
-1. Enter the status URL you copied in the [Create a data registry](#create-a-data-registry) section, and add your subscription key as a query string parameter. The request should look similar to the following URL:
-
-    ```http
-    https://us.atlas.microsoft.com/dataRegistries/operations/{udid}?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
-    ```
+```http
+https://us.atlas.microsoft.com/dataRegistries/operations/{udid}?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+```
 
 ## Get a list of all files in the data registry
 
 To get a list of all files registered in an Azure Maps account using the [List][list] request:
 
-1. Execute the following **HTTP GET request**:
-
-    ```http
-    https://us.atlas.microsoft.com/dataRegistries?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
-    
-    ```
+```http
+https://us.atlas.microsoft.com/dataRegistries?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key}
+```
 
 The following is a sample response showing three possible statuses, completed, running and failed:
 
@@ -324,14 +319,11 @@ The data returned when running the list request is similar to the data provided 
 
 Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register][register or replace] API, you can access the data contained in the files.
 
-To get the content of a file registered in an Azure Maps account:
+Use the `udid` to get the content of a file registered in an Azure Maps account:
 
-1. Using the `udid` of the file you want to access, execute the following **HTTP GET request**:
-
-    ```http
-    https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
-    
-    ```
+ ```http
+https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
+```
 
 The contents of the file will appear in the body of the response. For example, a text based GeoJSON file will appear similar to the following example:
 
@@ -369,10 +361,10 @@ If you need to replace a previously registered file with another file, rerun the
 
 When you register a file in Azure Maps using the data registry API, an MD5 hash is created from the contents of the file, encoding it into a 128-bit fingerprint and saving it in the `AzureBlob` as the `contentMD5` property. The MD5 hash stored in the `contentMD5` property is used to ensure the data integrity of the file. Since the MD5 hash algorithm always produces the same output given the same input, the data validation process can compare the `contentMD5` property of the file when it was registered against a hash of the file in the Azure storage account to check that it's intact and unmodified. If the hash isn't the same, the validation fails. If the file in the underlying storage account changes, the validation will fail. If you need to modify the contents of a file that has been registered in Azure Maps, you'll need to register it again.
 
-[data registry]: /rest/api/maps/2022-12-01-preview/data-registry
-[list]: /rest/api/maps/2022-12-01-preview/data-registry/list
-[Register Or Replace]: /rest/api/maps/2022-12-01-preview/data-registry/register-or-replace
-[Get operation]: /rest/api/maps/2022-12-01-preview/data-registry/get-operation
+[data registry]: /rest/api/maps/data-registry
+[list]: /rest/api/maps/data-registry/list
+[Register Or Replace]: /rest/api/maps/data-registry/register-or-replace
+[Get operation]: /rest/api/maps/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [storage account overview]: /azure/storage/common/storage-account-overview
