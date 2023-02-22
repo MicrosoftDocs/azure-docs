@@ -117,7 +117,7 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 
 The following table lists an example of user attributes:
 
-| Azure AD user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure AD user | `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` |
 | --- | --- |
 | IsSoftDeleted |active |
 |department| `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department`|
