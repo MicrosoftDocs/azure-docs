@@ -24,12 +24,12 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
-[Version 2.0.2](release-notes-sentinel.md#version-202) of the Microsoft Defender for IoT solution is now available in the Microsoft Sentinel content hub, with improvements for analytics rules for incident creation, an enhanced incident details page, and performance improvements for analytics rule queries.
+[Version 2.0.2](release-notes-sentinel.md#version-202) of the Microsoft Defender for IoT solution is now available in the [Microsoft Sentinel content hub](/azure/sentinel/sentinel-solutions-catalog), with improvements in analytics rules for incident creation, an enhanced incident details page, and performance improvements for analytics rule queries.
 
 For more information, see:
 
-- [Microsoft Defender for IoT solution versions in Microsoft Sentinel](release-notes-sentinel.md)
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
+- [Microsoft Defender for IoT solution versions in Microsoft Sentinel](release-notes-sentinel.md)
 
 ### Download updates from the Sites and sensors page (Public preview)
 
