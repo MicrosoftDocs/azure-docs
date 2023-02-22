@@ -1,14 +1,19 @@
 ---
-author: LittleBoxOfSunshine
-manager: KumariSupriya
+title: Azure Instance Metadata Service for virtual machines
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
+author: KumariSupriya
+manager: paulmey
 ms.service: virtual-machines
-ms.subservice: monitoring
-ms.topic: include
-ms.date: 01/04/2021
-ms.author: chhenk
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 02/22/2023
+ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.custom: references_regions
 ---
+
+# Azure Instance Metadata Service 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
@@ -42,6 +47,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 #### [Linux](#tab/linux/)
 
+
 ```bash
 curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
@@ -55,7 +61,332 @@ The `jq` utility is available in many cases, but not all. If the `jq` utility is
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
+
+#### [Windows](#tab/windows/)
+
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "WindowsServer",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "Windows",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
+        "platformUpdateDomain": "42",
+        "priority": "Regular",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
+        },
+        "sku": "2019-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
+                "caching": "None",
+                "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
+                "diskSizeGB": "1024",
+                "image": {
+                  "uri": ""
+                },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
+                "lun": "0",
+                "managedDisk": {
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
+                "vhd": {
+                  "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Windows",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "userData": "Zm9vYmFy",
+        "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+
+#### [Linux](#tab/linux/)
+
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "UbuntuServer",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "Linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
+        "platformUpdateDomain": "42",
+        "priority": "Regular",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "Canonical",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
+        },
+        "sku": "18.04-LTS",
+        "storageProfile": {
+            "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
+                "caching": "None",
+                "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
+                "diskSizeGB": "1024",
+                "image": {
+                  "uri": ""
+                },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
+                "lun": "0",
+                "managedDisk": {
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
+                "vhd": {
+                  "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+
+---
+
 
 ## Security and authentication
 
@@ -217,6 +548,7 @@ IMDS is versioned and specifying the API version in the HTTP request is mandator
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
 When you don't specify a version, you get an error with a list of the newest supported versions:
+
 ```json
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
@@ -266,7 +598,7 @@ A full Swagger definition for IMDS is available at: https://github.com/Azure/azu
 
 ## Regional availability
 
-The service is **generally available** in all Azure Clouds.
+The service is **generally available** in all Azure clouds.
 
 ## Root endpoint
 
@@ -335,7 +667,331 @@ This endpoint supports response filtering via [route parameters](#route-paramete
 
 #### Response
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
+XXXXXXXXXXXXXXXXXXXXXXXXXXx
+
+#### [Windows](#tab/windows/)
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "WindowsServer",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "Windows",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
+        "platformUpdateDomain": "42",
+        "priority": "Regular",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
+        },
+        "sku": "2019-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
+                "caching": "None",
+                "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
+                "diskSizeGB": "1024",
+                "image": {
+                  "uri": ""
+                },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
+                "lun": "0",
+                "managedDisk": {
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
+                "vhd": {
+                  "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Windows",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "userData": "Zm9vYmFy",
+        "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+
+#### [Linux](#tab/linux/)
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "additionalCapabilities": {
+            "hibernationEnabled": "true"
+        },
+        "hostGroup": {
+          "id": "testHostGroupId"
+        }, 
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "UbuntuServer",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "Linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
+        "platformUpdateDomain": "42",
+        "priority": "Regular",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "Canonical",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false",
+            "encryptionAtHost": "true",
+            "securityType": "TrustedLaunch"
+        },
+        "sku": "18.04-LTS",
+        "storageProfile": {
+            "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
+                "caching": "None",
+                "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
+                "diskSizeGB": "1024",
+                "image": {
+                  "uri": ""
+                },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
+                "lun": "0",
+                "managedDisk": {
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
+                "vhd": {
+                  "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                  "enabled": "false",
+                  "diskEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-source-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "secretUrl": "https://test-disk.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  },
+                  "keyEncryptionKey": {
+                    "sourceVault": {
+                      "id": "/subscriptions/test-key-guid/resourceGroups/testrg/providers/Microsoft.KeyVault/vaults/test-kv"
+                    },
+                    "keyUrl": "https://test-key.vault.azure.net/secrets/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+                  }
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "StandardSSD_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+
+---
+
 
 Schema breakdown:
 
@@ -1470,6 +2126,7 @@ You can provide product feedback and ideas to our user feedback channel under Vi
 
 - [Acquire an access token for the VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-- [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md)
+- [Scheduled events for Linux](../linux/scheduled-events.md)
 
-- [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md)
+- [Scheduled events for Windows](../windows/scheduled-events.md)
+
