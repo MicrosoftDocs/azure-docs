@@ -22,31 +22,31 @@ The FinOps Foundation [Technical Advisory Council](https://www.finops.org/about/
 
 At its core, FinOps is a cultural practice. It’s the way for teams to manage their cloud costs, where everyone takes ownership of their cloud usage supported by a central best-practices group. Cross-functional teams in Engineering, Finance, Product, etc. work together to enable faster product delivery, while at the same time gaining more financial control and predictability.
 
-:::image type="content" source="media/applying-finops/finops-overview-diagram.png" alt-text="Diagram showing a high-level overview of how FinOps works in an organization.":::
+:::image type="content" source="media/apply-finops/finops-overview-diagram.png" alt-text="Diagram showing a high-level overview of how FinOps works in an organization.":::
 
 ## How to apply FinOps to Azure Data Factory
 
-Azure Data Factory is Microsoft’s Data Integration and ETL (extract, transform, load) service in the cloud. To achieve effective budgeting and cost controls in data factory, we first review how to understand the pricing model. Next, it's important to analyze your spending at factory and pipeline levels. You can do this with data factory's built-in consumption reports and at the Azure subscription level using Azure cost management and cost analysis features. Lastly, we'll talk about setting spending limits on your Azure subscription to help provide cost controls.
+Azure Data Factory is Microsoft’s Data Integration and ETL (extract, transform, load) service in the cloud. To achieve effective budgeting and cost controls in data factory, we first review how to understand the pricing model. Next, it's important to analyze your spending at factory and pipeline levels. You can do this with data factory's built-in consumption reports and at the Azure subscription level using Azure cost management and cost analysis features. Lastly, we talk about setting spending limits on your Azure subscription to help provide cost controls.
 
 ## Understanding Azure Data Factory pricing
 
 The chart below explains the general flow of calculating data factory pricing. It shows how to use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for calculating pricing. Overall, the primary parts to understanding data factory billing involve these costs: **orchestration**, **execution**, **type of integration runtime (IR)**, **data movement (copy)**, and **data flows**.
 
-1. Check whether your data factory source or sink integration runtime uses managed virtual network (VNET). If so, orchestration and execution is calculated using the Azure managed VNET IR. If not, proceed to the next step.
-1. Confirm whether the source or sink uses the self-hosted integration runtime. If so, orchestration and execution is calculated by the self-hosted IR, and the total cost equals the sum of costs for both orchestration and execution. If not, orchestration and execution is calculated by the Azure IR.
+1. Check whether your data factory source or sink integration runtime uses managed virtual network (VNET). If so, orchestration and execution are calculated using the Azure managed VNET IR. If not, proceed to the next step.
+1. Confirm whether the source or sink uses the self-hosted integration runtime. If so, orchestration and execution are calculated by the self-hosted IR, and the total cost equals the sum of costs for both orchestration and execution. If not, orchestration and execution are calculated by the Azure IR.
 1. For Azure IR and Azure managed VNET IR, confirm whether you use data flow. If so, the total cost equals the sum of costs for the data flow cluster, orchestration, and execution. Otherwise, the total cost is simply the sum of costs for orchestration and execution.
 
-:::image type="content" source="media/applying-finops/pricing-flow-chart.png" alt-text="Flow chart showing the process to calculate costs for Azure Data Factory.":::
+:::image type="content" source="media/apply-finops/pricing-flow-chart.png" alt-text="Flow chart showing the process to calculate costs for Azure Data Factory.":::
 
 ## Example scenarios
 
 Let's look at several examples of common data factory scenarios and estimated costs associated with each workload.  As we work through each example, keep these standards for data factory costs in mind:
 
-- When you review your bill, keep in mind that data factory rounds up to the minute for each activity duration (that is, 1 min 1 sec = 2 min billing).
+- When you review your bill, keep in mind that data factory rounds up to the minute for each activity duration (that is, 1 min 1 sec = 2-min billing).
 - The following examples are based on common scenarios and show estimated costs.
 - Other costs can be incurred from the data stores and external services in Azure that you utilize.
 - Your actual costs can differ slightly from these examples based on the sales contract terms that you have with Microsoft.
-- This link provides additional examples: [Understanding Azure Data Factory pricing through examples](pricing-concepts.md).
+- This link provides more examples: [Understanding Azure Data Factory pricing through examples](pricing-concepts.md).
 
 ### Example: Copy data and transform with Azure Databricks hourly
 
@@ -81,7 +81,7 @@ Estimated pricing for a month (8 hours per day for 30 days):
 
 Total scenario pricing for 30 days: $41.01
 
-:::image type="content" source="media/applying-finops/pricing-calculator-scenario-1.png" alt-text="Screenshot of the Azure pricing calculator showing the cost estimation for this scenario.":::
+:::image type="content" source="media/apply-finops/pricing-calculator-scenario-1.png" lightbox="media/apply-finops/pricing-calculator-scenario-1.png" alt-text="Screenshot of the Azure pricing calculator showing the cost estimation for this scenario.":::
 
 ### Example: Using mapping data flow debug for a normal workday
 
@@ -97,13 +97,13 @@ A data factory engineer is responsible for designing, building, and testing mapp
 
 When planning an Azure Data Factory implementation, it's important to understand and forecast your costs to help build a budget for your ETL and data integration projects.
 
-:::image type="content" source="media/applying-finops/pipeline-monitoring.png" alt-text="Screenshot of the pipeline monitoring screen highlighting the consumption report button.":::
+:::image type="content" source="media/apply-finops/pipeline-monitoring.png" alt-text="Screenshot of the pipeline monitoring screen highlighting the consumption report button.":::
 
 Select on the consumption report button from the pipeline monitoring view to get a snapshot of the units billed for each run.
 
 On the monitoring page, you can manually use the consumption report for any pipeline run from a debug or manually triggered run, or even from an automated trigger run.
 
-:::image type="content" source="media/applying-finops/pipeline-run-consumption.png" alt-text="Screenshot of the pipeline run consumption window showing the total units billed for a run.":::
+:::image type="content" source="media/apply-finops/pipeline-run-consumption.png" alt-text="Screenshot of the pipeline run consumption window showing the total units billed for a run.":::
 
 The data factory pipeline consumption report provides the estimated units billed. You can run these tests using a debug execution of your pipeline on smaller datasets and then extrapolate your production budget from these estimates.
 
@@ -115,13 +115,13 @@ This section discusses cost optimization with Microsoft cost management, the Azu
 
 ### Microsoft cost management
 
-Microsoft Azure provides tools that help you to track, optimize, and control your Azure spending. If your data factory spending is a top priority, the recommendation is to create a separate resource group in Azure for each data factory. This way, it is easy to build budgets, track your spending, and apply cost controls using [Microsoft Cost Management](/cost-management-billing/costs/cost-mgt-best-practices.md).
+Microsoft Azure provides tools that help you to track, optimize, and control your Azure spending. If your data factory spending is a top priority, the recommendation is to create a separate resource group in Azure for each data factory. This way, it's easy to build budgets, track your spending, and apply cost controls using [Microsoft Cost Management](/cost-management-billing/costs/cost-mgt-best-practices.md).
 
-:::image type="content" source="media/applying-finops/microsoft-cost-management.png" alt-text="Screenshot showing the Microsoft cost management page in Azure.":::
+:::image type="content" source="media/apply-finops/microsoft-cost-management.png" lightbox="media/apply-finops/microsoft-cost-management.png" alt-text="Screenshot showing the Microsoft cost management page in Azure.":::
 
 Today organizations are working harder than ever to control spending and do more with less. You can use the Azure budgets feature to set spending limits on your Azure Data Factory v2 usage and the overall Azure resource group that you're using for data factory.
 
-:::image type="content" source="media/applying-finops/azure-budgets.png" alt-text="Screenshot of the Azure budgets page showing how to set budgets for a service.":::
+:::image type="content" source="media/apply-finops/azure-budgets.png" alt-text="Screenshot of the Azure budgets page showing how to set budgets for a service.":::
 
 From the [create budget window](/cost-management-billing/costs/tutorial-acm-create-budgets.md), use filters to choose either the Azure Data Factory service or a resource group.
 
@@ -129,13 +129,13 @@ From the [create budget window](/cost-management-billing/costs/tutorial-acm-crea
 
 Another valuable tool for optimizing your Azure budget is Azure Advisor. With Azure Advisor, you can receive recommendations for reducing your overall Azure spending. This includes utilization of [Azure Data Factory's reserved instance pricing for reducing costs of mapping data flows](/advisor/advisor-reference-cost-recommendations.md#consider-data-factory-reserved-instance-to-save-over-your-on-demand-costs). You can also pay for Azure Data Factory charges with your [Azure pre-payment credit](plan-manage-costs.md#using-azure-prepayment-with-azure-data-factory).
 
-:::image type="content" source="media/applying-finops/azure-advisor.png" alt-text="Screenshot showing the Azure Advisor window that can provide recommendations including cost reduction optimizations.":::
+:::image type="content" source="media/apply-finops/azure-advisor.png" lightbox="media/apply-finops/azure-advisor.png" alt-text="Screenshot showing the Azure Advisor window that can provide recommendations including cost reduction optimizations.":::
 
 ### Reserved instances in Azure Data Factory
 
-[Reserved instances](data-flow-reserved-capacity-overview.md) are available in Azure Data Factory for mapping data flows, which you can use to provide savings over the normal list price of data flows. With reserved instances, you'll pre-purchase 1-year or 3-year reservations at discount levels based on the length of the reservation. To see a customized view of your cost savings using reserved instances, navigate to the Azure portal and choose **Reservations**, then select data factory. From there, you'll pick the type of data flows that you typically use, and the Azure portal will then estimate your future savings based on your previous data factory utilization.
+[Reserved instances](data-flow-reserved-capacity-overview.md) are available in Azure Data Factory for mapping data flows, which you can use to provide savings over the normal list price of data flows. With reserved instances, you pre-purchase 1-year or 3-year reservations at discount levels based on the length of the reservation. To see a customized view of your cost savings using reserved instances, navigate to the Azure portal and choose **Reservations**, then select data factory. From there, you'll pick the type of data flows that you typically use, and the Azure portal will then estimate your future savings based on your previous data factory utilization.
 
-:::image type="content" source="media/applying-finops/azure-reservations.png" alt-text="Screenshot showing the Azure reservations page with data factory highlighted.":::
+:::image type="content" source="media/apply-finops/azure-reservations.png" alt-text="Screenshot showing the Azure reservations page with data factory highlighted.":::
 
 Reserving mapping data flow capacity using reserved instances can provide an immediate discount on your overall data factory spending related directly to your data flow usage.
 
@@ -147,11 +147,11 @@ As you build out your data integration infrastructure in Azure, it's important t
 
 You can ask data factory to provide a pipeline-level roll-up of your costs by setting the factory to use **[by pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/granular-billing-for-azure-data-factory/ba-p/3654600)** billing as an option under factory settings.
 
-:::image type="content" source="media/applying-finops/billing-by-pipeline.png" alt-text="Screenshot showing the Azure Data Factory Studio manage tab's settings page with the billing by pipeline setting selected.":::
+:::image type="content" source="media/apply-finops/billing-by-pipeline.png" alt-text="Screenshot showing the Azure Data Factory Studio manage tab's settings page with the billing by pipeline setting selected.":::
 
 This view gives you a breakdown of your data factory spend by each pipeline.  This can be useful to attribute costs at a line-item level rather than a factory roll-up (which is the default).
 
-:::image type="content" source="media/applying-finops/pipeline-granular-billing-report.png" alt-text="Screenshot showing the billing report for pipeline granular billing with a breakdown of costs per pipeline.":::
+:::image type="content" source="media/apply-finops/pipeline-granular-billing-report.png" alt-text="Screenshot showing the billing report for pipeline granular billing with a breakdown of costs per pipeline.":::
 
 The pipeline-level view of your data factory bill is useful to attribute overall data factory costs to each pipeline resource.  It's also useful to provide an easy-to-use mechanism to implement charge-back to users of your factory, both for internal organization consumption and external customer or partner usage.
 
