@@ -30,7 +30,7 @@ The Azure DNS Private Resolver solves this problem by providing two additional c
 
 Consider the following hub and spoke VNet topology in Azure with a private resolver located in the hub and a ruleset link to the spoke VNet:
 
-![Hub and spoke architecture diagram](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
+![Hub and spoke with ruleset diagram](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
 
 **Figure 1**: Azure hub and spoke VNets with ruleset link
 
@@ -53,7 +53,7 @@ The ruleset link design scenario is best suited to a hub and spoke network where
 
 Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet:
 
-![Hub and spoke architecture diagram](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
+![Hub and spoke with custom DNS diagram](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
 
 **Figure 2**: Azure hub and spoke VNets with custom DNS
 
