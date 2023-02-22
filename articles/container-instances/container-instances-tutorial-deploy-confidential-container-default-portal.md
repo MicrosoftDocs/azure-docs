@@ -10,9 +10,9 @@ ms.date: 02/28/2023
 ms.custom: seodec18, mvc, devx-track-js
 ---
 
-# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure portal (preview)
+# Tutorial: Deploy a confidential container to Azure Container Instances via Azure portal (preview)
 
-In this tutorial, you will use Azure portal to deploy a Confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
+In this tutorial, you will use Azure portal to deploy a confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
 
 :::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png" alt-text="Screenshot of a hello-world application deployed via Azure portal, PNG.":::
 
@@ -22,7 +22,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
 
-## Create a Confidential container on Azure Container Instances 
+## Create a confidential container on Azure Container Instances 
 
 On the Azure portal homepage, select **Create a resource**.
 
@@ -74,10 +74,15 @@ When you're done with the container, select **Overview** for the *helloworld* co
 
 ## Next steps
 
-In this tutorial, you created a Confidential container on Azure container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the Confidential containers on Azure Container Instances Azure Resource Manager template tutorial. 
+In this tutorial, you created a Confidential container on Azure container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the confidential containers on Azure Container Instances Azure Resource Manager template tutorial. 
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
+> [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
+> [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
+> [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
 <!-- LINKS - External -->
 [azure-free-account]: https://azure.microsoft.com/free/
+[confcom-extension]: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
+[helloworld-application]: https://github.com/Azure-Samples/aci-confidential-hello-world

@@ -159,15 +159,19 @@ sections:
       - question: | 
           How do I generate a confidential computing enforcement policy?
         answer: |
-          Use the AZ CLI - To be completed with link to confcom tooling.
+          Confidential computing enforcement policies can be generated using the confcom extension with the Azure CLI. See [confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) for more details. 
       - question: |
-          Are there any features that are not supported on Confidential containers on Azure Container Instances?
+          Are there any features that are not supported on confidential containers on Azure Container Instances?
         answer: | 
           GPU based ACI container deployments, Windows containers, availability zones, and dedicated instances are not supported with confidential containers. 
       - question: |
-          What regions are Confidential containers on Azure Container Instances available?
+          What regions are confidential containers on Azure Container Instances available?
         answer: |
           Confidential containers on Azure Container Instances are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
+      - question: |
+          Is there an additional cost for confidential container on Azure Container Instances?
+        answer: |
+          Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. See [pricing page](https://azure.microsoft.com/pricing/details/container-instances/) for more details.
 
   - name: Pricing
     questions:

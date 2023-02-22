@@ -34,7 +34,7 @@ In this tutorial, you deploy a hello world application that generates a hardware
 
 There are two properties added to the ACI resource definition to make the container group confidential: 
 
-1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property isn't added, the container group will be deployed as Standard SKU. 
+1. **sku**: The SKU property enables you to select between confidential and standard container group deployments. If this property isn't added, the container group will be deployed as standard SKU. 
 2. **confidentialComputeProperties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for attestation of your container group. If this object isn't added to the resource there will be no validation of the software running within the container group.
 
 Use your preferred text editor to save this ARM template on your local machine as **template.json**.
@@ -224,32 +224,17 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
     ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png)
 
-## Next steps
+## Next Steps  
 
-Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
+Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
 
 > [!div class="nextstepaction"]
-> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
+> [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
+> [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
+> [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
-<!--- IMAGES --->
-[aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
-[aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
 
 <!-- LINKS - External -->
-[aci-helloworld-zip]: https://github.com/Azure-Samples/aci-helloworld/archive/master.zip
-[alpine-linux]: https://alpinelinux.org/
-[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
-[docker-get-started]: https://docs.docker.com/get-started/
-[docker-hub-nodeimage]: https://store.docker.com/images/node
-[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
-[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
-[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
-[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: https://nodejs.org
-
-<!-- LINKS - Internal -->
-[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-free-account]: https://azure.microsoft.com/free/
+[confcom-extension]: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
+[helloworld-application]: https://github.com/Azure-Samples/aci-confidential-hello-world
