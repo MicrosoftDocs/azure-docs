@@ -183,7 +183,7 @@ items:
       href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
-    - name: Intent recognition quickstart
+    - name: Intent recognition with CLU quickstart
       href: get-started-intent-recognition-clu.md
     - name: Pattern matching overview
       href: pattern-matching-overview.md
