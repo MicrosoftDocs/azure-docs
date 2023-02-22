@@ -54,7 +54,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ## Enable connection logging using the Azure Portal
 
-### [Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+### [Portal with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -74,7 +74,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
-### [Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [Portal with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -94,9 +94,9 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
-## Enable connection logging using the Rest API
+## Enable connection logging using the REST API
 
-### [Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+### [REST API with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
 Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
 
@@ -138,7 +138,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 }
 ```
 
-### [Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [REST API with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
 
 Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
 
@@ -179,6 +179,8 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 ```
 ## Create diagnostic setting via Azure CLI
 
+### [Azure CLI with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+
 Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
@@ -192,8 +194,21 @@ az monitor diagnostic-settings create
     --workspace /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace
 ```
 
-## Resource Logs
+### [Azure CLI with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
 
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+
+```azurecli
+az monitor diagnostic-settings create 
+    --resource /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisenterprise/{cacheName}/databases/default
+    --name constoso-setting
+    --logs '[{"category": "ConnectionEvents","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]'    
+    --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
+```
+
+## Contents of the Connection Logs
+
+### Basic, Standard, and Premium tiers
 These fields and properties appear in the `ConnectedClientList` log category. In **Azure Monitor**, logs are collected in the `ACRConnectedClientList` table under the resource provider name of `MICROSOFT.CACHE`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
@@ -210,7 +225,7 @@ These fields and properties appear in the `ConnectedClientList` log category. In
 | `connectedClients.privateLinkIpv6` | `PrivateLinkIpv6` | The Redis client private link IPv6 address (if applicable). |
 | `connectedClients.count` | `ClientCount` | The number of Redis client connections from the associated IP address. |
 
-### Sample storage account log
+#### Sample storage account log
 
 If you send your logs to a storage account, the contents of the logs look like this.
 
@@ -240,9 +255,49 @@ If you send your logs to a storage account, the contents of the logs look like t
 }
 ```
 
+### Enterprise and Enterprise Flash tiers (preview)
+These fields and properties appear in the `Connection events` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
+
+| Azure Storage field or property | Azure Monitor Logs property | Description |
+| --- | --- | --- |
+| `time` | `TimeGenerated` | The timestamp of when the log was generated in UTC. |
+| `location` | `Location` | The location (region) the Azure Cache for Redis instance was accessed in. |
+| `category` | n/a | Available log categories: `ConnectionEvents`. |
+| `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
+| `operationName` | `OperationName` | The Redis operation associated with the log record. |
+| `properties` | n/a | The contents of this field are described in the rows that follow. |
+| `clientIp` | `ClientIP` | The Redis client IP address. |
+| `privateLinkIpv6` | `PrivateLinkIPv6` | The Redis client private link IPv6 address (if applicable). |
+| `connectionId` | `ConnectionId` | Unique connection ID assigned by Redis. |
+| `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
+| `eventStatus` |  `EventStatus` | Results of an authentication request as a status code (only applicable for authentication event). |
+
+#### Sample storage account log
+
+If you send your logs to a storage account, the contents of the logs look like this.
+
+```json
+{
+    "time": "2021-08-05T21:04:58.0466086Z",
+    "location": "canadacentral",
+    "category": "ConnectionEvents",
+    "properties": {
+        "ConnectionId": 6185063009002,
+        "ClientIp": "10.0.0.7",
+        "PrivateLinkIPv6": "fd40:5246:30:9da4:6b30:100:a00:7",
+        "EventType": "new_conn",
+        "EventStatus": null
+    },
+    "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT", 
+    "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read"
+}
+```
+
 ## Log Analytics Queries
 
 Here are some basic queries to use as models.
+
+### [Queries for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
 - Azure Cache for Redis client connections per hour within the specified IP address range:
 
@@ -259,6 +314,70 @@ ACRConnectedClientList
 ```kusto
 ACRConnectedClientList
 | summarize count() by ClientIp
+```
+
+### [Queries for Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+
+- Azure Cache for Redis connections per hour within the specified IP address range:
+
+```kusto
+REDConnectionEvents
+// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
+// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
+// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
+| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
+| where EventType == "new_conn"
+| summarize ConnectionCount = count() by TimeRange = bin(EventTime, 1h)
+```
+
+- Azure Cache for Redis authentication requests per hour within the specified IP address range:
+
+```kusto
+REDConnectionEvents
+| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
+// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
+// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
+// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
+| where EventType == "auth"
+| summarize AuthencationRequestsCount = count() by TimeRange = bin(EventTime, 1h)
+```
+
+- Unique Redis client IP addresses that have connected to the cache:
+
+```kusto
+REDConnectionEvents
+// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
+// EventStatus :
+// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
+// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
+// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
+// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
+// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
+// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
+// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
+// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
+// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
+| where EventType == "auth" and EventStatus == 2 or EventStatus == 8 or EventStatus == 7
+| summarize count() by ClientIp
+```
+
+- Unsuccessful authentication attempts to the cache
+
+```kusto
+REDConnectionEvents
+// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
+// EventStatus : 
+// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
+// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
+// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
+// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
+// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
+// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
+// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
+// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
+// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
+| where EventType == "auth" and EventStatus != 2 and EventStatus != 8 and EventStatus != 7
+| project ClientIp, EventStatus, ConnectionId
 ```
 
 ## Next steps
