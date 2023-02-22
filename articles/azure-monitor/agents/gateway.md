@@ -95,22 +95,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
-
-To get the Log Analytics gateway from the Azure portal, follow these steps:
-
-1. Browse the list of services, and then select **Log Analytics**. 
-1. Select a workspace.
-1. In your workspace pane, from the pane on the left, under **General**, select **Quick Start**. 
-1. Under **Choose a data source to connect to the workspace**, select **Computers**.
-1. In the **Direct Agent** pane, select **Download Log Analytics gateway**.
- 
-   ![Screenshot of the steps to download the Log Analytics gateway](./media/gateway/download-gateway.png)
-
-or 
-
-1. In your workspace pane, from the pane on the left, under **Settings**, select **Advanced settings**.
-1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
+Get the latest version of the Log Analytics gateway Setup file from Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)).
 
 ## Install Log Analytics gateway using setup wizard
 
