@@ -22,7 +22,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
 
-- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
+- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
 - Ensure that the `Microsoft.KubernetesConfiguration` and `Microsoft.DataProtection` providers are registered for your subscription before initiating backup configuration and restore operations.
 
