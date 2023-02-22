@@ -10,7 +10,7 @@ ms.date: 02/22/2023
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
 
-An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. When using availability zones, nodes are physically separated from other nodes deployed in another availability zone. AKS clusters deployed with multiple availability zones configured across a cluster provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
+An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. Using availability zones physically separates nodes from other nodes deployed to different availability zones. AKS clusters deployed with multiple availability zones configured across a cluster provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
 By defining node pools in a cluster to span multiple zones, nodes in a given node pool are able to continue operating even if a single zone has gone down. Your applications can continue to be available even if there's a physical failure in a single datacenter if orchestrated to tolerate failure of a subset of nodes.
 
@@ -33,16 +33,18 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disk availability zone support
 
- - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones isn't supported and they have to be co-located in the same zone as a given node hosting the target pod.
- - Volumes that use Azure managed ZRS disks(supported by Azure Disk CSI driver v1.5.0+) are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes.
+ - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones and aren't supported. You need to co-locate volumes in the same zone as the specified node hosting the target pod.
+ - Volumes that use Azure managed ZRS disks (supported by Azure Disk CSI driver v1.5.0 and later) are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes.
 
-Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes will take care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
+Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes takes care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
 
 ### Azure Resource Manager templates and availability zones
 
-When *creating* an AKS cluster, if you explicitly define a [null value in a template][arm-template-null] with syntax such as `"availabilityZones": null`, the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster with a Resource Manager template that omits the availability zones property, availability zones are disabled.
+When *creating* an AKS cluster, consider the following:
 
-You can't update settings for availability zones on an existing cluster, so the behavior is different when updating an AKS cluster with Resource Manager templates.  If you explicitly set a null value in your template for availability zones and *update* your cluster, there are no changes made to your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
+* If you explicitly define a [null value in a template][arm-template-null], for example by specifying `"availabilityZones": null`, the Resource Manager template treats the property as if it doesn't exist. This means the cluster isn't created across an availability zone.
+* If you don't include the `"availabilityZones":` property in your Resource Manager template, your cluster isn't deployed across an availability zone.
+* You can't update settings for availability zones on an existing cluster, the behavior is different when you update an AKS cluster with Resource Manager templates. If you explicitly set a null value in your template for availability zones and *update* your cluster, it doesn't update your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
 
 ## Overview of availability zones for AKS clusters
 
@@ -50,17 +52,17 @@ Availability zones are a high-availability offering that protects your applicati
 
 For more information, see [What are availability zones in Azure?][az-overview].
 
-AKS clusters that are deployed using availability zones can distribute nodes across multiple zones within a single region. For example, a cluster in the *East US 2* region can create nodes in all three availability zones in *East US 2*. This distribution of AKS cluster resources improves cluster availability as they're resilient to failure of a specific zone.
+AKS clusters deployed using availability zones can distribute nodes across multiple zones within a single region. For example, a cluster in the *East US 2* region can create nodes in all three availability zones in *East US 2*. This distribution of AKS cluster resources improves cluster availability as they're resilient to failure of a specific zone.
 
 ![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
 
-If a single zone becomes unavailable, your applications continue to run if the cluster is configured to spread across multiple zones.
+If a single zone becomes unavailable, your applications continue to run on clusters configured to spread across multiple zones.
 
 ## Create an AKS cluster across availability zones
 
 When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the zones to deploy agent nodes into. The control plane components such as etcd or the API spread across the available zones in the region during cluster deployment. The specific zones that the control plane components spread across, are independent of what explicit zones you select for the initial node pool.
 
-If you don't specify any zones for the default agent pool when you create an AKS cluster, the control plane components aren't present in availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes. This converts the AKS control plane to spread across availability zones.
+If you don't specify any zones for the default agent pool when you create an AKS cluster, the control plane components aren't present in availability zones. You can add more node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes. The command converts the AKS control plane to spread across availability zones.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent in zone *1*, one in *2*, and then one in *3*.
 
@@ -108,9 +110,9 @@ Name:       aks-nodepool1-28993262-vmss000002
             topology.kubernetes.io/zone=eastus2-3
 ```
 
-As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
+As you add more nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
 
-With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result as above with by running the following script:
+With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
  ```console
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
@@ -127,7 +129,7 @@ aks-nodepool1-34917322-vmss000002   eastus   eastus-3
 
 ## Verify pod distribution across zones
 
-As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_labels], Kubernetes uses the `topology.kubernetes.io/zone` label to automatically distribute pods in a replication controller or service across the different zones available. In order to test this, you can scale up your cluster from 3 to 5 nodes, to verify the pod correctly spreads:
+As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_labels], Kubernetes uses the `topology.kubernetes.io/zone` label to automatically distribute pods in a replication controller or service across the different zones available. To test the label and scale your cluster from 3 to 5 nodes, run the following command to verify the pod correctly spreads:
 
 ```azurecli-interactive
 az aks scale \
@@ -136,7 +138,7 @@ az aks scale \
     --node-count 5
 ```
 
-When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"` in a Bash shell gives an output similar to this example:
+When the scale operation completes after a few minutes, run the command `kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"` in a Bash shell. The following output resembles the results:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -169,7 +171,7 @@ Name:         nginx-6db489d4b7-xz6wj
 Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 ```
 
-As you can see from the previous output, the first pod is running on node 0, which is located in the availability zone `eastus2-1`. The second pod is running on node 2, which corresponds to `eastus2-3`, and the third one in node 4, in `eastus2-2`. Without any additional configuration, Kubernetes spreads the pods correctly across all three availability zones.
+As you can see from the previous output, the first pod is running on node 0 located in the availability zone `eastus2-1`. The second pod is running on node 2, corresponding to `eastus2-3`, and the third one in node 4, in `eastus2-2`. Without any extra configuration, Kubernetes spreads the pods correctly across all three availability zones.
 
 ## Next steps
 
