@@ -119,6 +119,11 @@ az postgres flexible-server create \
     --admin-password <admin-password> \
     --active-directory-auth Enabled
 ```
+ There will be a prompt to ask you whether you need to enable access to specific IP, all input `n` to disable these accesses. Because we only want the PostgreSQL been accessed by the App in Azure Spring Apps. Here is a sample about the prompt:
+ ```text
+ Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
+ Do you want to enable access for all IPs  (y/n): n
+ ```
 
 A CLI prompt asks if you want to enable access to your IP. Enter `n` to confirm.
 
@@ -146,11 +151,6 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --database <name-of-database> \
         --system-identity \
         --connection <name-of-connection>
-    ```
-    There will be a prompt to ask you whether you need to enable access to specific IP, all input `n` to disable these accesses. Because we only want the PostgreSQL been accessed by the App in Azure Spring Apps. Here is a sample about the prompt:
-    ```text
-    Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
-    Do you want to enable access for all IPs  (y/n): n
     ```
 4. After connection created, use this command to check connection:
     ```azurecli-interactive
