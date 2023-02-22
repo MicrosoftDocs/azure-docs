@@ -14,8 +14,6 @@ ms.author: danlep
 
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
