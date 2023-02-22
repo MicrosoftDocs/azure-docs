@@ -40,9 +40,9 @@ Ephemeral storage has the following characteristics:
     * If a container in a replica restarts, the files in the volume remain.
 * Any containers in the replica can mount the same volume.
 * A container can mount multiple ephemeral volumes.
-* The available storage depends on the total amount of vCPU allocated to the replica.
+* The available storage depends on the total amount of vCPUs allocated to the replica.
 
-    | vCPU | Ephemeral storage |
+    | vCPUs | Ephemeral storage |
     |--|--|
     | Up to 0.25 | 1 GiB |
     | Up to 0.5 | 2 GiB |
