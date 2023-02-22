@@ -36,7 +36,7 @@ You can limit the organizations your users collaborate with (inbound and outboun
 To control access your tenant, deploy one or more of the following solutions:
 
 - **External collaboration settings** – restrict the email domains that invitations go to
-- **Cross tenant access aettings** – control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound).
+- **Cross tenant access settings** – control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound).
 - **Connected organizations** – determine what organizations can request access packages in Entitlement Management 
 
 ### Determine collaboration partners
@@ -126,7 +126,7 @@ Determine who can invite guest users to access resources.
 
 * Most restrictive: Allow only administrators and users with the Guest Inviter role
   * See, [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md)
-* If security requirements permit, allow all Memeber UserType to invite guests
+* If security requirements permit, allow all Member UserType to invite guests
 * Determine if Guest UserType can invite guests
   * Guest is the default Azure AD B2B user account
 
