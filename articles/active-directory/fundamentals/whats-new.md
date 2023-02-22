@@ -29,7 +29,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 - Deprecated functionality
 - Plans for changes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
+This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
 ## January 2023
@@ -47,7 +47,7 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 
 ---
 
-### Public Preview - Devices Blade Self-Help Capability for Pending Devices
+### Public Preview - Devices option Self-Help Capability for Pending Devices
 
 
 
@@ -55,7 +55,7 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 **Service category:** Device Access Management                
 **Product capability:** End User Experiences          
 
-In the **All Devices** blade under the registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+In the **All Devices** options under the registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
 
 
 ---
@@ -68,7 +68,7 @@ In the **All Devices** blade under the registered column, you can now select any
 **Service category:** Identity Protection                
 **Product capability:** Identity Security & Protection          
 
-In the January 2023 release of Authenticator for iOS, there will be no companion app for watchOS due to it being incompatible with Authenticator security features. This means you won't be able to install or use Authenticator on Apple Watch. This change only impacts Apple Watch, so you'll still be able to use Authenticator on your other devices. For more information, see: [Common questions about the Microsoft Authenticator app](https://support.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd).
+In the January 2023 release of Authenticator for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. This means you will not be able to install or use Authenticator on Apple Watch. This change only impacts Apple Watch, so you can still use Authenticator on your other devices. For more information, see: [Common questions about the Microsoft Authenticator app](https://support.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd).
 
 
 ---
@@ -119,7 +119,7 @@ For more information about how to better secure your organization by using autom
 
 Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD cloud sync in one single place. 
 
-This experience will also help administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which is integrated with Azure Monitor and Workbooks. 
+This experience helps administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which integrates with Azure Monitor and Workbooks. 
 
 For more information, see:
 
@@ -135,7 +135,7 @@ For more information, see:
 
 **Type:** New feature   
 **Service category:** Provisioning               
-**Product capability:** AAD Connect Cloud Sync         
+**Product capability:** Azure AD Connect Cloud Sync         
 
 Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
 
@@ -205,7 +205,7 @@ For more information, see: [Conditional Access templates (Preview)](../condition
 **Service category:** User Access Management             
 **Product capability:** User Management       
 
-The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal. This new capability in the User Settings blade allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal. This new capability in the User Settings option allows admins to restrict their users from being able to create new tenants. There's also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
 
 
 ---
@@ -218,7 +218,7 @@ The ability for users to create tenants from the Manage Tenant overview has been
 **Service category:** My Apps            
 **Product capability:** End User Experiences      
 
-We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings blade. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also has controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization, and will be reflected in the My Apps portal and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
+We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings options. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization, and will be reflected in the My Apps portal and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
 
 
 ---
@@ -315,43 +315,43 @@ In December 2022 we've added the following 44 new applications in our App galler
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 ---
 
-### ADAL End of Support Announcement
+### Azure Active Directory Authentication Library End of Support Announcement
 
 **Type:** N/A      
 **Service category:** Other               
 **Product capability:** Developer Experience         
 
-As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
+As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Microsoft Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
 
 ### Why are we doing this?
 
-As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset ADAL so that we can focus on developer experience investments with MSAL. 
+As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers, we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset Azure Active Directory Authentication Library. This allows us to focus on developer experience investments with Microsoft Authentication Library. 
 
 ### What happens?
 
-We recognize that changing libraries isn't an easy task, and can't be accomplished quickly. We're committed to helping customers plan their migrations to MSAL and execute them with minimal disruption.
+We recognize that changing libraries isn't an easy task, and can't be accomplished quickly. We're committed to helping customers plan their migrations to Microsoft Authentication Library and execute them with minimal disruption.
 
 - In June 2020, we [announced the 2-year end of support timeline for ADAL](https://devblogs.microsoft.com/microsoft365dev/end-of-support-timelines-for-azure-ad-authentication-library-adal-and-azure-ad-graph/). 
-- In December 2022, we’ve decided to extend the ADAL end of support to June 2023. 
-- Through the next six months (January 2023 – June 2023) we'll continue informing customers about the upcoming end of support along with providing guidance on migration. 
-- On June 2023 we'll officially sunset ADAL, removing library documentation and archiving all GitHub repositories related to the project. 
+- In December 2022, we’ve decided to extend the Azure Active Directory Authentication Library end of support to June 2023. 
+- Through the next six months (January 2023 – June 2023) we continue informing customers about the upcoming end of support along with providing guidance on migration. 
+- On June 2023 we'll officially sunset Azure Active Directory Authentication Library, removing library documentation and archiving all GitHub repositories related to the project. 
 
-### How to find out which applications in my tenant are using ADAL?
+### How to find out which applications in my tenant are using Azure Active Directory Authentication Library?
 
-Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying ADAL apps with the help of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). 
-### If I’m using ADAL, what can I expect after the deadline? 
+Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying Azure Active Directory Authentication Library apps with the help of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). 
+### If I’m using Azure Active Directory Authentication Library, what can I expect after the deadline? 
 
 - There will be no new releases (security or otherwise) to the library after June 2023. 
-- We won't be accepting any incident reports or support requests for ADAL. ADAL to MSAL migration support would continue.   
-- The underpinning services will continue working and applications that depend on ADAL should continue working; however, applications and the resources they access will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
+- We won't be accepting any incident reports or support requests for Azure Active Directory Authentication Library. Azure Active Directory Authentication Library to Microsoft Authentication Library migration support would continue.   
+- The underpinning services continue working and applications that depend on Azure Active Directory Authentication Library should continue working. Applications, and the resources they access, will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
 
-### What features can I only access with MSAL?
+### What features can I only access with Microsoft Authentication Library?
  
-The number of features and capabilities that we're adding to MSAL libraries are growing weekly. Some of them include: 
+The number of features and capabilities that we're adding to Microsoft Authentication Library libraries are growing weekly. Some of them include: 
 - Support for Microsoft accounts (MSA) 
 - Support for Azure AD B2C accounts 
 - Handling throttling 
@@ -365,7 +365,7 @@ And more. For an up-to-date list, refer to our [migration guide](../develop/msal
 
 To make the migration process easier, we published a [comprehensive guide](../develop/msal-migration.md#how-to-migrate-to-msal) that documents the migration paths across different platforms and programming languages. 
 
-In addition to the ADAL to MSAL update, we recommend migrating from Azure AD Graph API to Microsoft Graph. This change enables you to take advantage of the latest additions and enhancements, such as CAE, across the Microsoft service offering through a single, unified endpoint. You can read more in our [Migrate your apps from Azure AD Graph to Microsoft Graph](/graph/migrate-azure-ad-graph-overview) guide. Any questions can be posted to [Microsoft Q&A](/answers/topics/azure-active-directory.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/msal)
+In addition to the Azure Active Directory Authentication Library to Microsoft Authentication Library update, we recommend migrating from Azure AD Graph API to Microsoft Graph. This change enables you to take advantage of the latest additions and enhancements, such as CAE, across the Microsoft service offering through a single, unified endpoint. You can read more in our [Migrate your apps from Azure AD Graph to Microsoft Graph](/graph/migrate-azure-ad-graph-overview) guide. Any questions can be posted to [Microsoft Q&A](/answers/topics/azure-active-directory.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/msal)
 
 ---
 
@@ -433,7 +433,7 @@ In November 2022, we've added the following 22 new applications in our App galle
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 
 ---
@@ -505,7 +505,7 @@ Update the company branding functionality on the Azure AD/Microsoft 365 sign-in 
 
 Administrative Units now support soft deletion. Admins can now list, view properties of, or restore deleted Administrative Units using the Microsoft Graph. This functionality restores all configuration for the Administrative Unit when restored from soft delete, including memberships, admin roles, processing rules, and processing rules state.
 
-This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted it can be restored quickly to the same state it was at time of deletion-removing uncertainty around how things were configured and making restoration quick and easy. For more information, see: [List deletedItems (directory objects)](/graph/api/directory-deleteditems-list).
+This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted, you can be restore it quickly to the same state it was at time of deletion. This removes uncertainty around how things were configured and making restoration quick and easy. For more information, see: [List deletedItems (directory objects)](/graph/api/directory-deleteditems-list).
 
 
 ---
@@ -521,7 +521,7 @@ This functionality greatly enhances recoverability and resilience when using Adm
 With the growing adoption and support of IPv6 across enterprise networks, service providers, and devices, many customers are wondering if their users can continue to access their services and applications from IPv6 clients and networks. Today, we’re excited to announce our plan to bring IPv6 support to Microsoft Azure Active Directory (Azure AD). This allows customers to reach the Azure AD services over both IPv4 and IPv6 network protocols (dual stack).
 For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to de-prioritize IPv4 in any Azure Active Directory features or services.
 We'll begin introducing IPv6 support into Azure AD services in a phased approach, beginning March 31, 2023.
-We have guidance below which is specifically for Azure AD customers who use IPv6 addresses and also use Named Locations in their Conditional Access policies.
+We have guidance which is specifically for Azure AD customers who use IPv6 addresses and also use Named Locations in their Conditional Access policies.
 
 Customers who use named locations to identify specific network boundaries in their organization need to:
 1. Conduct an audit of existing named locations to anticipate potential impact.
@@ -545,7 +545,7 @@ We continue to share additional guidance on IPv6 enablement in Azure AD at this 
 
 **Type:** Plan for change     
 **Service category:** Provisioning         
-**Product capability:** AAD Connect Cloud Sync      
+**Product capability:** Azure AD Connect Cloud Sync        
 
 Microsoft stops support for Azure AD provisioning agent with versions 1.1.818.0 and below starting Feb 1,2023. If you're using Azure AD cloud sync, please make sure you have the latest version of the agent. You can info about the agent release history [here](../app-provisioning/provisioning-agent-release-version-history.md). You can download the latest version [here](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)
 
@@ -582,7 +582,7 @@ An IT admin can now add multiple domains to a single SAML/WS-Fed identity provid
 **Service category:** Other     
 **Product capability:** Developer Experience   
 
-In the end of October, the total number of required permissions for any single application registration must not exceed 400 permissions across all APIs. Applications exceeding the limit won't be able to increase the number of permissions they're configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
+In the end of October, the total number of required permissions for any single application registration must not exceed 400 permissions across all APIs. Applications exceeding the limit are unable to increase the number of permissions they're configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
 
 In the Azure portal, the required permissions are listed under API Permissions within specific applications in the application registration menu. When using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](/graph/api/resources/application) entity. For more information, see: [Validation differences by supported account types (signInAudience)](../develop/supported-accounts-validation.md).
 
@@ -756,7 +756,7 @@ In October 2022 we've added the following 15 new applications in our App gallery
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
 
 
 
@@ -842,7 +842,7 @@ For more information, see: [Tutorial: Validate a SCIM endpoint](../app-provision
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service will pause, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold the following will happen. The Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
 For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
 
@@ -858,7 +858,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 
 
-Identity protection expands its Anonymous and Malicious IP detections to protect ADFS sign-ins. This will automatically apply to all customers who have AD Connect Health deployed and enabled, and will show up as the existing "Anonymous IP" or "Malicious IP" detections with a token issuer type of "AD Federation Services".
+Identity protection expands its Anonymous and Malicious IP detections to protect ADFS sign-ins. This automatically applies to all customers who have AD Connect Health deployed and enabled, and show up as the existing "Anonymous IP" or "Malicious IP" detections with a token issuer type of "AD Federation Services".
 
 For more information, see: [What is risk?](../identity-protection/concept-identity-protection-risks.md)
 
@@ -881,7 +881,7 @@ In September 2022 we've added the following 15 new applications in our App galle
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
 
 
 
