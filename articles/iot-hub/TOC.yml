@@ -197,9 +197,6 @@
         - name: Develop without the SDK
           displayName: MQTT, protocols
           href: iot-hub-devguide-no-sdk.md
-        - name: Manage connectivity and reliable messaging
-          displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-          href: iot-hub-reliability-features-in-sdks.md
     - name: Protocol support
       items:
         - name: MQTT support
@@ -415,30 +412,6 @@
             - name: Java
               displayName: jobs
               href: iot-hub-java-java-schedule-jobs.md
-        - name: Use device and service SDKs
-          items:
-            - name: Azure IoT Embedded C SDK
-              href: iot-hub-device-embedded-c-sdk.md
-            - name: Azure IoT C SDK
-              items:
-                - name: Use the Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-intro.md
-                - name: Use the IoTHubClient
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Azure IoT C SDK resource information
-                  href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
-                - name: Develop for constrained devices
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-devguide-develop-for-constrained-devices.md
-                - name: Develop for mobile devices
-                  displayName: Azure IoT C SDKs, iOS, C99, Objective-C, Swift
-                  href: iot-hub-how-to-develop-for-mobile-devices.md
-                - name: Develop for Android Things platform
-                  displayName: Azure IoT C SDK
-                  href: iot-hub-how-to-android-things.md
-        - name: Control a device on Android
-          href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
