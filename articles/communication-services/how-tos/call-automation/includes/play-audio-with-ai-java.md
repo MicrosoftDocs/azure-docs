@@ -58,8 +58,8 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 ``` xml 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-communication-callingserver</artifactId>
-  <version>1.0.0-alpha.20220829.1</version>
+  <artifactId>azure-communication-callautomation</artifactId>
+  <version>1.0.0-alpha.20230210.2</version>
 </dependency>
 ```
 
