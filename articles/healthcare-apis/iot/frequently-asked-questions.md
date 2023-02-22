@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 ms.author: jasteppe
 ---
 
@@ -41,15 +41,15 @@ The MedTech service buffers the FHIR Observations resources created during the t
 
 ## Why is the MedTech service device message data not showing up in the FHIR service?
 
-|Potential issue|Fix:|
-|---------------|----|
-|Data is still being processed.|Data is egressed to the FHIR service in batches (every ~5 minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
+|Potential issue:|Fix:|
+|----------------|----|
+|Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device mappings haven't been configured.|Configure and save conforming and valid device mappings.|
 |FHIR destination mappings haven't been configured.|Configure and save conforming and valid FHIR destination mappings.|
 |The device message doesn't contain an expected expression defined in the device mappings.|Verify `JsonPath` expressions defined in the device mappings match tokens defined in the device message.|
-|A `Device` Resource hasn't been created in the FHIR service (Resolution Type: Look up only)*.|Create a valid `Device` Resource in the FHIR service. Ensure the `Device` Resource contains an identifier that matches the device identifier provided in the incoming message.|
-|A Patient Resource hasn't been created in the FHIR service (**Resolution type**: `Lookup` only)*.|Create a valid `Patient` Resource in the FHIR service.|
-|The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Look up only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` Resource.| 
+|A `Device` resource hasn't been created in the FHIR service (Resolution Type: `Lookup` only)*.|Create a valid `Device` resource in the FHIR service. Ensure the `Device` resource contains an identifier that matches the device identifier provided in the incoming message.|
+|A `Patient` resource hasn't been created in the FHIR service (**Resolution type**: `Lookup` only)*.|Create a valid `Patient` resource in the FHIR service.|
+|The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Look up only)*.|Make sure the `Device` resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` resource.| 
 
 \* Reference [Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (for example, `Create` or `Lookup`).
 
@@ -61,11 +61,11 @@ To learn more about event hub message retention, see [What is the maximum retent
 
 ## What are the subscription quota limits for the MedTech service?
 
-* 25 MedTech services per Subscription (not adjustable)
-* 10 MedTech services per workspace (not adjustable)
-* One FHIR destination* per MedTech service (not adjustable)
+* 25 MedTech services per Azure subscription (not adjustable).
+* 10 MedTech services per Azure Health Data Services workspace (not adjustable).
+* One FHIR destination* per MedTech service (not adjustable).
 
-(* - FHIR Destination is a child resource of the MedTech service)
+(* - FHIR destination is a child resource of the MedTech service)
 
 ## Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 
@@ -92,4 +92,4 @@ To learn about methods for deploying the MedTech service, see
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and used with their permission.
