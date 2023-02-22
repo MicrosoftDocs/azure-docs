@@ -298,7 +298,6 @@ Now that you have a service principal that can access your App Service apps, edi
       AZURE_WEBAPP_NAME: <web-app-name>   # set this to your application's name
       NODE_VERSION: '18.x'                # set this to the node version to use
       AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-      AZURE_WEBAPP_SLOT_NAME: stage       # set this to your application's slot name
     
     jobs:
       build:
@@ -327,7 +326,6 @@ Now that you have a service principal that can access your App Service apps, edi
         runs-on: ubuntu-latest
         needs: build
         environment:
-          name: 'stage'
           url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
         steps:
@@ -351,7 +349,6 @@ Now that you have a service principal that can access your App Service apps, edi
             uses: azure/webapps-deploy@v2
             with:
               app-name: ${{ env.AZURE_WEBAPP_NAME }}
-              slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}
               package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
               
           - name: logout
