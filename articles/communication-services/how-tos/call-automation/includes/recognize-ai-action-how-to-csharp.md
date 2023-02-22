@@ -103,12 +103,12 @@ var choices = new List<RecognizeChoice>
                     Tone = DtmfTone.Two
                 }
             };
-
+var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
            var playSource = new TextSource("Hello, This is a reminder for your appointment at 2 PM, Say Confirm to confirm your appointment or Cancel to cancel the appointment. Thank you!");
 
             var recognizeOptions =
                 new CallMediaRecognizeChoiceOptions(
-                    targetParticipant: new CommunicationUserIdentifier(targetAcsUser),
+                    targetParticipant: targetParticipant,
                     recognizeChoices: choices)
                 {
                     InterruptPrompt = true,
@@ -309,7 +309,7 @@ if (@event is RecognizeFailed { OperationContext: "AppointmentReminderMenu" })
 ```
 
 ### Example of *RecognizeCanceled* event:
-``` csharp
+``` json
 [
     {
         "id": "d4f2e476-fb8f-43c2-abf8-0981f8e70df9",
