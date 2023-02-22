@@ -190,7 +190,7 @@ The following PowerShell script generates sample data to configure the custom ta
 ## Add a custom log table
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
-1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables (preview)**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
+1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-custom-log.png" lightbox="media/tutorial-logs-ingestion-portal/new-custom-log.png" alt-text="Screenshot that shows the new DCR-based custom log.":::
 
