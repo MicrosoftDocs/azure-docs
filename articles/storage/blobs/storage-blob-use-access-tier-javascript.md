@@ -41,7 +41,7 @@ To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-b
 
 ## Change blob's access tier after upload
 
-To change the access tier of a blob after it's uploaded to storage, use [setAccessTier](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-setaccesstier). Along with the tier, you can set the [BlobSetTierOptions](/javascript/api/@azure/storage-blob/blobsettieroptions) property [rehydration priority](archive-rehydrate-overview.md#rehydrate-an-archived-blob-to-an-online-tier) to bring the block blob out of an archived state. Possible values are `High` or `Standard`.
+To change the access tier of a blob after it's uploaded to storage, use [setAccessTier](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-setaccesstier). Along with the tier, you can set the [BlobSetTierOptions](/javascript/api/@azure/storage-blob/blobsettieroptions) property [rehydration priority](archive-rehydrate-overview.md) to bring the block blob out of an archived state. Possible values are `High` or `Standard`.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/change-blob-access-tier.js" id="Snippet_BatchChangeAccessTier" highlight="40-43":::
 
