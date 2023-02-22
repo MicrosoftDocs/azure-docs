@@ -187,9 +187,15 @@ You'll create an Azure web app for the cloud resource accessed by the on-premise
 
 6. Select **Apply**.
 
-7. Select **Review + create**.
+7. Select **Next: Deployment**.
 
-8. Select **Create**.
+8. Select **Next: Networking**.
+
+9. Change 'Enable public access' to false.
+
+10. Select **Review + create**.
+
+11. Select **Create**.
 
 ## Create private endpoint
 
