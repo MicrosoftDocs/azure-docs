@@ -92,6 +92,8 @@ Now, you can add the storage output binding to your project.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
 
+In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
+
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ::: zone-end
