@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri

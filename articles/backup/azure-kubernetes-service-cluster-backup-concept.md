@@ -8,13 +8,13 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Overview of Azure Kubernetes Service (AKS) backup using Azure Backup (preview)
+# Overview of Azure Kubernetes Service backup using Azure Backup (preview)
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
-## Least Privileged security models
+## Least privilege security models
 
-This section explains the least privileged security models required for a Backup vault (to have Trusted Access enabled) to communicate with the AKS cluster.
+This section explains the least privilege security models required for a Backup vault (to have Trusted Access enabled) to communicate with the AKS cluster.
 
 ### Backup Extension
 

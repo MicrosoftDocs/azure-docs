@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -59,7 +59,7 @@ Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back 
 
 The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore with the ability to store backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning test or developer environments, or cluster upgrade scenarios. 
 
-AKS backup integrates with Backup center (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
+AKS backup integrates with [Backup center](backup-center-overview.md) (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
  
 For more information, see [Overview of AKS backup (preview)](azure-kubernetes-service-cluster-backup-concept.md).
 
