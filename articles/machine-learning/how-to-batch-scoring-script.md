@@ -156,7 +156,7 @@ Your deployment configuration controls the size of each mini-batch and the numbe
 
 ### Using models that are folders
 
-The environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` function to load the model. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
+The environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` function of your scoring script to load the model. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
 
 1. Go to [Azure Machine Learning portal](https://ml.azure.com).
 
@@ -171,7 +171,14 @@ The environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` f
 Then you can use this path to load the model:
 
 ```python
-model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
+def init():
+    global model
+
+    # AZUREML_MODEL_DIR is an environment variable created during deployment
+    # The path "model" is the name of the registered model's folder
+    model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
+
+    model = load_model(model_path)
 ```
 
 ## Next steps
