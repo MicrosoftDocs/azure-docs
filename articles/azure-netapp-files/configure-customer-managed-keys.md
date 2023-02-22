@@ -24,7 +24,7 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 ## Considerations
 
 > [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using customer-managed keys.
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
@@ -38,16 +38,9 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 
     * If the account isn't eligible for MSI certificate renewal, an error will communicate the date and time when the account is eligible. It's recommended you run this operation periodically (for example, daily) to prevent the certificate from expiring and from the customer-managed key volume going offline.
 
-<!-- 
-   *  You will need to call the operation via ARM REST API. Submit a POST request to `/subscriptions/<16 digit subscription ID>/resourceGroups/<resource_group_name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-04`.
-    This operation is available with the Azure CLI, PowerShell, and SDK beginning with the `2022-05` versions.
-    * If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
-        ```rest
-         /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
-        ```  -->
-
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
+* Currently, customer-managed keys can't be configured while creating data replication volumes to establish an Azure NetApp Files cross-region replication or cross-zone replication relationship.
 
 ## Supported regions 
 
