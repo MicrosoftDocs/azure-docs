@@ -45,7 +45,7 @@ landingContent:
       - linkListType: quickstart
         links:
            - text: Before you start deployment
-             url: quickstart-nfc-cm-create.md       
+             url: quickstart-network-fabric-controller-cluster-manager-create.md       
            - text: Before you start platform deployment
              url: quickstarts-platform-prerequisites.md
            - text: Platform deployment
