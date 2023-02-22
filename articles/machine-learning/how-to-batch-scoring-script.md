@@ -33,7 +33,7 @@ The scoring script must contain two methods:
 
 #### The `init` method
 
-Use the `init()` method for any costly or common preparation. For example, use it to load the model into a global object. This function will be called once at the beginning of the process. You model's files will be available in an environment variable called `AZUREML_MODEL_DIR`. Use this variable to locate the files associated with the model. Notice that some model's may be contained in a folder. See [how you can find out what's the folder used by your model](#using-models-that-are-folders).
+Use the `init()` method for any costly or common preparation. For example, use it to load the model into a global object. This function will be called once at the beginning of the process. You model's files will be available in an environment variable called `AZUREML_MODEL_DIR`. Use this variable to locate the files associated with the model. Notice that some models may be contained in a folder (in the following example, the model has several files in a folder named `model`). See [how you can find out what's the folder used by your model](#using-models-that-are-folders).
 
 ```python
 def init():
