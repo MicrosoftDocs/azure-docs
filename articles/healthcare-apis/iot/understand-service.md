@@ -73,9 +73,38 @@ At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, alon
 If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline continues to process other incoming device messages. If set to `Create`, the MedTech service creates minimal Device and Patient resources in the FHIR service.  
 
 > [!NOTE]
-> The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
+> The `Resolution Type` can also be adjusted post deployment of the MedTech service if a different `Resolution Type` is later required.
 
 The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service.
+
+> [!NOTE]
+> When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message group (for example, within the five minute window or in device message groups of 300 device messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
+>
+> For example:
+>
+> Device message one:
+> ```json
+> {    
+>    "patientid": "testpatient1",    
+>    "deviceid": "testdevice1",
+>    "systolic": "129",    
+>    "diastolic": "65",    
+>    "measurementdatetime": "2022-02-15T04:00:00.000Z"
+> } 
+> ```
+>
+> Device message two:
+> ```json
+> {   
+>    "patientid": "testpatient1",    
+>    "deviceid": "testdevice1",    
+>    "systolic": "113",    
+>    "diastolic": "58",    
+>    "measurementdatetime": "2022-02-15T04:00:00.000Z"
+> }
+> ```
+>
+> Assuming these device messages were ingested within the same five minute window or in the same group of 300 device messages, and since the `measurementdatetime` is the same for both device messages (indicating these contain data for the same FHIR Observation), only device message two is persisted to represent the latest/most recent data.
 
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it's created in the FHIR service. If the FHIR Observation resource already existed, it gets updated in the FHIR service.
