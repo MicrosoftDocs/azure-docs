@@ -449,7 +449,7 @@ You can add network security to an Azure storage account by [restricting access 
 
   - Azure Blob Storage *built-in* connector: [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration)
 
-   - Azure Blob Storage *managed* connector: [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
+  - Azure Blob Storage *managed* connector: [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
 ### Access storage accounts in other regions
 
