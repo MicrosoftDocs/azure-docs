@@ -1,6 +1,6 @@
 ---
 title: Archive for What's new with Azure Arc-enabled servers agent
-description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
+description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
 ms.date: 01/23/2023
 ms.custom: references_regions
@@ -20,21 +20,21 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### Known issues
 
-- When connecting a server and specifying multiple tags, the value of the last tag is used for all tags. You will need to fix the tags after onboarding to use the correct values.
+- The 'connect' command uses the value of the last tag for all tags. You will need to fix the tags after onboarding to use the correct values.
 
 ### New features
 
 - The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
-- If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- If the resource group provided to `azcmagent connect` does not exist, the agent tries to create it and continue connecting the server to Azure.
 - Added support for Ubuntu 22.04
 - Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
 
 ### Fixed
 
-- The agent can now be installed on Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
-- Agent telemetry is now sent through the proxy server if one is configured.
+- The agent now supports Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
+- Agent telemetry uses the proxy server when configured.
 - Improved accuracy of network connectivity checks
-- When switching the agent from monitoring mode to full mode, existing restrictions are now retained. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+- The agent retains extension allow and block lists when switching the agent from monitoring mode to full mode. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
@@ -42,14 +42,14 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 - `azcmagent connect` usability improvements:
   - The `--subscription-id (-s)` parameter now accepts friendly names in addition to subscription IDs
-  - Automatic registration of any missing resource providers for first-time users (additional user permissions required to register resource providers)
+  - Automatic registration of any missing resource providers for first-time users (extra user permissions required to register resource providers)
   - A progress bar now appears while the resource is being created and connected
   - The onboarding script now supports both the yum and dnf package managers on RPM-based Linux systems
 - You can now restrict which URLs can be used to download machine configuration (formerly Azure Policy guest configuration) packages by setting the `allowedGuestConfigPkgUrls` tag on the server resource and providing a comma-separated list of URL patterns to allow.
 
 ### Fixed
 
-- Extension installation failures are now reported to Azure more reliably to prevent extensions from being stuck in the "creating" state
+- Improved reliability when reporting extension installation failures to prevent extensions from being stuck in the "creating" state
 - Metadata for Google Cloud Platform virtual machines can now be retrieved when the agent is configured to use a proxy server
 - Improved network connection retry logic and error handling
 - Linux only: resolves local escalation of privilege vulnerability [CVE-2022-38007](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007)
@@ -87,14 +87,14 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### Fixed
 
-- An issue that could cause the extension manager to hang during extension installation, update, and removal operations has been resolved.
+- Resolved an issue that could cause the extension manager to hang during extension installation, update, and removal operations.
 - Improved support for TLS 1.3
 
 ## Version 1.18 - May 2022
 
 ### New features
 
-- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
+- You can configure the agent to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
 - VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
 
 ### Fixed
@@ -115,7 +115,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 ### Fixed
 
 - If you attempt to run `azcmagent connect` on a server that is already connected to Azure, the resource ID is now printed to the console to help you locate the resource in Azure.
-- The `azcmagent connect` timeout has been extended to 10 minutes.
+- Extended the `azcmagent connect` timeout to 10 minutes.
 - `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine), or [REST API](/rest/api/hybridcompute/machines/get).
 - `azcmagent logs` collects only the 2 most recent logs for each service to reduce ZIP file size.
 - `azcmagent logs` collects Guest Configuration logs again.
@@ -128,7 +128,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### New features
 
-- You can now granularly control which extensions are allowed to be deployed to your server and whether or not Guest Configuration should be enabled. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
+- You can now granularly control which extensions are allowed on your server and disable the Guest Configuration agent. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
 
 ### Fixed
 
@@ -192,7 +192,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### Fixed
 
-- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
+- The agent now supports on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
 - The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
 - Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
 
