@@ -45,12 +45,20 @@ Azure Machine Learning workspace defaults to having a system-assigned managed id
 
 Otherwise, if a [user-assigned managed identity is specified in Azure Machine Learning workspace creation](../machine-learning/how-to-identity-based-service-authentication.md#user-assigned-managed-identity), the following role assignments need to be granted to the managed identity manually before attaching the compute.
 
-|Azure resource name |Role to be assigned|Description|
+|Azure resource name |Roles to be assigned|Description|
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
-|Kubernetes - Azure Arc or Azure Kubernetes Service|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
+|Kubernetes - Azure Arc or Azure Kubernetes Service|Reader <br> Kubernetes Extension Contributor <br> Azure Kubernetes Service Cluster Admin |Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
 
-Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
+
+> [!TIP]
+>
+> Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
+
+> [!NOTE]
+>
+> * If the "Kubernetes Extension Contributor" role permission is not available, the cluster attachment fails with "extension not installed" error.
+> * If the "Azure Kubernetes Service Cluster Admin" role permission is not available, the cluster attachment fails with "internal server" error.
 
 ## How to attach a Kubernetes cluster to AzureML workspace
 
@@ -58,7 +66,7 @@ We support two ways to attach a Kubernetes cluster to AzureML workspace, using A
 
 ### [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
 The following commands show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
 
@@ -118,7 +126,7 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
 ### Assign managed identity
 - You can assign a managed identity to the compute in the compute attach step.
 - If the compute has already been attached, you can update the settings to use a managed identity in Azure Machine Learning studio.
-    - Go to [Azure Machine Learning studio](https://ml.azure.com). Select __Compute__, __Attached compute__, and select your attached compute.
+    - Go to [Azure Machine Learning studio](https://ml.azure.com). Select **Compute**, **Attached compute**, and select your attached compute.
     - Select the pencil icon to edit managed identity.
 
     :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/edit-identity.png" alt-text="Screenshot of updating identity of the Kubernetes compute from Azure portal.":::
@@ -137,11 +145,11 @@ If you are using the Azure portal to assign roles and have a **system-assigned m
 
 If you have user-assigned managed identity, select **Managed identity** to find the target identity.
 
-You can use Managed Identity to pull images from Azure Container Registry. Grant the __AcrPull__ role to the compute Managed Identity. For more information, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
+You can use Managed Identity to pull images from Azure Container Registry. Grant the **AcrPull** role to the compute Managed Identity. For more information, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
 
 You can use a managed identity to access Azure Blob:
-- For read-only purpose, __Storage Blob Data Reader__ role should be granted to the compute managed identity.
-- For read-write purpose, __Storage Blob Data Contributor__ role should be granted to the compute managed identity.
+- For read-only purpose, **Storage Blob Data Reader** role should be granted to the compute managed identity.
+- For read-write purpose, **Storage Blob Data Contributor** role should be granted to the compute managed identity.
 
 ## Next steps
 

@@ -18,7 +18,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads.  For an Azure VM, an example for an instance type is `STANDARD_D2_V3`.
 
-In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that is installed with the AzureML extension. Instance types are represented by two elements in AzureML extension: 
+In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that is installed with the AzureML extension. Two elements in AzureML extension represent the instance types: 
 [nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
 and [resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
@@ -35,9 +35,9 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 ## Default instance type
 
 By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an AzureML workspace:
-- No `nodeSelector` is applied, meaning the pod can get scheduled on any node.
-- The workload's pods are assigned default resources with 0.1 cpu cores, 2Gi memory and 0 GPU for request.
-- Resource use by the workload's pods is limited to 2 cpu cores and 8 GB memory:
+- If you don't apply a `nodeSelector`, it means the pod can get scheduled on any node.
+- The workload's pods are assigned default resources with 0.1 cpu cores, 2-GB memory and 0 GPU for request.
+- The resources used by the workload's pods are limited to 2 cpu cores and 8-GB memory:
 
 ```yaml
 resources:
@@ -138,7 +138,7 @@ items:
 
 The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition overrides the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
 
-If you submit a training or inference workload without an instance type, it uses the `defaultinstancetype`.  To specify a default instance type for a Kubernetes cluster, create an instance type with name `defaultinstancetype`.  It is automatically recognized as the default.
+If you submit a training or inference workload without an instance type, it uses the `defaultinstancetype`.  To specify a default instance type for a Kubernetes cluster, create an instance type with name `defaultinstancetype`.  It's automatically recognized as the default.
 
 
 ### Select instance type to submit training job
@@ -226,10 +226,10 @@ blue_deployment = KubernetesOnlineDeployment(
 ```
 ---
 
-In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to deploy the model.
+In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system uses `defaultinstancetype` to deploy the model.
 
 #### Resource section validation
-If you are using the `resource section` to define the resource request and limit of your model deployments, for example:
+If you're using the `resource section` to define the resource request and limit of your model deployments, for example:
 
 #### [Azure CLI](#tab/define-resource-to-modeldeployment-with-cli)
 
@@ -297,11 +297,11 @@ If you use the `resource section`, the valid resource definition need to meet th
 
 |  Parameter | If necessary | Description |
 | --- | --- | --- |
-| `requests:`<br>`cpu:`| Required | String values, which can not be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
-| `requests:`<br>`memory:` | Required | String values, which can not be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB. <br>Memory cannot be less than **1 MBytes**.|
-| `limits:`<br>`cpu:` | Optional <br>(only required when need GPU) | String values, which can not be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`. |
-|  `limits:`<br>`memory:` | Optional <br>(only required when need GPU) | String values, which can not be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB.|
-| `limits:`<br>`nvidia.com/gpu:` | Optional <br>(only required when need GPU) | Integer values, which cannot be empty and can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If require CPU only, you can omit the entire `limits` section.|
+| `requests:`<br>`cpu:`| Required | String values, which can't be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
+| `requests:`<br>`memory:` | Required | String values, which can't be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB. <br>Memory can't be less than **1 MBytes**.|
+| `limits:`<br>`cpu:` | Optional <br>(only required when need GPU) | String values, which can't be 0 or empty. <br>You can specify the CPU in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`. |
+|  `limits:`<br>`memory:` | Optional <br>(only required when need GPU) | String values, which can't be 0 or empty. <br>You can specify the memory as a full number + suffix, for example `1024Mi` for 1024 MiB.|
+| `limits:`<br>`nvidia.com/gpu:` | Optional <br>(only required when need GPU) | Integer values, which can't be empty and can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If require CPU only, you can omit the entire `limits` section.|
 
 > [!NOTE]
 >
