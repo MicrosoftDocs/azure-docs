@@ -12,20 +12,14 @@ zone_pivot_groups: dapr-languages-set
 
 # Microservices communication using Dapr Service Invocation 
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. While you can deploy and manage the Dapr OSS project yourself, deploying your Dapr applications to the Container Apps platform:
-
-- Provides a managed and supported Dapr integration
-- Seamlessly updates Dapr versions
-- Exposes a simplified Dapr interaction model to increase developer productivity
-
 In this tutorial, you'll:
 > [!div class="checklist"]
-> * Create two microservices that communicate using [Dapr's Service Invocation API](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/). 
-> * Redeploy the same services using `azd up` to Azure Container Apps via the Azure Developer CLI. 
+> * Create and run locally two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [Dapr's Service Invocation API](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/). 
+> * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The Service Invocation API enables your applications to communicate reliably and securely by leveraging auto-mTLS and built-in retries. The sample Dapr service invocation project includes:
-1. A `checkout` service that uses Dapr's http proxying capability to invoke a method on the `order-processor` service. 
-1. A `order-processor` service that receives the method from the `checkout` service.  
+The sample service invocation project includes:
+1. A `checkout` service that uses Dapr's http proxying capability on a loop to invoke a request on the `order-processor` service. 
+1. A `order-processor` service that receives the request from the `checkout` service.  
 
 :::image type="content" source="media/microservices-dapr-azd/service-invocation-overview.png" alt-text="Diagram of the Dapr service invocation services.":::
 
@@ -164,7 +158,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    cd svc-invoke-dapr-nodejs
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -183,8 +177,13 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
    - Deploys the code (azd deploy)
+
 
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
 
@@ -243,7 +242,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 
 
 ::: zone-end
@@ -373,7 +372,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    cd svc-invoke-dapr-python
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -392,8 +391,13 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
    - Deploys the code (azd deploy)
+
 
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
 
@@ -452,7 +456,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-python/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 
 ::: zone-end
 
@@ -583,7 +587,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    cd svc-invoke-dapr-csharp
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -602,8 +606,13 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/developer/azu
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
    - Deploys the code (azd deploy)
+
 
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
 
@@ -662,7 +671,7 @@ In the Azure portal, verify the `checkout` service is passing orders to the `ord
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/svc-invoke-dapr-csharp/tree/main/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 
 
 ::: zone-end
