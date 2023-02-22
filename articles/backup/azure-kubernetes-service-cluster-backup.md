@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -92,7 +92,7 @@ To configure backups for AKS cluster, follow these steps:
 6. In the *context* pane, provide the *storage account* and *blob container* where you need to store the backup, and then select **Generate Command**.
 
    >[!Note]
-   >Before you install the AKS Backup Extension via *Azure CLI*, you must enable the `Microsoft.KubernetesConfiguration` resource provider on the subscription. We don't recommend to proceed with the Backup Extension installation before enabling the resource provider.
+   >Before you install the AKS Backup Extension via *Azure CLI*, you must enable the `Microsoft.KubernetesConfiguration` resource provider on the subscription.
    >
    >To register the resource provider before the extension installation (don't initiate extension installation before registering resource provider), run the following commands:
    >
@@ -101,21 +101,22 @@ To configure backups for AKS cluster, follow these steps:
    >2. Monitor the registration process. The registration may take up to *10 minutes*.
    >   `az provider show -n Microsoft.KubernetesConfiguration -o table`
 
-7. Open the PowerShell console, sign in to the Azure portal (`az login`), and then copy and run the generated commands.
+7. Open the PowerShell console, and then upgrade the CLI to version *2.24.0* or later using the command `az upgrade`.
+
+   Sign in to the Azure portal (using the command `az login`), and then copy and run the generated commands.
 
    The commands install the *Backup Extension* and *Assign Extension* managed identity permissions on the storage account.
 
    Once done, select **Revalidate**.
 
    >[!Note]
-   >1. Before you run the Azure CLI command, upgrade the CLI to version *2.24.0* or later using the command `az upgrade`.
-   >2. We're using the Extension managed identity attached to the underlying compute of the AKS cluster. After running the `az role assignment` command, it may take some time (up to *1 hour*) to propagate permission to the AKS cluster (due to caching issue). If revalidation fails, try again after some time.
+   >We're using the Extension managed identity attached to the underlying compute of the AKS cluster. After running the `az role assignment` command, it may take some time (up to *1 hour*) to propagate permission to the AKS cluster (due to caching issue). If revalidation fails, try again after some time.
 
 8. To enable *Trusted Access* and *other role permissions*, select **Grant Permission** > **Next**.
 
 9. Select the backup policy that defines the schedule and retention policy for AKS backup, and then select **Next**.
 
-10. Select **Add/Edit** to define the **Backup Instance Configuration**.
+10. Select **Add/Edit** to define the *backup instance configuration*.
 
 11. In the *context* pane, enter the *cluster resources* that you want to back up.
 
