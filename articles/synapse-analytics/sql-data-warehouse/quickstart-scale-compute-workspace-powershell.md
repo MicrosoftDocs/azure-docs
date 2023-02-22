@@ -1,14 +1,16 @@
 ---
-title: 'Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces.'
+title: "Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces."
 description: You can scale compute for dedicated SQL pools in Azure Synapse workspaces using Azure PowerShell.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kedodd
 ms.date: 02/21/2023
-ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: devx-track-azurepowershell, mode-api
+ms.topic: quickstart
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Scale compute for dedicated SQL pools in Azure Synapse Workspaces with Azure PowerShell
@@ -61,7 +63,7 @@ Follow these steps to find location information for your data warehouse.
 1. Select the name of your dedicated SQL pool from the **Synapse workspace | SQL pools** page. In the following samples, we use `contoso_dedicated_sql_pool`.
 1. As in the following image, we use `contoso-synapse-workspace` as the Azure Synapse workspace name in the following PowerShell samples, in the resource group `contoso`.
 
-    ![Server name and resource group](./media/quickstart-scale-compute-powershell/locate-synapse-workspace-name.png)
+    :::image type="content" source="./media/quickstart-scale-compute-workspace-powershell/locate-synapse-workspace-name.png" alt-text="A screenshot of the Azure portal with the server name and workspace highlighted.":::
 
 For example, to retrieve the properties and status of a dedicated SQL pool created in a Synapse workspace:
 
@@ -72,13 +74,13 @@ Get-AzSynapseSqlPool -ResourceGroupName "contoso" -Workspacename "contoso-synaps
 To retrieve all the data warehouses in a given server, and their status:
 
 ```powershell
-$pools = Get-AzSynapseSqlPool -ResourceGroupName "resourcegroupname" -Workspacename "synapse-workspace-name" 
+$pools = Get-AzSynapseSqlPool -ResourceGroupName "resourcegroupname" -Workspacename "synapse-workspace-name"
 $pools | Select-Object DatabaseName,Status,Tags
 ```
 
 ## Scale compute
 
-You can increase or decrease compute resources by adjusting the dedicated SQL pool's data warehouse units. The **Workload management** menu of the Azure portal provides scaling, but this can also be accomplished with PowerShell. 
+You can increase or decrease compute resources by adjusting the dedicated SQL pool's data warehouse units. The **Workload management** menu of the Azure portal provides scaling, but this can also be accomplished with PowerShell.
 
 To change data warehouse units, use the [Update-AzSynapseSqlPool](/powershell/module/az.synapse/update-azsynapsesqlpool) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database `contoso_dedicated_sql_pool`, which is hosted in the resource group `contoso` in the Synapse workspace **contoso-synapse-workspace**.
 
@@ -95,17 +97,17 @@ SqlPoolName           : contoso_dedicated_sql_pool
 Sku                   : DW300c
 MaxSizeBytes          : 263882790666240
 Collation             : SQL_Latin1_General_CP1_CI_AS
-SourceDatabaseId      : 
-RecoverableDatabaseId : 
+SourceDatabaseId      :
+RecoverableDatabaseId :
 ProvisioningState     : Succeeded
 Status                : Scaling
-RestorePointInTime    : 
-CreateMode            : 
+RestorePointInTime    :
+CreateMode            :
 CreationDate          : 2/21/2023 11:33:45 PM
 StorageAccountType    : GRS
 Tags                  : {[createdby, chrisqpublic]}
-TagsTable             : 
-                        Name       Value  
+TagsTable             :
+                        Name       Value
                         =========  =======
                         createdby  chrisqpublic
                         

@@ -1,14 +1,16 @@
 ---
-title: 'Quickstart: Scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell'
+title: "Quickstart: Scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell"
 description: You can scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kedodd
 ms.date: 02/21/2023
-ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: devx-track-azurepowershell, mode-api
+ms.topic: quickstart
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell
@@ -54,12 +56,12 @@ Locate the database name, server name, and resource group for the data warehouse
 Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Synapse Analytics (formerly SQL DW)** in the main search bar of the Azure portal.
-3. Select `mySampleDataWarehouse` from the **Azure Synapse Analytics (formerly SQL DW)** page to open the data warehouse.
-    ![Server name and resource group](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
+1. Select **Azure Synapse Analytics (formerly SQL DW)** in the main search bar of the Azure portal.
+1. Select `mySampleDataWarehouse` from the **Azure Synapse Analytics (formerly SQL DW)** page to open the data warehouse.
+    :::image type="content" source="media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png" alt-text="A screenshot of the Azure portal with the server name and resource group highlighted.":::
 
-4. The data warehouse name will be used as the database name. Remember, a data warehouse is one type of database. Also remember down the server name, and the resource group. You will use the server name and the resource group name in the pause and resume commands.
-5. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is `sqlpoolservername.database.windows.net`. We use `sqlpoolservername` as the server name in the PowerShell cmdlet.
+1. The data warehouse name will be used as the database name. Remember, a data warehouse is one type of database. Also remember down the server name, and the resource group. You will use the server name and the resource group name in the pause and resume commands.
+1. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is `sqlpoolservername.database.windows.net`. We use `sqlpoolservername` as the server name in the PowerShell cmdlet.
 
 For example, to retrieve the properties and status of a dedicated SQL pool (formerly SQL DW):
 
@@ -101,7 +103,7 @@ CreationDate                     : 1/20/2023 9:18:12 PM
 CurrentServiceObjectiveId        : 284f1aff-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 CurrentServiceObjectiveName      : DW300c
 RequestedServiceObjectiveName    : DW300c
-RequestedServiceObjectiveId      :  
+RequestedServiceObjectiveId      :
 ElasticPoolName                  :
 EarliestRestoreDate              :
 Tags                             :
@@ -109,22 +111,22 @@ ResourceId                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
                                 resourceGroups/resourcegroupname/providers/Microsoft.Sql/servers/sqlpoolservername/databases/mySampleDataWarehouse
 CreateMode                       :
 ReadScale                        : Disabled
-ZoneRedundant                    : 
+ZoneRedundant                    :
 Capacity                         : 2700
-Family                           : 
+Family                           :
 SkuName                          : DataWarehouse
-LicenseType                      : 
-AutoPauseDelayInMinutes          : 
-MinimumCapacity                  : 
-ReadReplicaCount                 : 
-HighAvailabilityReplicaCount     : 
+LicenseType                      :
+AutoPauseDelayInMinutes          :
+MinimumCapacity                  :
+ReadReplicaCount                 :
+HighAvailabilityReplicaCount     :
 CurrentBackupStorageRedundancy   : Geo
 RequestedBackupStorageRedundancy : Geo
-SecondaryType                    : 
+SecondaryType                    :
 MaintenanceConfigurationId       : /subscriptions/d8392f63-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
 EnableLedger                     : False
-PreferredEnclaveType             : 
-PausedDate                       : 
+PreferredEnclaveType             :
+PausedDate                       :
 ResumedDate                      :
 ```
 
@@ -134,7 +136,7 @@ To see the current state of the data warehouse, use the [Get-AzSqlDatabase](/pow
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName "resourcegroupname" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
-$database 
+$database
 ```
 
 You can see the `Status` of the database in the output. In this case, you can see that this database is `Online`.  When you run this command, you should receive a `Status` value of `Online`, `Pausing`, `Resuming`, `Scaling`, or `Paused`.
