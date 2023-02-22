@@ -79,8 +79,6 @@ az provider register --namespace Microsoft.ContainerService
 
 The Roles you select depend on the different Azure services. These services help create Roles and RoleBindings, which build the connection from the Azure service to AKS.
 
-Azure Machine Learning (AzureML) now supports access to AKS clusters with the Trusted Access feature. If you want to preview the Trusted Access feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
-
 ## Create a Trusted Access RoleBinding
 
 After confirming which Role to use, use the Azure CLI to create a Trusted Access RoleBinding in an AKS cluster. The RoleBinding associates your selected Role with the Azure service.
