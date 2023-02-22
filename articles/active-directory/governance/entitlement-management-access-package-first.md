@@ -144,7 +144,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. To add a Verified ID requirement to the access package, select on **Add issuer** in the **Required Verified IDs** section. If you don't have the Verified ID service set up in your tenant, navigate to the **Verified ID** section of the Azure portal.
 
-    :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Verified ID picker selection.":::
+    :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Screenshot of the Verified ID picker selection.":::
 
 1. Search for an issuer in the dropdown and select the credential type you want users to present when requesting access.
 
