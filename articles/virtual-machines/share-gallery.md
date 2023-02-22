@@ -1,12 +1,12 @@
 ---
 title: Share resources in an Azure Compute Gallery
-description: Learn how to share resources explicitly or to all Azure users using role-based access control or community galleries.
+description: Learn how to share resources explicitly or to all Azure users using role-based access control.
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/01/2023
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -27,13 +27,14 @@ We recommend sharing at the Gallery level for the best experience. We don't reco
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-| Specific people, groups, or service principals (described in this article) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| Share within your organization or even across tenants using an [app registration](share-using-app-registration.md)| Create an app registration use it to share images within your organization or between tenants. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery lets you share to everyone in a subscription or tenant. |
-| [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in   Azure |
+|---|---|---|---|---|---|
+| RBAC Sharing | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
+
+You can also create an [App registration](./share-using-app-registration.md) to share images between tenants.
 
 ## Share using RBAC
 
@@ -96,6 +97,6 @@ New-AzRoleAssignment `
 ## Next steps
 
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-your-gallery) or [specialized](vm-specialized-image-version.md#create-a-vm-from-your-gallery) private gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) image in a gallery.
 
 

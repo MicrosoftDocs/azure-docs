@@ -217,6 +217,8 @@
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
         href: dplsv5-dpldsv5-series.md
+      - name: Dlsv5 and Dldsv5-series
+        href: dlsv5-dldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -408,13 +410,8 @@
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
     - name: vCPU quotas
-      items:
-      - name: CLI
-        displayName: vCPU, quota, limit
-        href: ./linux/quotas.md
-      - name: PowerShell
-        displayName: vCPU, quota, limit
-        href: ./windows/quotas.md
+      displayName: vCPU, quota, limit
+      href: quotas.md
     - name: Virtual machines selector tool
       href: https://aka.ms/vm-selector
     - name: Change the VM size
@@ -1588,17 +1585,14 @@
     - name: ARM template
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
-  - name: Open ports to a VM
+  - name: Open ports and filter traffic
     items:
-    - name: CLI
-      displayName: port nsg network security group
-      href: ./linux/nsg-quickstart.md
+    - name: CLI 
+      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
-      displayName: nsg network security group
-      href: ./windows/nsg-quickstart-powershell.md
+      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
     - name: Portal
-      displayName: port nsg network security group
-      href: ./windows/nsg-quickstart-portal.md
+      href: ../virtual-network/tutorial-filter-network-traffic.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
