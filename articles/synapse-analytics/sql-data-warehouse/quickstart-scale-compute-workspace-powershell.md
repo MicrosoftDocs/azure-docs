@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Scale compute for dedicated SQL pool in Azure Synapse Analytics workspaces (Azure PowerShell)'
-description: You can scale compute for dedicated SQL pools in Azure Synapse Analytics workspaces using Azure PowerShell.
+title: 'Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces.'
+description: You can scale compute for dedicated SQL pools in Azure Synapse workspaces using Azure PowerShell.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kedodd
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
@@ -13,19 +13,19 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Scale compute for dedicated SQL pools in Azure Synapse Workspaces with Azure PowerShell
 
-You can scale compute for Azure Synapse Analytics dedicated SQL pools in an Azure Synapse Workspace using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
+You can scale compute for Azure Synapse Analytics [dedicated SQL pools](sql-data-warehouse-overview-what-is.md) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!NOTE]  
-> This article applies to dedicated SQL pools in an Azure Synapse Workspace outside of Azure Synapse Analytics workspaces. This content does not apply to dedicated SQL pools created in Azure Synapse Workspaces. There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools (formerly SQL DW) outside of Azure Synapse Analytics, see [Quickstart: Scale compute for dedicated SQL pools (formerly SQL DW) with Azure PowerShell](quickstart-scale-compute-powershell.md).
+> This article applies to dedicated SQL pools created in Azure Synapse Analytics workspaces. This content does not apply to dedicated SQL pools (formerly SQL DW) or dedicated SQL pools (formerly SQL DW) in connected workspaces. There are different PowerShell cmdlets to use for each, for example, use `Set-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Update-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools (formerly SQL DW), see [Quickstart: Scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell](quickstart-scale-compute-powershell.md).
 > For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a dedicated SQL pool in an Azure Synapse Workspace. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool in an Azure Synapse Workspace called `mySampleDataWarehouse`.
+This quickstart assumes you already have a dedicated SQL pool that was created in a Synapse workspace. If you need, [Create an Azure Synapse workspace](quickstart-create-workspace.md) and then [create a dedicated SQL pool using Synapse Studio](../quickstart-create-sql-pool-studio.md).
 
 ## Sign in to Azure
 
@@ -54,102 +54,69 @@ Locate the database name, server name, and resource group for the data warehouse
 Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Browse to your Azure **Synapse workspace**.
-1. Under **Analytics pools** in the navigation menu of the Azure portal, select **SQL pools**.
-1. Select `mySampleDataWarehouse` from the **Azure Synapse Analytics (formerly SQL DW)** page to open the data warehouse.
+1. Search for **Azure Synapse Analytics** in the search bar of the Azure portal.
+1. Select your Synapse workspace from the list.
+1. Select **SQL pools** under **Analytics pools** in the menu list.
+1. If you see the message `The dedicated pools listed below are hosted on the connected SQL Server`, your dedicated SQL pool (formerly SQL DW) is in a Connected workspace. Stop, and instead use the PowerShell examples in [Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell](quickstart-scale-compute-powershell.md). Proceed for dedicated SQL pools created in a Synapse workspace.
+1. Select the name of your dedicated SQL pool from the **Synapse workspace | SQL pools** page. In the following samples, we use `contoso_dedicated_sql_pool`.
+1. As in the following image, we use `contoso-synapse-workspace` as the Azure Synapse workspace name in the following PowerShell samples, in the resource group `contoso`.
 
-    ![Server name and resource group](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
+    ![Server name and resource group](./media/quickstart-scale-compute-powershell/locate-synapse-workspace-name.png)
 
-4. The data warehouse name will be used as the database name. Remember, a data warehouse is one type of database. Also remember down the server name, and the resource group. You will use the server name and the resource group name in the pause and resume commands.
-5. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is `sqlpoolservername.database.windows.net`. We use `sqlpoolservername` as the server name in the PowerShell cmdlet.
-
-For example, to retrieve the properties and status of a dedicated SQL pool in an Azure Synapse Workspace:
+For example, to retrieve the properties and status of a dedicated SQL pool created in a Synapse workspace:
 
 ```powershell
-Get-AzSqlDatabase -ResourceGroupName "resourcegroupname" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
+Get-AzSynapseSqlPool -ResourceGroupName "contoso" -Workspacename "contoso-synapse-workspace" -name "contoso_dedicated_sql_pool"
 ```
 
 To retrieve all the data warehouses in a given server, and their status:
 
 ```powershell
-Get-AzSqlDatabase -ResourceGroupName "resourcegroupname" -ServerName "sqlpoolservername"
-$database | Select-Object DatabaseName,Status
+$pools = Get-AzSynapseSqlPool -ResourceGroupName "resourcegroupname" -Workspacename "synapse-workspace-name" 
+$pools | Select-Object DatabaseName,Status,Tags
 ```
 
 ## Scale compute
 
-In dedicated SQL pool in an Azure Synapse Workspace, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created `mySampleDataWarehouse` and initialized it with 400 DWUs. The following steps adjust the DWUs for `mySampleDataWarehouse`.
+You can increase or decrease compute resources by adjusting the dedicated SQL pool's data warehouse units. The **Workload management** menu of the Azure portal provides scaling, but this can also be accomplished with PowerShell. 
 
-To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database `mySampleDataWarehouse`, which is hosted in the resource group `resourcegroupname` on server **sqlpoolservername**.
+To change data warehouse units, use the [Update-AzSynapseSqlPool](/powershell/module/az.synapse/update-azsynapsesqlpool) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database `contoso_dedicated_sql_pool`, which is hosted in the resource group `contoso` in the Synapse workspace **contoso-synapse-workspace**.
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
+Update-AzSynapseSqlPool -ResourceGroupName "contoso" -Workspacename "contoso-synapse-workspace" -name "contoso_dedicated_sql_pool" -PerformanceLevel  "DW300c"
 ```
 
-After the scaling operation is complete, the cmdlet returns output reflecting the new status, similar to the output of `Get-AzSqlDatabase`:
+The PowerShell cmdlet will begin the scaling operation. Use the `Get-AzSynapseSqlPool` cmdlet to observe the progress of the scaling operation. For example, you will see `Status` reported as "Scaling". Eventually, the pool will report the new `Sku` value and `Status` of "Online".
 
 ```console
-ResourceGroupName                : resourcegroupname
-ServerName                       : sqlpoolservername
-DatabaseName                     : mySampleDataWarehouse
-Location                         : North Europe
-DatabaseId                       : 34d2ffb8-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-Edition                          : DataWarehouse
-CollationName                    : SQL_Latin1_General_CP1_CI_AS
-CatalogCollation                 :
-MaxSizeBytes                     : 263882790666240
-Status                           : Online
-CreationDate                     : 1/20/2023 9:18:12 PM
-CurrentServiceObjectiveId        : 284f1aff-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-CurrentServiceObjectiveName      : DW300c
-RequestedServiceObjectiveName    : DW300c
-RequestedServiceObjectiveId      :  
-ElasticPoolName                  :
-EarliestRestoreDate              :
-Tags                             :
-ResourceId                       : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
-                                resourceGroups/resourcegroupname/providers/Microsoft.Sql/servers/sqlpoolservername/databases/mySampleDataWarehouse
-CreateMode                       :
-ReadScale                        : Disabled
-ZoneRedundant                    : 
-Capacity                         : 2700
-Family                           : 
-SkuName                          : DataWarehouse
-LicenseType                      : 
-AutoPauseDelayInMinutes          : 
-MinimumCapacity                  : 
-ReadReplicaCount                 : 
-HighAvailabilityReplicaCount     : 
-CurrentBackupStorageRedundancy   : Geo
-RequestedBackupStorageRedundancy : Geo
-SecondaryType                    : 
-MaintenanceConfigurationId       : /subscriptions/d8392f63-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default
-EnableLedger                     : False
-PreferredEnclaveType             : 
-PausedDate                       : 
-ResumedDate                      :
-```
-
-## Check data warehouse state
-
-To see the current state of the data warehouse, use the [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet. This cmdlet shows the state of the `mySampleDataWarehouse` database in resource group `resourcegroupname` and server `sqlpoolservername.database.windows.net`.
-
-```powershell
-$database = Get-AzSqlDatabase -ResourceGroupName "resourcegroupname" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
-$database 
-```
-
-You can see the `Status` of the database in the output. In this case, you can see that this database is `Online`.  When you run this command, you should receive a `Status` value of `Online`, `Pausing`, `Resuming`, `Scaling`, or `Paused`.
-
-To see the status by itself, use the following command:
-
-```powershell
-$database | Select-Object DatabaseName, Status
+ResourceGroupName     : contoso
+WorkspaceName         : contoso-synapse-workspace
+SqlPoolName           : contoso_dedicated_sql_pool
+Sku                   : DW300c
+MaxSizeBytes          : 263882790666240
+Collation             : SQL_Latin1_General_CP1_CI_AS
+SourceDatabaseId      : 
+RecoverableDatabaseId : 
+ProvisioningState     : Succeeded
+Status                : Scaling
+RestorePointInTime    : 
+CreateMode            : 
+CreationDate          : 2/21/2023 11:33:45 PM
+StorageAccountType    : GRS
+Tags                  : {[createdby, chrisqpublic]}
+TagsTable             : 
+                        Name       Value  
+                        =========  =======
+                        createdby  chrisqpublic
+                        
+Location              : westus3
+Id                    : /subscriptions/abcdefghijk-30b0-4d4f-9ebb-abcdefghijk/resourceGroups/contoso/providers/Microsoft.Synapse/workspaces/contoso-synapse-workspace/sqlPools/contoso_dedicated_sql_pool
+Type                  : Microsoft.Synapse/workspaces/sqlPools
 ```
 
 ## Next steps
 
-You have now learned how to scale compute for dedicated SQL pool in an Azure Synapse Workspace. To learn more about dedicated SQL pool, continue to the tutorial for loading data.
+You have now learned how to scale compute for dedicated SQL pool in a Synapse workspace. To learn more about dedicated SQL pools, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 > [Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-copy.md)

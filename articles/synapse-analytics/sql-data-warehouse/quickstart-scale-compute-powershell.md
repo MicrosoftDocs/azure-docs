@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) (Azure PowerShell)'
-description: You can scale compute for dedicated SQL pool (formerly SQL DW) using Azure PowerShell.
+title: 'Quickstart: Scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell'
+description: You can scale compute for dedicated SQL pools (formerly SQL DW) using Azure PowerShell.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kedodd
-ms.date: 02/13/2023
+ms.date: 02/21/2023
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
@@ -13,12 +13,12 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
-You can scale compute for Azure Synapse Analytics dedicated SQL pools (formerly SQL DW) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
+You can scale compute for Azure Synapse Analytics [dedicated SQL pools](sql-data-warehouse-overview-what-is.md) in an Azure Synapse Workspace using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!NOTE]  
-> This article applies to dedicated SQL pools (formerly SQL DW) outside of Azure Synapse Analytics workspaces. This content does not apply to dedicated SQL pools created in Azure Synapse Workspaces. There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools in Azure Synapse Analytics workspaces, see [Quickstart: Scale compute for dedicated SQL pools in Azure Synapse Analytics workspaces with Azure PowerShell](quickstart-scale-compute-workspace-powershell.md).
+> This article applies to dedicated SQL pools (formerly SQL DW) or in Azure Synapse connected workspaces. This content does not apply to dedicated SQL pools created in Azure Synapse workspaces. There are different PowerShell cmdlets to use for each, for example, use `Set-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Update-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For similar instructions for dedicated SQL pools in Azure Synapse Analytics workspaces, see [Quickstart: Scale compute for dedicated SQL pools in Azure Synapse workspaces with Azure PowerShell](quickstart-scale-compute-workspace-powershell.md).
 > For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 ## Before you begin
@@ -54,9 +54,8 @@ Locate the database name, server name, and resource group for the data warehouse
 Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Synapse Analytics (formerly SQL DW)** in the left navigation page of the Azure portal.
+2. Select **Azure Synapse Analytics (formerly SQL DW)** in the main search bar of the Azure portal.
 3. Select `mySampleDataWarehouse` from the **Azure Synapse Analytics (formerly SQL DW)** page to open the data warehouse.
-
     ![Server name and resource group](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
 
 4. The data warehouse name will be used as the database name. Remember, a data warehouse is one type of database. Also remember down the server name, and the resource group. You will use the server name and the resource group name in the pause and resume commands.
