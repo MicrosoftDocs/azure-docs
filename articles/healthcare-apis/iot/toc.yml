@@ -71,8 +71,10 @@ items:
   - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors
-      href: troubleshoot-errors.md
+    - name: Deployment errors
+      href: troubleshoot-errors-deployment.md
+    - name: Error logs
+      href: troubleshoot-errors-logs.md   
 - name: Concepts
   expanded: false
   items:

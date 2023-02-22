@@ -1,0 +1,136 @@
+---
+title: Troubleshoot MedTech service deployment errors - Azure Health Data Services
+description: This article assists troubleshooting and fixing MedTech service deployment errors.
+services: healthcare-apis
+author: msjasteppe
+ms.service: healthcare-apis
+ms.subservice: iomt
+ms.topic: troubleshooting
+ms.date: 02/21/2023
+ms.author: jasteppe
+---
+
+# Troubleshoot MedTech service deployment errors
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This article provides troubleshooting steps and fixes for MedTech service deployment errors.
+
+> [!TIP]
+> Having access to MedTech service metrics and logs are essential for troubleshooting and assessing the overall health and performance of your MedTech service. Check out these MedTech service articles to learn how to enable, configure, and use these MedTech service monitoring features:
+>  
+> [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
+>
+> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+>
+> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
+
+## MedTech service resource errors and fixes
+
+Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for those errors:
+
+|Error:|
+|------|
+|[The maximum number of resource type `iotconnectors` has been reached.](#the-maximum-number-of-resource-type-iotconnectors-has-been-reached)|
+|[Invalid `deviceMapping` mapping. Validation errors: {List of errors}.](#invalid-devicemapping-mapping-validation-errors-list-of-errors)|
+|[`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.](#fullyqualifiedeventhubnamespace-is-null-empty-or-formatted-incorrectly)|
+|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned)|
+|[The `location` property of child resources must match the `location` property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources)|
+
+### The maximum number of resource type `iotconnectors` has been reached.
+
+**Displayed**:  ARM API and Azure portal
+
+**Condition**: MedTech service subscription quota is reached (default is 10 MedTech services per workspace and 10 workspaces per subscription).
+
+**Fix**: Delete one of the existing instances of the MedTech service. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+
+### Invalid `deviceMapping` mapping. Validation errors: {List of errors}
+
+**Displayed**: ARM API and Azure portal
+
+**Condition**: The `properties.deviceMapping` provided in the MedTech service Resource provisioning request is invalid.
+
+**Fix**: Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
+
+### `fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.
+
+**Displayed**: ARM API and Azure portal
+
+**Condition**: The MedTech service provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` isn't valid.
+
+**Fix**: Update the MedTech service `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
+
+### Ancestor resources must be fully provisioned before a child resource can be provisioned.
+
+**Displayed**: ARM API
+
+**Condition**: The parent workspace is still provisioning.
+
+**Fix**: Wait until the parent workspace provisioning has completed and submit the provisioning request again.
+
+### The `location` property of child resources must match the `location` property of parent resources.
+
+**Displayed**: ARM API
+
+**Condition**: The MedTech service provisioning request `location` property is different from the parent workspace `location` property.
+
+**Fix**: Set the `location` property of the MedTech service in the provisioning request to the same value as the parent workspace `location` property.
+
+## FHIR destination resource errors and fixes
+
+Here's a list of errors that can be found in the Azure Resource Managere (ARM) API or Azure portal and fixes for those errors:
+
+|Error:|
+|------|
+|[The maximum number of resource type `iotconnectors/destinations` has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
+|[The `fhirServiceResourceId` provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
+|[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)
+|[The `location` property of child resources must match the `location` property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)
+
+### The maximum number of resource type `iotconnectors/destinations` has been reached.
+
+**Displayed**: ARM API and Azure portal
+
+**Condition**: MedTech service Destination Resource quota is reached (default is one per MedTech service).
+
+**Fix**: Delete the existing instance of MedTech service Destination Resource. Only one Destination Resource is permitted per MedTech service.
+
+### The `fhirServiceResourceId` provided is invalid.
+
+**Displayed**: ARM API and Azure portal
+
+**Condition**: The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request isn't a valid resource ID for an instance of the FHIR service.
+
+**Fix**: Ensure the resource ID is formatted correctly, and make sure the resource ID is for the FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/fhirservices/{FHIR_SERVICE_NAME}`|
+
+### Ancestor resources must be fully provisioned before a child resource can be provisioned.
+
+**Displayed**: ARM API
+
+**Condition**: The parent workspace or the parent MedTech service is still provisioning.
+
+**Fix**: Wait until the parent workspace or the parent MedTech service provisioning completes, then submit the provisioning request again.
+
+### The `location` property of child resources must match the `location` property of parent resources.
+
+**Displayed**: ARM API
+
+**Condition**: The Destination provisioning request `location` property is different from the parent MedTech service `location` property.
+
+**Fix**: Set the `location` property of the Destination in the provisioning request to the same value as the parent MedTech service `location` property.|
+
+> [!NOTE]
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket also attaching copies of the device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+
+## Next steps
+
+In this article, you learned how to troubleshoot and fix MedTech service provisioning errors. 
+
+To learn about the MedTech service frequently asked question (FAQs), see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
+
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
