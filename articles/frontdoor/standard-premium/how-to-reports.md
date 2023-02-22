@@ -118,6 +118,8 @@ Each report also includes its own variables. Select a report to view the variabl
 
 # [Traffic by domain](#tab/traffic-by-domain)
 
+The *Traffic by domain* report includes these fields:
+
 * Domain 
 * Total Request 
 * Cache Hit Ratio 
@@ -128,6 +130,8 @@ Each report also includes its own variables. Select a report to view the variabl
 
 # [Traffic by location](#tab/traffic-by-location)
 
+The *Traffic by location* report includes these fields:
+
 * Location
 * TotalRequests
 * Request%
@@ -137,7 +141,7 @@ Each report also includes its own variables. Select a report to view the variabl
 
 There are three reports in the usage report's CSV file: one for HTTP protocol, one for HTTPS protocol, and one for HTTP status codes.
 
-Reports for HTTP and HTTPs share the same data set. 
+The *Usage* report's HTTP and HTTPS data sets include these fields:
 
 * Time 
 * Protocol 
@@ -149,7 +153,7 @@ Reports for HTTP and HTTPs share the same data set.
 * 4XXRequest 
 * 5XXRequest 
 
-Report for HTTP Status Code. 
+The *Usage* report's HTTP status codes data set include these fields:
 
 * Time 
 * DataTransferred(bytes) 
@@ -162,12 +166,16 @@ Report for HTTP Status Code.
 
 # [Caching](#tab/caching)
 
+The *Caching* report includes these fields:
+
 * Time
 * CacheHitRatio 
 * HitRequests 
 * MissRequests 
 
 # [Top URL](#tab/top-url)
+
+The *Top URL* report includes these fields:
 
 * URL 
 * TotalRequests 
@@ -177,6 +185,8 @@ Report for HTTP Status Code.
 
 # [Top user agent](#tab/topuser-agent)
 
+The *Top user agent* report includes these fields:
+
 * UserAgent 
 * TotalRequests 
 * Request% 
@@ -185,7 +195,17 @@ Report for HTTP Status Code.
 
 # [Security](#tab/security)
 
-There are seven tables, all with the following fields:  
+The *Security* report includes seven tables:
+
+* Time
+* Rule ID
+* Countries/regions
+* IP address
+* URL
+* Hostname
+* User agent
+
+All of the tables in the *Security* report include the following fields:  
 
 * BlockedRequests 
 * AllowedRequests 
@@ -194,8 +214,6 @@ There are seven tables, all with the following fields:
 * OWASPRuleRequests 
 * CustomRuleRequests 
 * BotRequests 
-
-The seven tables are for time, rule ID, countries/regions, IP address, URL, hostname, user agent. 
 
 ---
 
