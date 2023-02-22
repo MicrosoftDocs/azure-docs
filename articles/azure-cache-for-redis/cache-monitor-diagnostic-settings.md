@@ -13,17 +13,38 @@ ms.devlang: azurecli
 
 # Monitor Azure Cache for Redis data using diagnostic settings
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type. Two options are available to log:
 
-Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
+- **Cache Metrics** (i.e. "AllMetrics") which can be used to log metrics from Azure Monitor  
+- **Connection Logs** which logs connections to the cache for security and diagnostic purposes. 
 
-Once configured, your cache starts to log incoming client connections by IP address. It also logs the number of connections originating from each unique IP address. The logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals.
+## Scope of availability
+
+|Tier     | Basic, Standard, and Premium  | Enterprise and Enterprise Flash  |
+|---------|---------|---------|
+|Cache Metrics  | Yes         | Yes  |
+|Connection Logs | Yes | Yes (preview) |
+
+## Cache Metrics
+Azure Cache for Redis emmits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
+
+## Connection Logs
+Azure Cache for Redis uses Azure diagnostic settings to log information on client connections to your cache. Logging and analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
+
+Implementation of connection logs is slightly different between tiers:
+- **Basic, Standard, and Premium-tier caches** log incoming client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Connections that are established and removed inbetween 10-second intervals will not be logged. Authentication events (sucessful and failed) are not logged in these tiers.  
+- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. This allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
+
+The connection logs produced look similar between the tiers, but have some differences. The two formats are shown in more detail below.  
+
+## Log Destinations
 
 You can turn on diagnostic settings for Azure Cache for Redis instances and send resource logs to the following destinations:
 
 - **Log Analytics workspace** - doesn't need to be in the same region as the resource being monitored.
 - **Storage account** - must be in the same region as the cache.
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
+- **Partner Solution** - a list of potential partner logging solutions can be found [here](../partner-solutions/partners.md)
 
 For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
@@ -31,7 +52,9 @@ You'll be charged normal data rates for storage account and event hub usage when
 
 For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Create diagnostics settings via the Azure portal
+## Enable connection logging using the Azure Portal
+
+### [Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -39,7 +62,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
 
-1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Category details**.
+1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Categories**.
 
    |Category  | Definition  | Key Properties   |
    |---------|---------|---------|
@@ -47,21 +70,43 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
    For more detail on other fields, see below [Resource Logs](#resource-logs).
 
-1. Once you select your **Categories details**, send your logs to your preferred destination. Select the information on the right.
+1. Once you select **ConnectedClientList**, send your logs to your preferred destination. Select the information on the right.
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
-## Create diagnostic setting via REST API
+### [Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+
+1. Sign into the [Azure portal](https://portal.azure.com).
+
+1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
+
+   :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
+
+1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
+
+   |Category  | Definition  | Key Properties   |
+   |---------|---------|---------|
+   |Connection events |  Connection, disconnection, and authentication events logged when the events occur. Includes IP addresses of each connection. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
+
+   For more detail on other fields, see below [Resource Logs](#resource-logs).
+
+1. Once you select **Connection events**, send your logs to your preferred destination. Select the information on the right.
+
+    :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
+
+## Enable connection logging using the Rest API
+
+### [Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
 Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
 
-### Request
+#### Request
 
 ```http
 PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}?api-version=2017-05-01-preview
 ```
 
-### Headers
+#### Headers
 
    | Parameters/Headers | Value/Description |
    |---------|---------|
@@ -70,7 +115,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
    | `api-version` | 2017-05-01-preview |
    | `Content-Type` | application/json |
 
-### Body
+#### Body
 
 ```json
 {
@@ -93,6 +138,45 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 }
 ```
 
+### [Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
+
+#### Request
+
+```http
+PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}?api-version=2017-05-01-preview
+```
+
+#### Headers
+
+   | Parameters/Headers | Value/Description |
+   |---------|---------|
+   | `name` | The name of your diagnostic setting. |
+   | `resourceUri` | subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/RedisEnterprise/{CACHE_NAME}/databases/default |
+   | `api-version` | 2017-05-01-preview |
+   | `Content-Type` | application/json |
+
+#### Body
+
+```json
+{ 
+    "properties": {
+      "storageAccountId": "/subscriptions/4a1c78c6-5cb1-422c-a34e-0df7fcb9bd0b/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/auditinglogstorage1",
+      "logs": [
+        {
+          "category": "ConnectionEvents",
+          "enabled": true,
+          "retentionPolicy": {
+            "enabled": false,
+            "days": 0
+          }
+        }
+      ]
+    }
+}
+
+```
 ## Create diagnostic setting via Azure CLI
 
 Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
