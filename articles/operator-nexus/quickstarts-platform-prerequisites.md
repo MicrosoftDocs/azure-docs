@@ -30,7 +30,7 @@ your premises that may require some data gathering.
 ### Azure prerequisites
 
 - When deploying Operator Nexus for the first time or in a new region,
-you'll first need to create a Network fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-nfc-cm-create.md).
+you'll first need to create a Network fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-network-fabric-controller-cluster-manager-create.md).
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
