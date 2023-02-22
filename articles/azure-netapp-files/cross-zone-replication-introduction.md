@@ -45,6 +45,7 @@ The preview of cross-zone replication is available in the following regions:
 * South Central US 
 * Sweden Central
 * Switzerland North
+* UAE North
 * UK South
 * US Gov Virginia
 * West Europe
