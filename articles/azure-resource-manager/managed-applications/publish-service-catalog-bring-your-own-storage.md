@@ -32,7 +32,7 @@ If you're managed application definition is less than 120 MB and you don't want 
 To complete this quickstart, you need the following items:
 
 - An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). If you're using Bicep, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
+- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
@@ -452,11 +452,11 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 ## Create the definition deployment template
 
-Use the following ARM template to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your bring your own storage account.
+Use a Bicep file to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your bring your own storage account.
 
 Open Visual Studio Code, create a file with the name _deployDefinition.bicep_ and save it.
 
-Add the following JSON and save the file.
+Add the following Bicep code and save the file.
 
 ```bicep
 param location string = resourceGroup().location
@@ -500,7 +500,7 @@ resource managedApplicationDefinition 'Microsoft.Solutions/applicationDefinition
 
 ```
 
-For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template).
+For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions).
 
 The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
