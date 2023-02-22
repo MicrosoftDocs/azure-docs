@@ -21,7 +21,7 @@ When moving Cloud Services (extended support) resources from one resource group 
 - Cloud Service must not be in failed state
 - Ensure the Cloud Service has an unexpired SAS blob URI pointing to the cloud service package
 
-[!NOTE]
+> [!NOTE]
 > Cloud Services and associated networking resources (for example, PublicIPs and network security groups) can be move independently. Load balancers must always exist in the same resource group
 
 To move classic resources to a new resource group within the same subscription, use the [standard move operations](../move-resource-group-and-subscription.md) through the portal, Azure PowerShell, Azure CLI, or REST API. You use the same operations as you use for moving Resource Manager resources.
