@@ -182,11 +182,11 @@ Extract data, including name, birth date, and expiration date, from ID documents
 | Region | Document Types |
 |--------|----------------|
 |Worldwide|Passport Book, Passport Card|
-|`US`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
-|`IN`|Driver License, PAN Card, Aadhaar Card|
-|`CA`|Driver License, Identification Card, Residency Permit (Maple Card)|
-|`GB`|Driver License, National Identity Card|
-|`AU`|Driver License, Photo Card, Key-pass ID (including digital version)|
+|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
+|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
+|`United Kingdom (GB)`|Driver License, National Identity Card|
+|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ## Field extractions
 
