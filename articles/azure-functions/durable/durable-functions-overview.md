@@ -23,10 +23,16 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | n/a |
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
+| Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+> [!NOTE]
+> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new model is designed to have a more idiomatic and intuitive experience. To learn more, see Azure Functions Python [developer guide](/azure/azure-functions/functions-reference-python.md?pivots=python-mode-decorators).
+>
+> In the following code snippets, Python (PM2) denotes programming model V2, the new model.
+
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
 
@@ -141,7 +147,7 @@ You can use the `context` object to invoke other functions by name, pass paramet
 > [!NOTE]
 > The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -315,7 +321,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.task_all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -563,7 +569,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import json
@@ -780,7 +786,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import json
@@ -931,7 +937,7 @@ async def main(client):
 ```
 
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -1073,7 +1079,7 @@ def entity_function(context: df.DurableOrchestrationContext):
 main = df.Entity.create(entity_function)
 ```
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -1159,7 +1165,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     return func.HttpResponse("Entity signaled")
 ```
 
-# [Python (V2)](#tab/python-v2)
+# [Python (PM2)](#tab/python-v2)
 
 ```python
 import azure.functions as func
