@@ -271,9 +271,9 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
-##### What to do if have representation challenges
+##### Representation challenges Workaround
 
-Currently the base schema can't be reset and It is possible that an old document with an incorrect schema was used to create that base schema. To delete or update the problematic documents won't help. The possible solutions are:
+Currently the base schema can't be reset and It is possible that an old document, with an incorrect schema, was used to create that base schema. To delete or update the problematic documents won't help. The possible solutions are:
 
  * To migrate the data to a new container, making sure that all documents have the correct schema.
  * To abandon the property with the wrong schema and add a new one, with another name, that has the correct datatypes. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have **NULL**. You can add the **status2** property to all documents and start to use it, instead of the original property.
