@@ -18,7 +18,7 @@ To test your deployed models from within the [Language Studio](https://aka.ms/La
 
 1. In the text box, enter an utterance to test. For example, if you created an application for email-related utterances you could enter *Delete this email*. 
 
-7. Towards the the top of the page, select **Run the test**.
+1. Towards the top of the page, select **Run the test**.
 
 8. After you run the test, you should see the response of the model in the result. You can view the results in entities cards view, or view it in JSON format.
 
