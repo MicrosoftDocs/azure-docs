@@ -1559,8 +1559,6 @@ items:
         - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: Cognitive service with SynapseML
-      href: ./cognitive-services-with-synapseml-overview.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
