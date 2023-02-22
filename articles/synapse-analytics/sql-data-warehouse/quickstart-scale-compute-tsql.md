@@ -31,7 +31,7 @@ Download and install the newest version of [SQL Server Management Studio](/sql/s
 
 This quickstart assumes you already have a dedicated SQL pool.
 
-If needed, it is recommended to created a new dedicated SQL pool in an Azure Synapse workspace. [Create an Azure Synapse workspace](../quickstart-create-workspace.md) and then [create a dedicated SQL pool using Synapse Studio](../quickstart-create-sql-pool-studio.md). Or, you can create a legacy dedicated SQL pool (formerly SQL DW), using [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) named `mySampleDataWarehouse`.
+If needed, it is recommended to create a new dedicated SQL pool in an Azure Synapse workspace. [Create an Azure Synapse workspace](../quickstart-create-workspace.md) and then [create a dedicated SQL pool using Synapse Studio](../quickstart-create-sql-pool-studio.md). Or, you can create a legacy dedicated SQL pool (formerly SQL DW), using [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) named `mySampleDataWarehouse`.
 
 Ensure you have a firewall rule and can connect to your dedicated SQL pool from within SQL Server Management Studio (SSMS).
 
