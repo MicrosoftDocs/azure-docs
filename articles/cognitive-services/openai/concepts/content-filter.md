@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI content filtering
+title: Azure OpenAI Service content filtering
 titleSuffix: Azure OpenAI
-description: Learn about the content filtering capabilities of the OpenAI service in Azure Cognitive Services
+description: Learn about the content filtering capabilities of Azure OpenAI in Azure Cognitive Services
 author: chrishMSFT
 ms.author: chrhoder
 ms.service: cognitive-services
