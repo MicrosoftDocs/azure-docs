@@ -89,7 +89,7 @@ The **Twin Graph** panel allows you to explore the twins and relationships in yo
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Twin Graph panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel.png":::
 
-You can use this panel to [view your twins and relationships](#view-twins-and-relationships).
+You can use this panel to [explore twin data](#explore-twin-data).
 
 The Twin Graph panel also provides several abilities to customize your graph viewing experience:
 * [Change twin display property](#change-twin-display-property)
@@ -147,7 +147,9 @@ Both of these error messages are shown in the screenshot below:
 
 If your Azure Digital Twins instance has [data history](concepts-data-history.md) enabled, you can validate and explore its historized data in Azure Digital Twins Explorer. Follow the steps below to visualize historized data in a chart, or view raw values in a table.
 
-1. From the **Twin Graph** viewer, select a twin that has historized properties to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. A modal will appear for selecting which historical properties to view.
+1. From the **Twin Graph** viewer, select a twin that has historized properties to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. 
+
+    A modal will appear for selecting which historical properties to view.
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::
 
@@ -161,7 +163,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
 This will load the chart view of the historized values for the chosen property. You can use the tabs above the chart to toggle between the [chart view](#view-history-in-chart) and [table view](#view-history-in-table).
 
-You can add more properties to the visualization by using the **Add time series** button on the left.
+To add more properties to the visualization by using the **Add time series** button on the left.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png" alt-text="Screenshot of the Data history explorer highlighting the option to add another time series." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png":::
 
@@ -178,7 +180,7 @@ You can use the icons above the chart to control the chart settings, including..
 * selecting whether multiple time series are shown independently or on a shared y-axis. Selecting **Independent** for the axes means that each time series will scale to the chart and maintain their own axis for scale. Selecting **Shared** axes means that all time series data will be scaled to the same axis. 
 * choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite amount of data points using either average, minimum or maximum functions.
 
-You can also select the button to **Open query in Azure Data Explorer**, where you can view and modify the current query to further explore the time series data.
+There's also a button to **Open query in Azure Data Explorer**, where you can view and modify the current query to further explore the time series data.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-azure-data-explorer.png" alt-text="Screenshot of the button to open query in Azure Data Explorer." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-azure-data-explorer.png":::  
 

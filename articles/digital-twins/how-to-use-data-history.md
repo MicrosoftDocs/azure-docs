@@ -246,7 +246,7 @@ When the simulation is ready, the **Start simulation** button will become enable
 
 #### Verify data flow
 
-To verify that data is flowing through the data history pipeline, you can use the [data history validation feature in Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+To verify that data is flowing through the data history pipeline, you can use the [data history validation in Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
 
 1. Navigate to the [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) and ensure it's [connected to the right instance](how-to-use-azure-digital-twins-explorer.md#switch-contexts-within-the-app).
 
@@ -256,13 +256,13 @@ If you see data being populated in the chart, this means that Azure Digital Twin
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png" alt-text="Screenshot of the Data history explorer showing a chart of historized values for a property." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png":::
 
-If you *don't* see data in the chart, the historization data flow isn't working properly. You can investigate the issue by viewing your Event Hubs namespace in the [Azure portal](https://portal.azure.com), where you'll see charts showing the flow of messages into and out of the namespace. This will allow you to verify both the flow of incoming messages from Azure Digital Twins and the outgoing messages to Azure Data Explorer, to help you identify which part of the flow isn't working.
+If you *don't* see data in the chart, the historization data flow isn't working properly. You can investigate the issue by viewing your Event Hubs namespace in the [Azure portal](https://portal.azure.com), which displays charts showing the flow of messages into and out of the namespace. This will allow you to verify both the flow of incoming messages from Azure Digital Twins and the outgoing messages to Azure Data Explorer, to help you identify which part of the flow isn't working.
 
 :::image type="content"  source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-use-data-history/simulated-environment-portal.png":::
 
 ### View the historized twin updates in Azure Data Explorer
 
-In this section, you'll view the historized twin updates being stored in Azure Data Explorer.
+Now that you've verified the data history flow is sending data to Azure Data Explorer, this section will show you how to view those updates in Azure Data Explorer.
 
 Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure Data Explorer cluster you created earlier. Choose the **Databases** pane from the left menu to open the database view. Find the database you created for this article and select the checkbox next to it, then select **Query**.
 
