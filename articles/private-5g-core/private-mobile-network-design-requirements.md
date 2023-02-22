@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Private mobile network design requirements
 
-This article helps you design and prepare for implementing a private 4G or 5G network based on the Azure Private 5G technology. It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network. It is intended for system integrators and other advanced partners that have a good understanding of enterprise IP networking and a grounding in Azure fundamentals.
+This article helps you design and prepare for implementing a private 4G or 5G network based on the Azure Private 5G technology. It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network.
 
 ## Azure Private MEC and Azure Private 5G Core
 
@@ -43,27 +43,32 @@ In this section, we outline some decisions you should consider when designing yo
 
 #### Design considerations
 
-- Azure Private 5G Core Packet Core supports deployments with or without L3 routers on ports 5 and 6. This is useful for avoiding extra hardware at small Edge sites.
+When deployed on Azure Stack Edge (ASE), AP5GC uses physical port 5 for access signalling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
 
-  - It is possible to connect the N2/N3 reference points (ASE port 5) to RAN nodes directly (back-to-back) or via an L2 switch. We recommend configuring the xNodeB address as a gateway on the ASE side.
-  - Similarly, it is possible to connect the N6 reference point (ASE port 6) to your core network via an L2 switch. We recommend setting up an application or an arbitrary address on the subnet as gateway on the ASE side.  
-  - Alternatively, you can combine these approaches. For example: using a router on N6 (ASE port 6) with a flat L2 network on N2/3 (ASE port 5). If a L3 router is present in local network topology, it will be set as the gateway in ASE configuration.
-- If your AP5GC Packet Core does not have NAT enabled or an L3 router on the N6 link (ASE port 6) is used, static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network must be configured in the DN router.
-- Layer 2 network separation can be achieved by using VLANs. This has a few key benefits in simplifying L3 network management and improving network security via traffic isolation. VLANs can be configured on ASE port 5 and port 6 independently to separate the following traffic:
+Azure Private 5G Core Packet Core supports deployments with or without L3 routers on ports 5 and 6. This is useful for avoiding extra hardware at small Edge sites.
 
-  - N2 and N3 traffic on ASE port 5
-  - N6 traffic for each Data Network on ASE port 6
+- It is possible to connect ASE port 5 to RAN nodes directly (back-to-back) or via an L2 switch. When using this topology, it is required to configure the eNodeB/gNodeB address as the default gateway in the ASE network interface configuration.
+- Similarly, it is possible to connect ASE port 6 to your core network via an L2 switch. When using this topology, it is required to set up an application or an arbitrary address on the subnet as gateway on the ASE side.  
+- Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it - Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it as the gateway in ASE configuration.
+.
+
+Unless your AP5GC Packet core is using NAT, there must be a L3 router configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network.
+
+Layer 2 network separation can be achieved by using VLANs. This has a few key benefits in simplifying L3 network management and improving network security via traffic isolation. VLANs can be configured on ASE port 5 and port 6 independently to separate the following traffic:
+
+- N2 and N3 traffic on ASE port 5
+- N6 traffic for each Data Network on ASE port 6
 
 #### Sample network topologies
 
-There are multiple ways to setup your network for use with AP5GC packet core. The exact setup varies depending on your own needs and hardware. This section outlines some decisions to be considered when designing a solution and provides some sample network topologies.
+There are multiple ways to set up your network for use with AP5GC packet core. The exact setup varies depending on your own needs and hardware. This section provides some sample network topologies.
 
 - Layer 3 network with N6 Network Address Translation (NAT)  
-  The basic setup has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used as it supports L3 routing when required.  
+  Thhis network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used as it supports L3 routing when required.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
-  This topology is a similar solution to Layer 3 network with N6 Network Address Translation (NAT). UE IP address ranges must be configured as static routing in the DN router.  
+  This network topology is a similar solution to Layer 3 network with N6 Network Address Translation (NAT). UE IP address ranges must be configured as static routing in the DN router with the N6 NAT IP address as the next hop address.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
 
 - Flat layer 2 network  
