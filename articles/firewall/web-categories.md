@@ -14,6 +14,12 @@ ms.author: victorh
 
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. The categories are organized based on severity under Liability, High-Bandwidth, Business use, Productivity loss, General surfing, and Uncategorized.
 
+> [!IMPORTANT]
+> The following web categories are temporarily deprecated temporarily until a new provided is obtained:
+> - Child inappropriate, Greeting cards, and School Cheating.
+> 
+> In addition, the *Category check* and *Category change* features are temporarily discontinued. This article will be updated when these categories and features return.
+
 ## Liability
 
 
