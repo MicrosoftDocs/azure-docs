@@ -1,6 +1,6 @@
 ---
-title: Manage external access with Azure Active Directory Conditional Access 
-description: How to use Azure Active Directory Conditional Access policies to secure external access to resources.
+title: Manage external access to resources with Conditional Access 
+description: Learn to use Conditional Access policies to secure external access to resources.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 02/22/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
-# Manage external access with Conditional Access policies 
+# Manage external access to resources with Conditional Access policies 
 
 [Conditional Access](../conditional-access/overview.md) is the tool Azure AD uses to bring together signals, enforce policies, and determine whether a user should be allowed access to resources. For detailed information on how to create and use Conditional Access policies (Conditional Access policies), see [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md). 
 
