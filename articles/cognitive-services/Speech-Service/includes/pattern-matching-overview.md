@@ -167,6 +167,8 @@ Sometimes multiple patterns may match the same utterance. In this case, the engi
 3. Patterns with Integer Entities.
 4. Patterns with List Entities.
 5. Patterns with Any Entities.
+6. Patterns with more bytes matched.
+    - Example: Pattern "click {something} on the left" will be higher priority than "click {something}".
 
 ## Next steps
 
