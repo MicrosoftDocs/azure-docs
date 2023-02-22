@@ -55,12 +55,11 @@ Learn more:
 * [Manage Azure Active Directory groups and group membership](how-to-manage-groups.md)
 * [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
 
-
 ### Conditional Access policy creation
 
-Create as few Conditional Access policies as possible. For applications that have the same access needs, add them all to the same policy.  
+Create as few Conditional Access policies as possible. For applications that have the same access requirements, add them to the same policy.  
 
-Conditional Access policies can apply to a maximum of 250 applications. If more than 250 Apps have the same access needs, create duplicate policies. Policy A will apply to apps 1-250, policy B will apply to apps 251-500, etc.
+Conditional Access policies apply to a maximum of 250 applications. If more than 250 applications have the same access requirement, create duplicate policies. For instance, Policy A applies to apps 1-250, Policy B applies to apps 251-500, etc.
 
 ### Naming convention
 
@@ -73,51 +72,65 @@ Use a naming convention that clarifies policy purpose. External access examples 
 
 You can block external users from accessing resources with Conditional Access policies. 
 
-Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-Select **New policy**.
-Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_FinanceApps.
-Under **Assignments**, select **Users or workload identities**.
-Under **Include**, select **All guests and external users**. 
-Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
-Select **Done**.
-Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-Under **Exclude**, select any applications that shouldn’t be blocked.
-Under **Access controls** > **Grant**, select **Block access**, and choose **Select**.
-Confirm your settings and set **Enable policy** to **Report-only**.
-Select **Create** to create to enable your policy.
+1. Sign in to the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+3. Select **New policy**.
+4. Enter a policy a name. 
+5. Under **Assignments**, select **Users or workload identities**.
+6. Under **Include**, select **All guests and external users**. 
+7. Under **Exclude**, select **Users and groups**.
+8. Select emergency access accounts. 
+9. Select **Done**.
+10. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+11. Under **Exclude**, select applications that shouldn’t be blocked.
+12. Under **Access controls** > **Grant**, select **Block access**.
+13. Select **Select**.
+14. Select **Enable policy** to **Report-only**.
+15. Select **Create**.
 
-After confirming your settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+> [!NOTE]
+> You can confirm settings in **report only** mode. See, Configure a Conditional Access policy in repory-only mode, in [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-### Block external access to all except specific external users
+Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
-There may be times you want to block external users except a specific group. For example, you may want to block all external users except those working for the finance team from the finance applications. To do this [Create a security group](active-directory-groups-create-azure-portal.md) to contain the external users who should access the finance applications:
+### Allow external access to specific external users
 
-Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-Select **New policy**.
-Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_AllButFinance.
-Under **Assignments**, select **Users or workload identities**.
-Under **Include**, select **All guests and external users**. 
-Under **Exclude**, select **Users and groups**, 
-Choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
-Choose the security group of external users you want to exclude from being blocked from specific applications.
-Select **Done**.
-Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-Under **Exclude**, select the finance applications that shouldn’t be blocked.
-Under **Access controls** > **Grant**, select **Block access**, and choose **Select**.
-Confirm your settings and set **Enable policy** to **Report-only**.
-Select **Create** to create to enable your policy.
+There are scenarios when it's necessary to allow access for a small, specific group. 
 
-After confirming your settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+Before you begin, you can create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure Active Directory](active-directory-groups-view-azure-portal).
 
-### External partner access
+1. Sign in to the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+3. Select **New policy**.
+4. Enter a policy name.
+5. Under **Assignments**, select **Users or workload identities**.
+6. Under **Include**, select **All guests and external users**. 
+7. Under **Exclude**, select **Users and groups**
+8. Select emergency access accounts.
+9. Select the external users security group.
+10. Select **Done**.
+11. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+12. Under **Exclude**, select the applications that shouldn’t be blocked.
+13. Under **Access controls** > **Grant**, select **Block access**.
+14. Select **Select**.
+15. Select **Create**.
 
-Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction).
+> [!NOTE]
+> You can confirm settings in **report only** mode. See, Configure a Conditional Access policy in repory-only mode, in [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-## Implement Conditional Access
+Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
-Many common Conditional Access policies are documented. See the article [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) for other common policies you may want to adapt for external users.
+### Service provider access
+
+Conditional Access policies for external users might interfere with service provider access, for example granular delegated administrate privileges. 
+
+Learn more: [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction)
+
+## Conditional Access templates
+
+Conditional Access templates are a convenient method to deploy new policies aligned with Microsoft recommendations. These templates provide protection aligned with commonly used policies across various customer types and locations. 
+
+Learn more: [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md) 
 
 ## Next steps
 
