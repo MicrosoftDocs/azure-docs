@@ -102,6 +102,5 @@ node personalizer-quickstart.js
 
 Iterate through a few learning loops. After about 10 minutes, the service will start to show improvements in its recommendations.
 
-![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 The source code for this quickstart is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js).
