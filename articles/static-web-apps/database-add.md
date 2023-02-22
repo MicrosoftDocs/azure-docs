@@ -13,6 +13,10 @@ zone_pivot_groups: static-web-apps-api-protocols
 
 In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you issue REST or GraphQL requests to manipulate data without having to write data access code.
 
+:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
+
+In this tutorial, you learn to:
+
 > [!div class="checklist"]
 > * Link a Azure SQL database to your static web app
 > * Create, read, update, and delete data

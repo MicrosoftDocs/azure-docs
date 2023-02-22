@@ -12,10 +12,9 @@ ms.date: 02/16/2023
 
 Azure Static Web apps database connections work with various Azure databases.
 
-As you connect a database to your static web app, you need to:
+As you connect a database to your static web app, you need to configure your database's firewall to accept network access from the Static Web Apps workers. To do this, you must allow network access from Azure resources. Allowing specific Static Web Apps IP addresses is not supported.
 
-- Configure your database's firewall to accept network access from the Static Web Apps workers.
-- If you're using the Managed Identity authentication type, then you need to configure your static web app's Managed Identity profile to access your database.
+If you're using the Managed Identity authentication type, then you need to configure your static web app's Managed Identity profile to access your database.
 
 Use this table for details about firewall and Managed Identity configuration for your database.
 
@@ -27,26 +26,6 @@ Use this table for details about firewall and Managed Identity configuration for
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | [Configure firewall](/azure/postgresql/flexible-server/concepts-networking#allowing-all-azure-ip-addresses) | [Configure Managed Identity](/azure/postgresql/flexible-server/how-to-connect-with-managed-identity) |
 | [Azure Database for PostgreSQL (single)](/azure/postgresql/single-server/overview-single-server) | Single | [Configure firewall](/azure/postgresql/single-server/concepts-firewall-rules#connecting-from-azure) | [Configure Managed Identity](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connect-from-function-app-with-managed-identity-to-azure/ba-p/1517032) |
 
-## Link a database
-
-Linking a database to your static web app establishes the production connection between your website and database when published to Azure.
-
-1. Open your static web app in the Azure portal.
-
-1. In the *Settings* section, select **Database connection**.
-
-1. Under the *Production* section, select the **Link existing database** link.
-
-1. In the *Link existing database* window, enter the following values:
-
-    | Property | Value |
-    |---|---|
-    | Database Type | Select your database type from the dropdown list. |
-    | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select the database server name that has your desired database. |
-    | Database Name | Select the name of the database you want to link to your static web app. |
-    | Authentication Type | Select the connection type required to connect to your database. |
-
 ## Configuration
 
 As you link a database to your static web app, you need to define a database configuration. A file named *staticwebapp.database.config.json* stores the database configuration information. By default this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
@@ -57,6 +36,8 @@ The purpose of the configuration file is to:
 - Expose REST or GraphQL endpoints (or both)
 - Define entity security rules
 - Control development configuration settings
+
+If you are using Azure Cosmos DB, then you also need to provide a *.gql* file.
 
 ## Sample configuration file
 
@@ -142,7 +123,27 @@ data_api_location: "db-config" # Folder holding the staticwebapps.database.confi
 ```
 
 > [!NOTE]
-> The `data_api_location` definition must immediately precede the `output_location` definition.
+> The `data_api_location` definition must immediately follow the `output_location` definition.
+
+## Link a database
+
+Linking a database to your static web app establishes the production connection between your website and database when published to Azure.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Settings* section, select **Database connection**.
+
+1. Under the *Production* section, select the **Link existing database** link.
+
+1. In the *Link existing database* window, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Database Type | Select your database type from the dropdown list. |
+    | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Name | Select the database server name that has your desired database. |
+    | Database Name | Select the name of the database you want to link to your static web app. |
+    | Authentication Type | Select the connection type required to connect to your database. |
 
 ## Next steps
 

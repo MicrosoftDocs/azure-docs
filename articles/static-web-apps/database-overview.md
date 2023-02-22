@@ -84,7 +84,7 @@ This command starts the SWA CLI in the *src* directory. The `--data-api-location
 ## Constraints
 
 - Databases must be accessible by Azure's infrastructure.
-- During public preview, database connections scale from 0 to 1 worker.
+- During public preview, database connections scale from 0 to 1 database worker.
 
 ## Next steps
 
