@@ -1,14 +1,21 @@
 ---
-title: Build, sign, and verify images using Notation in Azure Kubernetes Service (AKS)
-description: Learn how to build, sign, and verify images using Notation in AKS.
+title: Use Image Integrity to verify image signatures on Azure Kubernetes Service (AKS) clusters
+description: Learn how to use Image Integrity to verify image signatures on Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 ---
 
-# Build, sign, and verify images using Notation in Azure Kubernetes Service (AKS) (Preview)
+# Use Image Integrity to verify image signatures on Azure Kubernetes Service (AKS) clusters (Preview)
+
+Image integrity is an important part of container registry security. We want to ensure that the images we use come from trusted sources and haven't been modified since they were published. Image signing is a popular solution that allows you to add a digital fingerprint to images, which can be tested later to verify trust. There are some existing open-source tools for image signing and verification, such as [Notation](https://github.com/notaryproject/notaryproject). However, these tools don't fully cover the end-to-end scenario of signing and verifying images. The Image Integrity feature allows you to easily leverage Notation at scale through the Ratify add-on.
+
+This article shows you how to use Image Integrity to verify image signatures on your AKS clusters.
+
+> [!NOTE]
+> Image Integrity is a feature based on [Eraser](https://learn.microsoft.com/azure/aks/image-cleaner?tabs=azure-cli). On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Cleaner pods' names contain `Eraser`.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -42,7 +49,7 @@ ms.date: 02/21/2023
 
 ## Limitations
 
-* Your AKS clusters must run Kubernetes version 1.24 or above.
+* Your AKS clusters must run Kubernetes version 1.26 or above.
 * You shouldn't use this feature for production ACR registries or workloads.
 * A maximum of 200 unique signatures are supported concurrently cluster-wide.
 * Notation is the only supported verifier.
