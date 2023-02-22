@@ -284,7 +284,7 @@ Visual Studio Code now has access to your container registry, so it's time to tu
 
 10. In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image were pushed to the registry.
 
-    ![View both image versions in container registry](./media/tutorial-develop-for-linux/view-repository-versions.png)
+   :::image type="content" source="./media/tutorial-develop-for-linux/view-repository-versions.png" alt-text="Screenshot of where to view both image versions in your container registry." lightbox="./media/tutorial-develop-for-linux/view-repository-versions.png":::
 
 <!--Alternative steps: Use Visual Studio Code Docker tools to view ACR images with tags-->
 
@@ -305,7 +305,7 @@ You verified that the built container images are stored in your container regist
 
 2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
 
-   ![Create deployment for single device](./media/tutorial-develop-for-linux/create-deployment.png)
+   :::image type="content" source="./media/tutorial-develop-for-linux/create-deployment.png" alt-text="Screenshot showing how to create a deployment for a single device.":::
 
 3. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file.
 
@@ -315,7 +315,7 @@ You verified that the built container images are stored in your container regist
 
    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
-   ![View modules running on your IoT Edge device](./media/tutorial-develop-for-linux/view-running-modules.png)
+   :::image type="content" source="./media/tutorial-develop-for-linux/view-running-modules.png" alt-text="Screenshot where to view modules running on your I o T Edge device.":::
 
 ## View messages from device
 
@@ -325,7 +325,7 @@ The SampleModule code receives messages through its input queue and passes them 
 
 2. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
 
-   ![View incoming device to cloud messages](./media/tutorial-develop-for-linux/view-d2c-messages.png)
+   :::image type="content" source="./media/tutorial-develop-for-linux/view-d2c-messages.png" alt-text="Screenshot showing where to view incoming device to cloud messages .":::
 
 ## View changes on device
 
