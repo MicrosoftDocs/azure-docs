@@ -4,7 +4,7 @@ description: Describes how to deploy a web application to Azure Spring Apps.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 02/16/2023
+ms.date: 02/22/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
