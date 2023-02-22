@@ -71,7 +71,7 @@ In this example, the JSON object represents a store's inventory. We're going to 
 
 1. Select **Run Query**.
 
-   ![Screenshot that shows editing a query item with JSON data source and JSON path result format.](./media/workbooks-jsonpath/query-jsonpath.png)
+    :::image type="content" source="media/workbooks-jsonpath/query-jsonpath.png" alt-text="Screenshot that shows editing a query item with JSON data source and JSON path result format.":::
 
 ## Use regular expressions to covert values
 
@@ -95,10 +95,10 @@ To convert YYYMMDD format into YYYY-MM-DD format:
 1. In the **Regex Match** field, use this regular expression: `([0-9]{4})([0-9]{2})([0-9]{2})`. This regular expression:
     - matches a four digit number, then a two digit number, then another two digit number.
     - The parentheses form capture groups to use in the next step.
-  1.In the **Replace With**, use this regular expression: `$1-$2-$3. This expression creates a new string with each captured group, with a hyphen between them, turning "12345678" into "1234-56-78").
+1. In the **Replace With**, use this regular expression: `$1-$2-$3`. This expression creates a new string with each captured group, with a hyphen between them, turning "12345678" into "1234-56-78").
 1. Run the query again. 
 
-    ![Screenshot that shows JSONpath converted to date-time format.](./media/workbooks-jsonpath/workbooks-jsonpath-convert-date-time.png)
+    :::image type="content" source="media/workbooks-jsonpath/workbooks-jsonpath-convert-date-time.png" alt-text="Screenshot that shows JSONpath converted to date-time format.":::
 ## Next steps
 
 - [Workbooks overview](./workbooks-overview.md)
