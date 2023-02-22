@@ -46,11 +46,11 @@ To change data warehouse units:
 1. Select `mySampleDataWarehouse` from the list of pools. The SQL pool opens.
 1. Select **Scale** from the navigation menu.
 
-    :::image type="content" source="./media/quickstart-scale-compute-workspace-portal/scale-dedicated-sql-pool-azure-portal.png" alt-text="A screenshot of the Azure portal showing the Scale button on the Overview page of a dedicated SQL pool." lightbox="./media/quickstart-scale-compute-portal/scale-dedicated-sql-pool-azure-portal.png":::
+    :::image type="content" source="./media/quickstart-scale-compute-workspace-portal/scale-dedicated-sql-pool-azure-portal.png" alt-text="A screenshot of the Azure portal showing the Scale button on the Overview page of a dedicated SQL pool." lightbox="./media/quickstart-scale-compute-workspace-portal/scale-dedicated-sql-pool-azure-portal.png":::
 
 1. In the **Scale** panel, move the slider left or right to change the DWU setting. Then select **Save**.
 
-    :::image type="content" source="./media/quickstart-scale-compute-workspace-portal/dedicated-sql-pool-scale-slider-azure-portal.png" alt-text="A screenshot of the Azure portal showing the Scale slider on the Scale page of a dedicated SQL pool in an Azure Synapse workspace." lightbox="./media/quickstart-scale-compute-portal/dedicated-sql-pool-scale-slider-azure-portal.png":::
+    :::image type="content" source="./media/quickstart-scale-compute-workspace-portal/dedicated-sql-pool-scale-slider-azure-portal.png" alt-text="A screenshot of the Azure portal showing the Scale slider on the Scale page of a dedicated SQL pool in an Azure Synapse workspace." lightbox="./media/quickstart-scale-compute-workspace-portal/dedicated-sql-pool-scale-slider-azure-portal.png":::
 
 ## Next steps
 
