@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 02/21/2023
 tags: connectors
 ---
 
@@ -439,17 +439,17 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption and ISE-based logic apps, review the following documentation:
 
-  > [!NOTE]
-  >
-  > The following solutions don't apply to Standard logic apps.
-
   - [Access storage accounts in same region with system-managed identities](#access-blob-storage-in-same-region-with-system-managed-identities)
 
   - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
 - To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network).
 
-- To access storage accounts behind firewalls in Standard logic apps, use the Azure Blob Storage *built-in* connector, not the managed connector, and review [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration).
+- To access storage accounts behind firewalls in Standard logic apps, review the following documentation:
+
+  - With the Azure Blob Storage *built-in* connector: [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration).
+
+   - With the Azure Blob Storage managed connector: [Access storage accounts in other regions](#access-storage-accounts-in-other-regions).
 
 ### Access storage accounts in other regions
 
@@ -498,6 +498,10 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 ### Access Blob Storage in same region with system-managed identities
 
 To connect to Azure Blob Storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Microsoft trusted services, such as a managed identity, access to your storage account through a firewall.
+
+  > [!NOTE]
+  >
+  > The solution doesn't apply to Standard logic apps. With Standard logic app, even if you use system managed identity, the Azure Blob Storage managed connector will not be able to connect to a storage account in the same region.
 
 To use managed identities in your logic app to access Blob Storage, follow these steps:
 
