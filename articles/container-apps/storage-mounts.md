@@ -41,6 +41,7 @@ Ephemeral storage has the following characteristics:
 * Any containers in the replica can mount the same volume.
 * A container can mount multiple ephemeral volumes.
 * The available storage depends on the total amount of vCPU allocated to the replica.
+
     | vCPU | Ephemeral storage |
     |--|--|
     | Up to 0.25 | 1 GiB |
@@ -169,7 +170,26 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone pivot="azure-portal"
 
-To create an ephemeral volume and mount it in a container, make the following changes to the container apps resource in the Azure portal.
+To create an ephemeral volume and mount it in a container, deploy a new revision of your container app using the Azure portal.
+
+1. In the Azure portal, navigate to your container app.
+
+1. Select **Revision management** in the left menu.
+
+1. Select **Create new revision**.
+
+1. Select the container that you want to mount the volume in.
+
+1. In the *Edit a container* context pane, select the **Volume mounts** tab.
+
+1. Under the *Ephemeral storage* section, create a new volume with the following information.
+
+    - **Volume name**: A name for the ephemeral volume.
+    - **Mount path**: The path in the container to mount the volume.
+
+1. Select **Save** to save changes and exit the context pane.
+
+1. Select **Create** to create the new revision.
 
 ::: zone-end
 
@@ -370,5 +390,40 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 ::: zone pivot="azure-portal"
 
 To add an Azure Files share to a Container Apps environment and use it in a container app, use the Azure portal.
+
+1. In the Azure portal, navigate to your Container Apps environment.
+
+1. Select **Azure Files** from the left menu.
+
+1. Select **Add**.
+
+1. In the *Add file share* context menu, enter the following information:
+
+    - **Name**: A name for the file share.
+    - **Subscription**: The subscription that contains the storage account.
+    - **Storage account**: The name of the storage account that contains the file share.
+    - **File share**: The name of the file share.
+    - **Access mode**: The access mode for the file share. Valid values are `ReadWrite` and `ReadOnly`.
+
+1. Select **Add**.
+
+1. Navigate to your container app.
+
+1. Select **Revision management** from the left menu.
+
+1. Select **Create new revision**.
+
+1. Select the container that you want to mount the volume in.
+
+1. In the *Edit a container* context pane, select the **Volume mounts** tab.
+
+1. Under the *File shares* section, create a new volume with the following information.
+
+    - **File share name**: A name for the file share.
+    - **Mount path**: The path in the container to mount the volume.
+
+1. Select **Save** to save changes and exit the context pane.
+
+1. Select **Create** to create the new revision.
 
 ::: zone-end
