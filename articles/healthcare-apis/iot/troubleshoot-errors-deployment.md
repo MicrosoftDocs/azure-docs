@@ -52,7 +52,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Condition**: The `properties.deviceMapping` provided in the MedTech service Resource provisioning request is invalid.
 
-**Fix**: Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
+**Fix**: Correct the errors in the mappings JSON provided in the `properties.deviceMapping` property.
 
 ### `fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.
 
@@ -80,7 +80,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 ## FHIR destination resource errors and fixes
 
-Here's a list of errors that can be found in the Azure Resource Managere (ARM) API or Azure portal and fixes for those errors:
+Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for those errors:
 
 |Error:|
 |------|
