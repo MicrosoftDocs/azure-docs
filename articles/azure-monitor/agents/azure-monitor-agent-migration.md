@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Benefits
 
-In addition to consolidating and improving upon legacy Log Analytics agents, Azure Monitor Agent provides additional immediate benefits for **cost savings, simplified management experience, security and performance.** [Learn more about these benefits](./azure-monitor-agent-overview.md)
+In addition to consolidating and improving upon legacy Log Analytics agents, Azure Monitor Agent provides additional immediate benefits for **cost savings, simplified management experience, security and performance.** [Learn more about these benefits](./azure-monitor-agent-overview.md#benefits)
 
 
 ## Migration guidance
