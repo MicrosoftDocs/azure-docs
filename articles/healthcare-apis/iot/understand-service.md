@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 02/22/2023
 ms.author: jasteppe
 ---
 
@@ -29,7 +29,7 @@ The MedTech service device message data processing follows these steps and in th
 :::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
 
 ## Ingest
-Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
+Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
 The device message event hub uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the device message event hub.
 
@@ -75,10 +75,10 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service if a different `Resolution Type` is later required.
 
-The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service.
+The MedTech service provides near real-time processing and will also attempt to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 FHIR Observations. If there is a low volume of data, and 300 FHIR Observations haven't been added to the group, FHIR Observations in that group are persisted to the FHIR service after ~five minutes. This means that when there's less than 300 messages added to the event hub, there may be a delay of ~five minutes before FHIR Observations are created/updated in the FHIR service.
 
 > [!NOTE]
-> When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message group (for example, within the five minute window or in device message groups of 300 device messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
+> When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the ~five minute window or in device message groups of 300 device messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
 >
 > For example:
 >
@@ -104,7 +104,7 @@ The MedTech service buffers the FHIR Observations resources created during the t
 > }
 > ```
 >
-> Assuming these device messages were ingested within the same five minute window or in the same group of 300 device messages, and since the `measurementdatetime` is the same for both device messages (indicating these contain data for the same FHIR Observation), only device message two is persisted to represent the latest/most recent data.
+> Assuming these device messages were ingested within the same ~five minute window or in the same group of 300 device messages, and since the `measurementdatetime` is the same for both device messages (indicating these contain data for the same FHIR Observation), only device message two is persisted to represent the latest/most recent data.
 
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it's created in the FHIR service. If the FHIR Observation resource already existed, it gets updated in the FHIR service.
