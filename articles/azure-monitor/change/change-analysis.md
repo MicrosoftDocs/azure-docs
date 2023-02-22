@@ -57,7 +57,7 @@ Azure Monitor Change Analysis service supports resource property level changes i
 Azure Monitor's Change Analysis queries for:
 - [Azure Resource Manager resource properties.](#azure-resource-manager-resource-properties-changes)
 - [Resource configuration changes.](#resource-configuration-changes)
-- [App Service Function and Web App in-guest changes.](#changes-in-azure-app-services-function-and-web-apps-in-guest-changes) 
+- [App Service Function and Web App in-guest changes.](#changes-in-azure-function-and-web-apps-in-guest-changes) 
 
 Change Analysis also tracks [resource dependency changes](#dependency-changes) to diagnose and monitor an application end-to-end.
 
@@ -77,7 +77,7 @@ In addition to the settings set via Azure Resource Manager, you can set configur
 
 These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. [See known limitations.](#limitations)
 
-### Changes in Azure App Services Function and Web Apps (in-guest changes)
+### Changes in Azure Function and Web Apps (in-guest changes)
 
 Every 30 minutes, Change Analysis captures the configuration state of a web application. For example, it can detect changes in the application environment variables, configuration files, and WebJobs. The tool computes the differences and presents the changes. 
 
@@ -121,10 +121,10 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 
 ## Limitations
 
-- **OS environment**: For Azure App Services Function and Web App in-guest changes, Change Analysis currently only works with Windows environments, not Linux.
+- **OS environment**: For Azure Function and Web App in-guest changes, Change Analysis currently only works with Windows environments, not Linux.
 - **Web app deployment changes**: Code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
-- **App Services file changes**: File changes take up to 30 minutes to display.
-- **App Services configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
+- **Function and Web App file changes**: File changes take up to 30 minutes to display.
+- **Function and Web App configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
 - **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
 - **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG keeps snapshot history of tracked resources only for 14 days.
 
@@ -134,5 +134,5 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - Learn about [enabling Change Analysis](change-analysis-enable.md)
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
-- Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).
+- Enable Application Insights for [Azure web apps](../../azure-monitor/app/azure-web-apps.md).
 - Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md).

@@ -1,5 +1,5 @@
 ---
-title: 'How-to - Create a resource and deploy a model using Azure OpenAI'
+title: 'How-to - Create a resource and deploy a model using Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first resource and deploy your first model.
 services: cognitive-services

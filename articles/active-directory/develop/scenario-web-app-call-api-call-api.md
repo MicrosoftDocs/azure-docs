@@ -150,7 +150,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > You can use the same principle to call any web API.
 >
-> Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph. See, for instance, [Create a web application that authorizes access to Blob storage with Azure AD](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for an example of a web app using Microsoft.Identity.Web and using the Azure Storage SDK.
+> Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph.
 
 # [Java](#tab/java)
 

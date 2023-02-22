@@ -80,7 +80,7 @@ If you want to configure diagnostics package gathering during site creation, see
 
 ## Choose the authentication method for local monitoring tools
 
-Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
@@ -100,7 +100,7 @@ If you don't want to provide a custom HTTPS certificate at this stage, you don't
 If you want to provide a custom HTTPS certificate at site creation, follow the steps below.
 
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
-   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
+   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
 
       - Be signed by a globally known and trusted CA.
       - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).

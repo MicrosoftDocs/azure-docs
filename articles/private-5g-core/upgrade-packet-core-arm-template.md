@@ -125,32 +125,20 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the previous version.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
+In this step, you'll roll back your packet core using a REST API request. Follow [Rollback - Azure portal](upgrade-packet-core-azure-portal.md#rollback) if you want to roll back using the Azure portal instead.
+
+If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 > [!NOTE]
-> You can roll back your packet core instance to version [PMN-4-18-0](azure-private-5g-core-release-notes-2210.md) or later.
+> You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
-1. Select the following link to sign in to Azure and open the template.
+1. Perform a [rollback POST request](/rest/api/mobilenetwork/packet-core-control-planes/rollback?tabs=HTTP).
+    
+    > [!TIP]
+    > For more information on how to use REST APIs, see [Azure REST API reference](/rest/api/azure/).
 
-    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2FcreateUiDefinition.json)
-
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
-
-    - **Subscription:** select the Azure subscription you used to create your private mobile network.
-    - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
-    - **Region:** select **East US**.
-    - **Existing packet core:** select the name of the packet core instance you want to upgrade.
-    - **New version:** enter the packet core version you want to downgrade to. This value can be version PMN-4-18-0 or later.
-
-    :::image type="content" source="media/upgrade-packet-core-arm-template/upgrade-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the upgrade ARM template.":::
-
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
-
-     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
-
-1. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been downgraded.
+1. Follow the steps in [Restore backed up deployment information](#restore-backed-up-deployment-information) to reconfigure your deployment.
 1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 
 ## Next steps

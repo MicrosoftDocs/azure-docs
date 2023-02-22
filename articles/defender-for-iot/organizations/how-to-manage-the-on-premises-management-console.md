@@ -9,22 +9,22 @@ ms.topic: article
 
 This article covers on-premises management console options like backup and restore, downloading committee device activation file, updating certificates, and setting up a proxy to sensors.
 
-You onboard the on-premises management console from the Azure portal.
-
 ## Download software for the on-premises management console
 
-You may need to download software for your on-premises management console if you're installing Defender for IoT software on your own appliances, or updating software versions.
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-**To download on-premises management console software**:
+In Defender for IoT in the Azure portal, use one of the following options:
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console** or **Updates**.
+- For a new installation or standalone update, select **Getting started** > **On-premises management console**. 
 
-1. Select **Download** for your on-premises management console software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
+   - For a new installation, select a version in the **Purchase an appliance and install software** area, and then select **Download**. 
+   - For an update, select your update scenario in the **On-premises management console** area and then select **Download**.
 
-    :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
+- If you're updating your on-premises management console together with connected OT sensors, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#update-an-on-premises-management-console).
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.

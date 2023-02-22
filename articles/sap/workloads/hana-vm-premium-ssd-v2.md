@@ -6,6 +6,7 @@ manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 12/14/2022
@@ -65,7 +66,7 @@ Configuration for SAP **/hana/data** volume:
 | --- | --- | --- | --- | --- | --- | --- | 
 | E20ds_v4 | 160 GiB | 480 MBps | 32,000 | 192 GB | 425 MBps | 3,000 | 
 | E20(d)s_v5| 160 GiB | 750 MBps | 32,000 | 192 GB | 425 MBps | 3,000 | 
-| E32ds_v4 | 256 GiB | 768 MBps | 51,200|  304 GB | 425 MBps | 3,000 | 
+| E32ds_v4 | 256 GiB | 769 MBps | 51,200 |  304 GB | 425 MBps | 3,000 | 
 | E32ds_v5 | 256 GiB | 865 MBps | 51,200|  304 GB | 425 MBps | 3,000 | 
 | E48ds_v4 | 384 GiB | 1,152 MBps | 76,800 |  464 GB |425 MBps | 3,000  | 
 | E48ds_v4 | 384 GiB | 1,315 MBps | 76,800 |  464 GB |425 MBps | 3,000  | 
@@ -93,7 +94,7 @@ For the **/hana/log** volume. the configuration would look like:
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | Max VM IOPS | **/hana/log** capacity | **/hana/log** throughput | **/hana/log** IOPS | **/hana/shared** capacity <br />using default IOPS <br /> and throughput |
 | --- | --- | --- | --- | --- | --- | --- | 
 | E20ds_v4 | 160 GiB | 480 MBps | 32,000 | 80 GB | 275 MBps | 3,000 | 160 GB |
-| E20(d)s_v5 | 160 GiB | 750 MBps | 2,000 | 80 GB | 275 MBps | 3,000 | 160 GB |
+| E20(d)s_v5 | 160 GiB | 750 MBps | 32,000 | 80 GB | 275 MBps | 3,000 | 160 GB |
 | E32ds_v4 | 256 GiB | 768 MBps | 51,200 | 128 GB | 275 MBps | 3,000 | 256 GB | 
 | E32(d)s_v5 | 256 GiB | 865 MBps | 51,200 | 128 GB | 275 MBps | 3,000 | 256 GB | 
 | E48ds_v4 | 384 GiB | 1,152 MBps | 76,800 | 192 GB | 275 MBps | 3,000 | 384 GB | 
