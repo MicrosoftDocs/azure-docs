@@ -89,7 +89,7 @@ Here is the diagram about the system:
 
 ### 2. Prepare Azure Spring Apps instance
 
-Azure Spring Apps will be used to host the spring web app. Let's create an Azure Spring Apps instance and create an app in the created Azure Spring Apps instance.
+Azure Spring Apps will be used to host the spring web app. Let's create an Azure Spring Apps instance and create an app inside it.
 
 1. Create an Azure Spring Apps service instance.
     ```azurecli-interactive
