@@ -15,9 +15,9 @@ ms.author: victorh
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. The categories are organized based on severity under Liability, High-Bandwidth, Business use, Productivity loss, General surfing, and Uncategorized.
 
 > [!IMPORTANT]
-> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks, This will contain more granularity and additional subcategorizations.
+> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
 >
->As a result, the following web categories are temporarily disabled until the new provided is obtained:
+>As a result, the following web categories are temporarily disabled until the new provider is obtained:
 > - Child inappropriate, Greeting cards, and School Cheating.
 > 
 > In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these categories and features return.

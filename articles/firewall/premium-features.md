@@ -126,9 +126,9 @@ URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic 
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic.
 
 > [!IMPORTANT]
-> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks, This will contain more granularity and additional subcategorizations.
+> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
 >
->As a result, the following web categories are temporarily disabled until the new provided is obtained:
+>As a result, the following web categories are temporarily disabled until the new provider is obtained:
 > - Child inappropriate, Greeting cards, and School Cheating.
 > 
 > In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these categories and features return.
