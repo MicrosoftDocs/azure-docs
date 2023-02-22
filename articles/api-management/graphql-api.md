@@ -1,5 +1,5 @@
 ---
-title: Import a GraphQL API to Azure API Management | Microsoft Docs
+title: Add a GraphQL API to Azure API Management | Microsoft Docs
 titleSuffix: 
 description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
@@ -16,9 +16,8 @@ ms.custom: event-tier1-build-2022
 
 In this article, you'll:
 > [!div class="checklist"]
-> * Add a GraphQL API to your API Management instance.
+> * Add a pass-through GraphQL API to your API Management instance.
 > * Test your GraphQL API.
-> * Learn the limitations of your GraphQL API in API Management.
 
 If you want to import a GraphQL schema and set up field resolvers using REST or SOAP API endpoints, see [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md).
 
@@ -55,16 +54,15 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
     | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common "swapi" GraphQL endpoint such as `https://swapi-graphql.azure-api.net/graphql` as a demo. |
     | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema retrieved from the GraphQL endpoint (if available).  |
     | **Description** | Add a description of your API. |
-    | **URL scheme** | Select **HTTP**, **HTTPS**, or **HTTP(S)**. Default selection: *HTTP(S)*. |
+    | **URL scheme** |  Make a selection based on your GraphQL endpoint. Select one of the options that includes a WebSocket scheme (**WS** or **WSS**) if your GraphQL API includes the subscription type. Default selection: *HTTP(S)*. |
     | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
     | **Base URL** | Uneditable field displaying your API base URL |
     | **Tags** | Associate your GraphQL API with new or existing tags. |
     | **Products** | Associate your GraphQL API with a product to publish it. |
-    | **Gateways** | Associate your GraphQL API with existing gateways. Default gateway selection: *Managed*. |
     | **Version this API?** | Select to apply a versioning scheme to your GraphQL API. |
 
 1. Select **Create**.
-1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
+1. After the API is created, browse or modify the schema on the **Design** tab.
        :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Screenshot of exploring the GraphQL schema in the portal.":::
 
 #### [Azure CLI](#tab/cli)
