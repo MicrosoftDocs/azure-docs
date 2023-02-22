@@ -68,7 +68,7 @@ Here is the diagram about the system:
 
 ### 1. Create resource group
 
-1. Login Azure ClI.
+1. Login Azure CLI.
     ```azurecli-interactive
     az login
     ```
