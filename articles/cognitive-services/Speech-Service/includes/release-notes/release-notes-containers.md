@@ -23,7 +23,7 @@ Add new Abraic locales:
 - ar-IL
 - ar-PS
 
-Upgrade Hebrew display models
+Upgrade Hebrew and Turkish display models
 
 ### 2023-January release
 
