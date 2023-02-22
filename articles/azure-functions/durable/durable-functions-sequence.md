@@ -199,7 +199,7 @@ Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the 
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/httpStart.js":::
 
-Tp interact with orchestrators, the function must include a `durableClient` input binding and register it by passing in the `extraInputs` argument when registering the function. A `durableClient` input can be obtained by calling `df.input.durableClient()`.
+Tp interact with orchestrators, the function must include a `durableClient` input binding and register it by passing it in the `extraInputs` argument when registering the function. A `durableClient` input can be obtained by calling `df.input.durableClient()`.
 
 Use `df.getClient` to obtain a `DurableClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
