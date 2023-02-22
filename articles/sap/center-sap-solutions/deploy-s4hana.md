@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -137,7 +137,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 1. Select **Next: Visualize Architecture**.
 
-1. In the **Visualize Architecture** tab, visualize the architecture of the VIS that you will be deploying.
+1. In the **Visualize Architecture** tab, visualize the architecture of the VIS that you're deploying.
 
     1. To view the visualization, make sure to configure all the inputs listed on the tab.
 
@@ -155,7 +155,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. Click on **Feedback** to share your feedback on the visualization experience.
 
-        The visualization doesn't represent all resources for the VIS you will be deploying, for instance it doesn't represent disks and NICs.
+        The visualization doesn't represent all resources for the VIS that you're deploying, for instance it doesn't represent disks and NICs.
 
     1. Select **Next: Tags**.
 
