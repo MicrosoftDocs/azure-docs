@@ -16,6 +16,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+<!--Link to resolver configuration article -->
 
 ## Policy statement
 
@@ -46,9 +47,9 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 ## Example
 
-The following example policy definition is a resolver for the `createUser` mutation. It publishes an event to the `onUserCreated` subscription.
+The following example policy definition is configured in a resolver for the `createUser` mutation. It publishes an event to the `onUserCreated` subscription.
 
-#### Example schema
+### Example schema
 
 ```
 type User {
@@ -66,7 +67,7 @@ type Subscription {
 }
 ```
 
-#### Example policy
+### Example policy
 
 ```xml
 <http-data-source>
@@ -84,7 +85,6 @@ type Subscription {
 	</http-response>
 </http-data-source>
 ```
-
 
 ## Related policies
 
