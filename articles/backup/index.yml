@@ -75,6 +75,8 @@ landingContent:
             url: ./multi-user-authorization-concept.md?tabs=backup-vault
           - text: Immutable vault (preview)
             url: backup-azure-immutable-vault-concept.md
+          - text: Azure Kubernetes Service backup (preview)
+            url: azure-kubernetes-service-cluster-backup-concept.md
   # Card
   - title: Back up Azure VMs
     linkLists:

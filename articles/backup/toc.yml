@@ -90,6 +90,8 @@
       href: backup-azure-policy-supported-skus.md
     - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
+    - name: Azure Kubernetes Service backup support matrix
+      href: azure-kubernetes-service-cluster-backup-support-matrix.md
     - name: Automation in Azure Backup
       href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
@@ -125,7 +127,9 @@
     - name: About HANA database backup
       href: sap-hana-database-about.md
     - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md      
+      href: azure-backup-architecture-for-sap-hana-backup.md
+  - name: Azure Kubernetes Service backup
+    href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -288,6 +292,14 @@
         href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
+  - name: Azure Kubernetes Service backup
+    items:
+    - name: Backup
+      href: azure-kubernetes-service-cluster-backup.md
+    - name: Restore
+      href: azure-kubernetes-service-cluster-restore.md
+    - name: Manage
+      href: azure-kubernetes-service-cluster-manage-backups.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview

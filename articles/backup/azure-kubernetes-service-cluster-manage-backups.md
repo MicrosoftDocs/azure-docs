@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Kubernetes Service (AKS) cluster backups using Azure Backup 
-description: This article explains how to manage Azure Kubernetes Service (AKS) cluster backups using Azure Backup.
+title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup 
+description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
 ms.date: 02/28/2023
@@ -8,9 +8,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage Azure Kubernetes Service cluster backups using Azure Backup (preview) 
+# Manage Azure Kubernetes Service backups using Azure Backup (preview) 
 
-This article describes how to manage Azure Kubernetes Service (AKS) cluster backups using Azure CLI commands.
+This article describes how to manage Azure Kubernetes Service (AKS) backups using Azure CLI commands.
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 

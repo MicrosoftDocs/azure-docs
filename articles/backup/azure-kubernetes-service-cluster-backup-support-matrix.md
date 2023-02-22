@@ -1,6 +1,6 @@
 ---
-title: Azure Kubernetes Service (AKS) cluster backup support matrix
-description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) cluster backup.
+title: Azure Kubernetes Service (AKS) backup support matrix
+description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.date: 02/28/2023
 ms.custom: references_regions
@@ -9,9 +9,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Azure Kubernetes Service cluster backup support matrix (preview)
+# Azure Kubernetes Service backup support matrix (preview)
 
-You can use [Azure Backup](./backup-overview.md) to protect Azure Kubernetes Service (AKS) cluster. This article summarizes region availability, supported scenarios, and limitations.
+You can use [Azure Backup](./backup-overview.md) to protect Azure Kubernetes Service (AKS). This article summarizes region availability, supported scenarios, and limitations.
 
 ## Supported regions
 
