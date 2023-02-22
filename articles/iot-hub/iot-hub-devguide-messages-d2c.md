@@ -1,30 +1,30 @@
 ---
-title: Understand Azure IoT Hub message routing | Microsoft Docs
+title: Understand Azure IoT Hub message routing
 description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 02/22/2023
 ms.author: kgremban
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
 # Use IoT Hub message routing to send device-to-cloud messages to different endpoints
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
-
 Message routing enables you to send messages from your devices to cloud services in an automated, scalable, and reliable manner. Message routing can be used for:
 
-* **Sending device telemetry messages as well as events** to the built-in endpoint and custom endpoints. Events that can be routed include device lifecycle events, device twin change events, digital twin change events, and device connection state events.
+* **Sending device telemetry messages and events** to the built-in endpoint and custom endpoints. Events that can be routed include device lifecycle events, device twin change events, digital twin change events, and device connection state events.
 
 * **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. For more information, see [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
 The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## Routing endpoints
 
-An IoT hub has a default built-in endpoint (**messages/events**) that is compatible with Event Hubs. You also can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT hub.
+Each IoT hub has a default built-in endpoint (**messages/events**) that is compatible with Event Hubs. You also can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) that point to other services in your Azure subscription.
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.  If a message matches multiple routes that point to the same endpoint, IoT Hub delivers the message to that endpoint only once.
 
@@ -37,7 +37,16 @@ IoT Hub currently supports the following endpoints:
 * Event Hubs
 * Cosmos DB (preview)
 
-IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. For example, if you're using Event Hubs as a custom endpoint, you must configure the **throughput units** for that event hub so it can handle the ingress of events you plan to send via IoT Hub message routing. Similarly, when using a Service Bus queue as an endpoint, you must configure the **maximum size** to ensure the queue can hold all the data ingressed, until it's egressed by consumers. When you first configure your IoT solution, you may need to monitor your other endpoints and make any necessary adjustments for the actual load.
+IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. If you configure your endpoints using PowerShell or the Azure CLI, you need to provide the write access permission.
+
+To learn how to create endpoints, see the following articles:
+
+* [Manage routes and endpoints using the Azure portal](how-to-routing-portal.md)
+* [Manage routes and endpoints using the Azure CLI](how-to-routing-azure-cli.md)
+* [Manage routes and endpoints using PowerShell](how-to-routing-powershell.md)
+* [Manage routes and endpoints using Azure Resource Manager](how-to-routing-arm.md)
+
+Make sure you configure your services to support the expected throughput. For example, if you're using Event Hubs as a custom endpoint, you must configure the **throughput units** for that event hub so it can handle the ingress of events you plan to send via IoT Hub message routing. Similarly, when using a Service Bus queue as an endpoint, you must configure the **maximum size** to ensure the queue can hold all the data ingressed, until it's egressed by consumers. When you first configure your IoT solution, you may need to monitor your other endpoints and make any necessary adjustments for the actual load.
 
 If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception.](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -49,13 +58,13 @@ You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages
 
 There are two storage services IoT Hub can route messages to: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Azure Data Lake Storage accounts are [hierarchical namespace-enabled](../storage/blobs/data-lake-storage-namespace.md) storage accounts built on top of blob storage. Both of these use blobs for their storage.
 
-IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. When using JSON encoding, you must set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub will write the messages in base 64 encoded format.
+IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. When using JSON encoding, you must set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
 
 The encoding format can be set only when the blob storage endpoint is configured; it can't be edited for an existing endpoint
 
 IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention: `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 
-You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there's no data to write.
+You may use any file naming convention, however you must use all listed tokens. IoT Hub writes to an empty blob if there's no data to write.
 
 We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. For example:
 
@@ -97,34 +106,45 @@ To effectively support high-scale scenarios, you can enable [synthetic partition
 
 You can configure the synthetic partition key value by specifying a template in **Partition key template** based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its maximum limit of 20 GB within a month. In that case, you can define a synthetic partition key as a combination of the device ID and the month. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
 
-1. In **Authentication type**, choose an authentication type for your Cosmos DB endpoint. You can choose any of the supported authentication types for accessing the database, based on your system setup.
-
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
-To learn how to use the Azure portal to create a Cosmos DB endpoint, see [Message routing with IoT Hub — Azure portal](how-to-routing-portal.md).
+## Routing queries
 
-## Reading data that has been routed
+IoT Hub message routing provides a querying capability to filter the data before routing it to the endpoints. Each routing query you configure has the following properties:
 
-Use the following tutorials to learn how to read messages from an endpoint.
+| Property      | Description |
+| ------------- | ----------- |
+| **Name**      | The unique name that identifies the query. |
+| **Source**    | The origin of the data stream to be acted upon. For example, device telemetry. |
+| **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags, and device twin properties to determine if it's a match for the endpoint. For more information about constructing a query, see the see [message routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
+| **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. We recommend that you choose an endpoint in the same region as your IoT hub. |
 
-* Reading from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
+A single message may match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple queries that have the same destination, it's only written once to that destination.
 
-* Reading from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
+For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md).
 
-* Reading from [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+## Read data that has been routed
 
-* Reading from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+Use the following articles to learn how to read messages from an endpoint.
+
+* Read from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
+
+* Read from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
+
+* Read from [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+
+* Read from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Read from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 ## Fallback route
 
-The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in endpoint (**messages/events**), which is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is enabled, you can enable the fallback route capability. Once a route is created, data stops flowing to the built-in endpoint, unless a route is created to that endpoint. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in endpoint. Also, if all existing routes are deleted, fallback route capability must be enabled to receive all data at the built-in endpoint.
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in endpoint (**messages/events**), which is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is enabled, you can enable the fallback route capability. Once a route is created, data stops flowing to the built-in endpoint, unless a route is created to that endpoint. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in endpoint. Also, if all existing routes are deleted, the fallback route capability must be enabled to receive all data at the built-in endpoint.
 
 You can enable or disable the fallback route in the Azure portal, from the **Message routing** blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for the fallback route.
 
-## Non-telemetry events
+## Route non-telemetry events
 
 In addition to device telemetry, message routing also enables sending non-telemetry events, including:
 
@@ -145,7 +165,7 @@ Device connection state events are available for devices connecting using either
 
 IoT Hub doesn't report each individual device connect and disconnect, but rather publishes the current connection state taken at a periodic, 60-second snapshot. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state during the 60-second window.
 
-## Testing routes
+## Test routes
 
 When you create a new route or edit an existing route, you should test the route query with a sample message. You can test individual routes or test all routes at once and no messages are routed to the endpoints during the test. Azure portal, Azure Resource Manager, Azure PowerShell, and Azure CLI can be used for testing. Outcomes help identify whether the sample message matched or didn't match the query, or if the test couldn't run because the sample message or query syntax are incorrect. To learn more, see [Test Route](/rest/api/iothub/iothubresource/testroute) and [Test All Routes](/rest/api/iothub/iothubresource/testallroutes).
 
@@ -155,7 +175,7 @@ When you route device-to-cloud telemetry messages using built-in endpoints, ther
 
 In most cases, the average increase in latency is less than 500 milliseconds. However, the latency you experience can vary and can be higher depending on the tier of your IoT hub and your solution architecture. You can monitor the latency using the **Routing: message latency for messages/events** or **d2c.endpoints.latency.builtIn.events** IoT Hub metrics. Creating or deleting any route after the first one doesn't impact the end-to-end latency.
 
-## Monitoring and troubleshooting
+## Monitor and troubleshoot
 
 IoT Hub provides several metrics related to routing and endpoints to give you an overview of the health of your hub and messages sent. For a list of all of the IoT Hub metrics broken out by functional category, see the [Metrics](monitor-iot-hub-reference.md#metrics) section of [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md). You can track errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub with the [**routes** category in IoT Hub resource logs](monitor-iot-hub-reference.md#routes). To learn more about using metrics and resource logs with IoT Hub, see [Monitoring Azure IoT Hub](monitor-iot-hub.md).
 

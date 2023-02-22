@@ -73,7 +73,7 @@ This is the general method we recommend for moving an IoT hub from one region to
 
 ## How to handle message routing
 
-If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is". 
+If your hub uses [message routing](iot-hub-devguide-messages-d2c.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is".
 
 For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
 
