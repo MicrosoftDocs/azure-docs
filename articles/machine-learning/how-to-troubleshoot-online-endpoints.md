@@ -119,7 +119,7 @@ or
 az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
-Add `--resource-group` and `--workspace-name` to the these commands if you have not already set these parameters via `az configure`.
+Add `--resource-group` and `--workspace-name` to these commands if you have not already set these parameters via `az configure`.
 
 To see information about how to set these parameters, and if you have already set current values, run:
 
@@ -222,7 +222,7 @@ This is a list of common image build failure scenarios:
 
 #### Container registry authorization failure
 
-If the error message mentions `"container registry authorization failure"` that means you can not access the container registry with the current credentials.
+If the error message mentions `"container registry authorization failure"` that means you cannot access the container registry with the current credentials.
 The desynchronization of a workspace resource's keys can cause this error and it takes some time to automatically synchronize.
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
 
@@ -548,7 +548,7 @@ In this case, you can check the cluster network policy and the workspace contain
 
 The reason you might run into this error when creating/updating Kubernetes online deployments is the user container crashed initializing. There are two possible reasons for this error:
 * User script `score.py` has syntax error or import error then raise exceptions in initializing.
-* Or the deployment pod needs more memory than it's limit.
+* Or the deployment pod needs more memory than its limit.
 
 To mitigate this error, first you can check the deployment logs for any exceptions in user scripts. If error persists, try to extend resources/instance type memory limit.  
  
