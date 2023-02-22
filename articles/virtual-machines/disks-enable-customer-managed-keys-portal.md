@@ -20,13 +20,6 @@ Azure Disk Storage allows you to manage your own keys when using server-side enc
 
 For now, customer-managed keys have the following restrictions:
 
-- If this feature is enabled for a disk with incremental snapshots, it can't be disabled on that disk or its snapshots.
-    If you need to work around this, you must copy all the data to an entirely different managed disk that isn't using customer-managed keys:
-
-    - For Linux: [Copy a managed disk](./linux/disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)
-
-    - For Windows: [Copy a managed disk](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
-
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 The following sections cover how to enable and use customer-managed keys for managed disks:
