@@ -48,6 +48,11 @@ The following log excerpt shows a triggered rule:
 
 - **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, a test FQDN has been created that triggers an alert. Use `testmaliciousdomain.eastus.cloudapp.azure.com` for your outbound tests.
 
+   To prepare for your tests and to ensure you don't get a DNS resolution failure, do the following:
+
+   - Add a dummy record to the hosts file on your test computer. For example, on a computer running Windows, you could add `1.2.3.4 testmaliciousdomain.eastus.cloudapp.azure.com` to the `C:\Windows\System32\drivers\etc\hosts` file.
+   - Ensure that the tested HTTP/S request is allowed using an application rule, not a network rule.
+
 - **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. You'll see alerts even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall doesn't alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
 
 ## Next steps
