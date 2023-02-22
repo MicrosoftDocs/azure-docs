@@ -18,7 +18,7 @@ In this article, you learn how to use the Visual Studio Code Azure Functions ext
 
 
 >[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](../functions-reference-node.md).
+>The v4 programming model for authoring Functions in Node.js is currently in preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](../functions-reference-node.md).
 
 Use the selector at the top to choose the programming model of your choice for completing this quickstart.
 

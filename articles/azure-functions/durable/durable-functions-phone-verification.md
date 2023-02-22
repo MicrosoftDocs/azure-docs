@@ -154,7 +154,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 The orchestrator function receives the supplied phone number and immediately sends it an SMS message with a randomly generated 4-digit verification code &mdash; for example, *2168*. The function then waits 90 seconds for a response.
 
-To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventPostUri** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
+To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript/TypeScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventPostUri** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -190,7 +190,7 @@ Content-Length: 145
 
 ## Next steps
 
-This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer` APIs. You've seen how these can be combined with `Task.WaitAny` (C#)/`context.df.Task.any` (JavaScript)/`context.task_any` (Python) to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
+This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer` APIs. You've seen how these can be combined with `Task.WaitAny` (C#)/`context.df.Task.any` (JavaScript/TypeScript)/`context.task_any` (Python) to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
 
 > [!div class="nextstepaction"]
 > [Go to the first article in the series](durable-functions-bindings.md)
