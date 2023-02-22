@@ -97,7 +97,7 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
         --resource-group <name-of-resource-group> \
         --name <name-of-azure-spring-apps-instance>
     ```
-2. Create an app in Azure Spring Apps instance:
+2. Create an app in the created Azure Spring Apps instance.
     ```azurecli-interactive
     az spring app create \
         --resource-group <name-of-resource-group> \
