@@ -9,11 +9,11 @@ ms.date: 02/01/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Monitoring Virtual Machines (for Virtualized Network Function)
+# Monitoring virtual machines (for virtualized network function)
 
 This section discusses the optional tooling available for telecom operators to monitor the Virtualized Network Functions (VNF) workloads. With Azure Monitoring Agent (AMA), logs and performance metrics can be collected from the Virtual Machines (VM) running VNFs. One of the pre-requisites for AMA is Arc connectivity back to Azure (using Azure Arc for Servers).
 
-## Extension Onboarding with CLI using Managed Identity Auth
+## Extension onboarding with CLI using managed identity auth
 
 When enabling Monitoring agents on VMs using CLI, ensure appropriate versions of CLI are installed:
 
@@ -97,7 +97,9 @@ If the agent fails to start after setup is finished, check the logs for detailed
 After you install the agent and configure it to connect to Azure Arc-enabled servers, verify that the server is successfully connected at [Azure portal](https://aka.ms/hybridmachineportal).
 
 <!--- IMG ![Sample Arc-Enrolled VM](Docs/media/sample-arc-enrolled-vm.png) IMG --->
-:::image type="content" source="media/sample-arc-enrolled-vm.png" alt-text="Sample Arc-Enrolled VM":::
+:::image type="content" source="media/sample-arc-enrolled-vm.png" alt-text="Screenshot of Sample Arc-Enrolled VM.":::
+
+
 Figure: Sample Arc-Enrolled VM
 
 ### Troubleshooting
@@ -110,7 +112,7 @@ Some common reasons for errors:
 2. wget package isn't installed on the VM.
 3. If it fails to install package dependencies, it's because proxy doesn't have the required domains added to the allowed URLs. For example, on Ubuntu, apt fails to install dependencies because it can't reach ".ubuntu.com". Add the required egress endpoints to the proxy.
 
-## Azure Monitor Agent
+## Azure monitor agent
 
 The Azure Monitor Agent is implemented as an [Azure VM extension](/azure/virtual-machines/extensions/overview) 
 ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)
@@ -119,15 +121,17 @@ won't require you to restart your server.
 
 Ensure that you configure collection of logs and metrics using the Data Collection Rule.
 
-<!--- IMG ![DCR adding source](Docs/media/drc-adding-source.png) IMG --->
-:::image type="content" source="media/drc-adding-source.png" alt-text="DCR adding source":::
+<!--- IMG ![DCR adding source](Docs/media/data-collection-rules-adding-source.png) IMG --->
+:::image type="content" source="media/data-collection-rules-adding-source.png" alt-text="Screenshot of DCR adding source.":::
+
 Figure: DCR adding source
 
 **Note:** The metrics configured with DCR should have destination set to Log Analytics Workspace as
 it's not supported on Azure Monitor Metrics yet.
 
-<!--- IMG ![DCR adding destination](Docs/media/dcr-adding-destination.png) IMG --->
-:::image type="content" source="media/dcr-adding-destination.png" alt-text="DCR adding destination":::
+<!--- IMG ![DCR adding destination](Docs/media/data-collection-rules-adding-destination.png) IMG --->
+:::image type="content" source="media/data-collection-rules-adding-destination.png" alt-text="Screenshot of DCR adding destination.":::
+
 Figure: DCR adding destination
 
 ### Pre-requisites
@@ -145,8 +149,9 @@ The following prerequisites must be met prior to installing the Azure Monitor Ag
 
 Once, the Virtual Machines are Arc connected, ensure that you create a local file from your [Azure Cloud Shell](/azure/cloud-shell/overview) with name "settings.json" to provide the proxy information:
 
-<!--- IMG ![Settings.json file](Docs/media/ama-agent-settings.png) IMG --->
-:::image type="content" source="media/ama-agent-settings.png" alt-text="Settings.json file":::
+<!--- IMG ![Settings.json file](Docs/media/azure-monitor-agent-settings.png) IMG --->
+:::image type="content" source="media/azure-monitor-agent-settings.png" alt-text="Screenshot of Settings.json file.":::
+
 Figure: settings.json file
 
 Then use the following command to install the Azure Monitoring agent on these Azure Arc-enabled servers:
@@ -167,7 +172,7 @@ The steps to create a DCR and associate it to a Log Analytics Workspace can be f
 
 Lastly verify if you're getting the logs in the Log Analytics Workspace specified.
 
-#### Data Collection Rule via CLI
+#### Data collection rule via CLI
 
 Following are the commands to create and associate DCR to enable collection of logs and metrics from these Virtual Machines.
 
@@ -179,8 +184,9 @@ az monitor data-collection rule create --name \<name-for-dcr\> --resource-group 
 
 An example rules-file:
 
-<!--- IMG ![Sample DCR rule file](Docs/media/sample-dcr-rule.png) IMG --->
-:::image type="content" source="media/sample-dcr-rule.png" alt-text="Sample DCR rule file":::
+<!--- IMG ![Sample DCR rule file](Docs/media/sample-data-collection-rule.png) IMG --->
+:::image type="content" source="media/sample-data-collection-rule.png" alt-text="Screenshot of Sample DCR rule file.":::
+
 Figure: Sample DCR rule file
 
 For more information, please refer to this [link](/azure/monitor/data-collection/rule#az-monitor-data-collection-rule-create).
@@ -193,7 +199,7 @@ az monitor data-collection rule association create --name \<name-for-dcr-associa
 
 For more information, please refer to this [link](/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-create).
 
-## Additional Resources
+## Additional resources
 
 - Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
 - Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).

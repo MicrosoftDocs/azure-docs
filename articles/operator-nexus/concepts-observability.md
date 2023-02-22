@@ -12,10 +12,12 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Azure Operator Nexus observability
 
 The Operator Nexus observability framework provides operational insights into your on-premises instances.
-The frameowrk supports logging, monitoring, and alerting (LMA), analytics, and visualization of operational (platform and workloads) data and metrics.
+The framework supports logging, monitoring, and alerting (LMA), analytics, and visualization of operational (platform and workloads) data and metrics.
 
-<!--- IMG ![ Operator Nexus Logging, Monitoring and Alerting (LMA) Framework](Docs/media/lma-framework.png) IMG --->
-:::image type="content" source="media/lma-framework.png" alt-text=" Operator Nexus Logging, Monitoring and Alerting (LMA) Framework":::
+<!--- IMG ![ Operator Nexus Logging, Monitoring and Alerting (LMA) Framework](Docs/media/log-monitoring-analytics-framework.png) IMG --->
+:::image type="content" source="media/log-monitoring-analytics-framework.png" alt-text="Screenshot of Operator Nexus Logging, Monitoring and Alerting (LMA) Framework.":::
+
+
 Figure:  Operator Nexus Logging, Monitoring and Alerting (LMA) Framework
 
 The key highlights of Operator Nexus observability framework are:
@@ -53,7 +55,7 @@ resources. The data collected from each of your instances can be viewed in your 
 Operator Nexus observability allows you to collect data for each infrastructure resource.
 The set of infrastructure components includes:
 
-* Network Fabric that includes CEs, TORs, NPBs, management switches, and the terminal server.
+* Network fabric that includes CEs, TORs, NPBs, management switches, and the terminal server.
 * Compute that includes Bare Metal Servers.
 * Undercloud Control Plane (Kubernetes cluster responsible for deployment and managing lifecycle of overall Platform).
 
@@ -95,12 +97,13 @@ The logs from Operator Nexus platform are stored in the following tables:
 | KubeServices           | Kubernetes services and their properties                                         |
 | Heartbeat              | Records logged by Log Analytics agents once per minute to report on agent health |
 
-#### Operator Nexus Metrics
+#### Operator nexus metrics
 
 The 'InsightMetrics' table in the Logs section contains the metrics collected from Bare Metal Machines and the undercloud Kubernetes cluster. In addition, a few selected metrics collected from the undercloud can be observed by opening the Metrics tab from the Azure Monitor menu.
 
 <!--- IMG ![Azure Monitor Metrics Selection](Docs/media/azure-monitor-metrics-selection.png) IMG --->
-:::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Azure Monitor Metrics Selection":::
+:::image type="content" source="media/azure-monitor-metrics-selection.png" alt-text="Screenshot of Azure Monitor Metrics Selection.":::
+
 Figure: Azure Monitor Metrics Selection
 
 See **[Getting Started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)** for details on using this tool.
@@ -114,7 +117,7 @@ You can use the sample Azure Resource Manager workbook templates for [Operator N
 
 You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
 
-## Log Analytic workspace
+## Log analytic workspace
 
 A [Log Analytics workspace (LAW)](/azure/azure-monitor/logs/log-analytics-workspace-overview)
 is a unique environment to log data from Azure Monitor and

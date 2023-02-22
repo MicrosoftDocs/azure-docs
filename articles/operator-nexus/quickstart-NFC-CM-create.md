@@ -1,6 +1,6 @@
 ---
-title: "Network Fabric Controller and Cluster Manger creation"
-description: Learn the steps for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
+title: "Network fabric Controller and Cluster Manger creation"
+description: Learn the steps for create the Azure Operator Nexus Network fabric Controller and Cluster Manger.
 author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
@@ -9,9 +9,9 @@ ms.date: 02/08/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Create Network Fabric Controller and Cluster Manager in an Azure region
+# Create network fabric controller and cluster manager in an Azure region
 
-You need to create a Network Fabric Controller (NFC) and then a (Network Cloud) Cluster Manager (CM)
+You need to create a Network fabric Controller (NFC) and then a (Network Cloud) Cluster Manager (CM)
 in your target Azure region. This Azure region will be connected to your on-premise sites.
 You'll also need to create an NFC and CM in other Azure regions to be connected to your on-premise sites.
 
@@ -50,18 +50,18 @@ Each Operator Nexus instance consists of network fabric, compute and storage inf
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Create Steps
+## Create steps
 
-- Step 1: Create Network Fabric Controller
+- Step 1: Create Network fabric Controller
 - Step 2: Create Cluster Manager
 
-## Step 1: Create a Network Fabric Controller
+## Step 1: Create a network fabric controller
 
 Operators will sign in to their subscription to create a `Network
 Fabric Controller` (NFC) in an Azure region. Bootstrapping
 and management of network fabric instances are performed from the NFC.
 
-You'll create a Network Fabric Controller (NFC) prior to the first deployment
+You'll create a Network fabric Controller (NFC) prior to the first deployment
 of an on-premises Operator Nexus instance. Each NFC can manage up to 32 Operator Nexus instances.
 For subsequent network fabric deployments, managed by this
 Fabric Controller, an NFC won't need to be created. After 32 Operator Nexus instances
@@ -86,13 +86,13 @@ az nf controller create \
   "expressRouteAuthorizationKey": "$WORKLOAD_ER_CIRCUIT1_AUTH"}]'
 ```
 
-### Parameters required for Network Fabric Controller operations
+### Parameters required for network fabric controller operations
 
 | Parameter name              | Description                                                                                                                                                                              |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NFC_RESOURCE_GROUP          | The resource group name                                                                                                                                                                  |
 | LOCATION                    | The Azure Region where the NFC will be deployed (for example, `eastus`)                                                                                                                  |
-| NFC_RESOURCE_NAME           | Resource Name of the Network Fabric Controller                                                                                                                                           |
+| NFC_RESOURCE_NAME           | Resource Name of the Network fabric Controller                                                                                                                                           |
 | NFC_MANAGEMENT_CLUSTER_IPV4 | Optional IPv4 Prefixes for NFC VNet. Can be specified at the time of creation. If unspecified, default value of `10.0.0.0/19` is assigned. The prefix should be at least of length `/19` |
 | NFC_MANAGEMENT_CLUSTER_IPV6 | Optional IPv6 Prefixes for NFC `vnet`. Can be specified at the time of creation. If unspecified, undefined. The prefix should be at least of length `/59`                                |
 | INFRA_ER_CIRCUIT1_ID        | The name of express route circuit for infrastructure must be of type `Microsoft.Network/expressRouteCircuits/circuitName`                                                                 |
@@ -101,14 +101,14 @@ az nf controller create \
 | WORKLOAD_ER_CIRCUIT1_AUTH   | Authorization key for the circuit for workloads must be of type `Microsoft.Network/expressRouteCircuits/authorizations`                                                                   |
 
 
-The Network Fabric Controller is created within the resource group in your Azure Subscription.
+The Network fabric Controller is created within the resource group in your Azure Subscription.
 
-The Network Fabric Controller ID will be needed in the next steps to create
-the Cluster Manager and Network Fabric resources. The v4 and v6 IP address
+The Network fabric Controller ID will be needed in the next steps to create
+the Cluster Manager and Network fabric resources. The v4 and v6 IP address
 space is a private large subnet, recommended for `/16` in multi-rack
 environments, which is used by the NFC to allocate IP to all devices in all Instances under the NFC and Cluster Manager domain.
 
-### Validation
+### NFC validation
 
 The NFC and a few other hosted resources will be created in the NFC hosted resource groups.
 The other resources include:
@@ -132,7 +132,7 @@ az nf controller show --resource-group "$NFC_RESOURCE_GROUP" --resource-name "$N
 
 The NFC deployment is complete when the `provisioningState` of the resource shows: `"provisioningState": "Succeeded"`
 
-### Logging
+### NFC logging
 
 NFC created logs can be viewed in:
 
@@ -140,7 +140,7 @@ NFC created logs can be viewed in:
 2. Azure CLI with `--debug` flag on the command-line.
 3. Resource provider logs based off subscription or correlation ID in debug
 
-## Step 2: Create a Cluster Manager
+## Step 2: create a cluster manager
 
 A Cluster Manager (CM) represents the control-plane to manage one or more of your
 on-premises Operator Nexus  clusters (instances).
@@ -150,7 +150,7 @@ is responsible for the lifecycle management of your Operator Nexus Clusters.
 The CM will appear in your subscription as a resource.
 
 A Fabric Controller is required before the Cluster Manager can be created.
-There's a one-to-one dependency between the Network Fabric Controller and
+There's a one-to-one dependency between the Network fabric Controller and
 Cluster Manager. You'll need to create a Cluster Manager every time another
 NFC is created.
 
@@ -175,11 +175,11 @@ az networkcloud clustermanager wait --created --name "$CM_RESOURCE_NAME" \
 You can also create a Cluster Manger using ARM template/parameter files in
 [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
 
-### Parameters for use in Cluster Manager operations
+### Parameters for use in cluster manager operations
 
 | Parameter name     | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| CM_RESOURCE_NAME   | Resource Name of the Network Fabric Controller                                      |
+| CM_RESOURCE_NAME   | Resource Name of the Network fabric Controller                                      |
 | LAW_ID             | Log Analytics Workspace ID for the CM                                               |
 | LOCATION           | The Azure Region where the NFC will be deployed (for example, `eastus`)             |
 | AVAILABILITY_ZONES | List of targeted availability zones, recommended "1" "2" "3"                        |
@@ -192,7 +192,7 @@ The Cluster Manager is created within the resource group in your Azure Subscript
 
 The CM Custom Location will be needed to create the Cluster.
 
-### Validation
+### CM validation
 
 The CM creation will also create other resources in the CM hosted resource groups.
 These other resources include a storage account, Key Vault, AKS cluster,
@@ -207,7 +207,7 @@ az networkcloud clustermanager show --resource-group "$CM_RESOURCE_GROUP" \
 
 The CM deployment is complete when the `provisioningState` of the resource shows: `"provisioningState": "Succeeded",`
 
-### Logging
+### CM logging
 
 CM create logs can be viewed in:
 

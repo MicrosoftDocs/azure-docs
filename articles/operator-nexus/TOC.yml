@@ -12,8 +12,8 @@
     href: concepts-observability.md
 - name: Quickstarts
   items:
-  - name: Create Network Fabric Controller and Cluster Manager
-    href: quickstart-NFC-CM-create.md
+  - name: Create Network fabric Controller and Cluster Manager
+    href: quickstart-nfc-cm-create.md
   - name: Before you start platform deployment
     href: quickstarts-platform-prerequisites.md
   - name: Platform deployment
@@ -28,14 +28,14 @@
     href: howto-baremetal-functions.md
   - name: Cluster Manager
     href: howto-cluster-manager.md
-  - name: Isolation Domain
-    href: howto-configure-isolationdomain.md
-  - name: Network Fabric
-    href: howto-configure-networkfabric.md
-  - name: Network Fabric Controller
-    href: howto-configure-networkfabriccontroller.md
+  - name: isolation-domain
+    href: howto-configure-isolation-domain.md
+  - name: Network fabric
+    href: howto-configure-network fabric.md
+  - name: Network fabric Controller
+    href: howto-configure-network fabric-controller.md
   - name: AKS-Hybrid
-    href: howto-hybridaks.md
+    href: howto-hybrid-aks.md
   - name: Monitor AKS-Hybrid Cluster
     href: howto-monitoring-aks-h-cluster.md
   - name: Monitor VMs for VNF
@@ -45,13 +45,13 @@
 - name: Sample Deployment
   items:
   - name: VNF Deployment
-    href: template-vnf-deployment.md
+    href: template-virtualized-network-function-deployment.md
   - name: CNF Deployment
-    href: template-cnf-deployment.md 
+    href: template-cloud-native-network-function-deployment.md 
 - name: Reference
   items:
-  - name: Instance to On-Premise WAN Connectivity
-    href: reference-ce-pe-connctivity.md
+  - name: Instance to On-Premises WAN Connectivity
+    href: reference-customer-edge-provider-edge-connectivity.md
   - name: List of Metrics Collected
     href: List-of-metrics-collected.md
   

@@ -9,14 +9,14 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: Deploy Operator Nexus platform software prerequisites
+# Quickstart: deploy Operator Nexus platform software prerequisites
 
 You'll need to complete the prerequisites before you can deploy the
 Operator Nexus platform software. Some of these steps may take
 weeks to months and, thus, a review of these prerequisites may prove beneficial.
 
 In subsequent deployments of Operator Nexus instances, you can skip to creating the on-premises
-network fabric and the cluster. An instance of Network Fabric Controller can support up to 32
+network fabric and the cluster. An instance of Network fabric Controller can support up to 32
 Operator Nexus instances.
 
 ## Prerequisites
@@ -30,7 +30,7 @@ your premises that may require some data gathering.
 ### Azure prerequisites
 
 - When deploying Operator Nexus for the first time or in a new region,
-you'll first need to create a Network Fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-NFC-CM-create.md).
+you'll first need to create a Network fabric Controller and then a (Network Cloud) Cluster Manager as specified [here](./quickstart-nfc-cm-create.md).
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
@@ -58,7 +58,7 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
     - HTTP access is enabled
   - Terminal Server Interface is connected to your on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
-- For the [Network Fabric configuration](./quickstarts-platform-deployment.md#step-1-create-network-fabric) (to be performed later)
+- For the [Network fabric configuration](./quickstarts-platform-deployment.md#step-1-create-network fabric) (to be performed later)
   you'll need to provide:
   - ExpressRoute credentials and information
   - Terminal Server IPs and credentials
@@ -73,7 +73,7 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
     `FC00:0000:0000:100::/59` to `FC00:0000:0000:4e0::/59` are used for
     the 32 instances of Operator Nexus supported for each NFC instance.
 
-## Set up Terminal Server
+## Set up terminal server
 
 1. Setup Hostname:
    [CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-)
@@ -149,7 +149,7 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
  ip a # verify loopback, NET1, NET2
 ```
 
-## Set up Pure Storage
+## Set up Pure storage
 
 1. Operator needs to install the Pure hardware as specified by the BOM and rack elevation within the Aggregation Rack.
 2. Operator will need to provide the Pure Technician with information, in order for the Pure Technician to arrive on-site to configure the appliance.
@@ -201,12 +201,12 @@ you'll first need to create a Network Fabric Controller and then a (Network Clou
    - ct1.eth18: not set by Operator during setup
    - ct1.eth19: not set by Operator during setup
 
-## Install CLI Extensions and sign-in to your Azure Subscription
+## Install CLI Extensions and sign-in to your Azure subscription
 
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-### Azure Subscription sign-in
+### Azure subscription sign-in
 
 ```azurecli
   az login

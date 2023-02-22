@@ -16,14 +16,14 @@ The lifecycle of these pre-certified network functions is managed by Azure Netwo
 
 In this section, we'll describe the process and the steps for network function pre-certification
 
-## Pre-certification of Network Function for operators
+## Pre-certification of network function for operators
 
 The goal is make available a catalog of network functions that
 conform to the Operator Nexus specifications. NF
 partners onboarding to pre-certification program and ANFM service won't be
 required to change the commercial licensing arrangement with the operators.
 
-## Pre-Certification Process
+## Pre-certification process
 
 This section outlines the pre-certification process for Network Function deployment.
 Microsoft uses this process with Network Equipment Providers (NEP) that
@@ -51,11 +51,12 @@ provides consistent Azure managed applications experience for network functions.
 
 Here are the steps of the NF Deployment pre-certification
 
-<!--- IMG ![Pre-Certification Process](Docs/media/nfm-precert-process.png) IMG --->
-:::image type="content" source="media/nfm-precert-process.png" alt-text="Pre-Certification Process":::
+<!--- IMG ![Pre-Certification Process](Docs/media/network-function-manager-precert-process.png) IMG --->
+:::image type="content" source="media/network-function-manager-precert-process.png" alt-text="Screenshot of Pre-Certification Process.":::
+
 Figure: Pre-Certification (precert) Process
 
-## Prerequisites and process for partner On-boarding to the Pre-Cert Lab
+## Prerequisites and process for partner on-boarding to the pre-cert lab
 
 To ensure an efficient and effective onboarding process for the partner there are perquisites to pre-certification lab entry.
 
@@ -84,7 +85,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
    b. The Operator Nexus platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft will engage with the partner and review:
 
    - the network fabric architecture
-   - and fabric automation APIs for the creation of L2/L3 isolation domains
+   - and fabric automation APIs for the creation of L2/L3 isolation-domains
    - L3 route policies that will extend the network connectivity from the node to the TOR/CE router.
 
    The fabric deep dive sessions will identify the peering requirements, route policies, and filters that need to be configured in the fabric for testing the network function.
@@ -95,7 +96,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 
 3. On reviewing the requirements (2a – 2d) and prior to smoke testing, Microsoft will work with the partners to define Azure Resource Manager (ARM) templates:
 
-   - for network fabric automation components – L2/L3 isolation domains, L3 route policies if any for the end-to-end test set-up
+   - for network fabric automation components – L2/L3 isolation-domains, L3 route policies if any for the end-to-end test set-up
    - for AKS-Hybrid (CNF), VM instance (VNF), workload networks and management networks that describe subcluster networking
    - onboard the helm charts and images to ANFM service and create a vendor image version for deployment into precert lab
    - for deployment of NFs using ANFM with the user data container pods/ VMs configuration properties
@@ -110,7 +111,7 @@ As a part of technical engagement, the documents that Microsoft will provide to 
 - Azure Resource Manager API specification document for creating fabric automation components that are required for tenant networking.
 - ARM API specification document for onboarding to ANFM service. The specification will also define the customer facing APIs for deployment of network functions using the ANFM service.
 
-### Scheduling/Partner Engagement
+### Scheduling/partner engagement
 
 The Network Function deployment pre-certification lab will be a shared
 infrastructure where multiple partners will be testing simultaneously. Based
@@ -120,7 +121,7 @@ various partners to complete the Network Function deployment pre-certification a
 If the partner has a dedicated Operator Nexus environment in their facility, Microsoft will work with them
 to enable updated version of Operator Nexus software to complete Network Function deployment pre-certification.
 
-#### Deployment Testing
+#### Deployment testing
 
 ##### Scope of testing in the pre-certification lab
 
@@ -137,7 +138,7 @@ performed by the partners and results reviewed by Microsoft:
    cluster definition, include:
 
     - AKS-Hybrid cluster/ VM instance
-    - managed fabric resources for isolation domain and L3 route policies
+    - managed fabric resources for isolation-domain and L3 route policies
     - workload networks and management network resources for Kubernetes networks/ VM networks
 
 2. Verify the basic network connectivity between all the end points of test

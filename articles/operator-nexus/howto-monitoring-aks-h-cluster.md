@@ -9,7 +9,7 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Monitoring AKS-Hybrid cluster
+# Monitoring AKS-hybrid cluster
 
 Each AKS-Hybrid cluster consists of multiple layers:
 
@@ -18,7 +18,9 @@ Each AKS-Hybrid cluster consists of multiple layers:
 - Application pods
 
 <!--- IMG ![AKS-Hybrid-Stack](Docs/media/sample-aks-hybrid-stack.png) IMG --->
-:::image type="content" source="media/sample-aks-hybrid-stack.png" alt-text="Sample AKS-Hybrid-Stack":::
+:::image type="content" source="media/sample-aks-hybrid-stack.png" alt-text="Screenshot of Sample AKS-Hybrid-Stack.":::
+
+
 Figure: Sample AKS-Hybrid Stack
 
 AKS-Hybrid clusters, on an Operator Nexus instance, are delivered with an _optional_ observability solution, [Container Insights](/azure/azure-monitor/containers/container-insights-overview).
@@ -28,10 +30,12 @@ It's solely your discretion whether to enable this tooling or deploy your own te
 The AKS-Hybrid cluster with Azure monitoring tool looks like:
 
 <!--- IMG ![AKS-Hybrid with Monitoring Tools](Docs/media/ask-hybrid-w-monitoring-tools.png) IMG --->
-:::image type="content" source="media/ask-hybrid-w-monitoring-tools.png" alt-text="AKS-Hybrid with Monitoring Tools":::
+:::image type="content" source="media/ask-hybrid-w-monitoring-tools.png" alt-text="Screenshot of AKS-Hybrid with Monitoring Tools.":::
+
+
 Figure: AKS-Hybrid with Monitoring Tools
 
-## Extension Onboarding with CLI using Managed Identity Auth
+## Extension onboarding with CLI using managed identity auth
 
 When enabling Monitoring agents on AKS-Hybrid clusters using CLI, ensure appropriate versions of CLI are installed:
 
@@ -46,7 +50,7 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Monitoring AKS-Hybrid – VM Layer
+## Monitoring AKS-hybrid – VM layer
 
 This how-to guide provides steps and utility scripts to [Arc connect](/azure/azure-arc/servers/overview)
 the AKS-Hybrid Virtual Machines to Azure and enable monitoring agents on top for collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
@@ -91,7 +95,7 @@ az provider register --namespace 'Microsoft.HybridConnectivity'
 | [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and [Resource Policy Contributor](/azure/role-based-access-control/built-in-roles#resource-policy-contributor) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Needed if wanting to use Azure policy assignment(s) to [ensure Arc-enabled machines are associated to a DCR](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) |
 | [Kubenetes Extension Contributer](/azure/role-based-access-control/built-in-roles#kubernetes-extension-contributor) | Needed to deploy the K8s extension for Container Insights |
 
-### Environment Setup
+### Environment setup
 
 The scripts included with these instructions can be copied to, and run from an
 [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or any Linux command
@@ -117,7 +121,7 @@ For convenience, the template file, `arc-connect.env` can be modified and used t
  ./arc-connect.env
 ```
 
-### Adding a Data Collection Rule (DCR)
+### Adding a data collection rule (DCR)
 
 Arc-enabled servers must be associated to a DCR in order to enable the collection of log data into a Log Analytics workspace.
 The DCR may be created via the Azure portal or CLI. More information on creating a DCR to collect data from the VMs can be found [here](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
@@ -150,14 +154,14 @@ By default, the Linux Syslog log level is set to "INFO" but may be updated as ne
 Once a DCR is created, associate the Arc-enabled server resources to the DCR for logs to flow to the Log Analytics workspace.
 There are options for how it can be done:
 
-#### Use Azure portal or CLI to Associate Selected Arc-enabled Servers to DCR
+#### Use Azure portal or CLI to associate selected Arc-enabled servers to DCR
 
 In Azure portal, add Arc-enabled server resource to the DCR using its Resources section.
 
 Use this [link](/cli/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-create)
 for information about associating the resources via the Azure CLI.
 
-### Use Azure Policy to Manage DCR Associations
+### Use Azure policy to manage DCR associations
 
 Another mechanism to associate all Arc-enabled servers within a resource group to the same DCR is to assign a policy to the resource group that will enforce the association.
 There's a built-in policy definition, [Configure Linux Arc Machines to be associated with a Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) which can be assigned to the resource group with a specified DCR as a parameter.
@@ -175,7 +179,7 @@ For convenience, the **`assign.sh`** script is provided, which will assign the b
 ./assign.sh
 ```
 
-#### Connecting Arc-enabled servers and Installing Azure Monitoring Agent
+#### Connecting Arc-enabled servers and installing azure monitoring agent
 
 The included **`install.sh`** script can be used to Arc-enroll all server VMs that represent the nodes of the AKS-Hybrid cluster.
 This script creates a Kubernetes daemonSet on the AKS-Hybrid cluster.
@@ -212,9 +216,9 @@ At that point the Arc-enabled servers will appear as resources within the select
 
 **Note:** Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr). If a policy assignment was configured, there may be a delay to see logs.
 
-### Monitoring AKS-Hybrid – K8s layer
+### Monitoring AKS-hybrid – K8s layer
 
-#### Prerequisites-K8s
+#### Prerequisites-Kubernetes
 
 There are certain prerequisites the operator should ensure to configure the monitoring tools on AKS-Hybrid clusters.
 
@@ -248,7 +252,7 @@ Container Insights and view data in the applicable Log Analytics workspace
 - [Log Analytics Contributor](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: necessary permissions to enable container monitoring on a CNF (provisioned) cluster.
 - [Log Analytics Reader](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: non-members of the Log Analytics Contributor role, receive permissions to view data in the Log Analytics workspace once container monitoring is enabled.
 
-#### Installing the Cluster Extension
+#### Installing the cluster extension
 
 Sign-in into the [Azure Cloud Shell](/azure/cloud-shell/overview) to access the cluster:
 
@@ -260,7 +264,7 @@ az account set --subscription "<Subscription Name or ID the Provisioned Cluster 
 
 Once, the subscription is set, deploy Container Insights extension on a provisioned AKS-Hybrid cluster using either of the next two commands:
 
-#### With customer pre-created Log Analytics workspace
+#### With customer pre-created Log analytics workspace
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers \
@@ -274,7 +278,7 @@ az k8s-extension create --name azuremonitor-containers \
   amalogsagent.useAADAuth=true
 ```
 
-#### Using the default Log Analytics workspace
+#### Using the default Log analytics workspace
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers \
@@ -287,7 +291,7 @@ az k8s-extension create --name azuremonitor-containers \
   --configuration-settings amalogsagent.useAADAuth=true
 ```
 
-#### Cluster Extension Validation
+#### Cluster extension validation
 
 The successful deployment of monitoring agents’ enablement on AKS-Hybrid clusters can be validated using the following command:
 
@@ -301,11 +305,11 @@ az k8s-extension show --name azuremonitor-containers \
 
 Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extension create" command may have also returned the status.
 
-#### Customize Logs & Metrics Collection
+#### Customize logs & metrics collection
 
 Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from AKS-Hybrid clusters -- [Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-agent-config).
 
-## Additional Resources
+## Additional resources
 
 - Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
 - Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).

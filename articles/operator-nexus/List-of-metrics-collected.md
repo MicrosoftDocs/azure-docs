@@ -9,9 +9,9 @@ ms.date: 02/03/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# List of Metrics Collected in Azure Operator Nexus
+# List of metrics collected in Azure Operator Nexus
 
-This section provides teh list of metrics collected from the different components.
+This section provides the list of metrics collected from the different components.
 
 - [API server](#api-server)
 - [coreDNS](#coredns)
@@ -20,7 +20,7 @@ This section provides teh list of metrics collected from the different component
 - [Felix](#felix)
 - [Kubernetes Services](#kubernetes-services)
 - [kubevirt](#kubevirt)
-- [Node (serevrs)](#node-serevrs)
+- [Node (servers)](#node-servers)
 - [Pure Storage](#pure-storage)
 - [Typha](#typha)
 
@@ -154,7 +154,7 @@ This section provides teh list of metrics collected from the different component
 | kubevirt_vmi_storage_write_times_ms_total | VM-Storage | Mili Second | Average | Total time (ms) spent on write operations | Cluster, Node, VM, Drive | Yes |
 | kubevirt_virt_controller_ready | Kubevirt Controller | Labels | Average | Indication for a virt-controller that is ready to take the lead. | Cluster, Pod | Yes |
 
-## Node (serevrs)
+## Node (servers)
 
 | Metric      | Category | Unit | Aggregation Type | Description     | Dimensions     | Exportable via <br/>Diagnostic Settings? |
 |-------------|-------------|-----|----------|-------------------------------------|---------------------|-------|
@@ -211,7 +211,7 @@ This section provides teh list of metrics collected from the different component
 | idrac_sensors_temperature | Node - Temperature | Celcius | Average | Idrac sensor Temperature | Cluster, Node, Name | Yes |
 | idrac_power_on | Node - Power | Labels | Average | Idrac Power On Status | Cluster, Node | Yes |
 
-## Pure Storage
+## Pure storage
 
 | Metric      | Category | Unit | Aggregation Type | Description     | Dimensions     | Exportable via <br/>Diagnostic Settings? |
 |-------------|-------------|-----|----------|-------------------------------------|---------------------|-------|
@@ -249,7 +249,6 @@ This section provides teh list of metrics collected from the different component
 | typha_connections_accepted | Typha | Count | Average | Total number of connections accepted over time. | Cluster, Node | Yes |
 | typha_connections_dropped | Typha | Count | Average | Total number of connections dropped due to rebalancing. | Cluster, Node | Yes |
 | typha_ping_latency_count | Typha | Count | Average | Round-trip ping latency to client. | Cluster, Node | Yes |
-
 
 ## Collected set of metrics
 

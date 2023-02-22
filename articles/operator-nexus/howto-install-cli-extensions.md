@@ -9,7 +9,7 @@ ms.date: 01/27/2023
 # ms.custom: template-include #Required;
 ---
 
-# Install Azure CLI Extensions
+# Install Azure CLI extensions
 
 Install the following CLI extensions:
 
@@ -17,7 +17,7 @@ Install the following CLI extensions:
 - `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs)
 - `hybridaks` (for AKS-Hybrid APIs)
 
-- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links will always download the latest available version of the extension.
+- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links downloads the latest available version of the extension.
 
 - Install `networkcloud` CLI extension
 
@@ -29,13 +29,13 @@ Install the following CLI extensions:
 
 - Download the `networkcloud` python wheel
 
-# [Linux / MacOS / WSL](#tab/linux+macos+wsl)
+# [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
     curl -L "https://aka.ms/aods-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
 ```
 
-# [Powershell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```ps
     curl "https://aka.ms/aods-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
@@ -60,13 +60,13 @@ Install the following CLI extensions:
 
 - Download the `managednetworkfabric` python wheel
 
-# [Linux / MacOS / WSL](#tab/linux+macos+wsl)
+# [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
     curl -L "https://aka.ms/aods-nf-cli" --output "managednetworkfabric-0.0.0-py3-none-any.whl"
 ```
 
-# [Powershell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```ps
     curl "https://aka.ms/aods-nf-cli" -OutFile "managednetworkfabric-0.0.0-py3-none-any.whl"
@@ -91,13 +91,13 @@ Install the following CLI extensions:
 
 - Download the `hybridaks` python wheel
 
-# [Linux / MacOS / WSL](#tab/linux+macos+wsl)
+# [Linux / macOS / WSL](#tab/linux+macos+wsl)
 
 ```sh
     curl -L "https://aka.ms/aods-hybridaks-cli" --output "hybridaks-0.0.0-py3-none-any.whl"
 ```
 
-# [Powershell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```ps
     curl "https://aka.ms/aods-hybridaks-cli" -OutFile "hybridaks-0.0.0-py3-none-any.whl"
@@ -152,7 +152,7 @@ ssh                      1.1.3
 ```
 
 <!-- LINKS - Internal -->
-[howto-configure-networkfabric]: ./howto-configure-networkfabric.md
+[howto-configure-network fabric]: ./howto-configure-network fabric.md
 [quickstarts-tenant-workload-deployment]: ./quickstarts-tenant-workload-deployment.md
 
 <!-- LINKS - External -->

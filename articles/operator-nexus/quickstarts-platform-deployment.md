@@ -9,31 +9,31 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Platform Software Deployment
+# Platform software deployment
 
 In this quickstart, you'll learn step by step process to deploy the Azure Operator Distributed
 Services platform software.
 
-- Step 1: Create Network Fabric
+- Step 1: Create Network fabric
 - Step 2: Create a Cluster
-- Step 3: Provision the Network Fabric
+- Step 3: Provision the Network fabric
 - Step 4: Provision the Cluster
 
 These steps use commands and parameters that are detailed in the API documents.
 
 ## Prerequisites
 
-- Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
+- Verify that Network fabric Controller and Cluster Manger exist in your Azure region
 - Complete the [prerequisite steps](./quickstarts-platform-prerequisites.md).
 
-## API Guide and Metrics
+## API guide and metrics
 
 The [API guide](/rest/api/azure/azure-operator-distributed-services) provides
 information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
-## Step 1: Create Network Fabric
+## Step 1: create network fabric
 
 The network fabric instance (NF) is a collection of all network devices
 described in the previous section, associated with a single Operator Nexus instance. The NF
@@ -41,7 +41,7 @@ instance interconnects compute servers and storage instances within an Operator 
 instance. The NF facilitates connectivity to and from your network to
 the Operator Nexus instance.
 
-Create the Network Fabric:
+Create the Network fabric:
 
 ```azurecli
 az nf fabric create --resource-group $FABRIC_RG --location $LOCATION \
@@ -60,7 +60,7 @@ az nf fabric show --resource-group "$FABRIC_RG" \
   --resource-name "$FABRIC_RESOURCE_NAME"
 ```
 
-Create the Network Fabric Racks (Aggregate and Compute Racks).
+Create the Network fabric Racks (Aggregate and Compute Racks).
 Repeat for each rack in the SKU.
 
 ```azurecli
@@ -72,7 +72,7 @@ az nf rack create  \
 --resource-name "$RACK_RESOURCE_NAME"
 ```
 
-Update the Network Fabric Device names and Serial Numbers for all devices.
+Update the Network fabric Device names and Serial Numbers for all devices.
 Repeat for each device in the SKU.
 
 ```azurecli
@@ -83,15 +83,15 @@ az nf device update  --resource-group "$FABRIC_RG" \
   --network-device-role "$DEVICE_ROLE" --serial-number "$DEVICE_SN"
 ```
 
-### Parameters for Network Fabric operations
+### Parameters for network fabric operations
 
 | Parameter name       | Description                                                                                                                                                |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FABRIC_RESOURCE_NAME | Resource Name of the Network Fabric Controller                                                                                                             |
+| FABRIC_RESOURCE_NAME | Resource Name of the Network fabric Controller                                                                                                             |
 | LOCATION             | The Azure Region where the NFC will be deployed (for example, `eastus`)                                                                                    |
 | FABRIC_RG            | The resource group name                                                                                                                                    |
-| NF_SKU               | SKU of the Network Fabric that needs to be created                                                                                                         |
-| NFC_ID               | Reference to Network Fabric Controller                                                                                                                     |
+| NF_SKU               | SKU of the Network fabric that needs to be created                                                                                                         |
+| NFC_ID               | Reference to Network fabric Controller                                                                                                                     |
 | NNI_FABRIC_ASN       | ASN of PE devices                                                                                                                                          |
 | NNI_PEER_ASN         | Router ID to be used for MP-BGP between PE and CE                                                                                                          |
 | L3_IPV4_PREFIX1      | L3 IPV4 Primary Prefix                                                                                                                                     |
@@ -104,16 +104,16 @@ az nf device update  --resource-group "$FABRIC_RG" \
 | ER_TARGETS           | Export route targets of management VPN (MP-BGP) to NFC via PE devices and express route.                                                                   |
 | WL_IR_TARGETS        | Import route targets of workload VPN (MP-BGP) to NFC via PE devices and express route.                                                                     |
 | WL_ER_TARGETS        | Export route targets of workload VPN (MP-BGP) to NFC via PE devices and express route.                                                                     |
-| RACK_SKU             | SKU of the Network Fabric Rack that needs to be created                                                                                                    |
+| RACK_SKU             | SKU of the Network fabric Rack that needs to be created                                                                                                    |
 | RACK_RESOURCE_NAME   | RACK resource name                                                                                                                                         |
 | DEVICE_RESOURCE_NAME | Device resource name                                                                                                                                       |
 | DEVICE_NAME          | Device customer name                                                                                                                                       |
 | DEVICE_ROLE          | Device Type (CE/NPB/MGMT/TOR)                                                                                                                              |
 | DEVICE_SN            | Device serial number for DHCP using format `*VENDOR*;*DEVICE_MODEL*;*DEVICE_HW_VER*;*DEVICE_SN*` (for example, `Arista;DCS-7280DR3K-24;12.04;JPE22113317`) |
 
-### Validation
+### NF validation
 
-The Network Fabric creation will result in the Fabric Resource and other hosted resources to be created in the Fabric hosted resource groups. The other resources include racks, devices, MTU size, IP address prefixes.
+The Network fabric creation will result in the Fabric Resource and other hosted resources to be created in the Fabric hosted resource groups. The other resources include racks, devices, MTU size, IP address prefixes.
 
 View the status of the Fabric:
 
@@ -124,22 +124,22 @@ az nf fabric show --resource-group "$FABRIC_RG" \
 
 The Fabric deployment is complete when the `provisioningState` of the resource shows: `"operationalState": "Succeeded"`
 
-### Logging
+### NF logging
 
 Fabric create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 2: Create a Cluster
+## Step 2: create a cluster
 
 The Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
-You should have successfully created the Network Fabric for this on-premises deployment.
+You should have successfully created the Network fabric for this on-premises deployment.
 Each Operator Nexus on-premises instance has a one-to-one association
-with a Network Fabric.
+with a Network fabric.
 
 Create the Cluster:
 
@@ -157,7 +157,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA_SN","storageApplianceName":"$SA_NAME"}]' \
   --compute-rack-definitions '[{"networkRackId": "$COMPX_RACK_RESOURCE_ID", "rackSkuId": "$COMPX_RACK_SKU", "rackSerialNumber": "$COMPX_RACK_SN", "rackLocation": "$COMPX_RACK_LOCATION", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"$COMPX_SVRY_BMC_PASS", "username":"$COMPX_SVRY_BMC_USER"}, "bmcMacAddress":"$COMPX_SVRY_BMC_MAC", "bootMacAddress":"$COMPX_SVRY_BOOT_MAC", "machineDetails":"$COMPX_SVRY_SERVER_DETAILS", "machineName":"$COMPX_SVRY_SERVER_NAME"}]}]'\
   --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
-  --network-fabric-id "$NFC_ID" \
+  --network fabric-id "$NFC_ID" \
   --cluster-service-principal application-id="$SP_APP_ID" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
@@ -170,7 +170,7 @@ az networkcloud cluster wait --created --name "$CLUSTER_NAME" --resource-group
 You can instead create a Cluster with ARM template/parameter files in
 [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template):
 
-### Parameters for Cluster operations
+### Parameters for cluster operations
 
 | Parameter name            | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -201,7 +201,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | COMPX_SVRY_SERVER_NAME    | CompX Rack ServerY name, repeat for each rack in compute-rack-definitions and for each server in rack                 |
 | MRG_NAME                  | Cluster managed resource group name                                                                                   |
 | MRG_LOCATION              | Cluster Azure region                                                                                                  |
-| NFC_ID                    | Reference to Network Fabric Controller                                                                                |
+| NFC_ID                    | Reference to Network fabric Controller                                                                                |
 | SP_APP_ID                 | Service Principal App ID                                                                                              |
 | SP_PASS                   | Service Principal Password                                                                                            |
 | SP_ID                     | Service Principal ID                                                                                                  |
@@ -213,7 +213,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                               |
 | TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                         |
 
-### Validation
+### Cluster validation
 
 A successful Operator Nexus Cluster creation will result in the creation of an AKS cluster
 inside your subscription. The cluster ID, cluster provisioning state and
@@ -229,32 +229,32 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
 The Cluster deployment is complete when the `provisioningState` of the resource
 shows: `"provisioningState": "Succeeded"`
 
-#### Logging
+#### Cluster logging
 
 Cluster create Logs can be viewed in the following locations:
 
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 3: Provision Network Fabric
+## Step 3: provision network fabric
 
 The network fabric instance (NF) is a collection of all network devices
 associated with a single Operator Nexus instance.
 
-Provision the Network Fabric:
+Provision the Network fabric:
 
 ```azurecli
 az nf fabric provision --resource-group "$FABRIC_RG" \
   --resource-name "$FABRIC_RESOURCE_NAME"
 ```
 
-### Validation
+### NF provisioning validation
 
-Provisioning of the Fabric will result in the Fabric racks and device resources created
+Provisioning of the fabric will result in the Fabric racks and device resources created
 in the Fabric hosted resource groups. The following data is returned as a result of
-successful Network Fabric create: racks, MTU size, IP address prefixes, etc.
+successful Network fabric create: racks, MTU size, IP address prefixes, etc.
 
-View the status of the Fabric:
+View the status of the fabric:
 
 ```azurecli
 az nf fabric show --resource-group "$FABRIC_RG" \
@@ -271,7 +271,7 @@ Fabric create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Step 4: Deploy Cluster
+## Step 4: Deploy cluster
 
 Once a Cluster has been created and the Rack Manifests have been added, the
 deploy cluster action is triggered. The deploy cluster action creates the
@@ -295,7 +295,7 @@ az networkcloud cluster deploy \
   --subscription "$SUBSCRIPTION_ID"
 ```
 
-## Validation
+## Cluster deployment validation
 
 View the status of the cluster:
 
@@ -307,7 +307,7 @@ az networkcloud Cluster show --resource-group "$CLUSTER_RG" \
 The Cluster deployment is complete when the `provisioningState` of the resource
 shows: `"provisioningState": "Succeeded"`
 
-## Logging
+## Cluster deployment Logging
 
 Cluster create Logs can be viewed in the following locations:
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure 
 ---
 
-# Cluster Manager: lifecycle management
+# Cluster manager: lifecycle management
 
 You'll need to upgrade or patch a Cluster Manager. You may need to examine or change its properties. When all Operator Nexus  instances have been deleted from your sites, you may need to delete the Cluster Manager.
 In this how-to guide you'll learn to manage a Cluster Manager. The `networkcloud` resource provider supports `create`, `list` (also known as read), `show`, `update` and `delete` operations on the `clustermanager` resource.
@@ -18,10 +18,10 @@ In this how-to guide you'll learn to manage a Cluster Manager. The `networkcloud
 
 You'll need:
 
-- **Azure subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network Fabric Controller) or exists.
-- **Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in your same Resource group.
+- **Azure subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network fabric Controller) or exists.
+- **Fabric Controller ID** - Network fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network fabric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in your same Resource group.
 - **analytics workspace ID** - The resource ID of the Log Analytics workspace used for the logs collection.
-- **Azure Region** - The Cluster Manager should be created in the same region as the Network Fabric Controller.
+- **Azure Region** - The Cluster Manager should be created in the same region as the Network fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
 ## Prerequisites: install CLI extensions
@@ -39,7 +39,7 @@ Some arguments that are available for every Azure CLI command
 - **--query** - uses the JMESPath query language to filter the output returned from Azure services.
 - **--verbose** - prints information about resources created in Azure during an operation, and other useful information
 
-## Cluster Manager Elements
+## Cluster manager elements
 
 | Elements                          | Description                                                                                                                                                                                                                              |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ Some arguments that are available for every Azure CLI command
 | detailedStatus                    | Detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                           |
 | detailedStatusMessage             | Descriptive message about the current detailedStatus.                                                                                                                                                                                    |
 
-## Create a Cluster Manager
+## Create a cluster manager
 
 Use the `az network clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
@@ -73,7 +73,7 @@ The command returns 200 OK in the successful creation or update. 201 Created is 
 
 - **Arguments**
   - **--name -n [Required]** - The name of the Cluster Manager.
-  - **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
+  - **--fabric-controller-id [Required]** - The resource ID of the Network fabric Controller that is associated with the Cluster Manager.
   - **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
   - **--analytics-workspace-id** - The resource ID of the Log Analytics workspace that is used for the logs collection
   - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location=<location>`.
@@ -87,11 +87,11 @@ The command returns 200 OK in the successful creation or update. 201 Created is 
   - **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
-## List/show Cluster Manager(s)
+## List/show cluster manager(s)
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
 
-### List Cluster Managers in Resource group
+### List cluster managers in resource group
 
 This command lists the Cluster Managers in the specified Resource group.
 
@@ -99,7 +99,7 @@ This command lists the Cluster Managers in the specified Resource group.
 az networkcloud clustermanager list --resource-group <Azure Resource group>
 ```
 
-### List Cluster Managers in subscription
+### List cluster managers in subscription
 
 This command lists the Cluster Managers in the specified subscription.
 
@@ -107,7 +107,7 @@ This command lists the Cluster Managers in the specified subscription.
 az networkcloud clustermanager list  --subscription <subscription ID>
 ```
 
-### Show Cluster Manager properties
+### Show cluster manager properties
 
 This command lists the properties of the specified Cluster Manager.
 
@@ -118,14 +118,14 @@ az networkcloud clustermanager show \
     --subscription <subscription ID>
 ```
 
-### List/Show command arguments
+### List/show command arguments
 
 - **--name -n** - The name of the Cluster Manager.
 - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
 - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
 - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
-## Update Cluster Manager
+## Update cluster manager
 
 This command is used to Patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
 
@@ -144,10 +144,10 @@ az networkcloud clustermanager update \
   - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
-## Delete Cluster Manager
+## Delete cluster manager
 
 This command is used to Delete the provided Cluster Manager.
-A Cluster Manager that has an existing associated Network Fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted
+A Cluster Manager that has an existing associated Network fabric Controller, or any Clusters that reference this Cluster Manager may not be deleted
 
 ```azurecli
 az networkcloud clustermanager delete \

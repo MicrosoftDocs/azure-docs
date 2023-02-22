@@ -18,8 +18,9 @@ Operator Nexus meets operators' security, resiliency, observability and performa
 The platform seamlessly integrates compute, network, and storage.
 The user can operate and deploy the platform end-to-end via Azure portal, CLI, or APIs.
 
-<!--- IMG ![Operator Nexus Overview diagram](Docs/media/architecture-overview.png) IMG --->
-:::image type="content" source="media/architecture-overview.png" alt-text="Operator Nexus Overview diagram":::
+<!--- IMG ![Operator Nexus HL overview diagram](Docs/media/hl-architecture.png) IMG --->
+:::image type="content" source="media/hl-architecture.png" alt-text="Figure of Operator Nexus overview.":::
+
 Figure: Operator Nexus Overview
 
 ## Key benefits
@@ -47,12 +48,13 @@ Operator Nexus requires curated hardware Bill of Materials. It is comprised of c
 The service that manages the Operator Nexus infrastructure is hosted in Azure. Operators can choose an Azure region that supports Operator Nexus for any on-premises Operator Nexus infrastructure or deployment.  The diagram illustrates the architecture of the Operator Nexus service.
 
 <!--- IMG ![How Operator Nexus works diagram](Docs/media/architecture-overview.png) IMG --->
-:::image type="content" source="media/architecture-overview.png" alt-text="How Operator Nexus works diagram":::
+:::image type="content" source="media/architecture-overview.png" alt-text="Screenshot of how Operator Nexus works.":::
+
 Figure: How Operator Nexus works
 
 1. The management layer of Operator Nexus is built on Azure Resource Manager (ARM), that provides consistent user experience in Azure portal and API.
 2. Azure Resource Providers provide modeling and lifecycle management of [Operator Nexus resources](./concepts-resource-types.md) such as bare metal machines, clusters, network devices, etc.
-3. Operator Nexus controllers, that is, Cluster Manager and Network Fabric Controller, are deployed in a managed Virtual Network (vNET) connected to operator's on-premises network. The controllers enable functionalities such as infrastructure bootstrapping, configurations, service upgrades etc.
+3. Operator Nexus controllers, that is, Cluster Manager and Network fabric Controller, are deployed in a managed Virtual Network (vNET) connected to operator's on-premises network. The controllers enable functionalities such as infrastructure bootstrapping, configurations, service upgrades etc.
 4. Operator Nexus is integrated with many Azure services such as Azure Monitor, Azure Container Registries, and Azure Kubernetes Services.
 5. Azure Arc enables a seamless integration of Azure cloud services and on-premises environments, translating between the ARM models and the Kubernetes resource definitions.
 6. ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations.
@@ -79,7 +81,7 @@ One important component of the service is Cluster Manager.
 
 ### Network fabric automation
 
-Operator Nexus goes beyond compute and includes Network Fabric Automation (NFA). The [NFA](./howto-configure-networkfabric.md) service enables operators to build, operate and manage carrier grade network fabric. The reliable and distributed cloud services model supports the operators' telco network functions. For example, to bootstrap network devices in Operator Nexus, operators just need to call an Azure API to trigger the Zero Touch Provisioning (ZTP) process. ZTP downloads the configuration templates from a terminal server, which is built in Operator Nexus design, to all the network devices and provisions them to the initial known state.
+Operator Nexus goes beyond compute and includes Network fabric Automation (NFA). The [NFA](./howto-configure-network fabric.md) service enables operators to build, operate and manage carrier grade network fabric. The reliable and distributed cloud services model supports the operators' telco network functions. For example, to bootstrap network devices in Operator Nexus, operators just need to call an Azure API to trigger the Zero Touch Provisioning (ZTP) process. ZTP downloads the configuration templates from a terminal server, which is built in Operator Nexus design, to all the network devices and provisions them to the initial known state.
 
 ### Network packet broker
 
@@ -89,7 +91,7 @@ Network Packet Broker (NPB) is an integral part of the network fabric in Operato
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets users focus on developing and deploying their workloads while letting Azure handle the management and operational overheads. In [AKS-Hybrid](/azure/aks/hybrid/) the Kubernetes cluster is deployed on-premises. Azure still performs the traditional operational management activities such as updates, certificate rotations, etc.
 
-### Network Functions Virtualization Infrastructure capabilities
+### Network functions virtualization infrastructure capabilities
 
 As a platform, Operator Nexus is designed for telco network functions and optimized for carrier-grade performance and resiliency. It has many built-in Network Functions Virtualization Infrastructure (NFVI) capabilities:
 

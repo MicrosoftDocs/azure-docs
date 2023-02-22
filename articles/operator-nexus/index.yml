@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Operator Nexus Overview
+  - title: Operator Nexus overview
     linkLists:
       - linkListType: overview
         links:
@@ -28,7 +28,7 @@ landingContent:
              url: overview.md
       - linkListType: concept
         links:
-           - text: Resource Types
+           - text: Resource types
              url: concepts-resource-types.md
            - text: Observability
              url: concepts-observability.md
@@ -40,12 +40,12 @@ landingContent:
 #            url: howto-workbooks-alerts.md
 #  
   # Card
-  - title: QuickStart Guides
+  - title: QuickStart guides
     linkLists:
       - linkListType: quickstart
         links:
            - text: Before you start deployment
-             url: quickstart-NFC-CM-create.md       
+             url: quickstart-nfc-cm-create.md       
            - text: Before you start platform deployment
              url: quickstarts-platform-prerequisites.md
            - text: Platform deployment
@@ -58,21 +58,21 @@ landingContent:
              url: quickstarts-tenant-workload-deployment.md
 #
   # Card
-# - title: How-To Guides
+# - title: How-to guides
 #   linkLists:
 #     - linkListType: how-to-guide
 #       links:
-#          - text: BareMetal Functions
+#          - text: BareMetal functions
 #            url: bare-metal-functions.md
-#          - text: Workbooks and Alerts
+#          - text: Workbooks and alerts
 #            url: workbooks-alerts.md
-#          - text: Cluster Manager
+#          - text: Cluster manager
 #            url: howto-cluster-manager.md
-#          - text: AKS-Hybrid Manager
+#          - text: AKS-Hybrid manager
 #            url: howto-aks-h-manager.md
 #
   # Card
-# - title: Deploy Platform
+# - title: Deploy platform
 #   linkLists:
 #     - linkListType: quickstart
 #       links:
@@ -82,23 +82,23 @@ landingContent:
 #            url: quickstarts-platform-deployment.md
 #     - linkListType: how-to-guide
 #       links:
-#          - text: Network Fabric controller
-#            url: howto-configure-networkfabriccontroller.md
+#          - text: Network fabric controller
+#            url: howto-configure-network fabric-controller.md
 #         links:
-#          - text: Cluster Manager
+#          - text: Cluster manager
 #            url: howto-cluster-manager.md
 #         links:
-#          - text: Configure: Network Fabric
-#            url: howto-configure-networkfabric.md
+#          - text: Configure: network fabric
+#            url: howto-configure-network fabric.md
   # Card
 # - title: Deploy workloads
 #   linkLists:
 #     - linkListType: sample
 #       links:
-#          - text: Sample VNF Deployment
+#          - text: Sample VNF deployment
 #            url: sample-vnf-deployment.md
 #       links:
-#          - text: Sample CNF Deployment
+#          - text: Sample CNF deployment
 #            url: sample-cnf-deployment.md
 #     - linkListType: quickstart
 #       links:
@@ -113,10 +113,10 @@ landingContent:
 #            url: howto-baremetal-functions.md
 #        links:
 #          - text: AKS-Hybrid clusters
-#            url: howto-hybridaks.md
+#            url: howto-hybrid-aks.md
 #        links:
 #          - text: Tenant networking
-#            url: howto-configure-isolutiondomain.md
+#            url: howto-configure-isolation-domain.md
 #        links:
 #          - text: Install CLI extensions
 #            url: howto-install-cli-extensions.md            

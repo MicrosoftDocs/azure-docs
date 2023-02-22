@@ -14,41 +14,42 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 This article introduces you to the Operator Nexus components represented as Azure resources in Azure Resource Manager.
 
 <!--- IMG ![Resource Types](Docs/media/resource-types.png) IMG --->
-:::image type="content" source="media/resource-types.png" alt-text="Resource Types":::
+:::image type="content" source="media/resource-types.png" alt-text="Screenshot of Resource Types.":::
+
 Figure: Resource model
 
 ## Platform components
 
 Your Operator Nexus Cluster (or simply instance) platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
 
-### Network Fabric Controller
+### Network fabric controller
 
-The Network Fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an Operator Nexus instance.
+The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an Operator Nexus instance.
 The NFC resource is created in the Resource group specified by you in your Azure subscription.
 NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
 The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
-An NFC can manage the network fabric of many (subject to limits) Operator Nexus on-rpemises instances.
+An NFC can manage the network fabric of many (subject to limits) Operator Nexus on-premises instances.
 
-### Network Fabric
+### Network fabric
 
-The Network Fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each Operator Nexus instance has one Network Fabric.
+The Network fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each Operator Nexus instance has one Network fabric.
 
-The Network Fabric Controller (NFC) performs the lifecycle management of the network fabric.
+The Network fabric Controller (NFC) performs the lifecycle management of the network fabric.
 It configures and bootstraps the network fabric resources. 
 
-### Cluster Manager
+### Cluster manager
 
 A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
-### Operator Nexus Cluster
+### Operator nexus cluster
 
 An Operator Nexus cluster models a collection of racks, bare metal machines, storage, and networking.
-Each cluster (sometimes also referred as Operator Nexus instance) is mapped to the on-premises Network Fabric. An Operator Nexus cluster provides a holistic view of the deployed capacity.
+Each cluster (sometimes also referred as Operator Nexus instance) is mapped to the on-premises Network fabric. An Operator Nexus cluster provides a holistic view of the deployed capacity.
 Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. An Operator Nexus cluster is also the basic unit for compute and storage upgrades.
 
-### Network Rack
+### Network rack
 
 The Network rack consists of Consumer Edge (CE) routers, Top of Rack switches (ToRs), storage appliance, Network Packet Broker (NPB), and the Terminal Server.
 The rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other racks.
@@ -57,7 +58,7 @@ The rack also models the connectivity to the operator's Physical Edge switches (
 
 The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switch and ToRs. The Rack is created, updated or deleted as part of the Cluster lifecycle management.
 
-### Storage Appliance
+### Storage appliance
 
 Storage Appliances represent storage arrays used for persistent data storage in the Operator Nexus instance. All user and consumer data is stored in these appliances local to your premises. This local storage complies with some of the most stringent local data storage requirements.
 
@@ -73,7 +74,7 @@ Workload components are resources that you use in hosting your workloads.
 ### Network resources
 
 The Network resources represent the virtual networking in support of your workloads hosted on  VMs or AKS-Hybrid clusters. 
-There are five Network resource types that represent a network attachment to an underlying isolation domain. 
+There are five Network resource types that represent a network attachment to an underlying isolation-domain. 
 
 - **Cloud Services Network Resource**: provides VMs/AKS-Hybrid clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network in each of your Operator Nexus instances. Each Cloud Service Network can be reused by many VMs and/or AKS-Hybrid clusters.
 
@@ -85,10 +86,10 @@ There are five Network resource types that represent a network attachment to an 
 
 - **Trunked Network Resource**: provides a VM or an AKS-Hybrid cluster access to multiple layer 3 networks and/or multiple layer 2 networks.
 
-### Virtual Machine
+### Virtual machine
 
 You can use VMs to host your Virtualized Network Function (VNF) workloads.
 
-### AKS-Hybrid cluster
+### AKS-hybrid cluster
 
 An AKS-Hybrid cluster is Azure Kubernetes Service cluster modified to run on your on-premises Operator Nexus instance. The AKS-Hybrid cluster is designed to host your Containerized Network Function (CNF) workloads.

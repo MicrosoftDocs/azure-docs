@@ -9,10 +9,11 @@ ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Tenant Workloads Deployment Prerequisites
+# Tenant workloads deployment prerequisites
 
 <!--- IMG ![Tenant Workload Deployment Flow](Docs//media/tenant-workload-deployment-flow.png) IMG --->
-:::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Tenant Workload Deployment Flow":::
+:::image type="content" source="./media/tenant-workload-deployment-flow.png" alt-text="Screenshot of Tenant Workload Deployment Flow.":::
+
 Figure: Tenant Workload Deployment Flow
 
 This guide explains prerequisites for creating VMs for VNF workloads and AKS-Hybrid for CNF workloads.
@@ -35,7 +36,7 @@ the appropriate support team(s) for help:
   - Determine the MTU size of each of your networks (maximum is 9000)
   - Determine the BGP peering info for each network, and whether they'll need to talk to
     each other. You should group networks that need to talk to each other into the same L3
-    isolation domain, as each L3 isolation domain can support multiple layer 3 networks.
+    isolation-domain, as each L3 isolation-domain can support multiple layer 3 networks.
   - You'll be provided with a proxy to allow your VM to reach other external endpoints.
     You'll be asked later to create a `cloudservicesnetwork` where you'll need to supply the
     endpoints to be proxied, so now will be a good time to gather that list of endpoints
@@ -49,7 +50,7 @@ You'll need:
 - your Azure account and the subscription ID of Operator Nexus cluster deployment
 - the `custom location` resource ID of your Operator Nexus cluster
 
-### Review Azure Container Registry
+### Review Azure container registry
 
 [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
 The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
@@ -60,7 +61,7 @@ For more details, also see [Azure Container Registry](/azure/container-registry/
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Operator Nexus Workload Images
+## Operator Nexus workload images
 
 These images will be used when creating your workload VMs. Make sure each is a
 containerized image in either `qcow2` or `raw` disk format and is uploaded to an Azure Container
@@ -133,4 +134,4 @@ This VM image build procedure is derived from [kubevirt](https://kubevirt.io/use
 To deploy your workloads you'll also need:
 
 - to create resource group or find a resource group to use for your workloads
-- the network fabric resource ID, you'll need this ID to create isolation domains
+- the network fabric resource ID, you'll need this ID to create isolation-domains
