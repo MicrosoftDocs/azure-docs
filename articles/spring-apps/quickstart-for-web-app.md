@@ -191,7 +191,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 
 ## Deploy the app to Azure Spring Apps
-1. Now the cloud environment is ready. Let's prepare the java project. First, remove all `spring.datasource.*` properties in delete the In the application.yml file. Here is an example:
+1. Now the cloud environment is ready. Let's prepare the java project. First, remove all `spring.datasource.*` properties in the application.yml file. Here is an example:
     ```yaml
     spring:
       datasource:
