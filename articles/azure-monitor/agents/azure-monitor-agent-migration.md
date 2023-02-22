@@ -19,29 +19,18 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Benefits
 
-Azure Monitor Agent provides the following benefits over legacy agents:
+In addition to consolidating and improving upon legacy Log Analytics agents, Azure Monitor Agent provides additional immediate benefits for **cost savings, simplified management experience, security and performance.** [Learn more about these benefits](./azure-monitor-agent-overview.md)
 
-- **Security**
-  - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
-- **Performance**
-  - The AMA agent event throughput is 25% better than the MMA agent.
-- **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md). Using DCRs is one of the most useful advantages of using Azure Monitor Agent:
-  - DCRs let you configure data collection for specific machines connected to a workspace as compared to the "all or nothing" approach of legacy agents.
-  - With DCRs, you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.
-- **Simpler management** of data collection, including ease of troubleshooting:
-  - Easy *multihoming* on Windows and Linux.
-  - Centralized, "in the cloud" agent configuration makes every action simpler and more easily scalable throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
-  - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
-- **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices running Windows 10 or 11. A single agent is the goal, although Azure Monitor Agent currently converges with the Log Analytics agents.
 
-## Migration plan considerations
+## Migration steps
 
-Your migration plan to the Azure Monitor Agent should take into account:
-
-- **Service (legacy Solutions) requirements:** 
-  - Review [Azure Monitor Agent's supported services list](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent supports the services you require. If you currently use service(s) in preview, start testing your scenarios during the preview phase. This will save time and ensure you're ready to deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
-  - Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to *discover what solutions and features you're using today that depend on the legacy agents*.
+1. Review and follow the **[prerequisites](./azure-monitor-agent-manage.md#prerequisites)** for use with Azure Monitor Agent. 
+  - For non-Azure and on premises servers, [installing the Azure Arc agent](../../azure-arc/servers/agent-overview.md) is required though it's not mandatory to use Azure Arc for management overall. As such, this should incur no additional cost for Arc. 
+2. **Service (legacy Solutions) requirements** - The legacy Log Analytics agents are used by various Azure services to collect required data. If you're not using any additional Azure service, you may skip this step altogether.   
+  - Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **discover solutions enabled** on your workspace(s) that use the legacy agents, and follow the per-solution migration recommendation<sup>1</sup> shown under Workspace overview tab. 
   - If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
+
+<sup>1</sup> Start testing your scenarios during the preview phase. This will save time, avoid surprises later and ensure you're ready to deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
 
 - **Installing Azure Monitor Agent alongside a legacy agent:** 
   - If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
@@ -53,7 +42,7 @@ Your migration plan to the Azure Monitor Agent should take into account:
 
 ## Prerequisites
 
-Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use with Azure Monitor Agent. For non-Azure servers, [installing the Azure Arc agent](../../azure-arc/servers/agent-overview.md) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Azure Arc for this purpose comes at no added cost. It's not mandatory to use Azure Arc for server management overall. You can continue using your existing non-Azure management solutions. After the Azure Arc agent is installed, you can follow the same guidance in this article across Azure and non-Azure for migration.
+
 
 ## Migration testing
 
