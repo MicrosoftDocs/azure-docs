@@ -2,11 +2,9 @@
 title: Azure DDoS Protection Overview
 description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2023
 ms.author: abell

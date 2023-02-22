@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2022
+ms.date: 02/08/2023
 ---
 
 # Content metadata properties used in Azure Cognitive Search

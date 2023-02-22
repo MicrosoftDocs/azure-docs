@@ -200,7 +200,7 @@
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Use planned maintenance (preview)
+        - name: Use planned maintenance to schedule and control upgrades (preview)
           href: planned-maintenance.md
         - name: Planned Maintenance for AKS weekly releases (preview)
           href: aks-planned-maintenance-weekly-releases.md
@@ -332,6 +332,8 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
+            - name: Create an OIDC Issuer for your cluster
+              href: use-oidc-issuer.md
             - name: Workload identity (preview)
               items:
                 - name: Overview

@@ -1,6 +1,6 @@
 ---
 title: Azure Peering Service locations and partners
-description: Learn about Azure Peering Service locations and partners
+description: Learn about Azure Peering Service available locations and partners.
 services: peering-service
 author: halkazwini
 ms.service: peering-service

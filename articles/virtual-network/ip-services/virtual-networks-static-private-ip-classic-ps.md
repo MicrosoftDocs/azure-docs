@@ -1,19 +1,17 @@
 ---
-title: Configure private IP addresses for VMs (Classic) - Azure PowerShell | Microsoft Docs
+title: Configure private IP addresses for VMs (Classic) - Azure PowerShell
 description: Learn how to configure private IP addresses for virtual machines (Classic) using PowerShell.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: allensu
 ms.custom: H1Hack27Feb2017
-
 ---
+
 # Configure private IP addresses for a virtual machine (Classic) using PowerShell
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]

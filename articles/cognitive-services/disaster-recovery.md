@@ -28,16 +28,16 @@ The cross-region disaster recovery feature, also known as Single Resource Multip
 
 ## Routing profiles
 
-Azure Traffic Manager routes requests among the selected regions. The SRMR currently supports [Priority](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method), [Performance](/azure/traffic-manager/traffic-manager-routing-methods#performance-traffic-routing-method) and [Weighted](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method) profiles and is currently available for the following services:  
+Azure Traffic Manager routes requests among the selected regions. The SRMR currently supports [Priority](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method), [Performance](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method) and [Weighted](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method) profiles and is currently available for the following services:  
 
-* [Computer Vision](/azure/cognitive-services/computer-vision/overview)
-* [Immersive Reader](/azure/applied-ai-services/immersive-reader/overview)
-* [Univariate Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview)
+* [Computer Vision](./computer-vision/overview.md)
+* [Immersive Reader](../applied-ai-services/immersive-reader/overview.md)
+* [Univariate Anomaly Detector](./anomaly-detector/overview.md)
 
 > [!NOTE]
 > SRMR is not supported for multi-service resources or free tier resources. 
 
-If you use Priority or Weighted traffic manager profiles, your configuration will behave according to the [Traffic Manager documentation](/azure/traffic-manager/traffic-manager-routing-methods).  
+If you use Priority or Weighted traffic manager profiles, your configuration will behave according to the [Traffic Manager documentation](../traffic-manager/traffic-manager-routing-methods.md).  
 
 ## Enable SRMR  
 

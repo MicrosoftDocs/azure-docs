@@ -50,7 +50,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. Copy the output files:
 
-    `kubectl cp -n core core-upf-pp-0: <path to output file> <location to copy to> -c troubleshooter`.
+    `kubectl cp -n core core-upf-pp-0:<path to output file> <location to copy to> -c troubleshooter`.
 
     The `tcpdump` may have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
 

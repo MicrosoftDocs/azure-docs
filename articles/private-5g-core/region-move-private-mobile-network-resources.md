@@ -85,10 +85,10 @@ You'll need to customize your template to ensure all your resources are correctl
 
 ### Deploy template
 
-1. [Create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) in the target region. Use the resource group name you defined in [Prerequisites](#prerequisites).
+1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) in the target region. Use the resource group name you defined in [Prerequisites](#prerequisites).
 1. Deploy the *template.json* file you downloaded in [Generate template](#generate-template).
     
-    - If you want to use the Azure portal, follow the instructions to deploy resources from a custom template in [Deploy resources with ARM templates and Azure portal](/azure/azure-resource-manager/templates/deploy-portal).
+    - If you want to use the Azure portal, follow the instructions to deploy resources from a custom template in [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
     - If you want to use PowerShell, navigate to the folder containing the *template.json* file and deploy using the command:
 
         ```azurepowershell
@@ -126,5 +126,5 @@ Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packe
 
 ## Next steps
 
-- If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+- If you no longer require a deployment in the source region, [delete the original resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 - Learn more about [reliability in Azure Private 5G Core](reliability-private-5g-core.md).

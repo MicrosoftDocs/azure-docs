@@ -187,7 +187,7 @@ The response to the client connect request:
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
 ```
 
-Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
+Find more details in [Connection Recovery](./howto-develop-reliable-clients.md#connection-recovery)
 
 #### Disconnected
 
