@@ -71,20 +71,9 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 
     In a real production system, the [reward score](../concept-rewards.md) should be designed to align with your business objectives and KPIs. Determining how to calculate the reward metric may require some experimentation.
 
-Follow these steps to set up the Personalizer script.
+Open _personalizer-quickstart.js_ in a text editor or IDE and paste in the code below.
 
-1. Find your key and endpoint.
-
-    [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
-
-1. Open _personalizer-quickstart.js_ in a text editor or IDE and paste in the code below.
-
-1. 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security, see the Cognitive Services [security](../../cognitive-services-security.md) article.
-
-    :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_1":::
+:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_1":::
 
 ## Code block 2: Iterate the learning loop
 
@@ -92,7 +81,18 @@ The next block of code defines the **main** method and closes out the script. It
 
 The Personalizer learning loop is a cycle of **Rank** and **Reward** calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_2":::
+1. Add the code below to _personalizer-quickstart.js_.
+
+1. Find your key and endpoint. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
+
+    [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
+1. Paste your key and endpoint into the code where indicated.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security, see the Cognitive Services [security](../../cognitive-services-security.md) article.
+
+    :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_2":::
 
 ## Run the program
 
