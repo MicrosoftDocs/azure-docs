@@ -201,7 +201,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 
 ::: zone-end
 
@@ -375,7 +375,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -548,7 +548,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 Upon successful completion of the `azd up` command:
 
 - Azure Developer CLI provisioned the Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
-- The app deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- The app deployed to Azure Container Apps. From the portal, you can browse the fully functional app.
 
 ::: zone-end
 
