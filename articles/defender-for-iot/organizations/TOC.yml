@@ -91,13 +91,13 @@
       items:
       - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
       - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory
+        displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices per zone
@@ -285,7 +285,7 @@
         href: how-to-enhance-port-and-vlan-name-resolution.md
       - name: Import device information
         href: how-to-import-device-information.md
-    - name: Track network and sensor activity
+    - name: Track OT network and sensor activity
       href: how-to-track-sensor-activity.md
       displayName: event timeline
     - name: Set up SNMP MIB monitoring
