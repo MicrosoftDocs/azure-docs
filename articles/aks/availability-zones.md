@@ -27,7 +27,7 @@ AKS clusters can use availability zones in any Azure region that has availabilit
 The following limitations apply when you create an AKS cluster using availability zones:
 
 * You can only define availability zones during creation of the cluster or node pool.
-* It is not possible to update availability zone settings after creating the cluster. Update an existing, non-availability zone cluster to use availability zones isn't supported.
+* It is not possible to update an existing non-availability zone cluster to use availability zones after creating the cluster.
 * The chosen node size (VM SKU) selected must be available across all availability zones selected.
 * Clusters with availability zones enabled require using Azure Standard Load Balancers for distribution across zones. You can only define this load balancer type at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
@@ -40,10 +40,10 @@ Kubernetes is aware of Azure availability zones since version 1.12. You can depl
 
 ### Azure Resource Manager templates and availability zones
 
-When *creating* an AKS cluster, consider the following:
+When *creating* an AKS cluster, understand the following details about specifying availability zones in a template:
 
-* If you explicitly define a [null value in a template][arm-template-null], for example by specifying `"availabilityZones": null`, the Resource Manager template treats the property as if it doesn't exist. This means the cluster isn't created across an availability zone.
-* If you don't include the `"availabilityZones":` property in your Resource Manager template, your cluster isn't deployed across an availability zone.
+* If you explicitly define a [null value in a template][arm-template-null], for example by specifying `"availabilityZones": null`, the Resource Manager template treats the property as if it doesn't exist. This means your cluster doesn't deploy in an availability zone.
+* If you don't include the `"availabilityZones":` property in your Resource Manager template, your cluster doesn't deploy in an availability zone.
 * You can't update settings for availability zones on an existing cluster, the behavior is different when you update an AKS cluster with Resource Manager templates. If you explicitly set a null value in your template for availability zones and *update* your cluster, it doesn't update your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
 
 ## Overview of availability zones for AKS clusters
@@ -85,7 +85,7 @@ When deciding what zone a new node should belong to, a specified AKS node pool u
 
 ## Verify node distribution across zones
 
-When the cluster is ready, list the agent nodes in the scale set to see what availability zone they're deployed to.
+When the cluster is ready, list what availability zone the agent nodes in the scale set are in.
 
 First, get the AKS cluster credentials using the [az aks get-credentials][az-aks-get-credentials] command:
 
@@ -160,7 +160,7 @@ kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5
 kubectl scale deployment nginx --replicas=3
 ```
 
-By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell you would get an output similar to the following:
+By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell, you see the following example output:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
