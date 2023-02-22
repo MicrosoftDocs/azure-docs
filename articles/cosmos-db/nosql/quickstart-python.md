@@ -162,7 +162,7 @@ The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operat
 > - [Azure CLI scripts](manage-with-cli.md)
 > - [Azure PowerShell scripts](manage-with-powershell.md)
 > - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
-> - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
+> - [Azure Resource Manager Python client library](https://pypi.org/project/azure-mgmt-cosmosdb)
 
 The Azure CLI approach is used in for this quickstart and passwordless access. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command to create a Cosmos DB for NoSQL database.
 
@@ -193,7 +193,7 @@ The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operat
 > - [Azure CLI scripts](manage-with-cli.md)
 > - [Azure PowerShell scripts](manage-with-powershell.md)
 > - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
-> - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
+> - [Azure Resource Manager Python client library](https://pypi.org/project/azure-mgmt-cosmosdb)
 
 The Azure CLI approach is used in this example. Use the [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) command to create a Cosmos DB container.
 
