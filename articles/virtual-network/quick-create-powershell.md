@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network - quickstart - Azure PowerShell
+title: 'Quickstart: Create a virtual network - Azure PowerShell'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
 author: asudbring
@@ -42,7 +42,7 @@ New-AzResourceGroup @rg
 
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location with the DDoS Protection Standard enabled:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
 
 ```azurepowershell-interactive
 $vnet = @{
@@ -51,7 +51,7 @@ $vnet = @{
     Location = 'EastUS'
     AddressPrefix = '10.0.0.0/16'
 }
-$virtualNetwork = New-AzVirtualNetwork @vnet -EnableDdosProtection
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 ### Add a subnet

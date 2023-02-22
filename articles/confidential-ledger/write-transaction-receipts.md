@@ -54,7 +54,7 @@ We authenticate using the [DefaultAzureCredential class](/python/api/azure-ident
 credential = DefaultAzureCredential() 
 ```
 
-Then, we get and save the Confidential Ledger service certificate using the Certificate client from the [Confidential Ledger Identity URL](https://identity.confidential-ledger.core.azure.com/ledgerIdentity). The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it's used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
+Then, we get and save the Confidential Ledger service certificate using the Certificate client from the Confidential Ledger Identity URL. The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it's used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
 
 ```python
 # Create a Certificate client and use it to 

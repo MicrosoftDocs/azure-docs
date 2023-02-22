@@ -35,6 +35,7 @@ For example:
 
 `"CollectorsCore_PriorityIntervals"` : `"30,120,1440"`
 
+
 ## Collector types and properties
 
 Configure the micro agent using the following collector-specific properties and settings:
@@ -96,7 +97,7 @@ Configure the micro agent using the following collector-specific properties and 
 | **NetworkActivity_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Network Activity events. | `Medium` |
 | **NetworkActivity_Devices** | A list of the network devices separated by a comma. <br><br>For example `eth0,eth1` | Defines the list of network devices (interfaces) that the agent will use to monitor the traffic. <br><br>If a network device isn't listed, the network raw events won't be recorded for the missing device.| `eth0` |
 | **NetworkActivity_CacheSize** | Positive integer | The number of Network Activity events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost).| `256` |
-| **NetworkActivity_PacketBufferSize** | Positive integer | Tonfigure the buffer size (in bytes) that will be used to capture packets for a single device per direction (incoming or outcoming traffic). | `2097152 (=2MB)` |
+| **NetworkActivity_PacketBufferSize** | Positive integer | Configure the buffer size (in bytes) that will be used to capture packets for a single device per direction (incoming or outcoming traffic). | `2097152 (=2MB)` |
 
 ### Process collector-specific settings
 

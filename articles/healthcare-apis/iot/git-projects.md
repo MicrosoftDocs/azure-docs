@@ -1,11 +1,11 @@
 ---
 title: GitHub projects for the MedTech service - Azure Health Data Services
-description: MedTech service has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
+description: The MedTech service has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 12/15/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -49,7 +49,7 @@ Health Data Sync
 
 In this article, you learned about the open-source projects for the MedTech service.
 
-Learn about the different deployment methods for the MedTech service, see
+To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

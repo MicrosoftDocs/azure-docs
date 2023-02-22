@@ -145,7 +145,7 @@ The following behavior differences exist between kubenet and Azure CNI:
 
 Regarding DNS, with both kubenet and Azure CNI plugins DNS are offered by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
-For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][kubenet-aks].
+For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 
 ### Support scope between network models
 
@@ -245,7 +245,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 [k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
@@ -265,8 +265,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [support-policies]: support-policies.md
 [limit-egress]: limit-egress-traffic.md
 [k8s-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
-[nginx-ingress]: /ingress-basic.md
+[nginx-ingress]: ingress-basic.md
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
-[azure-cni-aks]: /configure-azure-cni.md
-[kubenet-aks]: /configure-kubenet.md
+[azure-cni-aks]: configure-azure-cni.md

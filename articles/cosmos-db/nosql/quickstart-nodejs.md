@@ -153,7 +153,7 @@ In the `index.js`, add the following code to use the resource **endpoint** and *
 
 Add the following code to use the [``CosmosClient.Databases.createDatabaseIfNotExists``](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
 
-:::code language="csharp" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="24-26":::
+:::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="24-26":::
 
 ### Create a container
 

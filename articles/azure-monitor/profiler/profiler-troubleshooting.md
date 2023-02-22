@@ -27,6 +27,9 @@ If your web app is an ASP.NET Core application, it must be running on the [lates
 
 Profiler isn't currently supported on free or shared app service plans. Upgrade to one of the basic plans for Profiler to start working.
 
+> [!NOTE]
+> The Azure Functions consumption plan isn't supported. See [Profile live Azure Functions app with Application Insights](./profiler-azure-functions.md).
+
 ## Make sure you're searching for Profiler data within the right timeframe
 
 If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.

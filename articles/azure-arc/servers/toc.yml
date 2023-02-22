@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc-enabled servers
     href: overview.md
+  - name: VMware FAQ
+    href: vmware-faq.md
   - name: What's new with Connected Machine agent?
     href: agent-release-notes.md
   - name: Archive for Connected Machine agent release notes
@@ -26,7 +28,7 @@
   items:
     - name: Connected Machine agent overview
       href: agent-overview.md
-    - name: Log Analytics agent deployment options
+    - name: Deploy Azure Monitor agent
       href: concept-log-analytics-extension-deployment.md
     - name: Security
       items:
@@ -37,6 +39,8 @@
          href: security-overview.md
        - name: Private Link networking
          href: private-link-security.md
+       - name: Security baseline
+         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
 - name: How-to guides
   items:
   - name: Deploy

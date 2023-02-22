@@ -482,12 +482,12 @@ Cascade deletion occurs when deleting of a parent resource is implicitly deletes
 
 The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
 
-- **actionType** (required)
+- **actionNames** (required)
   - An _array_  that specifies what actions to prevent from being executed. 
-  - Supported action type is: `delete`. 
+  - Supported action names are: `delete`. 
 - **cascadeBehaviors** (optional)
   - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group. 
-  - Only supported for `mode:indexed`.
+  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
   - Allowed values are `allow` or `deny`. 
   - Default value is `deny`. 
 
@@ -758,8 +758,7 @@ operations. Policy assignments with effect set as Modify require a [managed iden
 
 The following operations are supported by Modify:
 
-- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
-  _Indexed_ unless the target resource is a resource group.
+- Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.

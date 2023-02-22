@@ -6,6 +6,9 @@ items:
   items:
   - name: Speech service overview
     href: overview.md
+  - name: What's new
+    href: releasenotes.md
+    displayName: reference, new, change, update
   - name: Language and voice support
     displayName: language,locale,voice,gender,neural
     href: language-support.md
@@ -225,6 +228,8 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+    - name: Gaming integration
+      href: gaming-concepts.md
     - name: Language learning
       items:
         - name: Pronunciation Assessment with speech to text
@@ -433,9 +438,6 @@ items:
       href: devices-sdk-release-notes.md
 - name: Reference
   items:
-    - name: Release notes
-      href: releasenotes.md
-      displayName: reference, new, change, update
     - name: SDK reference
       items:
         - name: C++

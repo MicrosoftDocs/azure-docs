@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 01/13/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account to access purview account and scan data sources from restricted network.
 ---
 
@@ -16,7 +16,7 @@ In this guide, you will learn how to deploy _account_, _portal_ and _ingestion_ 
 
 The Microsoft Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Microsoft Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-The Microsoft Purview _portal_ private endpoint is required to enable connectivity to [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) using a private network.
+The Microsoft Purview _compliance portal_ private endpoint is required to enable connectivity to [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) using a private network.
 
 Microsoft Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Microsoft Purview managed or configured resources when ingestion private endpoint is deployed:
 
@@ -129,7 +129,7 @@ Using one of the deployment options explained further in this guide, you can dep
 ## Enable access to Azure Active Directory
 
 > [!NOTE]
-> If your VM, VPN gateway, or VNet Peering gateway has public internet access, it can access the Microsoft Purview portal and the Microsoft Purview account enabled with private endpoints. For this reason, you don't have to follow the rest of the instructions. If your private network has network security group rules set to deny all public internet traffic, you'll need to add some rules to enable Azure Active Directory (Azure AD) access. Follow the instructions to do so.
+> If your VM, VPN gateway, or VNet Peering gateway has public internet access, it can access the  Microsoft Purview governance portal and the Microsoft Purview account enabled with private endpoints. For this reason, you don't have to follow the rest of the instructions. If your private network has network security group rules set to deny all public internet traffic, you'll need to add some rules to enable Azure Active Directory (Azure AD) access. Follow the instructions to do so.
 
 These instructions are provided for accessing Microsoft Purview securely from an Azure VM. Similar steps must be followed if you're using VPN or other VNet Peering gateways.
 
@@ -161,11 +161,11 @@ These instructions are provided for accessing Microsoft Purview securely from an
 
    :::image type="content" source="media/catalog-private-link/aadcdn-rule.png" alt-text="Screenshot that shows the Azure A D Content Delivery Network rule.":::
 
-1. After the new rule is created, go back to the VM and try to sign in by using your Azure AD credentials again. If sign-in succeeds, then the Microsoft Purview portal is ready to use. But in some cases, Azure AD redirects to other domains to sign in based on a customer's account type. For example, for a live.com account, Azure AD redirects to live.com to sign in, and then those requests are blocked again. For Microsoft employee accounts, Azure AD accesses msft.sts.microsoft.com for sign-in information.
+1. After the new rule is created, go back to the VM and try to sign in by using your Azure AD credentials again. If sign-in succeeds, then the  Microsoft Purview governance portal is ready to use. But in some cases, Azure AD redirects to other domains to sign in based on a customer's account type. For example, for a live.com account, Azure AD redirects to live.com to sign in, and then those requests are blocked again. For Microsoft employee accounts, Azure AD accesses msft.sts.microsoft.com for sign-in information.
 
    Check the networking requests on the browser **Networking** tab to see which domain's requests are getting blocked, redo the previous step to get its IP, and add outbound port rules in the network security group to allow requests for that IP. If possible, add the URL and IP to the VM's host file to fix the DNS resolution. If you know the exact sign-in domain's IP ranges, you can also directly add them into networking rules.
 
-1. Now your Azure AD sign-in should be successful. The Microsoft Purview portal will load successfully, but listing all the Microsoft Purview accounts won't work because it can only access a specific Microsoft Purview account. Enter `web.purview.azure.com/resource/{PurviewAccountName}` to directly visit the Microsoft Purview account that you successfully set up a private endpoint for.
+1. Now your Azure AD sign-in should be successful. The  Microsoft Purview governance portal will load successfully, but listing all the Microsoft Purview accounts won't work because it can only access a specific Microsoft Purview account. Enter `web.purview.azure.com/resource/{PurviewAccountName}` to directly visit the Microsoft Purview account that you successfully set up a private endpoint for.
 
 ## Deploy self-hosted integration runtime (IR) and scan your data sources.
 Once you deploy ingestion private endpoints for your Microsoft Purview, you need to setup and register at least one self-hosted integration runtime (IR):
@@ -185,11 +185,11 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
 
 To cut off access to the Microsoft Purview account completely from the public internet, follow these steps. This setting applies to both private endpoint and ingestion private endpoint connections.
 
-1. Go to the Microsoft Purview account from the Azure portal, and under **Settings** > **Networking**, select **Private endpoint connections**.
+1. From the [Azure portal](https://portal.azure.com), go to the Microsoft Purview account, and under **Settings**, select **Networking**.
 
-1. Go to the **Firewall** tab, and ensure that the toggle is set to **Deny**.
+1. Go to the **Firewall** tab, and ensure that the toggle is set to **Disable from all networks**.
 
-   :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
+   :::image type="content" source="media/catalog-private-link/purview-firewall-private.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
 
 ## Next steps
 

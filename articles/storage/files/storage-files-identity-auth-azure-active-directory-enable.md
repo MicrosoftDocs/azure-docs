@@ -8,6 +8,7 @@ ms.date: 12/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files
@@ -37,8 +38,8 @@ Before you enable Azure AD Kerberos authentication over SMB for Azure file share
 
 The Azure AD Kerberos functionality for hybrid identities is only available on the following operating systems:
 
-  - Windows 11 Enterprise single or multi-session.
-  - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
+  - Windows 11 Enterprise/Pro single or multi-session.
+  - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
   - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).

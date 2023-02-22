@@ -2,7 +2,7 @@
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 01/06/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly

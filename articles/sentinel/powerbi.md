@@ -1,11 +1,10 @@
 ---
 title: Create a Power BI report from Microsoft Sentinel data
 description: Learn how to create a Power BI report using an exported query from Microsoft Sentinel Log Analytics. Share your report with others in the Power BI service and a Teams channel.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Tutorial: Create a Power BI report from Microsoft Sentinel data

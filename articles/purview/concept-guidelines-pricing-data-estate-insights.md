@@ -5,14 +5,11 @@ author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 01/24/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Pricing for Data Estate Insights
-
-> [!IMPORTANT]
-> The option to disable the Data Estate Insights application will only be available July 1st after 9am PST.
 
 This guide covers pricing guidelines for Data Estate Insights.
 
@@ -24,10 +21,14 @@ For specific price details, see the [Microsoft Purview (formerly Azure Purview) 
 
 Data Estate Insights is billed on two dimensions:
 
-- **Report generation** - this incorporates the jobs that aggregate metrics about your Microsoft Purview account that will appear in specific reports.
+- **Report generation** - this incorporates the job that checks for any changes in your environment and the jobs that aggregate metrics about your Microsoft Purview account that will appear in specific reports.
+    - If you have [set your reports to refresh on a schedule](how-to-schedule-data-estate-insights.md), at the time of refresh there will be a job to check if any updates have been made to your environment. You'll always be billed a small amount for this check.
+    - If updates have been made to your environment, you'll be billed for the jobs that aggregate metrics and generate your report.
+
     > [!NOTE]
     > On the [pricing page](https://azure.microsoft.com/pricing/details/purview/), you can find details for report generation pricing under Data Map Enrichment.
     > :::image type="content" source="media/concept-guidelines-pricing/data-map-enrichment.png" alt-text="Screenshot of the pricing page headers, showing Data Map Enrichment selected." :::
+
 - **Report consumption** - This incorporates access of the report features (currently served through the UX). On the [pricing page](https://azure.microsoft.com/pricing/details/purview/), you can find details for report generation pricing under Data Estate Insights.
     :::image type="content" source="media/concept-guidelines-pricing/data-estate-insights.png" alt-text="Screenshot of the pricing page headers, showing Data Estate Insights selected." :::
 
@@ -52,10 +53,12 @@ A **[data curator](catalog-permissions.md#roles) on your account's [root collect
 
 ### Schedule Report Refresh
 
-Your reports can be scheduled to refresh weekly or monthly depending on your needs, and this will affect billing.
+Your reports can be scheduled to refresh daily, weekly, or monthly depending on your needs, and this will affect billing.
 
-Billing is calculated based on the amount of compute power that is used to generate the report, and is billed at the time of report generation.
-For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/purview/) **under Data Map Enrichment.**
+Firstly, on the date/time of your scheduled refresh, insights will run a job to check if any changes have been made in your environment since the last refresh. You'll always be billed for this job.
+
+If changes have been made since the last report refresh, billing is calculated based on the amount of compute power that is used to generate the report, and is billed at the time of report generation.
+For more information about specific pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/purview/) **under Data Map Enrichment.**
 
 For more information about setting your refresh schedule, see [the schedule Data Estate Insights reports article](how-to-schedule-data-estate-insights.md).
 

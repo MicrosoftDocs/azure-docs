@@ -106,3 +106,5 @@ landingContent:
             url: how-to-manage-data-security-and-encryption.md
           - text: Set up Lockbox
             url: how-to-create-lockbox.md
+          - text: Set up use Managed Identity
+            url: how-to-use-managed-identity.md

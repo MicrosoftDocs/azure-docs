@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C global identity framework proof of concept for regional based configuration
+title: Azure Active Directory B2C global identity framework proof of concept for region-based configuration
 description: Learn how to create a proof of concept regional based approach for Azure AD B2C to provide customer identity and access management for global customers.
 services: active-directory-b2c
 author: gargi-sinha
@@ -13,11 +13,11 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C global identity framework proof of concept regional based configuration
+# Azure Active Directory B2C global identity framework proof of concept for region-based configuration
 
-The following section describes how to create proof of concept implementations for regional-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/region-based-approach).
+The following section describes how to create proof of concept implementations for region-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/region-based-approach).
 
-## Regional-based approach
+## Region-based approach
 
 Each regional Azure AD B2C tenant will require an Azure AD B2C Custom policy, which contains the following capabilities:
 

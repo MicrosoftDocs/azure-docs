@@ -162,9 +162,9 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
-| `max_total_trials` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached, the system will cancel the job. | `1000` |
-| `max_concurrent_trials` | integer | | Defaults to `max_total_trials`. |
-| `timeout` | integer | The maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached, the system will cancel the sweep job, including all its trials. | `604800` |
+| `max_total_trials` | integer | The maximum number of trial jobs. | `1000` |
+| `max_concurrent_trials` | integer | The maximum number of trial jobs that can run concurrently. | Defaults to `max_total_trials`. |
+| `timeout` | integer | The maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached, the system will cancel the sweep job, including all its trials. | `5184000` |
 | `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached, the system will cancel the trial. | |
 
 ### Attributes of the `trial` key

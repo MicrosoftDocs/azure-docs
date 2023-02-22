@@ -171,7 +171,7 @@ Cache Hits/Misses describe the request number cache hits and cache misses for cl
 
 This report takes caching scenarios into consideration and requests that met the following requirements are taken into calculation. 
 
-* The requested content was cached on the POP closest to the requester or origin shield. 
+* The requested content was cached on a Front Door PoP.
 
 * Partial cached contents for object chunking.
 
@@ -256,11 +256,11 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
 
-## CVS format
+## CSV format
 
 You can download CSV files for different tabs in reports. This section describes the values in each CSV file.
 
-### General information about the CVS report
+### General information about the CSV report
 
 Every CSV report includes some general information and the information is available in all CSV files. with variables based on the report you download. 
 

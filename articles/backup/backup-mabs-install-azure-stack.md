@@ -3,6 +3,8 @@ title: Install Azure Backup Server on Azure Stack
 description: In this article, learn how to use Azure Backup Server to protect or back up workloads in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
+author: jyothisuri
+ms.author: jsuri
 ---
 # Install Azure Backup Server on Azure Stack
 

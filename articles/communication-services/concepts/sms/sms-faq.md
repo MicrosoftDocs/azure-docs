@@ -121,7 +121,7 @@ After submission of the form, we will coordinate with our downstream peer to get
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application.
 
-Updates for changes and the status of your applications will be communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+Updates for changes and the status of your applications will be communicated via the email you provide in the application. For more questions about your submitted application, please email acstns@microsoft.com. 
 
 ### How do I submit a toll-free verification?
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.

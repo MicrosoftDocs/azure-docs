@@ -12,6 +12,8 @@ ms.date: 07/14/2022
 # Service Fabric supported versions
 The tables in this article outline the Service Fabric and platform versions that are actively supported.
 
+If you want to find a list of all the available Service Fabric runtime versions in available for your subscription, follow the guidance in the [Check for supported cluster versions section of the Manage Service Fabric Cluster Upgrades guide](service-fabric-cluster-upgrade-version-azure.md#check-for-supported-cluster-versions).
+
 ## Windows
 
 ### Current versions
@@ -25,18 +27,17 @@ The tables in this article outline the Service Fabric and platform versions that
 | 9.0 CU2<br>9.0.1048.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 1, 2023 |
 | 9.0 CU1<br>9.0.1028.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 1, 2023 |
 | 9.0 RTO<br>9.0.1017.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 1, 2023 |
-
+| 8.2 CU7<br>8.2.1692.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 CU6<br>8.2.1686.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 CU4<br>8.2.1659.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 CU3<br>8.2.1620.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023|
+| 8.2 CU2.1<br>8.2.1571.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 CU2<br>8.2.1486.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 6.0 (Preview), .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 CU1<br>8.2.1363.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
+| 8.2 RTO<br>8.2.1235.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | March 31, 2023 |
 
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to*|Compatible SDK or NuGet package version|Supported .NET runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
-| 8.2 CU8<br>8.2.1723.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU6<br>8.2.1686.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 6.0 | .NET 6.0 (GA), >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU4<br>8.2.1659.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU3<br>8.2.1620.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU2.1<br>8.2.1571.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU2<br>8.2.1486.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 6.0 (Preview), .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 CU1<br>8.2.1363.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 RTO<br>8.2.1235.9590 | 8.0 CU3<br>8.0.536.9590 | 8.0 | Less than or equal to version 5.2 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2022 |
 | 8.1 CU4<br>8.1.388.9590 | 7.2 CU7<br>7.2.477.9590 | 8.0 | Less than or equal to version 5.1 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | June 30, 2022 |
 | 8.1 CU3.1<br>8.1.337.9590 | 7.2 CU7<br>7.2.477.9590 | 8.0 | Less than or equal to version 5.1 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | June 30, 2022 |
 | 8.1 CU3<br>8.1.335.9590 | 7.2 CU7<br>7.2.477.9590 | 8.0 | Less than or equal to version 5.1 | .NET 5.0, >= .NET Core 3.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | June 30, 2022 |
@@ -101,7 +102,6 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | 9.0 CU2<br>9.0.1056.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
 | 9.0 CU1<br>9.0.1035.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
 | 9.0 RTO<br>9.0.1018.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
-| 8.2 CU8<br>8.2.1521.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU6<br>8.2.1485.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU5.1<br>8.2.1483.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU4<br>8.2.1458.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
@@ -109,7 +109,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | 8.2 CU2.1<br>8.2.1397.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU2<br>8.2.1285.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU1<br>8.2.1204.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
-| 8.2 RTO<br>8.2.1124.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022|
+| 8.2 RTO<br>8.2.1124.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.1 CU4<br>8.1.360.1 | 7.2 CU7<br>7.2.476.1 | 8.0 | Less than or equal to version 5.1 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | June 30, 2022 |
 | 8.1 CU3.1<br>8.1.340.1 | 7.2 CU7<br>7.2.476.1 | 8.0 | Less than or equal to version 5.1 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | June 30, 2022 |
 | 8.1 CU3<br>8.1.334.1 | 7.2 CU7<br>7.2.476.1 | 8.0 | Less than or equal to version 5.1 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | June 30, 2022 |
@@ -146,7 +146,7 @@ The following table lists the version names of Service Fabric and their correspo
 | 9.0 CU4 | 9.0.1121.9590 | 9.0.1114.1 |
 | 9.0 CU3 | 9.0.1107.9590 | 9.0.1103.1 |
 | 9.0 CU2.1 | Not applicable | 9.0.1086.1 |
-| 8.2 CU8 | 8.2.1723.9590 | 8.2.1521.1 |
+| 8.2 CU7 | 8.2.1692.9590 | Not applicable |
 | 8.2 CU6 | 8.2.1686.9590 | 8.2.1485.1 |
 | 8.2 CU5.1 | Not applicable | 8.2.1483.1 |
 | 9.0 CU2 | 9.0.1048.9590 | 9.0.1056.1 |

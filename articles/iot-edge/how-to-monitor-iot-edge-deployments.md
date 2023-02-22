@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/21/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 

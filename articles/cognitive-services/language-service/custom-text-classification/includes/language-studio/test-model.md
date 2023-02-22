@@ -20,7 +20,7 @@ To test your deployed models within [Language Studio](https://aka.ms/LanguageStu
 
 4. Select the deployment you want to query/test from the dropdown.
 
-5. Enter the text you want to submit in the request, or upload a `.txt` document to use.
+5. Enter the text you want to submit in the request, or upload a `.txt` document to use. If you’re using one of the example datasets, you can use one of the included .txt files.
 
 6. Click on **Run the test** from the top menu.
 

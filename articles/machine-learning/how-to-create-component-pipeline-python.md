@@ -241,9 +241,7 @@ Now you've constructed the pipeline, you can submit to your workspace. To submit
 
 #### Configure credential
 
-We'll use `DefaultAzureCredential` to get access to workspace. `DefaultAzureCredential` to get access to workspace.
-
-`DefaultAzureCredential` should be capable of handling most Azure SDK authentication scenarios.
+We'll use `DefaultAzureCredential` to get access to the workspace. `DefaultAzureCredential` should be capable of handling most Azure SDK authentication scenarios.
 
 Reference for more available credentials if it doesn't work for you: [configure credential example](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity?view=azure-python&preserve-view=true ).
 

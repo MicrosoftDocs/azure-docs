@@ -15,11 +15,16 @@ ms.custom:
 
 This article explains how to use the Azure Cosmos DB SDKs to delete all items by logical partition key value. 
 
+> [!IMPORTANT]
+> Delete items by partition key value is in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Feature overview
  
-The delete by partition key feature is an asynchronous, background operation that allows you to delete all documents with the same logical partition key value, using the Comsos SDK.
+The delete by partition key feature is an asynchronous, background operation that allows you to delete all documents with the same logical partition key value, using the Cosmos SDK.
 
-Because the number of documents to be deleted may be large, the operation runs in the background. Though the physical deletion operation runs in the background, the effects will be available immediately, as the documents to be deleted will not appear in the results of queries or read operations. 
+Because the number of documents to be deleted may be large, the operation runs in the background. Though the physical deletion operation runs in the background, the effects will be available immediately, as the documents to be deleted won't appear in the results of queries or read operations. 
 
 To help limit the resources used by this background task, the delete by partition key operation is constrained to consume at most 10% of the total available RU/s on the container each second.
 
@@ -73,10 +78,10 @@ When the delete by partition key operation is issued, only the documents that ex
 ### How is the delete by partition key operation prioritized among other operations against the container?
 By default, the delete by partition key value operation can consume up to a reserved fraction - 0.1, or 10% - of the overall RU/s on the resource. Any Request Units (RUs) in this bucket that are unused will be available for other non-background operations, such as reads, writes, and queries. 
 
-For example, suppose you have provisioned 1000 RU/s on a container. There is an ongoing delete by partition key operation that consumes 100 RUs each second for 5 seconds. During each of these 5 seconds, there are 900 RUs available for non-background database operations. Once the delete operation is complete, all 1000 RU/s are now available again. 
+For example, suppose you've provisioned 1000 RU/s on a container. There's an ongoing delete by partition key operation that consumes 100 RUs each second for 5 seconds. During each of these 5 seconds, there are 900 RUs available for non-background database operations. Once the delete operation is complete, all 1000 RU/s are now available again. 
 
 ### Known issues
-For certain scenarios, the effects of a delete by partition key operation is not guaranteed to be immediately reflected. The effect may be partially seen as the operation progresses. 
+For certain scenarios, the effects of a delete by partition key operation isn't guaranteed to be immediately reflected. The effect may be partially seen as the operation progresses. 
 
 - [Aggregate queries](query/aggregate-functions.md) that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
 - Queries issued against the [analytical store](../analytical-store-introduction.md) during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.

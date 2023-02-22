@@ -1,18 +1,18 @@
 ---
 title: Create a connection monitor - Azure portal
 titleSuffix: Azure Network Watcher
-description: This article describes how to create a monitor in Connection Monitor by using the Azure portal.
+description: Learn how to create a monitor in Azure Network Watcher connection monitor using the Azure portal.
 services: network-watcher
-author: vinynigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload:  infrastructure-services
 ms.custom: ignite-2022, engagement-fy23
 ms.date: 11/05/2022
-ms.author: vinigam
+ms.author: halkazwini
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a monitor in Connection Monitor by using the Azure portal
+# Create an Azure Network Watcher connection monitor using the Azure portal
 
 This article describes how to create a monitor in Connection Monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
 

@@ -176,7 +176,9 @@ This feature isn't supported in Azure NP VMs.
 
 **A:** Need to run xbutil query and look at the lower portion. 
 
+**Q:** Do Azure NP VMs support FPGA bitstreams with Networking GT Kernel connections?
 
+**A:** No. The FPGA Attestation service performs a series of validations on a design checkpoint file and will generate an error if the user's application contains connections to the FPGA card's QSFP networking ports.
 
 ## Other sizes and information
 

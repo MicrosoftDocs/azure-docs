@@ -5,7 +5,7 @@
   expanded: true
   items:
   - name: What is Microsoft Defender for Cloud?
-    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vaulkt, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
+    displayName: Defender for cloud, servers, storage, sql, containers, app service, key vault, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
     displayName: azure defender
@@ -170,7 +170,7 @@
       - name: Get started
         displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
         href: plan-defender-for-servers.md
-      - name: Review data residency, workspace design 
+      - name: Review data residency and workspace design 
         href: plan-defender-for-servers-data-workspace.md
       - name: Determine roles and access
         href: plan-defender-for-servers-roles.md
@@ -178,7 +178,7 @@
         href: plan-defender-for-servers-select-plan.md
       - name: Review agents and extensions
         href: plan-defender-for-servers-agents.md
-      - name: Scale Defender for Servers deployment
+      - name: Scale a Defender for Servers deployment
         href: plan-defender-for-servers-scale.md
       - name: Common questions
         href: faq-defender-for-servers.yml
@@ -559,6 +559,12 @@
     - name: Enable pull request annotations in GitHub or in Azure DevOps
       displayName: PR annotations, annotations, DevOps, GitHub, pull request
       href: enable-pull-request-annotations.md
+    - name: Defender for DevOps FAQ
+      displayName: DevOps, FAQ
+      href: devops-faq.md
+    - name: Credential scanner rules
+      displayName: credential, scanner, rules, DevOps
+      href: concept-credential-scanner-rules.md
 
 - name: Reference
   items:
@@ -648,7 +654,13 @@
     - name: Defender EASM
       href: episode-twenty-two.md
     - name: Defender Threat Intelligence (Defender TI)
-      href: episode-twenty-three.md 
+      href: episode-twenty-three.md
+    - name: Enhancements in Defender for SQL Vulnerability Assessment
+      href: episode-twenty-four.md
+    - name: AWS ECR coverage in Defender for Containers
+      href: episode-twenty-five.md
+    - name: Governance capability improvements in Defender for Cloud
+      href: episode-twenty-six.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -215,8 +215,10 @@
           href: azure-container-plan-technical-configuration.md
         - name: Plan technical configuration for Kubernetes applications
           href: azure-container-plan-technical-configuration-kubernetes.md
-        - name: Container certification troubleshooting
-          href: azure-container-certification-faq.yml
+    - name: Container certification troubleshooting
+      href: azure-container-certification-faq.yml
+    - name: Kubernetes application publishing troubleshooting
+      href: azure-container-troubleshoot.md
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer

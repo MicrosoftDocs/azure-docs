@@ -761,7 +761,7 @@ addProperty(<object>, '<property>', <value>)
 To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>, '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -4050,7 +4050,7 @@ setProperty(<object>, '<property>', <value>)
 To set the child property in a child object, use a nested `setProperty()` call instead. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+setProperty(<object>, '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
 | Parameter | Required | Type | Description |

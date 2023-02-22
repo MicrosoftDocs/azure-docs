@@ -3,8 +3,9 @@ title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
 ms.author: ankitadutta
+ms.service: site-recovery
 author: ankitaduttaMSFT
-ms.date: 12/05/2022
+ms.date: 01/23/2023
 ms.custom: engagement-fy23
 
 ---
@@ -21,13 +22,28 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server/Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 | 2.0.9257.0
+[Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6594.1 | 5.1.8095.0  | 9.53.6594.1 | 5.1.8103.0 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9260.0
+[Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
 [Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
 [Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
 [Rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 9.49.6395.1 | 5.1.7418.0 | 9.49.6395.1 | 5.1.7418.0 | 2.0.9248.0
-[Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 9.48.6349.1 | 5.1.7387.0 | 9.48.6349.1 | 5.1.7387.0 | 2.0.9259.0
+
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+
+## Updates (February 2023)
+
+### Update Rollup 66
+
+[Update rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Ubuntu 22.04, RHEL 8.7 and Cent OS 8.7 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 22.04, RHEL 8.7 and Cent OS 8.7 Linux distro.
 
 ## Updates (November 2022)
 
@@ -40,7 +56,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.
-**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11  and SUSE Linux Enterprise Server 15 SP 4 Linux distro.<br/><br/> Added Modernized VMware to Azure DR support for government clouds. [Learn more](deploy-vmware-azure-replication-appliance-modernized.md#allow-urls-for-government-clouds).
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.<br/><br/> Added Modernized VMware to Azure DR support for government clouds. [Learn more](deploy-vmware-azure-replication-appliance-modernized.md#allow-urls-for-government-clouds).
 
 
 ## Updates (October 2022)

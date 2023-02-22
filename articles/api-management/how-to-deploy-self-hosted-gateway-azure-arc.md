@@ -19,6 +19,8 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 > [!NOTE]
 > You can also deploy the self-hosted gateway [directly to Kubernetes](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Prerequisites
 
 * [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md) within a supported Azure Arc region.

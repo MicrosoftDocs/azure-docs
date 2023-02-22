@@ -147,6 +147,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## zh-TW
 [!INCLUDE [zh-TW](./includes/phonetic-sets/text-to-speech/zh-tw.md)]
 
+## Map X-SAMPA to IPA
+[!INCLUDE [X-SAMPA](./includes/phonetic-sets/text-to-speech/x-sampa.md)]
 
-***
 

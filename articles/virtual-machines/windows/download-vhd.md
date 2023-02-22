@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/03/2023
 ---
 
 # Download a Windows VHD from Azure

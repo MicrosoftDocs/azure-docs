@@ -12,9 +12,9 @@ ms.custom: template-how-to
 zone_pivot_groups: load-testing-config
 ---
 
-# Read data from a CSV file in JMeter with Azure Load Testing Preview
+# Read data from a CSV file in JMeter with Azure Load Testing
 
-In this article, you'll learn how to read data from a comma-separated value (CSV) file in JMeter with Azure Load Testing Preview. You can use the JMeter [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script.
+In this article, you'll learn how to read data from a comma-separated value (CSV) file in JMeter with Azure Load Testing. You can use the JMeter [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script.
 
 Use data from an external CSV file to make your JMeter test script configurable. For example, you might invoke an API for each entry in a customers CSV file.
 
@@ -24,9 +24,6 @@ In this article, you learn how to:
 > * Configure your JMeter script to read the CSV file.
 > * Add the CSV file to your load test.
 > * Optionally, split the CSV file evenly across all test engine instances.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

@@ -40,7 +40,7 @@ Use the following object in your request. The model will be named `MyModel` once
 ```json
 {
   "modelLabel": "{MODEL-NAME}",
-  "trainingMode": "standard"
+  "trainingMode": "standard",
   "trainingConfigVersion": "{CONFIG-VERSION}",
   "evaluationOptions": {
     "kind": "percentage",

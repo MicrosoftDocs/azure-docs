@@ -42,7 +42,8 @@ Every plan must be available in at least one market. On the **Pricing and availa
    > This dialog box includes a search box and an option to filter on only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
 
 1. Select **Save**, to close the dialog box.
-
+> [!Note]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md).
 ## Define a pricing model
 
 You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [SaaS pricing models](plan-saas-offer.md#saas-pricing-models).

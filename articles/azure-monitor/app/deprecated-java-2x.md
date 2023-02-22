@@ -1,8 +1,8 @@
 ---
 title: Use Application Insights Java 2.x
-description: Learn how to use the Application Insights Java 2.x, including sending trace logs, monitoring dependencies, filtering telemetry, and measuring metrics.
+description: Learn how to use Application Insights Java 2.x so that you can send trace logs, monitor dependencies, filter telemetry, and measure metrics.
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -11,50 +11,50 @@ ms.reviewer: mmcc
 # Application Insights for Java 2.x
 
 > [!CAUTION]
-> This document applies to Application Insights Java 2.x, which is no longer recommended.
+> This article applies to Application Insights Java 2.x, which is [no longer recommended](https://azure.microsoft.com/updates/application-insights-java-2x-retirement/).
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
 
-In this article, you'll learn how to use Application Insights Java 2.x. This article shows you how to: 
+In this article, you'll learn how to use Application Insights Java 2.x. This article shows you how to:
 
-- Get started, including instrumenting requests, tracking dependencies, collecting performance counters, diagnosing performance issues and exceptions, and writing code to track what users do with your app
-- Send trace logs to Application Insights and explore them using the Application Insights portal.
-- Monitor dependencies, caught exceptions, and method execution times in Java web apps
-- Filter telemetry in your Java web app
-- Explore Linux system performance metrics in Application Insights by using collectd
-- Measure metrics for JVM-based application code and export the data to your favorite monitoring systems by using Micrometer application monitoring
+- Get started, and learn how to instrument requests, track dependencies, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with your app.
+- Send trace logs to Application Insights and explore them by using the Application Insights portal.
+- Monitor dependencies, caught exceptions, and method execution times in Java web apps.
+- Filter telemetry in your Java web app.
+- Explore Linux system performance metrics in Application Insights by using `collectd`.
+- Measure metrics for Java virtual machine (JVM)-based application code. Export the data to your favorite monitoring systems by using Micrometer application monitoring.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Get started with Application Insights in a Java web project
 
-In this section, you use the Application Insights SDK to instrument requests, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this section, you use the Application Insights SDK to instrument requests, track dependencies, collect performance counters, diagnose performance issues and exceptions, and write code to track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
 ### Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You need:
+
+* An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * A functioning Java application.
 
 ### Get an Application Insights instrumentation key
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
+1. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
-3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
+1. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
-    :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot of the Overview pane for an Application Insights resource in the Azure portal. The screenshot shows the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
+    :::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot of the Overview pane for an Application Insights resource in the Azure portal with the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
 ### Add the Application Insights SDK for Java to your project
 
-*Choose your project type.*
+Choose your project type.
 
 # [Maven](#tab/maven)
 
-If your project is already set up to use Maven for build, merge the following code to your *pom.xml* file.
-
-Then, refresh the project dependencies to get the binaries downloaded.
+If your project is already set up to use Maven for build, merge the following code to your *pom.xml* file. Then refresh the project dependencies to get the binaries downloaded.
 
 ```xml
     <dependencies>
@@ -70,9 +70,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
 
 # [Gradle](#tab/gradle)
 
-If your project is already set up to use Gradle for build, merge the following code to your *build.gradle* file.
-
-Then refresh the project dependencies to get the binaries downloaded.
+If your project is already set up to use Gradle for build, merge the following code to your *build.gradle* file. Then refresh the project dependencies to get the binaries downloaded.
 
 ```gradle
     dependencies {
@@ -84,18 +82,17 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 ---
 
-#### Questions
-* *What's the relationship between the `-web-auto`, `-web` and `-core` components?*
-  * `applicationinsights-web-auto` gives you metrics that track HTTP servlet request counts and response times,
-    by automatically registering the Application Insights servlet filter at runtime.
-  * `applicationinsights-web` also gives you metrics that track HTTP servlet request counts and response times,
-    but requires manual registration of the Application Insights servlet filter in your application.
-  * `applicationinsights-core` gives you just the bare API, for example, if your application isn't servlet-based.
-  
-* *How should I update the SDK to the latest version?*
-  * As of November 2020, for monitoring Java applications we recommend using Application Insights Java 3.x. For more information on how to get started, see [Application Insights Java 3.x](./java-in-process-agent.md).
+#### Frequently asked questions
 
-### Add an *ApplicationInsights.xml* file
+* What's the relationship between the `-web-auto`, `-web`, and `-core` components?
+  * `applicationinsights-web-auto` gives you metrics that track HTTP servlet request counts and response times by automatically registering the Application Insights servlet filter at runtime.
+  * `applicationinsights-web` also gives you metrics that track HTTP servlet request counts and response times. But manual registration of the Application Insights servlet filter in your application is required.
+  * `applicationinsights-core` gives you the bare API, for example, if your application isn't servlet-based.
+  
+* How should I update the SDK to the latest version?
+  * As of November 2020, for monitoring Java applications, we recommend using Application Insights Java 3.x. For more information on how to get started, see [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
+
+### Add an ApplicationInsights.xml file
 Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
 
 Replace the instrumentation key with the one that you got from the Azure portal.
@@ -127,18 +124,18 @@ Replace the instrumentation key with the one that you got from the Azure portal.
 </ApplicationInsights>
 ```
 
-Optionally, the configuration file can be in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains *ApplicationInsights.xml*. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Optionally, the configuration file can be in any location accessible to your application. The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains *ApplicationInsights.xml*. For example, a configuration file located at *E:\myconfigs\appinsights\ApplicationInsights.xml* would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server. It then adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server. It then adds this identifier as a property to every item of telemetry as the property `Operation.Id`. It allows you to correlate the telemetry associated with each request by setting a filter in [Diagnostic search][diagnostic].
 
 #### Alternative ways to set the instrumentation key
 Application Insights SDK looks for the key in this order:
 
-1. System property: -DAPPINSIGHTS_INSTRUMENTATIONKEY=your_ikey
-2. Environment variable: APPINSIGHTS_INSTRUMENTATIONKEY
-3. Configuration file: *ApplicationInsights.xml*
+- **System property**: -DAPPINSIGHTS_INSTRUMENTATIONKEY=your_ikey
+- **Environment variable**: APPINSIGHTS_INSTRUMENTATIONKEY
+- **Configuration file**: *ApplicationInsights.xml*
 
 You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
@@ -153,56 +150,52 @@ You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
 ### Add agent
 
-[Install the Java Agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to capture outgoing HTTP calls, JDBC queries, application logging,
-and better operation naming.
+[Install the Java agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to capture outgoing HTTP calls, JDBC queries, application logging, and better operation naming.
 
 ### Run your application
-Either run it in debug mode on your development machine, or publish to your server.
+Either run it in debug mode on your development machine or publish it to your server.
 
 ### View your telemetry in Application Insights
-Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
+Return to your Application Insights resource in the [Azure portal](https://portal.azure.com).
 
-HTTP requests data appears on the overview pane. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data appears on the overview pane. If it isn't there, wait a few seconds and then select **Refresh**.
 
-:::image type="content" source="./media/deprecated-java-2x/overview-graphs.png" alt-text="Screenshot of overview sample data." lightbox="./media/deprecated-java-2x/overview-graphs.png":::
+:::image type="content" source="./media/deprecated-java-2x/overview-graphs.png" alt-text="Screenshot that shows overview sample data." lightbox="./media/deprecated-java-2x/overview-graphs.png":::
 
-[Learn more about metrics.][metrics]
+Learn more about [metrics][metrics].
 
 Click through any chart to see more detailed aggregated metrics.
 
-:::image type="content" source="./media/deprecated-java-2x/006-barcharts.png" alt-text="Screenshot that shows Application Insights failures pane with charts." lightbox="./media/deprecated-java-2x/006-barcharts.png":::
+:::image type="content" source="./media/deprecated-java-2x/006-barcharts.png" alt-text="Screenshot that shows an Application Insights failures pane with charts." lightbox="./media/deprecated-java-2x/006-barcharts.png":::
 
 #### Instance data
 Click through a specific request type to see individual instances.
 
 :::image type="content" source="./media/deprecated-java-2x/007-instance.png" alt-text="Screenshot that shows drilling into a specific sample view." lightbox="./media/deprecated-java-2x/007-instance.png":::
 
-#### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../logs/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+#### Log Analytics: Powerful query language
+As you accumulate more data, you can run queries to aggregate data and find individual instances. [Log Analytics](../logs/log-query-overview.md) is a powerful tool for understanding performance and usage, and for diagnostic purposes.
 
-:::image type="content" source="./media/deprecated-java-2x/0025.png" alt-text="Screenshot that shows an example of Analytics in the Azure portal." lightbox="./media/deprecated-java-2x/0025.png":::
+:::image type="content" source="./media/deprecated-java-2x/0025.png" alt-text="Screenshot that shows an example of Log Analytics in the Azure portal." lightbox="./media/deprecated-java-2x/0025.png":::
 
 ### Install your app on the server
-Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
+Now publish your app to the server, let people use it, and watch the telemetry show up in the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* If outgoing traffic must be routed through a firewall, define system properties `http.proxyHost` and `http.proxyPort`.
-
+* If outgoing traffic must be routed through a firewall, define the system properties `http.proxyHost` and `http.proxyPort`.
 * On Windows servers, install:
 
   * [Microsoft Visual C++ Redistributable](https://www.microsoft.com/download/details.aspx?id=40784)
 
-    (This component enables performance counters.)
+    This component enables performance counters.
 
-### Azure App Service, AKS, VMs config
+### Azure App Service, Azure Kubernetes Service, VMs config
 
-The best and easiest approach to monitor your applications running on any of Azure resource providers is to use
-[Application Insights Java 3.x](./java-in-process-agent.md).
-
+The best and easiest approach to monitor your applications running on any Azure resource providers is to use [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java).
 
 ### Exceptions and request failures
 Unhandled exceptions and request failures are automatically collected by the Application Insights web filter.
@@ -210,22 +203,20 @@ Unhandled exceptions and request failures are automatically collected by the App
 To collect data on other exceptions, you can [insert calls to trackException() in your code][apiexceptions].
 
 ### Monitor method calls and external dependencies
-[Install the Java Agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to log specified internal methods and calls made through JDBC, with timing data.
-
-And for automatic operation naming.
+[Install the Java agent](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) to log-specified internal methods and calls made through JDBC, with timing data, and for automatic operation naming.
 
 ### W3C distributed tracing
 
 The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
 
-The incoming SDK configuration is explained further in our article on [correlation](correlation.md).
+The incoming SDK configuration is explained further in [Telemetry correlation in Application Insights](correlation.md).
 
 Outgoing SDK configuration is defined in the [AI-Agent.xml](#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) file.
 
 ### Performance counters
-Open **Investigate**, **Metrics**, to see a range of performance counters.
+Select **Investigate** > **Metrics** to see a range of performance counters.
 
-:::image type="content" source="./media/deprecated-java-2x/011-perf-counters.png" alt-text="Screenshot of the Metrics pane for an Application Insights resource in the Azure portal. The screenshot shows process private bytes selected." lightbox="./media/deprecated-java-2x/011-perf-counters.png":::
+:::image type="content" source="./media/deprecated-java-2x/011-perf-counters.png" alt-text="Screenshot that shows the Metrics pane for an Application Insights resource in the Azure portal with process private bytes  selected." lightbox="./media/deprecated-java-2x/011-perf-counters.png":::
 
 #### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the *ApplicationInsights.xml* file:
@@ -236,10 +227,10 @@ To disable collection of the standard set of performance counters, add the follo
     </PerformanceCounters>
 ```
 
-#### Collect additional performance counters
-You can specify additional performance counters to be collected.
+#### Collect more performance counters
+You can specify more performance counters to be collected.
 
-##### JMX counters (exposed by the Java Virtual Machine)
+##### JMX counters (exposed by the Java virtual machine)
 
 ```xml
     <PerformanceCounters>
@@ -250,16 +241,16 @@ You can specify additional performance counters to be collected.
     </PerformanceCounters>
 ```
 
-* `displayName` – The name displayed in the Application Insights portal.
-* `objectName` – The JMX object name.
-* `attribute` – The attribute of the JMX object name to fetch
-* `type` (optional) - The type of JMX object's attribute:
-  * Default: a simple type such as int or long.
-  * `composite`: the perf counter data is in the format of 'Attribute.Data'
-  * `tabular`: the perf counter data is in the format of a table row
+* `displayName`: The name displayed in the Application Insights portal.
+* `objectName`: The JMX object name.
+* `attribute`: The attribute of the JMX object name to fetch.
+* `type` (optional): The type of JMX object's attribute:
+  * Default: A simple type, such as int or long.
+  * `composite`: The perf counter data is in the format of `Attribute.Data`.
+  * `tabular`: The perf counter data is in the format of a table row.
 
 ##### Windows performance counters
-Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global or have numbered or named instances.
 
 ```xml
     <PerformanceCounters>
@@ -270,22 +261,22 @@ Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-
     </PerformanceCounters>
 ```
 
-* displayName – The name displayed in the Application Insights portal.
-* categoryName – The performance counter category (performance object) with which this performance counter is associated.
-* counterName – The name of the performance counter.
-* instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
+* `displayName`: The name displayed in the Application Insights portal.
+* `categoryName`: The performance counter category (performance object) with which this performance counter is associated.
+* `counterName`: The name of the performance counter.
+* `instanceName`: The name of the performance counter category instance or an empty string (""), if the category contains a single instance. If `categoryName` is `Process` and the performance counter you want to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 #### Unix performance counters
-* [Install collectd with the Application Insights plugin](#collectd-linux-performance-metrics-in-application-insights-deprecated) to get a wide variety of system and network data.
+[Install collectd with the Application Insights plug-in](#collectd-linux-performance-metrics-in-application-insights-deprecated) to get a wide variety of system and network data.
 
 ### Get user and session data
-OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
+Now you're sending telemetry from your web server. To get the full 360-degree view of your application, you can add more monitoring:
 
 * [Add telemetry to your web pages][usage] to monitor page views and user metrics.
 * [Set up web tests][availability] to make sure your application stays live and responsive.
 
 ### Send your own telemetry
-Now that you've installed the SDK, you can use the API to send your own telemetry.
+Now that you've installed the SDK, you can use the API to send your own telemetry:
 
 * [Track custom events and metrics][api] to learn what users are doing with your application.
 * [Search events and logs][diagnostic] to help diagnose problems.
@@ -293,7 +284,7 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 ### Availability web tests
 Application Insights can test your website at regular intervals to check that it's up and responding well.
 
-[Learn more about how to set up availability web tests.][availability]
+Learn more about how to [set up availability web tests][availability].
 
 ### Troubleshooting
 
@@ -306,13 +297,13 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
 > [!TIP]
-> You only need to set your Application Insights Instrumentation Key once for your application. If you are using a framework like Java Spring, you may have already registered the key elsewhere in your app's configuration.
+> You need to set your Application Insights instrumentation key only once for your application. If you're using a framework like Java Spring, you might have already registered the key elsewhere in your app's configuration.
 
-### Using the Application Insights Java agent
+### Use the Application Insights Java agent
 
-By default, the Application Insights Java agent automatically captures logging performed at `WARN` level and above.
+By default, the Application Insights Java agent automatically captures logging performed at the `WARN` level and above.
 
-You can change the threshold of logging that is captured using the `AI-Agent.xml` file:
+You can change the threshold of logging that's captured by using the *AI-Agent.xml* file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -325,7 +316,7 @@ You can change the threshold of logging that is captured using the `AI-Agent.xml
 </ApplicationInsightsAgent>
 ```
 
-You can disable the Java agent's logging capture using the `AI-Agent.xml` file:
+You can disable the Java agent's logging capture by using the *AI-Agent.xml* file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -338,21 +329,21 @@ You can disable the Java agent's logging capture using the `AI-Agent.xml` file:
 </ApplicationInsightsAgent>
 ```
 
-### Alternatively (as opposed to using the Java agent), you can follow the instructions below
+### Alternatives
+
+Instead of using the Java agent, you can follow these instructions.
 
 #### Install the Java SDK
 
-Follow the instructions to install [Application Insights SDK for Java][java], if you haven't already done that.
+Follow the instructions to install the [Application Insights SDK for Java][java], if you haven't already done that.
 
 #### Add logging libraries to your project
-*Choose the appropriate way for your project.*
+Choose the appropriate way for your project.
 
-##### If you're using Maven...
-If your project is already set up to use Maven for build, merge one of the following snippets of code into your pom.xml file.
+##### Maven
+If your project is already set up to use Maven for build, merge one of the following snippets of code into your *pom.xml* file. Then refresh the project dependencies to get the binaries downloaded.
 
-Then refresh the project dependencies, to get the binaries downloaded.
-
-*Logback*
+**Logback**
 
 ```xml
 
@@ -365,7 +356,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 ```
 
-*Log4J v2.0*
+**Log4J v2.0**
 
 ```xml
 
@@ -378,7 +369,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 ```
 
-*Log4J v1.2*
+**Log4J v1.2**
 
 ```xml
 
@@ -391,10 +382,8 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 ```
 
-##### If you're using Gradle...
-If your project is already set up to use Gradle for build, add one of the following lines to the `dependencies` group in your build.gradle file:
-
-Then refresh the project dependencies, to get the binaries downloaded.
+##### Gradle
+If your project is already set up to use Gradle for build, add one of the following lines to the `dependencies` group in your *build.gradle* file. Then refresh the project dependencies to get the binaries downloaded.
 
 **Logback**
 
@@ -415,8 +404,8 @@ Then refresh the project dependencies, to get the binaries downloaded.
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
 ```
 
-##### Otherwise ...
-Follow the guidelines to manually install Application Insights Java SDK, download the jar (After arriving at Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
+##### Use the jar link
+Follow the guidelines to manually install Application Insights Java SDK and download the jar. On the Maven Central page, select the `jar` link in the download section for the appropriate appender. Add the downloaded appender jar to the project.
 
 | Logger | Download | Library |
 | --- | --- | --- |
@@ -424,11 +413,10 @@ Follow the guidelines to manually install Application Insights Java SDK, downloa
 | Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
 | Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
-
 #### Add the appender to your logging framework
-To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
+To start getting traces, merge the relevant snippet of code to the Logback or Log4J configuration file.
 
-*Logback*
+**Logback**
 
 ```xml
 
@@ -441,7 +429,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
     </root>
 ```
 
-*Log4J v2.0*
+**Log4J v2.0**
 
 ```xml
 
@@ -457,7 +445,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
     </Configuration>
 ```
 
-*Log4J v1.2*
+**Log4J v1.2**
 
 ```xml
 
@@ -471,50 +459,50 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
     </root>
 ```
 
-The Application Insights appenders can be referenced by any configured logger, and not necessarily by the root logger (as shown in the code samples above).
+The Application Insights appenders can be referenced by any configured logger and not necessarily by the root logger, as shown in the preceding code samples.
 
 ### Explore your traces in the Application Insights portal
-Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] pane.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal in the [Search][diagnostic] pane.
 
-Exceptions submitted via loggers will be displayed on the portal as Exception Telemetry.
+Exceptions submitted via loggers will be displayed on the portal as **Exception** telemetry.
 
-:::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="Screenshot of the Search pane for an Application Insights resource in the Azure portal." lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
+:::image type="content" source="./media/deprecated-java-2x/01-diagnostics.png" alt-text="Screenshot that shows the Search pane for an Application Insights resource in the Azure portal." lightbox="./media/deprecated-java-2x/01-diagnostics.png":::
 
 ## Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
-If you have [instrumented your Java web app with Application Insights SDK][javaagent], you can use the Java Agent to get deeper insights, without any code changes:
+If you've [instrumented your Java web app with Application Insights SDK][javaagent], you can use the Java agent to get deeper insights, without any code changes:
 
-* **Dependencies:** Data about calls that your application makes to other components, including:
-  * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.
-  * **Redis calls** made via the Jedis client are captured.
-  * **JDBC queries** - For MySQL and PostgreSQL, if the call takes longer than 10 seconds, the agent reports the query plan.
+* **Dependencies**: Data about calls that your application makes to other components, including:
+  * **Outgoing HTTP calls**: Calls made via `Apache HttpClient`, `OkHttp`, and `java.net.HttpURLConnection` are captured.
+  * **Redis calls**: Calls made via the Jedis client are captured.
+  * **JDBC queries**: For MySQL and PostgreSQL, if the call takes longer than 10 seconds, the agent reports the query plan.
 
-* **Application logging:** Capture and correlate your application logs with HTTP requests and other telemetry
+* **Application logging**: Capture and correlate your application logs with HTTP requests and other telemetry:
   * **Log4j 1.2**
   * **Log4j2**
   * **Logback**
 
-* **Better operation naming:** (used for aggregation of requests in the portal)
-  * **Spring** - based on `@RequestMapping`.
-  * **JAX-RS** - based on `@Path`. 
+* **Better operation naming**: Used for aggregation of requests in the portal.
+  * **Spring**: Based on `@RequestMapping`.
+  * **JAX-RS**: Based on `@Path`.
 
-To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][javaagent]. 
+To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][javaagent].
 
 ### Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.4). Please make sure the version of the 2.x Java Agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
-2. Edit the application server startup script, and add the following JVM argument:
+1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.4). Make sure the version of the 2.x Java agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
+1. Edit the application server startup script, and add the following JVM argument:
    
     `-javaagent:<full path to the agent JAR file>`
    
     For example, in Tomcat on a Linux machine:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. Restart your application server.
+1. Restart your application server.
 
 ### Configure the agent
-Create a file named `AI-Agent.xml` and place it in the same folder as the agent JAR file.
+Create a file named *AI-Agent.xml* and place it in the same folder as the agent jar file.
 
-Set the content of the xml file. Edit the following example to include or omit the features you want.
+Set the content of the XML file. Edit the following example to include or omit the features you want.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -544,28 +532,27 @@ Set the content of the xml file. Edit the following example to include or omit t
 </ApplicationInsightsAgent>
 ```
 
-### Additional config (Spring Boot)
+### More config (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-For Azure App Services, do the following:
+For Azure App Service, follow these steps:
 
-* Select Settings > Application Settings
-* Under App Settings, add a new key value pair:
+1. Select **Settings** > **Application Settings**.
+1. Under **App Settings**, add a new key value pair:
+   - **Key**: `JAVA_OPTS`
+   - **Value**: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.4.jar`
 
-Key: `JAVA_OPTS`
-Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.4.jar`
+   The agent must be packaged as a resource in your project so that it ends up in the *D:/home/site/wwwroot/* directory. To confirm that your agent is in the correct App Service directory, go to **Development Tools** > **Advanced Tools** > **Debug Console** and examine the contents of the site directory.
 
-The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
-
-* Save the settings and Restart your app. (These steps only apply to App Services running on Windows.)
+1. Save the settings and restart your app. These steps only apply to app services running on Windows.
 
 > [!NOTE]
-> AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project.  
+> *AI-Agent.xml* and the agent jar file should be in the same folder. They're often placed together in the */resources* folder of the project.
 
 ##### Enable W3C distributed tracing
 
-Add the following to AI-Agent.xml:
+Add the following snippet to *AI-Agent.xml*:
 
 ```xml
 <Instrumentation>
@@ -576,42 +563,45 @@ Add the following to AI-Agent.xml:
 ```
 
 > [!NOTE]
-> Backward compatibility mode is enabled by default and the enableW3CBackCompat parameter is optional and should be used only when you want to turn it off. 
+> Backward compatibility mode is enabled by default. The `enableW3CBackCompat` parameter is optional and should be used only when you want to turn it off.
+>
+>Ideally, this would be the case when all your services have been updated to newer versions of SDKs supporting the W3C protocol. We recommend that you move to newer versions of SDKs with W3C support as soon as possible.
 
-Ideally this would be the case when all your services have been updated to newer version of SDKs supporting W3C protocol. It is highly recommended to move to newer version of SDKs with W3C support as soon as possible.
-
-Make sure that **both [incoming](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) and outgoing (agent) configurations** are exactly same.
+Make sure that *both [incoming](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) and outgoing (agent) configurations* are exactly the same.
 
 ### View the data
 In the Application Insights resource, aggregated remote dependency and method execution times appear [under the Performance tile][metrics].
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](./asp-net-dependencies.md#diagnosis).
+Learn more about how to [diagnose dependency issues](./asp-net-dependencies.md#diagnosis).
 
-### Questions? Problems?
-* No data? [Set firewall exceptions](./ip-addresses.md)
-* [Troubleshooting Java](java-2x-troubleshoot.md)
+### Questions or problems?
+
+Use the following resources:
+
+* No data? [Set firewall exceptions](./ip-addresses.md).
+* [Troubleshoot Java](java-2x-troubleshoot.md).
 
 ## Filter telemetry in your Java web app
 
-Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](#get-started-with-application-insights-in-a-java-web-project). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
+Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](#get-started-with-application-insights-in-a-java-web-project). There are some out-of-the-box filters that you can use. You can also write your own custom filters.
 
 The out-of-the-box filters include:
 
-* Trace severity level
-* Specific URLs, keywords or response codes
-* Fast responses - that is, requests to which your app responded to quickly
-* Specific event names
+* Trace severity level.
+* Specific URLs, keywords, or response codes.
+* Fast responses. In other words, requests to which your app responded quickly.
+* Specific event names.
 
 > [!NOTE]
-> Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
+> Filters skew the metrics of your app. For example, you might decide that to diagnose slow responses, you'll set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed. Also, the count of requests will be smaller than the real count.
+>
 > If this is a concern, use [Sampling](./sampling.md) instead.
 
-### Setting filters
+### Set filters
 
-In ApplicationInsights.xml, add a `TelemetryProcessors` section like this example:
-
+In *ApplicationInsights.xml*, add a `TelemetryProcessors` section like this example:
 
 ```xml
 
@@ -660,9 +650,11 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ```
 
-[Inspect the full set of built-in processors](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal).
+Inspect the [full set of built-in processors](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal).
 
 ### Built-in filters
+
+This section discusses the built-in filters that are available.
 
 #### Metric Telemetry filter
 
@@ -673,8 +665,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
            </Processor>
 ```
 
-* `NotNeeded` - Comma-separated list of custom metric names.
-
+* `NotNeeded`: Comma-separated list of custom metric names
 
 #### Page View Telemetry filter
 
@@ -687,13 +678,11 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
            </Processor>
 ```
 
-* `DurationThresholdInMS` - Duration refers to the time taken to load the page. If this is set, pages that loaded faster than this time are not reported.
-* `NotNeededNames` - Comma-separated list of page names.
-* `NotNeededUrls` - Comma-separated list of URL fragments. For example, `"home"` filters out all pages that have "home" in the URL.
+* `DurationThresholdInMS`: Duration refers to the time taken to load the page. If this parameter is set, pages that loaded faster than this time aren't reported.
+* `NotNeededNames`: Comma-separated list of page names.
+* `NotNeededUrls`: Comma-separated list of URL fragments. For example, `"home"` filters out all pages that have "home" in the URL.
 
-
-#### Request Telemetry Filter
-
+#### Request Telemetry filter
 
 ```xml
 
@@ -704,22 +693,18 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
            </Processor>
 ```
 
-
-
 #### Synthetic Source filter
 
-Filters out all telemetry that have values in the SyntheticSource property. These include requests from bots, spiders and availability tests.
+Filters out all telemetry that has values in the `SyntheticSource` property. Requests from bots, spiders, and availability tests are included.
 
-Filter out telemetry for all synthetic requests:
-
+Filters out telemetry for all synthetic requests:
 
 ```xml
 
            <Processor type="SyntheticSourceFilter" />
 ```
 
-Filter out telemetry for specific synthetic sources:
-
+Filters out telemetry for specific synthetic sources:
 
 ```xml
 
@@ -728,12 +713,11 @@ Filter out telemetry for specific synthetic sources:
            </Processor>
 ```
 
-* `NotNeeded` - Comma-separated list of synthetic source names.
+* `NotNeeded`: Comma-separated list of synthetic source names
 
 #### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
-
+Filters custom events that were logged by using [TrackEvent()](./api-custom-events-metrics.md#trackevent):
 
 ```xml
 
@@ -742,13 +726,11 @@ Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.m
            </Processor>
 ```
 
-
-* `NotNeededNames` - Comma-separated list of event names.
-
+* `NotNeededNames`: Comma-separated list of event names
 
 #### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](#explore-java-trace-logs-in-application-insights)).
+Filters log traces logged by using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](#explore-java-trace-logs-in-application-insights):
 
 ```xml
 
@@ -757,18 +739,20 @@ Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#t
            </Processor>
 ```
 
-* `FromSeverityLevel` valid values are:
-  *  OFF             - Filter out ALL traces
-  *  TRACE           - No filtering. equals to Trace level
-  *  INFO            - Filter out TRACE level
-  *  WARN            - Filter out TRACE and INFO
-  *  ERROR           - Filter out WARN, INFO, TRACE
-  *  CRITICAL        - filter out all but CRITICAL
+* The `FromSeverityLevel` valid values are:
 
+  * **OFF**: Filters out *all* traces.
+  *  **TRACE**: No filtering. Equals to TRACE level.
+  *  **INFO**: Filters out TRACE level.
+  *  **WARN**: Filters out TRACE and INFO.
+  *  **ERROR**: Filters out WARN, INFO, and TRACE.
+  *  **CRITICAL**: Filters out all but CRITICAL.
 
 ### Custom filters
 
-#### 1. Code your filter
+The following sections show you the steps to create your own custom filters.
+
+#### Code your filter
 
 In your code, create a class that implements `TelemetryProcessor`:
 
@@ -806,9 +790,9 @@ In your code, create a class that implements `TelemetryProcessor`:
 
 ```
 
-#### 2. Invoke your filter in the configuration file
+#### Invoke your filter in the configuration file
 
-In ApplicationInsights.xml:
+Now, in *ApplicationInsights.xml*:
 
 ```xml
 
@@ -825,9 +809,9 @@ In ApplicationInsights.xml:
 
 ```
 
-#### 3. Invoke your filter (Java Spring)
+#### Invoke your filter (Java Spring)
 
-For applications based on the Spring framework, custom telemetry processors must be registered in your main application class as a bean. They will then be autowired when the application starts.
+For applications based on the Spring framework, custom telemetry processors must be registered in your main application class as a bean. They'll then be autowired when the application starts.
 
 ```Java
 @Bean
@@ -836,138 +820,143 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-You will need to create your own filter parameters in `application.properties` and leverage Spring Boot's externalized configuration framework to pass those parameters into your custom filter. 
-
+You create your own filter parameters in `application.properties`. Then you use Spring Boot's externalized configuration framework to pass those parameters into your custom filter.
 
 ### Troubleshooting
 
-*My filter isn't working.*
+This section offers a troubleshooting tip.
 
-* Check that you have provided valid parameter values. For example, durations should be integers. Invalid values will cause the filter to be ignored. If your custom filter throws an exception from a constructor or set method, it will be ignored.
+#### My filter isn't working
 
-## collectd: Linux performance metrics in Application Insights [Deprecated]
+Check that you've provided valid parameter values. For example, durations should be integers. Invalid values will cause the filter to be ignored. If your custom filter throws an exception from a constructor or set method, it will be ignored.
 
-To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+## collectd: Linux performance metrics in Application Insights (deprecated)
 
-Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
+To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/) together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+
+Typically, you'll use `collectd` if you've already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you enhance your app's performance or diagnose problems.
 
 ### Get your instrumentation key
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](./app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](./create-new-resource.md).)
+In the [Azure portal](https://portal.azure.com), open the [Application Insights](./app-insights-overview.md) resource where you want the data to appear. Or, you can [create a new resource](./create-new-resource.md).
 
-Take a copy of the instrumentation key, which identifies the resource.
+Take a copy of the **Instrumentation Key**, which identifies the resource.
 
-:::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot of the Overview pane for an Application Insights resource in the Azure portal. The screenshot shows the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
+:::image type="content" source="./media/deprecated-java-2x/instrumentation-key-001.png" alt-text="Screenshot that shows the overview pane for an Application Insights resource in the Azure portal with the instrumentation key highlighted." lightbox="./media/deprecated-java-2x/instrumentation-key-001.png":::
 
 ### Install collectd and the plug-in
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal). Note the version number.
-3. Copy the plugin JAR into `/usr/share/collectd/java`.
-4. Edit `/etc/collectd/collectd.conf`:
-   * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
-   * Update the JVMArg for the java.class.path to include the following JAR. Update the version number to match the one you downloaded:
-   * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * Add this snippet, using the Instrumentation Key from your resource:
+1. Download the [Application Insights collectd writer plug-in](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal). Note the version number.
+1. Copy the plug-in jar into `/usr/share/collectd/java`.
+1. Edit `/etc/collectd/collectd.conf`:
+   * Ensure that [the Java plug-in](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
+   * Update the JVMArg for the `java.class.path` to include the following jar. Update the version number to match the one you downloaded:
+       * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
+   * Add this snippet by using the instrumentation key from your resource:
 
-```xml
+        ```xml
+        
+             LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
+             <Plugin ApplicationInsightsWriter>
+                InstrumentationKey "Your key"
+             </Plugin>
+        ```
+        
+        Here's part of a sample configuration file:
+    
+        ```xml
+        
+            ...
+            # collectd plugins
+            LoadPlugin cpu
+            LoadPlugin disk
+            LoadPlugin load
+            ...
+        
+            # Enable Java Plugin
+            LoadPlugin "java"
+        
+            # Configure Java Plugin
+            <Plugin "java">
+              JVMArg "-verbose:jni"
+              JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
+        
+              # Enabling Application Insights plugin
+              LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
+        
+              # Configuring Application Insights plugin
+              <Plugin ApplicationInsightsWriter>
+                InstrumentationKey "12345678-1234-1234-1234-123456781234"
+              </Plugin>
+        
+              # Other plugin configurations ...
+              ...
+            </Plugin>
+            ...
+        ```
 
-     LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
-     <Plugin ApplicationInsightsWriter>
-        InstrumentationKey "Your key"
-     </Plugin>
-```
+Configure other [collectd plug-ins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
-Here's part of a sample configuration file:
-
-```xml
-
-    ...
-    # collectd plugins
-    LoadPlugin cpu
-    LoadPlugin disk
-    LoadPlugin load
-    ...
-
-    # Enable Java Plugin
-    LoadPlugin "java"
-
-    # Configure Java Plugin
-    <Plugin "java">
-      JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
-
-      # Enabling Application Insights plugin
-      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
-
-      # Configuring Application Insights plugin
-      <Plugin ApplicationInsightsWriter>
-        InstrumentationKey "12345678-1234-1234-1234-123456781234"
-      </Plugin>
-
-      # Other plugin configurations ...
-      ...
-    </Plugin>
-    ...
-```
-
-Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
-
-Restart collectd according to its [manual](https://collectd.org/wiki/index.php/First_steps).
+Restart `collectd` according to its [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ### View the data in Application Insights
-In your Application Insights resource, open [Metrics and add charts][metrics], selecting the metrics you want to see from the Custom category.
+In your Application Insights resource, open [Metrics and add charts][metrics]. Select the metrics you want to see from the **Custom** category.
 
-By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details pane, turn on Grouping and then choose to group by CollectD-Host.
+By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the **Chart details** pane, turn on **Grouping**, and then choose to group by **CollectD-Host**.
 
-### To exclude upload of specific statistics
-By default, the Application Insights plugin sends all the data collected by all the enabled collectd 'read' plugins. 
+### Exclude upload of specific statistics
+By default, the Application Insights plug-in sends all the data collected by all the enabled `collectd read` plug-ins.
 
-To exclude data from specific plugins or data sources:
+To exclude data from specific plug-ins or data sources:
 
-* Edit the configuration file. 
-* In `<Plugin ApplicationInsightsWriter>`, add directive lines like this:
+* Edit the configuration file.
+* In `<Plugin ApplicationInsightsWriter>`, add directive lines like the ones in the following table:
 
-| Directive | Effect |
-| --- | --- |
-| `Exclude disk` |Exclude all data collected by the `disk` plugin |
-| `Exclude disk:read,write` |Exclude the sources named `read` and `write` from the `disk` plugin. |
+    | Directive | Effect |
+    | --- | --- |
+    | `Exclude disk` |Exclude all data collected by the `disk` plug-in. |
+    | `Exclude disk:read,write` |Exclude the sources named `read` and `write` from the `disk` plug-in. |
 
 Separate directives with a newline.
 
 ### Problems?
-*I don't see data in the portal*
+
+This section offers troubleshooting tips.
+
+#### I don't see data in the portal
+
+Try these options:
 
 * Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
-* You might need to [set firewall exceptions for outgoing data](./ip-addresses.md)
-* Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
+* You might need to [set firewall exceptions for outgoing data](./ip-addresses.md).
+* Enable tracing in the Application Insights plug-in. Add this line within `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
+* Open a terminal and start `collectd` in verbose mode to see any issues it's reporting:
   * `sudo collectd -f`
 
 ### Known issue
 
-The Application Insights Write plugin is incompatible with certain Read plugins. Some plugins sometimes send "NaN" where the Application Insights plugin expects a floating-point number.
+The Application Insights write plug-in is incompatible with certain read plug-ins. Some plug-ins sometimes send `NaN`, but the Application Insights plug-in expects a floating-point number.
 
-Symptom: The collectd log shows errors that include "AI: ... SyntaxError: Unexpected token N".
+- **Symptom**: The `collectd` log shows errors that include "AI: ... SyntaxError: Unexpected token N."
+- **Workaround**: Exclude data collected by the problem write plug-ins.
 
-Workaround: Exclude data collected by the problem Write plugins.
+## Use Micrometer with the Application Insights Java SDK (not recommended)
 
-## How to use Micrometer with Azure Application Insights Java SDK (not recommended)
+Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This section teaches you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
-Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This section will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
+### Use Spring Boot 1.5x
+Add the following dependencies to your *pom.xml* or *build.gradle* file:
 
-### Using Spring Boot 1.5x
-Add the following dependencies to your pom.xml or build.gradle file: 
-* Application Insights spring-boot-starter
-  2.5.0 or later
-* Micrometer Azure Registry 1.1.0 or above
-* [Micrometer Spring Legacy](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
-* [ApplicationInsights Resource](./create-new-resource.md)
+* Application Insights spring-boot-starter 2.5.0 or later.
+* Micrometer Azure Registry 1.1.0 or above.
+* [Micrometer Spring Legacy](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics) 1.1.0 or above. It backports the autoconfig code in the Spring framework.
+* [ApplicationInsights resource](./create-new-resource.md).
 
-Steps
+Follow these steps:
 
-1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it:
+1. Update the *pom.xml* file of your Spring Boot application and add the following dependencies in it:
 
     ```xml
     <dependency>
@@ -989,23 +978,24 @@ Steps
     </dependency>
 
     ```
-2. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
+1. Update the *application.properties* or YML file with the Application Insights instrumentation key by using the following property:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
-1. Build your application and run
-2. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor.
+1. Build your application and run it.
 
-### Using Spring 2.x
+The preceding steps should get you up and running with pre-aggregated metrics autocollected to Azure Monitor.
 
-Add the following dependencies to your pom.xml or build.gradle file:
+### Use Spring 2.x
+
+Add the following dependencies to your *pom.xml* or *build.gradle* file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
 * Azure-spring-boot-metrics-starters 2.0.7 or later
-* [Application Insights Resource](./create-new-resource.md)
+* [Application Insights resource](./create-new-resource.md)
 
-Steps:
+Follow these steps:
 
-1. Update the pom.xml file of your Spring Boot application and add the following dependency in it:
+1. Update the *pom.xml* file of your Spring Boot application and add the following dependency in it:
 
     ```xml
     <dependency> 
@@ -1014,57 +1004,57 @@ Steps:
           <version>2.0.7</version>
     </dependency>
     ```
-1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
+
+1. Update the *application.properties* or YML file with the Application Insights instrumentation key by using the following property:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
-3. Build your application and run
-4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
+1. Build your application and run it.
 
-Default Metrics:
+The preceding steps should get you running with pre-aggregated metrics autocollected to Azure Monitor. For more information on how to fine-tune Application Insights Spring Boot starter, see the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
-*    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
-*    For example, if Netflix Hystrix is present on class path we get those metrics as well. 
-*    The following metrics can be available by adding respective beans. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)
-        - DataBaseTableMetrics 
-        - HibernateMetrics 
-        - JettyMetrics 
-        - OkHttp3 metrics 
-        - Kafka Metrics 
+Default metrics:
 
+* Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J Metrics, Uptime Metrics, Processor Metrics, and FileDescriptorMetrics.
+* For example, if Netflix Hystrix is present on the class path, we get those metrics too.
+* The following metrics can be available by adding the respective beans:
+    - `CacheMetrics` (`CaffeineCache`, `EhCache2`, `GuavaCache`, `HazelcastCache`, and `JCache`)
+    - `DataBaseTableMetrics`
+    - `HibernateMetrics`
+    - `JettyMetrics`
+    - `OkHttp3` Metrics
+    - `Kafka` Metrics
 
+Turn off automatic metrics collection:
 
-How to turn off automatic metrics collection: 
-
-- JVM Metrics: 
-    - management.metrics.binders.jvm.enabled=false 
-- Logback Metrics: 
-    - management.metrics.binders.logback.enabled=false
-- Uptime Metrics: 
-    - management.metrics.binders.uptime.enabled=false 
+- JVM Metrics:
+    - `management.metrics.binders.jvm.enabled=false`
+- Logback Metrics:
+    - `management.metrics.binders.logback.enabled=false`
+- Uptime Metrics:
+    - `management.metrics.binders.uptime.enabled=false`
 - Processor Metrics:
-    -  management.metrics.binders.processor.enabled=false 
+    -  `management.metrics.binders.processor.enabled=false`
 - FileDescriptorMetrics:
-    - management.metrics.binders.files.enabled=false 
-- Hystrix Metrics if library on classpath: 
-    - management.metrics.binders.hystrix.enabled=false 
-- AspectJ Metrics if library on classpath: 
-    - spring.aop.enabled=false 
+    - `management.metrics.binders.files.enabled=false`
+- Hystrix Metrics if library on `classpath`:
+    - `management.metrics.binders.hystrix.enabled=false`
+- AspectJ Metrics if library on `classpath`:
+    - `spring.aop.enabled=false`
 
 > [!NOTE]
-> Specify the properties above in the application.properties or application.yml file of your Spring Boot application
+> Specify the preceding properties in the *application.properties* or *application.yml* file of your Spring Boot application.
 
 ### Use Micrometer with non-Spring Boot web applications
 
-Add the following dependencies to your pom.xml or build.gradle file:
+Add the following dependencies to your *pom.xml* or *build.gradle* file:
 
 * Application Insights Web Auto 2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
-* [Application Insights Resource](./create-new-resource.md)
+* [Application Insights resource](./create-new-resource.md)
 
-Steps:
+Follow these steps:
 
-1. Add the following dependencies in your pom.xml or build.gradle file:
+1. Add the following dependencies in your *pom.xml* or *build.gradle* file:
 
     ```xml
         <dependency>
@@ -1080,9 +1070,9 @@ Steps:
         </dependency>
      ```
 
-2. If you haven't already, add `ApplicationInsights.xml` file in the resources folder. For more information, see [Add an ApplicationInsights.xml file](#add-an-applicationinsightsxml-file).
+1. If you haven't done so already, add the *ApplicationInsights.xml* file in the resources folder. For more information, see [Add an ApplicationInsights.xml file](#add-an-applicationinsightsxml-file).
 
-3. Sample Servlet class (emits a timer metric):
+1. Sample Servlet class (emits a timer metric):
 
     ```Java
         @WebServlet("/hello")
@@ -1121,7 +1111,7 @@ Steps:
 
     ```
 
-4. Sample configuration class:
+1. Sample configuration class:
 
     ```Java
          @WebListener
@@ -1160,15 +1150,17 @@ Steps:
          }
     ```
 
-To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
+To learn more about metrics, see the [Micrometer documentation](https://micrometer.io/docs/).
 
 Other sample code on how to create different types of metrics can be found in the [official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
-### How to bind additional metrics collection
+### Bind more metrics collection
+
+The following sections show you how to collect more metrics.
 
 #### SpringBoot/Spring
 
-Create a bean of the respective metric category. For example, say we need Guava cache Metrics:
+Create a bean of the respective metric category. For example, say you need Guava Cache metrics:
 
 ```Java
     @Bean
@@ -1176,32 +1168,35 @@ Create a bean of the respective metric category. For example, say we need Guava 
         Return new GuavaCacheMetrics();
     }
 ```
-There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+
+Several metrics aren't enabled by default but can be bound in the preceding fashion. For a complete list, see the [Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder).
 
 #### Non-Spring apps
-Add the following binding code to the configuration  file:
+Add the following binding code to the configuration file:
+
 ```Java 
     New GuavaCacheMetrics().bind(registry);
 ```
 
 ## Next steps
-* Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
+
+* Add [monitoring to your webpages](javascript.md) to monitor page load times, AJAX calls, and browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
-* [Diagnostic search][diagnostic]
-* [Sampling](./sampling.md) - Consider sampling as an alternative to filtering that does not skew your metrics.
-* To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).
-* For more information, visit [Azure for Java developers](/java/azure).
+* Use [Log Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app.
+* Use [Diagnostic search][diagnostic].
+* Consider [sampling](./sampling.md) as an alternative to filtering that doesn't skew your metrics.
+* To learn more about Micrometer, see the [Micrometer documentation](https://micrometer.io/docs).
+* To learn about Spring on Azure, see the [Spring on Azure documentation](/java/azure/spring-framework/).
+* For more information, see [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
-[availability]: ./monitor-web-app-availability.md
+[availability]: ./availability-overview.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: #explore-java-trace-logs-in-application-insights
 [metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: #get-started-with-application-insights-in-a-java-web-project
-[javaagent]: java-in-process-agent.md
+[javaagent]: opentelemetry-enable.md?tabs=java

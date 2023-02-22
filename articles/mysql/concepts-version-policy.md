@@ -1,8 +1,8 @@
 ---
 title: Version support policy - Azure Database for MySQL - Single Server and Flexible Server
 description: Describes the policy around MySQL major and minor versions in Azure Database for MySQL
-author: sr-msft
-ms.author: srranga
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual

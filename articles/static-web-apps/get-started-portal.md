@@ -142,6 +142,9 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 | Repository| Select **my-first-web-static-app**. |
 | Branch | Select **main**. |
 
+> [!NOTE]
+> Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.
+
 ::: zone-end
 
 In the _Build Details_ section, add configuration details specific to your preferred front-end framework.

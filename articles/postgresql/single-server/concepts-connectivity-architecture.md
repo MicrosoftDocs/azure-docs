@@ -4,8 +4,8 @@ description: Describes the connectivity architecture of your Azure Database for 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: bahusse
-author: Bashar-MSFT
+ms.author: sisawant 
+author: code-sidd
 ms.date: 06/24/2022
 ---
 

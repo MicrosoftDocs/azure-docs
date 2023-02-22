@@ -127,7 +127,7 @@ You can now navigate the IoT Plug and Play component:
 
 :::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Screenshot showing the component view of an IoT Plug and Play device in Azure IoT explorer.":::
 
-You can now modify your device code to implement the telemetry, properties, and commands defined in your model. To see an example implementation of the thermostat device using the Mosquitto library, see [Using MQTT PnP with Azure IoTHub without the IoT SDK on Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) on GitHub.
+You can now modify your device code to implement the telemetry, properties, and commands defined in your model. For an example implementation using the Mosquitto library, see [Using MQTT with Azure IoT Hub without an SDK](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/mosquitto) on GitHub.
 
 > [!NOTE]
 >The client uses the `IoTHubRootCA_Baltimore.pem` root certificate file to verify the identity of the IoT hub it connects to.
