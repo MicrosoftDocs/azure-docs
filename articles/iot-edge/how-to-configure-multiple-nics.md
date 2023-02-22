@@ -107,7 +107,7 @@ The final step is to make sure the networking configurations were applied correc
     
     The default interface **eth0** is the one used for all the VM management. You should see another interface, like **eth1**, which is the new interface that was assigned to the VM. Following the examples above, if you previously assigned a new endpoint with the static IP 192.168.0.103 you should see the interface **eth1** with the _inet addr: 192.168.0.103_.
 
-   ![EFLOW VM network interfaces](./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png)
+   :::image type="content" source="./media/how-to-configure-multiple-nics/ps-cmdlet-eflow-ifconfig.png" alt-text="Screenshot of EFLOW virtual machine network interfaces.":::
 
 ## Next steps
 Follow the steps in [How to configure networking for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md) to make sure all the networking configurations were applied correctly.
