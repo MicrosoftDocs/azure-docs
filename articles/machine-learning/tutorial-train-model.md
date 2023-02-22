@@ -15,7 +15,7 @@ ms.date: 02/21/2023
 
 # Tutorial: Train a model in Azure Machine Learning
 
-Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for a classifier. This tutorial helps you become familiar with the core concepts of Azure ML and their most common usage (training a model). In this example, we use the associated credit card dataset to show how you can use AutoML for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment. To complete this tutorial, ensure you've completed the prerequisite tutorial for prototyping. [link-to-notebook]
+Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for a classifier. This tutorial helps you become familiar with the core concepts of Azure ML and their most common usage (training a model). In this example, we use the associated credit card dataset to show how you can use AutoML for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
 
 This article pairs with a ready to run (Python Notebook) where you can train[link-to-notebook] a model from Azure studio or your local machine. To train a model, you need to submit a *job*. In this tutorial, you'll learn how to submit a *command job* to run your *training script* on a specified *compute resource*, configured with the *job environment* necessary to run the script. Submitting a *command job* allows you to run a custom training script for your model. 
 
@@ -60,9 +60,9 @@ The steps you'll take are:
 
 Azure Machine Learning offers several ways to train models. Users can select their method of training based on complexity of the model, data size, and training speed requirements. Here are some of the ways to train in Azure Machine Learning:
 
-1. Command Job: A command job is a function that allows you to use your own training script to train your model. A command job in Azure Machine Learning is a type of job that runs a script or command in a specified environment. You can use command jobs to train models, process data, or any other custom code you want to execute in the cloud. 
-1. AutoML: AutoML is a supplemental tool to reduce the amount of time a data scientist spends finding a model that works best with their data. Instead of rewriting a training script for each model, AutoML runs each model automatically, along with hyperparameter tuning of each model to help ensure its accuracy. After AutoML has found a model you're happy with, you can continue to tweak the script or continue hyperparameter tuning to improve the model.
-1. GitHub Examples: GitHub examples are great ways of training along side an explained tutorial. In Azure Machine Learning's examples repo, each completed tutorial pairs with a Python Notebook where you can run code and learn to train a model. Users are able to modify and run existing scripts from the GitHub Examples Repo containing scenarios including classification, natural language processing, and anomaly detection. 
+* Command Job: A command job is a function that allows you to use your own training script to train your model. A command job in Azure Machine Learning is a type of job that runs a script or command in a specified environment. You can use command jobs to train models, process data, or any other custom code you want to execute in the cloud. 
+*AutoML: AutoML is a supplemental tool to reduce the amount of time a data scientist spends finding a model that works best with their data. Instead of rewriting a training script for each model, AutoML runs each model automatically, along with hyperparameter tuning of each model to help ensure its accuracy. After AutoML has found a model you're happy with, you can continue to tweak the script or continue hyperparameter tuning to improve the model.
+*GitHub Examples: GitHub examples are great ways of training along side an explained tutorial. In Azure Machine Learning's examples repo, each completed tutorial pairs with a Python Notebook where you can run code and learn to train a model. Users are able to modify and run existing scripts from the GitHub Examples Repo containing scenarios including classification, natural language processing, and anomaly detection. 
 
 In this tutorial, we'll focus on using a command job to create a custom training job that we'll use to train a model. For any custom training job, the below items are required:
 
@@ -83,7 +83,7 @@ Before you dive in the code, you need to connect to your Azure ML workspace. The
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-To connect your code to Azure ML, use `MLClient`. `MLClient` allows us to make cloud based code runs locally or in the Azure Studio. 
+To connect your code to Azure ML, use `MLClient`. `MLClient` allows us to make cloud-based code runs locally or in the Azure Studio. 
 
 
 ```python
@@ -263,7 +263,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. If you would like to learn more about how MLFLow works (visit this link)[concept-mlflow.md]. If you would like to learn more about how Azure Machine Learning uses the MLflow model's concept to enable deployment workflows (visit this link). [concept-mlflow-models.md]
+[MLFlow](https://mlflow.org/docs/latest/tracking.html) is used to log the parameters and metrics during our job. The MLFlow package allows you to keep track of metrics and results for each model Azure trains. We'll be using MLFlow to first get the best model for our data, then we'll view the model's metrics on the Azure studio. If you would like to learn more about how MLFLow works (visit this link)[concept-mlflow.md]. If you would like to learn more about how Azure Machine Learning uses the MLflow model's concept to enable deployment workflows (visit this link)[concept-mlflow-models.md].
 
 
 ```python
