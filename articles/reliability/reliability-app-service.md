@@ -75,19 +75,13 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 **To deploy a zone-redundant App Service:**
 
-1. Create a new App Service plan in one of the supported [regions](/azure/app-service/environment/overview#regions) using the **new** resource group.
-
-1. Ensure that the `zoneRedundant` property (described below) is set to `true` when creating the new App Service plan.
-
-1. Create your apps in the new App Service plan using your desired deployment method. 
 # [Azure CLI](#tab/cli)
 
 To enable availability zones using the Azure CLI, include the `--zone-redundant` parameter when you create your App Service plan. You can also include the `--number-of-workers` parameter to specify capacity. If you don't specify a capacity, the platform defaults to three. Capacity should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 ```azurecli
 az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku P1v2 --zone-redundant --number-of-workers 6
-```
-    
+```    
 
 > [!TIP]
 > To decide instance capacity, you can use the following calculation:
