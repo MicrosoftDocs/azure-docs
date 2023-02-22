@@ -57,8 +57,8 @@ Here is the diagram about the system:
 3. Build and run sample project.
     ```shell
     cd ASA-Samples-Web-Application
-    mvn clean package -DskipTests
-    mvn spring-boot:run -f web/pom.xml
+    ./mvnw clean package -DskipTests
+    ./mvnw spring-boot:run -f web/pom.xml
     ```
 4. Access `http://localhost:8080` by browser, you will see a page like this:
 
@@ -201,7 +201,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 2. Package the project by this command:
     ```shell
-    mvn clean package -DskipTests -f .\web\pom.xml
+    ./mvnw clean package -DskipTests -f .\web\pom.xml
     ```
 3. Deploy the app by this command:
     ```azurecli-interactive
