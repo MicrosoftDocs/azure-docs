@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secure n-tier web app'
 description: Learn how to securely deploy your n-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/21/2023
+ms.date: 2/22/2023
 ms.author: jordanselig
 ---
 
@@ -11,7 +11,7 @@ ms.author: jordanselig
 
 Many applications consist of more than just a single component. For example, you may have a frontend that is publicly accessible that connects to a backend database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up an n-tier application. It's important that applications like this are architected so that access is limited to privileged individuals. Any component that isn't intended for public consumptions should be locked down to the greatest extent available for your use case.
 
-In this tutorial, you'll learn how to deploy a secure n-tier web app with network-isolated communication to a backend web app. All traffic is isolated within your virtual network using [virtual network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more information on n-tier applications including more scenarios and multi-region considerations, see [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md).
+In this tutorial, you'll learn how to deploy a secure n-tier web app with network-isolated communication to a backend web app. All traffic is isolated within your virtual network using [virtual network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more information on n-tier applications including more scenarios and multi-region considerations, see [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md) and [Reliable web app pattern planning (.NET)](azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md).
 
 The following architecture diagram shows the infrastructure you'll create during this tutorial.
 
@@ -420,3 +420,6 @@ To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bi
 
 > [!div class="nextstepaction"]
 > [App Service networking features](networking-features.md)
+
+> [!div class="nextstepaction"]
+> [Reliable web app pattern planning (.NET)](azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md)
