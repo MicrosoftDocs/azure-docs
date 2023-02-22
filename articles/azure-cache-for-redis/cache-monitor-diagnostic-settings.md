@@ -93,11 +93,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Categories**.
 
-   |Category  | Definition  | Key Properties   |
-   |---------|---------|---------|
-   |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
-
-   For more detail on other fields, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
+   For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **ConnectedClientList**, send your logs to your preferred destination. Select the information on the right.
 
@@ -113,11 +109,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
 
-   |Category  | Definition  | Key Properties   |
-   |---------|---------|---------|
-   |Connection events |  Connection, disconnection, and authentication events logged when the events occur. Includes IP addresses of each connection. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
-
-   For more detail on other fields, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
+   For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information on the right.
 
