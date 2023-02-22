@@ -108,7 +108,7 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
     ```
 
 ### 3. Prepare PostgreSQL instance
-When run app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flesible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
+When run app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
 
 ```azurecli-interactive
 az postgres flexible-server create \
@@ -191,7 +191,19 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 
 ## Deploy the app to Azure Spring Apps
-1. Now the cloud environment is ready. Deploy the app by this command:
+1. Now the cloud environment is ready. Let's prepare the java project. First, remove all `spring.datasource.*` properties in delete the In the application.yml file. Here is an example:
+    ```yaml
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: ${POSTGRES_PASSWORD}
+    ```
+2. Package the project by this command:
+    ```shell
+    mvn clean package -DskipTests -f .\web\pom.xml
+    ```
+3. Deploy the app by this command:
     ```azurecli-interactive
     az spring app deploy \
         --resource-group <name-of-resource-group> \
@@ -199,8 +211,8 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --name <name-of-app> \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
-3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
+4. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
+5. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
         --resource-group <name-of-resource-group> \
@@ -216,7 +228,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
 
 ## Next steps
 1. [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Secrets).
-1. [Create a service connection in Azure Spring Apps with the Azure CLI](/azure/service-connector/quickstart-cli-spring-cloud-connection).
-1. [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
-1. [Spring on Azure](/azure/developer/java/spring/)
-1. [Spring Cloud Azure](/azure/developer/java/spring-framework/)
+2. [Create a service connection in Azure Spring Apps with the Azure CLI](/azure/service-connector/quickstart-cli-spring-cloud-connection).
+3. [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+4. [Spring on Azure](/azure/developer/java/spring/)
+5. [Spring Cloud Azure](/azure/developer/java/spring-framework/)
