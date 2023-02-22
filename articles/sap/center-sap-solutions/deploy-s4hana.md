@@ -137,7 +137,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 1. Select **Next: Visualize Architecture**.
 
-1. In the **Visualize Architecture** tab, visualize the architecture of the Virtual Instance for SAP solutions that will be deployed.
+1. In the **Visualize Architecture** tab, visualize the architecture of the VIS that you will be deploying.
 
     1. To view the visualization, make sure to configure all the inputs listed on the tab.
 
@@ -155,7 +155,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. Click on **Feedback** to share your feedback on the visualization experience.
 
-        The visualization does not represent all resources that will be deployed, for instance disks and NICs are not represented.
+        The visualization doesn't represent all resources for the VIS you will be deploying, for instance it doesn't represent disks and NICs.
 
     1. Select **Next: Tags**.
 
