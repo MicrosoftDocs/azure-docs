@@ -1,7 +1,7 @@
 ---
 title: Enable Zone to Zone Disaster Recovery for Azure Virtual Machines
 description: This article describes when and how to use Zone to Zone Disaster Recovery for Azure virtual machines.
-author: ankitaduttaMSFT
+author: rishjai-msft
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
@@ -69,7 +69,7 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 |Managed disks    |    Supported    |
 |Customer-managed keys    |    Supported    |
 |Proximity placement groups    |    Supported    |
-|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore are not supported.    |
+|Backup interoperability    |    Object level or item level restore are supported. Disk and VM level restore are not supported. This implies that the restored VM or restored disk will not get protected with ASR by default.   |
 |Hot add/remove    |    Disks can be added after enabling zone to zone replication. Removal of disks after enabling zone to zone replication is not supported.    |
 
 ## Set up Site Recovery Zone to Zone Disaster Recovery
