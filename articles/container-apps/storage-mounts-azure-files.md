@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Create an Azure Files volume mount in Azure Container Apps
 
-Learn to write to permanent storage in a container app using an Azure Files storage mount. For more information about storage mounts, see [Storage mounts](storage-mounts.md).
+Learn to write to permanent storage in a container app using an Azure Files storage mount. For more information about storage mounts, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
 In this tutorial, you learn how to:
 

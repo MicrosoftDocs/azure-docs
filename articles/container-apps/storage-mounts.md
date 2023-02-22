@@ -30,7 +30,7 @@ Container file system storage has the following characteristics:
 * Files written to this storage are only visible to processes running in the current container.
 * There are no capacity guarantees. The available storage depends on the amount of disk space available in the container.
 
-## <a name="temporary-storage"></a>Ephemeral storage
+## <a name="temporary-storage"></a>Ephemeral volume
 
 You can mount an ephemeral, temporary volume that is equivalent to [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in Kubernetes. Ephemeral storage is scoped to a single replica.
 
@@ -193,7 +193,7 @@ To create an ephemeral volume and mount it in a container, deploy a new revision
 
 ::: zone-end
 
-## Azure Files
+## <a name="azure-files"></a>Azure Files volume
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
 
