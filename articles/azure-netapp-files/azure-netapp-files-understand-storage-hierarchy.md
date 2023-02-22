@@ -27,11 +27,6 @@ The following example shows the relationships of the Azure subscription, NetApp 
 
 :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png":::
 
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
-The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
-
-  :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png" alt-text="Diagram of storage hierarchy in Azure NetApp Files." lightbox="../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png":::
-
 ## <a name="azure_netapp_files_account"></a>NetApp accounts
 
 - A NetApp account serves as an administrative grouping of the constituent capacity pools.  
