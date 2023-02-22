@@ -13,7 +13,7 @@
 - name: Quickstarts
   items:
   - name: Create Network fabric Controller and Cluster Manager
-    href: quickstart-nfc-cm-create.md
+    href: quickstart-network-fabric-controller-cluster-manager-create.md
   - name: Before you start platform deployment
     href: quickstarts-platform-prerequisites.md
   - name: Platform deployment
