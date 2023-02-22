@@ -13,9 +13,6 @@ ms.author: cshoe
 
 Learn to write to permanent storage in a container app using an Azure Files storage mount.
 
-> [!NOTE]
-> The volume mounting features in Azure Container Apps are in preview.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
