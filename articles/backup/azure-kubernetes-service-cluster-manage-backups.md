@@ -18,7 +18,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 This section provides the set of Azure CLI commands to create, update, delete operations on the backup extension. You can use the *update* command to change the blob container where backups are stored along with compute limits for the underlying Backup Extension Pods.
 
-### Install
+### Install Backup Extension
 
 To install the Backup Extension, use the following command:
 
@@ -26,7 +26,7 @@ To install the Backup Extension, use the following command:
    az k8s-extension create --name azure-aks-backup --extension-type Microsoft.DataProtection.Kubernetes --scope cluster --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train preview --configuration-settings blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid
    ```
 
-### Options
+### Update resources in Backup Extension
 
 To update blob container, CPU, and memory in the Backup Extension, use the following command:
 
@@ -37,7 +37,7 @@ To update blob container, CPU, and memory in the Backup Extension, use the follo
 
    ```
 
-### Delete
+### Delete Backup Extension installation operation
 
 To stop the Backup Extension install operation, use the following command:
 
@@ -45,7 +45,7 @@ To stop the Backup Extension install operation, use the following command:
    az k8s-extension delete --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg
    ```
 
-### Show
+### View Backup Extension installation status
 
 To view the progress of Backup Extension installation, use the following command:
 
