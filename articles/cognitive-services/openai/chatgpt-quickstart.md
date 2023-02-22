@@ -32,6 +32,6 @@ Use this article to get started making your first calls to the Azure OpenAI serv
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/rest.md)]
+[!INCLUDE [REST API quickstart](includes/chatgpt-rest.md)]
 
 ::: zone-end

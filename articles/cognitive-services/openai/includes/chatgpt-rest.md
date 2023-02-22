@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service with the Python SDK'
+title: 'Quickstart: Use Azure OpenAI Service with the REST API'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -20,20 +20,7 @@ keywords:
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to the Azure OpenAI service in the desired Azure subscription
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-- The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and `TODO: Enter other regions if available`. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
-
-## Set up
-
-Install the OpenAI Python client library with:
-
-```console
-pip install openai
-```
-
-> [!NOTE]
-> This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 ### Retrieve key and endpoint
 
@@ -83,45 +70,38 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 ```
 ---
 
-## Create a new Python application
+## REST API
 
-1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
+In a bash shell run the following:
 
-2. Replace the contents of quickstart.py with the following code:
-
-    ```python
-    #Note: The openai-python library support for Azure OpenAI is in preview.
-    import os
-    import openai
-    openai.api_type = "azure"
-    openai.api_base = os.getenv("OPENAI_API_BASE") 
-    openai.api_version = "2022-12-01"
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-
-    response = openai.Completion.create(
-        engine="text-chat-davinci-002-test",
-        prompt="<|im_start|>system\nThe system is an AI assistant that helps people find information.\n<|im_end|>\n<|im_start|>user\nDoes Azure OpenAI support customer managed keys?\n<|im_end|>\n<|im_start|>assistant",
-        temperature=1,
-        max_tokens=800,
-        top_p=0.95,
-        frequency_penalty=0,
-        presence_penalty=0,
-        best_of=1,
-        stop=["<|im_end|>"])
-
-    print(response['choices'][0]['text'])
-    ```
-
-3. Run the application with the `python` command on your quickstart file:
-
-    ```console
-    python quickstart.py
-    ```
+```bash
+curl https://$OPENAI_API_BASE/openai/deployments/docs-test/completions?api-version=2022-12-01 \
+  -H "Content-Type: application/json" \
+  -H "api-key: $OPENAI_API_KEY" \
+  -d '{
+  "prompt": "<|im_start|>system\nThe system is an AI assistant that helps people find information.\n<|im_end|>\n<|im_start|>user\nDoes Azure OpenAI support customer managed keys?\n<|im_end|>\n<|im_start|>assistant",
+  "max_tokens": 800,
+  "temperature": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "best_of": 1,
+  "top_p": 0.95,
+  "stop": ["<|im_end|>"]
+}'
+```
 
 ## Output
 
-```console
-Yes, Azure OpenAI supports customer managed keys, which allow customers to control access to their data and models. Additionally, Azure OpenAI supports Azure Key Vault integration which allows customers to manage and control access to keys and other secrets in Azure.'
+Output formatting adjusted for readability.
+
+```bash
+{"id":"cmpl-6mZPEDkBPasCTxueCy9iVRMY4ZGD4",
+"object":"text_completion",
+"created":1677033864,
+"model":"text-chat-davinci-002",
+"choices":
+[{"text":"\nYes, Azure OpenAI supports customer managed keys. These keys allow customers to manage their own encryption keys for the OpenAI services, rather than relying on Azure's managed keys. This provides an additional layer of security for customers' data and models.","index":0,"logprobs":null,"finish_reason":"stop"}],
+"usage":{"prompt_tokens":66,"completion_tokens":52,"total_tokens":118}}
 ```
 
 ### Understanding the prompt structure
@@ -139,4 +119,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-Learn more about how to work with ChatGPT and the new `text-chat-davinci-002' [How-to guide on ChatGPT](TODO:Link to Guide).
+Learn more about how to work with ChatGPT and the new `gpt-3.5' model in the [how-to guide on ChatGPT](../how-to/chatgpt.md).
