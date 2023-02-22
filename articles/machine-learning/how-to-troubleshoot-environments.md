@@ -1720,7 +1720,7 @@ Try creating a separate environment using conda
 This issue can happen when no targets are specified and no makefile is found when running `make`.
 
 **Potential causes:**
-* Makefile does not exist in the current directory
+* Makefile doesn't exist in the current directory
 * No targets are specified
 
 **Affected areas (symptoms):**
