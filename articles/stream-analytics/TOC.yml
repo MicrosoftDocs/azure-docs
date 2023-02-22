@@ -328,7 +328,7 @@
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
       href: resource-manager-export.md
-  - name: Continuous integration and deployment
+  - name: CI/CD
     items:
     - name: CI/CD overview
       href: cicd-overview.md
@@ -336,6 +336,8 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Configure autoscale settings
+      href: cicd-autoscale.md
   - name: Visual Studio
     items:
     - name: Migrate ASA projects to VSCode

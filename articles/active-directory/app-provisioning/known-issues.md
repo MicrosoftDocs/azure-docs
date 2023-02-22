@@ -41,6 +41,8 @@ This article discusses known issues to be aware of when you work with app provis
 
 An external user from the source (home) tenant can't be provisioned into another tenant. Internal guest users from the source tenant can't be provisioned into another tenant. Only internal member users from the source tenant can be provisioned into the target tenant. For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
 
+In addition, users that are enabled for SMS sign-in cannot be synchronized through cross-tenant synchronization.
+
 ### Provisioning manager attributes
 
 Provisioning manager attributes isn't supported.

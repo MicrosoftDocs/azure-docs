@@ -289,6 +289,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 }
 '
 ```
+Only the `resolution` aspect supports sentenceCount. If you do not specify the `sentenceCount` parameter, the model will determine the summary's length. Note that `sentenceCount` is just the approximation of sentence count of output summary, range 1 to 7.
+
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
 - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.

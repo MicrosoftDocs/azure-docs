@@ -20,7 +20,7 @@ An embedding is a special format of data representation that can be easily utili
 
 ## Embedding models
 
-Different Azure OpenAI embedding models are specifically created to be good at a particular task. **Similarity embeddings** are good at capturing semantic similarity between two or more pieces of text. **Text search embeddings** help measure long documents are relevant to a short query. **Code search embeddings** are useful for embedding code snippets and embedding nature language search queries.
+Different Azure OpenAI embedding models are specifically created to be good at a particular task. **Similarity embeddings** are good at capturing semantic similarity between two or more pieces of text. **Text search embeddings** help measure long documents are relevant to a short query. **Code search embeddings** are useful for embedding code snippets and embedding natural language search queries.
 
 Embeddings make it easier to do machine learning on large inputs representing words by capturing the semantic similarities in a vector space. Therefore, we can use embeddings to determine if two text chunks are semantically related or similar, and provide a score to assess similarity.
 

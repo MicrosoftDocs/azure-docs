@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 02/13/2023
 ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-language-detection, ignite-fall-2021, mode-api

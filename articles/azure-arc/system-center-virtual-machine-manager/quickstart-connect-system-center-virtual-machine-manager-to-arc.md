@@ -4,7 +4,9 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.services: azure-arc
+ms.subservice: azure-arc-scvmm
+ms.date: 02/01/2023
 ms.custom: references_regions
 ---
 
@@ -50,26 +52,12 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 1. Provide a name for **Custom location**.
    This is the name that you'll see when you deploy virtual machines. Name it for the datacenter or the physical location of your datacenter. For example: *contoso-nyc-dc.*
 
-    >[!Note]
-    >If you are using an existing resource bridge created for a different provider (HCI/VMware), ensure that you create a separate custom location for each provider.  
-
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
 1. Select **Next: Download and run script**.
 1. If your subscription isn't registered with all the required resource providers, select **Register** to proceed to next step.
 1. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the workstation.
 1. To see the status of your onboarding after you run the script on your workstation, select **Next:Verification**. The onboarding isn't affected when you close this page.
-
-## Run the script
-
-Use the following instructions to run the script, depending on the Operating System of the workstation.
-
->[!NOTE]
->Before running the script, install the latest version of Azure CLI (2.36.0 or later).
-
-**Known issue**
-
-We are observing intermittent extension installation issues with Azure CLI 2.42.0 version. To avoid failures, install Azure CLI 2.41.0 versions. [Download the specific version of Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli#specific-version).
 
 ### Windows
 

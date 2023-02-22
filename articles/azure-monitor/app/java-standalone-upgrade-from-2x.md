@@ -32,7 +32,7 @@ auto-instrumentation which is provided by the 3.x Java agent.
 Add the 3.x Java agent to your JVM command-line args, for example
 
 ```
--javaagent:path/to/applicationinsights-agent-3.4.8.jar
+-javaagent:path/to/applicationinsights-agent-3.4.9.jar
 ```
 
 If you were using the Application Insights 2.x Java agent, just replace your existing `-javaagent:...` with the above.

@@ -49,7 +49,7 @@ For example, our most powerful GPT-3 model is called `text-davinci-003`, while o
 
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenai/models/list).
+You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list).
 
 ## Finding the right model
 
@@ -169,7 +169,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Text-davinci-003 | Yes | No | East US | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available by request only. Please open a support request.
+\*Models available by request only. We are currently unable to onboard new customers at this time.
 
 ### Codex Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
@@ -178,13 +178,14 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
 | Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available for Fine-tuning by request only. Please open a support request.
+\*Models available for Fine-tuning by request only. We are currently unable to enable new cusetomers at this time.
 
 
 
 ### Embeddings Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |

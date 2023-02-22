@@ -200,7 +200,7 @@
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Use planned maintenance (preview)
+        - name: Use planned maintenance to schedule and control upgrades (preview)
           href: planned-maintenance.md
         - name: Planned Maintenance for AKS weekly releases (preview)
           href: aks-planned-maintenance-weekly-releases.md
@@ -252,7 +252,7 @@
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
-        - name: Use the Mariner container host
+        - name: Use the Mariner container host (preview)
           href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks

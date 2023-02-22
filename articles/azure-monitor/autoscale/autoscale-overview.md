@@ -75,14 +75,16 @@ Set up schedule-based rules to trigger scale events. Use schedule-based rules wh
 
 ### Rules
 
-Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Rules can be:
+Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Combine multiple rules using different metrics, for example CPU usage and queue length. Define up to 10 rules per profile.     
+
+Rules can be:
 
 * Metric-based  
 Trigger based on a metric value, for example when CPU usage is above 50%.
 * Time-based  
 Trigger based on a schedule, for example, every Saturday at 8am. 
 
-You can combine multiple rules using different metrics, for example CPU usage and queue length.  
+
 Autoscale scales out if *any* of the rules are met, whereas autoscale scales in only if *all* the rules are met.
 In terms of logic operators, the OR operator is used when scaling out with multiple rules. The AND operator is used when scaling in with multiple rules.
 

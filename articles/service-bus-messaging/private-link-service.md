@@ -100,6 +100,9 @@ If you already have an existing namespace, you can create a private endpoint by 
 
 [!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
+To allow trusted services to access your namespace, switch to the **Public Access** tab on the **Networking** page, and select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
+
+
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
 

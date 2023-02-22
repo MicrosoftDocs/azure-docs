@@ -168,6 +168,181 @@ The following table describes the role membership requirements that are needed f
 > - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
 > - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
+
+## Create an action group with a Resource Manager template
+You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure action groups. Using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
+
+The basic steps are:
+
+1. Create a template as a JSON file that describes how to create the action group.
+
+2. Deploy the template by using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
+
+### Resource Manager templates for an action group
+
+To create an action group using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
+
+First template, describes how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second template, describes how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "actionGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique name (within the Resource Group) for the Action group."
+      }
+    },
+    "actionGroupShortName": {
+      "type": "string",
+      "metadata": {
+        "description": "Short name (maximum 12 characters) for the Action group."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/actionGroups",
+      "apiVersion": "2021-09-01",
+      "name": "[parameters('actionGroupName')]",
+      "location": "Global",
+      "properties": {
+        "groupShortName": "[parameters('actionGroupShortName')]",
+        "enabled": true,
+        "smsReceivers": [
+          {
+            "name": "contosoSMS",
+            "countryCode": "1",
+            "phoneNumber": "5555551212"
+          },
+          {
+            "name": "contosoSMS2",
+            "countryCode": "1",
+            "phoneNumber": "5555552121"
+          }
+        ],
+        "emailReceivers": [
+          {
+            "name": "contosoEmail",
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
+          },
+          {
+            "name": "contosoEmail2",
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
+          }
+        ],
+        "webhookReceivers": [
+          {
+            "name": "contosoHook",
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
+          },
+          {
+            "name": "contosoHook2",
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
+          }
+        ],
+         "SecurewebhookReceivers": [
+          {
+            "name": "contososecureHook",
+            "serviceUri": "http://requestb.in/1bq63iu1",
+            "useCommonAlertSchema": false
+          },
+          {
+            "name": "contososecureHook2",
+            "serviceUri": "http://requestb.in/1bq63iu2",
+            "useCommonAlertSchema": false
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
+            "useCommonAlertSchema": true
+          }
+        ]
+      }
+    }
+  ],
+  "outputs":{
+      "actionGroupId":{
+          "type":"string",
+          "value":"[resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName'))]"
+      }
+  }
+}
+```
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "actionGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique name (within the Resource Group) for the Action group."
+      }
+    },
+    "actionGroupShortName": {
+      "type": "string",
+      "metadata": {
+        "description": "Short name (maximum 12 characters) for the Action group."
+      }
+    },
+    "webhookReceiverName": {
+      "type": "string",
+      "metadata": {
+        "description": "Webhook receiver service Name."
+      }
+    },    
+    "webhookServiceUri": {
+      "type": "string",
+      "metadata": {
+        "description": "Webhook receiver service URI."
+      }
+    }    
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/actionGroups",
+      "apiVersion": "2021-09-01",
+      "name": "[parameters('actionGroupName')]",
+      "location": "Global",
+      "properties": {
+        "groupShortName": "[parameters('actionGroupShortName')]",
+        "enabled": true,
+        "smsReceivers": [
+        ],
+        "emailReceivers": [
+        ],
+        "webhookReceivers": [
+          {
+            "name": "[parameters('webhookReceiverName')]",
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
+          }
+        ]
+      }
+    }
+  ],
+  "outputs":{
+      "actionGroupResourceId":{
+          "type":"string",
+          "value":"[resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName'))]"
+      }
+  }
+}
+```
+
 ## Manage your action groups
 
 After you create an action group, you can view it in the portal:
@@ -221,7 +396,7 @@ If your *primary email* doesn't receive notifications, take the following steps:
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you'd like to review.
 
-   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the Azure portal All users page. On the left, All users is selected. Information about one user is visible but is indecipherable." border="true":::
+   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the Azure portal All users page. Information about one user is visible but is indecipherable." border="true":::
 
 1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
 
@@ -258,6 +433,7 @@ You may have a limited number of function actions per action group.
    > [!NOTE]
    >
    > The function must have access to the storage account. If not, no keys will be available and the function URI will not be accessible.
+   > [Learn about restoring access to the storage account](../../azure-functions/functions-recover-storage-account.md)
 
 ### ITSM
 
@@ -273,7 +449,7 @@ You may have a limited number of Logic Apps actions per action group.
 
 When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. 
  
-The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" AAD Application. To make the action group work, this AAD Webhook Service Principal needs to be added as member of a role on the target AAD application that grants access to the target endpoint.
+The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" Azure AD Application. To make the action group work, this Azure AD Webhook Service Principal needs to be added as member of a role on the target Azure AD application that grants access to the target endpoint.
  
 For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
 
@@ -456,7 +632,7 @@ For information about pricing for supported countries/regions, see [Azure Monito
 
 > [!NOTE]
 >
-> If you use the webhook action, your target webhook endpoint needs to be able to process the various JSON payloads that different alert sources emit. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
+> If you use the webhook action, your target webhook endpoint needs to be able to process the various JSON payloads that different alert sources emit. You can not pass security ceritifcate through a webhook action. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
 Webhook action groups use the following rules:
 
@@ -472,7 +648,7 @@ Webhook action groups use the following rules:
 
   - A response isn't received within the timeout period.
   - One of the following HTTP status codes is returned: 408, 429, 503, 504 or TaskCancellationException.
-  - If any one of the above errors is encountered an additonal 5 seconds wait for the response.
+  - If any one of the above errors is encountered an additional 5 seconds wait for the response.
 
 - If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
 

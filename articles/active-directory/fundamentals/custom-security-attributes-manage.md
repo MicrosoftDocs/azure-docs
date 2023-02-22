@@ -55,7 +55,7 @@ You need to determine who needs access to work with custom security attributes i
 
 The following table provides a high-level comparison of the custom security attributes roles.
 
-| Permission | Global Admin | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
+| Permission | Global Administrator | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

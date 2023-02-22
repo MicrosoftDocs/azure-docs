@@ -832,7 +832,7 @@ For examples of applying tags with SDKs, see:
 * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/samples/Sample2_ManagingResourceGroups.md)
 * [Java](https://github.com/Azure-Samples/resources-java-manage-resource-group/blob/master/src/main/java/com/azure/resourcemanager/resources/samples/ManageResourceGroup.java)
 * [JavaScript](https://github.com/Azure-Samples/azure-sdk-for-js-samples/blob/main/samples/resources/resources_example.ts)
-* [Python](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups)
+* [Python](https://github.com/MicrosoftDocs/samples/tree/main/Azure-Samples/azure-samples-python-management/resources)
 
 ## Inherit tags
 

@@ -21,6 +21,8 @@ items:
     href: quickstart-create-nat-gateway-template.md
 - name: Tutorials
   items:
+  - name: Configure dual-stack outbound with a NAT gateway
+    href: tutorial-dual-stack-outbound-nat-load-balancer.md
   - name: Use a NAT gateway with a hub and spoke network
     href: tutorial-hub-spoke-route-nat.md
   - name: Use a NAT gateway with Azure Firewall
@@ -33,6 +35,8 @@ items:
     href: tutorial-migrate-outbound-nat.md
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
+  - name: Deploy a NAT gateway with DDoS protection
+    href: tutorial-protect-nat-gateway.md
   expanded: true
 - name: Concepts
   items:

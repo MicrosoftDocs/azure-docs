@@ -25,7 +25,7 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
-  - name: Monitor communication with Virtual Machine Scale Set
+  - name: Monitor communication with virtual machine scale set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
@@ -226,7 +226,7 @@
   - name: Azure CLI
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
-    href: /powershell/module/az.network/#network_watcher
+    href: /powershell/module/az.network/#network-watcher
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Ruby
@@ -239,19 +239,21 @@
     href: /javascript/api/overview/azure/arm-network-readme
   - name: REST
     href: /rest/api/network-watcher/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/networkWatchers/
 - name: Resources
   items:
-  - name: Network Watcher FAQs
+  - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-network-watcher.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=network-watcher
+    href: https://azure.microsoft.com/updates/?query=network%20watcher
   - name: SLA
-    href: https://azure.microsoft.com/en-us/support/legal/sla/network-watcher/
+    href: https://azure.microsoft.com/support/legal/sla/network-watcher/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher

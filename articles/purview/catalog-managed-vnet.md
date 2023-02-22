@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 01/31/2023
 ms.custom: references_regions
 # Customer intent: As a Microsoft Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Microsoft Purview account.
 ---
@@ -41,14 +41,15 @@ Currently, Managed Virtual Network and managed private endpoints are available f
 Currently, the following data sources are supported to have a managed private endpoint and can be scanned using Managed VNet Runtime in Microsoft Purview:
 
 - Azure Blob Storage 
-- Azure Data Lake Storage Gen 2 
-- Azure SQL Database 
-- Azure SQL Managed Instance
 - Azure Cosmos DB
-- Azure Synapse Analytics
-- Azure Files
+- Azure Data Lake Storage Gen 2 
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
+- Azure Dedicated SQL pool (formerly SQL DW)
+- Azure Files
+- Azure SQL Database 
+- Azure SQL Managed Instance
+- Azure Synapse Analytics
 
 Additionally, you can deploy managed private endpoints for your Azure Key Vault resources if you need to run scans using any authentication options rather than Managed Identities, such as SQL Authentication or Account Key.  
 

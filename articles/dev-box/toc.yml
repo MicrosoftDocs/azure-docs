@@ -1,3 +1,4 @@
+items: 
 - name: Microsoft Dev Box documentation
   href: index.yml
 - name: Overview
@@ -11,8 +12,6 @@
   items: 
     - name: Set up Microsoft Dev Box service
       href: quickstart-configure-dev-box-service.md
-    - name: Configure projects
-      href: quickstart-configure-dev-box-project.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
     - name: Connect with Remote Desktop App
@@ -22,6 +21,8 @@
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Components common to Dev Box and ADE
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:

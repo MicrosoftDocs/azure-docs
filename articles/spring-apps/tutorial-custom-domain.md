@@ -29,9 +29,35 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
 
-## Keyvault Private Link Considerations
+## Key Vault private link considerations
 
-The Azure Spring Apps management IPs are not yet part of the Azure Trusted Microsoft services. Therefore, to allow Azure Spring Apps to load certificates from a Key Vault protected with Private endpoint connections, you must add the following IPs to Azure Key Vault Firewall: `20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243`
+The IP addresses for Azure Spring Apps management are not yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
+
+* `20.99.204.111`
+* `20.201.9.97`
+* `20.74.97.5`
+* `52.235.25.35`
+* `20.194.10.0`
+* `20.59.204.46`
+* `104.214.186.86`
+* `52.153.221.222`
+* `52.160.137.39`
+* `20.39.142.56`
+* `20.199.190.222`
+* `20.79.64.6`
+* `20.211.128.96`
+* `52.149.104.144`
+* `20.197.121.209`
+* `40.119.175.77`
+* `20.108.108.22`
+* `102.133.143.38`
+* `52.226.244.150`
+* `20.84.171.169`
+* `20.93.48.108`
+* `20.75.4.46`
+* `20.78.29.213`
+* `20.106.86.34`
+* `20.193.151.132`
 
 ## Import certificate
 
@@ -109,15 +135,18 @@ You need to grant Azure Spring Apps access to your key vault before you import c
 
 #### [Portal](#tab/Azure-portal)
 1. Go to your key vault instance.
-1. In the left navigation pane, select **Access Police**.
+1. In the left navigation pane, select **Access Policy**.
 1. On the upper menu, select **Add Access Policy**.
 1. Fill in the info, and select **Add** button, then **Save** access police.
 
 | Secret permission | Certificate permission | Select principal                     |
 |-------------------|------------------------|--------------------------------------|
-| Get, List         | Get, List              | Azure Spring Cloud Domain-Management |
+| Get, List         | Get, List              | Azure Spring Apps Domain-Management  |
 
-![Import certificate 2](./media/custom-dns-tutorial/import-certificate-b.png)
+   > [!NOTE]
+   > If you don't find the "Azure Spring Apps Resource Provider", search for "Azure Spring Cloud Resource Provider".
+
+   :::image type="content" source="./media/custom-dns-tutorial/import-certificate-b.png" alt-text="Screenshot of the Azure portal showing the Add Access Policy page for a key vault with Azure Spring Apps Domain-management selected from the Select a principal dropdown." lightbox="./media/custom-dns-tutorial/import-certificate-b.png":::
 
 #### [CLI](#tab/Azure-CLI)
 

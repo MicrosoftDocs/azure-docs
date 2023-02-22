@@ -12,7 +12,7 @@ services: iot-edge
 
 # dTPM access for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 

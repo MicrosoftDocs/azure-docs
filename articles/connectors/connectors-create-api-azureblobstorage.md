@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 02/16/2023
 tags: connectors
 ---
 
@@ -456,7 +456,12 @@ The Azure Blob built-in connector is available only for Standard logic app workf
 
 You can add network security to an Azure storage account by [restricting access with a firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the data center abstracts the internal IP addresses, so just permitting traffic through IP addresses might not be enough to successfully allow communication across the firewall. Based on which Azure Blob Storage connector you use, the following options are available:
 
-- To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
+- To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption and ISE-based logic apps, review the following documentation:
+
+  > [!NOTE]
+  > 
+  > The following solutions don't apply to Standard logic apps.
+
 
   - [Access storage accounts in same region with system-managed identities](#access-blob-storage-in-same-region-with-system-managed-identities)
 
@@ -464,7 +469,7 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network).
 
-- To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration).
+- To access storage accounts behind firewalls in Standard logic apps, use the Azure Blob Storage *built-in* connector, not the managed connector, and review [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration).
 
 ### Access storage accounts in other regions
 

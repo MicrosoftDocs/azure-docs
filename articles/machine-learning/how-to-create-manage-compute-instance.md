@@ -519,12 +519,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 }    
 ```
 
-## Assign managed identity (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Assign managed identity
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
@@ -579,8 +574,13 @@ def get_access_token_msi(resource):
 arm_access_token = get_access_token_msi("https://management.azure.com")
 ```
 
+To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: 
+```azurecli
+az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
+```
+
 > [!NOTE]
-> To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
+> You cannot use ```azcopy``` when trying to use managed identity. ```azcopy login --identity``` will not work.
 
 ## Add custom applications such as RStudio or Posit Workbench (preview)
 

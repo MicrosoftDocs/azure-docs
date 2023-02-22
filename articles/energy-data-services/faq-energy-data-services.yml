@@ -24,15 +24,21 @@ sections:
           answer: >
             Microsoft Energy Data Services requires registration and is currently only available to approved customers and partners during the preview period. Request access to Microsoft Energy Data Services Preview [here](https://aka.ms/MicrosoftEnergyDataServices-create)
 
+    - name: Data Residency
+      questions:
+        - question: Where does Microsoft Energy Data Services Preview store customer data?
+          answer: >
+            Microsoft Energy Data Services Preview stores/process customer data. By default, customer data is replicated to the paired region. For region with data residency requirements, customer data is always kept within the same region
+
     - name: Pricing and Billing
       questions:
         - question: Where can I learn about the pricing for Microsoft Energy Data Services?
           answer: >
-            Pricing for Microsoft Energy Data Services will be made available by February 2023. 
+            Pricing for Microsoft Energy Data Services will be made available on Azure.com via the Product Pricing Page. 
 
         - question: When will billing begin for Microsoft Energy Data Services Preview?
           answer: >
-            Microsoft Energy Data Services is currently free and billing will begin starting December 1, 2022.
+            Microsoft Energy Data Services is currently free and billing will begin February 15th, 2023.
 
     - name: Support policies
       questions:

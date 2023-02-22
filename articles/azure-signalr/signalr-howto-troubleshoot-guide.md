@@ -242,7 +242,7 @@ When the client is connected to the Azure SignalR, the persistent connection bet
 ### Possible errors seen from the client side
 
 * `The remote party closed the WebSocket connection without completing the close handshake`
-* `Service timeout. 30.00ms elapsed without receiving a message from service.`
+* `Service timeout. 30000.00ms elapsed without receiving a message from service.`
 * `{"type":7,"error":"Connection closed with an error."}`
 * `{"type":7,"error":"Internal server error."}`
 
@@ -332,7 +332,7 @@ This section describes several possibilities leading to server connection drop, 
 
 * `[Error]Connection "..." to the service was dropped`
 * `The remote party closed the WebSocket connection without completing the close handshake`
-* `Service timeout. 30.00ms elapsed without receiving a message from service.`
+* `Service timeout. 30000.00ms elapsed without receiving a message from service.`
 
 ### Root cause
 

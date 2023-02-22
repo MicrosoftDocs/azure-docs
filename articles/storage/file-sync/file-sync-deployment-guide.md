@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync from start to finish using the 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 02/03/2023
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -54,12 +54,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     $PSVersionTable.PSVersion
     ```
 
-    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
-
-    > [!IMPORTANT]
-    > If you plan to use the Server Registration UI, rather than registering directly from PowerShell, you must use PowerShell 5.1.
 
 6. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 

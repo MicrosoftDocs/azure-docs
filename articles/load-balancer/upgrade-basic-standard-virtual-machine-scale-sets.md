@@ -8,7 +8,9 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: vsantana
+ms.custom: template-how-to
 ---
+
 # Upgrade a basic load balancer used with Virtual Machine Scale Sets
 
 >[!Important]

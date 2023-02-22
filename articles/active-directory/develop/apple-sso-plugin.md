@@ -2,7 +2,7 @@
 title: Microsoft Enterprise SSO plug-in for Apple devices
 description: Learn about the Azure Active Directory SSO plug-in for iOS, iPadOS, and macOS devices.
 services: active-directory
-author: brandwe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/10/2021
-ms.author: brandwe
+ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev
 ---

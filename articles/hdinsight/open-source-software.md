@@ -4,7 +4,7 @@ description: Microsoft Azure provides a general level of support for open-source
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 01/31/2023
 ---
 
 # Open-source software support in Azure HDInsight
