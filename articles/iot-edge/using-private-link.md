@@ -15,7 +15,7 @@ services: iot-edge
 
 In Industrial IoT (IIoT) scenarios, you may want to use IoT Edge and completely isolate your network from the internet traffic. You can achieve this requirement by using various services in Azure. The following diagram is an example reference architecture for a factory network scenario.
 
-:::image type="content" source="./media/using-private-link/IoTEdge_PrivateLink.png" alt-text="Diagram of how to use Azure Private Link and Private Endpoints to secure Azure IoT traffic.":::
+:::image type="content" source="./media/using-private-link/iot-edge-private-link.png" alt-text="Diagram of how to use Azure Private Link and Private Endpoints to secure Azure IoT traffic.":::
 
 In the preceding diagram, the network for the IoT Edge device and the PaaS services is isolated from the internet traffic. ExpressRoute or a Site-to-Site VPN facilitates an encrypted tunnel for the traffic between on premises and Azure by using Azure Private Link service. Azure IoT services such as IoT Hub, Device Provisioning Service (DPS), Container Registry, and Blob Storage all support Private Link.
 
