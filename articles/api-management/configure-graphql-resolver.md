@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 02/13/2023
+ms.date: 02/22/2023
 ms.author: danlep
 ---
 
@@ -15,6 +15,7 @@ ms.author: danlep
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API) specified using resolver-scoped policies. 
 
 <!-- link to GQL overview topic -->
+<!-- add include for back compat with set-graphql-resolver -->
 
 
 * A resolver is invoked only when a matching object type and field is executed. 
@@ -26,7 +27,7 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- Import a [passthrough](graphql-api.md) or [synthetic](graphql-schema-resolve-api.md) GraphQL API.
+- Import a [pass-through](graphql-api.md) or [synthetic](graphql-schema-resolve-api.md) GraphQL API.
 
 ## Create a resolver
 
@@ -135,7 +136,7 @@ query {
 }
 ```
 
-If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get the ID of the blog using `context.ParentResult.AsJObject()["id"].ToString()`.  The policy for configuring this resolver would resemble:
+If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get the ID of the blog using `context.ParentResult.AsJObject()["id"].ToString()`. The policy for configuring this resolver would resemble:
 
 ``` xml
 <http-data-source>
