@@ -64,7 +64,8 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | **SQL pool name** | `contosoedw` | This is the name that the dedicated SQL pool will have. |
     | **Performance level** | DW100c | Set this to the smallest size to reduce costs for this quickstart |
 
-    :::image type="content" source="media/quickstart-create-sql-pool/create-sql-pool-studio-24.png" alt-text=A screenshot of the "SQL pools create flow - basics tab.":::
+    :::image type="content" source="media/quickstart-create-sql-pool/create-sql-pool-studio-24.png" alt-text="A screenshot of the SQL pools create flow - basics tab.":::
+
     > [!IMPORTANT]  
     > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 60 or less characters, not contain reserved words, and be unique in the workspace.
 
