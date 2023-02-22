@@ -108,7 +108,7 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
     ```
 
 ### 3. Prepare PostgreSQL instance
-When run app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
+When run the spring web app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
 
 ```azurecli-interactive
 az postgres flexible-server create \
