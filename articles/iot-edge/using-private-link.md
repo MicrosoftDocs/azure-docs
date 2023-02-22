@@ -1,5 +1,5 @@
 ---
-title: Learn how to use Azure Private Link and Private Endpoints to secure Azure IoT traffic - Azure IoT Edge | Microsoft Docs 
+title: Learn how to use Azure Private Link and Private Endpoints to secure Azure IoT traffic - Azure IoT Edge
 description: Overview of using IoT Edge while completely isolating your network from the internet traffic using various Azure services such as Azure ExpressRoute, Private Link, and DNS Private Resolver. 
 author: PatAltimore
 ms.author: patricka
@@ -25,10 +25,10 @@ ExpressRoute lets you extend your on-premises networks into the Microsoft cloud 
 
 ### Azure Private Link
 
-Azure Private Link enables you to access Azure PaaS services and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can access your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links provide you with flexibility to connect your devices located in different regions. With private endpoint, you can also disable the access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md)
+Azure Private Link enables you to access Azure PaaS services and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can access your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links provide you with flexibility to connect your devices located in different regions. With private endpoint, you can also disable the access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md).
 
 ### Azure DNS Private Resolver
 
 Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. Azure DNS Private Resolver reduces the complexity of managing both private and public IPs. The DNS forwarding ruleset feature in Azure DNS private resolver helps an IoT admin to easily configure the rules and manage the clients on what specific address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md).
 
-For a walk-through example scenario, see [“Using Azure Private Link and Private Endpoints to secure Azure IoT traffic”](https://kevinsaye.wordpress.com/2020/09/30/using-azure-private-link-and-private-endpoints-to-secure-azure-iot-traffic/). This example illustrates a possible configuration for a factory network and not intended as a production ready reference.
+For a walk-through example scenario, see [Using Azure Private Link and Private Endpoints to secure Azure IoT traffic](https://kevinsaye.wordpress.com/2020/09/30/using-azure-private-link-and-private-endpoints-to-secure-azure-iot-traffic/). This example illustrates a possible configuration for a factory network and not intended as a production ready reference.
