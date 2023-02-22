@@ -38,17 +38,17 @@ In order to successfully deploy the sample, you need the following:
 
 To deploy the sample, run the following script:
 
-```azurecli-interactive
+```bash
 mkdir kalypso && cd kalypso
 curl -fsSL -o deploy.sh https://raw.githubusercontent.com/microsoft/kalypso/main/deploy/deploy.sh
 chmod 700 deploy.sh
-./deploy.sh -c -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+./deploy.sh -c -p <prefix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
 ```
 
 This script may take a while to complete. After it's done, it reports the execution result in the output like this:
 
-```azurecli-interactive
-Depoyment is complete!
+```output
+Deployment is complete!
 ---------------------------------
 Created repositories:
   - https://github.com/eedorenko/kalypso-control-plane
@@ -64,15 +64,15 @@ Created AKS clusters in kalypso-rg resource group:
 ```
 
 > [!NOTE]
-> If something goes wrong with the deployment, you can delete created resources with the following command:
+> If something goes wrong with the deployment, you can delete the created resources with the following command:
 > 
-> ```azurecli-interactive
+> ```bash
 > ./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
 > ```
 
 ### Sample overview
 
-This deployment script created an infrastructure shown on the following diagram:
+This deployment script created an infrastructure, shown in the following diagram:
 
 :::image type="content" source="media/tutorial-workload-management/infra-diagram.png" alt-text="Diagram showing the infrastructure of the sample.":::
 
@@ -83,7 +83,7 @@ There are a few Platform Team repositories:
 - [Services Source](https://github.com/microsoft/kalypso-svc-src): Contains high-level manifest templates of sample dial-tone platform services.
 - [Services GitOps](https://github.com/microsoft/kalypso-svc-gitops): Contains final manifests of sample dial-tone platform services to be deployed across the clusters.
 
-A couple of the Application Team repositories are also included:
+The infrastructure also includes a couple of the Application Team repositories:
 
 - [Application Source](https://github.com/microsoft/kalypso-app-src): Contains a sample application source code, including Docker files, manifest templates and CI/CD workflows.
 - [Application GitOps](https://github.com/microsoft/kalypso-app-gitops): Contains final sample application manifests to be deployed to the deployment targets.
@@ -170,7 +170,7 @@ With this file, Application Team requests Kubernetes compute resources from the 
  
 To register the application, open a terminal and use the following script: 
 
-```azurecli-interactive
+```bash
 export org=<github org>
 export prefix=<prefix>
 
@@ -201,7 +201,7 @@ git push
 ```
 
 > [!NOTE]
-> For sinmplicity, this tutorial pushes changes directly to `main`. In practice, one would create a pull request to submit the changes.  
+> For sinmplicity, this tutorial pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
 
 With that in place, the application is onboarded in the control plane. But the control plane still doesn't know how to map the application deployment targets to the cluster types in the fleet.
 
@@ -209,7 +209,7 @@ With that in place, the application is onboarded in the control plane. But the c
 
 The Platform Team must define how the application deployment targets are going to be scheduled on cluster types in the `Dev` environment. To do this, submit scheduling policies for the `functional-test` and `performance-test` deployment targets with the following script:  
 
-```azurecli-interactive
+```bash
 # Switch to dev branch (representing Dev environemnt) in the control-plane folder
 git checkout dev
 mkdir -p scheduling/kaizen
@@ -266,7 +266,7 @@ The second policy states that all deployment targets from the `kaizen-app-team` 
 
 This push to the `dev` branch triggers the scheduling process and creates a PR to the `dev` branch in the `Platform GitOps` repository:
 
-:::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment.":::
+:::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png:::
 
 Besides `Promoted_Commit_id`, which is just tracking information for the promotion CD flow, the PR contains assignment manifests. The `functional-test` deployment target is assigned to the `drone` cluster type, and the `performance-test` deployment target is assigned to the `large` cluster type. Those manifests are going to be landed in `drone` and `large` folders that contain all assignments to these cluster types in the `Dev` environment.
  
@@ -365,7 +365,7 @@ Once the `checkpromote` is successful, it starts the `cd` workflow that promotes
 
 Next, configure a scheduling policy for the `uat-test` deployment target in the stage environment:  
 
-```azurecli-interactive
+```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
 git checkout stage
 mkdir -p scheduling/kaizen
@@ -397,11 +397,11 @@ The policy states that all deployment targets from the `kaizen-app-team` workspa
 
 Pushing this policy to the `stage` branch triggers the scheduling process, which creates a PR with the assignment manifests to the `Platform GitOps` repository, similar to those for the `Dev` environment.
 
-As in the case with the `Dev` environment, after reviewing and merging the PR to the `Platform GitOps` repository, the `checkpromote` workflow in the `control plane` repository waits until Azure Arc-enabled clusters with Flux (`drone`) reconcile the assignment manifests: 
+As in the case with the `Dev` environment, after reviewing and merging the PR to the `Platform GitOps` repository, the `checkpromote` workflow in the `control plane` repository waits until Azure Arc-enabled clusters with Flux (`drone`) reconcile the assignment manifests.
 
  :::image type="content" source="media/tutorial-workload-management/check-promote-to-stage.png" alt-text="Screenshot showing promotion to stage.":::
 
-On successful execution, the commit status is updated:
+On successful execution, the commit status is updated.
 
 :::image type="content" source="media/tutorial-workload-management/stage-git-commit-status.png" alt-text="Screenshot showing successful commit status.":::
 
@@ -409,23 +409,23 @@ On successful execution, the commit status is updated:
 
 The Application Team regularly submits pull requests to the `main` branch in the `Application Source` repository. Once a PR is merged to `main`, it starts a CI/CD workflow. In this tutorial, the workflow will be started manually.
  
- Go to the `Application Source` repository in GitHub. On the `Actions` tab, select `Run workflow`:
+ Go to the `Application Source` repository in GitHub. On the `Actions` tab, select `Run workflow`.
 
 :::image type="content" source="media/tutorial-workload-management/run-workflow-button.png" alt-text="Screenshot showing the Run workflow option.":::
 
 The workflow does the following:
 
-:::image type="content" source="media/tutorial-workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow.":::
+:::image type="content" source="media/tutorial-workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow." lightbox="media/tutorial-workload-management/cicd-workflow.png":::
 
-- Builds application Docker image and pushes it to the GitHub repository package.
-- Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are PRed and auto-merged in the `dev` branch.
-- Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. The generated manifests are PRed to the `stage` branch waiting for approval:
+- Builds the application Docker image and pushes it to the GitHub repository package.
+- Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are added to a pull request and auto-merged in the `dev` branch.
+- Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. The generated manifests are added to a pull request to the `stage` branch waiting for approval:
 
   :::image type="content" source="media/tutorial-workload-management/app-pr-to-stage.png" alt-text="Screenshot showing a PR to stage.":::
 
-To test the application manually on the `Dev` environment before approving the PR to the `Stage` environment, first verify how the `functional-tesl` application instance works on the `drone` cluster:
+To test the application manually on the `Dev` environment before approving the PR to the `Stage` environment, first verify how the `functional-test` application instance works on the `drone` cluster:
 
-```azurecli-interactive
+```bash
 kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-app-functional-test 9090:9090 --context=drone
 
 # output:
@@ -440,7 +440,7 @@ While this command is running, open `localhost:9090` in your browser. You'll see
 
 The next step is to check how the `performance-test` instance works on the `large` cluster:
 
-```azurecli-interactivet
+```bash
 kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-app-performance-test 8080:8080 --context=large
 
 # output:
@@ -455,13 +455,13 @@ Once you are satisfied with the `Dev` environment, approve and merge the PR to t
 
 Run the following command for the `drone` cluster and open `localhost:8001` in your browser:
  
-```azurecli-interactive
+```bash
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8001:8000 --context=drone
 ```
 
 Run the following command for the `large` cluster and open `localhost:8002` in your browser:
 
- ```azurecli-interactive
+ ```bash
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
@@ -476,7 +476,7 @@ The application instance on the `large` cluster shows the following greeting pag
 
 Applications in the fleet grab the data from the very same database in both `Dev` and `Stage` environments. Let's change it and configure `west-us` clusters to provide a different database url for the applications working in the `Stage` environment:
 
-```azurecli-interactive
+```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
 git checkout stage
 
@@ -505,7 +505,7 @@ The scheduler scans all config maps in the environment and collects values for e
 
 In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` repository appears:
 
-:::image type="content" source="media/tutorial-workload-management/stage-db-url-update-pr.png" alt-text="Screenshot showing a PR to update the database URL on stage.":::
+:::image type="content" source="media/tutorial-workload-management/stage-db-url-update-pr.png" alt-text="Screenshot showing a PR to update the database URL on stage." lightbox="media/tutorial-workload-management/stage-db-url-update-pr.png":::
 
 Approve the PR and merge it.
 
@@ -513,7 +513,7 @@ The `large` cluster is handled by ArgoCD, which, by default, is configured to re
 
 To access the ArgoCD UI on the `large` cluster, run the following command:
 
-```azurecli-interactive
+```bash
 # Get ArgoCD username and password
 echo "ArgoCD username: admin, password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" --context large| base64 -d)"
 # output:
@@ -524,27 +524,27 @@ kubectl port-forward svc/argocd-server 8080:80 -n argocd --context large
 
 Next, open `localhost:8080` in your browser and provide the username and password printed by the script. You'll see a web page similar to this one:
 
- :::image type="content" source="media/tutorial-workload-management/argocd-ui.png" alt-text="Screenshot showing the Argo CD user interface web page.":::
+ :::image type="content" source="media/tutorial-workload-management/argocd-ui.png" alt-text="Screenshot showing the Argo CD user interface web page." lightbox="media/tutorial-workload-management/argocd-ui.png":::
 
 Select the `stage` tile to see more details on the reconciliation state from the `stage` branch to this cluster. You can select the `SYNC` buttons to force the reconciliation and speed up the process.
 
 Once the new configuration has arrived to the cluster, check the `uat-test` application instance at `localhost:8002` after 
 running the following commands:
 
-```azurecli-interactive
+```bash
 kubectl rollout restart deployment hello-world-deployment -n stage-kaizen-app-team-hello-world-app-uat-test
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
 You'll see the updated database url:
 
-:::image type="content" source="media/tutorial-workload-management/updated-db-url.png" alt-text="Screenshot showing a page with updated database url.":::
+:::image type="content" source="media/tutorial-workload-management/updated-db-url-page.png" alt-text="Screenshot showing a page with updated database url." lightbox="media/tutorial-workload-management/updated-db-url-page.png":::
 
 ## 5 - Platform Team: Add cluster type to environment
 
 Currently, only `drone` and `large` cluster types are included in the `Stage` environment. Let's include the `small` cluster type to `Stage` as well. Even though we don't have a physical cluster representing this cluster type, you can see how the scheduler reacts to  this change.
 
-```azurecli-interactive
+```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
 git checkout stage
 
@@ -572,12 +572,12 @@ git push
 
 In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository. According to the `uat-test-policy` that you created, it assigns the `uat-test` deployment target to the new cluster type, as it is supposed to work on all available cluster types in the environment.
 
-:::image type="content" source="media/tutorial-workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type.":::
+:::image type="content" source="media/tutorial-workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type." lightbox="media/tutorial-workload-management/small-cluster-type-assignment.png":::
 
 ## Clean up resources
 When no longer needed, delete the resources that you created for this tutorial. To do so, run the following command:
 
-```azurecli-interactive
+```bash
 # In kalypso folder
 ./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
 ```
