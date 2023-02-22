@@ -264,6 +264,6 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-rest]: /cli/azure/reference-index#az-rest
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
-[enable-oidc-issuer]: cluster-configuration.md#oidc-issuer
+[enable-oidc-issuer]: use-oidc-issuer.md
 [workload-identity]: ./workload-identity-overview.md
 <!-- LINKS EXTERNAL -->
