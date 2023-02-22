@@ -72,7 +72,7 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
     > [!NOTE]
     > Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
-The sign in used to connect to a source SQL Server instance requires sysadmin role.
+The sign-in used to connect to a source SQL Server instance requires sysadmin role.
 
 <!--
 [!INCLUDE [Minimal Permissions for SQL Assessment](../../includes/database-migration-service-sql-permissions.md)]

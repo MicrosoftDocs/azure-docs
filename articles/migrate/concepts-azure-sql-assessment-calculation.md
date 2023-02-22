@@ -105,7 +105,8 @@ High availability and disaster recovery properties | **Async commit mode intent*
 ## Calculate readiness
 
 > [!NOTE]
-> The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. > In case you wish you assess such databases, change the status of the database and recalculate the assessment in some time.
+> The assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. 
+> In case you wish to assess such databases, change the status of the database and recalculate the assessment in some time.
 
 ### Azure SQL readiness
 
@@ -235,13 +236,13 @@ Here are a few reasons why an assessment could get a low confidence rating:
 
 Once the readiness and sizing calculation is complete, the optimization preference is applied to arrive at a recommended target and configuration. The Recommendation Details provide a detailed explanation of the readiness and sizing calculations behind the recommendation.   
 
-:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/recommendation-details.png" alt-text="Screenshot of Recommendation details for assessment.":::
+:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/recommendation-details-inline.png" alt-text="Screenshot of Recommendation details for assessment." lightbox="./media/concepts-azure-sql-assessment-calculation/recommendation-details-expanded.png":::
 
-## Migration Guidance 
+## Migration guidance 
 
 This section provides guidance to configure the target resource and steps to migrate. The steps are specific to the source and the target deployment combinations. This guidance is specifically useful for users who intend to migrate Always On Failover Cluster Instances (FCI) and Availability Groups (AG).  
 
-:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/migration-guidance.png" alt-text="Screenshot of Migration guidance section.":::
+:::image type="content" source="./media/concepts-azure-sql-assessment-calculation/migration-guidance-inline.png" alt-text="Screenshot of Migration guidance section." lightbox="./media/concepts-azure-sql-assessment-calculation/migration-guidance-expanded.png":::
 
 ## Calculate monthly costs
 After sizing recommendations are complete, Azure SQL assessment calculates the compute and storage costs for the recommended Azure SQL configurations using an internal pricing API. It aggregates the compute and storage cost across all instances to calculate the total monthly compute cost. 
