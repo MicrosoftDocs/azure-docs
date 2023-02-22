@@ -142,6 +142,15 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. For **Enable requests**, select **Yes** to enable this access package to be requested as soon as it's created.
 
+1. To add a Verified ID requirement to the access package, click on **Add issuer** in the **Required Verified IDs** section. If you do not have the Verified ID service set up in your tenant, navigate to the **Verified ID** section of the Azure portal.
+
+    ![Screenshot of verified ID picker.]
+
+1. Search for an issuer in the dropdown and select the credential type you want users to present when requesting access.
+
+    > [!NOTE]   
+    > If you select multiple issuers / credential types, users requesting access will be required to present **all** of the credential types you have included in this policy. To give users the option of presenting one of many credential types, please include each acceptable option in a separate policy.
+
 1. Select **Next** to open the **Requestor information** tab.
 
     ![Screenshots of the requests tab approval and enable requests settings.](./media/entitlement-management-access-package-first/requests-approval-enable.png)
