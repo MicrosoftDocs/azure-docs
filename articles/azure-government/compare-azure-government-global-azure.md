@@ -218,6 +218,7 @@ The following Azure SQL Managed Instance **features aren't currently available**
 
 - Long-term backup retention
 
+
 ## Developer tools
 
 This section outlines variations and considerations when using Developer tools in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=load-testing,app-configuration,devtest-lab,lab-services,azure-devops&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
