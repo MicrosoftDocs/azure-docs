@@ -12,13 +12,16 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
+Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale.  
+
 This tutorial walks you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy the sample infrastructure
 > * Onboard a new application
+> * Schedule an application on the cluster types 
+> * Promote an application across rollout environemnts
 > * Build and deploy an application
 > * Provide platform configurations
 > * Add a new cluster type to your environment
@@ -45,7 +48,7 @@ chmod 700 deploy.sh
 ./deploy.sh -c -p <prefix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
 ```
 
-This script may take a while to complete. After it's done, it reports the execution result in the output like this:
+This script may take 10-15 minutes to complete. After it's done, it reports the execution result in the output like this:
 
 ```output
 Deployment is complete!
@@ -91,7 +94,7 @@ The infrastructure also includes a couple of the Application Team repositories:
 The script created the following Azure Kubernetes Service (AKS) clusters:
 
 - `control-plane` - This cluster doesn't run any workloads. It's a management cluster. It hosts [Kalypso Scheduler](https://github.com/microsoft/kalypso-scheduler) operator that transforms high level abstractions from the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repository to the raw Kubernetes manifests in the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
-- `drone` - A sample workload cluster. It's Azure Arc-enabled and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `drone` - A sample workload cluster. It has [GitOps extension](conceptual-gitops-flux2.md) installed and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 - `large` - A sample workload cluster. It has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 
 ### Explore Control Plane
@@ -122,7 +125,7 @@ The `dev` and `stage` branches:
 
 ## 2 - Platform Team: Onboard a new application
 
-The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available in the fleet and where their application is going to be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for testing. 
+The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available in the fleet and where their application is going to be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for UAT testing. 
  
 The Application Team describes this intention in the [workload](https://github.com/microsoft/kalypso-app-src/blob/main/workload/workload.yaml) file in the [Application Source](https://github.com/microsoft/kalypso-app-src) repository:
 
@@ -201,7 +204,7 @@ git push
 ```
 
 > [!NOTE]
-> For sinmplicity, this tutorial pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
+> For simplicity, this tutorial pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
 
 With that in place, the application is onboarded in the control plane. But the control plane still doesn't know how to map the application deployment targets to the cluster types in the fleet.
 
@@ -272,7 +275,7 @@ Besides `Promoted_Commit_id`, which is just tracking information for the promoti
  
  Note that there are `command-center` and `small` cluster types as well in the `Dev` environment:
 
- :::image type="content" source="media/tutorial-workload-management/dev-cluster-types.png" alt-text="Screenshot showing acluster types in the Dev environment.":::
+ :::image type="content" source="media/tutorial-workload-management/dev-cluster-types.png" alt-text="Screenshot showing cluster types in the Dev environment.":::
 
 However, only the `drone` and `large` cluster types were selected by the scheduling policies that you defined.
 
@@ -347,7 +350,7 @@ spec:
 
 ### Promote application to Stage
 
-Once we have approved and merged the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters that represent corresponding cluster types start fetching the assignment manifests. The `drone` cluster has Azure Arc GitOps configuration installed, pointing to the `Platform GitOps` repository. It reports its `compliance` status: 
+Once we have approved and merged the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters that represent corresponding cluster types start fetching the assignment manifests. The `drone` cluster has [GitOps extension](conceptual-gitops-flux2.md) installed, pointing to the `Platform GitOps` repository. It reports its `compliance` status to Azure Resource Graph: 
 
 :::image type="content" source="media/tutorial-workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
 
@@ -415,13 +418,15 @@ The Application Team regularly submits pull requests to the `main` branch in the
 
 The workflow does the following:
 
-:::image type="content" source="media/tutorial-workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow." lightbox="media/tutorial-workload-management/cicd-workflow.png":::
-
 - Builds the application Docker image and pushes it to the GitHub repository package.
 - Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are added to a pull request and auto-merged in the `dev` branch.
-- Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. The generated manifests are added to a pull request to the `stage` branch waiting for approval:
+- Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. 
 
-  :::image type="content" source="media/tutorial-workload-management/app-pr-to-stage.png" alt-text="Screenshot showing a PR to stage.":::
+:::image type="content" source="media/tutorial-workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow." lightbox="media/tutorial-workload-management/cicd-workflow.png":::
+
+The generated manifests are added to a pull request to the `stage` branch waiting for approval:
+
+:::image type="content" source="media/tutorial-workload-management/app-pr-to-stage.png" alt-text="Screenshot showing a PR to stage.":::
 
 To test the application manually on the `Dev` environment before approving the PR to the `Stage` environment, first verify how the `functional-test` application instance works on the `drone` cluster:
 
@@ -509,7 +514,7 @@ In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` reposi
 
 Approve the PR and merge it.
 
-The `large` cluster is handled by ArgoCD, which, by default, is configured to reconcile every three minutes. This cluster doesn't report its compliance state to Azure like the clusters such as `drone` which have the Azure Arc GitOps extension. However, you can still monitor the reconciliation state on the cluster with ArgoCD UI. 
+The `large` cluster is handled by ArgoCD, which, by default, is configured to reconcile every three minutes. This cluster doesn't report its compliance state to Azure like the clusters such as `drone` which have the [GitOps extension](conceptual-gitops-flux2.md). However, you can still monitor the reconciliation state on the cluster with ArgoCD UI. 
 
 To access the ArgoCD UI on the `large` cluster, run the following command:
 
@@ -532,7 +537,7 @@ Once the new configuration has arrived to the cluster, check the `uat-test` appl
 running the following commands:
 
 ```bash
-kubectl rollout restart deployment hello-world-deployment -n stage-kaizen-app-team-hello-world-app-uat-test
+kubectl rollout restart deployment hello-world-deployment -n stage-kaizen-app-team-hello-world-app-uat-test --context=large
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
@@ -542,7 +547,7 @@ You'll see the updated database url:
 
 ## 5 - Platform Team: Add cluster type to environment
 
-Currently, only `drone` and `large` cluster types are included in the `Stage` environment. Let's include the `small` cluster type to `Stage` as well. Even though we don't have a physical cluster representing this cluster type, you can see how the scheduler reacts to  this change.
+Currently, only `drone` and `large` cluster types are included in the `Stage` environment. Let's include the `small` cluster type to `Stage` as well. Even though we don't have a physical cluster representing this cluster type, you can see how the scheduler reacts to this change.
 
 ```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
