@@ -142,7 +142,7 @@ To configure resource logs:
 1. After configuring details for the log destination or destinations, select **Save**. 
 
 > [!NOTE]
-> Adding a diagnostic setting object may result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2019-12-01. 
+> Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2019-12-01. 
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
  
