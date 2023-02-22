@@ -9,6 +9,8 @@
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: Service limits
+      href: service-limits.md
     - name: FAQ
       href: faq.yml
 - name: Quickstarts

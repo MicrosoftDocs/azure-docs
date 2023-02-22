@@ -187,7 +187,7 @@ The Azure Private 5G Core deployment uses the *core* namespace. If you need to c
     ```powershell
     Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
     ```
-For more information, see [Configure cluster access via Kubernetes RBAC](/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster#configure-cluster-access-via-kubernetes-rbac).
+For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
 
 ## Set up portal access
 
@@ -221,11 +221,24 @@ To view all the running pods, run:
 
 Additionally, your AKS cluster should now be visible from your Azure Stack Edge resource in the portal.
 
+## Collect variables for the Kubernetes extensions
+
+Collect each of the values in the table below.
+
+| Value | Variable name |
+|--|--|
+|The ID of the Azure subscription in which the Azure resources are deployed. |**SUBSCRIPTION_ID**|
+|The name of the resource group in which the AKS cluster is deployed. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_GROUP_NAME**|
+|The name of the AKS cluster resource. This can be found by using the **Manage** button in the **Azure Kubernetes Service** pane of the Azure portal. |**RESOURCE_NAME**|
+|The region in which the Azure resources are deployed. This must match the region into which the mobile network will be deployed, which must be one of the regions supported by AP5GC: **EastUS** or **WestEurope**.</br></br>This value must be the [region's code name](region-code-names.md); see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for a list of supported regions. |**LOCATION**|
+|The name of the **Custom location** resource to be created for the AKS cluster. </br></br>This value must start and end with alphanumeric characters, and must contain only alphanumeric characters, `-` or `.`. |**CUSTOM_LOCATION**|
+
 ## Install Kubernetes extensions
 
-The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI in Azure Cloud Shell.
+The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to configure using the Azure CLI in Azure Cloud Shell.
 
-You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
+> [!TIP]
+> The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
 
 1. Sign in to the Azure CLI using Azure Cloud Shell.
 
@@ -310,4 +323,4 @@ If you have made an error in the Azure Stack Edge configuration, you can use the
 
 Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
 
-- [Collect the required information to deploy a private mobile network](/azure/private-5g-core/collect-required-information-for-private-mobile-network)
+- [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

@@ -28,7 +28,9 @@ The following terms and information are used throughout this article:
 * __Azure service tags__: A service tag is an easy way to specify the IP ranges used by an Azure service. For example, the `AzureMachineLearning` tag represents the IP addresses used by the Azure Machine Learning service.
 
     > [!IMPORTANT]
-    > Azure service tags are only supported by some Azure services. If you are using a non-Azure solution such as a 3rd party firewall, download a list of [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). Extract the file and search for the service tag within the file. The IP addresses may change periodically.
+    > Azure service tags are only supported by some Azure services. For a list of service tags supported with network security groups and Azure Firewall, see the [Virtual network service tags](../virtual-network/service-tags-overview.md) article.
+    > 
+    > If you are using a non-Azure solution such as a 3rd party firewall, download a list of [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). Extract the file and search for the service tag within the file. The IP addresses may change periodically.
 
 * __Region__: Some service tags allow you to specify an Azure region. This limits access to the service IP addresses in a specific region, usually the one that your service is in. In this article, when you see `<region>`, substitute your Azure region instead. For example, `BatchNodeManagement.<region>` would be `BatchNodeManagement.uswest` if your Azure Machine Learning workspace is in the US West region.
 
@@ -60,10 +62,10 @@ __Inbound traffic__
 
 | Source | Source<br>ports | Destination | Destination<b>ports| Purpose |
 | ----- |:-----:| ----- |:-----:| ----- |
-| `AzureLoadBalancer` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
+| `AzureMachineLearning` | Any | `VirtualNetwork` | 44224 | Inbound to compute instance/cluster. __Only needed if the instance/cluster is configured to use a public IP address__. |
 
 > [!TIP]
-> A network security group (NSG) is created by default for this traffic. For more information, see [Default security rules](/azure/virtual-network/network-security-groups-overview#inbound).
+> A network security group (NSG) is created by default for this traffic. For more information, see [Default security rules](../virtual-network/network-security-groups-overview.md#inbound).
 
 __Outbound traffic__
 
@@ -83,7 +85,7 @@ __Outbound traffic__
   > If a compute instance or compute cluster is configured for no public IP, they can't access the public internet by default. However, they do need to communicate with the resources listed above. To enable outbound communication, you have two possible options:
   >
   > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
-  > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) documentation.
+  > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
 
 ### Recommended configuration for training and deploying models
 
@@ -354,6 +356,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 > * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
+> * In the following table, replace `<region>` with the Azure region that contains your Azure Machine Learning workspace.
 > * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.
 
 # [Azure public](#tab/public)
@@ -363,7 +366,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.windows.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
-| Compute instance | `*.tundra.azureml.ms` | UDP | 5831 |
+| Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
 | Compute instance | `*.batch.azure.com` | ANY | 443 |
 | Compute instance | `*.service.batch.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
@@ -380,6 +383,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.windows.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.us` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
+| Compute instance | `<region>.tundra.azureml.us` | UDP | 5831 |
 | Microsoft storage access | `*.blob.core.usgovcloudapi.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.usgovcloudapi.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.usgovcloudapi.net` | TCP | 443 |
@@ -394,6 +398,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute cluster/instance | `graph.chinacloudapi.cn` | TCP | 443 |
 | Compute instance |  `*.instances.azureml.cn` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
+| Compute instance | `<region>.tundra.azureml.cn` | UDP | 5831 |
 | Microsoft storage access | `*.blob.core.chinacloudapi.cn` | TCP | 443 |
 | Microsoft storage access | `*.table.core.chinacloudapi.cn` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.chinacloudapi.cn` | TCP | 443 |

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: pauljewell
 ms.devlang: python
-ms.custom: devx-track-python, devguide-pythons
+ms.custom: devx-track-python, devguide-python
 ---
 
 # Manage container properties and metadata with Python

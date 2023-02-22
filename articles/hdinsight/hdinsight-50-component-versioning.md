@@ -25,6 +25,7 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 | Apache Tez       | 0.9.1         | 0.9.1         |
 | Apache Pig       | 0.16.1        | 0.16.1        |
 | Apache Ranger    | 1.1.0         | 1.1.0         |
+| Apache HBase     | -             |  2.1.6        |
 | Apache Sqoop     | 1.5.0         | 1.5.0         |
 | Apache Oozie     | 4.3.1         | 4.3.1         |
 | Apache Zookeeper | 3.4.6         | 3.4.6         |

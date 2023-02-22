@@ -21,10 +21,9 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
 * The cluster must have a minimum of three worker nodes and three manager nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
-* Don't have taints that prevent OpenShift components to be scheduled.
-* Don't remove or modify the cluster Prometheus service.
-* Don't remove or modify the cluster Alertmanager service or Default receiver. It *is* supported to create additional receivers to notify external systems.
-* Don't remove Service Alertmanager rules.
+* Don't add taints that would prevent any default OpenShift components from being scheduled.
+* Don't remove or modify the default cluster Prometheus service, except to modify scheduling of the default Prometheus instance.
+* Don't remove or modify the default cluster Alertmanager svc, default receiver, or any default alerting rules, except to add additional receivers to notify external systems.
 * The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.

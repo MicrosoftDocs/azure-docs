@@ -156,7 +156,7 @@ items:
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
-    href: concepts/client-and-server-architecture.md
+    href: https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture
   - name: Identity and authentication
     items:
     - name: Identity 
@@ -327,6 +327,8 @@ items:
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
             href: concepts/interop/guest/government-cloud.md
+          - name: Security
+            href: concepts/interop/guest/security.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -353,6 +355,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Security
+            href: concepts/interop/teams-user/security.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Developer Tools
@@ -383,6 +387,10 @@ items:
     href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
 - name: How-to guides
   items:
   - name: Using the Calling SDK

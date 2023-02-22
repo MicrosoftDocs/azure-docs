@@ -16,7 +16,7 @@ ms.subservice: chat
 
 Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support. 
 
-The Chat APIs provide an **auto-scaling** service for persistently storied text and data communication. Other key features include:
+The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:
 
 - **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
@@ -51,7 +51,7 @@ Azure stores chat messages until explicitly deleted. Chat thread participants ca
 
 There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.
 
-:::image type="content" source="../../media/chat-architecture.png" alt-text="Diagram showing Communication Services' chat architecture.":::
+:::image type="content" source="../../media/chat-architecture.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
 
  - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. Once your trusted service has created the chat thread and added users as participants, they can use the client app to connect to the chat thread and send messages. Use real-time notifications feature, which we will discuss below, in your client app to subscribe to message & thread updates from other participants.

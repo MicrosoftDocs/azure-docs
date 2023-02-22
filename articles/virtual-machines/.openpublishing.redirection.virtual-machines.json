@@ -1557,13 +1557,13 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/endpoints-in-resource-manager.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
-            "redirect_document_id": true
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/openshift-origin.md",
@@ -1586,6 +1586,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
             "redirect_url": "/azure/virtual-machines/linux/reset-password",
             "redirect_document_id": false
@@ -1599,6 +1614,16 @@
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-security-controls.md",
             "redirect_url": "/azure/virtual-machines/linux/security-baseline",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/a8-a9-a10-a11-specs.md",
@@ -3256,11 +3281,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/linux/sap-hana-overview-sap-hana-installation.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/hana-installation",
             "redirect_document_id": false
@@ -3447,7 +3467,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-hana.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/automation-bom-templates-db",
+            "redirect_url": "/azure/center-sap-solutions/automation/bom-templates-db",
             "redirect_document_id": false
         },
         {
@@ -3461,6 +3481,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/share-images-across-tenants.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_document_id": false
+        },         {
+            "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
+            "redirect_url": "/azure/virtual-machines/share-gallery.md",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-cli.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-cli",
             "redirect_document_id": false
@@ -3468,16 +3497,6 @@
         {
             "source_path_from_root": "/articles/virtual-machines/maintenance-control-powershell.md",
             "redirect_url": "/azure/virtual-machines/maintenance-configurations-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/windows/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/azure-compute-gallery#sharing",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/linux/share-images-across-tenants.md",
-            "redirect_url": "/azure/virtual-machines/azure-compute-gallery#sharing",
             "redirect_document_id": false
         },
         {
@@ -4753,101 +4772,6 @@
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-backup-file-level.md",
             "redirect_url": "/azure/backup/sap-hana-db-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-multi-sid.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapase",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-general",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-ibm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-maxdb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-oracle",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sqlserver",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/supported-product-on-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/rise-integration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/proximity-placement-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/planning-supported-configurations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapiq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/certifications",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
             "redirect_document_id": false
         },
         {

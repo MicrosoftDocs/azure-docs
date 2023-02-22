@@ -87,7 +87,7 @@ items:
         href: containers/translator-container-configuration.md
       - name: Use containers in disconnected environments
         displayName: text,docker,pull,mcr,registry,commitment,parameters
-        href: ../containers/disconnected-containers.md
+        href: containers/translator-disconnected-containers.md
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md

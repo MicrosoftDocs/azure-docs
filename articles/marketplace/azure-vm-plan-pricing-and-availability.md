@@ -21,7 +21,7 @@ On this pane, you configure:
 
 Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](azure-vm-plan-setup.md) section.
 
-Select **Select only Microsoft Tax** Remitted to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
+Select **Select only Microsoft Tax** Remitted to select only countries/regions in which Microsoft remits sales and uses tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
 If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting **Export prices (xlsx)** after you save your modifications.
 
@@ -44,7 +44,7 @@ For a usage-based monthly billed plan, Microsoft will charge the customer for th
 - **Per** **vCPU** **size** – Your VM offer is priced based on the number of vCPU on the hardware it's deployed on.
 - **Per market and** **vCPU** **size** – Assign prices based on the number of vCPU on the hardware it's deployed on, and for all markets. Currency conversion is done by you, the publisher. This option is easier if you use the import pricing feature.
    
-For **Per** vCPU **size** and **Per market and** vCPU **size**, enter s **Price per** vCPU, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per vCPU if you choose. If using the *Per market and* vCPU *size* pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
+For **Per** vCPU **size** and **Per market and** **vCPU** **size**, enter a **Price per** vCPU, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per vCPU if you choose. If using the *Per market and* vCPU *size* pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
 
 > [!NOTE]
 > To ensure the prices are right before you publish them, export the pricing spreadsheet, and review them in each market. Before you export pricing data, first select **Save draft** to save pricing changes.
@@ -101,3 +101,4 @@ A hidden plan is not visible on Azure Marketplace and can only be deployed throu
 ## Next steps
 
 - [Technical configuration](azure-vm-plan-technical-configuration.md)
+

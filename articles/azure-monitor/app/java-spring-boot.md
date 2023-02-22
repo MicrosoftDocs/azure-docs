@@ -2,7 +2,7 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/14/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ---

@@ -6,18 +6,17 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/01/2023
 ---
 
 # Manage data sources in Microsoft Purview
 
-In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
+In this article, you learn how to register new data sources, manage collections of data sources, view sources, and move sources between collections in Microsoft Purview.
 
 ## Register a new source
 
 >[!NOTE]
 > You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details on roles and adding permissions.
-
 
 Use the following steps to register a new source:
 
@@ -73,6 +72,28 @@ To create a hierarchy of collections, assign higher-level collections as a paren
 
 >[!TIP] 
 >You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
+
+## Move sources between collections
+
+After you've registered your source, you can move it to another collection that you have access to.
+
+>[!IMPORTANT]
+> When a source moves to a new collection, its scans move with it, but assets will not appear in the new collection until your next scan.
+
+1. Find your source in the data map and select it.
+
+1. Beside the **Collection Path** list, select the ellipsis (...) button and select **Move**.
+
+   :::image type="content" source="media/manage-data-sources/choose-to-move.png" alt-text="Screenshot of a source, with the ellipsis and move buttons highlighted.":::
+
+1. In the **Move collection** menu that appears, select your collection from the drop-down and then select **Ok**.
+
+   :::image type="content" source="media/manage-data-sources/select-collection.png" alt-text="Screenshot of the Move collection window, showing the drop down selection of collections.":::
+
+1. Your collection has been moved. It can take up to an hour for results to be fully seen across your Microsoft Purview environment. Your scans will move with your resource, but assets will remain in their original collection until your next scan, then they'll move to the new collection.
+
+>[!NOTE]
+>If any of the assets from your source were moved manually to a different collection before the source was migrated, the scan won't take them to the new collection. They will remain in the collection you moved them to.
 
 ## Next steps
 

@@ -60,7 +60,17 @@ Since application gateway resources are deployed within a virtual network resour
 
 You should check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that users or Service Principals who operate application gateways have at least **Microsoft.Network/virtualNetworks/subnets/join/action** or some higher permission such as the built-in [Network contributor](../role-based-access-control/built-in-roles.md) role on the virtual network. Visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md) to know more on subnet permissions. 
 
-If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose. 
+If a [built-in](../role-based-access-control/built-in-roles.md) role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md) for this purpose. Also, [allow sufficient time](../role-based-access-control/troubleshooting.md?tabs=bicep#symptom---role-assignment-changes-are-not-being-detected) after you make changes to a role assignments.
+
+> [!NOTE]
+> As a temporary extension, we have introduced a subscription-level [Azure Feature Exposure Control (AFEC)](../azure-resource-manager/management/preview-features.md?tabs=azure-portal) flag to help you fix the permissions for all your users and/or service principals' permissions. Register for this interim feature on your own through a subscription owner, contributor, or custom role. </br>
+> 
+> "**name**": "Microsoft.Network/DisableApplicationGatewaySubnetPermissionCheck", </br> 
+> "**description**": "Disable Application Gateway Subnet Permission Check", </br> 
+> "**providerNamespace**": "Microsoft.Network", </br> 
+> "**enrollmentType**": "AutoApprove" </br> 
+>  
+> The provision to circumvent the virtual network permission check by using this feature control is **available only for a limited period, until 6th April 2023**. Ensure all the roles and permissions managing Application Gateways are updated by then, as there will be no further extensions. [Set up this flag in your Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal). 
 
 ## Network security groups
 

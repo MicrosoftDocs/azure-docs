@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/07/2023
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -32,7 +32,7 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural` (Female)<br/>`bn-BD-PradeepNeural` (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-BashkarNeural` (Male)<br/>`bn-IN-TanishaaNeural` (Female) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-GoranNeural` (Male)<br/>`bs-BA-VesnaNeural` (Female) |
-| `ca-ES` | Catalan | `ca-ES-AlbaNeural`<sup>4,5,6</sup> (Female)<br/>`ca-ES-EnricNeural`<sup>4,5,6</sup> (Male)<br/>`ca-ES-JoanaNeural`<sup>4,5,6</sup> (Female) |
+| `ca-ES` | Catalan (Spain) | `ca-ES-AlbaNeural`<sup>4,5,6</sup> (Female)<br/>`ca-ES-EnricNeural`<sup>4,5,6</sup> (Male)<br/>`ca-ES-JoanaNeural`<sup>4,5,6</sup> (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-AntoninNeural`<sup>4,5,6</sup> (Male)<br/>`cs-CZ-VlastaNeural`<sup>4,5,6</sup> (Female) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-AledNeural` (Male)<br/>`cy-GB-NiaNeural` (Female) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural`<sup>4,5,6</sup> (Female)<br/>`da-DK-JeppeNeural`<sup>4,5,6</sup> (Male) |
@@ -52,7 +52,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-JamesNeural`<sup>4,5,6</sup> (Male)<br/>`en-PH-RosaNeural`<sup>4,5,6</sup> (Female) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural`<sup>4,5,6</sup> (Female)<br/>`en-SG-WayneNeural`<sup>4,5,6</sup> (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ElimuNeural`<sup>4,5,6</sup> (Male)<br/>`en-TZ-ImaniNeural`<sup>4,5,6</sup> (Female) |
-| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1,4,5,6</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1,4,5,6</sup> (Female)<br/>`en-US-AmberNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-AnaNeural`<sup>4,5,6,8</sup> (Female)<br/>`en-US-AriaNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-AshleyNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-BrandonNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-ChristopherNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-CoraNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-DavisNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-ElizabethNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-EricNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-GuyNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-JacobNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-JaneNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-JasonNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-JennyMultilingualNeural`<sup>4,5,6,7</sup> (Female)<br/>`en-US-JennyNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-MichelleNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-MonicaNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-NancyNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-RogerNeural`<sup>1,4,5,6</sup> (Male)<br/>`en-US-SaraNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-SteffanNeural`<sup>1,4,5,6</sup> (Male)<br/>`en-US-TonyNeural`<sup>2,4,5,6</sup> (Male) |
+| `en-US` | English (United States) | `en-US-AIGenerate1Neural`<sup>1,4,5,6</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1,4,5,6</sup> (Female)<br/>`en-US-AmberNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-AnaNeural`<sup>4,5,6,8</sup> (Female)<br/>`en-US-AriaNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-AshleyNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-BrandonNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-ChristopherNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-CoraNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-DavisNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-ElizabethNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-EricNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-GuyNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-JacobNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-JaneNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-JasonNeural`<sup>2,4,5,6</sup> (Male)<br/>`en-US-JennyMultilingualNeural`<sup>4,5,6,7</sup> (Female)<br/>`en-US-JennyNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-MichelleNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-MonicaNeural`<sup>4,5,6</sup> (Female)<br/>`en-US-NancyNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-RogerNeural`<sup>1,4,5,6</sup> (Male)<br/>`en-US-SaraNeural`<sup>2,4,5,6</sup> (Female)<br/>`en-US-SteffanNeural`<sup>4,5,6</sup> (Male)<br/>`en-US-TonyNeural`<sup>2,4,5,6</sup> (Male) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural`<sup>4,5,6</sup> (Female)<br/>`en-ZA-LukeNeural`<sup>4,5,6</sup> (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural`<sup>4,5,6</sup> (Female)<br/>`es-AR-TomasNeural`<sup>4,5,6</sup> (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-MarceloNeural`<sup>4,5,6</sup> (Male)<br/>`es-BO-SofiaNeural`<sup>4,5,6</sup> (Female) |

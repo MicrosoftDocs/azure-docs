@@ -3,10 +3,10 @@ title: Azure Backup compliance offerings
 description: Summary of compliance offerings for Azure Backup
 ms.topic: reference
 ms.date: 11/29/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup compliance offerings
