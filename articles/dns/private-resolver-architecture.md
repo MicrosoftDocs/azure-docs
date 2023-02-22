@@ -12,7 +12,7 @@ ms.author: greglin
 
 # Private resolver architecture
 
-This article discusses the architectural design options that are available to resolve private DNS zones with an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in [hub and spoke VNets](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+This article discusses the architectural design options that are available to resolve private DNS zones with an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in [hub and spoke VNets](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 For an overview of the Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md). For more information about components of the private resolver, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 
