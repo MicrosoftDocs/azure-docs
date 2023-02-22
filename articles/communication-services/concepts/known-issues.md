@@ -47,7 +47,7 @@ Chrome version 98 introduced a regression with anormal generation of video keyfr
 
 ### No incoming audio during a call
 
-Very occassionally, a user in an ACS call may not be able to hear the audio from remote participants.
+Occasionally, a user in an ACS call may not be able to hear the audio from remote participants.
 There is a related [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1402250) bug which causes this issue, the issue can be mitigated by reconnecting the PeerConnection. We have added this workaround since SDK 1.9.1 (stable) and SDK 1.10.0 (beta)
 
 On Android Chrome, if a user joins ACS call several times, the incoming audio can also disappear. The user will not be able to hear the audio from other participants until the page is refreshed. We have fixed this issue in SDK 1.10.1-beta.1, and improved the audio resource usage.
@@ -59,12 +59,12 @@ A number of specific Android devices fail to start, accept calls, and meetings. 
 
 ### Android Chrome mutes the call after browser goes to background for one minute
 
-On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call will not hear the audio from the user. Once the user brings the browser to foreground, microphone will be available agin. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
+On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call will not hear the audio from the user. Once the user brings the browser to foreground, microphone will be available again. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
 
 ### iOS Safari refreshes the page if the user goes to another app and returns back to the browser
 
-The problem can occur if a user in an ACS call with iOS Safari, and switchs to other app for a while. After the user returns back to the browser, 
-the browser page may refresh. This is because OS kills the browser, the ACS call will also disconnect. One way to mitigate this issue is to keep some states and recover after page refreshes.
+The problem can occur if a user in an ACS call with iOS Safari, and switches to other app for a while. After the user returns back to the browser, 
+the browser page may refresh. This is because OS kills the browser. One way to mitigate this issue is to keep some states and recover after page refreshes.
 
 
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.
@@ -81,7 +81,7 @@ This problem can occur if another application or the operating system takes over
 
 On iOS for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. In this case, there is no microphoneMutedUnexepectedly UFD event. Once the PSTN call is finished, Android Chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
 
-In case camera is on and an interruption occurs, ACS call may or may not loose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
+In case camera is on and an interruption occurs, ACS call may or may not lose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
 
 Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 
