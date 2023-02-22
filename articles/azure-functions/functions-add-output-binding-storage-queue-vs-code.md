@@ -98,6 +98,7 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name`. The way you define these attributes depends on your Python programming model.
 
 [!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-storage-binding-python.md)]
 
