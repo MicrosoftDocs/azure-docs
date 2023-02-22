@@ -40,7 +40,6 @@ The following modifications will trigger a packet core reinstall, during which y
 
 Additionally, the following changes don't trigger a packet core reinstall, but will require you to manually perform a reinstall to allow the new configuration to take effect:
 
-- Changing the connected ASE device.
 - Modifying the access network configuration.
 - Modifying an attached data network's configuration.
 
