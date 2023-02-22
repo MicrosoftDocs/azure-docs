@@ -127,7 +127,7 @@ Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio s
 
 In your solution, there are two project level folders including a main project folder and a single module folder. For example, you may have a main project folder named *AzureIotEdgeApp1* and a module folder named *IotEdgeModule1*. The main project folder contains your deployment manifest.
 
-The module project folder contains a file for your module code named either `ModuleBackgroundService.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
+The module project folder contains a file for your module code named either `Program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
 
 ### Deployment manifest of your project
 
@@ -188,7 +188,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ## Module infrastructure & development options
 
-When you add a new module, it comes with default code that is ready to be built and deployed to a device so that you can start testing without touching any code. The module code is located within the module folder in a file named `ModuleBackgroundService.cs` (for C#) or `main.c` (for C).
+When you add a new module, it comes with default code that is ready to be built and deployed to a device so that you can start testing without touching any code. The module code is located within the module folder in a file named `Program.cs` (for C#) or `main.c` (for C).
 
 The default solution is built so that the simulated data from the **SimulatedTemperatureSensor** module is routed to your module, which takes the input and then sends it to IoT Hub.
 
