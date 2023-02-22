@@ -42,25 +42,16 @@ Here is the diagram about the system:
     1. Frontend is a bounded [React js](https://reactjs.org/) application.
     2. Backend is a spring web application that use Spring Data JPA to access a relational database.
     3. PostgreSQL is used as the relational database.
-2. Use docker to prepare the PostgreSQL database. Start a PostgreSQL docker container by this command:
-    ```shell
-    export POSTGRES_PASSWORD=mysecretpassword
-    docker run \
-        --name todo-postgres \
-        -e POSTGRES_DB=postgres \
-        -e POSTGRES_USER=postgres \
-        -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
-        -d \
-        -p 5432:5432 \
-        postgres:11.19-alpine
-    ```
-3. Build and run sample project.
+2. Build the sample project.
     ```shell
     cd ASA-Samples-Web-Application
     ./mvnw clean package -DskipTests
+    ```
+3. Run the sample app by maven.
+    ```shell
     ./mvnw spring-boot:run -f web/pom.xml
     ```
-4. Access `http://localhost:8080` by browser, you will see a page like this:
+1. Access `http://localhost:8080` by browser, you will see a page like this:
 
 > ![ToDo app home page](./media/quickstart-for-web-app/todo-app.png)
 
