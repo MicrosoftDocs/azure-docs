@@ -132,6 +132,8 @@ items:
         href: how-to/model-customization.md
       - name: Migrate a Custom Vision project to Image Analysis
         href: how-to/migrate-from-custom-vision.md
+      - name: Call the Image Retrieval APIs
+        href: how-to/image-retrieval.md
     - name: Version 3.2
       items:
       - name: Call the Image Analysis API

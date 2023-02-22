@@ -122,6 +122,14 @@ The version 4.0 smart cropping model is a more advanced implementation and works
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
+## Image Retrieval
+
+The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a many-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+
+These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+[Do Image Retrieval using vectorization](./how-to/image-retrieval.md)
+
 ## Image requirements
 
 #### [Version 3.2](#tab/3-2)

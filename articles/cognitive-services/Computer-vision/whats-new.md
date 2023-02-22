@@ -26,6 +26,10 @@ Image Analysis 4.0 is now available through client library SDKs in C#, C++, and 
 
 You can now create and train your own custom image classification and object detection models, using Vision Studio or the v4.0 REST APIs.
 
+### Image Retrieval APIs
+
+As part of the Image Analysis 4.0 API, the Image Retrieval APIs enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a many-dimensional vector space. Use vector similarity to match images with search terms based on semantic closeness.
+
 ## October 2022
 
 ### Computer Vision Image Analysis 4.0 public preview
