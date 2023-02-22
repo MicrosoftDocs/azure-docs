@@ -10,11 +10,11 @@ ms.date: 02/27/2023
 
 In this article, you learn about the open-source components and their versions in Azure HDInsight 5.1.
 
-Starting June 1, 2022, we have started rolling out a new version of HDInsight 5.1, this version is backward compatible with HDInsight 4.0. All new open-source releases will be added as incremental releases on HDInsight 5.1.
+Starting Feb 27, 2023, we have started rolling out a new version of HDInsight 5.1, this version is backward compatible with HDInsight 4.0. All new open-source releases added as incremental releases on HDInsight 5.1.
 
 ## Open-source components available with HDInsight version 5.1
 
-The Open-source component versions associated with HDInsight 5.1 are listed in the following table.
+The Open-source component versions associated with HDInsight 5.1 listed in the following table.
 
 | Component        | HDInsight 5.1 | HDInsight 5.0 |
 |------------------|---------------|---------------|
@@ -33,7 +33,7 @@ The Open-source component versions associated with HDInsight 5.1 are listed in t
 | Apache Ambari    |               | 2.7.0         |
 | Apache Zeppelin  |               | 0.8.0         |
 
-This table lists certain HDInsight 4.0 cluster types that have retired or will be retired soon.
+This table lists certain HDInsight 4.0 cluster types that have retired or will retire soon.
 
 | Cluster Type                    | Framework version | Support expiration date      | Retirement date |
 |---------------------------------|-------------------|------------------------------|-----------------|
