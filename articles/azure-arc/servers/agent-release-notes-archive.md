@@ -34,7 +34,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - The agent now supports Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
 - Agent telemetry uses the proxy server when configured.
 - Improved accuracy of network connectivity checks
-- The agent retains extension allow and block lists when switching the agent from monitoring mode to full mode. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
@@ -226,7 +226,7 @@ Fixed a bug that prevented extension management in the West US 3 region
 
 ### Fixed
 
-- The agent continues running if it is unable to write service start/stop events to the Windows application event log
+- The agent continues running if it is unable to write service start/stop events to the Windows Application event log
 
 ## Version 1.7 - June 2021
 
