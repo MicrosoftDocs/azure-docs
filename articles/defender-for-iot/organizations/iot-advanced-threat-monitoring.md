@@ -149,7 +149,7 @@ The following table describes the workbooks included in the **Microsoft Defender
 
 ## Automate response to Defender for IoT alerts
 
-[Playbooks](/azure/sentinel/tutorial-respond-threats-playbook) are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+[Playbooks](../../sentinel/tutorial-respond-threats-playbook.md) are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 The [Microsoft Defender for IoT](#install-the-defender-for-iot-solution) solution includes out-of-the-box playbooks that provide the following functionality:
 

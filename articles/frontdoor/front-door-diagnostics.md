@@ -1,12 +1,10 @@
 ---
-title: Monitor metrics and logs in - Azure Front Door
+title: Monitor metrics and logs - Azure Front Door
 description: This article describes the different metrics and logs that Azure Front Door records.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/17/2023
 ms.author: duau
@@ -78,7 +76,7 @@ Information about every request is logged into the access log. Each access log e
 | UserAgent | The user agent that the client used. Typically, the user agent identifies the browser type. |
 | ClientIp | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is taken from the header. |
 | SocketIp | The IP address of the direct connection to the Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in milliseconds. This field doesn't take into account network latency and TCP buffering. |
+| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in seconds. This field doesn't take into account network latency and TCP buffering. |
 | RequestProtocol | The protocol that the client specified in the request. Possible values include: **HTTP**, **HTTPS**. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request, or null if the request didn't use encryption. Possible values include: **SSLv3**, **TLSv1**, **TLSv1.1**, **TLSv1.2**. |
 | SecurityCipher | When the value for the request protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and Azure Front Door. |
@@ -90,7 +88,7 @@ Information about every request is logged into the access log. Each access log e
 | RouteName | The name of the route that the request matched. |
 | ClientPort | The IP port of the client that made the request. |
 | Referrer | The URL of the site that originated the request. |
-| TimetoFirstByte | The length of time, in milliseconds, from when the Azure Front Door edge received the request to the time the first byte was sent to client, as measured by Azure Front Door. This property doesn't measure the client data. |
+| TimetoFirstByte | The length of time, in seconds, from when the Azure Front Door edge received the request to the time the first byte was sent to client, as measured by Azure Front Door. This property doesn't measure the client data. |
 | ErrorInfo | If an error occurred during the processing of the request, this field provides detailed information about the error. Possible values are: <ul><li> **NoError**: Indicates no error was found. </li><li> **CertificateError**: Generic SSL certificate error. </li><li> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match the requested URL. </li><li> **ClientDisconnected**: The request failed because of a client network connection issue. </li><li> **ClientGeoBlocked**: The client was blocked due to the geographical location of the IP address. </li><li> **UnspecifiedClientError**: Generic client error. </li><li> **InvalidRequest**: Invalid request. This response indicate a malformed header, body, or URL. </li><li> **DNSFailure**: A failured occurred during DNS resolution. </li><li> **DNSTimeout**: The DNS query to resolve the origin IP address timed out. </li><li> **DNSNameNotResolved**: The server name or address couldn't be resolved. </li><li> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. </li><li> **OriginConnectionError**: Generic origin connection error. </li><li> **OriginConnectionRefused**: The connection with the origin wasn't established. </li><li> **OriginError**: Generic origin error. </li><li> **OriginInvalidRequest**: An invalid request was sent to the origin. </li><li> **ResponseHeaderTooBig**: The origin returned a too large of a response header. </li><li> **OriginInvalidResponse**: The origin returned an invalid or unrecognized response. </li><li> **OriginTimeout**: The timeout period for the origin request expired. </li><li> **ResponseHeaderTooBig**: The origin returned a too large of a response header. </li><li> **RestrictedIP**: The request was blocked because of restricted IP address. </li><li> **SSLHandshakeError**: Azure Front Door was unable to establish a connection with the origin because of an SSL handshake failure. </li><li> **SSLInvalidRootCA**: The root certification authority's certificate was invalid. </li><li> **SSLInvalidCipher**: The HTTPS connection was established using an invalid cipher. </li><li> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. </li><li> **OriginConnectionRefused**: The connection with the origin wasn't established. </li><li> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </li></ul> |
 | OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the request URL was rewritten by the Rules Engine, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 | OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
