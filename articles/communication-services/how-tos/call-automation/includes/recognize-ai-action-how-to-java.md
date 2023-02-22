@@ -124,7 +124,7 @@ PlaySource reminderMessage = new TextSource()
 RecognizeChoice recognizeChoice1 = new RecognizeChoice();
 recognizeChoice1.setLabel("Confirm").setPhrases(Arrays.asList("Confirm", "One", "First")).setTone(DtmfTone.ONE);
 RecognizeChoice recognizeChoice2 = new RecognizeChoice();
-recognizeChoice2.setLabel("Cancel").setPhrases(Arrays.asList("Cancel", "Two", "Second")).setTone(DtmfTone.ONE);
+recognizeChoice2.setLabel("Cancel").setPhrases(Arrays.asList("Cancel", "Two", "Second")).setTone(DtmfTone.TWO);
 
 List < RecognizeChoice > recognizeChoices = Arrays.asList(recognizeChoice1, recognizeChoice2);
 
@@ -336,4 +336,13 @@ if (callEvent instanceof RecognizeFailed) {
         "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
     }
 ]
+```
+
+### Example of how you can deserialize the *RecognizeCanceled* event:
+``` java
+if (callEvent instanceof RecognizeCanceled) { 
+
+            //Take action on Canceled notification, like terinating a call
+            callConnection.hangUp(true);
+         }
 ```
