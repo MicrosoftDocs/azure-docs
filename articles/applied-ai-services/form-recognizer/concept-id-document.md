@@ -177,14 +177,16 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker range="form-recog-3.0.0"
 
-## Supported languages and locales
+## Supported document types
 
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li><li>English (United States)—en-US (state ID)</li><li>English (United States)—en-US (social security card)</li><li>English (United States)—en-US (permanent resident card)</li></ul></br>|English (United States)—en-US|
+| Region | Document Types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|`United States (US)`|Driver License, Identification Card, Residency Permit (Green card), Social Security Card, Military ID|
+|`India (IN)`|Driver License, PAN Card, Aadhaar Card|
+|`Canada (CA)`|Driver License, Identification Card, Residency Permit (Maple Card)|
+|`United Kingdom (GB)`|Driver License, National Identity Card|
+|`Australia (AU)`|Driver License, Photo Card, Key-pass ID (including digital version)|
 
 ## Field extractions
 
@@ -302,29 +304,14 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 #### `idDocument` field extracted
 
-|Name| Type | Description | Standardized output|
-|:-----|:----|:----|:----|
-|  DateOfIssue | Date | Issue date  | yyyy-mm-dd |
-|  Height | String | Height of the holder.  | |
-|  Weight | String | Weight of the holder.  | |
-|  EyeColor | String | Eye color of the holder.  | |
-|  HairColor | String | Hair color of the holder.  | |
-|  DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
-| Endorsements | String | More driving privileges granted to a driver such as Motorcycle or School bus.  | |
-| Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-| VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
-|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-|  DateOfBirth | Date | DOB | yyyy-mm-dd |
-|  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
-|  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
-|  FirstName | String | Extracted given name and middle initial if applicable |  |
-|  LastName | String | Extracted surname |  |
-|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
-|  Sex | String | Possible extracted values include "M", "F" and "X" | |
-|  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | String | Document type, for example, Passport, Driver's License, Social security card and more | "passport" |
-|  Address | String | Extracted address, address is also parsed to its components - address, city, state, country, zip code ||
-|  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`Address`|`address`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
+|`DocumentNumber`|`string`|Driver license number|WDLABCD456DG|
+|`FirstName`|`string`|Given name and middle initial if applicable|LIAM R.|
+|`LastName`|`string`|Surname|TALBOT|
+|`DateOfBirth`|`date`|Date of birth|01/06/1958|
+|`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 
 ::: moniker-end
 
