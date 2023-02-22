@@ -31,9 +31,9 @@
   - name: isolation-domain
     href: howto-configure-isolation-domain.md
   - name: Network fabric
-    href: howto-configure-network fabric.md
+    href: howto-configure-network-fabric.md
   - name: Network fabric Controller
-    href: howto-configure-network fabric-controller.md
+    href: howto-configure-network-fabric-controller.md
   - name: AKS-Hybrid
     href: howto-hybrid-aks.md
   - name: Monitor AKS-Hybrid Cluster
