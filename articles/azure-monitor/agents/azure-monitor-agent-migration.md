@@ -54,9 +54,9 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
 3. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly.  
 
 4. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, you may **choose to either disable or uninstall the legacy Log Analytics agents** as applicable
-    1. If you have migrated to Azure Monitor agent for selected features/solutions and you need to continue using the legacy Log Analytics for others, you can selectively disable or "turn off" legacy agent collection by editing the Log Analytics workspace configurations directly
-    2. If you've migrated to Azure Monitor agent for all your requirements, you may [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent.
-    3. Don't uninstall the legacy agent if you need to use it for uploading data to System Center Operations Manager.
+    - If you have migrated to Azure Monitor agent for selected features/solutions and you need to continue using the legacy Log Analytics for others, you can selectively disable or "turn off" legacy agent collection by editing the Log Analytics workspace configurations directly
+    - If you've migrated to Azure Monitor agent for all your requirements, you may [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent.
+    - Don't uninstall the legacy agent if you need to use it for uploading data to System Center Operations Manager.
 
 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
