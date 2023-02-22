@@ -132,7 +132,7 @@ The server's updates to resolve or confirm the absence of conflicts can collide 
 ### What to expect during a region outage
 Client of single-region accounts will experience loss of read and write availability until service is restored.
 
-Multi-region accounts will experience different behaviors depending on the following table.
+Multi-region accounts experience different behaviors depending on the following table.
 
 | Configuration | Outage | Availability impact | Durability impact| What to do |
 | -- | -- | -- | -- | -- |
@@ -146,7 +146,7 @@ Multi-region accounts will experience different behaviors depending on the follo
 
 * If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
 
-* No changes are required in your application code to handle read region outage. When the impacted read region is back online it will automatically sync with the current write region and will be available again to serve read requests.
+* No changes are required in your application code to handle read region outage. When the impacted read region is back online, it will automatically sync with the current write region and will be available again to serve read requests.
 
 * Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read consistency guarantees continue to be honored by Azure Cosmos DB.
 
@@ -154,9 +154,9 @@ Multi-region accounts will experience different behaviors depending on the follo
 
 ### Additional information on write region outages
 
-* During a write region outage, the Azure Cosmos DB account will automatically promote a secondary region to be the new primary write region when **automatic (service-managed) failover** is configured on the Azure Cosmos DB account. The failover will occur to another region in the order of region priority you've specified.
+* During a write region outage, the Azure Cosmos DB account will automatically promote a secondary region to be the new primary write region when **automatic (service-managed) failover** is configured on the Azure Cosmos DB account. The failover occurs to another region in the order of region priority you've specified.
 
-* Note that manual failover shouldn't be triggered and will not succeed in presence of an outage of the source or destination region. This is because of a consistency check required by the failover procedure which requires connectivity between the regions.
+* Manual failover shouldn't be triggered and will not succeed in presence of an outage of the source or destination region. This is because of a consistency check required by the failover procedure, which requires connectivity between the regions.
 
 * When the previously impacted region is back online, any write data that wasn't replicated when the region failed, is made available through the [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflicts feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Azure Cosmos DB container as appropriate.
 
