@@ -57,6 +57,8 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 
     In the code below, the users' preferences and responses to the actions is hard-coded as a series of conditional statements, and explanatory text is included in the code for demonstrative purposes.
 
+Follow these steps to set up the Personalizer script.
+
 1. Find your key and endpoint.
 
     [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]

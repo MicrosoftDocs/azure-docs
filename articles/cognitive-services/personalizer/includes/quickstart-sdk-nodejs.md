@@ -26,7 +26,7 @@ ms.date: 02/02/2023
 
 [!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
-### Create a new Node.js application
+## Create a new Node.js application
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
@@ -40,7 +40,7 @@ Run the `npm init -y` command to create a `package.json` file.
 npm init -y
 ```
 
-Create a new Node.js script in your preferred editor or IDE named `personalizer-quickstart.js` and create variables for your resource's endpoint and subscription key. TBD
+Create a new Node.js script in your preferred editor or IDE named `personalizer-quickstart.js` and create variables for your resource's endpoint and subscription key.
 
 ### Install the client library
 
@@ -70,6 +70,8 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 - **getReward** prompts the user to score the service's recommendation as a success or failure. It returns a score between zero and one that represents the success of a customer interaction. In a real scenario, Personalizer will learn user preferences from real-time customer interactions.
 
     In a real production system, the [reward score](../concept-rewards.md) should be designed to align with your business objectives and KPIs. Determining how to calculate the reward metric may require some experimentation.
+
+Follow these steps to set up the Personalizer script.
 
 1. Find your key and endpoint.
 
