@@ -15,7 +15,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 02/15/2023
 ms.author: hobruche
 
 ---

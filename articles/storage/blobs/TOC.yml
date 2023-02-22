@@ -625,6 +625,8 @@ items:
               href: storage-blob-container-lease.md
             - name: Create and manage snapshots
               href: snapshots-manage-dotnet.md
+            - name: Create and list blob versions
+              href: versions-manage-dotnet.md  
             - name: Generate a shared access signature (SAS)
               items:
               - name: Create a user delegation SAS

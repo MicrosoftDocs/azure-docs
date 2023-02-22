@@ -42,7 +42,7 @@ This article describes how you can use the no code editor to easily create a Str
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/group-by-operation-configuration.png" alt-text="Screenshot that shows the group by operator configuration." lightbox="./media/no-code-transform-filter-ingest-sql/group-by-operation-configuration.png" :::
 
-1. Select the **Manage** tile. In the **Manage fields** configuration panel, choose the fields you want to output to event hub. If you want to add all the fields, click **Add all fields**.
+1. Select the **Manage** tile. In the **Manage fields** configuration panel, choose the fields you want to output. If you want to add all the fields, click **Add all fields**.
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/manage-fields-configuration.png" alt-text="Screenshot that shows the manage field operator configuration." lightbox="./media/no-code-transform-filter-ingest-sql/manage-fields-configuration.png" :::
 
