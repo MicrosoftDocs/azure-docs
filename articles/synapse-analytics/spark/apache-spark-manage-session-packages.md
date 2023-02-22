@@ -4,7 +4,7 @@ description: Learn how to add and manage libraries on Spark Notebook sessions fo
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/20/2023
 ms.author: shuaijunye
 ms.subservice: spark
 ---
@@ -12,37 +12,120 @@ ms.subservice: spark
 
 # Manage session-scoped packages
 
-In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use custom Python environments, jar, and R packages within a notebook session.
+In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use Python, jar, and R packages within a notebook session.
 
 When using session-scoped libraries, it is important to keep the following points in mind:
 
-  - When you install session-scoped libraries, only the current notebook has access to the specified libraries.
-  - These libraries will not impact other sessions or jobs using the same Spark pool.
-  - These libraries are installed on top of the base runtime and pool level libraries.
-  - Notebook libraries will take the highest precedence.
+- When you install session-scoped libraries, only the current notebook has access to the specified libraries.
+- These libraries will not impact other sessions or jobs using the same Spark pool.
+- These libraries are installed on top of the base runtime and pool level libraries, and take thr highest precedence.
+- Session-scoped libraries do not persist across sessions.
 
 ## Session-scoped Python packages
 
+### Manage session-scoped Python packages through *environment.yml* file
+
 To specify session-scoped Python packages:
 
-1.	Navigate to the selected Spark pool and ensure that you have enabled session-level libraries.  You can enable this setting by navigating to the **Manage** > **Apache Spark pool** > **Packages** tab.
+1. Navigate to the selected Spark pool and ensure that you have enabled session-level libraries.  You can enable this setting by navigating to the **Manage** > **Apache Spark pool** > **Packages** tab.
   :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/enable-session-packages.png" alt-text="Screenshot of enabling session packages." lightbox="./media/apache-spark-azure-portal-add-libraries/enable-session-packages.png":::
-2.	Once the setting has been applied, you can open a notebook and select **Configure Session**> **Packages**.
+2. Once the setting has been applied, you can open a notebook and select **Configure Session**> **Packages**.
   ![Screenshot of specifying session packages.](./media/apache-spark-azure-portal-add-libraries/update-session-notebook.png "Update session configuration")
   ![Screenshot of uploading Yml file.](./media/apache-spark-azure-portal-add-libraries/upload-session-notebook-yml.png)
-3.	Here, you can upload a Conda *environment.yml* file to install or upgrade packages within a session. Once you start your session, the specified libraries will be installed. Once your session ends, these libraries will no longer be available as they are specific to your session.
+3. Here, you can upload a Conda *environment.yml* file to install or upgrade packages within a session. Once you start your session, the specified libraries will be installed. Once your session ends, these libraries will no longer be available as they are specific to your session.
 
-### Verify installed libraries
+### Manage session-scoped Python packages through *%pip* and *%conda* commands
 
-To verify if the correct versions of the correct libraries are installed from PyPI, run the following code:
+You can leverage the popular *%pip* and *%conda* commands to install additional 3rd party libraries or your custom libraries during your Apache Spark notebook session. In this section, we will use *%pip* commands to demonstrate several common scenarios.
+
+### Install a third-party package
+
+You can easily install an Python library from [PyPI](https://pypi.org/).
 
 ```python
-import pkg_resources
-for d in pkg_resources.working_set:
-     print(d)
+# Install vega_datasets
+%pip install altair vega_datasets
 ```
 
-In some cases, to view the package versions from Conda, you may need to inspect the package version individually.
+To verify the installing result, you can run the following code to visualize vega_datasets
+
+```python
+# Create a scatter plot
+# Plot Miles per gallon against the horsepower across different region
+
+import altair as alt
+from vega_datasets import data
+
+cars = data.cars()
+alt.Chart(cars).mark_point().encode(
+    x='Horsepower',
+    y='Miles_per_Gallon',
+    color='Origin',
+).interactive()
+```
+
+### Install a wheel package from storage account
+
+In order to install library from storage, you need to mount to your storage account by running following commands.
+
+```python
+from notebookutils import mssparkutils  
+ 
+mssparkutils.fs.mount(  
+    "abfss://<<file system>>@<<storage account>.dfs.core.windows.net",  
+    "/<<path to wheel file>>",  
+    {"linkedService":"<<storage name>>"}  
+) 
+```
+
+And then, you can use the *%pip install* command to install the required wheel package
+
+```python
+%pip install /<<path to wheel file>>/<<wheel package name>>.whl
+```
+
+### Install another version of built-in library
+
+You can use the following command to see what's the built-in version of certain package. We use *pandas* as an example
+
+```python
+%pip show pandas
+```
+
+The result will be as following:
+
+```markdown
+Name: pandas
+Version: **1.2.3**
+Summary: Powerful data structures for data analysis, time series, and statistics
+Home-page: https://pandas.pydata.org
+... ...
+```
+
+You can use the following command to switch *pandas* to another version, let's say *1.2.4*
+
+```python
+%pip install pandas==1.2.4
+```
+
+### Uninstall a session-scoped library
+
+If you want to uninstall a package which was installed on this notebook session, you may refer to following commands. However, you cannot uninstall the built-in packages.
+
+```python
+%pip uninstall altair vega_datasets --yes
+```
+
+### Using *%pip* command to install libraries from a *requirement.txt* file
+
+```python
+%pip install -r  /<<path to requirement file>>/requirements.txt
+```
+
+> [!NOTE]
+>
+> - We recommend you to put the *%pip* and *%conda* commands at the beginning of your notebook if you want to install new libraries. The python interpreter will be restarted after the session-level library being managed to bring the changes effective.
+> - You can refer to this [%pip commands](https://pip.pypa.io/en/stable/cli/) and [%conda commands](https://docs.conda.io/projects/conda/en/latest/commands.html) for the full list of available commands.
 
 ## Session-scoped Java or Scala packages
 
@@ -57,13 +140,18 @@ To specify session-scoped Java or Scala packages, you can use the ```%%configure
 }
 ```
 
-We recommend you to run the %%configure at the beginning of your notebook. You can refer to this [document](https://github.com/cloudera/livy#request-body) for the full list of valid parameters.
+> [!NOTE]
+>
+> - We recommend you to run the %%configure at the beginning of your notebook. You can refer to this [document](https://github.com/cloudera/livy#request-body) for the full list of valid parameters.
 
 ## Session-scoped R packages (Preview)
 
 Azure Synapse Analytics pools include many popular R libraries out-of-the-box. You can also install additional 3rd party libraries during your Apache Spark notebook session.
 
-Session-scoped R libraries allow you to customize the R environment for a specific notebook session. When you install an R session-scoped library, only the notebook associated with that notebook session will have access to the newly installed libraries. Other notebooks or sessions using the same Spark pool definition will not be impacted. In addition, session-scoped R libraries do not persist across sessions. These libraries will be installed at the start of each session when the installation commands are executed. Last, session-scoped R libraries are automatically installed across both the driver and worker nodes.
+> [!NOTE]
+>
+> - These commands of managing R libraries will be disabled when running pipeline jobs. If you want to install a package within a pipeline, you must leverage the library management capabilities at the pool level.
+> - Session-scoped R libraries are automatically installed across both the driver and worker nodes.
 
 ### Install a package
 
@@ -79,9 +167,6 @@ You can also leverage CRAN snapshots as the repository to ensure that the same p
 ```r
 install.packages("highcharter", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
 ```
-
-> [!NOTE]
-> These functions will be disabled when running pipeline jobs. If you want to install a package within a pipeline, you must leverage the library management capabilities at the pool level.
 
 ### Using devtools to install packages
 
@@ -113,9 +198,6 @@ Currently, the following ```devtools``` functions are supported within Azure Syn
 | install_git() | Installs from an arbitrary git repository |
 | install_local() | Installs from a local file on disk |
 | install_version() | Installs from a specific version on CRAN |
-
-> [!NOTE]
-> These functions will be disabled when running pipeline jobs. If you want to install a package within a pipeline, you must leverage the library management capabilities at the pool level.
 
 ### View installed libraries
 
