@@ -1,5 +1,5 @@
 ---
-title: Custom data ingestion and transformation in Microsoft Sentinel (preview)
+title: Custom data ingestion and transformation in Microsoft Sentinel
 description: Learn about how Azure Monitor's custom log ingestion and data transformation features can help you get any data into Microsoft Sentinel and shape it the way you want.
 author: yelevin
 ms.author: yelevin
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/27/2022
 ---
 
-# Custom data ingestion and transformation in Microsoft Sentinel (preview)
+# Custom data ingestion and transformation in Microsoft Sentinel
 
 Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs ingested into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the stored logs and run Kusto Query Language (KQL) queries to detect threats and monitor your network activity.
 
@@ -131,7 +131,7 @@ Learn more about Microsoft Sentinel data connector types. For more information, 
 
 For more in-depth information on ingestion-time transformation, the Custom Logs API, and data collection rules, see the following articles in the Azure Monitor documentation:
 
-- [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
-- [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
+- [Data collection transformations in Azure Monitor Logs](../azure-monitor/essentials/data-collection-transformations.md)
+- [Logs ingestion API in Azure Monitor Logs](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
 

@@ -46,13 +46,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    The **prebuilt receipt model** now has added support for the following languages:
 
-  * English - United Arab Emirates (en-ae)
-  * Dutch - Netherlands (nl-nl)
-  * French - Canada (fr-ca)
-  * German - (de-de)
-  * Italian - (it-it)
-  * Japanese - Japan (ja-jp)
-  * Portuguese - Brazil (pt-br)
+  * English - United Arab Emirates (en-AE)
+  * Dutch - Netherlands (nl-NL)
+  * French - Canada (fr-CA)
+  * German - (de-DE)
+  * Italian - (it-IT)
+  * Japanese - Japan (ja-JP)
+  * Portuguese - Brazil (pt-BR)
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
@@ -72,12 +72,12 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt ID document model** now has added support for the following document types:
 
-  * Passport, driver's license, and residence permit ID expansion
+  * Driver's license expansion supporting India, Canada, Unitied Kingdom and Australia
   * US military ID cards and documents
-  * India ID cards and documents
-  * Australia ID cards and documents
-  * Canada ID cards and documents
-  * United Kingdom ID cards and documents
+  * India ID cards and documents (PAN and Aadhaar)
+  * Australia ID cards and documents (photo card, Key-pass ID)
+  * Canada ID cards and documents (identification card, Maple card)
+  * United Kingdom ID cards and documents (national identity card)
 
 ## December 2022
 
@@ -297,7 +297,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
   * [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolve to the existing fields TotalTax and Line/Tax respectively.
-  * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
+  * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
   * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
 
