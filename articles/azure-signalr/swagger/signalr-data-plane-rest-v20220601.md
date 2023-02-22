@@ -603,8 +603,6 @@ The error object.
 | ---- | ---- | ----------- | -------- |
 | target | string |  | Yes |
 | arguments | [  ] |  | No |
-| rawBytes | object |  | No |
-| rawOnly | boolean |  | No |
 
 #### ServiceResponse
 
