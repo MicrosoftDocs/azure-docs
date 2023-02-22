@@ -44,7 +44,7 @@ Follow these steps to create a dedicated SQL pool (formerly SQL DW) that contain
 
    :::image type="content" source="./media/create-data-warehouse-portal/create-a-resource.png" alt-text="A screenshot of the Azure portal. Create a resource in Azure portal.":::
 
-1. In the search bar type "dedicated SQL pool" select dedicated SQL pool (formerly SQL DW). Select **Create** on the page that opens.
+1. In the search bar, type "dedicated SQL pool" and select dedicated SQL pool (formerly SQL DW). Select **Create** on the page that opens.
 
    :::image type="content" source="./media/create-data-warehouse-portal/create-a-data-warehouse.png" alt-text="A screenshot of the Azure portal. Create an empty data warehouse.":::
 
@@ -119,7 +119,7 @@ Get the fully qualified server name for your server in the Azure portal. Later y
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **Azure Synapse Analytics** from the left-hand menu, and select your on the **Azure Synapse Analytics** page.
+1. Select **Azure Synapse Analytics** from the left-hand menu, and select your workspace on the **Azure Synapse Analytics** page.
 
 1. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is `sqlpoolservername.database.windows.net`.
 

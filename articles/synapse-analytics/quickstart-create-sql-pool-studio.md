@@ -68,7 +68,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     > [!IMPORTANT]  
     > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 60 or less characters, not contain reserved words, and be unique in the workspace.
 
-1. In the next tab, **Additional settings**, select **none** to provision the SQL pool without data. Leave the default collation as selected.
+1. In the next tab, **Additional settings**, select **none** to create the dedicated SQL pool without data. Leave the default collation as selected.
 
     If you want to restore your dedicated SQL pool from a restore point, select **Restore point**. For more information on how to perform a restore, see [How-to: Restore an existing dedicated SQL pool](backuprestore/restore-sql-pool.md)
 
