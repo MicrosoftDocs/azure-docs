@@ -225,7 +225,7 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
 
-- **Message**: DatabaseSizeMoreThanMax: The source database size '<Source Database Size>' exceeds the maximum allowed size of the target database '<Target Database Size>'. Check if the target database has enough space.
+- **Message**: DatabaseSizeMoreThanMax: The source database size '\<Source Database Size>' exceeds the maximum allowed size of the target database '\<Target Database Size>'. Check if the target database has enough space.
 
 - **Cause**: The target database doesn't have enough space.
 
