@@ -13,9 +13,9 @@ ms.custom: template-how-to
 # Create a private endpoint for Azure Data Manager for Energy Preview
 [Azure Private Link](../private-link/private-link-overview.md) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
-By using Azure Private Link, you can connect to a Azure Data Manager for Energy Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Energy Preview instance over these private IP addresses. 
+By using Azure Private Link, you can connect to an Azure Data Manager for Energy Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Energy Preview instance over these private IP addresses. 
 
-You can connect to a Azure Data Manager for Energy Preview instance that's configured with Private Link by using an automatic or manual approval method. To learn more, see the [Private Link documentation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+You can connect to an Azure Data Manager for Energy Preview instance that's configured with Private Link by using an automatic or manual approval method. To learn more, see the [Private Link documentation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 This article describes how to set up a private endpoint for Azure Data Manager for Energy Preview. 
 
@@ -29,7 +29,7 @@ This article describes how to set up a private endpoint for Azure Data Manager f
 
 Use the following steps to create a private endpoint for an existing Azure Data Manager for Energy Preview instance by using the Azure portal:
 
-1. From the **All resources** pane, choose a Azure Data Manager for Energy Preview instance.
+1. From the **All resources** pane, choose an Azure Data Manager for Energy Preview instance.
 1. Select **Networking** from the list of settings.       
 1. On the **Public Access** tab, select **Enabled from all networks** to allow traffic from all networks.
 

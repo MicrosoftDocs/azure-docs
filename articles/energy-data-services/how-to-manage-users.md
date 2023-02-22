@@ -16,7 +16,7 @@ In this article, you'll know how to manage users in Azure Data Manager for Energ
 
 ## Prerequisites
 
-Create a Azure Data Manager for Energy Preview instance using the tutorial at [How to create Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
+Create an Azure Data Manager for Energy Preview instance using the tutorial at [How to create Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
 
 You will need to pass parameters for generating the access token, which you'll need to make valid calls to the Entitlements API of your Azure Data Manager for Energy Preview instance. You will also need these parameters for different user management requests to the Entitlements API. Hence Keep the following values handy for these actions.
 
@@ -125,7 +125,7 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/users@medstest-dp1.dataservices.energy/members' \
@@ -165,7 +165,7 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.search.user@medstest-dp1.dataservices.energy/members' \
@@ -199,7 +199,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups associated 
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request GET 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
@@ -241,7 +241,7 @@ As stated above, **DO NOT** delete the OWNER of a group unless you have another 
 
 **Sample request**
 
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request DELETE 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \

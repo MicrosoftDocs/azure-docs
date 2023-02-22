@@ -21,7 +21,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the Open 
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
 2. Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-3. Ensure that a Azure Data Manager for Energy Preview instance is created already
+3. Ensure that an Azure Data Manager for Energy Preview instance is created already
 4. Clone the **sdutil** repo as shown below:
 
   ```markdown

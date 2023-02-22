@@ -52,7 +52,7 @@ sections:
           answer: > 
             Azure Data Manager for Energy Preview is a fully managed OSDU&trade; Data Platform. It means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
             
-        - question: Can I move a Azure Data Manager for Energy Preview resource from one subscription or resource group to another? 
+        - question: Can I move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another? 
           answer: > 
-            Today, you can't move a Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Microsoft Energy Data Service instance.
+            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Microsoft Energy Data Service instance.
 

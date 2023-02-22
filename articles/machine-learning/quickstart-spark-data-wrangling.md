@@ -73,7 +73,7 @@ A Managed (Automatic) Spark compute is available in Azure Machine Learning Noteb
 ## Interactive data wrangling with Titanic data
 
 > [!TIP]
-> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough for data access in a Azure Data Lake Storage (ADLS) Gen 2 storage account, both require the lowest number of configuration steps.
+> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough for data access in an Azure Data Lake Storage (ADLS) Gen 2 storage account, both require the lowest number of configuration steps.
 
 The data wrangling code shown here uses the `titanic.csv` file, available [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/spark/data/titanic.csv). Upload this file to a container created in the Azure Data Lake Storage (ADLS) Gen 2 storage account. This Python code snippet shows interactive data wrangling with an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and an input/output data URI, in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`:
 

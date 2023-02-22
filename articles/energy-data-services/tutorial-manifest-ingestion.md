@@ -28,7 +28,7 @@ In this tutorial, you will learn how to:
 Before beginning this tutorial, the following prerequisites must be completed:
 ### Get Azure Data Manager for Energy Preview instance details
 
-* Azure Data Manager for Energy Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create a Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
+* Azure Data Manager for Energy Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create an Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
 * For this tutorial, you will need the following parameters:
 
   | Parameter          | Value to use             | Example                               | Where to find these values?           |

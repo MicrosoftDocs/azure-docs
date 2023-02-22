@@ -42,7 +42,7 @@ Run the below curl command in Azure Cloud Bash to create a legal tag for a given
 ```
 
 ### Sample request
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/legal/v1/legaltags' \
@@ -144,7 +144,7 @@ Run the below curl command in Azure Cloud Bash to get the legal tag associated w
 ```
 
 ### Sample request
-Consider a Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy Preview instance named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request GET 'https://medstest.energy.azure.com/api/legal/v1/legaltags/medstest-dp1-legal-tag' \

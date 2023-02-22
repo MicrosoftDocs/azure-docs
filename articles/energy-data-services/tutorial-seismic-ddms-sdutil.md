@@ -303,7 +303,7 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
 
 ## Usage for Azure Data Manager for Energy Preview
 
-Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
+Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your Azure Data Manager for Energy instance.
 
 1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 

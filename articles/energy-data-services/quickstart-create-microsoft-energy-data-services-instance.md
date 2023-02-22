@@ -1,6 +1,6 @@
 ---
 title: Create a Microsoft Azure Data Manager for Energy Preview instance #Required; page title is displayed in search results. Include the brand.
-description: Quickly create a Azure Data Manager for Energy Preview instance #Required; article description that is displayed in search results. 
+description: Quickly create an Azure Data Manager for Energy Preview instance #Required; article description that is displayed in search results. 
 author: nitinnms #Required; your GitHub user alias, with correct capitalization.
 ms.author: nitindwivedi #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
@@ -9,11 +9,11 @@ ms.date: 08/18/2022
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: Create a Azure Data Manager for Energy Preview  Preview instance
+# Quickstart: Create an Azure Data Manager for Energy Preview  Preview instance
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Get started by creating a Azure Data Manager for Energy Preview instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create a Azure Data Manager for Energy Preview instance in your chosen Azure Subscription and region. 
+Get started by creating an Azure Data Manager for Energy Preview instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create an Azure Data Manager for Energy Preview instance in your chosen Azure Subscription and region. 
 
 The setup of Azure Data Manager for Energy Preview instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
 
@@ -28,7 +28,7 @@ Application ID | You'll need an [application ID](../active-directory/develop/app
 Client Secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting *Certificates & secrets* > *Client secrets* > *New client secret*. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
 
-## Create a Azure Data Manager for Energy Preview instance
+## Create an Azure Data Manager for Energy Preview instance
 
 
 1. Save your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
@@ -92,9 +92,9 @@ Client Secret | Sometimes called an application password, a client secret is a s
     [![Screenshot of the overview of Azure Data Manager for Energy Preview instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png#lightbox)
 
  
-## Delete a Azure Data Manager for Energy Preview instance
+## Delete an Azure Data Manager for Energy Preview instance
 
-Deleting a Microsoft Energy Data instance also deletes any data that you've ingested. This action is permanent and the ingested data can't be recovered. To delete a Azure Data Manager for Energy Preview instance, complete the following steps:
+Deleting a Microsoft Energy Data instance also deletes any data that you've ingested. This action is permanent and the ingested data can't be recovered. To delete an Azure Data Manager for Energy Preview instance, complete the following steps:
 
 1. Sign in to the Azure portal and delete the *resource group* in which these components are installed.
 
@@ -103,6 +103,6 @@ Deleting a Microsoft Energy Data instance also deletes any data that you've inge
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-After provisioning a Azure Data Manager for Energy Preview instance, you can learn about user management on this instance.
+After provisioning an Azure Data Manager for Energy Preview instance, you can learn about user management on this instance.
 > [!div class="nextstepaction"]
 > [How to manage users](how-to-manage-users.md)
