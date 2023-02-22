@@ -79,7 +79,7 @@ Microsoft doesn't encourage creating analytics pipelines or solutions on cluster
 For extra release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
 
 ## Versioning considerations
-- Once a cluster deployed with an image, that cluster willn't automatically upgrade to newer image version. When you create new clusters, most recent image version deployed.
+- Once a cluster deployed with an image, that cluster will not automatically upgrade to newer image version. When you create new clusters, most recent image version deployed.
 - Customers should test and validate that applications run properly when using new HDInsight version.
 - HDInsight reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight version when you create your clusters.
 - HDInsight may retire an OSS component version before retiring the HDInsight version.
