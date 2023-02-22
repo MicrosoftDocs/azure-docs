@@ -18,7 +18,7 @@ Azure IoT Hub provides the capability to stream data from your connected devices
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-**[IoT Hub message routing](iot-hub-devguide-messages-d2c.md)**: This IoT Hub feature enables users to route device-to-cloud messages to service endpoints like Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics. Routing also provides a querying capability to filter the data before routing it to the endpoints. In addition to device telemetry data, you can also [route non-telemetry events](iot-hub-devguide-messages-d2c.md#route-non-telemetry-events) and use them to trigger actions.
+**[IoT Hub message routing](iot-hub-devguide-messages-d2c.md)**: This IoT Hub feature enables users to route device-to-cloud messages to service endpoints like Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics. Routing also provides a querying capability to filter the data before routing it to the endpoints. In addition to device telemetry data, you can also [route non-telemetry events](iot-hub-devguide-messages-d2c.md#non-telemetry-events) and use them to trigger actions.
 
 **IoT Hub integration with Event Grid**: Azure Event Grid is a fully managed event routing service that uses a publish-subscribe model. IoT Hub and Event Grid work together to [integrate IoT Hub events into Azure and non-Azure services](iot-hub-event-grid.md), in near-real time. IoT Hub publishes both [device events](iot-hub-event-grid.md#event-types) and telemetry events.
 
