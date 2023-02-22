@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, ignite-2022
-ms.author: SturgeonMi
-author: xunwan
+ms.author: xunwan
+author: SturgeonMi
 ms.reviewer: franksolomon
 ms.date: 01/23/2023
 ---
