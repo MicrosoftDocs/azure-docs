@@ -25,45 +25,45 @@ Environments are managed and versioned assets within your Machine Learning works
 
 ### Types of environments
 
-Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
+Environments fall under three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
+Curated environments are pre-created environments managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
 
-Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
+They contain collections of Python packages and settings to help you get started with various machine learning frameworks and are intended for you to use as is.
 These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
+These types of environments have two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
-System-managed environments are used when you want conda to manage the Python environment for you.
-A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
-Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
+When you want conda to manage the Python environment for you, use system-managed environments.
+AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, AzureML adds common properties to the derived image.
+Environment isolation implies that Python dependencies installed in the base image aren't available in the derived image.
 
 ### Create and manage environments
 
 You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, VS code extension. 
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment without registering or referencing an already existing environment.
-They won't be listed but may be retrieved by version or label.
+They aren't listed but you can retrieve them by version or label.
 
 AzureML builds environment definitions into Docker images.
-It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
-Multiple environments with the same definition may result the same image, so the cached image will be reused.
+It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so you can reuse them in subsequent training jobs and service endpoint deployments.
+Multiple environments with the same definition may result in the same image, so the cached image is reused.
 Running a training script remotely requires the creation of a Docker image.
 
 ### Reproducibility and vulnerabilities
 
 #### *Vulnerabilities*
 
-Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
+You can address vulnerabilities by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
 of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
 
 There are some ways to decrease the impact of vulnerabilities:
 
 - Reduce your number of dependencies - use the minimal set of the dependencies for each scenario.
-- Compartmentalize your environment so issues can be scoped and fixed in one place.
+- Compartmentalize your environment so you can scope and fix issues in one place.
 - Understand flagged vulnerabilities and their relevance to your scenario.
 
 #### *Vulnerabilities vs Reproducibility*
@@ -71,16 +71,16 @@ There are some ways to decrease the impact of vulnerabilities:
 Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
 
-AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
+AzureML's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace provisioned.
+**Curated environments** are pre-created environments that Azure Machine Learning (AzureML) manages and are available by default in every AzureML workspace provisioned.
 
-Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
+They contain collections of Python packages and settings to help you get started with various machine learning frameworks and are intended for you to use as is.
 These pre-created environments also allow for faster deployment time.
 
 In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
-compute target and for model deployment. These types of environments are represented by two subtypes:
+compute target and for model deployment. These types of environments have two subtypes:
 
 - BYOC (bring your own container): the user provides a Docker image to AzureML
 - Docker build context: AzureML materializes the image from the user provided content
