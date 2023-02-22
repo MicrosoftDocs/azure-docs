@@ -80,7 +80,7 @@
           href: tutorial-cloud-workstation.md
         - name: Train a model
           href: tutorial-train-model.md
-        - name: Deploy an ML model
+        - name: Deploy a model
           href: tutorial-deploy-model.md
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
