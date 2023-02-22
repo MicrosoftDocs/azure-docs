@@ -41,8 +41,8 @@ The MedTech service buffers the FHIR Observations resources created during the t
 
 ## Why is the MedTech service device message data not showing up in the FHIR service?
 
-|Potential issues|Fixes|
-|----------------|-----|
+|Potential issue|Fix:|
+|---------------|----|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~5 minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device mappings haven't been configured.|Configure and save conforming and valid device mappings.|
 |FHIR destination mappings haven't been configured.|Configure and save conforming and valid FHIR destination mappings.|

@@ -45,7 +45,7 @@ This property represents the operation being performed by the MedTech service wh
 
 ## MedTech service HealthCheckExceptions and fixes
 
-Health checks are performed automatically and periodically to check whether a MedTech service can normalize and transform device message data. If one of the following health checks didn't pass, then a HealthCheckException occurs:
+Health checks are performed automatically and periodically to check whether a MedTech service can normalize and transform device messages. If one of the health checks didn't pass, then a HealthCheckException occurs. This table provides a list of errors that can be found in the MedTech service logs and fixes for those errors:
 
 |Log error:|
 |----------|
