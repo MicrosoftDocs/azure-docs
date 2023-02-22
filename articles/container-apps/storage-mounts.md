@@ -197,8 +197,6 @@ To create an ephemeral volume and mount it in a container, deploy a new revision
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
 
-For a step-by-step tutorial, refer to [Create an Azure Files storage mount in Azure Container Apps](storage-mounts-azure-files.md).
-
 Azure Files storage has the following characteristics:
 
 * Files written under the mount location are persisted to the file share.
@@ -226,6 +224,8 @@ To enable Azure Files storage in your container, you need to set up your contain
 ::: zone pivot="azure-cli"
 
 When configuring a container app to mount an Azure Files volume using the Azure CLI, you must use a YAML definition to create or update your container app.
+
+For a step-by-step tutorial, refer to [Create an Azure Files storage mount in Azure Container Apps](storage-mounts-azure-files.md).
 
 1. Add a storage definition to your Container Apps environment.
   
