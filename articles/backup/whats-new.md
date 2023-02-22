@@ -18,7 +18,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 
 - February 2023
-  - [Azure Kubernetes Service cluster backup (preview)](#azure-kubernetes-service-cluster-backup-preview)
+  - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
@@ -53,7 +53,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Azure Kubernetes Service cluster backup (preview)
+## Azure Kubernetes Service backup (preview)
 
 Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for both cluster state and application data (persistent volumes - CSI driver based Azure Disks). 
 
