@@ -38,16 +38,16 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 - A hub VNet is configured with address space 10.10.0.0/16.
 - A spoke VNet is configured with address space 10.11.0.0/16.
 - A private DNS zone **azure.contoso.com** is linked to the hub VNet.
-- A private resolver is located in the hub VNet.
+- A private resolver is provisioned in the hub VNet.
     - The private resolver has one inbound endpoint with an IP address of **10.10.0.4**.
-    - The private resolver has one outbound endpoint and DNS forwarding ruleset.
+    - The private resolver has one outbound endpoint and an associated DNS forwarding ruleset.
         - The DNS forwarding ruleset is linked to the spoke VNet.
         - A ruleset rule is configured to forward queries for the private zone to the inbound endpoint.
 
-The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)). The virtual network link from the ruleset to the spoke VNet enables the hub VNet to use the private resolver to resolve the private zone linked to the hub VNet.
+The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)). The spoke VNet also uses Azure-provided DNS. The virtual network link from the ruleset to the spoke VNet enables the hub VNet to resolve **azure.contoso.com**. A link from the private zone to the spoke VNet is not required. 
 
 > [!IMPORTANT]
-> In this example, the spoke VNet also uses Azure-provided DNS, and isn't linked to the private zone. The hub VNet must be linked to the private zone, but must **not** be linked to the forwarding ruleset.
+> In this example configuration, the hub VNet must be linked to the private zone, but must **not** be linked to the forwarding ruleset. Linking a forwarding ruleset to the same VNet where the inbound endpoint is provisioned can cause DNS resolution loops.
 
 This ruleset link design scenario is best suited to a hub and spoke network where DNS resolution is distributed across your Azure network, and might be unique in some locations.
 
