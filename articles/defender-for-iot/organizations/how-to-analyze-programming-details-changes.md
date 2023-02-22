@@ -1,13 +1,13 @@
 ---
-title: Analyze programming details and changes for DeltaV traffic on an OT sensor - Microsoft Defender for IoT
-description: Discover suspicious programming activity by investigating programming events occurring on your DeltaV network devices.
+title: Analyze programming details and changes on an OT sensor - Microsoft Defender for IoT
+description: Discover suspicious programming activity by investigating programming events occurring on your network devices.
 ms.date: 01/31/2023
 ms.topic: how-to
 ---
 
-# Analyze programming details and changes for DeltaV traffic
+# Analyze programming details and changes
 
-When working with DeltaV traffic, use the OT sensor to watch for programming events occurring on your network devices and analyze any code changes. Watching for programming events helps you investigate suspicious programming activity, such as:
+Use the OT sensor to watch for programming events occurring on your network devices and analyze any code changes. Watching for programming events helps you investigate suspicious programming activity, such as:
 
   - **Human error**: An engineer programming the wrong device.
   - **Corrupted programming automation**: Programming errors due to automation failures.
