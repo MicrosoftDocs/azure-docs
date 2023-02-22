@@ -927,7 +927,7 @@ groups:
   prompt: Choose a hosting platform
   pivots:
   - id: platform-sphere
-    title: Azure Sphere
+    title: Sphere
   - id: platform-linux
     title: Linux
   - id: platform-windows
