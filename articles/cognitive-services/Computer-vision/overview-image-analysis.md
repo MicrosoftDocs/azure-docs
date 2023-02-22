@@ -58,27 +58,6 @@ Version 4.0 preview of Image Analysis offers the ability to extract readable tex
 
 Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
-### Tag visual features
-
-Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0 preview)](concept-tagging-images-40.md)
-
-:::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
-
-
-### Detect objects
-
-Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects (v3.2)](concept-object-detection.md) [(v4.0 preview)](concept-object-detection-40.md)
-
-:::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
-
-### Detect brands (v3.2 only)
-
-Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. [Detect brands](concept-brand-detection.md)
-
-### Categorize an image (v3.2 only)
-
-Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images. [Categorize an image](concept-categorizing-images.md)
-
 ### Generate image captions
 
 Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. 
@@ -91,6 +70,33 @@ Version 4.0 also lets you use dense captioning, which generates detailed caption
 
 :::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
 
+### Detect objects
+
+Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects (v3.2)](concept-object-detection.md) [(v4.0 preview)](concept-object-detection-40.md)
+
+:::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
+
+### Tag visual features
+
+Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0 preview)](concept-tagging-images-40.md)
+
+:::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
+
+### Get the area of interest / smart crop
+
+Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. 
+
+The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+[Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0 preview)](concept-generating-thumbnails-40.md)
+
+### Detect brands (v3.2 only)
+
+Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. [Detect brands](concept-brand-detection.md)
+
+### Categorize an image (v3.2 only)
+
+Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images. [Categorize an image](concept-categorizing-images.md)
 
 ### Detect faces (v3.2 only)
 
@@ -110,14 +116,6 @@ Use domain models to detect and identify domain-specific content in an image, su
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
-### Get the area of interest / smart crop
-
-Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. 
-
-The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
-
-[Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0 preview)](concept-generating-thumbnails-40.md)
-
 ### Moderate content in images (v3.2 only)
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
@@ -132,20 +130,21 @@ These APIs are only available in the following geographic regions: East US, Fran
 
 ## Image requirements
 
-#### [Version 3.2](#tab/3-2)
-
-Image Analysis works on images that meet the following requirements:
-
-- The image must be presented in JPEG, PNG, GIF, or BMP format
-- The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
-
 #### [Version 4.0](#tab/4-0)
 
 Image Analysis works on images that meet the following requirements:
 
 - The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format
 - The file size of the image must be less than 20 megabytes (MB)
+- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
+
+
+#### [Version 3.2](#tab/3-2)
+
+Image Analysis works on images that meet the following requirements:
+
+- The image must be presented in JPEG, PNG, GIF, or BMP format
+- The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 ---
