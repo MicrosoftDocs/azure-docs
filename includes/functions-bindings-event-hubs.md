@@ -122,6 +122,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
     "extensions": {
         "eventHubs": {
             "maxEventBatchSize" : 10,
+            "targetUnprocessedEventThreshold" : 75,
             "batchCheckpointFrequency" : 1,
             "prefetchCount" : 300,
             "transportType" : "amqpWebSockets",
@@ -146,6 +147,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 |Property  |Default | Description |
 |---------|---------|---------|
 | maxEventBatchSize| 10| The maximum number of events that will be included in a batch for a single invocation. Must be at least 1.|
+| targetUnprocessedEventThreshold | | The desired number of unprocessed events per Function instance.  This is used in target-based scaling to override the default scaling threshold inferred from the `maxEventBatchSize` option. If set, the total unprocessed event count will be divided by this value to determine the number of Function instances needed, which is rounded up to a count that creates a balanced partition distribution.|
 | batchCheckpointFrequency| 1| The number of batches to process before creating  a checkpoint for the event hub.|
 | prefetchCount| 300| The number of events that will be eagerly requested from Event Hubs and held in a local cache to allow reads to avoid waiting on a network operation|
 | transportType| amqpTcp | The protocol and transport that is used for communicating with Event Hubs. Available options: `amqpTcp`, `amqpWebSockets`|
