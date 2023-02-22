@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 02/21/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -27,9 +27,9 @@ In order to use the first option, you must sync your AD DS to Azure Active Direc
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Limitations
+## Linux SMB client limitations
 
-Azure Files doesn't currently support using identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use the `autofs` package to mount the share as it is accessed.
+You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use the [autofs](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=smb311#dynamically-mount-with-autofs) package to mount the share as it is accessed.
 
 ## Prerequisites
 
@@ -217,7 +217,7 @@ _ldap._tcp.aadintcanary.contoso.com service = 0 100 389 hxt4yo--jb9q529.aadintca
 
 ### Set up hostname and fully qualified domain name (FQDN)
 
-1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now as this line will mainly be used to translate short hostname to FQDN.
+1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now as this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
 ```bash
 127.0.0.1       contosovm.aadintcanary.contoso.com contosovm
@@ -235,6 +235,11 @@ aadintcanary.contoso.com
 localadmin@contosovm:~$ hostname -f
 contosovm.aadintcanary.contoso.com 
 ```
+
+> [!Note]
+> Some distros require you to run the `hostnamectl` command in order for hostname -f to be updated:
+> 
+> `hostnamectl set-hostname contosovm.aadintcanary.contoso.com`
 
 ### Set up krb5.conf
 
@@ -425,13 +430,25 @@ Next, use the `klist` command to view the tickets in the Kerberos cache. There s
 krbtgt/AADINTCANARY.CONTOSO.COM@AADINTCANARY.CONTOSO.COM
 ```
 
+If you didn't [configure PAM for winbind](#configure-pam-for-winbind), `klist` might not show the ticket entry. In this case, you can manually authenticate the user to get the tickets:
+
+```bash
+wbinfo -K contososmbadmin
+```
+
+You can also run the command as a part of a script:
+
+```bash
+wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
+```
+
 ## Choose an access control model
 
 Before you mount the share, you'll need to choose one of the following three access control models for mounting SMB Azure file shares:
 
 1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
 
-2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users. Not recommended for multi-user scenarios.
+2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users.
 
 3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
 
@@ -441,9 +458,7 @@ After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined 
 
 The following are base mount options for all access control models: `nosharesock,mfsymlinks,sec=krb5`
 
-### Mount options for server enforced access control (default)
-
-If your environment is mostly Windows and you're enforcing access control using NT ACLs, use the following mount options.
+### Additional mount options
 
 #### Single-user versus multi-user mount
 
@@ -457,10 +472,9 @@ File permissions matter, especially if the file share will be accessed by both L
 
 Choose one of the following mount options to convert file permissions to DACLs on files:
 
-- Use a default (recommended), such as **file_mode=<>,dir_mode=<>**
-- Specify **cifsacl,noperm** so permissions are visible to Linux apps and can be set, but are only enforced on the server (you can also use **cifsacl** if you want them to be enforced on both client and server)
-
-When using **noperm**, permission checking is only done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL.
+- Use a default (recommended), such as **file_mode=<>,dir_mode=<>**. File permissions that are specified as **file_mode** and **dir_mode** are only enforced within the client. The server enforces access control based on the file's or directory's security descriptor.
+- Specify **modefromsid,idsfromsid** so that access control is done only on the client. The server won't enforce any access control with this mount option.
+- Specify **cifsacl,noperm** so permissions are visible to Linux apps and can be set, but are only enforced on the server. When using **noperm**, permission checking is only done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL. Use **cifsacl** if you want permissions to be enforced on both client and server.
 
 #### File ownership
 
@@ -469,6 +483,7 @@ File ownership matters, especially if the file share will be accessed by both Li
 Choose one of the following mount options to convert file ownership UID/GID to owner/group SID on file DACL:
 
 - Use a default such as **uid=<>,gid=<>**
+- Specify **modefromsid,idsfromsid** so that local Linux UID/GID are encoded in the ownership field of the security descriptor. If multiple Linux clients access the same share, be careful to keep consistent mapping between users and their IDs.
 - Configure UID/GID mapping via RFC2307 and Active Directory (**nss_winbind** or **nss_sssd**)
 
 #### File attribute cache coherency
