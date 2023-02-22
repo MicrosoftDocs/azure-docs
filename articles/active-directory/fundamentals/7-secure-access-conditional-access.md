@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Manage external access to resources with Conditional Access policies 
 
-Conditional Access interprets signals, enforces policies, and determines if a user is granted access to resources. In this article, learn about applying Conditional Access policies to external users. The article assumes you might not have access to entitlement management, which can be used with Conditional Access. 
+Conditional Access interprets signals, enforces policies, and determines if a user is granted access to resources. In this article, learn about applying Conditional Access policies to external users. The article assumes you might not have access to entitlement management, a feature you can use with Conditional Access. 
 
 Learn more: 
 
@@ -27,11 +27,11 @@ Learn more:
 
 The following diagram illustrates signals to Conditional Access that trigger access processes. 
 
-   ![Diagram of Conditional Access signals and decisions.](media/secure-external-access//7-conditional-access-signals.png)
+   ![Diagram of Conditional Access signal input and resulting access processes.](media/secure-external-access//7-conditional-access-signals.png)
 
-## Align a security plan with Conditional Access polices
+## Align a security plan with Conditional Access policies
 
-In the third article, in the set of ten articles, there is guidance on creating a security plan. Use that plan to help create Conditional Access policies for external access. Part of the security plan includes:
+In the third article, in the set of 10 articles, there's guidance on creating a security plan. Use that plan to help create Conditional Access policies for external access. Part of the security plan includes:
 
 * Grouped applications and resources for simplified access
 * Sign-in requirements for external users
@@ -82,7 +82,7 @@ You can block external users from accessing resources with Conditional Access po
 8. Select emergency access accounts. 
 9. Select **Done**.
 10. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-11. Under **Exclude**, select applications that shouldn’t be blocked.
+11. Under **Exclude**, select applications you want to exclude.
 12. Under **Access controls** > **Grant**, select **Block access**.
 13. Select **Select**.
 14. Select **Enable policy** to **Report-only**.
@@ -97,7 +97,7 @@ Learn more: [Manage emergency access accounts in Azure AD](../roles/security-eme
 
 There are scenarios when it's necessary to allow access for a small, specific group. 
 
-Before you begin, you can create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure Active Directory](active-directory-groups-view-azure-portal).
+Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](active-directory-groups-view-azure-portal.md).
 
 1. Sign in to the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -110,7 +110,7 @@ Before you begin, you can create a security group, which contains external users
 9. Select the external users security group.
 10. Select **Done**.
 11. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-12. Under **Exclude**, select the applications that shouldn’t be blocked.
+12. Under **Exclude**, select applications you want to exclude.
 13. Under **Access controls** > **Grant**, select **Block access**.
 14. Select **Select**.
 15. Select **Create**.
