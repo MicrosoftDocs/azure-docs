@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2023
-ms.author: sukumari
+ms.author: frdavid
 ms.reviewer: azmetadatadev
 ---
 
