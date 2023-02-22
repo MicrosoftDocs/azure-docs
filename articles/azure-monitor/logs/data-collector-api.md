@@ -209,7 +209,7 @@ In this section are samples that demonstrate how to submit data to the Azure Mon
 For each sample, set the variables for the authorization header by doing the following:
 
 1. In the Azure portal, locate your Log Analytics workspace.
-2. Select **Agents management**.
+2. Select **Agents**.
 2. To the right of **Workspace ID**, select the **Copy** icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the **Copy** icon, and then paste the ID as the value of the **Shared Key** variable.
 
