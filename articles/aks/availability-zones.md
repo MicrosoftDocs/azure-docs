@@ -12,7 +12,7 @@ ms.date: 02/22/2023
 
 An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. When using availability zones, nodes are physically separated from other nodes deployed in another availability zone. AKS clusters deployed with multiple availability zones configured across a cluster provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
-By defining node pools in a cluster to span multiple zones, nodes in a given node pool are able to continue operating even if a single zone has gone down. Your applications can continue to be available even if there is a physical failure in a single datacenter if orchestrated to tolerate failure of a subset of nodes.
+By defining node pools in a cluster to span multiple zones, nodes in a given node pool are able to continue operating even if a single zone has gone down. Your applications can continue to be available even if there's a physical failure in a single datacenter if orchestrated to tolerate failure of a subset of nodes.
 
 This article shows you how to create an AKS cluster and distribute the node components across availability zones.
 
@@ -33,7 +33,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disk availability zone support
 
- - Volumes that use Azure managed LRS disks are not zone-redundant resources, attaching across zones isn't supported and they have to be co-located in the same zone as a given node hosting the target pod.
+ - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones isn't supported and they have to be co-located in the same zone as a given node hosting the target pod.
  - Volumes that use Azure managed ZRS disks(supported by Azure Disk CSI driver v1.5.0+) are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes.
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes will take care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
@@ -62,7 +62,7 @@ When you create a cluster using the [az aks create][az-aks-create] command, the 
 
 If you don't specify any zones for the default agent pool when you create an AKS cluster, the control plane components aren't present in availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for new nodes. This converts the AKS control plane to spread across availability zones.
 
-The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of *3* nodes. One agent in zone *1*, one in *2*, and then one in *3*.
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup* with a total of three nodes. One agent in zone *1*, one in *2*, and then one in *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -79,7 +79,7 @@ az aks create \
 
 It takes a few minutes to create the AKS cluster.
 
-When deciding what zone a new node should belong to, a specified AKS node pool uses a [best effort zone balancing offered by underlying Azure Virtual Machine Scale Sets][vmss-zone-balancing]. The AKS node pool is "balanced" when each zone has the same number of VMs or +\- 1 VM in all other zones for the scale set.
+When deciding what zone a new node should belong to, a specified AKS node pool uses a [best effort zone balancing offered by underlying Azure Virtual Machine Scale Sets][vmss-zone-balancing]. The AKS node pool is "balanced" when each zone has the same number of VMs or +\- one VM in all other zones for the scale set.
 
 ## Verify node distribution across zones
 
@@ -93,7 +93,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the `topology.kubernetes.io/zone` value. The following example is for a Bash shell.
 
-```console
+```bash
 kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"
 ```
 
@@ -153,7 +153,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 
 You now have two more nodes in zones 1 and 2. You can deploy an application consisting of three replicas. The following example uses NGINX:
 
-```console
+```bash
 kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
