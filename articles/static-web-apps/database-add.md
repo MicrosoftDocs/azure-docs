@@ -66,47 +66,25 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Sign in to the server with your Active Directory account or the server's user name and password.
 
-1. Run the following script to create a new table named `MyTestPeopleTable`.
+1. Run the following script to create a new table named `MyTestPersonTable`.
 
     ```sql
-    CREATE TABLE [dbo].[MyTestPeopleTable] (
+    CREATE TABLE [dbo].[MyTestPersonTable] (
         [Id] INT IDENTITY (1, 1) NOT NULL,
         [Name] VARCHAR (25) NULL,
         PRIMARY KEY (Id)
     );
     ```
 
-1. Run the following script to add data into the *MyTestPeopleTable* table.
+1. Run the following script to add data into the *MyTestPersonTable* table.
 
     ```sql
-    INSERT INTO [dbo].[MyTestPeopleTable] (Name)
+    INSERT INTO [dbo].[MyTestPersonTable] (Name)
     VALUES ('Sunny');
     
-    INSERT INTO [dbo].[MyTestPeopleTable] (Name)
+    INSERT INTO [dbo].[MyTestPersonTable] (Name)
     VALUES ('Dheeraj');
     ```
-
-## Link the database to your static web app
-
-Now that you have sample data in the database, you can configure your static web app to connect to the database.
-
-1. Open your static web app in the Azure portal.
-
-1. In the *Settings* section, select **Database connection**.
-
-1. Under the *Production* section, select the **Link existing database** link.
-
-1. In the *Link existing database* window, enter the following values:
-
-    | Property | Value |
-    |---|---|
-    | Database Type | Select your database type from the dropdown list. |
-    | Subscription | Select your Azure subscription from the dropdown list. |
-    | Resource Name | Select the database server name that has your desired database. |
-    | Database Name | Select the name of the database you want to link to your static web app. |
-    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
-
-1. Select **OK**.
 
 ## Configure the static web app
 
@@ -127,23 +105,43 @@ The rest this tutorial focuses on working with local files in your static web ap
     git pull origin main
     ```
 
-## Create the database configuration file
+### Create the database configuration file
 
 Next, create a configuration file that your static web app uses to interface with the database.
 
 1. Open your terminal and create a new variable to hold your connection string.
 
+    # [Bash](#tab/bash)
+
     ```bash
     DATABASE_CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    $env:DATABASE_CONNECTION_STRING='<YOUR_CONNECTION_STRING>'
+    ```
+
+    ---
 
     Make sure to replace `<YOUR_CONNECTION_STRING>` with the connections string value you set aside in a text editor.
 
 1. Use the `swa db init` command to generate a database configuration file.
 
+    # [Bash](#tab/bash)
+
     ```bash
     swa db init --database-type mssql
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    swa db init --database-type mssql
+    ```
+
+    ---
 
     The `init` command creates the *staticwebapp.database.config.json* file in the *swa-db-connections* folder.
 
@@ -175,8 +173,8 @@ Next, create a configuration file that your static web app uses to interface wit
           } 
         }, 
         "entities": { 
-          "People": { 
-            "source": "dbo.MyTestPeopleTable", 
+          "Person": { 
+            "source": "dbo.MyTestPersonTable", 
             "permissions": [ 
               { 
                 "actions": ["*"], 
@@ -199,10 +197,31 @@ Before moving on to the next step, review the following table that explains diff
 | **Database connection** | In development, the runtime reads the connection string from an environment variable named `DATABASE_CONNECTION_STRING`. |
 | **API endpoint** | The REST endpoint is available via `/data-api/api` while the GraphQL endpoint is available through `/data-api/graphql`. |
 | **API Security** | The `runtime.host.cors` settings allow you to define allowed origins that can make requests to the API. In this case, the configuration reflects a development environment and allowlists the *http://localhost:4280* location. |
-| **Entity model** | Defines the entities exposed via routes in the REST API, or as types in the GraphQL schema. In this case, the name *People*, is the name exposed to the endpoint while `entities.<NAME>.source` is the database schema and table mapping. Notice how the API endpoint name doesn't need to be identical to the table name. |
+| **Entity model** | Defines the entities exposed via routes in the REST API, or as types in the GraphQL schema. In this case, the name *Person*, is the name exposed to the endpoint while `entities.<NAME>.source` is the database schema and table mapping. Notice how the API endpoint name doesn't need to be identical to the table name. |
 | **Entity security** | Permissions rules listed in the `entity.<NAME>.permissions` array control the authorization settings for an entity. You can secure an entity with roles in the same way you [secure routes with roles](./configuration.md#securing-routes-with-roles).  |
 
 With the static web app configured to connect to the database, you can now verify the connection.
+
+### Update home page
+
+Replace the markup between the `body` tags with the following HTML.
+
+```html
+<h1>Static Web Apps Database Connections</h1>
+<blockquote>
+    Open the console in the browser developer tools to see the API responses.
+</blockquote>
+<div>
+    <button id="list" onclick="list()">List</button>
+    <button id="get" onclick="get()">Get</button>
+    <button id="update" onclick="update()">Update</button>
+    <button id="create" onclick="create()">Create</button>
+    <button id="delete" onclick="del()">Delete</button>
+</div>
+<script>
+    // add JavaScript here
+</script>
+```
 
 ## Start the application locally
 
@@ -232,30 +251,23 @@ Now you can run your website and manipulate data in the database directly.
 
 The following framework-agnostic commands demonstrate how to do full CRUD operations on your database.
 
-To run each command, open the browser developer tools and paste in each command into the console window.
+The output for each function appears in the browser's console window.
+
+Open the developer tools by pressing <kbd>CMD/CTRL</kbd> + <kbd>SHIFT</kdb> + <kbd>I</kbd> and select the **Console** tab.
 
 ### List all items
 
-Run the following code in the browser's console window to select all items.
+Add the following code between the `script` tags in *index.html*.
 
 ::: zone pivot="static-web-apps-rest"
 
 ```javascript
-(() => {
-  const endpoint = 'http://localhost:4280/data-api/api/people';
-  
-  async function getAll() {
-    try {
-      const response = await fetch(endpoint);
-      const data = await response.json();
-      console.table(data.value);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  getAll();
-})();
+async function list() {
+  const endpoint = 'http://localhost:4280/data-api/api/person';
+  const response = await fetch(endpoint);
+  const data = await response.json();
+  console.table(data.value);
+}
 ```
 
 ::: zone-end
@@ -263,40 +275,32 @@ Run the following code in the browser's console window to select all items.
 ::: zone pivot="static-web-apps-graphql"
 
 ```javascript
-(() => {
-  async function getAll() {
-    
-    const query = `
+async function list() {
+
+  const query = `
       {
-          people
-          { 
-              items
-              {
-                  Id
-                  Name
-              }
+        people {
+          items {
+            Id
+            Name
           }
-       }`;
-  
-    try {
-      const endpoint = "http://localhost:4280/data-api/graphql";
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: query })
-      });
-      const result = await response.json();
-      console.table(result.data.people.items);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  getAll();
-})();
+        }
+      }`;
+      
+  const endpoint = "http://localhost:4280/data-api/graphql";
+  const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: query })
+  });
+  const result = await response.json();
+  console.table(result.data.people.items);
+}
 ```
 
-The browser's console window displays a table that lists all the records in the database.
+Refresh the page and select the **List** button.
+
+The browser's console window now displays a table that lists all the records in the database.
 
 ::: zone-end
 
@@ -307,25 +311,18 @@ The browser's console window displays a table that lists all the records in the 
 
 ### Get by ID
 
-Run the following code in the browser's console window to get an item by its unique identifier.
+Add the following code between the `script` tags in *index.html*.
 
 ::: zone pivot="static-web-apps-rest"
 
 ```javascript
-(() => {
-  async function getById(id) {
-    try {
-      const endpoint = `http://localhost:4280/data-api/api/people/Id/${id}`;
-      const response = await fetch(endpoint);
-      const result = await response.json();
-      console.table(result.value);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  getById(1);
-})();
+async function get() {
+  const id = 1;
+  const endpoint = `http://localhost:4280/data-api/api/person/Id/${id}`;
+  const response = await fetch(endpoint);
+  const result = await response.json();
+  console.table(result.value);
+}
 ```
 
 ::: zone-end
@@ -333,37 +330,41 @@ Run the following code in the browser's console window to get an item by its uni
 ::: zone pivot="static-web-apps-graphql"
 
 ```javascript
-(() => {
-  async function getById(id) {
-    
-    const query = `
-      {
-          people_by_pk(Id: 1) {
-            Id
-            Name
-      }`;
+async function get() {
 
-    try {
-      const endpoint = "http://localhost:4280/data-api/graphql";
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: query })
-      });
-      const result = await response.json();
-      console.table(result.data.people_by_pk);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  getById(1);
-})();
+  const id = 1;
+
+  const gql = `
+    query getById($id: Int!) {
+      person_by_pk(Id: $id) {
+        Id
+        Name
+      }
+    }`;
+
+  const query = {
+    query: gql,
+    variables: {
+      id: id,
+    },
+  };
+
+  const endpoint = "http://localhost:4280/data-api/graphql";
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query),
+  });
+  const result = await response.json();
+  console.table(result.data.person_by_pk);
+}
 ```
 
 ::: zone-end
 
-The browser's console window displays a table listing the single record requested from the database.
+Refresh the page and select the **Get** button.
+
+The browser's console window now displays a table listing the single record requested from the database.
 
 | ID | Name |
 |---|---|
@@ -371,7 +372,7 @@ The browser's console window displays a table listing the single record requeste
 
 ### Update
 
-Run the following code in the browser's console window to update a record.
+Add the following code between the `script` tags in *index.html*.
 
 ::: zone pivot="static-web-apps-rest"
 
@@ -380,25 +381,22 @@ Static Web Apps support both the `PUT` and `PATCH` verbs. A `PUT` request update
 This example uses a `PUT` request to do the update.
 
 ```javascript
-(() => {
-  
-  async function update(id, data) {
-    try {
-      const endpoint = 'http://localhost:4280/data-api/api/people/Id';
-      const response = await fetch(`${endpoint}/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      const result = await response.json();
-      console.table(result.value);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  update(1, { Name: 'Molly' });
-})();
+async function update() {
+
+  const id = 1;
+  const data = {
+    Name: "Molly"
+  };
+
+  const endpoint = 'http://localhost:4280/data-api/api/person/Id';
+  const response = await fetch(`${endpoint}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  const result = await response.json();
+  console.table(result.value);
+}
 
 ```
 
@@ -407,46 +405,44 @@ This example uses a `PUT` request to do the update.
 ::: zone pivot="static-web-apps-graphql"
 
 ```javascript
-(() => {
-  
-  async function update(id, newValues) {
-    
-    const mutation = `
-      mutation update($id: Int!, $item: UpdatePeopleInput!) {
-        updatePeople(Id: $id, item: $item) {
-          Id
-          Name
-        }
-      }`;
+async function update() {
 
-    const query = {
-      query: mutation,
-      variables: {
-        id: id,
-        item: newValues
-      } 
-    };
+  const id = 1;
+  const data = {
+    Name: "Molly"
+  };
 
-    try {
-      const endpoint = "http://localhost:4280/data-api/graphql";
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query)
-      });
-  
-      const result = await res.json();
-      console.table(result.data.updatePeople);
-    } catch(error) {
-      console.error(error);
-    }
-  }
-  
-  update(1, { Name: "Molly" });
-})();
+  const gql = `
+    mutation update($id: Int!, $item: UpdatePersonInput!) {
+      updatePerson(Id: $id, item: $item) {
+        Id
+        Name
+      }
+    }`;
+
+  const query = {
+    query: gql,
+    variables: {
+      id: id,
+      item: data
+    } 
+  };
+
+  const endpoint = "http://localhost:4280/data-api/graphql";
+  const res = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query)
+  });
+
+  const result = await res.json();
+  console.table(result.data.updatePerson);
+}
 ```
 
 ::: zone-end
+
+Refresh the page and select the **Update** button.
 
 The browser's console window now displays a table showing the updated data.
 
@@ -456,30 +452,26 @@ The browser's console window now displays a table showing the updated data.
 
 ### Create
 
-Run the following code in the browser's console window to create a new record.
+Add the following code between the `script` tags in *index.html*.
 
 ::: zone pivot="static-web-apps-rest"
 
 ```javascript
-(() => {
-  
-  async function create(data) {
-    const endpoint = `http://localhost:4280/data-api/api/people/`;
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      const result = await response.json();
-      console.table(result.value);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  create({ Name: 'Pedro' });
-})();
+async function create() {
+
+  const data = {
+    Name: "Pedro"
+  };
+
+  const endpoint = `http://localhost:4280/data-api/api/person/`;
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  const result = await response.json();
+  console.table(result.value);
+}
 ```
 
 ::: zone-end
@@ -487,39 +479,42 @@ Run the following code in the browser's console window to create a new record.
 ::: zone pivot="static-web-apps-graphql"
 
 ```javascript
-(() => {
+async function create() {
+
+  const data = {
+    Name: "Pedro"
+  };
+
+  const gql = `
+    mutation create($item: CreatePersonInput!) {
+      createPerson(item: $item) {
+        Id
+        Name
+      }
+    }`;
   
-  async function create(data) {
-    
-    const query = `
-      mutation {
-        createPeople(item: ${ JSON.stringify(data) })
-        {
-          Id
-          Name
-        }
-      }`;
+  const query = {
+    query: gql,
+    variables: {
+      item: data
+    } 
+  };
   
-    try {
-      const endpoint = "http://localhost:4280/data-api/graphql";
-      const result = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query })
-      });
-    
-      const response = await result.json();
-      console.table(response);
-    } catch(error) {
-      console.error(error);
-    }
-  }
-  
-  create({ Name: "Pedro" });
-})();
+  const endpoint = "http://localhost:4280/data-api/graphql";
+  const result = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query)
+  });
+
+  const response = await result.json();
+  console.table(response.data.createPerson);
+}
 ```
 
 ::: zone-end
+
+Refresh the page and select the **Create** button.
 
 The browser's console window now displays a table showing the new record in the database.
 
@@ -529,27 +524,23 @@ The browser's console window now displays a table showing the new record in the 
 
 ### Delete
 
-Run the following code in the browser's console window to delete a record.
+Add the following code between the `script` tags in *index.html*.
 
 ::: zone pivot="static-web-apps-rest"
 
 ```javascript
-(() => {
-  
-  async function del(id) {
-    try {
-      const endpoint = 'http://localhost:4280/data-api/api/people/Id';
-      const response = await fetch(`${endpoint}/${id}`, {
-        method: "DELETE"
-      });
-      console.log(`Record deleted: ${response.ok}`)
-    } catch (error) {
-      console.error(error);
-    }
+async function del() {
+  const id = 3;
+  const endpoint = 'http://localhost:4280/data-api/api/person/Id';
+  const response = await fetch(`${endpoint}/${id}`, {
+    method: "DELETE"
+  });
+  if(response.ok) {
+    console.log(`Record deleted: ${ id }`)
+  } else {
+    console.log(response);
   }
-  
-  del(3);
-})();
+}
 ```
 
 ::: zone-end
@@ -557,51 +548,67 @@ Run the following code in the browser's console window to delete a record.
 ::: zone pivot="static-web-apps-graphql"
 
 ```javascript
-(() => {
-  
-  async function del(personId) {
-    
-    const mutation = `
-        mutation deletePeople($id: Int!) {
-          deletePeople(Id: $id) {
-            Id
-          }
-        }`;
+async function del() {
 
-    const query = {
-        query: mutation,
-        variables: {
-            id: personId
-        }
-    };
+  const id = 3;
 
-    try {
-      const endpoint = "http://localhost:4280/data-api/graphql";
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query)
-      });
-  
-      const result = await response.json();
-      console.log(`Record deleted: ${result.data.deletePeople.Id}`);
-    } catch(error) {
-      console.error(error);
+  const gql = `
+    mutation del($id: Int!) {
+      deletePerson(Id: $id) {
+        Id
+      }
+    }`;
+
+  const query = {
+    query: gql,
+    variables: {
+      id: id
     }
-  }
-  
-  del(1);
-})();
+  };
+
+  const endpoint = "http://localhost:4280/data-api/graphql";
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query)
+  });
+
+  const result = await response.json();
+  console.log(`Record deleted: ${ result.data.deletePerson.Id }`);
+}
 ```
 
 ::: zone-end
 
+Refresh the page and select the **Delete** button.
+
 The browser's console window now displays a table showing the response from the delete request.
 
-| ID | Name |
-|---|---|
-| 2 | Dheeraj |
-| 3 | Pedro |
+*Record deleted: 2*
+
+Now that you've worked with your site locally, you can now deploy it to Azure.
+
+## Connect the database to your static web app
+
+Before you deploy your site, you first need to create a connection between the Static Web Apps instance of your site and your database.
+
+1. Open your static web app in the Azure portal.
+
+1. In the *Settings* section, select **Database connection**.
+
+1. Under the *Production* section, select the **Link existing database** link.
+
+1. In the *Link existing database* window, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Database Type | Select your database type from the dropdown list. |
+    | Subscription | Select your Azure subscription from the dropdown list. |
+    | Resource Name | Select the database server name that has your desired database. |
+    | Database Name | Select the name of the database you want to link to your static web app. |
+    | Authentication Type | Select **Connection string**, and enter the SQL server user name and password |
+
+1. Select **OK**.
 
 ## Deploy your site
 
@@ -627,7 +634,7 @@ If you want to remove the resources created during this tutorial, you need to un
 
 1. **Unlink database**: Open your static web app in the Azure portal. Under the *Settings* section, select **Database connection**. Next to the linked database, select **View details**. In the *Database connection details* window, select the **Unlink** button.
 
-1. **Remove sample data**: In your database, delete the table named `MyTestPeopleTable`.
+1. **Remove sample data**: In your database, delete the table named `MyTestPersonTable`.
 
 ## Next steps
 
