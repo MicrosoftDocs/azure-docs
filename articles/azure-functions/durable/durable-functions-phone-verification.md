@@ -71,19 +71,6 @@ Here is the code that implements the function:
 
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
->
-> # [Python (V2)](#tab/python-v2)
-
-The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
-
-[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
-
-Here is the code that implements the function:
-
-[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
-
-> [!NOTE]
-> It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
 
 ---
 
@@ -129,17 +116,6 @@ The *function.json* is defined as follows:
 And here is the code that generates the four-digit challenge code and sends the SMS message:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
-
-# [Python (V2)](#tab/python-v2)
-
-The *function.json* is defined as follows:
-
-[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
-
-And here is the code that generates the four-digit challenge code and sends the SMS message:
-
-[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
-
 
 ---
 

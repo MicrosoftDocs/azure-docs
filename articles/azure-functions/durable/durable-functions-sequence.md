@@ -64,6 +64,10 @@ The `context` object contains a `df` durable orchestration context object that l
 
 # [Python](#tab/python)
 
+> [!NOTE]
+> Python Durable Functions are available for the Functions 3.0 runtime only.
+
+
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
@@ -80,28 +84,6 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 Here is the orchestrator function:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
-
-All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
-
-1. The orchestrator function is a [generator function](https://wiki.python.org/moin/Generators).
-2. The _file_ should register the orchestrator function as an orchestrator by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This helps distinguish it from other, helper, functions declared in the file.
-
-The `context` object lets you call other *activity* functions and pass input parameters using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
-
-# [Python (V2)](#tab/python-v2)
-
-#### function.json
-
-[!code-json[Main](~/samples-durable-functions-python/samples-v2/function_app.py)]
-
-> [!WARNING]
-> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
-
-#### \_\_init\_\_.py
-
-Here is the orchestrator function:
-
-[!code-python[Main](~/samples-durable-functions-python/samples-v2/function_chaining/function_app.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
@@ -164,25 +146,6 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
-# [Python (V2)](#tab/python-v2)
-
-#### E1_SayHello/function.json
-
-The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
-
-[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
-
-> [!NOTE]
-> All activity functions called by an orchestration function must use the `activityTrigger` binding.
-
-The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
-
-#### E1_SayHello/\_\_init\_\_.py
-
-[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
-
-Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
-
 ---
 
 ## HttpStart client function
@@ -210,20 +173,6 @@ To interact with orchestrators, the function must include a `durableClient` inpu
 Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
 # [Python](#tab/python)
-
-#### HttpStart/function.json
-
-[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
-
-To interact with orchestrators, the function must include a `durableClient` input binding.
-
-#### HttpStart/\_\_init\_\_.py
-
-[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
-
-Use the `DurableOrchestrationClient` constructor to obtain a Durable Functions client. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
-
-# [Python (V2)](#tab/python-v2)
 
 #### HttpStart/function.json
 
