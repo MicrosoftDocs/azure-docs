@@ -12,13 +12,14 @@ ms.author: greglin
 
 # Private resolver architecture
 
-This article discusses the architectural design options that are available to resolve private DNS zones with an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in [hub and spoke VNets](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
+This article discusses architectural design options that are available to resolve private DNS zones across your network using an Azure DNS Private Resolver. Example configurations are provided with design recommendations for centralized vs distributed DNS resolution in a [hub and spoke VNet topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
-For an overview of the Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md). For more information about components of the private resolver, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+- For an overview of the Azure DNS Private Resolver, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md). 
+- For more information about components of the private resolver, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 
 ## Options for private zone resolution
 
-Private zone [virtual network links](private-dns-virtual-network-links.md) will enable DNS resolution in the linked VNet. However, this method has some limitations. For example, a VNet can only be linked to one private DNS zone. If you have more than one private zone, you might wish to perform DNS autoregistration in one zone, yet be able to resolve records in another private zone. This problem can be solved by using an Azure DNS Private Resolver.
+A private zone [virtual network link](private-dns-virtual-network-links.md) enables DNS resolution of the private zone in the linked VNet. However, this method has some limitations. For example, a VNet can only be linked to one private DNS zone. If you have more than one private zone, you might wish to perform DNS autoregistration in one (linked) zone, yet be able to resolve records in another private zone. This problem is solved by using an Azure DNS Private Resolver.
 
 The Azure DNS Private Resolver provides two components that you can use to resolve records in a private zone:
 - [Forwarding rulesets](#forwarding-ruleset-example) can be linked to a VNet to provide DNS forwarding capabilities. For example, a ruleset can contain a rule that forwards queries for the private zone to a private resolver inbound endpoint.
