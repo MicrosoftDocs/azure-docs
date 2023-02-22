@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/04/2022
+ms.date: 02/22/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -74,7 +74,7 @@ The following table lists an example of required attributes:
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
+|tag|`urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag`|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
 The following JSON payload shows an example SCIM schema:
@@ -117,7 +117,7 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 
 The following table lists an example of user attributes:
 
-| Azure AD user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure AD user | `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` |
 | --- | --- |
 | IsSoftDeleted |active |
 |department| `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department`|
@@ -140,7 +140,7 @@ The following table lists an example of user attributes:
 
 The following table lists an example of group attributes:
 
-| Azure AD group | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Azure AD group | `urn:ietf:params:scim:schemas:core:2.0:Group` |
 | --- | --- |
 | displayName |displayName |
 | members |members |
