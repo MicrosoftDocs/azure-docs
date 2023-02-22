@@ -65,7 +65,7 @@ This command decompiles an ARM JSON template into a Bicep file, and places it in
 
 You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
 
-[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
+[!INCLUDE [Visual Studio Code authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ### Generate parameters file
 
@@ -81,7 +81,7 @@ The `insert resource` command adds a resource declaration in the Bicep file by p
 
 You can find the resource ID by using one of these methods:
 
-- Use [Azure Resource extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
+- Use [Azure Resource extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
 
     :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension.":::
 

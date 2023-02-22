@@ -173,7 +173,7 @@ Use the following procedure to add the application definition:
 1. Press <kbd>Ctrl+Shift+P</kbd> to open **Command Palette**.
 1. Search for **bicep**, and then select **Bicep: Import Kubernetes Manifest**.
 
-    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest":::
+    :::image type="content" source="./media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/bicep-extensibility-kubernetes-provider-import-kubernetes-manifest.png" alt-text="Screenshot of Visual Studio Code import Kubernetes Manifest.":::
 
 1. Select `azure-vote.yaml` from the prompt. This process creates an `azure-vote.bicep` file in the same folder.
 1. Open `azure-vote.bicep` and add the following line at the end of the file to output the load balancer public IP:
