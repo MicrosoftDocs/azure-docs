@@ -26,16 +26,45 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 |Connection Logs | Yes | Yes (preview) |
 
 ## Cache Metrics
+
 Azure Cache for Redis emmits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
 
 ## Connection Logs
+
 Azure Cache for Redis uses Azure diagnostic settings to log information on client connections to your cache. Logging and analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
 
+## Differences Between Azure Cache for Redis Tiers
+
 Implementation of connection logs is slightly different between tiers:
-- **Basic, Standard, and Premium-tier caches** log incoming client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Connections that are established and removed inbetween 10-second intervals will not be logged. Authentication events (sucessful and failed) are not logged in these tiers.  
+- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (sucessful and failed) are not logged in these tiers.  
 - **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. This allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
 
 The connection logs produced look similar between the tiers, but have some differences. The two formats are shown in more detail below.  
+
+> [!IMPORTANT]
+> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses will appear over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs will only occur when the actual event occured for the first time.
+>
+
+## Prequisites/Limitations of Connection Logging
+
+### Basic, Standard, and Premium tiers
+- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed inbetween 10-second intervals will not be logged.
+- Authentication events are not logged
+- Enabling connection logs may cause a small performance degredation to the cache instance.
+
+### Enterprise and Enterprise Flash tiers
+- When using **OSS Cluster Policy**, logs will be emitted from each node. When using **Enterprise Cluster Policy**, only the nodes being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
+- Data loss (i.e. missing a connection event) is rare, but possible. It is typically caused by networking issues. 
+- Using the redis-cli and redis-benchmark tools can result in missing disconnection audit logs.
+- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set up to be 10 days, and a connection event occured 15 days ago, that connection will still exist but the log for that connection will not have been retained.
+- If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
+- After enabling connection logging, logs will not start flowing immediately. It may take up to a few hours in worst-case scenarios. 
+- Enabling connection logs may cause a small performance degredation to the cache instance.
+
+
+> [!NOTE]
+> It is always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
+>
 
 ## Log Destinations
 
