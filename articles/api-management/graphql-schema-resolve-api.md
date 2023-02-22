@@ -15,8 +15,6 @@ ms.custom: event-tier1-build-2022
 
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
-
 In this article, you'll:
 > [!div class="checklist"]
 > * Import a GraphQL schema to your API Management instance
@@ -85,8 +83,7 @@ type User {
 
 1. From the side navigation menu, under the **APIs** section, select **APIs** > your GraphQL API.
 1. On the **Design** tab, review the schema for a field in an object type where you want to configure a resolver. 
-    1. Select a field, and then in th
-    1. left margin, hover the pointer. 
+    1. Select a field, and then in the left margin, hover the pointer. 
     1. Select **+ Add Resolver**
 
         :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal.":::
@@ -102,12 +99,12 @@ type User {
                 <set-method>GET</set-method>
                 <set-url>https://myapi.contoso.com/users</set-url>
             </http-request>
-        </http-data-source>\
+        </http-data-source>
     ```
 
     :::image type="content" source="media/graphql-schema-resolve-api/configure-resolver-policy.png" alt-text="Screenshot of configuring resolver policy in the portal.":::
 1. Select **Create**. 
-1. To resolve data for other fields in the schema, repeat the preceding steps to create a resolver. 
+1. To resolve data for another field in the schema, repeat the preceding steps to create a resolver. 
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 

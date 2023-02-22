@@ -44,7 +44,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 
 1. In the dialog box, select **Full** and complete the required form fields.
 
-    :::image type="content" source="media/graphql-api/create-from-graphql-schema.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
+    :::image type="content" source="media/graphql-api/create-from-graphql-endpoint.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
 
     | Field | Description |
     |----------------|-------|

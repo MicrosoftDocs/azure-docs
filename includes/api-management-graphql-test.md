@@ -35,7 +35,7 @@ ms.custom:
 1. When testing is complete, exit test console.
 
 ## Test a subscription
-If your GraphQL schema includes a subscription, you can test it in the test console
+If your GraphQL schema includes a subscription, you can test it in the test console.
 
 1. Ensure that your API allows a WebSocket URL scheme (**WS** or **WSS**) that's appropriate for your API. You can enable this setting on the **Settings** tab.
 1. Set up a subscription query in the query editor, and then select **Connect** to establish a WebSocket connection to the backend service. 
