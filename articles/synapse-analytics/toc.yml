@@ -724,11 +724,11 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.3 runtime (Preview)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime
+        - name: Azure Synapse Apache Spark 3.2 runtime (GA)
           href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime
+        - name: Azure Synapse Apache Spark 3.1 runtime (EOLA)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
+        - name: Azure Synapse Apache Spark 2.4 runtime (EOLA)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -1559,8 +1559,6 @@ items:
         - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: Cognitive service with SynapseML
-      href: ./cognitive-services-with-synapseml-overview.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

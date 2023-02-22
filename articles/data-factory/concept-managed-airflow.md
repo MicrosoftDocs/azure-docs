@@ -28,7 +28,7 @@ Managed Airflow in Azure Data Factory is a managed orchestration service for [
 
 ## When to use Managed Airflow?
 
-Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Airflow, offers Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Airflow background, or are currently using Apace Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you wouldn't like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
+Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Airflow, offers Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Airflow background, or are currently using Apache Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you wouldn't like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
 
 With Managed Airflow, Azure Data Factory now offers multi-orchestration capabilities spanning across visual, code-centric, OSS orchestration requirements.
 

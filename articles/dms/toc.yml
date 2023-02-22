@@ -83,7 +83,7 @@
       href: tutorial-transparent-data-encryption-migration-ads.md
     - name: Known issues and troubleshooting
       href: known-issues-azure-sql-migration-azure-data-studio.md
-    - name: Older tutorials
+    - name: DMS (classic)
       items: 
       - name: to Azure SQL Database
         href: tutorial-sql-server-to-azure-sql.md

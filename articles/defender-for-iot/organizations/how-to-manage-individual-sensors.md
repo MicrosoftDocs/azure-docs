@@ -332,7 +332,7 @@ You can restore a sensor from a backup file using the sensor console or the CLI.
 
 For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
-**To restore from the sensor console:**
+# [Restore from the sensor console](#tab/restore-from-sensor-console)
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
@@ -354,9 +354,11 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
      1. When the restore process is complete, select **Close**.
 
-**To restore the latest backup file by using the CLI:**
+# [Restore the latest backup file by using the CLI](#tab/restore-using-cli)
 
 - Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+---
 
 ## Configure SMTP settings
 
