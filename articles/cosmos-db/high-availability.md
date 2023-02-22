@@ -111,23 +111,23 @@ It's important for the application to minimize conflicts by avoiding the followi
 * Using a Round Robin policy to determine the target region for a read or write operation on a per request basis. 
 
 #### Avoid dependency on replication lag 
-Strong consistency can't be configured on accounts with multi-region writes enabled. Thus, write operations receive a response as soon as the region being written to replicates the data locally (to a quorum of three replicas) without waiting for data to be replicated globally.  
+Multi-region write accounts can't be configured for Strong Consistency. Thus, the region being written to responds immediately after replicating the data locally while asynchronously replicating the data globally.  
 
-While infrequent, a replication lag may occasionally occur on one or a few partitions when geo-replicating the data. Replication lag can occur due to rare blips in network traffic or higher than usual rates of conflict resolution. 
+While infrequent, a replication lag may occur on one or a few partitions when geo-replicating data. Replication lag can occur due to rare blips in network traffic or higher than usual rates of conflict resolution. 
 
-For instance, an architecture in which writes are sent to Region A but reads are issued from Region B introduces a dependency on replication lag for reads to immediately be available in Region B. However, if both reads and writes are served from Region A, even in the presence of occasional spikes in replication lag from Region A to Regino B, the performance of the application remains constant.
+For instance, an architecture in which the application writes to Region A but reads from Region B introduces a dependency on replication lag between the two regions. However, if the application reads and writes to the same region, performance remains constant even in the presence of replication lag.
 
 #### Session Consistency Usage for Write operations
-In Session Consistency, the session token is used for both read and write operations to the database.  
+The session token is used for both read and write operations when using session consistency.  
 
-For reads, the cached session token is sent to the server with a guarantee of receiving data corresponding to the specified (or a more recent) session token.  
+The cached session token is sent to the server during read operations with a guarantee of receiving data corresponding to at least the specified session token.  
 
-For writes, the session token is sent to the database with a guarantee of persisting the data on the server only if the server has caught up to the session token provided. In single-region write accounts, the write region is always guaranteed to have caught up to the session token by virtue of being the only region to issue session tokens. However, in multi-region write accounts, the region being written to may not have caught up to writes issued to another region. If the client initiates a write request to Region A with a cached session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B and by extension, caught up to the Session Token issued by Region B.  
+The session token is sent to the database for write operations with a guarantee of persisting the data only if the server has caught up to the session token provided. The write region is always guaranteed to have caught up to the session token in single-region write accounts by virtue of being the only region issuing session tokens. However, the region being written to may not have caught up to writes issued to another region in multi-region write accounts. If the client writes to Region A with a session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B and by extension, caught up to the Session Token issued by Region B.
 
-To avoid a dependency on replication lag when passing session tokens from one client instance to another, it's best to do so only for read operations to avoid higher latencies during cross-region writes issued by the client when the local partition is intermittently unavailable. 
+It's best to use session tokens only for read operations and not for write operations in multi-region write accounts when passing session tokens between client instances. 
 
 #### Rapid updates to the same document
-When the same document is repeatedly updated in a multi-region write database, server updates to remove conflicts or confirm the absence of conflicts may collide with updates triggered by the application. Even with traffic staying local and no cross-region calls being issued by the application, repeated updates to the same document experience higher latencies during conflict resolution. While occasional bursts in traffic patterns of a certain kind are inevitable, if steady state traffic sees rapid updates to the same document over an extended period, it would be worth exploring an architecture where new documents are created instead. 
+The server's updates to resolve or confirm the absence of conflicts can collide with writes triggered by the application when the same document is repeatedly updated. Repeated updates in rapid succession to the same document experience higher latencies during conflict resolution. While occasional bursts in repeated updates to the same document are inevitable, it would be worth exploring an architecture where new documents are created instead if steady state traffic sees rapid updates to the same document over an extended period. 
 
 ### What to expect during a region outage
 Client of single-region accounts will experience loss of read and write availability until service is restored.
