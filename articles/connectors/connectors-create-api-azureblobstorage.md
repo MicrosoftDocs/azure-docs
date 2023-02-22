@@ -447,7 +447,7 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls in Standard logic apps, review the following documentation:
 
-  - With the Azure Blob Storage *built-in* connector: [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration).
+  - Azure Blob Storage *built-in* connector: [Access storage accounts through virtual network integration](#access-storage-accounts-through-virtual-network-integration)
 
    - Azure Blob Storage *managed* connector: [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
