@@ -110,11 +110,11 @@ az postgres flexible-server create \
     --admin-password <admin-password> \
     --active-directory-auth Enabled
 ```
- There will be a prompt to ask you whether you need to enable access to specific IP, all input `n` to disable these accesses. Because we only want the PostgreSQL been accessed by the App in Azure Spring Apps. Here is a sample about the prompt:
- ```text
- Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
- Do you want to enable access for all IPs  (y/n): n
- ```
+There will be a prompt to ask you whether you need to enable access to specific IP, all input `n` to disable these accesses. Because we only want the PostgreSQL been accessed by the App in Azure Spring Apps. Here is a sample about the prompt:
+```text
+Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
+Do you want to enable access for all IPs  (y/n): n
+```
 
 A CLI prompt asks if you want to enable access to your IP. Enter `n` to confirm.
 
@@ -126,7 +126,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```azurecli-interactive
     az provider register --namespace Microsoft.ServiceLinker
     ```
-2.  `serviceconnector-passwordless` is an Azure CLI extension. It can be used to help the app instance connect to the PostgreSQL instance without password. Add this extension by this command:
+2.  `serviceconnector-passwordless` is used to help to implement passwordless connection in Service Connector. Add this extension by this command:
     ```azurecli-interactive
     az extension add --name serviceconnector-passwordless --upgrade
     ```
@@ -143,6 +143,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --system-identity \
         --connection <name-of-connection>
     ```
+    Note that `--system-identity` is necessary for passwrodless connection. For more information about this topic, please refer to [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Passwordlessflex).
 4. After connection created, use this command to check connection:
     ```azurecli-interactive
     az spring connection validate \
@@ -182,17 +183,38 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 
 ## Deploy the app to Azure Spring Apps
-1. Now the cloud environment is ready. Let's prepare the java project. First, remove all `spring.datasource.*` properties in the application.yml file. Here is an example:
-    ```yaml
-    spring:
-      datasource:
-        url: jdbc:postgresql://localhost:5432/postgres
-        username: postgres
-        password: ${POSTGRES_PASSWORD}
+1. Now the cloud environment is ready. Let's update `web/pom.xml` to make the app can connect Azure Database for PostgreSQL. Firstly, `h2` is not used anymore, delete it to make less confusing.
+    ```xml
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     ```
-2. Package the project by this command:
+    Secondly, `spring-cloud-azure-starter-jdbc-postgresql` dependency is necessary for passwordless connection. Let's add it:
+    ```xml
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+    </dependency>
+    ```
+    Then specify `spring-cloud-azure-starter-jdbc-postgresql`'s version by adding `spring-cloud-azure-dependencies` like this:
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-dependencies</artifactId>
+          <version>4.6.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    ```
+2. Package the app by this command:
     ```shell
-    ./mvnw clean package -DskipTests -f .\web\pom.xml
+    ./mvnw clean package -DskipTests -f ./web/pom.xml
     ```
 3. Deploy the app by this command:
     ```azurecli-interactive
