@@ -59,15 +59,15 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## Code block 1: Generate sample data
 
-Personalizer is meant to run on applications that receive and interpret real-time data. For the purpose of this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **getActionsList**, **getContextFeaturesList** and **getReward**.
+Personalizer is meant to run on applications that receive and interpret real-time data. In this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **getActionsList**, **getContextFeaturesList** and **getReward**.
 
 - **getActionsList** returns a list of the choices that the grocery website needs to rank. In this example, the actions are meal products. Each action choice has details (features) that may affect user behavior later on. Actions are used as input for the Rank API
 
 - **getContextFeaturesList** returns a simulated customer visit. It selects randomized details (context features) like which customer is present and what time of day the visit is taking place. In general, a context represents the current state of your application, system, environment, or user. The context object is used as input for the Rank API.
 
-   The context features in this quickstart are simplistic. However, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) is very important. Refer to the linked documentation for guidance.
+   The context features in this quickstart are simplistic. However, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) is important. Refer to the linked documentation for guidance.
 
-- **getReward** prompts the user to score the service's recommendation as a success or failure. It returns a score between zero and one that represents the success of a customer interaction. In a real scenario, Personalizer will learn user preferences from realtime customer interactions.
+- **getReward** prompts the user to score the service's recommendation as a success or failure. It returns a score between zero and one that represents the success of a customer interaction. In a real scenario, Personalizer will learn user preferences from real-time customer interactions.
 
     In a real production system, the [reward score](../concept-rewards.md) should be designed to align with your business objectives and KPIs. Determining how to calculate the reward metric may require some experimentation.
 
@@ -80,13 +80,13 @@ Personalizer is meant to run on applications that receive and interpret real-tim
 1. 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security see the Cognitive Services [security](../../cognitive-services-security.md) article.
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security, see the Cognitive Services [security](../../cognitive-services-security.md) article.
 
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_1":::
 
 ## Code block 2: Iterate the learning loop
 
-The next block of code defines the **main** method and closes out the script. It runs a learning loop iteration, in which it asks the user their preferences at the command line and sends that information to Personalizer to select the best action. It presents the selected action to the user, who makes a choice using the command line. Then it sends a reward score to the Personalizer service to signal how well the service did in its selection.
+The next block of code defines the **main** method and closes out the script. It runs a learning loop iteration, in which it asks the user their preferences at the command line and sends that information to Personalizer to select the best action. It presents the selected action to the user, who makes a choice using the command-line. Then it sends a reward score to the Personalizer service to signal how well the service did in its selection.
 
 The Personalizer learning loop is a cycle of **Rank** and **Reward** calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 

@@ -18,8 +18,8 @@ ms.date: 02/02/2023
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-   * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+   * You'll need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Model configuration
@@ -69,15 +69,15 @@ dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 1.0.
 
 ## Code block 1: Generate sample data
 
-Personalizer is meant to run on applications that receive and interpret real-time data. For the purpose of this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **GetActions**, **GetContext** and **GetRewardScore**.
+Personalizer is meant to run on applications that receive and interpret real-time data. In this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **GetActions**, **GetContext** and **GetRewardScore**.
 
 - **GetActions** returns a list of the choices that the grocery website needs to rank. In this example, the actions are meal products. Each action choice has details (features) that may affect user behavior later on. Actions are used as input for the Rank API
 
 - **GetContext** returns a simulated customer visit. It selects randomized details (context features) like which customer is present and what time of day the visit is taking place. In general, a context represents the current state of your application, system, environment, or user. The context object is used as input for the Rank API.
 
-   The context features in this quickstart are simplistic. However, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) is very important. Refer to the linked documentation for guidance.
+   The context features in this quickstart are simplistic. However, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) is important. Refer to the linked documentation for guidance.
 
-- **GetRewardScore** returns a score between zero and one that represents the success of a customer interaction. It uses simple logic to determine how different contexts will respond to different action choices. For example, a certain user will always give a 1.0 for vegetarian and vegan products, and a 0.0 for other products. In a real scenario, Personalizer will learn user preferences from the data sent in Rank and Reward API calls. You won't define these explicitly as in the example code.
+- **GetRewardScore** returns a score between zero and one that represents the success of a customer interaction. It uses simple logic to determine how different contexts respond to different action choices. For example, a certain user will always give a 1.0 for vegetarian and vegan products, and a 0.0 for other products. In a real scenario, Personalizer will learn user preferences from the data sent in Rank and Reward API calls. You won't define these explicitly as in the example code.
 
     In a real production system, the [reward score](../concept-rewards.md) should be designed to align with your business objectives and KPIs. Determining how to calculate the reward metric may require some experimentation.
 
@@ -119,7 +119,7 @@ On the first iteration, Personalizer will recommend a random action, because it 
 
 ## Generate many events for analysis (optional)
 
-You can easily generate, say, 5,000 events from this quickstart scenario, which is sufficient to get experience using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Replace the **main** method above with:
+You can easily generate, say, 5,000 events from this quickstart scenario, which is sufficient to get experience using Apprentice mode and Online mode, running offline evaluations, and creating feature evaluations. Replace the **main** method above with:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Personalizer/quickstart-sdk/personalizer-quickstart.cs?name=snippet_multi)]
 
