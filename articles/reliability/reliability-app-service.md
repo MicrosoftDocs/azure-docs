@@ -148,7 +148,7 @@ To prepare for availability zone failure, you should over-provision capacity of 
 
 ### Zone down experience
 
-- For zone-redundant App Service deployments, see [Downtime requirements](/azure/reliability/migrate-app-service#downtime-requirements).
+- For zone-redundant App Service deployments, downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled App Service. For example, if you're using an [Application Gateway](../app-service/networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully move over to your new availability zone enabled apps when everything is deployed and fully tested.
 
 - Zonal ILB (Internal Load Balancing) ASE deployments will continue to run and serve traffic on that ASE even when other zones in the same region suffer an outage. 
 
