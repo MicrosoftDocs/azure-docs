@@ -4,21 +4,26 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 02/06/2023
+ms.date: 02/22/2023
 ms.author: schaffererin
 ---
 
 # Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (PREVIEW)
 
-Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature. This feature allows services to privately connect to AKS and Kubernetes via the Azure backend without requiring private endpoint. Instead of relying on identities with [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications you want to use on top of AKS.
+Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature. 
+
+This feature allows services to securely connect to AKS and Kubernetes via the Azure backend without requiring private endpoint. Instead of relying on identities with [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications you want to use on top of AKS.
 
 Trusted Access addresses the following scenarios:
 
-* Azure services may be unable to access the Kubernetes API server when the authorized IP range is enabled, or in private clusters unless you implement a complex private endpoint access model.
+* Azure services may be unable to access the Kubernetes API server when the authorized IP range is enabled, or in private clusters unless you implement a private endpoint access model.
 
 * Providing admin access to the Kubernetes API to an Azure service doesn't follow the least privileged access best practices and could lead to privilege escalations or risks of credential leakage.
 
   * For example, you may have to implement high-privileged service-to-service permissions, which aren't ideal during audit reviews.
+
+> [!NOTE]
+> Using the Trusted Access feature on Azure RBAC-enabled clusters isn't supported.
 
 This article shows you how to enable secure access from your Azure services to your Kubernetes API server in AKS using Trusted Access.
 
@@ -72,13 +77,13 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Select the required Trusted Access Roles
 
-The Roles you select depend on the different Azure services. These services help create Roles and RoleBindings, which build the connection from the partner service to AKS.
+The Roles you select depend on the different Azure services. These services help create Roles and RoleBindings, which build the connection from the Azure service to AKS.
 
 Azure Machine Learning (AzureML) now supports access to AKS clusters with the Trusted Access feature. If you want to preview the Trusted Access feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 
 ## Create a Trusted Access RoleBinding
 
-After confirming which Role to use, use the Azure CLI to create a Trusted Access RoleBinding in an AKS cluster. The RoleBinding associates your selected Role with the partner service.
+After confirming which Role to use, use the Azure CLI to create a Trusted Access RoleBinding in an AKS cluster. The RoleBinding associates your selected Role with the Azure service.
 
 ```azurecli
 # Create a Trusted Access RoleBinding in an AKS cluster
@@ -141,7 +146,7 @@ az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cl
 ## Delete the Trusted Access RoleBinding for a cluster
 
 > [!WARNING]
-> Deleting the existing Trusted Access RoleBinding will cause disconnection from AKS cluster to partner service.
+> Deleting the existing Trusted Access RoleBinding will cause disconnection from AKS cluster to the Azure service.
 
 Use the Azure CLI to delete an existing Trusted Access RoleBinding.
 
