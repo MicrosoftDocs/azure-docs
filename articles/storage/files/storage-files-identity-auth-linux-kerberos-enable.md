@@ -29,27 +29,27 @@ In order to use the first option, you must sync your AD DS to Azure Active Direc
 
 ## Linux SMB client limitations
 
-You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use [autofs](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share as it's accessed.
+You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use [`autofs`](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share upon access.
 
 ## Prerequisites
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- An Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- A Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
-Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Use the commands below to install it. If you're asked for any input values during installation, leave them blank.
+Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
 
 ```bash
 localadmin@contosovm:~$ sudo apt update -y
 localadmin@contosovm:~$ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
 ```
 
-The wbinfo tool is part of the samba suite and can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
+The wbinfo tool is part of the samba suite. It can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). A sample configuration is shown below.
+Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Here's a sample configuration.
 
 ```bash
 localadmin@contosovm:~$ cat /etc/systemd/timesyncd.conf
@@ -111,7 +111,7 @@ MulticastDNS setting: no
           DNS Domain: domain1.contoso.com 
 ```
 
-2. If the above worked, skip the following steps and proceed to the next section.
+2. If the command worked, skip the following steps and proceed to the next section.
 
 3. If it didn't work, make sure that the domain server IP addresses are pinging.
 
@@ -333,18 +333,18 @@ Name:   contosovm.aadintcanary.contoso.com
 Address: 10.0.0.8
 ```
 
-If users will be actively logging into client machines or VMs and accessing the Azure file shares, you'll need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If access will be limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, then you can skip these steps.
+If users will be actively logging into client machines or VMs and accessing the Azure file shares, you need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If access will be limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, then you can skip these steps.
 
 ### Set up nsswitch.conf
 
-1. Now that the host is joined to the domain, you'll need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following entries to `nsswitch.conf`:
+1. Now that the host is joined to the domain, you need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following entries to `nsswitch.conf`:
 
 ```bash
 passwd:         compat systemd winbind
 group:          compat systemd winbind
 ```
 
-2. Enable the winbind service to be automatically started on reboot, and then restart the service.
+2. Enable the winbind service to start automatically on reboot, and then restart the service.
 
 ```bash
 localadmin@contosovm:~$ sudo systemctl enable winbind
@@ -390,7 +390,7 @@ localadmin@contosovm:~$ wbinfo --ping-dc
 
 ### Configure PAM for winbind
 
-1. You'll need to place winbind in the authentication stack so that domain users are authenticated through winbind by configuring PAM (Pluggable Authentication Module) for winbind. The second command below ensures that the homedir gets created for a domain user on first login to this system.
+1. You need to place winbind in the authentication stack so that domain users are authenticated through winbind by configuring PAM (Pluggable Authentication Module) for winbind. The second command ensures that the homedir gets created for a domain user upon first login to this system.
 
 ```bash
 localadmin@contosovm:~$ sudo pam-auth-update --enable winbind
@@ -404,7 +404,7 @@ localadmin@contosovm:~$ grep pam_winbind.so /etc/pam.d/common-auth
 auth    [success=1 default=ignore]      pam_winbind.so krb5_auth krb5_ccache_type=FILE cached_login try_first_pass 
 ```
 
-3. You should now be able to log in as the domain user to this system, either through ssh, su, or any other means of authentication.
+3. You should now be able to log in to this system as the domain user, either through ssh, su, or any other means of authentication.
 
 ```bash
 localadmin@contosovm:~$ su - contososmbadmin
@@ -444,13 +444,13 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Choose an access control model
 
-Before you mount the share, you'll need to choose one of the following three access control models for mounting SMB Azure file shares:
+Before you mount the share, you need to choose one of the following three access control models for mounting SMB Azure file shares:
 
-1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
+1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This option is recommended for most scenarios, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
 
 2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users.
 
-3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
+3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, we don't recommend using this method if Windows and Linux clients will use the same file share, as some Linux features aren't supported.
 
 ## Mount the file share
 
@@ -458,27 +458,27 @@ After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined 
 
 The following are base mount options for all access control models: `nosharesock,mfsymlinks,sec=krb5`
 
-### Additional mount options
+### Other mount options
 
 #### Single-user versus multi-user mount
 
 In a single-user mount use case, the mount point is accessed by a single user of the AD domain and isn't shared with other users of the domain. Each file access happens in the context of the user whose krb5 credentials were used to mount the file share. Any user on the local system who accesses the mount point will impersonate that user.
 
-In a multi-user mount use case, there's still a single mount point, but multiple AD users can access that same mount point. In scenarios where multiple users on the same client will be accessing the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
+In a multi-user mount use case, there's still a single mount point, but multiple AD users can access that same mount point. In scenarios where multiple users on the same client will access the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
 
 #### File permissions
 
-File permissions matter, especially if the file share will be accessed by both Linux and Windows clients.
+File permissions matter, especially if both Linux and Windows clients will access the file share.
 
 Choose one of the following mount options to convert file permissions to DACLs on files:
 
-- Use a default (recommended), such as **file_mode=<>,dir_mode=<>**. File permissions that are specified as **file_mode** and **dir_mode** are only enforced within the client. The server enforces access control based on the file's or directory's security descriptor.
+- Use a default (recommended), such as **file_mode=<>,dir_mode=<>**. File permissions specified as **file_mode** and **dir_mode** are only enforced within the client. The server enforces access control based on the file's or directory's security descriptor.
 - Specify **modefromsid,idsfromsid** so that access control is done only on the client. The server won't enforce any access control with this mount option.
 - Specify **cifsacl,noperm** so permissions are visible to Linux apps and can be set, but are only enforced on the server. When using **noperm**, permission checking is only done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL. Use **cifsacl** if you want permissions to be enforced on both client and server.
 
 #### File ownership
 
-File ownership matters, especially if the file share will be accessed by both Linux and Windows clients.
+File ownership matters, especially if both Linux and Windows clients will access the file share.
 
 Choose one of the following mount options to convert file ownership UID/GID to owner/group SID on file DACL:
 
