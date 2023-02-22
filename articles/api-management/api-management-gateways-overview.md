@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 02/22/2023
 ms.author: danlep
 ---
 
@@ -91,9 +91,9 @@ The following table compares features available in the managed gateway versus th
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Passthrough GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
+| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ❌ |
-| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
 
 ### Policies
 

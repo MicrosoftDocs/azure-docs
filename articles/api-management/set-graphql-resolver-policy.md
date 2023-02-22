@@ -14,7 +14,7 @@ ms.author: danlep
 
 > [!IMPORTANT]
 > This policy is deprecated. Preview customers who used the `set-graphql-resolver` policy must migrate to the [managed resolvers](graphql-apis-overview.md#resolvers) for GraphQL APIs, which provide similar functionality.
-
+<!-- Link to resolvers article -->
 
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
@@ -78,6 +78,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 
 * This policy is invoked only when a matching GraphQL query is executed. 
 * The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
+* If you use t
 
 
 ## GraphQL context

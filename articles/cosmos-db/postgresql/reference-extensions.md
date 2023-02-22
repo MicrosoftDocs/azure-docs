@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 02/15/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -25,6 +25,8 @@ PostgreSQL extensions must be installed in your database before you can use them
 > ```sql
 > SELECT create_extension('postgis');
 > ```
+>
+> To remove an extension installed this way, use `drop_extension()`.
 
 Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Cosmos DB for PostgreSQL.
 

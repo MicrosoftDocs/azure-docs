@@ -17,29 +17,30 @@ You can use API Management to manage GraphQL APIs - APIs based on the GraphQL qu
 API Management helps you import, manage, protect, test, publish, and monitor GraphQL APIs. You can choose one of two API models:
 
 
-|GraphQL passthrough  |Synthetic GraphQL  |
+|Pass-through GraphQL   |Synthetic GraphQL  |
 |---------|---------|
-| ▪️ Passthrough API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
+| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
+
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=modernize-your-api-stack-with-graphql-and-azure-api-management]
 
 ## Availability
 
 * GraphQL APIs are supported in all API Management service tiers
-* Passthrough and synthetic GraphQL APIs currently aren't supported in a self-hosted gateway
+* Pass-through and synthetic GraphQL APIs currently aren't supported in a self-hosted gateway
 * GraphQL subscription support in synthetic GraphQL APIs is currently in preview
 
 ## What is GraphQL?
 
 GraphQL is an open-source, industry-standard query language for APIs. Unlike REST-style APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
 
-GraphQL is a protocol specification that explicitly solves common issues experienced by client web apps that rely on REST APIs:
+The GraphQL specification explicitly solves common issues experienced by client web apps that rely on REST APIs:
 
 * It can take a large number of requests to fulfill the data needs for a single page
 * REST APIs often return more data than needed the page being rendered
 * The client app needs to poll to get new information
 
-Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also receive data updates pushed from the GraphQL service in real time.
+Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also subscribe to data updates pushed from the GraphQL service in real time.
 
 ## Schema and operation types
 
@@ -77,7 +78,7 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
 *Resolvers* take care of mapping the GraphQL schema to backend data, producing the data for each field in an object type. The data source could be an API, a database, or another service. For example, a resolver function would be responsible for returning data for the `users` query in the preceding example. 
 
-In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields in synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by passthrough GraphQL APIs.
+In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields in synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by pass-through GraphQL APIs.
 
 API Management currently supports HTTP-based resolvers to return the data for fields in a GraphQL schema. A resolver is a policy definition inside an `http-data-source` element that transforms the API request (and optionally the response) into an HTTP request/response.
 
@@ -92,7 +93,7 @@ For example, a resolver for the preceding `users` query might map to a `GET` ope
 </http-data-source>
 ```
 
-<!-- Add link to an article showing how to configure resolvers, incorp'ing information/examples in current set-graphql-policy article -->
+<!-- Add link to article showing how to configure resolvers -->
 
 ## Manage GraphQL APIs
 
