@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/2/2022
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -98,7 +98,7 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
-### View twins and relationships
+### Explore twin data
 
 Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **Twin Graph** panel.
 
@@ -142,6 +142,55 @@ There are two possible error scenarios that each give their own error message:
 Both of these error messages are shown in the screenshot below:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
+
+#### Validate and explore historized properties
+
+If your Azure Digital Twins instance has [data history](concepts-data-history.md) enabled, you can validate and explore its historized data in Azure Digital Twins Explorer. Follow the steps below to visualize historized data in a chart, or view raw values in a table.
+
+1. From the **Twin Graph** viewer, select a twin that has historized properties to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. A modal will appear for selecting which historical properties to view.
+
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::
+
+1. In the modal, the **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values. 
+
+1. In the **Property** field, select the property whose historized data you'd like to view. If the property is not numeric, but it consists of numeric values, use the **Cast property value to number** option to attempt to cast this data to numbers so it can be visualized on the chart.
+
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
+
+1. Choose a **Label** for the time series and select **Add**.  
+
+This will load the chart view of the historized values for the chosen property. You can use the tabs above the chart to toggle between the [chart view](#view-history-in-chart) and [table view](#view-history-in-table).
+
+You can add more properties to the visualization by using the **Add time series** button on the left.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png" alt-text="Screenshot of the Data history explorer highlighting the option to add another time series." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png":::
+
+To exit the data history explorer and return to the main Azure Digital Twins Explorer, select **Close**.
+
+##### View history in chart
+
+The **Chart** view of historized properties shows property values as points on a line graph over time.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png" alt-text="Screenshot of the Data history explorer showing a chart of historized values for a property." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png":::
+
+You can use the icons above the chart to control the chart settings, including...
+* changing the time range for the data that's included in the chart.
+* selecting whether multiple time series are shown independently or on a shared y-axis. Selecting **Independent** for the axes means that each time series will scale to the chart and maintain their own axis for scale. Selecting **Shared** axes means that all time series data will be scaled to the same axis. 
+* choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite amount of data points using either average, minimum or maximum functions.
+
+You can also select the button to **Open query in Azure Data Explorer**, where you can view and modify the current query to further explore the time series data.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-azure-data-explorer.png" alt-text="Screenshot of the button to open query in Azure Data Explorer." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-azure-data-explorer.png":::  
+
+##### View history in table
+
+The **Table** view of historized properties shows property values and their timestamps in a table.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-table.png" alt-text="Screenshot of the Data history explorer showing a table of historized values for a property." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-table.png":::
+
+You can use the icons above the table to control the table settings, including...
+* changing the time range for the data that's included in the table.
+* downloading the table data for independent analysis.
 
 #### View a twin's relationships
 
