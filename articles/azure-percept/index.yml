@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Percept documentation
-summary: Update 22 February 2023 - A firmware update for the Percept DK Vision and Audio accessory components (also known as Vision and Audio SOM) is now available here (https://aka.ms/audio_vision_som_update), and will enable the accessory components to continue functioning beyond the retirement date.  # < 300 chars
+summary: Update 22 February 2023 - A firmware update for the Percept DK Vision and Audio accessory components (also known as Vision and Audio SOM) is now available [here](https://aka.ms/audio_vision_som_update), and will enable the accessory components to continue functioning beyond the retirement date.  # < 300 chars
 
 
 metadata:
