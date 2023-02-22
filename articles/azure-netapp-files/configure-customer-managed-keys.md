@@ -24,9 +24,7 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 ## Considerations
 
 > [!IMPORTANT]
-> The customer-manged keys feature is currently in preview. The program is controlled via Azure Feature Exposure Control (AFEC). To access this preview program, contact your account team.
->
-> During preview, customer-managed keys are available only in the **East Asia**, **East US 2**, and **West Europe** regions. 
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using customer-managed keys.
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
@@ -51,7 +49,16 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
+## Supported regions 
+
+Azure NetApp Files customer-managed keys is supported for the following regions: 
+
+* East Asia
+* East US 2
+* West Europe
+
 ## Requirements
+
 Before creating your first customer-managed key volume, you must have set up: 
 * An [Azure Key Vault](../key-vault/general/overview.md), containing at least one key. 
     * The key vault must have soft delete and purge protection enabled. 
