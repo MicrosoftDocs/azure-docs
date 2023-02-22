@@ -10,11 +10,6 @@ ms.custom: cog-serv-seo-aug-2020
 ms.date: 02/02/2023
 ---
 
-You'll need to install the Personalizer client library forN ode.js to:
-* Authenticate the quickstart example client with a Personalizer resource in Azure.
-* Send context and action features to the Reward API, which will return the best action from the Personalizer model
-* Send a reward score to the Rank API and train the Personalizer model.
-
 [Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## Prerequisites
@@ -25,7 +20,7 @@ You'll need to install the Personalizer client library forN ode.js to:
     * You'll need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting Up
+## Model configuration
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
@@ -45,28 +40,9 @@ Run the `npm init -y` command to create a `package.json` file.
 npm init -y
 ```
 
-Create a new Node.js application in your preferred editor or IDE named `sample.js` and create variables for your resource's endpoint and subscription key. 
+Create a new Node.js script in your preferred editor or IDE named `personalizer-quickstart.js` and create variables for your resource's endpoint and subscription key. TBD
 
-[!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security see the Cognitive Services [security](../../cognitive-services-security.md) article.
-
-```javascript
-const uuidv1 = require('uuid/v1');
-const Personalizer = require('@azure/cognitiveservices-personalizer');
-const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
-const readline = require('readline-sync');
-
-// The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-const serviceKey = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>";
-
-// The endpoint specific to your personalization service instance; 
-// e.g. https://<your-resource-name>.cognitiveservices.azure.com
-const baseUri = "https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com";
-```
-
-### Install the Node.js library for Personalizer
+### Install the client library
 
 Install the Personalizer client library for Node.js with the following command:
 
@@ -81,220 +57,51 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
 
+## Code block 1: Generate sample data
+
 Personalizer is meant to run on applications that receive and interpret real-time data. For the purpose of this quickstart, you'll use sample code to generate imaginary customer actions on a grocery website. The following code block defines three key methods: **getActionsList**, **getContextFeaturesList** and **getReward**.
 
+- **getActionsList** returns a list of the choices that the grocery website needs to rank. In this example, the actions are meal products. Each action choice has details (features) that may affect user behavior later on. Actions are used as input for the Rank API
 
+- **getContextFeaturesList** returns a simulated customer visit. It selects randomized details (context features) like which customer is present and what time of day the visit is taking place. In general, a context represents the current state of your application, system, environment, or user. The context object is used as input for the Rank API.
 
-## Authenticate the client
+   The context features in this quickstart are simplistic. However, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) is very important. Refer to the linked documentation for guidance.
 
-Instantiate the `PersonalizerClient` with your `serviceKey` and `baseUri` that you created earlier.
+- **getReward** prompts the user to score the service's recommendation as a success or failure. It returns a score between zero and one that represents the success of a customer interaction. In a real scenario, Personalizer will learn user preferences from realtime customer interactions.
 
-```javascript
-const credentials = new CognitiveServicesCredentials(serviceKey);
+    In a real production system, the [reward score](../concept-rewards.md) should be designed to align with your business objectives and KPIs. Determining how to calculate the reward metric may require some experimentation.
 
-// Initialize Personalization client.
-const personalizerClient = new Personalizer.PersonalizerClient(credentials, baseUri);
-```
+1. Find your key and endpoint.
 
-## Get content choices represented as actions
+    [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
-Actions represent the content choices from which you want Personalizer to select the best content item. Add the following methods to the Program class to represent the set of actions  and their features.
+1. Open _personalizer-quickstart.js_ in a text editor or IDE and paste in the code below.
 
-```javascript
-function getContextFeaturesList() {
-  const timeOfDayFeatures = ['morning', 'afternoon', 'evening', 'night'];
-  const tasteFeatures = ['salty', 'sweet'];
+1. 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
-  let answer = readline.question("\nWhat time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n");
-  let selection = parseInt(answer);
-  const timeOfDay = selection >= 1 && selection <= 4 ? timeOfDayFeatures[selection - 1] : timeOfDayFeatures[0];
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about security see the Cognitive Services [security](../../cognitive-services-security.md) article.
 
-  answer = readline.question("\nWhat type of food would you prefer (enter number)? 1. salty 2. sweet\n");
-  selection = parseInt(answer);
-  const taste = selection >= 1 && selection <= 2 ? tasteFeatures[selection - 1] : tasteFeatures[0];
+    :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_1":::
 
-  console.log("Selected features:\n");
-  console.log("Time of day: " + timeOfDay + "\n");
-  console.log("Taste: " + taste + "\n");
+## Code block 2: Iterate the learning loop
 
-  return [
-    {
-      "time": timeOfDay
-    },
-    {
-      "taste": taste
-    }
-  ];
-}
-```
+The next block of code defines the **main** method and closes out the script. It runs a learning loop iteration, in which it asks the user their preferences at the command line and sends that information to Personalizer to select the best action. It presents the selected action to the user, who makes a choice using the command line. Then it sends a reward score to the Personalizer service to signal how well the service did in its selection.
 
-```javascript
-function getActionsList() {
-  return [
-    {
-      "id": "pasta",
-      "features": [
-        {
-          "taste": "salty",
-          "spiceLevel": "medium"
-        },
-        {
-          "nutritionLevel": 5,
-          "cuisine": "italian"
-        }
-      ]
-    },
-    {
-      "id": "ice cream",
-      "features": [
-        {
-          "taste": "sweet",
-          "spiceLevel": "none"
-        },
-        {
-          "nutritionalLevel": 2
-        }
-      ]
-    },
-    {
-      "id": "juice",
-      "features": [
-        {
-          "taste": "sweet",
-          "spiceLevel": "none"
-        },
-        {
-          "nutritionLevel": 5
-        },
-        {
-          "drink": true
-        }
-      ]
-    },
-    {
-      "id": "salad",
-      "features": [
-        {
-          "taste": "salty",
-          "spiceLevel": "low"
-        },
-        {
-          "nutritionLevel": 8
-        }
-      ]
-    }
-  ];
-}
-```
+The Personalizer learning loop is a cycle of **Rank** and **Reward** calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
 
-## Create the learning loop
-
-The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) and [Reward](#send-a-reward) calls. In this quickstart, each Rank call, to personalize the content, is followed by a Reward call to tell Personalizer how well the service performed.
-
-The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to select the best action, presenting the selection to the customer to choose from among the list, and then sending a reward to Personalizer signaling how well the service did in its selection.
-
-```javascript
-let runLoop = true;
-
-do {
-
-  let rankRequest = {}
-
-  // Generate an ID to associate with the request.
-  rankRequest.eventId = uuidv1();
-
-  // Get context information from the user.
-  rankRequest.contextFeatures = getContextFeaturesList();
-
-  // Get the actions list to choose from personalization with their features.
-  rankRequest.actions = getActionsList();
-
-  // Exclude an action for personalization ranking. This action will be held at its current position.
-  rankRequest.excludedActions = getExcludedActionsList();
-
-  rankRequest.deferActivation = false;
-
-  // Rank the actions
-  const rankResponse = await personalizerClient.rank(rankRequest);
-
-  console.log("\nPersonalization service thinks you would like to have:\n")
-  console.log(rankResponse.rewardActionId);
-
-  // Display top choice to user, user agrees or disagrees with top choice
-  const reward = getReward();
-
-  console.log("\nPersonalization service ranked the actions with the probabilities as below:\n");
-  for (let i = 0; i < rankResponse.ranking.length; i++) {
-    console.log(JSON.stringify(rankResponse.ranking[i]) + "\n");
-  }
-
-  // Send the reward for the action based on user response.
-
-  const rewardRequest = {
-    value: reward
-  }
-
-  await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
-
-  runLoop = continueLoop();
-
-} while (runLoop);
-```
-
-Take a closer look at the rank and reward calls in the following sections.
-
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
-
-* getActionsList
-* getContextFeaturesList
-
-## Request the best action
-
-To make a Rank request, you'll need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
-
-This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
-
-```javascript
-let rankRequest = {}
-
-// Generate an ID to associate with the request.
-rankRequest.eventId = uuidv1();
-
-// Get context information from the user.
-rankRequest.contextFeatures = getContextFeaturesList();
-
-// Get the actions list to choose from personalization with their features.
-rankRequest.actions = getActionsList();
-
-// Exclude an action for personalization ranking. This action will be held at its current position.
-rankRequest.excludedActions = getExcludedActionsList();
-
-rankRequest.deferActivation = false;
-
-// Rank the actions
-const rankResponse = await personalizerClient.rank(rankRequest);
-```
-
-## Send a reward
-
-To get the reward score to send in the Reward request, the program gets the user's selection from the command line, assigns a numeric value to the selection, then sends the unique event ID and the reward score as the numeric value to the Reward API.
-
-This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
-
-```javascript
-const rewardRequest = {
-  value: reward
-}
-
-await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
-```
+:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js" id="snippet_2":::
 
 ## Run the program
 
-Run the application with the Node.js from your application directory.
+Run the application with the Node.js command from your application directory.
 
 ```console
-node sample.js
+node personalizer-quickstart.js
 ```
 
+Iterate through a few learning loops. After about 10 minutes, the service will start to show improvements in its recommendations.
+
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+
+The source code for this quickstart is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Personalizer/quickstart-sdk/personalizer-quickstart.js).
