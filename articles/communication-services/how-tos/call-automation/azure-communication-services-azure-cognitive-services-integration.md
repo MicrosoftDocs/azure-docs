@@ -25,22 +25,6 @@ With the ability to connect your Cognitive Services to Azure Communication Servi
 [Screenshot 1]
 [Screenshot 2]
 
-## Azure CLI 
-### Prerequisites
-- An Azure Account with an active subscription. [Create an account for free]().
-- Install [Azure CLI]().
-
-### Create an Azure Communication Services resource
-
-``` azurecli-interactive
-az communication create --name “ACS Meeting App” --resource-group “MyResourceGroup” --location “Global” --data-location “United States”
-```
-
-### Bind your Azure Communication Services to Azure Cognitive Services
-
-``` azurecli-interactive
-az communication bind-cognitive-service --name “{Azure Communication resource name}” --resource-group “{Azure Communication resource group}” --resource-id “{Cognitive service resource id}” --subscription{subscription Name of Cognitive service} –identity{Cognitive Services Identity}
-```
 
 ## Azure Portal experience
 You can also configure and bind your Communication Services and Cognitive Services through the Azure portal. 
