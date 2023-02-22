@@ -92,15 +92,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Windchill Sign-on URL where you can initiate the login flow.  
+1. Click on **Test this application** in Azure portal. This will redirect to Windchill Sign-on URL where you can initiate the login flow.  
 
-* Go to Windchill Sign-on URL directly and initiate the login flow from there.
+1. Go to Windchill Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Windchill for which you set up the SSO. 
+1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Windchill for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Windchill tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Windchill for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+1. You can also use Microsoft My Apps to test the application in any mode. When you click the Windchill tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Windchill for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
