@@ -234,7 +234,7 @@ The following metrics are used within the reports.
 
 The **traffic by domain** report provides a grid view of all the domains under this Azure Front Door profile.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of the landing page for reports.":::
 
 In this report you can view:
 
@@ -250,7 +250,7 @@ You can go to other tabs to investigate further or view access log for more info
 
 The **usage report** shows the trends of traffic and response status code by various dimensions.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of the 'usage' report." lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
 
 The dimensions included in the usage report are:
 
@@ -271,7 +271,7 @@ The **traffic by location** report displays:
 * A breakdown of metrics by countries/regions and gives you an overall view of countries/regions where the most traffic gets generated.
 * The countries/regions that have higher cache hit ratios, and higher 4XX/5XX error code rates.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of the 'traffic by location' report." lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
 The following items are included in the reports:
 
@@ -283,7 +283,7 @@ The following items are included in the reports:
 
 The **caching report** provides a chart view of cache hits and misses, and the cache hit ratio, based on requests. Understanding how Azure Front Door caches your content helps you to improve your application's performance because cache hits give you the fastest performance. You can optimize data delivery speeds by minimizing cache misses.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of Reports for caching.":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of the 'Caching' report.":::
 
 The caching report includes:
 
@@ -313,7 +313,7 @@ It excludes all of the following cases:
 
 The **top URL report** allow you to view the amount of traffic incurred through a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Screenshot of Reports for top URL.":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Screenshot of the 'top URL' report.":::
 
 Popular URLs will be displayed with the following values:
 
@@ -337,7 +337,7 @@ User can sort URLs by request count, request count percentage, data transferred,
 
 The **top referrer** report shows you the top 50 referrers to a particular Azure Front Door endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, `https://contoso.com/index.html`) directly into the address bar of a browser, the referrer for the requested is *Empty*.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of Reports for top referrer.":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of the 'top referrer' report.":::
 
 The top referrer report includes the following values.
 
