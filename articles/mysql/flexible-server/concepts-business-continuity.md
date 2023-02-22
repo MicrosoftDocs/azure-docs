@@ -1,6 +1,6 @@
 ---
-title: Overview of business continuity - Azure Database for MySQL Flexible Server
-description: Learn about the concepts of business continuity with Azure Database for MySQL Flexible Server
+title: Overview of business continuity - Azure Database for MySQL - Flexible Server
+description: Learn about the concepts of business continuity with Azure Database for MySQL - Flexible Server
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.date: 05/24/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL Flexible Server enables business continuity capabilities that protect your databases in the event of a planned and unplanned outage. Features such as automated backups and high availability addresses different levels of fault-protection with different recovery time and data loss exposures. As you architect your application to protect against faults, you should consider the recovery time objective (RTO) and recovery point objective (RPO) for each application. RTO is the downtime tolerance and RPO is the data loss tolerance after a disruption to the database service.
+Azure Database for MySQL - Flexible Server enables business continuity capabilities that protect your databases in the event of a planned and unplanned outage. Features such as automated backups and high availability addresses different levels of fault-protection with different recovery time and data loss exposures. As you architect your application to protect against faults, you should consider the recovery time objective (RTO) and recovery point objective (RPO) for each application. RTO is the downtime tolerance and RPO is the data loss tolerance after a disruption to the database service.
 
 The table below illustrates the features that Flexible server offers.
 

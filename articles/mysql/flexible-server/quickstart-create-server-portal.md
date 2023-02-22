@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Database for MySQL flexible server - Azure portal'
-description: This article walks you through using the Azure portal to create an Azure Database for MySQL flexible server in minutes.
+title: 'Quickstart: Create an Azure Database for MySQL - Flexible Server - Azure portal'
+description: This article walks you through using the Azure portal to create an Azure Database for MySQL - Flexible Server in minutes.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -10,19 +10,19 @@ ms.custom: mvc, mode-ui
 ms.date: 06/13/2022
 ---
 
-# Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server
+# Quickstart: Use the Azure portal to create an Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.
+Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-## Create an Azure Database for MySQL flexible server
+## Create an Azure Database for MySQL - Flexible Server
 
 You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
@@ -61,7 +61,7 @@ Complete these steps to create a flexible server:
 
 5. Configure networking options.
 
-    On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two ways to connect to your server:
+    On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL - Flexible Server provides two ways to connect to your server:
    - Public access (allowed IP addresses)
    - Private access (VNet Integration)
 
@@ -83,7 +83,7 @@ Complete these steps to create a flexible server:
 By default, these databases are created under your server: information_schema, mysql, performance_schema, and sys.
 
 > [!NOTE]
-> To avoid connectivity problems, check if your network allows outbound traffic over port 3306, which is used by Azure Database for MySQL Flexible Server.
+> To avoid connectivity problems, check if your network allows outbound traffic over port 3306, which is used by Azure Database for MySQL - Flexible Server.
 
 ## Connect to the server 
 Before getting started, download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. 

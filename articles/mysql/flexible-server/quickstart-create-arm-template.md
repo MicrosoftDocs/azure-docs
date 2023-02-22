@@ -414,7 +414,7 @@ Follow these steps to verify if your server was created in Azure.
 
 ### PowerShell
 
-You'll have to enter the name of the new server to view the details of your Azure Database for MySQL Flexible Server.
+You'll have to enter the name of the new server to view the details of your Azure Database for MySQL - Flexible Server.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
@@ -424,7 +424,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ### CLI
 
-You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL Flexible Server.
+You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL - Flexible Server.
 
 ```azurecli-interactive
 echo "Enter your Azure Database for MySQL server name:" &&

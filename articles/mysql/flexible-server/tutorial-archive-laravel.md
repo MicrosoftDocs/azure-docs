@@ -139,7 +139,7 @@ To stop PHP, type `Ctrl + C` in the terminal.
 
 ## Create a MySQL Flexible Server
 
-In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
+In this step, you create a MySQL database in [Azure Database for MySQL - Flexible Server](../index.yml). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -220,7 +220,7 @@ Save the changes.
 
 ### Configure TLS/SSL certificate
 
-By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [*.pem* certificate supplied by Azure Database for MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **SSL** folder in the local copy of the sample app repository.
+By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [*.pem* certificate supplied by Azure Database for MySQL - Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **SSL** folder in the local copy of the sample app repository.
 
 Open *config/database.php* and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
