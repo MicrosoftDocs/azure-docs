@@ -84,6 +84,9 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options are available. Otherwise, only the user-assigned option is available.
     * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically with the following process: A system-assigned identity is added to your NetApp account. An access policy is to be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
+
+    :::image type="content" source="../media/azure-netapp-files/encryption-system-assigned.png" alt-text="Screenshot of the encryption menu with system-assigned options." lightbox="../media/azure-netapp-files/encryption-system-assigned.png":::
+
     * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** opens a context pane prompting you to select a user-assigned managed identity. 
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
@@ -110,7 +113,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
     1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
 
-    Although there are pre-defined roles with these privileges, it is recommended that you create a custom role with the required permissions. See [Azure custom roles](../role-based-access-control/custom-roles.md) for details.
+    Although there are pre-defined roles with these permissions, they grant more privileges than are required. For the minimum level of privileges, you should create a custom role with only the required permissions. For details, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
     ```json
     {
