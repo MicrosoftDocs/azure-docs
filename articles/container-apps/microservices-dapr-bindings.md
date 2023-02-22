@@ -12,20 +12,12 @@ zone_pivot_groups: dapr-languages-set
 
 # Event-driven work using Dapr bindings 
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. While you can deploy and manage the Dapr OSS project yourself, deploying your Dapr applications to the Container Apps platform:
-
-- Provides a managed and supported Dapr integration
-- Seamlessly updates Dapr versions
-- Exposes a simplified Dapr interaction model to increase developer productivity
-
 In this tutorial, you create a microservice to demonstrate [Dapr's bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
-> * Use the Dapr CLI to locally run a microservice application that leverages the Dapr bindings APIs. 
-> * Redeploy the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
+> * Run the application locally. 
+> * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The sample Dapr bindings application:
-1. Listens to input binding events from a system CRON component (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
-1. Outputs the contents of local data to a [PostgreSQL](https://www.postgresql.org/) component output binding.  
+The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-application.png" alt-text="Diagram of the Dapr binding application.":::
 
@@ -129,7 +121,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    cd bindings-dapr-nodejs-cron-postgres
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -142,13 +134,18 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
    | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
+
    - Deploys the code (azd deploy)
    
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
@@ -187,7 +184,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Confirm successful deployment 
 
-In the Azure portal, verify the batch Postgres container is logging each insert successfully every 10 seconds. 
+In the Azure portal, verify the batch container app is logging each insert into Azure PostgreSQL every 10 seconds. 
 
 1. Copy the Container App name from the terminal output.
 
@@ -298,7 +295,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    cd bindings-dapr-python-cron-postgres
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -311,13 +308,18 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
    | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
+
    - Deploys the code (azd deploy)
    
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
@@ -356,7 +358,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Confirm successful deployment 
 
-In the Azure portal, verify the batch Postgres container is logging each insert successfully every 10 seconds. 
+In the Azure portal, verify the batch container app is logging each insert into Azure PostgreSQL every 10 seconds. 
 
 1. Copy the Container App name from the terminal output.
 
@@ -467,7 +469,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    cd bindings-dapr-csharp-cron-postgres
    ```
 
-### Run using Azure Developer CLI
+### Provision and deploy using Azure Developer CLI
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -480,13 +482,17 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    | Parameter | Description |
    | --------- | ----------- |
    | `Environment Name` | Prefix for the resource group created to hold all Azure resources. |
-   | `Azure Location`   | The Azure location for your resources. |
+   | `Azure Location`   | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
    | `Azure Subscription` | The Azure Subscription for your resources. |
 
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision)
+   - Creates and configures all necessary Azure resources via the provided Bicep files in the `./infra` directory (azd provision). These files include:
+     - `main.parameters.json`
+     - `main.bicep`
+     - An `app` resources directory organized by functionality
+     - A `core` reference library that contains the Bicep modules used by the `azd` template
    - Deploys the code (azd deploy)
    
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
@@ -525,7 +531,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Confirm successful deployment 
 
-In the Azure portal, verify the batch Postgres container is logging each insert successfully every 10 seconds. 
+In the Azure portal, verify the batch container app is logging each insert into Azure PostgreSQL every 10 seconds. 
 
 1. Copy the Container App name from the terminal output.
 
