@@ -122,6 +122,12 @@ When writing scoring scripts that work with big amounts of data, you need to tak
 
 Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
+### Relationship between the degree of parallelism and the scoring script
+
+Your deployment configuration controls the size of each mini-batch and the number of workers on each node. Take into account them when deciding if you want to read the entire mini-batch to perform inference, or if you want to run inference file by file, or row by row (for tabular). See [Running inference at the mini-batch, file or the row level](#running-inference-at-the-mini-batch-file-or-the-row-level) to see the different approaches.
+
+When running multiple workers on the same instance, take into account that memory will be shared across all the workers. Usually, increasing the number of workers per node should be accompanied by a decrease in the mini-batch size or by a change in the scoring strategy (if data size and compute SKU remains the same).
+
 ### Running inference at the mini-batch, file or the row level
 
 Batch endpoints will call the `run()` function in your scoring script once per mini-batch. However, you will have the power to decide if you want to run the inference over the entire batch, over one file at a time, or over one row at a time (if your data happens to be tabular).
@@ -133,7 +139,7 @@ You will typically want to run inference over the batch all at once when you wan
 > [!WARNING]
 > Running inference at the batch level may require having high control over the input data size to be able to correctly account for the memory requirements and avoid out of memory exceptions. Whether you are able or not of loading the entire mini-batch in memory will depend on the size of the mini-batch, the size of the instances in the cluster, the number of workers on each node, and the size of the mini-batch.
 
-For an example about how to achieve it see [High throughput deployments](how-to-image-processing-batch.md#high-throughput-deployments).
+For an example about how to achieve it see [High throughput deployments](how-to-image-processing-batch.md#high-throughput-deployments). This example processes an entire batch of files at a time.
 
 #### File level
 
@@ -142,21 +148,17 @@ One of the easiest ways to perform inference is by iterating over all the files 
 > [!TIP]
 > If file sizes are too big to be readed even at once, please consider breaking down files into multiple smaller files to account for better parallelization.
 
-For an example about how to achieve it see [Image processing with batch deployments](how-to-image-processing-batch.md).
+For an example about how to achieve it see [Image processing with batch deployments](how-to-image-processing-batch.md). This example processes a file at a time.
 
 #### Row level (tabular)
 
 For models that present challenges in the size of their inputs, you may want to consider running inference at the row level. Your batch deployment will still provide your scoring script with a mini-batch of files, however, you will read one file, one row at a time. This may look inefficient but for some deep learning models may be the only way to perform inference without scaling up your hardware requirements. 
 
-For an example about how to achieve it see [Text processing with batch deployments](how-to-nlp-processing-batch.md).
-
-### Relationship between the degree of parallelism and the scoring script
-
-Your deployment configuration controls the size of each mini-batch and the number of workers on each node. Take into account them when deciding if you want to read the entire mini-batch to perform inference. When running multiple workers on the same instance, take into account that memory will be shared across all the workers. Usually, increasing the number of workers per node should be accompanied by a decrease in the mini-batch size or by a change in the scoring strategy (if data size remains the same).
+For an example about how to achieve it see [Text processing with batch deployments](how-to-nlp-processing-batch.md). This example processes a row at a time.
 
 ### Using models that are folders
 
-The environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` function of your scoring script to load the model. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
+When authoring scoring scripts, the environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` function to load the model. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
 
 1. Go to [Azure Machine Learning portal](https://ml.azure.com).
 
