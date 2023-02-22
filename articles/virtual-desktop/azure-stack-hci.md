@@ -20,7 +20,7 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
-You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal.
+You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal. Both these methods deploy a pooled host pool, not a personal host pool.
 
 # [Manual deployment](#tab/manual-deployment)
 
@@ -49,7 +49,7 @@ To manually configure Azure Virtual Desktop for Azure Stack HCI, follow these hi
 
 ### Step 1: Create a new virtual machine on Azure Stack HCI
 
-Create a new virtual machine on your Azure Stack HCI infrastructure. For step-by-step instructions, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm).
+Create a new virtual machine with a supported operating system on your Azure Stack HCI infrastructure. For step-by-step instructions about how to create a VM, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). For information about supported operating system and licenses, see [Operating systems and licenses](/prerequisites#operating-systems-and-licenses).
 
 > [!NOTE]
 > [Install the Remote Desktop Session Host (RDSH) role](/troubleshoot/windows-server/remote/install-rds-host-role-service-without-connection-broker) if the VM is running a Windows Server operating system.
@@ -62,8 +62,8 @@ To manage the new VM from Azure via Azure Arc, install the Connected Machine age
 
 The custom template helps you:
 
-- Create host pool, workspace and application group
-- Add VMs as a session host to the host pool
+- Create host pool, workspace, and application group
+- Add the VMs you created in [Step 1](#step-1-create-a-new-virtual-machine-on-azure-stack-hci) as session hosts to the host pool
 - Domain join the VMs
 - Install Azure Monitor agent on the VMs
 
@@ -205,7 +205,7 @@ This command should return the following URN:
 MicrosoftWindowsDesktop:Windows-10:21h1-evd-g2:latest
 ```
 
-If you're looking for Windows Server 2019 datacenter, you can run the following criteria in your Azure CLI:
+If you're looking for Windows Server 2019 Datacenter, you can run the following criteria in your Azure CLI:
 
 ```azurecli
 az vm image list --all --publisher "microsoftwindowsserver" --offer "WindowsServer" --sku "2019-Datacenter-gen2"
@@ -217,8 +217,8 @@ This command should return the following URN:
 MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 ```
 
->[!IMPORTANT]
->Make sure to only use generation 2 ("gen2") images. Azure Virtual Desktop for Azure Stack HCI doesn't support creating a VM with a first-generation ("gen1") image. Avoid SKUs with a "-g1" suffix.
+> [!IMPORTANT]
+> Make sure to only use generation 2 ("gen2") images. Azure Virtual Desktop for Azure Stack HCI doesn't support creating a VM with a first-generation ("gen1") image. Avoid SKUs with a "-g1" suffix.
 
 ### Create a new Azure managed disk from the image
 
