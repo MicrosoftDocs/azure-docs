@@ -1,11 +1,11 @@
 ---
-title: Reliability in Azure Bot Service 
-description: Find out about reliability in Azure Bot Service  
+title: Reliability in Azure App Service
+description: Find out about reliability in Azure App Service  
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.service: service-reliability
+ms.service: app-service
 ms.date: 02/22/2022 
 ---
 
@@ -150,14 +150,13 @@ To prepare for availability zone failure, you should over-provision capacity of 
 
 - For zone-redundant App Service deployments, see [Downtime requirements](/azure/reliability/migrate-app-service#downtime-requirements).
 
-
 - Zonal ILB (Internal Load Balancing) ASE deployments will continue to run and serve traffic on that ASE even when other zones in the same region suffer an outage. 
 
 In order to attain end-to-end zone resiliency for apps created on a zonal ILB ASE, you must do the following:
 
 1. Deploy at least two zonal ILB ASEs, where each ILB ASE is pinned to a different zone. 
 1. Create and publish copies of your application onto each of the zonal ILB ASEs.  
-1. Deploy a load balancing solution upstream of the zonal ILB ASEs so that traffic bound for an application is load-balanced and distributed across all of the zonal ILB ASEs. The recommended solution is to deploy a zone redundant Application Gateway upstream of the zonal ILB ASEs. To learn more details about Application Gateway v2 and its zone redundant configuration, see [Scaling Application Gateway v2 and WAF v2](azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+1. Deploy a load balancing solution upstream of the zonal ILB ASEs so that traffic bound for an application is load-balanced and distributed across all of the zonal ILB ASEs. The recommended solution is to deploy a zone redundant Application Gateway upstream of the zonal ILB ASEs. To learn more details about Application Gateway v2 and its zone redundant configuration, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 ### Availability zone migration
 
