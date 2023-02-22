@@ -96,7 +96,7 @@ Each RDP session uses a dynamically assigned UDP port from an ephemeral port ran
 
 The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Azure Active Directory (Azure AD).
 
-:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath-public-networks.svg":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-public-networks.png" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath/rdp-shortpath-public-networks.png":::
 
 ### Network Address Translation and firewalls
 
@@ -231,39 +231,51 @@ Here are some example scenarios to show how connections are evaluated to decide 
 
 ### Scenario 1
 
-A UDP connection can only be established between the client device and the session host over a public network (internet). A direct connection, such as a VPN, isn't available.
+A UDP connection can only be established between the client device and the session host over a public network (internet). A direct connection, such as a VPN, isn't available. UDP is allowed through firewall or NAT device.
 
-:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-1.png" alt-text="Diagram that shows RDP Shortpath for public networks is used." border="false":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-1.png" alt-text="Diagram that shows RDP Shortpath for public networks uses STUN." border="false":::
 
 ### Scenario 2
+
+A firewall or NAT device is blocking a direct UDP connection, but an indirect UDP connection can be relayed using TURN between the client device and the session host over a public network (internet). Another direct connection, such as a VPN, isn't available.
+
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-2.png" alt-text="Diagram that shows RDP Shortpath for public networks uses TURN." border="false":::
+
+### Scenario 3
 
 A UDP connection can be established between the client device and the session host over a public network or over a direct VPN connection, but RDP Shortpath for managed networks isn't enabled. When the client initiates the connection, the ICE/STUN protocol can see multiple routes and will evaluate each route and choose the one with the lowest latency.
 
 In this example, a UDP connection using RDP Shortpath for public networks over the direct VPN connection will be made as it has the lowest latency, as shown by the green line.
 
-:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-2.png" alt-text="Diagram that shows a UDP connection using RDP Shortpath for public networks over the direct VPN connection will be made as it has the lowest latency." border="false":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-3.png" alt-text="Diagram that shows a UDP connection using RDP Shortpath for public networks over the direct VPN connection will be made as it has the lowest latency." border="false":::
 
-### Scenario 3
+### Scenario 4
 
 Both RDP Shortpath for public networks and managed networks are enabled. A UDP connection can be established between the client device and the session host over a public network or over a direct VPN connection. When the client initiates the connection, there are simultaneous attempts to connect using RDP Shortpath for managed networks through port 3390 (by default) and RDP Shortpath for public networks through the ICE/STUN protocol. The first-found algorithm will be used and the user will use whichever connection gets established first for that session.
 
 Since going over a public network has more steps, for example a NAT device, a load balancer, or a STUN server, it's likely that the first-found algorithm will select the connection using RDP Shortpath for managed networks and be established first.
 
-:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-3.png" alt-text="Diagram that shows the first-found algorithm will select the connection using RDP Shortpath for managed networks and be established first." border="false":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-4.png" alt-text="Diagram that shows the first-found algorithm will select the connection using RDP Shortpath for managed networks and be established first." border="false":::
 
-### Scenario 4
+### Scenario 5
 
 A UDP connection can be established between the client device and the session host over a public network or over a direct VPN connection, but RDP Shortpath for managed networks isn't enabled. To prevent ICE/STUN from using a particular route, an admin can block one of the routes for UDP traffic. Blocking a route would ensure the remaining path is always used.
 
 In this example, UDP is blocked on the direct VPN connection and the ICE/STUN protocol establishes a connection over the public network.
 
-:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-4.png" alt-text="Diagram that shows UDP is blocked on the direct VPN connection and the ICE/STUN protocol establishes a connection over the public network." border="false":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-5.png" alt-text="Diagram that shows UDP is blocked on the direct VPN connection and the ICE/STUN protocol establishes a connection over the public network." border="false":::
 
-### Scenario 5
+### Scenario 6
+
+Both RDP Shortpath for public networks and managed networks are configured, however a UDP connection couldn't be established using direct VPN connection. A firewall or NAT device is also blocking a direct UDP connection using the public network (internet), but an indirect UDP connection can be relayed using TURN between the client device and the session host over a public network (internet).
+
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-6.png" alt-text="Diagram that shows UDP is blocked on the direct VPN connection and a direct connection using a public network also fails. TURN relays the connection over the public network." border="false":::
+
+### Scenario 7
 
 Both RDP Shortpath for public networks and managed networks are configured, however a UDP connection couldn't be established. In this instance, RDP Shortpath will fail and the connection will fall back to TCP-based reverse connect transport.
 
-:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-5.png" alt-text="Diagram that shows a UDP connection couldn't be established. In this instance, RDP Shortpath will fail and the connection will fall back to TCP-based reverse connect transport." border="false":::
+:::image type="content" source="media/rdp-shortpath/rdp-shortpath-scenario-7.png" alt-text="Diagram that shows a UDP connection couldn't be established. In this instance, RDP Shortpath will fail and the connection will fall back to TCP-based reverse connect transport." border="false":::
 
 ## Next steps
 
