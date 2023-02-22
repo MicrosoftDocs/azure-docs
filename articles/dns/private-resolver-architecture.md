@@ -21,10 +21,10 @@ For an overview of the private resolver, see [What is Azure DNS Private Resolver
 You can use [virtual network links](private-dns-virtual-network-links.md) from a private DNS zone to a VNet to enable DNS resolution in the VNet. However, this method might not always be desired. For example, a VNet can only be linked to one private DNS zone. You might have more than one private zone, and wish to perform autoregistration in one zone but still be able to resolve records in another zone.
 
 The Azure DNS Private Resolver solves this problem by providing two additional components and options that you can use to resolve records in a private zone:
-- **Forwarding rulesets** can be linked to a VNet to provide DNS forwarding capabilities. For example, a ruleset can contain a rule to forwards queries for the private zone to a private resolver inbound endpoint.
-    - To use this option, you must not link the forwarding ruleset to the same VNet where the inbound enpoint is provisioned. This configuration can result in a DNS resolution loop. 
+- **Forwarding rulesets** can be linked to a VNet to provide DNS forwarding capabilities. For example, a ruleset can contain a rule that forwards queries for the private zone to a private resolver inbound endpoint.
+    - To use this option, you must not link the forwarding ruleset to the same VNet where the inbound endpoint is provisioned. This configuration can result in a DNS resolution loop. 
 - **Inbound endpoints**  can be configured as custom DNS for a VNet.
-    - This option requires that the VNet where the inbound endpoint is provisioned be linked to the private zone.
+    - This option requires that the VNet where the inbound endpoint is provisioned is linked to the private zone.
 
 ### Forwarding ruleset example 
 
@@ -45,7 +45,7 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 
 The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)).
 
-The hub VNet also uses Azure-provided DNS, but is not linked to the private zone. The hub VNet resolves records in the private zone using the linked ruleset.
+The hub VNet also uses Azure-provided DNS, but isn't linked to the private zone. The hub VNet resolves records in the private zone using the linked ruleset.
 
 The ruleset link design scenario is best suited to a hub and spoke network where DNS resolution is distributed and can be unique in some locations.
 
@@ -63,7 +63,7 @@ Consider the following hub and spoke VNet topology with an inbound endpoint prov
 - A private resolver is located in the hub VNet.
     - The private resolver has one inbound endpoint with an IP address of **10.10.0.4**.
     - The private resolver has one outbound endpoint and DNS forwarding ruleset.
-        - In this scenario, the DNS forwarding ruleset does not need a rule to foward queries for the private zone to the inbound endpoint.
+        - In this scenario, the DNS forwarding ruleset doesn't need a rule to forward queries for the private zone to the inbound endpoint.
 
 In this example, the spoke VNet sends all of its DNS traffic to the inbound endpoint - not just the private zone linked to the hub VNet. This design scenario is best suited to a hub and spoke architecture where DNS resolution is primarily centralized and uniform.
 
