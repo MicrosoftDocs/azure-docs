@@ -389,7 +389,7 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone pivot="azure-portal"
 
-To add an Azure Files share to a Container Apps environment and use it in a container app, use the Azure portal.
+To configure a volume mount for Azure Files storage in the Azure portal, add a file share to your Container Apps environment and then add a volume mount to your container app by creating a new revision.
 
 1. In the Azure portal, navigate to your Container Apps environment.
 
