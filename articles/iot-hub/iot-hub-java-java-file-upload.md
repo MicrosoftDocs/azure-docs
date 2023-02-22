@@ -475,8 +475,6 @@ In this article, you learned how to use the file upload feature of IoT Hub to si
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
 
-* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
-
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:
