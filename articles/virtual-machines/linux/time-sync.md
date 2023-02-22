@@ -36,13 +36,13 @@ Virtual machine interactions with the host can also affect the clock. During [me
 Without time synchronization working, the clock on the VM would accumulate errors. When there's only one VM, the effect might not be significant unless the workload requires highly accurate timekeeping. But in most cases, we've multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following effects:
 
 - Authentication will fail. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems.
-- It's very hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
+- It's hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
 - If clock is off, the billing could be calculated incorrectly.
 
 
 ## Configuration options
 
-Time sync requires that a time sync service be running in the Linux VM, plus a source of accurate time information against which to synchronize.
+Time sync requires that a time sync service is running in the Linux VM, plus a source of accurate time information against which to synchronize.
 Typically ntpd or chronyd is used as the time sync service, though there are other open source time sync services that can be used as well.
 The source of accurate time information can be the Azure host or an external time service that is accessed over the public internet.
 By itself, the VMICTimeSync service doesn't provide ongoing time sync between the Azure host and a Linux VM except after pauses for host maintenance as described above. 
@@ -53,7 +53,7 @@ Historically, most Azure Marketplace images with Linux have been configured in o
 
 To confirm ntpd is synchronizing correctly, run the `ntpq -p` command.
 
-Some Azure Marketplace images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
+Some Azure Marketplace images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
 
 The VMICTimeSync is used in parallel and provides two functions:
 - Immediately updates the Linux VM time-of-day clock after a host maintenance event
