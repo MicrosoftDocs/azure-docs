@@ -250,7 +250,7 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup -Name storageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
@@ -265,7 +265,7 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
 Set-AzStorageBlobContent `
-  -File ".\app.zip" `
+  -File "app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx
@@ -273,7 +273,7 @@ Set-AzStorageBlobContent `
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az group create --name storageGroup --location westus3
 
 az storage account create \
@@ -288,7 +288,7 @@ After you create the storage account, add the role assignment _Storage Blob Data
 
 After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then use the parameter `--auth-mode login` in the commands to create the container and upload the file.
 
-```azurecli-interactive
+```azurecli
 az storage container create \
     --account-name demostorageaccount \
     --name appcontainer \
@@ -300,7 +300,7 @@ az storage blob upload \
     --container-name appcontainer \
     --auth-mode login \
     --name "app.zip" \
-    --file "./app.zip"
+    --file "app.zip"
 ```
 
 For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
@@ -321,13 +321,13 @@ To create a new Azure Active Directory group, go to [Manage Azure Active Directo
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $principalid=(Get-AzADGroup -DisplayName managedAppDemo).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
 ```
 
@@ -337,13 +337,13 @@ Next, get the role definition ID of the Azure built-in role you want to grant ac
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $roleid=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
@@ -355,13 +355,13 @@ Create a resource group for your managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup -Name appDefinitionGroup -Location westus3
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az group create --name appDefinitionGroup --location westus3
 ```
 
@@ -373,7 +373,7 @@ The `blob` command that's run from Azure PowerShell or Azure CLI creates a varia
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
@@ -391,7 +391,7 @@ New-AzManagedApplicationDefinition `
 
 In the `blob` command's `account-name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
-```azurecli-interactive
+```azurecli
 blob=$(az storage blob url \
   --account-name demostorageaccount \
   --container-name appcontainer \
