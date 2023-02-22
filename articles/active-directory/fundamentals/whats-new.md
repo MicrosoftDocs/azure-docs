@@ -319,7 +319,7 @@ For listing your application in the Azure AD app gallery, read the details here 
 
 ---
 
-### Azure Active Directory Authentication Library End of Support Announcement
+### ADAL End of Support Announcement
 
 **Type:** N/A      
 **Service category:** Other               
