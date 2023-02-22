@@ -31,7 +31,7 @@ Here is the diagram about the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
 - [Docker](https://www.docker.com/).
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
+- [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Build and run the sample project locally
 1. The sample project is ready on GitHub. Just clone sample project by this command:
