@@ -20,7 +20,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 
 | Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
-| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | n/a |
+| .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process| n/a |
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
