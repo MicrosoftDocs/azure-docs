@@ -1729,7 +1729,7 @@ This issue can happen when no targets are specified and no makefile is found whe
 
 **Troubleshooting steps**
 * Ensure that the makefile is spelled correctly
-* Ensure that the makefile exists in the currect directory
+* Ensure that the makefile exists in the current directory
 * If you have a custom makefile, specify it using ```make -f custommakefile```
 * Specify targets in the makefile or in the command line
 * Configure your build and generate a makefile
