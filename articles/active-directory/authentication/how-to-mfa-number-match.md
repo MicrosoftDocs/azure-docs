@@ -105,6 +105,7 @@ In addition:
   >[!IMPORTANT] 
   >MSCHAPv2 doesn't support OTP. If the NPS Server isn't configured to use PAP, user authorization will fail with events in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
   >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
+  >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to Approve/Deny push notifications.
 
 If your organization uses Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
 

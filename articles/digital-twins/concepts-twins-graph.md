@@ -65,9 +65,9 @@ Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digi
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
-### Create twins and relationships in bulk with the Import Jobs API
+### Create twins and relationships in bulk with the Jobs API
 
-You can upload many twins and relationships in a single API call using the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-import-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-import-jobs-api).
+You can upload many twins and relationships in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
 
 ## JSON representations of graph elements
 
