@@ -218,7 +218,6 @@ sections:
           You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
           
           * The bulk executor tool, as described in [Using bulk executor .NET library](nosql/bulk-executor-dotnet.md) and [Using bulk executor Java library](bulk-executor-java.md)
-          * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
           * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
           
       - question: |

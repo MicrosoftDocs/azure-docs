@@ -20,7 +20,7 @@ To complete this quickstart, you need an Azure account with an active subscripti
 > [!IMPORTANT]
 > After November 28, 2022, [PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
-> Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice/tree/main/WordPress).
+> Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice).
 >
 
 ## Create WordPress site using Azure portal
@@ -75,7 +75,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 
 ## Manage the MySQL flexible server, username, or password
 
-- The MySQL Flexible Server is created behind a private [Virtual Network](/azure/virtual-network/virtual-networks-overview) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
+- The MySQL Flexible Server is created behind a private [Virtual Network](../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
     - Navigate to the URL: https://`<sitename>`.azurewebsites.net/phpmyadmin
     - Login with the flexible server's username and password
 
@@ -96,7 +96,7 @@ There's a couple approaches when migrating your WordPress app to App Service on 
 Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map a custom domain name](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)

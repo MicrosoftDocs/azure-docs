@@ -1,3 +1,4 @@
+items: 
 - name: Microsoft Dev Box documentation
   href: index.yml
 - name: Overview
@@ -11,8 +12,6 @@
   items: 
     - name: Set up Microsoft Dev Box service
       href: quickstart-configure-dev-box-service.md
-    - name: Configure projects
-      href: quickstart-configure-dev-box-project.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
     - name: Connect with Remote Desktop App
@@ -22,6 +21,8 @@
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Components common to Dev Box and ADE
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
@@ -41,8 +42,14 @@
       href: how-to-manage-dev-box-projects.md
     - name: Manage network connections
       href: how-to-manage-network-connection.md
+    - name: Manage a dev box auto-stop schedule
+      href: how-to-manage-stop-schedule.md
     - name: Microsoft Dev Box CLI
       href: how-to-install-dev-box-cli.md  
+    - name: Provision a Custom Image with Azure Image Builder
+      href: how-to-customize-devbox-azure-image-builder.md
+    - name: Manage a dev box through developer portal
+      href: how-to-manage-dev-boxes.md
 - name: Reference
   items:
     - name: Azure CLI

@@ -3,10 +3,10 @@ title: Network Insights topology
 description: An overview of topology, which provides a pictorial representation of the resources.
 ms.topic: how-to
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
-ms.date: 10/26/2022
-ms.custom: subject-monitoring, ignite-2022
+author: halkazwini
+ms.author: halkazwini
+ms.date: 11/16/2022
+ms.custom: subject-monitoring, ignite-2022, engagement-fy23
 ---
 
 # Topology (Preview)
@@ -95,4 +95,4 @@ Follow these steps to find the next hop.
 
 ## Next steps
 
-[Learn more](/azure/network-watcher/connection-monitor-overview) about connectivity related metrics. 
+[Learn more](./connection-monitor-overview.md) about connectivity related metrics.

@@ -9,13 +9,14 @@ ms.topic: reference
 
 This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as preconfigured appliances.
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as pre-configured appliances.
 
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
+|**Performance** |Max bandwidth: 100 Mbps<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
 

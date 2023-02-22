@@ -17,7 +17,7 @@ Azure Monitor provides a reverse proxy container (Azure Monitor side car contain
 
 - You must have self-managed Prometheus running on your AKS cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
 - You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you set up Prometheus on your AKS cluster.
-- Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../essentials/azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace) if you don't already have one.
+- Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace) if you don't already have one.
 
 ## Configure remote write
 The process for configuring remote write depends on your cluster configuration and the type of authentication that you use.
@@ -25,7 +25,8 @@ The process for configuring remote write depends on your cluster configuration a
 - **Managed identity** is recommended for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster. See [Azure Monitor managed service for Prometheus remote write - managed identity (preview)](prometheus-remote-write-managed-identity.md)
 - **Azure Active Directory** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Azure Active Directory (preview)](prometheus-remote-write-active-directory.md)
 
-
+> [!NOTE]
+> Whether you use Managed Identity or Azure Active Directory to enable permissions for ingesting data, these settings take some time to take effect. When following the steps below to verify that the setup is working please allow up to 10-15 minutes for the authorization settings needed to ingest data to complete.
 
 ## Verify remote write is working correctly
 
@@ -73,8 +74,20 @@ The output from this command should look similar to the following:
 {"env":[{"name":"INGESTION_URL","value":"https://my-azure-monitor-workspace.eastus2-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-00000000000000000/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview"},{"name":"LISTENING_PORT","value":"8081"},{"name":"IDENTITY_TYPE","value":"userAssigned"},{"name":"AZURE_CLIENT_ID","value":"00000000-0000-0000-0000-00000000000"}],"image":"mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2","imagePullPolicy":"Always","name":"prom-remotewrite","ports":[{"containerPort":8081,"name":"rw-port","protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"kube-api-access-vbr9d","readOnly":true}]}
 ```
 
+### Hitting your ingestion quota limit
+With remote write you will typically get started using the remote write endpoint shown on the Azure Monitor workspace overview page. Behind the scenes, this uses a system Data Collection Rule (DCR) and system Data Collection Endpoint (DCE). These resources have an ingestion limit covered in the [Azure Monitor service limits](../service-limits.md#prometheus-metrics) document. You may hit these limits if you setup remote write for several clusters all sending data into the same endpoint in the same Azure Monitor workspace. If this is the case you can [create additional DCRs and DCEs](https://aka.ms/prometheus/remotewrite/dcrartifacts) and use them to spread out the ingestion loads across a few ingestion endpoints.
 
+The INGESTION-URL uses the following format: 
+https\://\<Metrics-Ingestion-URL>/dataCollectionRules/\<DCR-Immutable-ID>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview 
 
+Metrics-Ingestion-URL: can be obtained by viewing DCE JSON body with API version 2021-09-01-preview or newer. 
+
+DCR-Immutable-ID: can be obtained by viewing DCR JSON body or running the following command in the Azure CLI: 
+
+```azureccli
+az monitor data-collection rule show --name "myCollectionRule" --resource-group "myResourceGroup" 
+```
+  
 ## Next steps
 
 - [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).

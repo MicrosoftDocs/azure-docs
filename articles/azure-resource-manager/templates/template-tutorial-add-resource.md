@@ -45,9 +45,9 @@ Most resources also have a `location` property, which sets the region where you 
 
 The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
-In this tutorial, you add a storage account to the template. You can see the storage account's API version at [storageAccounts 2021-04-01](/azure/templates/microsoft.storage/2021-04-01/storageaccounts). Notice that you don't add all the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment are consistent.
+In this tutorial, you add a storage account to the template. You can see the storage account's API version at [storageAccounts 2021-09-01](/azure/templates/microsoft.storage/2021-09-01/storageaccounts). Notice that you don't add all the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment are consistent.
 
-If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you see that a smaller set of properties is available.
+If you view an older [API version](/azure/templates/microsoft.storage/allversions) you might see that a smaller set of properties is available.
 
 If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your template appropriately.
 

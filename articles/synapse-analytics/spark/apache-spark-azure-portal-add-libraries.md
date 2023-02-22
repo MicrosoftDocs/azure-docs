@@ -64,7 +64,7 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 > - If the package that you're installing is large or takes a long time to install, it might affect the Spark instance's startup time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 
-## Manage dependencies for DEP-enabled Azure Synapse Spark pools
+### Manage dependencies for DEP-enabled Azure Synapse Spark pools
 
 > [!NOTE]
 > Installing packages from a public repo is not supported within [DEP-enabled workspaces](../security/workspace-data-exfiltration-protection.md). Instead, upload all your dependencies as workspace libraries and install them to your Spark pool.
@@ -83,7 +83,7 @@ If you're having trouble identifying required dependencies, follow these steps:
       source activate synapse-env
    ```
 
-1. Run the following script to identify the required dependencies. 
+2. Run the following script to identify the required dependencies. 
 The script can be used to pass your *requirements.txt* file, which has all the packages and versions that you intend to install in the Spark 3.1 or Spark 3.2 pool. It will print the names of the *new* wheel files/dependencies for your input library requirements. 
 
    ```python
@@ -110,6 +110,7 @@ To learn more about how to manage session-scoped packages, see the following art
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 
 - [R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview): Within your session, you can install packages across all nodes within your Spark pool by using `install.packages` or `devtools`.
+
 
 ## Automate the library management process through Azure PowerShell cmdlets and REST APIs
 

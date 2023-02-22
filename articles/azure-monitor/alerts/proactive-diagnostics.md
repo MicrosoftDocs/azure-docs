@@ -15,7 +15,7 @@ ms.reviewer: yagil
 
 Smart detection automatically warns you of potential performance problems and failure anomalies in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](../app/app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
-You can access the detections issued by smart detection both from the emails you receive, and from the smart detection blade.
+You can access the detections issued by smart detection both from the emails you receive, and from the smart detection pane.
 
 ## Review your smart detections
 You can discover detections in two ways:
@@ -25,7 +25,7 @@ You can discover detections in two ways:
     ![Email alert](./media/proactive-diagnostics/03.png)
   
     Click the large button to open more detail in the portal.
-* **The smart detection blade** in Application Insights. Select **Smart detection** under the **Investigate** menu to see a list of recent detections.
+* **The smart detection pane** in Application Insights. Select **Smart detection** under the **Investigate** menu to see a list of recent detections.
 
 ![View recent detections](./media/proactive-diagnostics/04.png)
 
@@ -36,7 +36,7 @@ Select a detection to view its details.
 Smart detection detects and notifies about various issues, such as:
 
 * [Smart detection - Failure Anomalies](./proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load, and other factors. Notifies if the failure rate goes outside the expected envelope.
-* [Smart detection - Performance Anomalies](./proactive-performance-diagnostics.md). Notifies if response time of an operation or dependency duration is slowing down, compared to historical baseline. It also notifies if we identify an anomalous pattern in response time, or page load time.   
+* [Smart detection - Performance Anomalies](./smart-detection-performance.md). Notifies if response time of an operation or dependency duration is slowing down, compared to historical baseline. It also notifies if we identify an anomalous pattern in response time, or page load time.   
 * General degradations and issues, like [Trace degradation](./proactive-trace-severity.md), [Memory leak](./proactive-potential-memory-leak.md), [Abnormal rise in Exception volume](./proactive-exception-volume.md) and [Security anti-patterns](./proactive-application-security-detection-pack.md).
 
 (The help links in each notification take you to the relevant articles.)
@@ -45,7 +45,7 @@ Smart detection detects and notifies about various issues, such as:
 
 All smart detection rules, except for rules marked as _preview_, are configured by default to send email notifications when detections are found.
 
-Configuring email notifications for a specific smart detection rule can be done by opening the smart detection **Settings** blade and selecting the rule, which will open the **Edit rule** blade.
+Configuring email notifications for a specific smart detection rule can be done by opening the smart detection **Settings** pane and selecting the rule, which will open the **Edit rule** pane.
 
 Alternatively, you can change the configuration using Azure Resource Manager templates. For more information, see [Manage Application Insights smart detection rules using Azure Resource Manager templates](./proactive-arm-config.md) for more details.
 

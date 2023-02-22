@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 07/21/2022
+ms.date: 01/03/2023
 ms.topic: how-to
 ms.service: storage
 ms.tgt_pltfrm: linux
@@ -19,9 +19,9 @@ This article explains how to either upload a VHD from your local machine to an A
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
-## Secure uploads with Azure AD (preview)
+## Secure uploads with Azure AD
 
-If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
+If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
 ### Prerequisites
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
@@ -88,6 +88,7 @@ $name = <desired-managed-disk-name>
 # $Zone = <desired-zone>
 # $sku=<desired-SKU>
 # -DataAccessAuthMode 'AzureActiveDirectory'
+# -DiskHyperVGeneration = V1 or V2. This applies only to OS disks.
 
 # To use $Zone or #sku, add -Zone or -DiskSKU parameters to the command
 Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $location -DiskName $name
@@ -187,13 +188,14 @@ $sourceDiskName = <sourceDiskNameHere>
 $targetDiskName = <targetDiskNameHere>
 $targetRG = <targetResourceGroupHere>
 $targetLocate = <yourTargetLocationHere>
+$targetVmGeneration = "V1" # either V1 or V2
 #Expected value for OS is either "Windows" or "Linux"
 $targetOS = <yourOSTypeHere>
 
 $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
 # Adding the sizeInBytes with the 512 offset, and the -Upload flag
-$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload' -HyperVGeneration $targetVmGeneration
 
 $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
 

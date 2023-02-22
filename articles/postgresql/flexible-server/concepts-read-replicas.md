@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
-author: sr-msft
+author: AwdotiaRomanowna
 ms.date: 10/21/2022
 ---
 
@@ -36,13 +36,13 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 > [!NOTE]
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
-> Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle through its peak and non-peak times to access the possible lag and the expected RTO/RPO at various points of the workload cycle.
+> Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle through its peak and non-peak times to assess the possible lag and the expected RTO/RPO at various points of the workload cycle.
 
 ## Cross-region replication
 
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](/azure/virtual-machines/regions#special-azure-regions) are not supported.
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can have replicas also in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) are not supported.
 
 [//]: # (### Paired regions)
 
@@ -74,34 +74,20 @@ psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 
 At the prompt, enter the password for the user account.
 
-[//]: # (## Monitor replication)
+## Monitor replication
 
-[//]: # ()
-[//]: # (Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article]&#40;how-to-read-replicas-portal.md&#41;.)
+Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
-[//]: # ()
-[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is in streaming replication mode. The lag information does not show details when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode.)
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive. The lag information will not be available in case replication switches from using streaming replication to the archive recovery mode using archived files from primary.
 
-[//]: # ()
-[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:)
+The **Read Replica Lag** metric shows the time since the last replayed transaction. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay. This metric is applicable and available on replicas only. 
 
-[//]: # ()
-[//]: # (```SQL)
+Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
 
-[//]: # (SELECT EXTRACT &#40;EPOCH FROM now&#40;&#41; - pg_last_xact_replay_timestamp&#40;&#41;&#41;;)
+For additional insight, query the primary server directly to get the replication lag on all replicas.  
 
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.)
-
-[//]: # ()
-[//]: # (For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.)
-
-[//]: # ()
-[//]: # (> [!NOTE])
-
-[//]: # (> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.)
+> [!NOTE]
+> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 ## Promote replicas
 
@@ -118,7 +104,7 @@ You can stop the replication between a primary and a replica by promoting one or
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
 - During the create, delete and promote operations of replica, primary server will be in upgrading state.
-- **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
+- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
@@ -167,12 +153,13 @@ During creation of read replicas firewall rules and data encryption method can b
 ### Scaling
 
 Scaling vCores or between General Purpose and Memory Optimized:
-* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN), otherwise the secondary servers will not start. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 * **Scaling up**: First scale up a replica's compute, then scale up the primary. 
 * **Scaling down**: First scale down the primary's compute, then scale down the replica.
 
 ## Next steps
 
 * Learn how to [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md).
+* Learn about [Cross-region replication with VNET](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking).
 
 [//]: # (* Learn how to [create and manage read replicas in the Azure CLI and REST API]&#40;how-to-read-replicas-cli.md&#41;.)

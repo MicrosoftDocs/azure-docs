@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI models
+title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
 description: Learn about the different models that are available in Azure OpenAI. 
 ms.service: cognitive-services
@@ -13,7 +13,7 @@ recommendations: false
 keywords: 
 ---
 
-# Azure OpenAI models
+# Azure OpenAI Service models
 
 The service provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Please refer to the capability table at the bottom for a full breakdown. 
 
@@ -43,13 +43,13 @@ Azure OpenAI's model names typically correspond to the following standard naming
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
 
-For example, our most powerful GPT-3 model is called `text-davinci-002`, while our most powerful Codex model is called `code-davinci-002`.
+For example, our most powerful GPT-3 model is called `text-davinci-003`, while our most powerful Codex model is called `code-davinci-002`.
 
 > Older versions of the GPT-3 models are available, named `ada`, `babbage`, `curie`, and `davinci`. These older models do not follow the standard naming conventions, and they are primarily intended for fine tuning. For more information, see [Learn how to customize a model for your application](../how-to/fine-tuning.md).
 
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
+You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list).
 
 ## Finding the right model
 
@@ -62,7 +62,7 @@ The GPT-3 models can understand and generate natural language. The service offer
 - `text-ada-001`
 - `text-babbage-001`
 - `text-curie-001`
-- `text-davinci-002`
+- `text-davinci-003`
 
 While Davinci is the most capable, the other models provide significant speed advantages. Our recommendation is for users to start with Davinci while experimenting, because it will produce the best results and validate the value our service can provide. Once you have a prototype working, you can then optimize your model choice with the best latency/performance balance for your application.
 
@@ -166,9 +166,10 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Davinci* | Yes | No | N/A | East US, South Central US, West Europe |
 | Text-davinci-001 | Yes | No | South Central US, West Europe | N/A |
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
+| Text-davinci-003 | Yes | No | East US | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available by request only. Please open a support request.
+\*Models available by request only. We are currently unable to onboard new customers at this time.
 
 ### Codex Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
@@ -177,16 +178,17 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
 | Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available for Fine-tuning by request only. Please open a support request.
+\*Models available for Fine-tuning by request only. We are currently unable to enable new cusetomers at this time.
 
 
 
 ### Embeddings Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
 |  --- | --- | --- | --- | --- |
+| text-ada-embeddings-002 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
-| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |

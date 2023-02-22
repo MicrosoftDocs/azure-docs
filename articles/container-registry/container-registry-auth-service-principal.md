@@ -48,10 +48,10 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well as ve
 
 Once you have a service principal that you've granted access to your container registry, you can configure its credentials for access to "headless" services and applications, or enter them using the `docker login` command. Use the following values:
 
-* **User name** - service principal's **application (client) ID**
+* **Username** - service principal's **application (client) ID**
 * **Password** - service principal's **password (client secret)**
 
-Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+The **Username** value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 > [!TIP]
 > You can regenerate the password (client secret) of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.

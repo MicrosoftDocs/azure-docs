@@ -1,23 +1,26 @@
 ---
-title: Use Azure Active Directory to authorize access to Azure files over SMB for hybrid identities using Kerberos authentication
-description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory. Your users can then access Azure file shares by using their Azure AD credentials.
+title: Use Azure Active Directory to access Azure file shares over SMB for hybrid identities using Kerberos authentication
+description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory (Azure AD). Your users can then access Azure file shares by using their Azure AD credentials.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 12/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files
 
-This article focuses on enabling and configuring Azure Active Directory (Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Azure AD. This allows Azure AD users to access Azure file shares using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires line-of-sight to the on-premises domain controller.
+This article focuses on enabling and configuring Azure Active Directory (Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Azure AD. Cloud-only identities aren't currently supported.
+
+This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Azure AD to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires line-of-sight to the on-premises domain controller.
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information about Azure AD Kerberos, see [Deep dive: How Azure AD Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
 > [!IMPORTANT]
-> You can only use one AD source for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you can use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-active-directory-domain-service-enable.md) instead. The configuration steps are different for each method.
+> You can only use one AD source for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-active-directory-domain-service-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -35,11 +38,13 @@ Before you enable Azure AD Kerberos authentication over SMB for Azure file share
 
 The Azure AD Kerberos functionality for hybrid identities is only available on the following operating systems:
 
-  - Windows 11 Enterprise single or multi-session.
-  - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
+  - Windows 11 Enterprise/Pro single or multi-session.
+  - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
   - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+
+Clients must be Azure AD-joined or [hybrid Azure AD-joined](../../active-directory/devices/hybrid-azuread-join-plan.md). Azure AD Kerberos isn’t supported on clients joined to Azure AD DS or joined to AD only.
 
 This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
@@ -145,17 +150,26 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
    :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/azure-portal-azuread-app-registrations.png":::
 
-4. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
 6. Select **Grant admin consent for "DirectoryName"**.
 7. Select **Yes** to confirm.
 
 ## Disable multi-factor authentication on the storage account
 
-Azure AD Kerberos doesn't support using MFA to access Azure file shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps. The storage account app should have the same name as the storage account in the conditional access exclusion list.
+Azure AD Kerberos doesn't support using MFA to access Azure file shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA conditional access policies if they apply to all apps.
+
+The storage account app should have the same name as the storage account in the conditional access exclusion list. When searching for the storage account app in the conditional access exclusion list, search for: **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**
+
+Remember to replace `<your-storage-account-name>` with the proper value.
 
   > [!IMPORTANT]
   > If you don't exclude MFA policies from the storage account app, you won't be able to access the file share. Trying to map the file share using `net use` will result in an error message that says "System error 1327: Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, sign-in times are limited, or a policy restriction has been enforced."
+
+For guidance on disabling MFA, see the following:
+
+- [Add exclusions for service principals of Azure resources](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#user-exclusions)
+- [Create a conditional access policy](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy)
 
 ## Assign share-level permissions
 
@@ -165,7 +179,7 @@ To set share-level permissions, follow the instructions in [Assign share-level p
 
 ## Configure directory and file-level permissions
 
-Once your share-level permissions are in place, you must assign directory/file-level permissions to the user or group. **This requires using a device with line-of-sight to an on-premises AD**. To use Windows File Explorer, the device also needs to be domain-joined.  
+Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with line-of-sight to an on-premises AD**. To use Windows File Explorer, the device also needs to be domain-joined.  
 
 There are two options for configuring directory and file-level permissions with Azure AD Kerberos authentication:
 

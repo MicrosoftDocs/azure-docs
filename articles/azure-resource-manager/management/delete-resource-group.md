@@ -118,6 +118,9 @@ az resource delete \
 
 To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource.
 
+> [!IMPORTANT]
+> The only permission required to delete a resource group is permission to the delete action for deleting resource groups.  You do **not** need permission to delete individual resources within that resource group.  Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action.  This is consistent with the scope heirarchy in the Azure role-based access control model.
+
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, it may have been [automatically locked by a related service](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.

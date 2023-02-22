@@ -5,12 +5,12 @@ description: Learn to scale up online endpoints. Get more CPU, memory, disk spac
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
-ms.date: 11/04/2022
+ms.date: 02/07/2023
 ---
 # Autoscale an online endpoint
 
@@ -24,7 +24,8 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 ## Prerequisites
 
-* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md). 
+* To use autoscale, the role `microsoft.insights/autoscalesettings/write` must be assigned to the identity that manages autoscale. You can use any built-in or custom roles that allow this action. For general guidance on managing roles for Azure Machine Learning, see [Manage users and roles](/azure/machine-learning/how-to-assign-roles). For more on autoscale settings from Azure Monitor, see [Microsoft.Insights autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings).
 
 ## Define an autoscale profile
 

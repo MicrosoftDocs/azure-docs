@@ -140,11 +140,11 @@ In this guide, you'll:
 
 You can add Application Insights to your web app either via:
 
-- The Enablement blade in the Azure portal,
-- The Configuration blade in the Azure portal, or 
+- The Application Insights pane in the Azure portal,
+- The Configuration pane in the Azure portal, or 
 - Manually adding to your web app settings.
 
-# [Enablement blade](#tab/enablement)
+# [Application Insights pane](#tab/enablement)
 
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
@@ -161,7 +161,7 @@ You can add Application Insights to your web app either via:
 
 1. Click **Apply** > **Yes** to apply and confirm.
 
-# [Configuration blade](#tab/config)
+# [Configuration pane](#tab/config)
 
 1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
 1. Navigate to the Application Insights resource.
@@ -169,7 +169,7 @@ You can add Application Insights to your web app either via:
 1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
 1. Click **New application setting**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration blade.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration pane.":::    
 
 1. Add the following settings in the **Add/Edit application setting** pane, using your saved iKey:
 

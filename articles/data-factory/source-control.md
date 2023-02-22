@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/26/2022
+ms.date: 11/16/2022
 ---
 
 # Source control in Azure Data Factory
@@ -87,7 +87,7 @@ Visual authoring with Azure Repos Git integration supports source control and co
 
 ### Azure Repos settings
 
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configure the code repository settings":::
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configure the code repository settings.":::
 
 The configuration pane shows the following Azure Repos code repository settings:
 
@@ -106,6 +106,17 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 > [!NOTE]
 > If you are using Microsoft Edge and do not see any values in your Azure DevOps Account dropdown, add https://*.visualstudio.com to the trusted sites list.
+
+### Editing repo settings
+
+If any adjustments need to be made to the settings of your configured Azure Repos Git repository, you can choose to **Edit**.
+
+:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing a Azure Repos Git repository.":::
+
+You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
+
+:::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Data Factory studio.":::
+
 
 ### Use a different Azure Active Directory tenant
 
@@ -132,7 +143,7 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they will not be visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
 > [!NOTE]
 > If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions will also change. 
@@ -160,6 +171,16 @@ The configuration pane shows the following GitHub repository settings:
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
 | **Import existing resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Import resource into this branch** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported.  |  |
+
+### Editing repo settings
+
+If any adjustments need to be made to the settings of your configured GitHub repository, you can choose to **Edit**.
+
+:::image type="content" source="media/author-visually/repo-settings-4.png" alt-text="Screenshot showing the edit button for editing a GitHub repository.":::
+
+You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
+
+:::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Azure Data Factory studio.":::
 
 ### GitHub organizations
 

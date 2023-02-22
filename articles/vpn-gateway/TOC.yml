@@ -11,6 +11,8 @@
     href: tutorial-create-gateway-portal.md
   - name: Configure a site-to-site connection
     href: tutorial-site-to-site-portal.md
+  - name: Deploy VPN gateway with DDoS protection
+    href: tutorial-protect-vpn-gateway.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -141,7 +143,7 @@
         href: vpn-gateway-connect-different-deployment-models-powershell.md
   - name: Point-to-Site connections
     items:
-    - name: P2S server configuration
+    - name: Server configuration
       items:
       - name: Azure certificate authentication
         items:
@@ -195,7 +197,7 @@
         href: vpn-gateway-p2s-advertise-custom-routes.md
       - name: Create custom IPsec policies for P2S
         href: create-custom-policies-p2s-ps.md
-    - name: P2S client configuration
+    - name: Client configuration
       items:
       - name: Certificate authentication clients
         items:
@@ -223,6 +225,8 @@
           href: openvpn-azure-ad-client-mac.md
         - name: Generate profile files - Azure AD
           href: about-vpn-profile-download.md 
+      - name: Azure VPN Client - optional settings
+        href: azure-vpn-client-optional-configurations.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Routing, BGP, and VNet Peering
@@ -265,7 +269,7 @@
       href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Configure IPsec/IKE policies on connections
+  - name: Configure custom IPsec/IKE connection policies
     items:
     - name: Azure portal
       href: ipsec-ike-policy-howto.md 

@@ -7,7 +7,9 @@
   - name: What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
     href: oracle-weblogic.md
   - name: What are solutions for running Oracle WebLogic Server on Azure Kubernetes Service?
-    href: weblogic-aks.md    
+    href: weblogic-aks.md
+  - name: Install Oracle WebLogic Server on Azure Virtual Machines manually
+    href: /azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json
   - name: Solutions with OCI
     href: oracle-oci-overview.md
 - name: Quickstarts

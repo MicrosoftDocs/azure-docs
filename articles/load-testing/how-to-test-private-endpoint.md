@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
 
-In this article, learn how to test private application endpoints with Azure Load Testing Preview. You'll create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
+In this article, learn how to test private application endpoints with Azure Load Testing. You'll create an Azure Load Testing resource and enable it to generate load from within your virtual network (VNET injection).
 
 This functionality enables the following usage scenarios:
 
@@ -38,9 +38,6 @@ These resources are ephemeral and exist only during the load test run. If you re
 
 > [!NOTE]
 > Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, UK South, and West US 2.
-> 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -298,6 +295,17 @@ Follow these steps to [enable traffic access](/azure/load-testing/how-to-test-pr
 Inbound access from the `BatchNodeManagement` service tag to the virtual network isn't allowed. 
 
 Follow these steps to [enable inbound access](/azure/load-testing/how-to-test-private-endpoint#configure-traffic-access) for the `BatchNodeManagement` service tag.
+
+### Creating or updating the load test fails with `Route Table has next hop set for address prefix 0.0.0.0/0`
+
+Your subnet route table has the next hop set type set to **Virtual appliance** for route [0.0.0.0/0](/azure/virtual-network/virtual-networks-udr-overview#default-route). This configuration would cause asymmetric routing for network packets while provisioning the virtual machines in the subnet. 
+
+Perform either of two actions to resolve this error:
+
+- Use a different subnet, which doesn't have custom routes.
+- [Modify the subnet route table](/azure/virtual-network/manage-route-table) and set the next hop type for route 0.0.0.0/0 to **Internet**.
+
+Learn more about [virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
 
 ### Creating or updating the load test fails with `Subnet is in a different subscription than resource (ALTVNET011)`
 

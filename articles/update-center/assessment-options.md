@@ -18,7 +18,7 @@ Update management center (preview) provides you the flexibility to assess the st
 
 ## Periodic assessment
  
- Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by update management center (preview). We recommend that you enable this property on your machines as it allows update management center (preview) to fetch latest updates for your machines every 24 hours and enables you to view the latest compliance status of your machines. You must register this [feature in your Azure subscription](enable-machines.md#periodic-assessment). You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). 
+ Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by update management center (preview). We recommend that you enable this property on your machines as it allows update management center (preview) to fetch latest updates for your machines every 24 hours and enables you to view the latest compliance status of your machines. You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). 
 
 :::image type="content" source="media/updates-maintenance/periodic-assessment-inline.png" alt-text="Screenshot showing periodic assessment option." lightbox="media/updates-maintenance/periodic-assessment-expanded.png":::
 

@@ -3,7 +3,7 @@ title: Azure Virtual Desktop terminology - Azure
 description: Learn about the basic elements of Azure Virtual Desktop, like host pools, app groups, and workspaces.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 02/03/2023
 ms.author: helohr
 manager: femila
 ---
@@ -16,25 +16,23 @@ Azure Virtual Desktop is a service that gives users easy and secure access to th
 
 ## Host pools
 
-A host pool is a collection of Azure virtual machines that register to Azure Virtual Desktop as session hosts when you run the Azure Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience.
+A host pool is a collection of Azure virtual machines that register to Azure Virtual Desktop as session hosts when you run the Azure Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience. You control the resources published to users through app groups.
 
 A host pool can be one of two types:
 
 - Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktops to end-users that optimize environments for performance and data separation. 
-- Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple user sessions on a single session host. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs costs and greater efficiency. 
+- Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple different users on a single session host at the same time. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs and greater efficiency. 
 
-The following table goes into more detail about the features each type of host pool has:
+The following table goes into more detail about the differences between each type of host pool:
 
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
 |Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which [load balancing algorithm](host-pool-load-balancing.md) to use: breadth-first or depth-first. |
-|Maximum session limit| One. | As many as the user wants. |
-|User assignment process| Customers can either directly assign users to session hosts or choose to have users automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
+|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. |
+|User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
 |Scaling|None. | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
-|Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
-|User data| Each user only ever uses one session host, so they can store their user profile data in drive C on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in FSLogix. |
-
-You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Azure Virtual Desktop sessions. You control the resources published to users through app groups.
+|Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
+|User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
 
 ## App groups
 
@@ -45,7 +43,7 @@ An app group can be one of two types:
 - RemoteApp, where users access the RemoteApps you individually select and publish to the app group. Available with pooled host pools only.
 - Desktop, where users access the full desktop. Available with pooled or personal host pools.
  
-Pooled host pools have a preferred app group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop app group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred app group type to **Desktop**. You can remove the Desktop app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **Application group type** value to **RemoteApp**. You can't create another Desktop app group in a host pool while a Desktop app group exists.
+Pooled host pools have a preferred app group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop app group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred app group type to **Desktop**. You can remove the Desktop app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **preferred application group type** value to **RemoteApp**. If you want your users to only see session desktops in their feed, you should set the **preferred application group type** value to **Desktop**. You can't create another Desktop app group in a host pool while a Desktop app group exists.
 
 To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
@@ -60,7 +58,7 @@ To publish resources to users, you must assign them to app groups. When assignin
 - Personal host pools only allow and support Desktop app groups.
 
 >[!NOTE]
->If your host pool’s *application group type* is set to **Undefined**, that means that you haven’t set the value yet. You must finish configuring your host pool by setting its *application group type* before you start using it to prevent app incompatibility and session host overload issues.
+>If your host pool’s *preferred application group type* is set to **Undefined**, that means you haven’t set the value yet. You must finish configuring your host pool by setting its *preferred application group type* before you start using it to prevent app incompatibility and session host overload issues.
 
 ## Workspaces
 

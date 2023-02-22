@@ -1,21 +1,19 @@
 ---
-title: Provision access to Arc-enabled SQL Server for DevOps actions (preview)
-description: Step-by-step guide on provisioning access to Arc-enabled SQL Server through Microsoft Purview DevOps policies
+title: Manage access to SQL Server 2022 system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to SQL Server 2022 system metadata, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 02/10/2023
 ms.custom:
 ---
-# Provision access to Arc-enabled SQL Server for DevOps actions (preview)
+# Provision access to system metadata in Azure Arc-enabled SQL Server 2022
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
-
-This how-to guide covers how to provision access from Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This how-to guide covers how to configure SQL Server 2022 to enforce policies created in Microsoft Purview. It covers onboarding with Azure Arc, enabling Azure AD on the SQL Server, and provisioning access to its system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -25,7 +23,7 @@ This how-to guide covers how to provision access from Microsoft Purview to Arc-e
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register data sources in Microsoft Purview
-The Arc-enabled SQL Server data source needs to be registered first with Microsoft Purview, before policies can be created.
+The Azure Arc-enabled SQL Server data source needs to be registered first with Microsoft Purview, before policies can be created.
 
 1. Sign in to Microsoft Purview Studio.
 
@@ -40,15 +38,15 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 
 1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Azure Arc-enabled SQL Server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Azure Arc-enabled SQL Server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply** at the bottom
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
-> [!Note]
-> If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID.
+## Enable policies in Azure Arc-enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
 
 ## Create a new DevOps policy
 Follow this link for the steps to [create a new DevOps policy in Microsoft Purview](how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy).
@@ -65,11 +63,11 @@ Follow this link for the steps to [delete a DevOps policies in Microsoft Purview
 >[!Important]
 > DevOps policies are auto-published and changes can take up to **5 minutes** to be enforced by the data source.
 
-### Test the policy
+## Test the policy
 
 The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
-#### Force policy download
+### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
 
 ```sql
@@ -77,7 +75,7 @@ It is possible to force an immediate download of the latest published policies t
 exec sp_external_policy_refresh reload
 ```  
 
-#### Analyze downloaded policy state from SQL
+### Analyze downloaded policy state from SQL
 The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
 
 ```sql
@@ -105,7 +103,7 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 
 ### Policy action mapping
 
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in SQL Server on Azure Arc-enabled servers.
+This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Arc-enabled SQL Server.
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
@@ -124,9 +122,11 @@ This section contains a reference of how actions in Microsoft Purview data polic
 |||
 
 ## Next steps
-Check the blog and related docs
+Check the blogs, videos and related docs
+* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
 * Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
+* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
+* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
 * Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Video: [Microsoft Purview DevOps policies on data sources and resource groups](https://youtu.be/YCDJagrgEAI)
-* Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+* Doc: [Microsoft Purview DevOps policies on resource groups and subscriptions](./how-to-policies-devops-resource-group.md)

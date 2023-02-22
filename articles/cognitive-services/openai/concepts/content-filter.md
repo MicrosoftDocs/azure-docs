@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI content filtering
+title: Azure OpenAI Service content filtering
 titleSuffix: Azure OpenAI
-description: Learn about the content filtering capabilities of the OpenAI service in Azure Cognitive Services
+description: Learn about the content filtering capabilities of Azure OpenAI in Azure Cognitive Services
 author: chrishMSFT
 ms.author: chrhoder
 ms.service: cognitive-services
@@ -15,6 +15,9 @@ keywords:
 # Content filtering
 
 Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting misuse. If the system identifies harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered.
+
+>[!NOTE]  
+>This content filtering system is temporarily turned off while we work on some improvements. The internal system is still annotating harmful content but the models will not block. Content filtering will be reactivated with the release of upcoming updates. If you would like to enable the content filters at any point before that, please open an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 You can generate content with the completions API using many different configurations that will alter the filtering behavior you should expect. The following section aims to enumerate all of these scenarios for you to appropriately design your solution.
 
@@ -39,9 +42,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example", 
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -75,9 +78,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example",
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -142,9 +145,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -177,9 +180,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -212,9 +215,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 1
-    , "stream": false
+    "prompt":"Text example",
+    "n": 1,
+    "stream": false
 }
 ```
 

@@ -5,8 +5,9 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 7/25/2021
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 
 ---
 # Set up network mapping and IP addressing for VNets
@@ -19,7 +20,7 @@ Before you map networks, you should have [Azure VNets](../virtual-network/virtua
 
 ## Set up network mapping manually (Optional)
 
->[!NOTE
+>[!NOTE]
 > Replication can now be done between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
 
 Map networks as follows:

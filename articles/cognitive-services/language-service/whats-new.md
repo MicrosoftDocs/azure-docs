@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/01/2022
+ms.date: 12/02/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,6 +16,54 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## December 2022
+
+* New version (v5.2.0-beta.1) of the text analysis client library is available in preview for C#/.NET:
+    * [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.3.0-beta.1)
+    * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
+    * [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
+    * [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+ * New model version (`2022-10-01`) released for Language Detection. The new model version comes with improvements in language detection quality on short texts.
+
+## November 2022
+
+* Expanded language support for:
+    * [Opinion mining](./sentiment-opinion-mining/language-support.md)
+* Conversational PII now supports up to 40,000 characters as document size.
+* New versions of the text analysis client library are available in preview:
+
+    ### [Java](#tab/java)
+    
+    [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.3.0-beta.1)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.3.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.3.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.3.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+    
+    ### [JavaScript](#tab/javascript)
+
+    [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-language-text/v/1.1.0-beta.1)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cognitivelanguage/ai-language-text/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cognitivelanguage/ai-language-text/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1)
+
+    ### [Python](#tab/python)
+    
+    [**Package (PyPi)**](https://pypi.org/project/azure-ai-textanalytics/5.3.0b1/)
+    
+    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.3.0b1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+    
+    [**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.3.0b1/sdk/textanalytics/azure-ai-textanalytics/README.md)
+    
+    [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.3.0b1/sdk/textanalytics/azure-ai-textanalytics/samples)
+    
+    ---
 
 ## October 2022
 
@@ -52,40 +100,21 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
   * West US 2
 * Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
 * The Azure.AI.TextAnalytics client library v5.2.0 are generally available and ready for use in production applications. For more information on Language service client libraries, see the [**Developer overview**](./concepts/developer-guide.md).
-    
-    This release includes the following updates:
-    
-    ### [C#/.NET](#tab/csharp)
-    
-    [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0)
-    
-    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
-    
-    [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
-    
-    [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
-    
-    ### [Java](#tab/java)
-    
-    [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0)
-    
-    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
-    
-    [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
-    
-    [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
-    
-    ### [Python](#tab/python)
-    
-    [**Package (PyPi)**](https://pypi.org/project/azure-ai-textanalytics/5.2.0/)
-    
-    [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
-    
-    [**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
-    
-    [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
-    
-    ---
+    * Java
+        * [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0)
+        * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+        * [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
+        * [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+    * Python
+        * [**Package (PyPi)**](https://pypi.org/project/azure-ai-textanalytics/5.2.0/)
+        * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+        * [**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/README.md)
+        * [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+    * C#/.NET
+        * [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0)
+        * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
+        * [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
+        * [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 ## August 2022
 

@@ -36,6 +36,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     | Debian 11                  | `bullseye` |
     | Debian 10                  | `buster`   |
     | Debian 9                   | `stretch`  |
+    | Ubuntu 22.04               | `jammy`    |
     | Ubuntu 20.04               | `focal`    |
     | Ubuntu 19.04               | `disco`    |
     | Ubuntu 18.10               | `cosmic`   |

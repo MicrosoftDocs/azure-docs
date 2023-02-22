@@ -2,15 +2,15 @@
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
 description: Set up a trust relationship between a user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/24/2022
-ms.author: ryanwi
+ms.date: 01/19/2023
+ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
@@ -137,7 +137,7 @@ For a workflow triggered by a pull request event, specify an **Entity type** of 
 
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
-- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which can't be changed later.
@@ -183,7 +183,7 @@ To delete a specific federated identity credential, select the **Delete** icon f
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -274,14 +274,14 @@ az identity federated-credential delete --name $ficId --identity-name $uaId --re
 ::: zone pivot="identity-wif-mi-methods-powershell"
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](../managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](../managed-identities-azure-resources/overview.md#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
-- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 - To run the example scripts, you have two options:
   - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
-- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
+- [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
 ### Configure Azure PowerShell locally

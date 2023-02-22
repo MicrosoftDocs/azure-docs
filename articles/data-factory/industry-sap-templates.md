@@ -2,8 +2,8 @@
 title: SAP Templates
 titleSuffix: Azure Data Factory
 description: Overview of the SAP templates
-author: joshuha-msft
-ms.author: joowen
+author: ukchrist
+ms.author: ulrichchrist
 ms.service: data-factory
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual

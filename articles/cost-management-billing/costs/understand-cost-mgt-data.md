@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -138,7 +138,7 @@ If you don't see a specific tag in Cost Management, consider the following quest
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
-- Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy.
+- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you were using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
 - Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention

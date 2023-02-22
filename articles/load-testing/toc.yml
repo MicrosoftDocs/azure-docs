@@ -36,6 +36,8 @@ items:
           href: how-to-parameterize-load-tests.md
         - name: Use JMeter user properties
           href: how-to-configure-user-properties.md
+        - name: Customize tests with JMeter plugins
+          href: how-to-use-jmeter-plugins.md
     - name: Run tests
       items:
         - name: Create a load test with a JMeter script
@@ -52,8 +54,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
-        - name: Troubleshoot with load test logs
-          href: how-to-find-download-logs.md
+        - name: Troubleshoot failing load tests
+          href: how-to-troubleshoot-failing-test.md
         - name: Get insights from App Service Diagnostics
           href: how-to-appservice-insights.md
         - name: Export test results
@@ -90,12 +92,14 @@ items:
 - name: Resources
   items: 
     - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/?query=azure%20load%20testing
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/load-testing/
     - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=load-testing
     - name: Supported Azure resource types
       href: resource-supported-azure-resource-types.md
     - name: Service limits
       href: resource-limits-quotas-capacity.md
+    - name: JMeter property overrides
+      href: resource-jmeter-property-overrides.md

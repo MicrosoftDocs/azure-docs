@@ -2,14 +2,15 @@
 title: Troubleshoot problems signing in to an application from My Apps portal
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
-author: lnalepa
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/01/2022
-ms.author: lenalepa
+ms.author: jomondi
+ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
 ---
 

@@ -35,16 +35,19 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
 
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
+```
+
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated worker process.
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/).
 
-<!--
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
--->
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
+```
 
 <!-- awaiting bundle support
 # [C# script](#tab/csharp-script)
@@ -130,7 +133,7 @@ Support for the SQL bindings extension is available in the 1.11.3b1 version of t
 azure-functions==1.11.3b1
 ```
 
-Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
 
 ```json
 "PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
@@ -177,7 +180,7 @@ Add the Java library for SQL bindings to your functions project with an update t
 <dependency>
     <groupId>com.microsoft.azure.functions</groupId>
     <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 

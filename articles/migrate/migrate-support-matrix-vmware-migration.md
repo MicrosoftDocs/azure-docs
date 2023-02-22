@@ -1,16 +1,17 @@
 ---
 title: Support for VMware vSphere migration in Azure Migrate
 description: Learn about support for VMware vSphere VM migration in Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/25/2022
+ms.custom: engagement-fy23
 ---
 
 # Support matrix for VMware vSphere migration
 
-This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
+This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
 
 
 ## Migration options
@@ -46,7 +47,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 --- | ---
 **Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8.x, 7.x, 6.x <br/> - Cent OS 8.x, 7.x, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/> - Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It will cause Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
@@ -62,7 +63,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with 1 appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed.
+**Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, Ubuntu 20.04.
 
 > [!NOTE]
@@ -121,7 +122,7 @@ This table summarizes assessment support and limitations for VMware vSphere virt
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
 **VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
-**vCenter Server permissions** | A read-only account for vCenter Server.
+**vCenter Server permissions** | **VM discovery**: At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only.<br/><br/> **Replication**: Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots.<br/><br/><br/>**Note**:<br/>User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### VM requirements (agent-based)
 

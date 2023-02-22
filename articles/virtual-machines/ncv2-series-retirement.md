@@ -5,7 +5,7 @@ author: sherrywangms
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 11/21/2022
 ms.author: sherrywang
 ---
 # Migrate your NCv2 series virtual machines by August 31, 2023

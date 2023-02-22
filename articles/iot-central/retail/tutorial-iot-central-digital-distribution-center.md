@@ -24,7 +24,7 @@ The benefits of a digital distribution center include:
 - Efficient order tracking.
 - Reduced costs, improved productivity, and optimized usage.
 
-:::image type="content" source="media/tutorial-iot-central-ddc/digital-distribution-center-architecture.png" alt-text="digital distribution center.":::
+:::image type="content" source="media/tutorial-iot-central-ddc/digital-distribution-center-architecture.png" alt-text="Diagram showing the digital distribution center application architecture." border="false":::
 
 ### Video cameras (1)
 
@@ -32,11 +32,11 @@ Video cameras are the primary sensors in this digitally connected enterprise-sca
 
 ### Azure IoT Edge gateway (2)
 
-The "cameras-as-sensors" and edge workloads are managed locally by Azure IoT Edge and the camera stream is processed by analytics pipeline. The video analytics processing pipeline at Azure IoT Edge brings many benefits, including decreased response time, low-bandwidth consumption, which results in low latency for rapid data processing. Only the most essential metadata, insights, or actions are sent to the cloud for further action or investigation. 
+The "cameras-as-sensors" and edge workloads are managed locally by Azure IoT Edge and the camera stream is processed by analytics pipeline. The video analytics processing pipeline at Azure IoT Edge brings many benefits, including decreased response time, low-bandwidth consumption, which results in low latency for rapid data processing. Only the most essential metadata, insights, or actions are sent to the cloud for further action or investigation.
 
 ### Device management with IoT Central
 
-Azure IoT Central is a solution development platform that simplifies IoT device and Azure IoT Edge gateway connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solutions to achieve a digital feedback loop in distribution centers.
+Azure IoT Central is a solution development platform that simplifies IoT device and Azure IoT Edge gateway connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solution to achieve a digital feedback loop in distribution centers.
 
 ### Business insights and actions using data egress (5,6)
 
@@ -58,46 +58,36 @@ Create the application using following steps:
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
 
-1. Select **Create app** under **digital distribution center**.
+1. Select **Create app** under **Digital distribution center**.
 
 To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
 
-## Walk through the application 
+## Walk through the application
 
 The following sections walk you through the key features of the application:
 
 ### Dashboard
 
-The default dashboard is a distribution center operator focused portal. Northwind Trader is a fictitious distribution center solution provider managing conveyor systems. 
+The default dashboard is a distribution center operator focused portal. Northwind Trader is a fictitious distribution center solution provider managing conveyor systems.
 
 In this dashboard, you'll see one gateway and one camera acting as an IoT device. Gateway is providing telemetry about packages such as valid, invalid, unidentified, and size along with associated device twin properties. All downstream commands are executed at IoT devices, such as a camera. This dashboard is pre-configured to showcase the critical distribution center device operations activity.
 
-The dashboard is logically organized to show the device management capabilities of the Azure IoT gateway and IoT device. You can: 
+The dashboard is logically organized to show the device management capabilities of the Azure IoT gateway and IoT device. You can:
 
 * Complete gateway command and control tasks.
 * Manage all the cameras in the solution.
 
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-dashboard.png" alt-text="Screenshot showing the digital distribution center dashboard.":::
+:::image type="content" source="media/tutorial-iot-central-ddc/ddc-dashboard.png" alt-text="Screenshot showing the digital distribution center dashboard." lightbox="media/tutorial-iot-central-ddc/ddc-dashboard.png":::
 
-### Device Template
+### Device templates
 
-Click on the Device templates tab, and you'll see the gateway capability model. A capability model is structured around two different interfaces **Camera** and **Digital Distribution Gateway**
+Navigate to **Device templates**. The application has two device templates:
 
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-devicetemplate1.png" alt-text="Screenshot showing the digital distribution gateway device template in the application.":::
+* **Camera** - Organizes all the camera-specific command capabilities.
 
-**Camera** - This interface organizes all the camera-specific command capabilities 
+* **Digital Distribution Gateway** - Represents all the telemetry coming from camera, cloud defined device twin properties and gateway info.
 
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-camera.png" alt-text="Screenshot showing the camera interface in the digital distribution gateway device template.":::
-
-**Digital Distribution Gateway** - This interface represents all the telemetry coming from camera, cloud defined device twin properties and gateway info.
-
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-devicetemplate2.png" alt-text="Screenshot showing the digital distribution gateway interface in the digital distribution gateway device template.":::
-
-### Gateway Commands
-
-This interface organizes all the gateway command capabilities
-
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-camera.png" alt-text="Screenshot showing the gateway commands interface in the digital distribution gateway device template.":::
+:::image type="content" source="media/tutorial-iot-central-ddc/ddc-devicetemplate.png" alt-text="Screenshot showing the digital distribution gateway device template." lightbox="media/tutorial-iot-central-ddc/ddc-devicetemplate.png":::
 
 ### Rules
 
@@ -105,19 +95,17 @@ Select the rules tab to see two different rules that exist in this application t
 
 **Too many invalid packages alert** - This rule is triggered when the camera detects a high number of invalid packages flowing through the conveyor system.
 
-**Large package** - This rule will trigger if the camera detects huge package that can't be inspected for the quality. 
+**Large package** - This rule will trigger if the camera detects huge package that can't be inspected for the quality.
 
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-rules.png" alt-text="Screenshot showing the list of rules in the digital distribution center application.":::
+:::image type="content" source="media/tutorial-iot-central-ddc/ddc-rules.png" alt-text="Screenshot showing the list of rules in the digital distribution center application." lightbox="media/tutorial-iot-central-ddc/ddc-rules.png":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application template by visiting **Application** > **Management** and click **Delete**.
-
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-cleanup.png" alt-text="Screenshot showing how to delete the application when you're done with it.":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
 ## Next steps
 
-Learn more about :
+Learn more about:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)

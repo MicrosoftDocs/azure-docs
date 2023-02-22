@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 12/28/2021
 ms.topic: conceptual
-ms.custom: ignite-fall-2021
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Gateway Load Balancer
@@ -76,7 +76,6 @@ For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/det
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining isn't supported through the Azure portal.
 * Gateway Load Balancer doesn't currently support IPv6
-* Currently, Gateway Load Balancer frontends configured in Portal will automatically be created as no-zone. To create a zone-redundant frontend, use an alternative client such as ARM/CLI/PS.
 
 ## Next steps
 

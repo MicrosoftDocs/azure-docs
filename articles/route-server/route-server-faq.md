@@ -1,15 +1,16 @@
 ---
-title: Azure Route Server frequently asked questions (FAQ)
+title: Azure Route Server frequently asked questions (FAQs)
 description: Find answers to frequently asked questions about Azure Route Server.
 services: route-server
 author: halkazwini
 ms.service: route-server
-ms.topic: article
-ms.date: 07/31/2022
+ms.topic: conceptual
+ms.date: 12/06/2022
 ms.author: halkazwini
+ms.custom: template-concept
 ---
 
-# Azure Route Server frequently asked questions (FAQ)
+# Azure Route Server frequently asked questions (FAQs)
 
 ## What is Azure Route Server?
 
@@ -19,7 +20,7 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it will have zone-level redundancy.
 
-### How many route servers can I create in a virtual network?
+### How many Azure Route Servers can I create in a virtual network?
 
 You can create only one route server in a virtual network. It must be deployed in a dedicated subnet called *RouteServerSubnet*.
 
@@ -55,11 +56,15 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 Yes, Azure Route Server propagates the route with the BGP AS Path intact.
 
+### Do I need to peer each NVA with both Route Server instances?
+Yes, to ensure that VNet routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instances with both instances of Route Server.
+
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
 Yes, Azure Route Server propagates the route with the BGP communities as is.
 
 ### What is the BGP timer setting of Azure Route Server?
+
 The Keep-alive timer is set to 60 seconds and the Hold-down timer 180 seconds.
 
 ### What Autonomous System Numbers (ASNs) can I use?
@@ -105,10 +110,6 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertises routes with this community string to the route server, the route server won't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes to be sent from Azure Route Server to ExpressRoute.
 
-### Can Azure Route Server provide transit between ExpressRoute and a Point-to-Site (P2S) VPN gateway connection if the Branch-to-Branch setting is enabled?
-
-No, Azure Route Server provides transit only between ExpressRoute and a Site-to-Site (S2S) VPN gateway connections if the Branch-to-Branch setting is enabled.
-
 ## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).
@@ -116,7 +117,6 @@ Azure Route Server has the following limits (per deployment).
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
-
 
 ## Next steps
 

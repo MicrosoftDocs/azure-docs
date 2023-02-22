@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 05/27/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Microsoft 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
 ## Microsoft Cloud Germany
-The [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.
+The [Microsoft Cloud Germany](https://www.microsoft.com/de-de/microsoft-cloud) is a sovereign cloud operated by a German data trustee.
 
 | URLs to open in proxy server |
 | --- |
@@ -40,7 +40,7 @@ Features currently not present in the Microsoft Cloud Germany:
 ## Microsoft Azure Government
 The [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/) is a cloud for US government.
 
-This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and have a different list of URLs to open in your proxy server.
+This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and has a different list of URLs to open in your proxy server.
 
 | URLs to open in proxy server |
 | --- |

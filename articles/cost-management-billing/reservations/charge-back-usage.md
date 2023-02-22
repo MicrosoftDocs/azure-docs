@@ -2,11 +2,11 @@
 title: Charge back Azure Reservation costs
 description: Learn how to view Azure Reservation costs for chargeback.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -14,7 +14,7 @@ ms.author: banders
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.
 
-Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a reservation discount, the *AdditionalInfo* section in the usage file contains the reservation details. For more information, see [Download usage from the Azure portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
+Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a reservation discount, the *AdditionalInfo* section in the usage file contains the reservation details. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## See reservation usage data for show back and charge back
 

@@ -14,7 +14,7 @@ ms.author: ndelvillar
 
 **Applies to:** :heavy_check_mark: Windows Virtual Machines
 
-Use this guide to learn how to setup time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain.
+Use this guide to learn how to set up time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain.
 
 ## Time sync hierarchy in Active Directory Domain Services
 
@@ -25,7 +25,7 @@ All other Domain Controllers would then sync time against the PDC, and all other
 If you have an Active Directory domain running on virtual machines hosted in Azure, follow these steps to properly set up Time Sync.
 
 >[!NOTE]
->This guide focuses on usign the **Group Policy Management** console to perform the configuration. You can achieve the same results by using the Command Prompt, PowerShell, or by manually modifying the Registry; however those methods are not in scope in this article. 
+>This guide focuses on using the **Group Policy Management** console to perform the configuration. You can achieve the same results by using the Command Prompt, PowerShell, or by manually modifying the Registry; however, those methods are not in scope in this article. 
 
 ## GPO to allow the PDC to synchronize with an External NTP Source
 
@@ -41,7 +41,7 @@ To check current time source in your **PDC**, from an elevated command prompt ru
 8. Double click the *Configure Windows NTP Client* policy and set it to *Enabled*, configure the parameter *NTPServer* to point to an IP address or FQDN of a time server followed by `,0x9` for example: `131.107.13.100,0x9` and configure *Type* to **NTP**. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
 9. Click the *Next Setting* button, set the *Enable Windows NTP Client* policy to *Enabled* and click *OK*
 10. In the *Scope* tab of the newly created GPO navigate to **Security Filtering** and highlight the *Authenticated Users* group -> Click the *Remove* button -> *OK* -> *OK*
-11. Create a WMI Filter to dinamycally get the Domain Controller that holds the PDC role:
+11. Create a WMI Filter to dynamically get the Domain Controller that holds the PDC role:
     - In the *Group Policy Management* console, navigate to *WMI Filters*, right-click on it and select *New*.
     - In the *New WMI Filter* window, give a name to the new filter, for example, *Get PDC Emulator* -> Fill out the *Description* field (optional) -> Click the *Add* button.
     - In the *WMI Query* window leave the *Namespace* as is, in the *Query* text box paste the following string `Select * from Win32_ComputerSystem where DomainRole = 5`, then click the *OK* button.
@@ -51,7 +51,7 @@ To check current time source in your **PDC**, from an elevated command prompt ru
 14. Link the GPO to the **Domain Controllers** Organizational Unit.
 
 >[!NOTE]
->It can take up to 15 minutes for these changes to reflect in the system.
+>It can take up to 15 minutes for these changes to be reflected by the system.
 
 From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the NTP Server you chose.
 

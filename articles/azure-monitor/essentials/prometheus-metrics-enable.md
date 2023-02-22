@@ -1,9 +1,11 @@
 ---
 title: Enable Azure Monitor managed service for Prometheus (preview)
 description: Enable Azure Monitor managed service for Prometheus (preview) and configure data collection from your Azure Kubernetes Service (AKS) cluster.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/24/2022
 ms.reviewer: aul
 ---
 
@@ -15,8 +17,8 @@ This article describes how to configure your Azure Kubernetes Service (AKS) clus
 
 ## Prerequisites
 
-- You must either have an [Azure Monitor workspace](azure-monitor-workspace-overview.md) or [create a new one](azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
-- The cluster must use [managed identity authentication](../containers/container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
+- You must either have an [Azure Monitor workspace](azure-monitor-workspace-overview.md) or [create a new one](azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
+- The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights
@@ -39,8 +41,8 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview).
-- Azure CLI version 2.41.0 or higher is required for this feature.
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- Aks-preview version 0.5.122 or higher is required for this feature. You can check the aks-preview version using the `az version` command.
 
 #### Install metrics addon
 
@@ -76,7 +78,7 @@ The output for each command will look similar to the following:
     "metrics": {
         "enabled": true,
         "kubeStateMetrics": {
-            "metrican'tationsAllowList": "",
+            "metricAnnotationsAllowList": "",
             "metricLabelsAllowlist": ""
         }
     }
@@ -102,7 +104,7 @@ The output will be similar to the following:
         "metrics": {
           "enabled": true,
           "kubeStateMetrics": {
-            "metrican'tationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
+            "metricAnnotationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
             "metricLabelsAllowlist": "namespaces=[k8s-label-1,k8s-label-n]"
           }
         }
@@ -114,22 +116,14 @@ The output will be similar to the following:
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
+- If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, then please register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider following this [documentation](/azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md#register-resource-provider).
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 - The template needs to be deployed in the same resource group as the Azure Managed Grafana workspace.
+- Users with 'User Access Administrator' role in the subscription of the AKS cluster can be able to enable 'Monitoring Data Reader' role directly by deploying the template.
 
 
 ### Retrieve required values for Grafana resource
 From the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
-
- Copy the value of the `principalId` field for the `SystemAssigned` identity.
-
-```json
-"identity": {
-        "principalId": "00000000-0000-0000-0000-000000000000",
-        "tenantId": "00000000-0000-0000-0000-000000000000",
-        "type": "SystemAssigned"
-    },
-```
 
 If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
 
@@ -147,15 +141,6 @@ If you're using an existing Azure Managed Grafana instance that already has been
     }
 }
 ```
-
-### Assign role to system identity
-The  Azure Managed Grafana resource requires the `Monitoring Data Reader` role to read data from the Azure Monitor Workspace.
-
-1. From the **Access control (IAM)** page for the Azure Managed Grafana instance in the Azure portal, select **Add** and then **Add role assignment**.
-2. Select `Monitoring Data Reader`.
-3. Select **Managed identity** and then **Select members**.
-4. Select the **system-assigned managed identity** with the `principalId` from the Grafana resource.
-5. Click **Select** and then **Review+assign**.
 
 ### Download and edit template and parameter file
 
@@ -204,23 +189,113 @@ The  Azure Managed Grafana resource requires the `Monitoring Data Reader` role t
         }
     ````
 
-In this json, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON, and they're added here to the ARM template. If you have no existing Grafana integrations, then don't include these entries for `full_resource_id_1` and `full_resource_id_2`. 
+In this json, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON, and they're added here to the ARM template. If you have no existing Grafana integrations, then don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
 
-The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor Workspace resource ID provided in the parameters file. 
+The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor Workspace resource ID provided in the parameters file.
+
+## [Bicep](#tab/bicep)
+
+### Prerequisites
+
+- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
+- The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
+- The template needs to be deployed in the same resource group as the Azure Managed Grafana workspace.
+- Users with 'User Access Administrator' role in the subscription of the AKS cluster can be able to enable 'Monitoring Data Reader' role directly by deploying the template.
+
+### Minor Limitation while deploying through bicep
+Currently in bicep, there is no way to explicitly "scope" the Monitoring Data Reader role assignment on a string parameter "resource id" for Azure Monitor Workspace (like in ARM template). Bicep expects a value of type "resource | tenant" and currently there is no rest api [spec](https://github.com/Azure/azure-rest-api-specs) for Azure Monitor Workspace. So, as a workaround, the default scoping for Monitoring Data Reader role is on the resource group and thus the role is applied on the same Azure monitor workspace (by inheritance) which is the expected behavior. Thus, after deploying this bicep template, the Grafana resource will get read permissions in all the Azure Monitor Workspaces under the subscription.
+
+
+### Retrieve required values for Grafana resource
+
+From the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
+
+If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
+
+```json
+"properties": {
+    "grafanaIntegrations": {
+        "azureMonitorWorkspaceIntegrations": [
+            {
+                "azureMonitorWorkspaceResourceId": "full_resource_id_1"
+            },
+            {
+                "azureMonitorWorkspaceResourceId": "full_resource_id_2"
+            }
+        ]
+    }
+}
+```
+
+### Download and edit templates and parameter file
+
+1. Download the main bicep template from [here](https://aka.ms/azureprometheus-enable-bicep-template) and save it as **FullAzureMonitorMetricsProfile.bicep**.
+2. Download the parameter file from [here](https://aka.ms/azureprometheus-enable-bicep-template-parameters) and save it as **FullAzureMonitorMetricsProfileParameters.json** in the same directory as the main bicep template.
+3. Download the [nested_azuremonitormetrics_dcra_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId) and [nested_azuremonitormetrics_profile_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId) files in the same directory as the main bicep template.
+4. Edit the values in the parameter file.
+5. The main bicep template creates all the required resources and uses 2 modules for creating the dcra and monitormetrics profile resources from the other two bicep files.
+
+    | Parameter | Value |
+    |:---|:---|
+    | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
+    | `azureMonitorWorkspaceLocation` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
+    | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
+    | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
+    | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric. |
+    | `metricAnnotationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+    | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
+    | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
+    | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
+
+
+6. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will be similar to the following:
+
+    ```json
+    {
+        "type": "Microsoft.Dashboard/grafana",
+        "apiVersion": "2022-08-01",
+        "name": "[split(parameters('grafanaResourceId'),'/')[8]]",
+        "sku": {
+            "name": "[parameters('grafanaSku')]"
+        },
+        "location": "[parameters('grafanaLocation')]",
+        "properties": {
+            "grafanaIntegrations": {
+            "azureMonitorWorkspaceIntegrations": [
+                {
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_1"
+                },
+                {
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_2"
+                },
+                {
+                    "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId')]"
+                }
+            ]
+            }
+        }
+    ````
+
+In this json, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON, and they're added here to the ARM template. If you have no existing Grafana integrations, then don't include these entries for `full_resource_id_1` and `full_resource_id_2`.
+
+The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor Workspace resource ID provided in the parameters file.
 
 
 ### Deploy template
 
 Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples of different methods.
 
+### Limitations
+
+- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
+- A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
+- You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 
 ---
 
-
-
 ## Verify Deployment
 
-Run the following command to which verify that the daemon set was deployed properly:
+Run the following command to verify that the daemon set was deployed properly:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
@@ -252,24 +327,21 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 
 ## Limitations
 
-- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
-- A data collection rule and data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
-- You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 - CPU and Memory requests and limits can't be changed for Container insights metrics addon. If changed, they'll be reconciled and replaced by original values in a few seconds.
-- Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
+- Metrics addon doesn't work on AKS clusters configured with HTTP proxy.
 
 
 ## Uninstall metrics addon
-Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. 
+Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
 
-If you don't already have it, install the aks-preview extension with the following command. 
+If you don't already have it, install the aks-preview extension with the following command.
 
 The `aks-preview` extension needs to be installed using the following command. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 ```azurecli
 az extension add --name aks-preview
 ```
-Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
+Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster along with the Data Collection Rule Associations (DCRA) that link the DCE or DCR with your cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
 
 ```azurecli
 az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
@@ -331,5 +403,9 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [See the default configuration for Prometheus metrics](prometheus-metrics-scrape-default.md).
-- [Customize Prometheus metric scraping for the cluster](prometheus-metrics-scrape-configuration.md).
+
+- [See the default configuration for Prometheus metrics](./prometheus-metrics-scrape-default.md).
+- [Customize Prometheus metric scraping for the cluster](./prometheus-metrics-scrape-configuration.md).
+- [Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](./prometheus-grafana.md)
+- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus (preview)](./prometheus-self-managed-grafana-azure-active-directory.md)
+

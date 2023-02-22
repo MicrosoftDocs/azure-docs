@@ -1,9 +1,10 @@
 ---
 author: cephalin
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
+ms.subservice: web-apps
 ---
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values. You should define a parameter for those values that vary based on the project you're deploying or the environment you're deploying to. Do not define parameters for values that are constant. Each parameter value is used in the template to define the resources that are deployed.

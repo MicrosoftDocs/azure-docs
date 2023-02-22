@@ -7,6 +7,7 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 08/24/2021
+ms.devlang: csharp
 ms.custom: "monitoring"
 ---
 
@@ -41,25 +42,25 @@ If you need to dynamically determine whether to adjust workloads to handle messa
 The following example uses the Azure Storage .NET v12 library to get the approximate message count.
 
 ```csharp
-        static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+{
+    if (await theQueue.ExistsAsync())
+    {
+        QueueProperties properties = await theQueue.GetPropertiesAsync();
+
+        if (properties.ApproximateMessagesCount > 0)
         {
-            if (await theQueue.ExistsAsync())
-            {
-                QueueProperties properties = await theQueue.GetPropertiesAsync();
-
-                if (properties.ApproximateMessagesCount > 0)
-                {
-                    QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
-                    string theMessage = retrievedMessage[0].MessageText;
-                    await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
-                    return theMessage;
-                }
-
-                return null;
-            }
-
-            return null;
+            QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
+            string theMessage = retrievedMessage[0].MessageText;
+            await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+            return theMessage;
         }
+
+        return null;
+    }
+
+    return null;
+}
 ```
 
 Also consider using Service Bus which supports message per entity. To learn more, see [Monitoring Azure Service Bus data reference](../../service-bus-messaging/monitor-service-bus-reference.md). 

@@ -11,7 +11,7 @@ ms.custom: cliv2, event-tier1-build-2022
 author: Abeomor
 ms.author: osomorog
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) model YAML schema

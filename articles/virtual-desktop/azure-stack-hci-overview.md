@@ -77,7 +77,7 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
-    - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)
+    - [Azure Virtual Desktop Insights](insights.md)
     - [Session host scaling with Azure Automation](set-up-scaling-script.md)
     - [Autoscale plan](autoscale-scaling-plan.md)
     - [Start VM On Connect](start-virtual-machine-connect.md)

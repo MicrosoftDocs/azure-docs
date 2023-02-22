@@ -35,12 +35,12 @@ This tutorial shows you how to:
 
 - Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Key vault - create one using [Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [PowerShell](/azure/key-vault/general/quick-create-powershell)
+- Key vault - create one using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [PowerShell](../../key-vault/general/quick-create-powershell.md)
 - [Visual Studio 2022](https://visualstudio.microsoft.com) installed
 
 ## Assign a role to your Azure AD user
 
-When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
 In this scenario, you'll assign permissions to your user account, scoped to the key vault, to follow the [Principle of Least Privilege](../../../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 

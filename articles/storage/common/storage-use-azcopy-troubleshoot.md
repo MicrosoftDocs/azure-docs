@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot problems with AzCopy (Azure Storage) | Microsoft Docs
+title: Troubleshoot problems with AzCopy (Azure Storage)
 description: Find workarounds to common issues with AzCopy v10.
 author: normesta
 ms.service: storage

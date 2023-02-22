@@ -3,6 +3,8 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
+author: msangapu-msft
+ms.author: msangapu
 ms.date: 03/10/2022
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22
@@ -75,9 +77,9 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
 
 ### [Azure CLI](#tab/cli)
 
-Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that will create the necessary resources and deploy your application in a single step.
+Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that will create the necessary resources and deploy your application in a single step.
 
-In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 az webapp up --runtime "PHP:8.0" --os-type=linux
@@ -285,3 +287,6 @@ This command may take a minute to run.
 
 > [!div class="nextstepaction"]
 > [Configure PHP app](configure-language-php.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

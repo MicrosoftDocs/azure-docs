@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Configure peering between Azure Route Server and Quagga network virtual appliance"
-description: This tutorial shows you how to configure an Azure Route Server and peer it with a Quagga network virtual appliance.
+title: 'Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance'
+description: This tutorial shows you how to configure an Azure Route Server and peer it with a Network Virtual Appliance (NVA) using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 08/01/2022
-ms.custom: template-tutorial
+ms.date: 01/27/2023
+ms.custom: template-tutorial, engagement-fy23
 ---
 
-# Tutorial: Configure peering between Azure Route Server and Quagga network virtual appliance
+# Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance
 
-This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga network virtual appliance. You'll deploy a virtual network with four subnets. One subnet will be dedicated to the Azure Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Azure Route Server and Quagga NVA.
+This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga Network Virtual Appliance (NVA). You'll deploy a virtual network with four subnets. One subnet will be dedicated to the Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Route Server and Quagga NVA.
 
 In this tutorial, you learn how to:
 
@@ -34,7 +34,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 
-You'll need a virtual network to deploy both the Azure Route Server and the Quagga NVA. Azure Route Server must be deployed in a dedicated subnet called *RouteServerSubnet*.
+You'll need a virtual network to deploy both the Route Server and the Quagga NVA. Azure Route Server must be deployed in a dedicated subnet called *RouteServerSubnet*.
 
 1. On the Azure portal home page, search for *virtual network*, and select **Virtual networks** from the search results. 
 
@@ -102,7 +102,7 @@ The Route Server is used to communicate with your NVA and exchange virtual netwo
 
 To configure the Quagga network virtual appliance, you'll need to deploy a Linux virtual machine, and then configure it with this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh).
 
-### Create Quagga virtual machine
+### Create Quagga virtual machine (VM)
 
 1. On the Azure portal, search for *virtual machine*, and select **Virtual machines** from the search results.
 
@@ -146,9 +146,9 @@ To configure the Quagga network virtual appliance, you'll need to deploy a Linux
 
     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/create-quagga-networking-tab.png" alt-text="Screenshot of networking tab for creating a new virtual machine." lightbox="./media/tutorial-configure-route-server-with-quagga/create-quagga-networking-tab-expanded.png":::
 
-1. Select **Review + create** and then **Create** after validation passes. The deployment of the VM will take about 10 minutes.
+1. Select **Review + create** and then **Create** after validation passes. The deployment of the virtual machine will take about 10 minutes.
 
-1. Once the VM has deployed, go to the **Networking** page of **Quagga** virtual machine and select the network interface.
+1. Once the virtual machine has deployed, go to the **Networking** page of **Quagga** virtual machine and select the network interface.
 
      :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/quagga-network-settings.png" alt-text="Screenshot of networking page of the Quagga VM.":::
 
@@ -158,7 +158,7 @@ To configure the Quagga network virtual appliance, you'll need to deploy a Linux
 
 1. Under **Private IP address Settings**, change the **Assignment**  from **Dynamic** to **Static**, and then change the **IP address** from **10.1.4.4** to **10.1.4.10**. This IP address is used in this [script](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server-quagga/scripts/quaggadeploy.sh), which will be run in a later step. If you want to use a different IP address, ensure to update the IP in the script.
 
-1. Take note of the public IP, and select **Save** to update the IP configurations of the VM. 
+1. Take note of the public IP, and select **Save** to update the IP configurations of the virtual machine. 
 
     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/change-ip-configuration.png" alt-text="Screenshot of changing IP configurations the Quagga VM.":::
 
@@ -251,8 +251,5 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 ## Next steps
 
-In this tutorial, you learned how to create and configure a Route Server with and an NVA. To learn more on Route Servers, see the frequently asked questions page:
+In this tutorial, you learned how to create and configure an Azure Route Server with a Network Virtual Appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQs)](route-server-faq.md).
 
-Advance to the next article to learn how to troubleshoot Route Server.
-> [!div class="nextstepaction"]
-> [Route Server FAQ](route-server-faq.md)

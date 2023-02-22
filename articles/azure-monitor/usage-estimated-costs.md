@@ -10,11 +10,13 @@ ms.date: 05/05/2022
 
 This article describes the different ways that Azure Monitor charges for usage. It also explains how to evaluate charges on your Azure bill and how to estimate charges to monitor your entire environment.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../includes/azure-monitor-cost-optimization.md)]
+
 ## Pricing model
 
 Azure Monitor uses consumption-based pricing, which is also known as pay-as-you-go pricing. With this billing model, you only pay for what you use. Features of Azure Monitor that are enabled by default don't incur any charge. These features include collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/metrics-supported.md).
 
-Several other features don't have a direct cost, but you instead pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed pricing for each type is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+Several other features don't have a direct cost, but instead you pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed pricing for each type is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 | Type | Description |
 |:---|:---|
@@ -95,7 +97,16 @@ To limit the view to Azure Monitor charges, [create a filter](../cost-management
 >[!NOTE]
 >Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go data ingestion and data retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, Application Insights data ingestion and retention are billed as the **Log Analytics** service.
 
-Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for information on how to use this view.
+Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
+
+To get the most useful view for understanding your cost trends in the **Cost analysis** view, 
+
+1. Select the date range you want to investigate 
+2. Select the desired "Granularity" of "Daily" or "Monthly" (not "Accumulated")
+3. Set the chart type to "Column (stacked)" in the top right above the chart
+4. Set "Group by" to be "Meter"
+
+See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for more information on how to use this Cost analysis view.
 
 ![Screenshot that shows Cost Management with cost information.](./media/usage-estimated-costs/010.png)
 

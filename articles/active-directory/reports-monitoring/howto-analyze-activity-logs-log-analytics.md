@@ -33,8 +33,8 @@ To follow along, you need:
 * The following roles in Azure Active Directory (if you're accessing Log Analytics through Azure Active Directory portal)
     - Security Admin
     - Security Reader
-    - Report Reader
-    - Global Admin
+    - Reports Reader
+    - Global Administrator
     
 ## Navigate to the Log Analytics workspace
 

@@ -20,8 +20,6 @@
     displayName: version policy
 - name: Flexible Server
   items:
-  - name: Flexible Server documentation
-    href: flexible-server/index.yml
   - name: Overview
     items:
     - name: What is Flexible Server?
@@ -50,6 +48,8 @@
             href: flexible-server/connect-azure-cli.md
           - name: PHP
             href: flexible-server/connect-php.md
+          - name: Azure Data Studio
+            href: /sql/azure-data-studio/quickstart-mysql
           - name: MySQL Workbench
             href: flexible-server/connect-workbench.md
           - name: Python
@@ -120,7 +120,8 @@
       items:
       - name: Data-in replication
         href: flexible-server/concepts-data-in-replication.md
-        displayName: replication, read replica
+      - name: Data-out replication
+        href: flexible-server/concepts-data-out-replication.md
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
@@ -135,9 +136,17 @@
         href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
+    - name: Power Automate
+      href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
-    - name: Azure advisor
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
+    - name: Azure Logic Apps
+      href: flexible-server/tutorial-logic-apps-with-mysql.md
+    - name: Azure Cognitive Search
+      href: ../search/search-howto-index-mysql.md
+    - name: Azure Advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
@@ -146,7 +155,7 @@
     - name: Application Development
       items:
       - name: WordPress on App Service
-        href: flexible-server/tutorial-wordpress-app-service.md
+        href: ../app-service/quickstart-wordpress.md
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: PHP (Laravel) app on App Service in VNet
@@ -234,6 +243,9 @@
       - name: Configure data-in replication
         href: flexible-server/how-to-data-in-replication.md
         displayName: data-in replication, replica, failover
+      - name: Configure data-out replication
+        href: flexible-server/how-to-data-out-replication.md
+        displayName: data-out replication, replica, failover
       - name: Create read replicas
         items:
         - name: Azure portal
@@ -296,9 +308,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Single Server
   items:
-  - name: Single Server documentation
-    href: single-server/index.yml
-    displayName: single server
   - name: What's happening to Single Server?
     href: single-server/whats-happening-to-mysql-single-server.md
     displayName: What's happening to Single Server?
@@ -315,9 +324,6 @@
     items:
     - name: Create a MySQL Single Server
       items:
-       - name: Azure portal
-         href: single-server/quickstart-create-mysql-server-database-using-azure-portal.md
-         displayName: portal, create, server
        - name: Azure CLI
          href: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
          displayName: cli, create, server
@@ -505,8 +511,6 @@
       items:
       - name: Design a database
         items:
-        - name: Azure portal
-          href: single-server/tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: single-server/tutorial-design-database-using-cli.md
         - name: Azure PowerShell
@@ -681,9 +685,9 @@
     href: migrate/how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
-  - name: Migrate MySQL - Single Server to Flexible Server offline using DMS
+  - name: Migrate MySQL - Single Server to Flexible Server offline using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
-  - name: Migrate MySQL - Single Server to Flexible Server online using DMS
+  - name: Migrate MySQL - Single Server to Flexible Server online using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
@@ -706,7 +710,7 @@
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
     href: migrate/how-to-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
-  - name: Minimal downtime migration with DMS
+  - name: Minimal downtime migration with DMS (classic)
     href: single-server/how-to-migrate-online.md
     displayName: migrate, dms, database migration service
   - name: Troubleshoot common errors
@@ -753,6 +757,8 @@
     href: single-server/concept-monitoring-best-practices.md
   - name: Performance best practices
     href: single-server/concept-performance-best-practices.md
+  - name: Performance benchmark best practices
+    href: single-server/concept-perf-benchmark-best-practices.md
   - name: Application Development best practices
     href: single-server/app-development-best-practices.md
     displayName: application

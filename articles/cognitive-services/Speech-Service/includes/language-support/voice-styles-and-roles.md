@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 08/22/2022
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -31,13 +31,13 @@ ms.author: eur
 |zh-CN-XiaomoNeural<sup>5</sup>|`embarrassed`, `calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `depressed`, `affectionate`, `gentle`, `envious`|`YoungAdultFemale`, `YoungAdultMale`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `Girl`, `Boy`|
 |zh-CN-XiaoruiNeural<sup>5</sup>|`calm`, `fearful`, `angry`, `sad`|Not supported|
 |zh-CN-XiaoshuangNeural<sup>5</sup>|`chat`|Not supported|
-|zh-CN-XiaoxiaoNeural<sup>5</sup>|`assistant`, `chat`, `customerservice`, `newscast`, `affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `sad`, `serious`, `poetry-reading`|Not supported|
+|zh-CN-XiaoxiaoNeural<sup>5</sup>|`assistant`, `chat`, `customerservice`, `newscast`, `affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `friendly`, `gentle`, `lyrical`, `sad`, `serious`, `poetry-reading`|Not supported|
 |zh-CN-XiaoxuanNeural<sup>5</sup>|`calm`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `gentle`, `depressed`|`YoungAdultFemale`, `YoungAdultMale`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `Girl`, `Boy`|
 |zh-CN-XiaoyiNeural<sup>1,5</sup>|`angry`, `disgruntled`, `affectionate`, `cheerful`, `fearful`, `sad`, `embarrassed`, `serious`, `gentle`|Not supported|
 |zh-CN-XiaozhenNeural<sup>1,5</sup>|`angry`, `disgruntled`, `cheerful`, `fearful`, `sad`, `serious`|Not supported|
 |zh-CN-YunfengNeural<sup>1,5</sup>|`angry`, `disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Not supported|
 |zh-CN-YunhaoNeural<sup>1,2,5</sup>|`advertisement-upbeat`|Not supported|
-|zh-CN-YunjianNeural<sup>1,3,4,5</sup>|`Narration-relaxed`, `Sports_commentary`, `Sports_commentary_excited`|Not supported|
+|zh-CN-YunjianNeural<sup>1,3,4,5</sup>|`narration-relaxed`, `sports-commentary`, `sports-commentary-excited`|Not supported|
 |zh-CN-YunxiaNeural<sup>1,5</sup>|`calm`, `fearful`, `cheerful`, `angry`, `sad`|Not supported|
 |zh-CN-YunxiNeural<sup>5</sup>|`narration-relaxed`, `embarrassed`, `fearful`, `cheerful`, `disgruntled`, `serious`, `angry`, `sad`, `depressed`, `chat`, `assistant`, `newscast`|`Narrator`, `YoungAdultMale`, `Boy`|
 |zh-CN-YunyangNeural<sup>5</sup>|`customerservice`, `narration-professional`, `newscast-casual`|Not supported|
@@ -46,10 +46,10 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> The `Advertisement_upbeat` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
+<sup>2</sup> The `advertisement-upbeat` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
 
-<sup>3</sup> The `Sports_commentary` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
+<sup>3</sup> The `sports-commentary` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
 
-<sup>4</sup> The `Sports_commentary_excited` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
+<sup>4</sup> The `sports-commentary-excited` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
 
 <sup>5</sup> The voice supports style degree for you to specify the intensity of the speaking style. 

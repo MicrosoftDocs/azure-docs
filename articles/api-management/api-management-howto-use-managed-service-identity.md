@@ -120,17 +120,9 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Configure Key Vault access using a managed identity
 
-Refer to the following configurations that are needed for API Management to access secrets and certificates from Key Vault.s
+The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
 
-### Configure Key Vault access policy
-
-To configure an access policy using the portal:
-
-1. In the Azure portal, navigate to your key vault.
-1. Select **Settings > Access policies > + Add Access Policy**.
-1. Select **Secret permissions**, then select **Get** and **List**.
-1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
-1. Select **Add**.
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -308,7 +300,7 @@ You can use a system-assigned managed identity to access Azure Key Vault to stor
 
 ### Authenticate to a backend by using an API Management identity
 
-You can use the system-assigned identity to authenticate to a backend service through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+You can use the system-assigned identity to authenticate to a backend service through the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
 
 ### <a name="apim-as-trusted-service"></a>Connect to Azure resources behind IP firewall using system-assigned managed identity
 
@@ -480,7 +472,7 @@ You can use a user-assigned managed identity to access Azure Key Vault to store 
 
 ### Authenticate to a backend by using a user-assigned identity
 
-You can use the user-assigned identity to authenticate to a backend service through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+You can use the user-assigned identity to authenticate to a backend service through the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
 
 ## <a name="remove"></a>Remove an identity
 
@@ -507,4 +499,4 @@ Learn more about managed identities for Azure resources:
 
 * [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
-* [Authenticate with a managed identity in a policy](./api-management-authentication-policies.md#ManagedIdentity)
+* [Authenticate with a managed identity in a policy](authentication-managed-identity-policy.md)

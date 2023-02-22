@@ -25,7 +25,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 ## Phishing-resistant methods
 
-U.S. Federal agencies will be approaching this guidance from different starting points. Some agencies will have already deployed modern credentials such as [FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys) or [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview), many are evaluating [Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md) (currently in Public Preview), some are just starting to modernize their authentication credentials. This guidance is meant to inform agencies on the multiple options available to meet phishing-resistant MFA requirements with Azure AD. The reality is that phishing-resistant MFA is needed sooner then later.  Microsoft recommends adopting phishing-resistant MFA method as soon as possible by whichever method below best matches the agency's current capability. Agencies should approach the phishing-resistant MFA requirement of the memorandum from the mindset of what can I do **now** to gain phishing-resistance for my accounts. Implementing phishing-resistant MFA will provide a significant positive impact on improving the agency's overall cybersecurity posture. The end goal here is to fully implement one or more of the modern credentials. However, if the quickest path to phishing-resistance is not a modern approach below, agencies should take that step as a starting point on their journey towards the more modern approaches.
+U.S. Federal agencies will be approaching this guidance from different starting points. Some agencies will have already deployed modern credentials such as [FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys) or [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview), many are evaluating [Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md) (currently in Public Preview), some are just starting to modernize their authentication credentials. This guidance is meant to inform agencies on the multiple options available to meet phishing-resistant MFA requirements with Azure AD. The reality is that phishing-resistant MFA is needed sooner than later.  Microsoft recommends adopting phishing-resistant MFA method as soon as possible by whichever method below best matches the agency's current capability. Agencies should approach the phishing-resistant MFA requirement of the memorandum from the mindset of what can I do **now** to gain phishing-resistance for my accounts. Implementing phishing-resistant MFA will provide a significant positive impact on improving the agency's overall cybersecurity posture. The end goal here is to fully implement one or more of the modern credentials. However, if the quickest path to phishing-resistance is not a modern approach below, agencies should take that step as a starting point on their journey towards the more modern approaches.
 
 ![Table of Azure AD phishing-resistant methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
 
@@ -65,9 +65,7 @@ For more information on deploying this method, see the following resources:
 
 >[!NOTE]
 >
-> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices.
->
->**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join device or device marked as compliant.
+> Today, Microsoft Authenticator by itself is not phishing-resistant. You must additionally configure conditional access policy requiring managed device to gain protection from external phishing threats.
 
 ### Legacy
 
@@ -144,7 +142,7 @@ The memo requires organizations to change password policies that are proven inef
 
 * Use [password protection](..//authentication/concept-password-ban-bad.md) to enforce a common list of weak passwords that Microsoft maintains. You can also add custom banned passwords.
 
-* Use [self-service password protection](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
+* Use [self-service password reset](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
 
 * Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
 

@@ -7,7 +7,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: thalme
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 
@@ -28,7 +28,7 @@ If you want your function app to use availability zones, redeploy your app into 
 The following steps describe how to enable availability zones.
 
 1. If you're already using the Premium SKU and are in one of the [supported regions](../azure-functions/azure-functions-az-redundancy.md#regional-availability), you can move on to the next step. Otherwise, you should create a new resource group in one of the supported regions.
-1. Create a Premium plan in one of the supported regions and the resource group. Ensure the [new Premium plan has zone redundancy enabled](../azure-functions/azure-functions-az-redundancy.md#how-to-deploy-a-function-app-on-a-zone-redundant-premium-plan).
+1. Create a Premium plan in one of the supported regions and the resource group. Ensure the [new Premium plan has zone redundancy enabled](./reliability-functions.md#create-a-zone-redundant-premium-plan-and-function-app).
 1. Create and deploy your function apps into the new Premium plan using your desired [deployment method](../azure-functions/functions-deployment-technologies.md).
 1. After testing and enabling the new function apps, you can optionally disable or delete your previous non-availability zone apps.
  
@@ -38,7 +38,7 @@ The following steps describe how to enable availability zones.
 > [Learn about the Azure Functions Premium plan](../azure-functions/functions-premium-plan.md)
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Functions support for availability zone redundancy](../azure-functions/azure-functions-az-redundancy.md)
+> [Learn about Azure Functions support for availability zone redundancy](./reliability-functions.md)
 
 > [!div class="nextstepaction"]
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)

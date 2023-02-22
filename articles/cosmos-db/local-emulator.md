@@ -28,8 +28,6 @@ The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cos
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on the Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable when you use the emulator.
 
-You can migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service by using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
-
 ## Differences between the emulator and the cloud service
 
 Because the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:

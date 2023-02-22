@@ -5,7 +5,7 @@ author: sherrywangms
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 12/20/2022
 ms.author: sherrywang
 ---
 # Migrate your NC and NC_Promo series virtual machines by August 31, 2023

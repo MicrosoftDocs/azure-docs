@@ -6,7 +6,7 @@ ms.author: terrylan
 ms.service: security
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 12/30/2021
+ms.date: 01/13/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -216,7 +216,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
-| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) |Public Preview |Public Preview|
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) | GA | GA |
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 |- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
@@ -475,7 +475,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/integrate-with-active-directory.md) | GA | GA |
-| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/integrate-overview.md#micro-focus-arcsight) | GA | GA |
 | [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
 | [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
@@ -505,11 +505,11 @@ The following table displays the current Microsoft Defender for IoT feature avai
 
 ## Azure Attestation
 
-Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities). 
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities).
 
 Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
 
-For more information, see Azure Attestation [public documentation](../../attestation/overview.md). 
+For more information, see Azure Attestation [public documentation](../../attestation/overview.md).
 
 | Feature | Azure | Azure Government |
 |--|--|--|

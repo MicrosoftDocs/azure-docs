@@ -105,7 +105,7 @@ Use the following steps to clone the Spring Boot sample project.
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
    ```azurecli-interactive
-   git clone https://github.com/spring-guides/gs-spring-boot.git
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
 1. Use the following command to move to the project folder.
@@ -288,5 +288,7 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 
 > [!div class="nextstepaction"]
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)
+
+For a packaged app template with Azure Spring Apps infrastructure provisioned using Bicep, see [Spring Boot PetClinic Microservices Application Deployed to Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

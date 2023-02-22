@@ -1,5 +1,5 @@
 ---
-title: Mount SMB Azure file share on Windows | Microsoft Docs
+title: Mount SMB Azure file share on Windows
 description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: khdownie
 ms.service: storage
@@ -17,8 +17,11 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
+| Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
-| Windows 11 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 10, version 21H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 21H1 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows 10, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
@@ -110,16 +113,16 @@ You have now mounted your Azure file share.
 ### Access an Azure file share via its UNC path
 You don't need to mount the Azure file share to a particular drive letter to use it. You can directly access your Azure file share using the [UNC path](/windows/win32/fileio/naming-a-file) by entering the following into File Explorer. Be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
 
-\\storageaccountname.file.core.windows.net\myfileshare
+`\\storageaccountname.file.core.windows.net\myfileshare`
 
 You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share.
 
 For Azure Government Cloud, simply change the servername to:
 
-\\storageaccountname.file.core.usgovcloudapi.net\myfileshare
+`\\storageaccountname.file.core.usgovcloudapi.net\myfileshare`
 
 ### Accessing share snapshots from Windows
-If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0), or [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot).
+If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare), or [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.

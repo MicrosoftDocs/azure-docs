@@ -10,7 +10,7 @@ ms.date: 09/27/2022
 ms.reviewer: turao
 ---
 
-# Configure cross-tenant customer-managed keys for your Azure Cosmos DB account with Azure Key Vault (preview)
+# Configure cross-tenant customer-managed keys for your Azure Cosmos DB account with Azure Key Vault
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
@@ -18,74 +18,6 @@ Data stored in your Azure Cosmos DB account is automatically and seamlessly encr
 
 This article walks through how to configure encryption with customer-managed keys at the time that you create an Azure Cosmos DB account. In this example cross-tenant scenario, the Azure Cosmos DB account resides in a tenant managed by an Independent Software Vendor (ISV) referred to as the service provider. The key used for encryption of the Azure Cosmos DB account resides in a key vault in a different tenant that is managed by the customer.
 
-## About the preview
-
-To use the preview, you must register for the Azure Active Directory federated client identity feature in the service provider's tenant. Follow these instructions to register with Azure PowerShell or Azure CLI:
-
-### [Portal](#tab/azure-portal)
-
-Not yet supported.
-
-### [PowerShell](#tab/azure-powershell)
-
-To register with Azure PowerShell, use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet.
-
-```azurepowershell
-$parameters = @{
-    FeatureName = "FederatedClientIdentity"
-    ProviderNamespace = "Microsoft.Storage"
-}
-Register-AzProviderFeature @parameters
-```
-
-To check the status of your registration, use [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
-
-```azurepowershell
-$parameters = @{
-    FeatureName = "FederatedClientIdentity"
-    ProviderNamespace = "Microsoft.Storage"
-}
-Get-AzProviderFeature @parameters
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
-
-```azurepowershell
-$parameters = @{
-    ProviderNamespace = "Microsoft.Storage"
-}
-Register-AzResourceProvider @parameters
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-To register with Azure CLI, use the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-```azurecli
-az feature register \
-    --name FederatedClientIdentity \
-    --namespace Microsoft.Storage
-```
-
-To check the status of your registration with Azure CLI, use [az feature show](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show \
-    --name FederatedClientIdentity \
-    --namespace Microsoft.Storage
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, use [az provider register](/cli/azure/provider#az-provider-register).
-
-```azurecli
-az provider register \
-    --namespace 'Microsoft.Storage'
-```
-
----
-
-> [!IMPORTANT]
-> Using cross-tenant customer-managed keys with Azure Cosmos DB encryption is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
@@ -93,8 +25,6 @@ az provider register \
 
 ## Create a new Azure Cosmos DB account encrypted with a key from a different tenant
 
-> [!NOTE]
-> Cross-tenant customer-managed keys with Azure Cosmos DB encryption PREVIEW is not compatible with Continuous Backup or Azure Synapse link features.
 
 Up to this point, you've configured the multi-tenant application on the service provider's tenant. You've also installed the application on the customer's tenant and configured the key vault and key on the customer's tenant. Next you can create an Azure Cosmos DB account on the service provider's tenant and configure customer-managed keys with the key from the customer's tenant.
 
