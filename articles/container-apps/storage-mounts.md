@@ -166,6 +166,13 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone-end
 
+
+::: zone pivot="azure-portal"
+
+To create an ephemeral volume and mount it in a container, make the following changes to the container apps resource in the Azure portal.
+
+::: zone-end
+
 ## Azure Files
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
@@ -357,5 +364,11 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
         - The `mountPath` is the path in the container to mount the volume.
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+To add an Azure Files share to a Container Apps environment and use it in a container app, use the Azure portal.
 
 ::: zone-end
