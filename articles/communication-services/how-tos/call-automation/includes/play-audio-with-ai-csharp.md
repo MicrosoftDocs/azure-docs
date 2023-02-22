@@ -51,7 +51,11 @@ az communication bind-cognitive-service --name “{Azure Communication resource 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ``` csharp
-// add cognitiveServices step in answer call. 
+AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
+answerCallOptions.setAzureCognitiveServicesEndpointUrl("https://sample-cognitive-service-resource.cognitiveservices.azure.com/");
+Response<AnswerCallResult> answerCallResult = callAutomationClient
+                                               .answerCallWithResponse(answerCallOptions)
+                                               .block();
 ```
 
 ## Play Audio
@@ -117,7 +121,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Enhance play with audio file caching
 
-If you'll be playing the same audio file multiple times, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If you'll be playing the same audio file multiple times using a FileSource, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
