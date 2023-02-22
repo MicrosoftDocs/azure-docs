@@ -103,35 +103,31 @@ When an Azure Cosmos DB account is configured with multi-region writes, one of t
 #### Keep local traffic local
 When using multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. Cross-region calls must be avoided by the application for optimal performance.  
 
-It's important for the application to avoid doing the following: 
+It's important for the application to minimize conflicts by avoiding the following anti-patterns: 
 * Sending the same write operation to all regions to hedge bets on response times from the fastest region. 
 
 * Randomly determining the target region for a read or write operation on a per request basis.
 
-* Using a Round Robin policy to determine the target region for a read or write operation on a per request basis.
-
-Any of the above can increase the rate of conflicts, particularly when ingestion rates are high or frequent updates to the same document appear in rapid succession. 
-
-Minimizing, conflicts will improve the experience of the application as fewer server resources are utilized in conflict resolution. 
+* Using a Round Robin policy to determine the target region for a read or write operation on a per request basis. 
 
 #### Avoid dependency on replication lag 
-Strong consistency can't be configured on accounts with multi-region writes enabled. Thus, write operations will receive a response as soon as the region being written to replicates the data locally (to a quorum of three replicas) without waiting for data to be replicated globally.  
+Strong consistency can't be configured on accounts with multi-region writes enabled. Thus, write operations receive a response as soon as the region being written to replicates the data locally (to a quorum of three replicas) without waiting for data to be replicated globally.  
 
-While infrequent, a replication lag may occasionally occur on one or a few partitions when geo-replicating the data. This can happen due to rare blips in network traffic or higher than usual rates of conflict resolution. 
+While infrequent, a replication lag may occasionally occur on one or a few partitions when geo-replicating the data. Replication lag can occur due to rare blips in network traffic or higher than usual rates of conflict resolution. 
 
-For instance, an architecture in which writes are sent to the local region but reads are issued from a remote region introduces a dependency on replication lag for reads to immediately be available in the remote region. However, if both reads and writes are served from the local region, even in the presence of occasional spikes in replication lag on a subset of partitions, the performance of the application will remain constant.
+For instance, an architecture in which writes are sent to Region A but reads are issued from Region B introduces a dependency on replication lag for reads to immediately be available in Region B. However, if both reads and writes are served from Region A, even in the presence of occasional spikes in replication lag from Region A to Regino B, the performance of the application remains constant.
 
 #### Session Consistency Usage for Write operations
 In Session Consistency, the session token is used for both read and write operations to the database.  
 
 For reads, the cached session token is sent to the server with a guarantee of receiving data corresponding to the specified (or a more recent) session token.  
 
-For writes, the session token is sent to the database with a guarantee of persisting the data on the server only if the server is at least up to date with the specified (or a more recent) session token. For single-region write accounts, the write region is always guaranteed to have the latest version of the data by virtue of being the only region to issue session tokens for all write operations. However, for multi-region write accounts where all regions are writable, the region being written to may not have caught up on writes issued to another region. If the client instance initiates a write request to a Region A with a cached session token from Region B, Region A will not be able to persist the data until it has received replicated data from Region B and by extension, caught up to the Session Token issued by Region B.  
+For writes, the session token is sent to the database with a guarantee of persisting the data on the server only if the server has caught up to the session token provided. In single-region write accounts, the write region is always guaranteed to have caught up to the session token by virtue of being the only region to issue session tokens. However, in multi-region write accounts, the region being written to may not have caught up to writes issued to another region. If the client initiates a write request to Region A with a cached session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B and by extension, caught up to the Session Token issued by Region B.  
 
-To avoid a dependency on replication lag when passing session tokens from one client instance to another, it is best to do so only for read operations to avoid higher latencies during cross-region writes issued by the client when the local partition is intermittently unavailable. 
+To avoid a dependency on replication lag when passing session tokens from one client instance to another, it's best to do so only for read operations to avoid higher latencies during cross-region writes issued by the client when the local partition is intermittently unavailable. 
 
 #### Rapid updates to the same document
-When the same document is repeatedly updated in a a multi-region write database, the updates by the server to remove conflicts or confirm the absence of conflicts may collide with a subsequent set of updates triggered by the application. Even with traffic staying local and no cross-region calls being issued by the application, repeated updates to the same document can experience higher latencies during conflict resolution. While occasional bursts in traffic patterns of a certain kind are inevitable, if steady state traffic sees rapid updates to the same document over an extended period, it would be worth exploring an architecture where new documents are created instead. 
+When the same document is repeatedly updated in a multi-region write database, server updates to remove conflicts or confirm the absence of conflicts may collide with updates triggered by the application. Even with traffic staying local and no cross-region calls being issued by the application, repeated updates to the same document experience higher latencies during conflict resolution. While occasional bursts in traffic patterns of a certain kind are inevitable, if steady state traffic sees rapid updates to the same document over an extended period, it would be worth exploring an architecture where new documents are created instead. 
 
 ### What to expect during a region outage
 Client of single-region accounts will experience loss of read and write availability until service is restored.
