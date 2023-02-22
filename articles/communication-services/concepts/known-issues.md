@@ -63,7 +63,7 @@ On Android Chrome, if a user is on an ACS call and puts the browser into backgro
 
 ### The user has dropped the call but is still on the participant list.
 
-The problem can occur if a mobile user leaves the ACS group call without properly hangup. When a user closes the browser or refreshs the webpage without hangup, other participants in the group call will still see the user on the participant list for about 2 minutes.
+The problem can occur if a mobile user leaves the ACS group call without properly hang up. When a user closes the browser or refreshes the webpage without hang up, other participants in the group call will still see the user on the participant list for about 2 minutes.
 
 ### iOS Safari refreshes the page if the user goes to another app and returns back to the browser
 
