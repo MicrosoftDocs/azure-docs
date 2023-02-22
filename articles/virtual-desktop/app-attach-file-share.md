@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Desktop
 description: How to set up a file share for MSIX app attach for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 02/23/2023
 ms.author: helohr
 manager: femila
 ---
@@ -51,7 +51,6 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
     - `\\storageaccount.file.core.windows.net\share**.CIM`
 
 - Separate the storage fabrics for MSIX app attach from FSLogix profile containers.
-- All VM system accounts and user accounts must have read-only permissions to access the file share.
 - Any disaster recovery plans for Azure Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md). You'll also need to ensure your file share path is accessible in the secondary location. You can use [Distributed File System (DFS) Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview) to provide a single share name across different file shares. 
 
 ## File share creation
