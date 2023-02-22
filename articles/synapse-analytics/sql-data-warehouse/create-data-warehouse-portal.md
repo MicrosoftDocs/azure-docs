@@ -92,7 +92,7 @@ The Azure Synapse service creates a firewall at the server-level. This firewall 
 
 1. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, select the server name.
 
-   :::image type="content" source="./media/create-data-warehouse-portal/find-server-name.png" alt-text="A screenshot of the Azure portal. Find server name and copy the server name to clipboard":::
+   :::image type="content" source="./media/create-data-warehouse-portal/find-server-name.png" alt-text="A screenshot of the Azure portal. Find server name and copy the server name to clipboard.":::
 
 1. Select **Show firewall settings**.
 
