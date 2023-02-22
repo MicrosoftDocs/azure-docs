@@ -381,7 +381,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
     ```powershell
     Server:  UnKnown
-    Address:  168.63.129.16
+    Address:  10.1.1.4
 
     Non-authoritative answer:
     Name:    mywebapp.privatelink.azurewebsites.net
