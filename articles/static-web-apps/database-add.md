@@ -71,7 +71,8 @@ Create a sample table and seed it with sample data to match the tutorial.
     ```sql
     CREATE TABLE [dbo].[MyTestPeopleTable] (
         [Id] INT IDENTITY (1, 1) NOT NULL,
-        [Name] VARCHAR (25) NULL
+        [Name] VARCHAR (25) NULL,
+        PRIMARY KEY (Id)
     );
     ```
 
@@ -411,7 +412,7 @@ This example uses a `PUT` request to do the update.
   async function update(id, newValues) {
     
     const mutation = `
-      mutation updatePeople($id: Int!, $item: UpdatePeopleInput!) {
+      mutation update($id: Int!, $item: UpdatePeopleInput!) {
         updatePeople(Id: $id, item: $item) {
           Id
           Name
@@ -494,7 +495,7 @@ Run the following code in the browser's console window to create a new record.
       mutation {
         createPeople(item: ${ JSON.stringify(data) })
         {
-          ID
+          Id
           Name
         }
       }`;
