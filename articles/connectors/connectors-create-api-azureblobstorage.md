@@ -501,7 +501,8 @@ To connect to Azure Blob Storage in any region, you can use [managed identities 
 
   > [!NOTE]
   >
-  > The solution doesn't apply to Standard logic apps. With Standard logic app, even if you use system managed identity, the Azure Blob Storage managed connector will not be able to connect to a storage account in the same region.
+  > This solution doesn't apply to Standard logic apps. Even if you use a system-assigned managed identity with a Standard logic app, 
+  > the Azure Blob Storage managed connector can't connect to a storage account in the same region.
 
 To use managed identities in your logic app to access Blob Storage, follow these steps:
 
