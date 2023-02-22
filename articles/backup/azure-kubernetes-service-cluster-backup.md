@@ -16,15 +16,13 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 ## Before you start
 
-- AKS backup allows you to back up AKS cluster resources and Persistent Volumes attached to it. Currently, only Azure Disk based Persistent Volumes (enabled by CSI Driver) are supported for backups. The backups are stored in Operational datastore only (backup data is stored in your tenant only and isn't moved to a vault).  The Backup vault and AKS cluster should be in the same region.
+- Currently, AKS backup supports Azure Disk based persistent volumes (enabled by CSI driver) only. The backups are stored in operational datastore only (backup data is stored in your tenant only and isn't moved to a vault). The Backup vault and AKS cluster should be in the same region.
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
-- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days.
+- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
 
-  You can create a backup policy to define the backup schedule (frequency to perform backup) and retention duration (duration to retain the backups). 
-
-- You must install the Backup Extension to configure backup and restore operations on an AKS cluster. The Backup Extension requires a Blob container in input where the cluster resources get backed up. You can use AKS backups to perform restores to the original AKS cluster that is backed up to alternate AKS cluster; however, the cluster should have the Backup Extension installed in it.
+- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
 - Ensure that the `Microsoft.KubernetesConfiguration` and `Microsoft.DataProtection` providers are registered for your subscription before initiating backup configuration and restore operations.
 
@@ -147,5 +145,4 @@ If you want to check specific cluster resources, you can use labels attached to 
 
 - [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
 - [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
-- []
 - [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)

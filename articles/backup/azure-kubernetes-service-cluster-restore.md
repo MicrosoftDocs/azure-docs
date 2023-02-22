@@ -18,10 +18,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - AKS backup allows you to restore to original AKS cluster (that was backed up) and to an alternate AKS cluster. AKS backup allows you to perform a full restore and item-level restore. You can utilize [restore configurations](#restore-configurations) to define parameters based on the cluster resources that will be picked up during the restore.
 
-- To perform restore, the Backup Extension needs to be installed in the target AKS cluster. Also, Trusted Access needs to be enabled between the Backup vault and the AKS cluster.
-
-  >[!Note]
-  >The AKS backup portal experience directs you to perform both - Backup Extension installation and Trusted Access enablement, required to get the AKS cluster ready for restore.
+- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install) in the target AKS cluster. Also, you must [enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#enable-trusted-access) between the Backup vault and the AKS cluster.
 
 For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
