@@ -50,7 +50,8 @@ Configure a table for Basic logs if:
     | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
     | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
     | Container Insights | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) |
-    | Communication Services | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations)<br>[ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary)<br>[ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary)<br>[ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) |
+    | Communication Services | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations)<br>[ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary)<br>[ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) |
+    | Confidential Ledgers | [CCFApplicationLogs](/azure/azure-monitor/reference/tables/CCFApplicationLogs) |
     | Dev Center | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) |
     | Firewalls | [AZFWNetworkRule](/azure/azure-monitor/reference/tables/AZFWNetworkRule) |
     | Health Data | [AHDSMedTechDiagnosticLogs](/azure/azure-monitor/reference/tables/AHDSMedTechDiagnosticLogs) |

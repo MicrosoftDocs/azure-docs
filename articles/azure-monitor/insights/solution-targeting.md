@@ -29,7 +29,7 @@ After you have the computer group created in your workspace, you'll include it i
  To create a scope configuration:
 
  1. In the Azure portal, go to **Log Analytics workspaces** and select your workspace.
- 1. In the properties for the workspace under **Workspace Data Sources**, select **Scope Configurations**.
+ 1. In the properties for the workspace under **Classic**, select **Scope configurations (deprecated)**.
  1. Select **Add** to create a new scope configuration.
  1. Enter a name for the scope configuration.
  1. Click **Select Computer Groups**.
@@ -42,7 +42,7 @@ After you have a scope configuration, you can apply it to one or more solutions.
 To apply a scope configuration:
 
  1. In the Azure portal, go to **Log Analytics workspaces** and select your workspace.
- 1. In the properties for the workspace, select **Solutions**.
+ 1. In the properties for the workspace, select **Legacy solutions**.
  1. Select the solution you want to scope.
  1. In the properties for the solution under **Workspace Data Sources**, select **Solution Targeting**. If the option isn't available, [this solution can't be targeted](#solutions-and-agents-that-cant-be-targeted).
  1. Select **Add scope configuration**. If you already have a configuration applied to this solution, this option is unavailable. You must remove the existing configuration before you add another one.

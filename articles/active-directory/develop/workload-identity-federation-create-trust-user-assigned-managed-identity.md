@@ -137,7 +137,7 @@ For a workflow triggered by a pull request event, specify an **Entity type** of 
 
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
-- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which can't be changed later.

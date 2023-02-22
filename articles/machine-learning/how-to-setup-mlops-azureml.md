@@ -131,7 +131,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
    
 3. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
    
-4. Select **New Service Connection**.
+4. Select **Create Service Connection**.
 
      ![Screenshot of ADO New Service connection button.](./media/how-to-setup-mlops-azureml/create_first_service_connection.png)
 
@@ -164,7 +164,7 @@ The Azure DevOps setup is successfully finished.
 
 1. Open the **Project settings** at the bottom of the left hand navigation pane
 
-1.  Under the Repos section, select **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
+1.  Under the Repos section, select **Repositories**. Select the repository you created in previous step Select the **Security** tab
 
 1. Under the User permissions section, select the **mlopsv2 Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
    ![Screenshot of Azure DevOps permissions.](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
@@ -211,9 +211,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![Screenshot of ADO Pipelines.](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
    
-1. Select **New Pipeline**.
-   
-   ![Screenshot of ADO New Pipeline button for infra.](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
+1. Select **Create Pipeline**.
    
 1. Select **Azure Repos Git**.
    

@@ -32,7 +32,7 @@ To publish a built-in app:
        CommandLineSetting = '<Allow|Require|DoNotAllow>'
        IconIndex = '0'
        IconPath = '<IconPath>'
-       howInPortal = $true
+       ShowInPortal = $true
     }
 
    New-AzWvdApplication @parameters
@@ -58,7 +58,7 @@ $parameters = @{
     CommandLineSetting = '<Allow|Require|DoNotAllow>'
     IconIndex = '0'
     IconPath = 'C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge'
-    howInPortal = $true
+    ShowInPortal = $true
 }
 
 New-AzWvdApplication @parameters
