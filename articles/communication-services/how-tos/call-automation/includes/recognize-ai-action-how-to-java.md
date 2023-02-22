@@ -83,7 +83,7 @@ In your POM file, add the following reference for the project
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-callautomation</artifactId>
-  <version>1.0.0-alpha.20220915.1</version>
+  <version>1.0.0-alpha.20230210.2</version>
 </dependency>
 ```
 
@@ -192,7 +192,7 @@ Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on
         "type": "Microsoft.Communication.RecognizeCompleted",
         "data": {
             "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
-            "operationContext": "AppointmentChoiceMenu",
+            "operationContext": "ReminderMenu",
             "resultInformation": {
                 "code": 200,
                 "subCode": 8545,
@@ -200,8 +200,8 @@ Developers can subscribe to *RecognizeCompleted* and *RecognizeFailed* events on
             },
             "recognitionType": "choices",
             "choiceResult": {
-                "label": "Marketing",
-                "recognizedPhrase": "marketing"
+                "label": "Confirm",
+                "recognizedPhrase": "confirm"
             },
             "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
             "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGerteeqwertrtertsdfrYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNk1VxTjNtajc5M2w2eXc/aTyJmU9N45dfg4MDg5MDEyOTMyODg1OTY5",
