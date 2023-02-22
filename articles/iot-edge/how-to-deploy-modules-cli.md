@@ -115,7 +115,7 @@ Here's a basic deployment manifest with one module as an example:
 
 You deploy modules to your device by applying the deployment manifest that you configured with the module information.
 
-Change directories into the folder where your deployment manifest is saved. If you used one of the VS Code IoT Edge templates, use the `deployment.json` file in the **config** folder of your solution directory and not the `deployment.template.json` file.
+Change directories into the folder where your deployment manifest is saved. If you used one of the Visual Studio Code IoT Edge templates, use the `deployment.json` file in the **config** folder of your solution directory and not the `deployment.template.json` file.
 
 Use the following command to apply the configuration to an IoT Edge device:
 
