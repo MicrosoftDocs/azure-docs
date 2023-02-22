@@ -255,6 +255,9 @@ GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
   --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateLinkConnectionProperties.fqdns" \
   --output tsv)
 ```
+
+Once a new geo-replication is added, a private endpoint connection is set to be pending. To approve a private endpoint connection run [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command.
+
 ### Create DNS records in the private zone
 
 The following commands create DNS records in the private zone for the registry endpoint and its data endpoint. For example, if you have a registry named *myregistry* in the *westeurope* region, the endpoint names are `myregistry.azurecr.io` and `myregistry.westeurope.data.azurecr.io`. 
