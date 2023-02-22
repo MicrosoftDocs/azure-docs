@@ -146,12 +146,12 @@ items:
     items:
     - name: Version 4.0 (preview)
       items:
-      - name: Object detection
-        href: concept-object-detection-40.md
       - name: Image tagging
         href: concept-tagging-images-40.md
       - name: Image captions
         href: concept-describing-images-40.md
+      - name: Object detection
+        href: concept-object-detection-40.md
       - name: Optical Character Recognition
         href: concept-ocr.md
       - name: Smart-cropped thumbnails
@@ -162,10 +162,6 @@ items:
         href: concept-model-customization.md
     - name: Version 3.2
       items:   
-      - name: Object detection
-        href: concept-object-detection.md
-      - name: Brand detection
-        href: concept-brand-detection.md
       - name: Image tagging
         href: concept-tagging-images.md
       - name: Image categorization
@@ -174,6 +170,10 @@ items:
         href: Category-Taxonomy.md
       - name: Image descriptions
         href: concept-describing-images.md
+      - name: Object detection
+        href: concept-object-detection.md
+      - name: Brand detection
+        href: concept-brand-detection.md
       - name: Face detection
         href: concept-detecting-faces.md
       - name: Image type detection
@@ -182,10 +182,10 @@ items:
         href: concept-detecting-domain-content.md
       - name: Color scheme detection
         href: concept-detecting-color-schemes.md
-      - name: Smart-cropped thumbnails
-        href: concept-generating-thumbnails.md
       - name: Adult content detection
         href: concept-detecting-adult-content.md
+      - name: Smart-cropped thumbnails
+        href: concept-generating-thumbnails.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
