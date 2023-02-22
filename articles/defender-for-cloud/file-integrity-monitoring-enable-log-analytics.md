@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 - [Compare baselines using File Integrity Monitoring](#compare-baselines-using-file-integrity-monitoring)
 
 > [!NOTE]
-> File Integrity Monitoring may create the following account on monitored SQL Servers: `NT Service\HealthService`
+> File Integrity Monitoring may create the following account on monitored SQL Servers: `NT Service\HealthService` \
 > If you delete the account, it will be automatically recreated.
 
 ## Availability
