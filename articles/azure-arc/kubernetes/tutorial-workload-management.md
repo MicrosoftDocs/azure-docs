@@ -266,7 +266,7 @@ The second policy states that all deployment targets from the `kaizen-app-team` 
 
 This push to the `dev` branch triggers the scheduling process and creates a PR to the `dev` branch in the `Platform GitOps` repository:
 
-:::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png:::
+:::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png":::
 
 Besides `Promoted_Commit_id`, which is just tracking information for the promotion CD flow, the PR contains assignment manifests. The `functional-test` deployment target is assigned to the `drone` cluster type, and the `performance-test` deployment target is assigned to the `large` cluster type. Those manifests are going to be landed in `drone` and `large` folders that contain all assignments to these cluster types in the `Dev` environment.
  
