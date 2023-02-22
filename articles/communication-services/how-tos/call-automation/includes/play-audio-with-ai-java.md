@@ -111,13 +111,11 @@ FileSource playSource = new FileSource().setUri(<audioUri>);
 To play audio using Text-To-Speech through Azure Cognitive Services you will need to provide the text you wish to play as well either the SourceLocale and VoiceGender or the VoiceName you wish to use.
 
 ```java
-var textSource = new TextSource();
-textSource.setText("some text to play");
-textSource.setSourceLocale("en-US");
-textSource.setVoiceGender(GenderType.M);
-textSource.setVoiceName("LULU");
-
-var playSource = textSource;
+var playSource = new TextSource();
+playSource.setText("some text to play");
+playSource.setSourceLocale("en-US");
+playSource.setVoiceGender(GenderType.M);
+playSource.setVoiceName("LULU");
 ```
 
 ## Play audio to a specific participant
@@ -134,7 +132,7 @@ var playOptions = new PlayOptions()
 
 var playResponse = callConnection.getCallMediaAsync().playWithResponse(
     playSource,
-    Collections.singletonList(targetUser),
+    Collections.singletonList(targetUser), // Can be a list of multiple users
     playOptions
 ).block();
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
