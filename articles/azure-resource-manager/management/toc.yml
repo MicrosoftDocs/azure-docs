@@ -54,7 +54,7 @@
         - name: Classic deployment
           href: ./move-limitations/classic-model-move-limitations.md
         - name: Cloud Services (extended support)
-          href: move-limitations/azure-cloud-services-extended-support.md
+          href: ./move-limitations/cloud-services-extended-support.md
         - name: Networking
           href: ./move-limitations/networking-move-limitations.md
         - name: Recovery Services
