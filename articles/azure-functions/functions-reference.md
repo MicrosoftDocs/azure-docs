@@ -131,7 +131,7 @@ Identity-based connections are supported by the following components:
 [servicebusv5]: ./functions-bindings-service-bus.md
 [cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
-[durable-identity]: ./durable/durable-functions-storage-providers.md#identity-based-connections
+[durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
