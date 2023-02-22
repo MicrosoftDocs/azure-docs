@@ -188,23 +188,28 @@ For more information on disabling basic auth including how to test and monitor l
 
 Since your backend web app isn't publicly accessible, you need to update its access restrictions so that your continuous deployment tool can reach your app. You need to update the access restrictions to the SCM site to make it publicly accessible. The main site can continue to deny all traffic. If you're concerned about enabling public access to the SCM site, or you're restricted by policy, consider [other App Service deployment options](deploy-run-package.md). In the previous step, you disabled basic auth to the SCM endpoint of the backend web app. This setting ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure. The access restrictions on your front end web app don't need to be changed.
 
-To update the backed web app's [access restrictions for the SCM site](app-service-ip-restrictions.md#restrict-access-to-an-scm-site), you should use the Azure portal.
+To update the backed web app's [access restrictions for the SCM site](app-service-ip-restrictions.md#restrict-access-to-an-scm-site), run the following commands for the backend web app. Replace  `<backend-app-name>` with your app name.
 
-1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for your backend web app.
-1. In the left pane, select **Networking**. Then select **Access restriction**. 
-1. Check the box to allow public access. 
-    
-    As you saw earlier, public access was blocked when you added the private endpoint to the backend web app.
+```azurecli-interactive
+# Enable public access for the backend web app
+az webapp update --resource-group $groupName --name <backend-app-name> --set publicNetworkAccess=Enabled
 
-1. Under **Site access and rules**, select the radio button next to "Deny" for "Unmatched rule action". This setting denies public access to the main site even though the general app access setting is set to allow public access.
+# Set the unmatched rule action for the main site to deny all traffic. This setting denies public access to the main site even though the general app access setting is set to allow public access.
+az resource update --resource-group $groupName --name <backend-app-name> --namespace Microsoft.Web --resource-type sites --set properties.siteConfig.ipSecurityRestrictionsDefaultAction=Deny
+
+# Set the unmatched rule action for the SCM/advanced tool site to allow all traffic
+az resource update --resource-group $groupName --name <backend-app-name> --namespace Microsoft.Web --resource-type sites --set properties.siteConfig.scmIpSecurityRestrictionsDefaultAction=Allow
+```
+
+To confirm you set these access restrictions correctly, navigate to the **Access Restrictions** page in the [Azure portal](https://portal.azure.com) for the backend web app. The settings should match the following screenshots.
+
+Access restrictions for the main site for the backend web app:
 
     :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-main-site.png" alt-text="Screenshot of access restriction updates for main site to deny public access.":::
 
-1. Under **Site access and rules**, navigate to the **Advanced tool site** tab. Select the radio button next to "Allow" for "Unmatched rule action". This setting allows public access to the SCM site.
+Access restrictions for the SCM/advanced tool site for the backend web app:
 
     :::image type="content" source="./media/tutorial-secure-ntier-app/access-restrictions-update-scm-site.png" alt-text="Screenshot of access restriction updates for SCM site to allow public access.":::
-
-1. Select "Save" at the top left to apply the changes.
 
 ## Deploy source code using GitHub Actions and a service principal
 
