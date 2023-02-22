@@ -37,7 +37,7 @@ Number matching is a good example of protection for an authentication method tha
 As MFA fatigue attacks rise, number matching becomes more critical to sign-in security. As a result, Microsoft will change the default behavior for push notifications in Microsoft Authenticator. 
 
 >[!NOTE]
->Number matching will begin to be enabled for all users of Microsoft Authenticator starting February 27, 2023.
+>Number matching will begin to be enabled for all users of Microsoft Authenticator starting May 08, 2023.
 
 <!---Add link to Mayur Blog post here--->
 
