@@ -12,7 +12,7 @@ ms.author: aahi
 To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):
 1. Select **Testing deployments** from the left side menu.
 
-1. For multilingual projects, from the **Select text language** dropdown, select the language of the utterance you are testing.
+1. For multilingual projects, from the **Select text language** dropdown, select the language of the utterance you're testing.
 
 1. From the **Deployment name** dropdown, select the deployment name corresponding to the model that you want to test. You can only test models that are assigned to deployments.
 
