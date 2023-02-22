@@ -53,20 +53,36 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "defaultValue": "[resourceGroup().location]"
     },
     "appServicePlanNamePrefix": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 27,
+      "metadata": {
+        "description": "App Service plan name prefix."
+      }
     },
     "appServiceNamePrefix": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 47,
+      "metadata": {
+        "description": "App Service name prefix."
+      }
     },
     "storageAccountNamePrefix": {
       "type": "string",
       "maxLength": 11,
       "metadata": {
-        "description": "Storage account name prefix"
+        "description": "Storage account name prefix."
       }
     },
     "storageAccountType": {
-      "type": "string"
+      "type": "string",
+      "allowedValues": [
+        "Premium_LRS",
+        "Standard_LRS",
+        "Standard_GRS"
+      ],
+      "metadata": {
+        "description": "Storage account type allowed values"
+      }
     }
   },
   "variables": {
@@ -163,14 +179,14 @@ Add the following JSON to the file and save it.
         "label": "Web App settings",
         "subLabel": {
           "preValidation": "Configure the web app settings",
-          "postValidation": "Done"
+          "postValidation": "Completed"
         },
         "elements": [
           {
             "name": "appServicePlanName",
             "type": "Microsoft.Common.TextBox",
-            "label": "App service plan name prefix",
-            "placeholder": "App service plan name prefix",
+            "label": "App Service plan name prefix",
+            "placeholder": "App Service plan name prefix",
             "defaultValue": "",
             "toolTip": "Use alphanumeric characters or hyphens with a maximum of 27 characters.",
             "constraints": {
@@ -183,8 +199,8 @@ Add the following JSON to the file and save it.
           {
             "name": "appServiceName",
             "type": "Microsoft.Common.TextBox",
-            "label": "App service name prefix",
-            "placeholder": "App service name prefix",
+            "label": "App Service name prefix",
+            "placeholder": "App Service name prefix",
             "defaultValue": "",
             "toolTip": "Use alphanumeric characters or hyphens with a maximum of 47 characters.",
             "constraints": {
@@ -200,8 +216,8 @@ Add the following JSON to the file and save it.
         "name": "storageConfig",
         "label": "Storage settings",
         "subLabel": {
-          "preValidation": "Configure the infrastructure settings",
-          "postValidation": "Done"
+          "preValidation": "Configure the storage settings",
+          "postValidation": "Completed"
         },
         "elements": [
           {
@@ -224,7 +240,8 @@ Add the following JSON to the file and save it.
                 "Standard_LRS",
                 "Standard_GRS"
               ]
-            }
+            },
+            "visible": true
           }
         ]
       }
@@ -437,78 +454,50 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 Use the following ARM template to deploy the managed application definition in your service catalog. After the deployment, the definition files are stored in your bring your own storage account.
 
-Open Visual Studio Code, create a file with the name _azuredeploy.json_ and save it.
+Open Visual Studio Code, create a file with the name _deployDefinition.bicep_ and save it.
 
 Add the following JSON and save the file.
 
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    },
-    "managedApplicationDefinitionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the managed application definition."
+```bicep
+param location string = resourceGroup().location
+
+@description('Name of the managed application definition.')
+param managedApplicationDefinitionName string
+
+@description('Resource ID for the bring your own storage account where the definition is stored.')
+param definitionStorageResourceID string
+
+@description('The URI of the .zip package file.')
+param packageFileUri string
+
+@description('Publishers Principal ID that needs permissions to manage resources in the managed resource group.')
+param principalId string
+
+@description('Role ID for permissions to the managed resource group.')
+param roleId string
+
+var definitionLockLevel = 'ReadOnly'
+var definitionDescription = 'Sample BYOS Managed application definition'
+var definitionDisplayName = 'Sample BYOS Managed application definition'
+
+resource managedApplicationDefinition 'Microsoft.Solutions/applicationDefinitions@2021-07-01' = {
+  name: managedApplicationDefinitionName
+  location: location
+  properties: {
+    lockLevel: definitionLockLevel
+    description: definitionDescription
+    displayName: definitionDisplayName
+    packageFileUri: packageFileUri
+    storageAccountId: definitionStorageResourceID
+    authorizations: [
+      {
+        principalId: principalId
+        roleDefinitionId: roleId
       }
-    },
-    "definitionStorageResourceID": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource ID for the bring your own storage account where the definition is stored."
-      }
-    },
-    "packageFileUri": {
-      "type": "string",
-      "metadata": {
-        "description": "The URI of the .zip package file."
-      }
-    },
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "Publishers Principal ID that needs permissions to manage resources in the managed resource group."
-      }
-    },
-    "roleId": {
-      "type": "string",
-      "metadata": {
-        "description": "Role ID for permissions to the managed resource group."
-      }
-    }
-  },
-  "variables": {
-    "definitionLockLevel": "ReadOnly",
-    "definitionDescription": "Sample BYOS Managed application definition",
-    "definitionDisplayName": "Sample BYOS Managed application definition"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Solutions/applicationDefinitions",
-      "apiVersion": "2021-07-01",
-      "name": "[parameters('managedApplicationDefinitionName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "lockLevel": "[variables('definitionLockLevel')]",
-        "description": "[variables('definitionDescription')]",
-        "displayName": "[variables('definitionDisplayName')]",
-        "packageFileUri": "[parameters('packageFileUri')]",
-        "storageAccountId": "[parameters('definitionStorageResourceID')]",
-        "authorizations": [
-          {
-            "principalId": "[parameters('principalId')]",
-            "roleDefinitionId": "[parameters('roleId')]"
-          }
-        ]
-      }
-    }
-  ],
-  "outputs": {}
+    ]
+  }
 }
+
 ```
 
 For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template).
@@ -519,7 +508,7 @@ The `lockLevel` on the managed resource group prevents the customer from perform
 
 The managed application definition's deployment template needs input for several parameters. The deployment command prompts you for the values or you can create a parameter file for the values. In this example, we use a parameter file to pass the parameter values to the deployment command.
 
-In Visual Studio Code, create a new file named _azuredeploy-parameters.json_ and save it.
+In Visual Studio Code, create a new file named _deployDefinition.parameters.json_ and save it.
 
 Add the following to your parameter file and save it. Then, replace the `{placeholder values}` including the curly braces, with your values.
 
@@ -570,8 +559,8 @@ New-AzResourceGroup -Name byosAppDefinitionGroup -Location westus3
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName byosAppDefinitionGroup `
-  -TemplateFile azuredeploy.json `
-  -TemplateParameterFile azuredeploy-parameters.json
+  -TemplateFile deployDefinition.bicep `
+  -TemplateParameterFile deployDefinition.parameters.json
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -581,8 +570,8 @@ az group create --name byosAppDefinitionGroup --location westus3
 
 az deployment group create \
   --resource-group byosAppDefinitionGroup \
-  --template-file azuredeploy.json \
-  --parameters azuredeploy-parameters.json
+  --template-file deployDefinition.bicep \
+  --parameters @deployDefinition.parameters.json
 ```
 
 ---

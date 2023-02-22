@@ -53,20 +53,36 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "defaultValue": "[resourceGroup().location]"
     },
     "appServicePlanNamePrefix": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 27,
+      "metadata": {
+        "description": "App Service plan name prefix."
+      }
     },
     "appServiceNamePrefix": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 47,
+      "metadata": {
+        "description": "App Service name prefix."
+      }
     },
     "storageAccountNamePrefix": {
       "type": "string",
       "maxLength": 11,
       "metadata": {
-        "description": "Storage account name prefix"
+        "description": "Storage account name prefix."
       }
     },
     "storageAccountType": {
-      "type": "string"
+      "type": "string",
+      "allowedValues": [
+        "Premium_LRS",
+        "Standard_LRS",
+        "Standard_GRS"
+      ],
+      "metadata": {
+        "description": "Storage account type allowed values"
+      }
     }
   },
   "variables": {
@@ -163,14 +179,14 @@ Add the following JSON to the file and save it.
         "label": "Web App settings",
         "subLabel": {
           "preValidation": "Configure the web app settings",
-          "postValidation": "Done"
+          "postValidation": "Completed"
         },
         "elements": [
           {
             "name": "appServicePlanName",
             "type": "Microsoft.Common.TextBox",
-            "label": "App service plan name prefix",
-            "placeholder": "App service plan name prefix",
+            "label": "App Service plan name prefix",
+            "placeholder": "App Service plan name prefix",
             "defaultValue": "",
             "toolTip": "Use alphanumeric characters or hyphens with a maximum of 27 characters.",
             "constraints": {
@@ -183,8 +199,8 @@ Add the following JSON to the file and save it.
           {
             "name": "appServiceName",
             "type": "Microsoft.Common.TextBox",
-            "label": "App service name prefix",
-            "placeholder": "App service name prefix",
+            "label": "App Service name prefix",
+            "placeholder": "App Service name prefix",
             "defaultValue": "",
             "toolTip": "Use alphanumeric characters or hyphens with a maximum of 47 characters.",
             "constraints": {
@@ -200,8 +216,8 @@ Add the following JSON to the file and save it.
         "name": "storageConfig",
         "label": "Storage settings",
         "subLabel": {
-          "preValidation": "Configure the infrastructure settings",
-          "postValidation": "Done"
+          "preValidation": "Configure the storage settings",
+          "postValidation": "Completed"
         },
         "elements": [
           {
@@ -224,7 +240,8 @@ Add the following JSON to the file and save it.
                 "Standard_LRS",
                 "Standard_GRS"
               ]
-            }
+            },
+            "visible": true
           }
         ]
       }
