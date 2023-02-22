@@ -212,7 +212,7 @@ Review the table below for an explanation of each function and it's purpose in t
 | Method | Description |
 | -----  | ----------- |
 | **`hello_orchestrator`** | The orchestrator function, which describes the workflow. In this case, the orchestration starts, invokes three functions in a sequence, and returns the ordered results of all 3 functions in a list.  |
-| **`hello`** | The activity function, containing the business logic being orchestrator. The function returns a simple greeting to the city passed as an argument. |
+| **`hello`** | The activity function, which performs the work being orchestrated. The function returns a simple greeting to the city passed as an argument. |
 | **`http_start`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
 
 ::: zone-end
