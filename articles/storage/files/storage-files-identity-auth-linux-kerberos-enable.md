@@ -4,16 +4,16 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Enable Active Directory authentication over SMB for Linux clients accessing Azure Files
 
-For more information on all supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). (Will need to update that doc with this Linux option.)
+For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following two methods:
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following methods:
 
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
@@ -29,13 +29,13 @@ In order to use the first option, you must sync your AD DS to Azure Active Direc
 
 ## Linux SMB client limitations
 
-You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use the [autofs](https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=smb311#dynamically-mount-with-autofs) package to mount the share as it is accessed.
+You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use [autofs](storage-how-to-use-files-linux?tabs=smb311#dynamically-mount-with-autofs) to mount the share as it's accessed.
 
 ## Prerequisites
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- An Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- An Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
@@ -128,7 +128,7 @@ PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
 ```
 
-4. If the ping doesn't work, first go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Azure AD tenant.
+4. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Azure AD tenant.
 
 5. If the IP addresses are pinging but the DNS servers aren't automatically discovered, you can add the DNS servers manually.
 
@@ -155,7 +155,7 @@ network:
 localadmin@contosovm:~$ sudo netplan --debug apply 
 ```
 
-6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
+6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. Here's a sample script.
 
 ```bash
 localadmin@contosovm:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
@@ -217,7 +217,7 @@ _ldap._tcp.aadintcanary.contoso.com service = 0 100 389 hxt4yo--jb9q529.aadintca
 
 ### Set up hostname and fully qualified domain name (FQDN)
 
-1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now as this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
+1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
 ```bash
 127.0.0.1       contosovm.aadintcanary.contoso.com contosovm
@@ -243,7 +243,7 @@ contosovm.aadintcanary.contoso.com
 
 ### Set up krb5.conf
 
-1. Configure `krb5.conf` so that the Kerberos key distribution center (KDC) with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). See the sample `krb5.conf` file below.
+1. Configure `krb5.conf` so that the Kerberos key distribution center (KDC) with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). Here's a sample `krb5.conf` file.
 
 ```bash
 #sudo vim /etc/krb5.conf 
@@ -264,10 +264,10 @@ localadmin@contosovm:~$ sudo smbd -b | grep "CONFIGFILE"
    CONFIGFILE: /etc/samba/smb.conf
 ```
 
-2. Change the SMB configuration to act as a domain member. For more information, see [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). See the sample `smb.conf` file below.
+2. Change the SMB configuration to act as a domain member. For more information, see [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). Here's a sample `smb.conf` file.
 
 > [!Note]
-> The example below is for Azure AD DS, for which we recommend setting `backend = rid` when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
+> This example is for Azure AD DS, for which we recommend setting `backend = rid` when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
 
 ```bash
 localadmin@contosovm:~$ cat /etc/samba/smb.conf
@@ -322,7 +322,7 @@ Using short domain name -- AADINTCANARY
 Joined 'CONTOSOVM' to dns domain 'aadintcanary.contoso.com' 
 ```
 
-2. Make sure that the DNS record has been created for this host on the domain server.
+2. Make sure that the DNS record exists for this host on the domain server.
 
 ```bash
 localadmin@contosovm:~$ nslookup contosovm.aadintcanary.contoso.com 10.0.2.5
@@ -464,7 +464,7 @@ The following are base mount options for all access control models: `nosharesock
 
 In a single-user mount use case, the mount point is accessed by a single user of the AD domain and isn't shared with other users of the domain. Each file access happens in the context of the user whose krb5 credentials were used to mount the file share. Any user on the local system who accesses the mount point will impersonate that user.
 
-In a multi-user mount use case, there is still a single mount point, but multiple AD users can access that same mount point. In scenarios where multiple users on the same client will be accessing the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
+In a multi-user mount use case, there's still a single mount point, but multiple AD users can access that same mount point. In scenarios where multiple users on the same client will be accessing the same share, and the system is configured for Kerberos and mounted with `sec=krb5`, consider using the `multiuser` mount option.
 
 #### File permissions
 
@@ -490,10 +490,10 @@ Choose one of the following mount options to convert file ownership UID/GID to o
 
 Performance is important, even if file attributes aren't always accurate. The default value for **actimeo** is 1 (second), which means that the file attributes are fetched again from the server if the cached attributes are more than 1 second old. Increasing the value to 60 means that attributes are cached for at least 1 minute. For most use cases, we recommend using a value of 30 for this option (**actimeo=30**).
 
-For newer kernels, consider setting the **actimeo** features more granularly, using **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
+For newer kernels, consider setting the **actimeo** features more granularly. You can use **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
 
 ## Next steps
 
-For more information on how to mount an SMB file share, see:
+For more information on how to mount an SMB file share on Linux, see:
 
 - [Mount SMB Azure file share on Linux](storage-how-to-use-files-linux.md)
