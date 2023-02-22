@@ -9,8 +9,8 @@ services: service-fabric
 ms.date: 07/14/2022
 ---
 
-# DNS Service in Azure Service Fabric
-DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
+# DNS service in Azure Service Fabric
+DNS service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
 
 Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service.
 
@@ -35,7 +35,7 @@ DNS service is supported on both Windows and Linux clusters, although support fo
 
 ## Enabling DNS service
 > [!NOTE]
-> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
+> Enabling DNS service will override some DNS settings on the nodes. If you experience issues connecting to the internet, check your DNS settings.
 
 ### New clusters
 #### Clusters using ARM templates
@@ -95,7 +95,7 @@ After you have a template, you can enable DNS service with the following steps:
         }
         ```
 
-   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for DNS service, see [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
       "properties": {
@@ -220,7 +220,7 @@ You can set the DNS name for a service when creating it by using the `New-Servic
 New-ServiceFabricService `
     -Stateless `
     -PartitionSchemeSingleton `
-    -ApplicationName `fabric:/application1 `
+    -ApplicationName fabric:/application1 `
     -ServiceName fabric:/application1/stateless1 `
     -ServiceTypeName Stateless1Type `
     -InstanceCount 1 `
@@ -245,7 +245,7 @@ Once the service is deployed with the DNS name, Service Fabric Explorer will sho
 > This view may be different depending on the version of Service Fabric Explorer used, however, the DNS name field should be visible in some form on the service page. 
 
 ## Making DNS queries on a stateful service partition
-Beginning with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions. To enable support for partitioned service queries, the [cluster configuration settings for DNS Service](./service-fabric-cluster-fabric-settings.md#dnsservice) must be updated to set option `EnablePartitionedQuery` to `true`.
+Beginning with Service Fabric version 6.3, DNS service supports queries for service partitions. To enable support for partitioned service queries, the [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice) must be updated to set option `EnablePartitionedQuery` to `true`.
 
 For partitions that will be used in DNS queries, the following naming restrictions apply:
 
@@ -261,9 +261,9 @@ DNS queries that target a partition are formatted as follows:
 Where:
 
 - *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
-- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "--". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's ARM template. The default value is "--". To learn more, see  [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* is the name of the partition.
-- *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's ARM template. The default value is empty string. To learn more, see  [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name.
 
 The following examples show DNS queries for partitioned services running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`:
@@ -274,7 +274,7 @@ The following examples show DNS queries for partitioned services running on a cl
 DNS service returns the IP address of the endpoint associated with the primary replica of the partition. If no partition is specified, DNS service will randomly select a partition.
 
 ## Using DNS names in your services
-If you deploy services with DNS names, you can find the IP address of the exposed endpoints by referencing the DNS name. DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition.
+If you deploy services with DNS names, you can find the IP address of the exposed endpoints by referencing the DNS name. DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for HTTP calls to call a particular service partition.
 
 Dynamic ports are not supported by DNS service. You can use the reverse proxy service to resolve services that use dynamic ports.
 
@@ -333,8 +333,8 @@ public class ValuesController : Controller
     }
 }
 ```
-## Recursive Queries
 
+## Recursive queries
 For DNS names that DNS service can't resolve on its own (for example, a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
 
 ![Diagram showing how DNS queries for public names are resolved](./media/service-fabric-dnsservice/recursive-dns.png) 
@@ -343,19 +343,18 @@ Prior to Service Fabric 9.0, these servers were queried serially until a respons
 
 Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This will result in quicker responses in the scenario previously mentioned. This option is not enabled by default, although this may change in a future update.
 
-Fine-grained options are also introduced in Service Fabric 9.0 to control the behavior of the recursive queries, including the timeout periods and query attempts. These options can be set in the [cluster configuration settings for DNS Service](./service-fabric-cluster-fabric-settings.md#dnsservice):
+Fine-grained options are also introduced in Service Fabric 9.0 to control the behavior of the recursive queries, including the timeout periods and query attempts. These options can be set in the [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice):
 
 - **RecursiveQuerySerialMaxAttempts** - The number of serial queries that will be attempted, at most. If this number is higher than the amount of forwarding DNS servers, querying will stop once all the servers have been attempted exactly once. 
 - **RecursiveQuerySerialTimeout** - The timeout value in seconds for each attempted serial query.
 - **RecursiveQueryParallelMaxAttempts** - The number of times parallel queries will be attempted. Parallel queries are executed after the max attempts for serial queries have been exhausted. 
 - **RecursiveQueryParallelTimeout** - The timeout value in seconds for each attempted parallel query.
 
-
 ## Limitations and known issues
 * Dynamic ports are not supported by DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
-* Support for Linux is currently limited to containerized services. Process-based services on Linux currently cannot use DNS Service.
-* DNS Service for Linux clusters cannot be enabled through Azure Portal.
-* If a DNS name is changed for a service, the name updates may not be immediately visible in some scenarios. To resolve the issue, DNS Service instances should be restarted across the cluster. 
+* Support for Linux is currently limited to containerized services. Process-based services on Linux currently cannot use DNS service.
+* DNS service for Linux clusters cannot be enabled through Azure Portal.
+* If a DNS name is changed for a service, the name updates may not be immediately visible in some scenarios. To resolve the issue, DNS service instances should be restarted across the cluster. 
 
 ## Next steps
-Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
+Learn more about service communication within the cluster with [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
