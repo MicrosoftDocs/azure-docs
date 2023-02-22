@@ -33,7 +33,7 @@ The scoring script must contain two methods:
 
 #### The `init` method
 
-Use the `init()` method for any costly or common preparation. For example, use it to load the model into a global object. This function will be called once at the beginning of the process. You model's files will be available in an environment variable called `AZUREML_MODEL_DIR`. Use this variable to locate the files associated with the model.
+Use the `init()` method for any costly or common preparation. For example, use it to load the model into a global object. This function will be called once at the beginning of the process. You model's files will be available in an environment variable called `AZUREML_MODEL_DIR`. Use this variable to locate the files associated with the model. Notice that some model's may be contained in a folder. See [how you can find out what's the folder used by your model](#using-models-that-are-folders).
 
 ```python
 def init():
@@ -153,6 +153,26 @@ For an example about how to achieve it see [Text processing with batch deploymen
 ### Relationship between the degree of parallelism and the scoring script
 
 Your deployment configuration controls the size of each mini-batch and the number of workers on each node. Take into account them when deciding if you want to read the entire mini-batch to perform inference. When running multiple workers on the same instance, take into account that memory will be shared across all the workers. Usually, increasing the number of workers per node should be accompanied by a decrease in the mini-batch size or by a change in the scoring strategy (if data size remains the same).
+
+### Using models that are folders
+
+The environment variable `AZUREML_MODEL_DIR` is typically used in the `init()` function to load the model. However, some models may contain its files inside of a folder. When reading the files in this variable, you may need to account for that. You can identify the folder where your MLflow model is placed as follows:
+
+1. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+1. Go to the section __Models__.
+
+1. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+1. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+Then you can use this path to load the model:
+
+```python
+model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
+```
 
 ## Next steps
 
