@@ -97,7 +97,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
    |---------|---------|---------|
    |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
 
-   For more detail on other fields, see below [Resource Logs](#resource-logs).
+   For more detail on other fields, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **ConnectedClientList**, send your logs to your preferred destination. Select the information on the right.
 
@@ -109,7 +109,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
 
-   :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
+  **FRAN--need a new picture here**
 
 1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
 
@@ -117,11 +117,11 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
    |---------|---------|---------|
    |Connection events |  Connection, disconnection, and authentication events logged when the events occur. Includes IP addresses of each connection. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
 
-   For more detail on other fields, see below [Resource Logs](#resource-logs).
+   For more detail on other fields, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information on the right.
 
-    :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
+    **FRAN--need a new picture here**
 
 ## Enable connection logging using the REST API
 
@@ -206,7 +206,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 }
 
 ```
-## Create diagnostic setting via Azure CLI
+## Enable Connection Logging using Azure CLI
 
 ### [Azure CLI with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
