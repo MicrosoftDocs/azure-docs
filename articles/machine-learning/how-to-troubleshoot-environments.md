@@ -1715,7 +1715,7 @@ pip install --ignore-installed [package]
 Try creating a separate environment using conda
 
 ## *Make issues*
-## No targets specified and no makefile found
+### No targets specified and no makefile found
 <!--issueDescription-->
 This issue can happen when no targets are specified and no makefile is found when running `make`.
 
