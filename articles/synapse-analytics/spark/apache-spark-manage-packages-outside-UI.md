@@ -4,12 +4,12 @@ description: Learn how to manage packages using Azure PowerShell cmdlets or REST
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 02/20/2023
 ms.author: shuaijunye
 ms.subservice: spark
 ---
 
-# Manage packages outside Synapse Analytics Studio UIs 
+# Automate the library management process through Azure PowerShell cmdlets and REST APIs
 
 You may want to manage your libraries for your serverless Apache Spark pools without going into the Synapse Analytics UI pages. For example, you may find that:
 
