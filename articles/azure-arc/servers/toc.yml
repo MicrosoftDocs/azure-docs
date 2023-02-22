@@ -28,7 +28,7 @@
   items:
     - name: Connected Machine agent overview
       href: agent-overview.md
-    - name: Log Analytics agent deployment options
+    - name: Deploy Azure Monitor agent
       href: concept-log-analytics-extension-deployment.md
     - name: Security
       items:
