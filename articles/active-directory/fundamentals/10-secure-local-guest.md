@@ -1,6 +1,6 @@
 ---
-title: Convert local guests into Azure AD B2B guest accounts
-description: Learn how to convert local guests into Azure AD B2B guest accounts 
+title: Convert local guest accounts to Azure AD B2B guest accounts
+description: Learn to convert local guests into Azure AD B2B guest accounts by identifying apps and local guest accounts, migration, and more. 
 services: active-directory 
 author: gargi-sinha
 ms.author: gasinh
@@ -14,14 +14,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Convert local guests into Azure Active Directory B2B guest accounts
+# Convert local guest accounts to Azure Active Directory B2B guest accounts
 
-Azure Active Directory (Azure AD B2B) allows external users to collaborate using their own identities. However, it isn't uncommon for organizations to issue local usernames and passwords to external users. This approach isn't recommended as the bring-your-own-identity (BYOI) capabilities provided
-by Azure AD B2B to provide better security, lower cost, and reduce
-complexity when compared to local account creation. Learn more
-[here.](./secure-external-access-resources.md)
+With Azure Active Directory (Azure AD B2B), external users collaborate with their identities. Organizations can issue local usernames and passwords to external users. This approach isn't recommended because Azure AD B2B has improved security, lower cost, and less complexity, compared to creating local accounts. In addition, if your organization issues local credentials that external users manage, you can use Azure AD B2B instead, this document provides a guide to make the transition as seamlessly as possible.
 
-If your organization currently issues local credentials that external users have to manage and would like to migrate to using Azure AD B2B instead, this document provides a guide to make the transition as seamlessly as possible.
+Learn more: [Plan an Azure AD B2B collaboration deployment](secure-external-access-resources.md)
 
 ## Identify external-facing applications
 
