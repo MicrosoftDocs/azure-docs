@@ -101,7 +101,7 @@ When an Azure Cosmos DB account is configured with multi-region writes, one of t
 
 #### Best practices for multi-region writes
 #### Keep local traffic local
-When using multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. Cross-region calls must be avoided by the application for optimal performance.  
+When using multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. Cross-region calls must be avoided for optimal performance.  
 
 It's important for the application to minimize conflicts by avoiding the following anti-patterns: 
 * Sending the same write operation to all regions to hedge bets on response times from the fastest region. 
@@ -118,13 +118,12 @@ While infrequent, a replication lag may occur on one or a few partitions when ge
 For instance, an architecture in which the application writes to Region A but reads from Region B introduces a dependency on replication lag between the two regions. However, if the application reads and writes to the same region, performance remains constant even in the presence of replication lag.
 
 #### Session Consistency Usage for Write operations
-The session token is used for both read and write operations when using session consistency.  
+In Session Consistency, the session token is used for both read and write operations.  
 
-The cached session token is sent to the server during read operations with a guarantee of receiving data corresponding to at least the specified session token.  
+For read operations, the cached session token is sent to the server with a guarantee of receiving data corresponding to the specified (or a more recent) session token.  
+For write operations, the session token is sent to the database with a guarantee of persisting the data only if the server has caught up to the session token provided. In single-region write accounts, the write region is always guaranteed to have caught up to the session token. However, in multi-region write accounts, the region being written to may not have caught up to writes issued to another region. If the client writes to Region A with a session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B.
 
-The session token is sent to the database for write operations with a guarantee of persisting the data only if the server has caught up to the session token provided. The write region is always guaranteed to have caught up to the session token in single-region write accounts by virtue of being the only region issuing session tokens. However, the region being written to may not have caught up to writes issued to another region in multi-region write accounts. If the client writes to Region A with a session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B and by extension, caught up to the Session Token issued by Region B.
-
-It's best to use session tokens only for read operations and not for write operations in multi-region write accounts when passing session tokens between client instances. 
+It's best to use session tokens only for read operations and not for write operations when passing session tokens between client instances. 
 
 #### Rapid updates to the same document
 The server's updates to resolve or confirm the absence of conflicts can collide with writes triggered by the application when the same document is repeatedly updated. Repeated updates in rapid succession to the same document experience higher latencies during conflict resolution. While occasional bursts in repeated updates to the same document are inevitable, it would be worth exploring an architecture where new documents are created instead if steady state traffic sees rapid updates to the same document over an extended period. 
