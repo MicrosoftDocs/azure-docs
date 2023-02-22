@@ -690,7 +690,7 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone pivot="programming-language-cpp"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/jinshan1979/cognitive-services-speech-sdk/blob/5c2449860b37101992531525b4908c5eb9d2203c/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L652).
 
 ::: zone-end
 
@@ -708,7 +708,7 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone pivot="programming-language-javascript"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
 
 ::: zone-end
 
