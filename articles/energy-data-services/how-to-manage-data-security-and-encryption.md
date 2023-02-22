@@ -57,7 +57,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy Preview
 1.	Create a **Azure Data Manager for Energy Preview** instance.
 2.	Select the **Encryption** tab.
 
-   [![Screenshot of Encyption tab while creating Azure Data Manager for Energy Preview](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
+   [![Screenshot of Encryption tab while creating Azure Data Manager for Energy Preview.](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
  
 3.	In the encryption tab, select **Customer-managed keys (CMK)**. 
 4.	For using CMK, you need to select the key vault where the key is stored. 
@@ -79,14 +79,14 @@ In addition to TLS, when you interact with Azure Data Manager for Energy Preview
 
 12.	Next, select “**Review+Create**” after completing other tabs. 
 13.	Select the "**Create**" button. 
-14.	an Azure Data Manager for Energy Preview instance is created with customer-managed keys.
+14.	An Azure Data Manager for Energy Preview instance is created with customer-managed keys.
 15.	Once CMK is enabled you will see its status on the **Overview** screen.
 
-    [![Screenshot of CMK enabled on Azure Data Manager for Energy overview page](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png#lightbox)
+    [![Screenshot of CMK enabled on Azure Data Manager for Energy overview page.](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png#lightbox)
 
 16.	You can navigate to **Encryption** and see that CMK enabled with user managed identity.
  
-    [![Screenshot of CMK settings disabled once Azure Data Manager for Energy instance is installed](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png#lightbox)
+    [![Screenshot of CMK settings disabled once Azure Data Manager for Energy instance is installed.](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png#lightbox)
 
 
 
