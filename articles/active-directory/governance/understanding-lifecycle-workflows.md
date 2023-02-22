@@ -33,10 +33,10 @@ For delegated scenarios, the admin needs one of the following [Azure AD roles](/
 - Global reader
 - Lifecycle workflows administrator
 
-## Restrictions
+## Limits
 
 
-|Column1  |Limit  |
+|Category  |Limit  |
 |---------|---------|
 |Number of Workflows     |   50 per tenant      |
 |Number of Tasks     |  25 per workflow       |
