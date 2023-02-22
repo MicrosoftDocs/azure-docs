@@ -24,7 +24,7 @@ In this article, we'll describe the structure and operation of the TCNForecaster
 
 ## TCNForecaster
 
-TCNForecaster is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a DNN architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up to a given horizon. The following image shows the major components of the TCNForecaster architecture:
+TCNForecaster is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a DNN architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up to a specified forecast horizon. The following image shows the major components of the TCNForecaster architecture:
 
 :::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's TCNForecaster.":::
 
@@ -32,7 +32,7 @@ TCNForecaster has the following main components:
 
 * A **pre-mix** layer that mixes the input time series and feature data into an array of signal **channels** that the convolutional stack will process.
 * A stack of **dilated convolution** layers that processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output contains a mixture of convolution-filtered signals from the input channels. 
-* A collection of **forecast head** units that coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. Each head unit produces a horizon of forecasts for a quantile of the prediction distribution.
+* A collection of **forecast head** units that coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. Each head unit produces forecasts up to the horizon for a quantile of the prediction distribution.
 
 ### Dilated causal convolution
 
@@ -42,7 +42,7 @@ Stacking dilated convolutions gives the TCN the ability to model correlations ov
 
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-dilated-conv.png" alt-text="Diagram showing stacked, dilated convolution layers.":::
 
-The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of look-back in a convolutional network is called the **receptive field** and it is determined completely by the TCN architecture.   
+The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of history, or "look back," that a convolutional network uses to make predictions is called the **receptive field** and it is determined completely by the TCN architecture.
 
 ### TCNForecaster architecture
 
@@ -122,7 +122,7 @@ Inputs marked with an asterisk (*) are determined by a hyper-parameter search th
 
 AutoML uses model search methods to find values for the following hyper-parameters:
 
-* Network depth, or the number of [convolutional blocks](#TCNForecaster-architecture),
+* Network depth, or the number of [convolutional blocks](#tcnforecaster-architecture),
 * Number of cells per block,
 * Number of channels in each hidden layer,
 * Dropout ratio for network regularization,
