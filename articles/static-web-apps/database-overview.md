@@ -59,11 +59,11 @@ The following table shows you how requests route to different parts of a static 
 | `example.com/data-api/*` | Database connection endpoints that support REST and GraphQL requests. |
 | `example.com/*` | Static content |
 
-When you configure database connections on your website, you have control over the endpoint past the `/data-api` path fragment. The `/data-api` is a convention of Static Web Apps and isn't available for you to change.
+When you configure database connections on your website, you have can configure the suffix of the `/data-api/*` route. The `/data-api` prefix is a convention of Static Web Apps and cannot be changed.
 
 ## Configuration
 
-There are two steps to configuring a database connection in Static Web Apps. You need to link your database to your static web app in the Azure portal, and update your application configuration.
+There are two steps to configuring a database connection in Static Web Apps. You need to connect your database to your static web app in the Azure portal, and update your database connections configuration file.
 
 See [Database connection configuration in Azure Static Web Apps](database-configuration.md) for more detail.
 

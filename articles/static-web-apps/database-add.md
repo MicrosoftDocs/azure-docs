@@ -11,7 +11,9 @@ zone_pivot_groups: static-web-apps-api-protocols
 
 # Tutorial: Add a database connection in Azure Static Web Apps (preview)
 
-In this tutorial, you learn to connect an Azure SQL database to your static web app. Once configured, you issue REST or GraphQL requests to manipulate data without having to write data access code.
+In this tutorial, you learn how to connect an Azure SQL database to your static web app. Once configured, you can make REST or GraphQL requests to the built-in `/data-api` endpoint to manipulate data without having to write additional backend code. 
+
+For the sake of simplicity, this tutorial shows you how to use an Azure database for local development purposes, but you may also use a local database server for your local development needs.
 
 :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
 
@@ -32,9 +34,9 @@ To complete this tutorial, you need to have an existing Azure SQL database and s
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
-## Configure database security
+## Configure database connectivity
 
-To work in a development environment, you need to allowlist your IP address, and some Azure resources so the Static Web Apps worker can access the database.
+Azure Static Web Apps must have network access to your database for database connections to work. Additionally, to use an Azure database for local development purposes, you will need to configure your database to allow requests from your own IP address.
 
 1. Go to your Azure SQL Server in the [Azure portal](https://portal.azure.com).
 
@@ -48,9 +50,11 @@ To work in a development environment, you need to allowlist your IP address, and
 
 1. Select **Save**.
 
-## Get database connection string
+## Get database connection string for local development
 
-You need the database connection string to set up your development environment.
+To use your Azure database for local development, you need to retrieve the connection string of your database. You may skip this step if you plan to use a local database for development purposes.
+
+1. Go to your Azure SQL Server in the [Azure portal](https://portal.azure.com).
 
 1. Under the *Settings* section, select **SQL databases**.
 
@@ -60,7 +64,7 @@ You need the database connection string to set up your development environment.
 
 1. From the *ADO.NET (SQL authentication)* box, copy the connection string and set it aside in a text editor.
 
-    Make sure to replace the `{your_password}` placeholder in the connection string with your password.
+Make sure to replace the `{your_password}` placeholder in the connection string with your password.
 
 ## Create sample data
 
@@ -92,7 +96,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 ## Configure the static web app
 
-The rest this tutorial focuses on working with local files in your static web app.
+The rest this tutorial focuses on editing your static web app's source code to make use of database connections locally.  
 
 > [!IMPORTANT]
 > The following steps assume you are working with the static web app created in the [getting started guide](getting-started.md). If you are using a different project, make sure to adjust the following git commands to match your branch names.
@@ -111,9 +115,9 @@ The rest this tutorial focuses on working with local files in your static web ap
 
 ### Create the database configuration file
 
-Next, create a configuration file that your static web app uses to interface with the database.
+Next, create the configuration file that your static web app uses to interface with the database.
 
-1. Open your terminal and create a new variable to hold your connection string.
+1. Open your terminal and create a new variable to hold your connection string. The specific syntax may vary depending on the shell type you are using.
 
     # [Bash](#tab/bash)
 
@@ -156,7 +160,7 @@ Next, create a configuration file that your static web app uses to interface wit
         "$schema": "dab.draft-01.schema.json", 
         "data-source": { 
           "database-type": "mssql", 
-          "connection-string": "@env(DATABASE_CONNECTION_STRING)" 
+          "connection-string": "@env('DATABASE_CONNECTION_STRING')" 
         }, 
         "runtime": { 
           "rest": { 
@@ -250,6 +254,10 @@ Now you can run your website and manipulate data in the database directly.
     ```bash
     swa start ./src --data-api-location swa-db-connections
     ```
+
+If everything is working correctly, you should see that the SWA CLI was able to connect to your database. Your database contents are now being served at endpoints as you've configured them in your configuration file. In this sample, the `http://localhost:4280/data-api/api/<Entity>` endpoint accepts GET, PUT, POST and DELETE requests to edit the contents of that entity's table. 
+
+Similarly, the `http://localhost:4280/data-api/graphql` endpoint accepts GraphQL queries and mutations. The contract for these GraphQL queries and mutations can be browsed at the introspection endpoint `http://localhost:4280/data-api/graphql` which provides a graphical interface to visualize your GraphQL schema.
 
 ## Manipulate data
 
