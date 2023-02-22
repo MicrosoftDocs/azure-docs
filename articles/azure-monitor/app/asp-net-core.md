@@ -27,7 +27,8 @@ A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-You can also use the Microsoft.Extensions.Logging.ApplicationInsights package to capture logs. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
+> [!NOTE]
+> If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
 
 ## Supported scenarios
 
@@ -664,7 +665,7 @@ It's important to note that the following example doesn't cause the Application 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#logging-level).
+For more information, see [ILogger configuration](/dotnet/core/extensions/logging#configure-logging).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
