@@ -19,11 +19,11 @@ zone_pivot_groups: enterprise-apps-all
 
 # Configure permission classifications
 
-In this article you'll learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
+In this article, you learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
 Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
 
-The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
+The minimum permissions needed to do basic sign-in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
 ## Prerequisites
 
@@ -208,7 +208,7 @@ Remove-MgServicePrincipalDelegatedPermissionClassification -DelegatedPermissionC
 
 To configure permissions classifications for an enterprise application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-You'll need to consent to the following permissions: 
+You need to consent to the following permissions: 
 
 `Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`.
 
@@ -220,7 +220,7 @@ Run the following queries on Microsoft Graph explorer to add a delegated permiss
    GET https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
    ```
 
-1. Add a delegated permission classification for an application. In the following example, we'll classify the permission as "low impact".
+1. Add a delegated permission classification for an application. In the following example, we classify the permission as "low impact".
 
    ```http
    POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
