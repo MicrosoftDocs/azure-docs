@@ -6,7 +6,7 @@ author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 02/09/2023
+ms.date: 02/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
