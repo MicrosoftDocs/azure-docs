@@ -50,9 +50,6 @@
         - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Use Microsoft-supplied scripts to create test certificates
-          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
-          href: tutorial-x509-scripts.md
         - name: Create self-signed certificates
           displayName: X.509 certificates, OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
