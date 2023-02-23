@@ -402,7 +402,7 @@ Since in this tutorial you've [disabled basic auth](#5-lock-down-ftp-and-scm-acc
 
 Azure auto-generates a workflow file in your repository. New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
 
-    A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
+A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
 
 #### Is it safe to leave the back-end SCM publicly accessible?
 
