@@ -90,7 +90,7 @@ The following information is passed to the server in the query:
 
 4. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain-for-client) to configure the `/etc/idmapd.conf` file.
+5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#set-nfsv41-domain-for-client) to configure the `/etc/idmapd.conf` file.
 
     You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in the Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 

@@ -70,7 +70,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Save**.
 -->
 
-### Configure NFSv4.1 domain for client
+### Set NFSv4.1 domain for client
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
