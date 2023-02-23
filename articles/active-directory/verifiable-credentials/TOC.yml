@@ -79,6 +79,11 @@
 #   href: 
   - name: End to End Demo
     href: https://woodgroveemployee.azurewebsites.net/
+- name: Architecture and Deployment
+  expanded: true
+  items:
+  - name: Remote onboarding
+    href: remote-onboarding-new-employees-id-verification.md
 - name: Reference
   expanded: true
   items:
