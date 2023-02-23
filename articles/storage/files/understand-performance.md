@@ -154,7 +154,7 @@ By using eight threads instead of one, the above workload can be reduced from 14
 | Thread 8         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 ## See also
-- [Troubleshoot Azure file shares performance issues](storage-troubleshooting-files-performance.md)
+- [Troubleshoot Azure file shares performance issues](files-troubleshoot-performance.md)
 - [Monitoring Azure Files](storage-files-monitoring.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Understanding Azure Files billing](understanding-billing.md)
