@@ -37,7 +37,6 @@
       - name: Access cluster from anywhere
         displayName: connect
         href: conceptual-cluster-connect.md
-        href:
       - name: Azure RBAC integration
         displayName: rbac, azure ad, azure active directory
         href: conceptual-azure-rbac.md
