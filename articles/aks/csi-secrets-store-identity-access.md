@@ -124,7 +124,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 6. Deploy a sample pod. Notice the service account reference in the pod definition:
 
     ```bash
-    cat <<EOF | kubectl -n $serviceAccountNamespace -f -
+    cat <<EOF | kubectl apply -n $serviceAccountNamespace -f -
     # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
     kind: Pod
     apiVersion: v1
