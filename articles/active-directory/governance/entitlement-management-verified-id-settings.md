@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 
 # Change verified ID settings for an access package in entitlement management (Preview) 
 
-When setting up an access package policy, admins can specify whether it’s for users in the directory, connected organizations, or any external user. Entitlement Management determines if the person requesting the access package is within the scope of the policy. There may be specific credentials that the user needs to have – such as a training certification – that needs additional review. As an access package manager, you can require that requestors present a verified ID containing those credentials from a trusted issuer. Approvers can then quickly view if a user’s verifiable credentials were validated at the time that the user presented their credentials and submitted the access package request.
+When setting up an access package policy, admins can specify whether it’s for users in the directory, connected organizations, or any external user. Entitlement Management determines if the person requesting the access package is within the scope of the policy. There may be specific credentials that the user needs to have, such as a training certification, that needs further review. As an access package manager, you can require that requestors present a verified ID containing those credentials from a trusted issuer. Approvers can then quickly view if a user’s verifiable credentials were validated at the time that the user presented their credentials and submitted the access package request.
 
-As an access package manager, you can include verified ID requirements for an access package at any time by editing an existing policy or adding a new policy for requesting access.
+As an access package manager, you can include verified ID requirements for an access package at any time. Including verified ID requirements can be done by editing an existing policy, or by adding a new policy for requesting access.
 
 This article describes how to configure the verified ID requirement settings for an access package.
 
@@ -58,7 +58,7 @@ To add a verified ID requirement to an access package, you must start from the a
 
 ## Request an access package with verified ID requirements (Preview)
 
-Once an access package has been configured an access package with a verified ID requirement, end-users who are within the scope of the policy are able to request access using the My Access portal. Similarly, approvers are able to see the claims of the VCs presented by requestors when reviewing requests for approval.
+Once an access package is configured with a verified ID requirement, end-users who are within the scope of the policy are able to request access using the My Access portal. Similarly, approvers are able to see the claims of the VCs presented by requestors when reviewing requests for approval.
 
 The requestor steps are as follows:
 
