@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -21,6 +21,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2023
 
+* [Large volumes](large-volumes-requirements-considerations.md) (Preview)
+
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 500 TiB in size. The large volumes capability enables a variety of use cases and workloads that require large volumes with a single directory namespace.
+  
 * [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
 
     Azure NetApp Files volumes now support encryption with customer-managed keys and Azure Key Vault to enable an extra layer of security for data at rest.  
