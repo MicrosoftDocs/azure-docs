@@ -45,7 +45,7 @@ Perform the following steps to clone an import order.
 
     ![Clone command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-clone-command.png)
 
-2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.
+2.	All the details of the order stay the same, except for the contact person and work phone. The contact person and work phone are removed from completed or cancelled orders, and won't be cloned. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.
 
 The clone is created in a few minutes and the portal updates to show the new order.
 
