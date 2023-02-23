@@ -99,8 +99,6 @@ The following table lists the columns available in the Defender for IoT device i
 
 |Name  |Description  |Azure portal  | OT sensor | On-premises management console|
 |---------|---------|---------|---------|---------|
-| **Agent type** | | ✔ |-  |- |
-| **Agent version** | | ✔ | -| -|
 | **Application** | The application installed on the device. | ✔ | - | - |
 |**Authorization** / **Is Authorized**    |Editable. Determines whether or not the device is marked as *authorized*. This value may need to change as the device security changes.         |✔ | ✔ | ✔ |
 |**Business Function**     | Editable. Describes the device's business function.        |✔ | - | - |
@@ -159,7 +157,8 @@ The following table lists the columns available in the Defender for IoT device i
 | **Underlying device region** | The region for an underlying device |✔ | - | - |
 -->
 
-
+> [!NOTE]
+> The additional **Agent type** and **Agent version** columns are used for by device builders. For more information, see [Microsoft Defender for IoT for device builders documentation](/azure/defender-for-iot/device-builders/).
 
 ## Next steps
 
