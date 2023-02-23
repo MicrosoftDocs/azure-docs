@@ -14,7 +14,7 @@ Device Update for IoT Hub is an Azure service designed to work with an on-device
 
 ## Detailed changelog for "February 2023 UX Release"
 
-This latest UX release, titled "February 2023 UX Release," consists of several improvements to the Azure portal UX. These improvements are compatible with the [GA launch API version](/rest/api/deviceupdate/2022-10-01/device-update) and agent versions [v1.0.0](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0), [v1.0.1](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.1), and [v1.0.2](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.2).
+This latest UX release, titled "February 2023 UX Release," consists of several improvements to the Azure portal UX. These improvements are compatible with the [GA launch API version ("2022-10-01")](/rest/api/deviceupdate/2022-10-01/device-update) and agent versions [v1.0.0](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0), [v1.0.1](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.1), and [v1.0.2](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.2).
 
 ### Improvements
 
@@ -34,7 +34,7 @@ This table provides recent version history for the Device Update for IoT Hub ser
 | February 2023 UX Release | UX release | February 23, 2023 | This UX release brings new capabilities and quality-of-life improvements to the Azure portal UX.  |
 | [Agent v1.0.2](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.2) | Agent patch | February 3, 2023 | This agent patch addresses several bugs (e.g. result codes for missing handlers) and contains several improvements (e.g. SWUpdate V2 handler for installed criteria).  |
 | [Agent v1.0.1](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.1) | Agent patch | January 13, 2023 | This agent patch addresses several bugs (e.g. failure to reboot after installing new image) and contains several improvements (e.g. removed curl dependency in https_proxy_utils). |
-| [GA launch (v1.0.0)](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0) | Full release | November 1, 2022 | This full release is made up of a new [API version](/rest/api/deviceupdate/2022-10-01/device-update), an Azure portal UX refresh, and a new [agent version (v1.0.0)](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0).|
+| [GA launch (v1.0.0)](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0) | Full release | November 1, 2022 | This full release is made up of a new [API version ("2022-10-01")](/rest/api/deviceupdate/2022-10-01/device-update), an Azure portal UX refresh, and a new [agent version (v1.0.0)](https://github.com/Azure/iot-hub-device-update/releases/tag/1.0.0).|
 
 ## Next steps
 
