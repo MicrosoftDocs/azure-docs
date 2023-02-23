@@ -76,6 +76,130 @@ This architecture features two clusters in different resource groups and virtual
 
         :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering." border="true":::
 
+## Configure IP Address of `PRIMARYCLUSTER` Worker Nodes into client machine for DNS Resolution 
+
+1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of `PRIMARYCLUSTER` in `/etc/hosts` file of `SECONDARYCLUSTER`. 
+
+1. Connect to `PRIMARYCLUSTER` 
+
+   `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
+
+1. Execute the following command and get the entries of worker nodes IP’s and FQDN’s 
+   
+   `cat /etc/hosts` 
+   
+1. Copy those entries and connect to `SECONDARYCLUSTER` and run `ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
+
+1. Edit the `/etc/hosts` file of secondary cluster and add those entries here. 
+
+1. Save and close the file. 
+
+
+### Create Multiple Topics in `PRIMARYCLUSTER` 
+1. Use this command to create topics and replace variables. 
+
+   ```
+   bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --create --topic $TOPICNAME --partitions $NUM_PARTITIONS --replication-factor $REPLICATION_FACTOR 
+   ```
+### Configure Mirror Maker2 in `SECONDARYCLUSTER`
+
+1. Now change the configuration in MirrorMaker2 properties file. 
+
+1. Execute ollowing command with admin privilege 
+
+   ```
+   sudo su 
+   vi /etc/kafka/conf/connect-mirror-maker.properties 
+   ```
+1. Property file will look like this. Here source is your `PRIMARYCLUSTER and destination is your SECONDARYCLUSTER`. 
+1. Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
+1. You can control the topics which you want to replicate along with configs with regex. 
+
+`replication.factor=3` will make the replication factor = 3 for all the topic which Mirror maker script will create by itself. 
+
+1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script will replicate topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster.  
+
+1. Save the file and we are good with configs.
+
+   ```
+   # specify any number of cluster aliases 
+
+   clusters = source, destination 
+
+   # connection information for each cluster 
+
+   # This is a comma separated host:port pairs for each cluster 
+
+   # for example. "A_host1:9092, A_host2:9092, A_host3:9092" and you can see the exact host name on Ambari > Hosts 
+
+   source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-   kafka.bx.internal.cloudapp.net:9092 
+
+   destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092 
+
+   # enable and configure individual replication flows 
+
+   source->destination.enabled = true  
+
+   # regex which defines which topics gets replicated. For eg "foo-.*" 
+
+   source->destination.topics = .* 
+
+   groups=.* 
+
+   topics.blacklist="*.internal,__.*" 
+
+   # Setting replication factor of newly created remote topics 
+
+   Replication.factor=3 
+
+   checkpoints.topic.replication.factor=1 
+
+   heartbeats.topic.replication.factor=1 
+
+   offset-syncs.topic.replication.factor=1 
+
+   offset.storage.replication.factor=1 
+
+   status.storage.replication.factor=1 
+
+   config.storage.replication.factor=1 
+   ```
+
+1. Start Mirror Maker2 in SECONDARYCLUSTER at  
+
+   ```
+   /usr/hdp/current/kafka-broker 
+   ./bin/connect-mirror-maker.sh ./config/connect-mirror-maker.properties 
+   ```
+ 
+1. It will run fine. 
+1. Now start producer in PRIMARY CLUSTER  
+
+   ``` 
+   export clusterName='primary-kafka' 
+   export TOPICNAME='TestMirrorMakerTopic' 
+   export KAFKABROKERS='wn0-primar:9092' 
+   export KAFKAZKHOSTS='zk0-primar:2181' 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME 
+   ```
+1. Now start consumer in SECONDARY CLUSTER 
+
+   ```
+   export clusterName='secondary-kafka' 
+   export TOPICNAME='TestMirrorMakerTopic'  
+   export KAFKABROKERS='wn0-second:9092' 
+   export KAFKAZKHOSTS='zk0-second:2181' 
+ 
+   // List all the topics whether they are replicated or not 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --list 
+   ```
+ 
+1. Start consumer 
+
+   ```
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic $TOPICNAME --from-beginning 
+   ```
+
 ## Delete cluster
 
 [!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
