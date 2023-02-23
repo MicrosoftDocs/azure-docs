@@ -20,7 +20,7 @@ In this overview, you will learn about the benefits and capabilities of intent r
 The Speech SDK provides an embedded pattern matcher that you can use to recognize intents in a very strict way. This is useful for when you need a quick offline solution. This works especially well when the user is going to be trained in some way or can be expected to use specific phrases to trigger intents. For example: "Go to floor seven", or "Turn on the lamp" etc. It is recommended to start here and if it no longer meets your needs, switch to using LUIS or a combination of the two. 
 
 Use pattern matching if: 
-* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](../LUIS/index.yml).
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
 * You don't have access to a CLU model, but still want intents. 
 
 For more information, see the [pattern matching concepts](./pattern-matching-overview.md) and then:
@@ -31,10 +31,10 @@ For more information, see the [pattern matching concepts](./pattern-matching-ove
 
 Conversational language understanding (CLU) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it.
 
-> [!IMPORTANT]
-> For information about pricing for conversational language understanding, see [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
-
 Both a Speech resource and Language resource are required to use CLU with the Speech SDK. The Speech resource is used to transcribe the user's speech into text, and the Language resource is used to recognize the intent of the utterance. To get started, see the [quickstart](get-started-intent-recognition-clu.md).
+
+> [!IMPORTANT]
+> When you use conversational language understanding with the Speech SDK, you are charged both for the Speech-to-text recognition request and the Language service request for CLU. For more information about pricing for conversational language understanding, see [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
 For information about how to use conversational language understanding without the Speech SDK and without speech recognition, see the [Language service documentation](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
 
