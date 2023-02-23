@@ -88,10 +88,10 @@ Repeat the previous steps to create the second virtual network using the followi
 
 | Setting | Value |
 | --- | --- |
-| Name | **myVNet2**. |
-| IPv4 address space | **10.2.0.0/16**. |
-| Subnet name | **mySubnet**. |
-| Subnet address range | **10.2.0.0/24**. |
+| Name | **myVNet2** |
+| IPv4 address space | **10.2.0.0/16** |
+| Subnet name | **mySubnet** |
+| Subnet address range | **10.2.0.0/24** |
 
 ## Create a storage account and a container
 
@@ -183,8 +183,8 @@ To create the second VPN gateway, repeat the previous steps you used to create t
 
 After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can create connections between them to allow communication over secure IPsec/IKE tunnel between **VNet1** and **VNet2** virtual networks. To create the IPsec/IKE tunnel, you create two connections:
 
-- From **VNet1** to **VNet2**.
-- From **VNet2** to **VNet1**.
+- From **VNet1** to **VNet2**
+- From **VNet2** to **VNet1**
 
 ### Create first connection
 
@@ -215,7 +215,7 @@ After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can cre
     | --- | --- |
     | Name | **to-VNet1** |
     | Second virtual network gateway | **VNet1GW** |
-    | Shared key (PSK) | Enter *000*. |
+    | Shared key (PSK) | **000** |
 
     > [!NOTE]
     > To successfully create an IPsec/IKE tunnel between two Azure VPN gateways, the connections between the gateways must use identical shared keys. In the previous steps, two different keys were used to create a problem with the gateway connections.
