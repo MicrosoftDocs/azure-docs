@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -42,6 +42,31 @@ To enroll in the preview for large volumes, use the sign-up form available at ht
 | Standard | 100 to 500 | 1,600 |
 | Premium | 100 to 500 | 6,400 | 
 | Ultra | 100 to 500 | 10,240 | 
+
+## Supported regions
+
+Azure NetApp Files large volumes is supported for the following regions:
+
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central
+* Central US
+* East US
+* East US 2
+* Germany West Central
+* Japan East
+* North Central US
+* North Europe
+* South Central US
+* Switzerland North
+* UAE North
+* UK West
+* UK South
+* West Europe
+* West US
+* West US 2
+* West US 3
 
 ## Configure large volumes 
 
