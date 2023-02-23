@@ -684,7 +684,7 @@ Pronunciation assessment supports uninterrupted streaming mode. The recording ti
 
 ::: zone pivot="programming-language-csharp"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/1e525f57608efaea085ea46cd2236a3a11f7bf47/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L1053).
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#:~:text=PronunciationAssessmentWithStream).
 
 ::: zone-end
 
