@@ -25,9 +25,6 @@ This article shows you how to create an Azure CLI session in which you:
 
 * Update a set of desired properties for the module twin associated with the module identity.
 
-> [!NOTE]
-> For more information about the Azure IoT Hub SDKs you can use to create device and back-end apps for supporting similar tasks, see [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
-
 ## Prerequisites
 
 * Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](/azure/cloud-shell/overview), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -58,8 +55,13 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 Next, you must prepare an Azure CLI session. If you're using the Cloud Shell, you run the session in a Cloud Shell tab. If using a local CLI client, you run the session in a CLI instance. 
 
-> [!NOTE]
-> Azure CLI requires you to be logged into your Azure account. If you're using the Cloud Shell, you're automatically logged into your Azure account. If you're using a local CLI client, you must log into each CLI session. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about logging in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+1. If you're using the Cloud Shell, skip to the next step. Otherwise, run the [az login](/cli/azure/reference-index#az-login) command to sign in to your Azure account.
+
+   If you're using the Cloud Shell, you're automatically signed into your Azure account. All communication between your Azure CLI session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about signing in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+   ```azurecli
+   az login
+   ```
 
 1. In the CLI session, run the [az extension add](/cli/azure/extension#az-extension-add) command. The command adds the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI. After you install the extension, you don't need to install it again in any Cloud Shell session.
 
