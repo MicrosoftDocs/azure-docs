@@ -12,7 +12,7 @@ ms.custom: seodec18, mvc, devx-track-js
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
 
-Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
+Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) which can protect data in use and provides in-memory encryption via Secure Nested Paging. 
 
 In this article, you'll:
 
@@ -157,7 +157,7 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
 
 ## Create a custom CCE Policy 
 
-With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
+With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
 
 
 1. To generate the CCE policy, you'll run the following command using the ARM template as input: 
@@ -229,7 +229,7 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
 
 
-* [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
+* [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
 * [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
