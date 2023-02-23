@@ -1071,6 +1071,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: HawkeyeBSB
+        href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
       - name: Headspace
