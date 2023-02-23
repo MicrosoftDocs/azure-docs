@@ -52,7 +52,7 @@ In this example, we've classified the minimum set of permission required for sin
 
 :::zone pivot="aad-powershell"
 
-You can use the latest [Azure AD PowerShell](/powershell/module/azuread/??preserve-view=true&view=azureadps-2.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
 
 Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
@@ -129,7 +129,7 @@ Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
 
 :::zone pivot="ms-powershell"
 
-You can use Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
 
 Run the following command to connect to Microsoft Graph PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
@@ -139,13 +139,13 @@ Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
 
 ### List current permission classifications for an API
 
-1. Retrieve the servicePrincipal object for the API 
+1. Retrieve the servicePrincipal object for the API:
 
    ```powershell
    $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
    ```
 
-1. Read the delegated permission classifications for the API 
+1. Read the delegated permission classifications for the API:
 
    ```powershell
    Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
@@ -153,19 +153,19 @@ Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
 
 ### Classify a permission as "Low impact" 
 
-1. Retrieve the servicePrincipal object for the API 
+1. Retrieve the servicePrincipal object for the API:
 
    ```powershell
    $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
    ```
 
-1. Find the delegated permission you would like to classify 
+1. Find the delegated permission you would like to classify:
 
    ```powershell
    $delegatedPermission = $api.Oauth2PermissionScopes | Where-Object {$_.Value -eq "openid"} 
    ```
 
-1. Set the permission classification
+1. Set the permission classification:
 
    ```powershell
    $params = @{ 
@@ -183,13 +183,13 @@ Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
 
 ### Remove a delegated permission classification 
 
-1. Retrieve the servicePrincipal object for the API 
+1. Retrieve the servicePrincipal object for the API:
 
    ```powershell
    $api = Get-MgServicePrincipal -Filter "displayName eq 'Microsoft Graph'" 
    ```
 
-1. Find the delegated permission classification you wish to remove 
+1. Find the delegated permission classification you wish to remove:
 
    ```powershell
    $classifications= Get-MgServicePrincipalDelegatedPermissionClassification -ServicePrincipalId $api.Id 
@@ -197,7 +197,7 @@ Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", 
    $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "openid"}
    ```
 
-1. Delete the permission classification 
+1. Delete the permission classification:
 
 ```powershell
 Remove-MgServicePrincipalDelegatedPermissionClassification -DelegatedPermissionClassificationId $classificationToRemove.Id   -ServicePrincipalId $api.id 
@@ -214,13 +214,13 @@ You need to consent to the following permissions:
 
 Run the following queries on Microsoft Graph explorer to add a delegated permissions classification for an application.
 
-1. List current permission classifications for an API
+1. List current permission classifications for an API.
 
    ```http
    GET https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
    ```
 
-1. Add a delegated permission classification for an application. In the following example, we classify the permission as "low impact".
+1. Add a delegated permission classification for an API. In the following example, we classify the permission as "low impact".
 
    ```http
    POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications
@@ -232,7 +232,7 @@ Run the following queries on Microsoft Graph explorer to add a delegated permiss
    }
    ```
 
-Run the following query on Microsoft Graph explorer to remove a delegated permissions classification for an application.
+Run the following query on Microsoft Graph explorer to remove a delegated permissions classification for an API.
 
 ```http
 DELETE https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0000-c000-000000000000')/delegatedPermissionClassifications/QUjntFaOC0i-i5EDSLGLTAE
