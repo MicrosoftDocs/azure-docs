@@ -191,7 +191,7 @@ When user risk is detected, administrators can employ the user risk policy condi
 When a user is prompted to change a password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 
 > [!WARNING]
-> Users must have previously registered for multi-factor authentication before triggering the user risk policy.
+> Users must have previously registered for multifactor authentication before triggering the user risk policy.
 
 The following restrictions apply when you configure a policy by using the password change control:  
 
