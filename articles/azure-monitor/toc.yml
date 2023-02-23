@@ -922,12 +922,6 @@ items:
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-    - name: Visual Studio
-      items:
-      - name: F5 insights
-        href: app/visual-studio.md
-      - name: CodeLens
-        href: app/visual-studio-codelens.md
     - name: Other platforms
       items:
       - name: SharePoint sites
