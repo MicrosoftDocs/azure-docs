@@ -71,7 +71,7 @@ There are several tools available to help you diagnose problems.
 - **Azure Portal**
 
     *Diagnose and solve problems*
-    Azure Function App Diagnostics is a useful resource on Azure portal for monitoring and diagnosing potential issues in your application. It also provides suggestions to help resolve problems based on diagnosis. See [Azure Function App Diagnostics](function-app-diagnostics.md). 
+    Azure Function App Diagnostics is a useful resource on Azure portal for monitoring and diagnosing potential issues in your application. It also provides suggestions to help resolve problems based on the diagnosis. See [Azure Function App Diagnostics](function-app-diagnostics.md). 
 
     *Durable Functions Orchestration traces*
     Azure portal provides orchestration trace details to help you understand the status of each orchestration instance and trace the end-to-end execution. When you look at the list of functions inside your Azure Functions app, you'll see a "Monitor" column that contains links to the traces. You need to have Applications Insights enabled for your app to get this information. 
