@@ -12,27 +12,29 @@ ms.date: 25/01/2023
 ---
 # AIOps and advanced analytics using machine learning in Azure Monitor Logs 
 
-Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resource into Azure Monitor Logs. 
+Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resources into Azure Monitor Logs. 
 
 Machine learning capabilities help enhance and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
 This article describes Azure Monitor's built-in machine learning capabilities and how you can  create and run customized machine learning models. 
+
+## Use the built-in machine learning capabilities of Azure Monitor Logs
+
+### Kusto Query Language (KQL) time series analysis and machine learning functions
+
+Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
+
+### Built-in templated queries 
+
+Another option is to use built-in templated queries, which are part of the MSTICPY Python library. The queries invoke native KQL functions. 
+
+Note: Both options above use native KQL functions which run inside AzMon, i.e., data is not copied into memory objects nor exported outside of AzMon. 
 
 ## Write your own machine learning
 
 You can write your own machine learning by: 
 - Running built-in Kusto Query Language (KQL) plugins and functions (detect anomalies, identify outliers, detect patterns, and time series forecasting)
 - Implementing custom machine learning models 
-
-## Kusto Query Language (KQL) time series analysis and machine learning functions
-
-Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
-
-## Built-in templated queries 
-
-Another option is to use built-in templated queries, which are part of the MSTICPY Python library. The queries invoke native KQL functions. 
-
-Note: Both options above use native KQL functions which run inside AzMon, i.e., data is not copied into memory objects nor exported outside of AzMon. 
 
 ## When to Use
 - To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
@@ -46,7 +48,7 @@ Note: Both options above use native KQL functions which run inside AzMon, i.e., 
 
 ## Limitations
 - Limited set of algorithms, function customization, and tweak settings. 
-- Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
+- - Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
 
 ## Custom ML Models 
 
