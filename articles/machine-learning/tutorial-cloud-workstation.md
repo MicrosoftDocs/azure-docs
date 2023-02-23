@@ -15,7 +15,7 @@ ms.date: 02/22/2023
 
 # Model development on a cloud workstation
  
-Learn how start prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
+Learn how prototype in a notebook to develop a training script on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
 
 > [!div class="checklist"]
 > * Set up and configuring the cloud workstation. Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
@@ -230,6 +230,8 @@ mlflow.end_run()
 
 Once you like the model code, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
 
+Use these steps to gather just the cells that you need:
+
 1. Click on the cell that contains the model you wish to use.  For this tutorial, let's use the second model you created.
 1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** :::image type="icon" source="media/tutorial-cloud-workstation/gather-tool.png" border="false":::.
 1. On the **Create new Gather file** form, shorten the file name to **train**.
@@ -250,7 +252,7 @@ You now have a Python script to use for training.  You may wish to add in some c
 
 ## Run the Python script
 
-Later tutorials will show you how to submit your training script to a more powerful compute resource.  But for now, run your script on the compute instance to verify that everything works.
+For now, you're running this code *locally* - that is, on the same computer where the code exists.  Later tutorials will show you how to run a training script in a more scalable way on more powerful compute resources.  
 
 1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
 1. Activate your kernel:
