@@ -30,11 +30,11 @@ This article is an introduction to managing APIs, products, subscriptions, and o
 
 1. In the left menu, select **Workspaces** (preview), and select the name of your workspace.
 
-    :::image type="content" source="media/api-management-in-workspace/workspace-in portal.png" alt-text="Screenshot of workspaces in API Management instance in the portal.":::
+    :::image type="content" source="media/api-management-in-workspace/workspace-in-portal.png" alt-text="Screenshot of workspaces in API Management instance in the portal." lightbox="media/api-management-in-workspace/workspace-in-portal-expanded.png":::
     
 1. The workspace appears. The available resources and settings appear in the menu on the left.
 
-    :::image type="content" source="media/api-management-in-workspace/workspace-menu.png" alt-text="Screenshot of API Management workspace menu in the portal.":::
+    :::image type="content" source="media/api-management-in-workspace/workspace-menu.png" alt-text="Screenshot of API Management workspace menu in the portal." lightbox="media/api-management-in-workspace/workspace-menu-expanded.png":::
 
 
 ## Get started with your workspace
