@@ -96,7 +96,7 @@ Open the [Azure ML studio portal](https://ml.azure.com) and sign in using your c
 
 Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
 
-Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
+This article uses a compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>` or create one as shown.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -220,7 +220,6 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     | --- | ----------- |
     | `name` | The name of the batch endpoint. Needs to be unique at the Azure region level.|
     | `description` | The description of the batch endpoint. This property is optional. |
-    | `auth_mode` | The authentication method for the batch endpoint. Currently only Azure Active Directory token-based authentication (`aad_token`) is supported. |
     | `defaults.deployment_name` | The name of the deployment that will serve as the default deployment for the endpoint. |
     
     # [Studio](#tab/azure-studio)
@@ -245,22 +244,6 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     *You'll create the endpoint in the same step you are creating the deployment later.*
 
-## Create a scoring script
-
-Batch deployments require a scoring script that indicates how the given model should be executed and how input data must be processed.
-
-> [!NOTE]
-> For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-
-> [!WARNING]
-> If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
-
-In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
-
-__mnist/code/batch_driver.py__
-
-:::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
-
 ## Create a batch deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a batch deployment, you need all the following items:
@@ -269,6 +252,18 @@ A deployment is a set of resources required for hosting the model that does the 
 * The code to score the model.
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
+
+1. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+
+   > [!NOTE]
+   > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+
+   > [!WARNING]
+   > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+
+   __mnist/code/batch_driver.py__
+
+   :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
 
 1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
@@ -480,7 +475,7 @@ A deployment is a set of resources required for hosting the model that does the 
         
         :::image type="content" source="./media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
-## Invoke the batch endpoint to start a batch job
+## Run endpoint and configure inputs and outputs
 
 Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. The batch scoring job runs for some time. It splits the entire inputs into multiple `mini_batch` and processes in parallel on the compute cluster. The batch scoring job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
 
