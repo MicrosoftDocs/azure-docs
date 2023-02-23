@@ -217,8 +217,6 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify Kernel Isolation configuration
 
-
-
 1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example you're accessing the container inside the *untrusted* pod.
 
     ```bash
@@ -227,23 +225,22 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a Nested VM that has different kernel version from the *trusted* container.
+2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a nested VM that has a different kernel version compared to the *trusted* container.
 
-   To see the kernel version run:
+   To see the kernel version run the following command:
 
     ```bash
     uname -r
     ```
 
-   The following example resembles the nested VM kernel output from the command:
+   The following example resembles output from the nested VM kernel:
 
     ```output
     root@untrusted:/# uname -r
     5.15.48.1-8.cm2
     ```
 
-   
-   The following example resembles the shared VM kernel output from the command:
+   Running the same command on the shared VM kernel resembles output from the same command used earlier:
 
     ```output
     5.15.80.mshv2-hvl1.m2
