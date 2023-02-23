@@ -17,7 +17,7 @@ keywords:
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with the new `gpt-3.5` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Go to Azure OpenAI Studio
 
@@ -35,8 +35,6 @@ Start exploring OpenAI capabilities with a no-code approach through the Azure Op
 
 You can use the Chatbot setup dropdown to select a few pre-loaded System message examples to get started. System messages give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the chatbot’s personality, tell it what it should and shouldn’t answer, and tell it how to format responses.
 
-You can also experiment with the configuration settings such as temperature and max length to change the performance of your responses. You can read more about each parameter in the [REST API](../reference.md).
-
 - Selecting the **Send** button will send the entered text to the completions API and stream the results back to the text box.
 - Select the **Clear chat** button to delete the current conversation history.
 
@@ -49,10 +47,10 @@ In the ChatGPT playground you can also view Python, curl, and json code samples 
 To use Azure OpenAI service for text summarization in the GPT-3 Playground, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
-1. Select the subscription and OpenAI resource to work with. 
+1. Select the subscription and OpenAI resource to work with.
 1. Select **GPT-3 Playground** at the top of the landing page.
 1. Select your deployment from the **Deployments** dropdown. If your resource doesn't have a deployment, select **Create a deployment** and then revisit this step.
-1. Select **Summarize Text** from the **Examples** dropdown. 
+1. Select **Summarize Text** from the **Examples** dropdown.
 
     :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
 
@@ -73,4 +71,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).
+Learn more about how to work with ChatGPT and the new `gpt-3.5` model with the [ChatGPT how-to guide](../how-to/chatgpt.md).

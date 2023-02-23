@@ -22,7 +22,7 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 - The following Python libraries: os, requests, json
-- An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and `TODO: Enter other regions if available`. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
 
