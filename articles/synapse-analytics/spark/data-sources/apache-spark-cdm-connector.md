@@ -127,7 +127,7 @@ By convention, the `cdm` alias refers to the location of the root-level standard
 
 You can resolve the `cdm` alias like any other alias, by using an adapter entry in the *config.json* file. If you don't specify an adapter or you provide a null entry, the `cdm` alias is resolved by default to the Common Data Model public content delivery network (CDN) at `https://cdm-schema.microsoft.com/logical/`.
 
-You can also use the `cdmSource` option to override how the `cdm` alias is resolved. Using the `cdmsource` option is useful if the `cdm` alias is the only alias used in the Common Data Model definitions that are being resolved, because it can avoid the need to create or reference a *config.json* file.
+You can also use the `cdmSource` option to override how the `cdm` alias is resolved. Using the `cdmSource` option is useful if the `cdm` alias is the only alias used in the Common Data Model definitions that are being resolved, because it can avoid the need to create or reference a *config.json* file.
 
 ## Parameters, options, and save mode
 
@@ -366,11 +366,11 @@ In most cases, persisting local time isn't important. Local times are often requ
 
 ### Handling Common Data Model time data
 
-Spark doesn't support an explicit `Time` data type. An attribute with the Common Data Model `Time` data type is represented in a Spark DataFrame as a column with a `Timestamp` data type in a DataFrame. When The Spark CDM connector reads a time value, the time stamp in the DataFrame is initialized with the Spark epoch date 01/01/1970 plus the time value as read from the source.
+Spark doesn't support an explicit `Time` data type. An attribute with the Common Data Model `Time` data type is represented in a Spark DataFrame as a column with a `Timestamp` data type. When The Spark CDM connector reads a time value, the time stamp in the DataFrame is initialized with the Spark epoch date 01/01/1970 plus the time value as read from the source.
 
 When you use explicit write, you can map a time stamp column to either a `DateTime` or `Time` attribute. If you map a time stamp to a `Time` attribute, the date portion of the timestamp is stripped off.
 
-When you use implicit write, a time stamp column is mapped by default to a `DateTime` attribute. To map a timestamp column to a `Time` attribute, you must add a metadata object to the column in the DataFrame that indicates that the timestamp should be interpreted as a time value. The following code shows how to do this in Scala:
+When you use implicit write, a time stamp column is mapped by default to a `DateTime` attribute. To map a time stamp column to a `Time` attribute, you must add a metadata object to the column in the DataFrame that indicates that the time stamp should be interpreted as a time value. The following code shows how to do this in Scala:
 
 ```scala
 val md = new MetadataBuilder().putString(“dataType”, “Time”)
@@ -381,9 +381,9 @@ StructField(“ATimeColumn”, TimeStampType, true, md))
 
 ### Time value accuracy
 
-The Spark CDM connector supports time values in either `DateTime` or `Time`. Seconds have up to six decimal places, based on the format of the data either in the file that's being read (CSV or Parquet) or as defined in the DataFrame. The use of six decimal places enables accuracy from single seconds to microseconds.
+The Spark CDM connector supports time values in either `DateTime` or `Time`. Seconds have up to six decimal places, based on the format of the data in the file that's being read (CSV or Parquet) or as defined in the DataFrame. The use of six decimal places enables accuracy from single seconds to microseconds.
 
-### Folder and file naming and organization
+### Naming and organization of folders and files
 
 When you're writing to Common Data Model folders, there's a default folder organization. By default, data files are written into folders created for the current date, named like *2010-07-31*. You can customize the folder structure and names by using the `dateFolderFormat` option.
 
@@ -395,7 +395,7 @@ You can control the number of data partitions that are written by using the `spa
 val df= spark.createDataFrame(spark.sparkContext.parallelize(data, 2), schema)
 ```
 
-Here's an example of an explicit write (defined by a referenced entity definition):
+Here's an example of an explicit write that's defined by a referenced entity definition:
 
 ```text
 +-- <CDMFolder>
@@ -452,7 +452,7 @@ Here's an example of an implicit write with a submanifest:
 ## Troubleshooting and known issues
 
 * Ensure that the decimal precision and scale of decimal data type fields that you use in the DataFrame match the data type that's in the Common Data Model entity definition. If the precision and scale aren't defined explicitly in Common Data Model, the default is `Decimal(18,4)`. For *model.json* files, `Decimal` is assumed to be `Decimal(18,4)`.
-* Folder and file names in these options shouldn't include spaces or special characters, such as an equal sign (=): `manifestPath`, `entityDefinitionModelRoot`, `entityDefinitionPath`, `dataFolderFormat`.
+* Folder and file names in the following options shouldn't include spaces or special characters, such as an equal sign (=): `manifestPath`, `entityDefinitionModelRoot`, `entityDefinitionPath`, `dataFolderFormat`.
 
 ## Next steps
 
