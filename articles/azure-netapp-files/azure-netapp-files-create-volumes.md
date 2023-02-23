@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -65,6 +65,10 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
@@ -145,3 +149,4 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists.md)
 * [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
