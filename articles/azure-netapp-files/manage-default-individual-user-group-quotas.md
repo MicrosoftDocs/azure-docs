@@ -7,7 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 02/23/2023
 ---
 # Manage default and individual user and group quotas for a volume 
 

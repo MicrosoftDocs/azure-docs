@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Understand default and individual user and group quotas  
