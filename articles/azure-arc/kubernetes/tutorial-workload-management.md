@@ -30,10 +30,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to successfully deploy the sample, you need the following:
+In order to successfully deploy the sample, you need:
 
 - [Azure CLI](/cli/azure/install-azure-cli).
-- [gh cli](https://cli.github.com)
+- [GitHub CLI](https://cli.github.com)
 - [Helm](https://helm.sh/docs/helm/helm_install/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
@@ -81,8 +81,8 @@ This deployment script created an infrastructure, shown in the following diagram
 
 There are a few Platform Team repositories:
 
-- [Control Plane](https://github.com/microsoft/kalypso-control-plane): Contains a platform model defined with high level abstractions such as environments, cluster types, applications and services, mapping rules and configurations, promotion workflows.
-- [Platform GitOps](https://github.com/microsoft/kalypso-gitops): Contains final manifests representing the topology of the fleet, such as what cluster types are available in each environment, what workloads are scheduled on them, and what platform configuration values are set.
+- [Control Plane](https://github.com/microsoft/kalypso-control-plane): Contains a platform model defined with high level abstractions such as environments, cluster types, applications and services, mapping rules and configurations, and promotion workflows.
+- [Platform GitOps](https://github.com/microsoft/kalypso-gitops): Contains final manifests that represent the topology of the fleet, such as which cluster types are available in each environment, what workloads are scheduled on them, and what platform configuration values are set.
 - [Services Source](https://github.com/microsoft/kalypso-svc-src): Contains high-level manifest templates of sample dial-tone platform services.
 - [Services GitOps](https://github.com/microsoft/kalypso-svc-gitops): Contains final manifests of sample dial-tone platform services to be deployed across the clusters.
 
@@ -99,7 +99,7 @@ The script created the following Azure Kubernetes Service (AKS) clusters:
 
 ### Explore Control Plane
 
-Let's have a look at what is preconfigured in our `control plane` repository. It contains three branches: `main`, `dev` and `stage`. The `dev` and `stage` branches contain configurations that are specific for `Dev` and `Stage` environments. On the other hand, the `main` branch doesn't represent any specific environment. The content of the `main` branch is common and used by all environments in the fleet. Any change to the `main` branch is a subject to be promoted across environments. For example, a new application or a new template can be promoted to the `Stage` environment only after successful testing on the `Dev` environment.
+The `control plane` repository contains three branches: `main`, `dev` and `stage`. The `dev` and `stage` branches contain configurations that are specific for `Dev` and `Stage` environments. On the other hand, the `main` branch doesn't represent any specific environment. The content of the `main` branch is common and used by all environments in the fleet. Any change to the `main` branch is a subject to be promoted across environments. For example, a new application or a new template can be promoted to the `Stage` environment only after successful testing on the `Dev` environment.
 
 The `main` branch:
 
@@ -125,7 +125,7 @@ The `dev` and `stage` branches:
 
 ## 2 - Platform Team: Onboard a new application
 
-The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available in the fleet and where their application is going to be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for UAT testing. 
+The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available in the fleet and where their application will be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for UAT testing. 
  
 The Application Team describes this intention in the [workload](https://github.com/microsoft/kalypso-app-src/blob/main/workload/workload.yaml) file in the [Application Source](https://github.com/microsoft/kalypso-app-src) repository:
 
@@ -167,7 +167,7 @@ spec:
         path: ./uat-test   
 ```
 
-This file contains a list of three deployment targets. They are marked with custom labels and point to the folders in [Application GitOps](https://github.com/microsoft/kalypso-app-gitops) repository where the Application Team generates application manifests for each deployment target.
+This file contains a list of three deployment targets. These targets are marked with custom labels and point to the folders in [Application GitOps](https://github.com/microsoft/kalypso-app-gitops) repository where the Application Team generates application manifests for each deployment target.
 
 With this file, Application Team requests Kubernetes compute resources from the Platform Team. In response, the Platform Team must register the application in the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repo.
  
@@ -210,7 +210,7 @@ With that in place, the application is onboarded in the control plane. But the c
 
 ### Define application scheduling policy on Dev
 
-The Platform Team must define how the application deployment targets are going to be scheduled on cluster types in the `Dev` environment. To do this, submit scheduling policies for the `functional-test` and `performance-test` deployment targets with the following script:  
+The Platform Team must define how the application deployment targets will be scheduled on cluster types in the `Dev` environment. To do this, submit scheduling policies for the `functional-test` and `performance-test` deployment targets with the following script:  
 
 ```bash
 # Switch to dev branch (representing Dev environemnt) in the control-plane folder
@@ -271,9 +271,9 @@ This push to the `dev` branch triggers the scheduling process and creates a PR t
 
 :::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png":::
 
-Besides `Promoted_Commit_id`, which is just tracking information for the promotion CD flow, the PR contains assignment manifests. The `functional-test` deployment target is assigned to the `drone` cluster type, and the `performance-test` deployment target is assigned to the `large` cluster type. Those manifests are going to be landed in `drone` and `large` folders that contain all assignments to these cluster types in the `Dev` environment.
+Besides `Promoted_Commit_id`, which is just tracking information for the promotion CD flow, the PR contains assignment manifests. The `functional-test` deployment target is assigned to the `drone` cluster type, and the `performance-test` deployment target is assigned to the `large` cluster type. Those manifests will land in `drone` and `large` folders that contain all assignments to these cluster types in the `Dev` environment.
  
- Note that there are `command-center` and `small` cluster types as well in the `Dev` environment:
+The `Dev` environment also includes `command-center` and `small` cluster types:
 
  :::image type="content" source="media/tutorial-workload-management/dev-cluster-types.png" alt-text="Screenshot showing cluster types in the Dev environment.":::
 
@@ -350,11 +350,11 @@ spec:
 
 ### Promote application to Stage
 
-Once we have approved and merged the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters that represent corresponding cluster types start fetching the assignment manifests. The `drone` cluster has [GitOps extension](conceptual-gitops-flux2.md) installed, pointing to the `Platform GitOps` repository. It reports its `compliance` status to Azure Resource Graph: 
+Once you approve and merge the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters that represent corresponding cluster types start fetching the assignment manifests. The `drone` cluster has [GitOps extension](conceptual-gitops-flux2.md) installed, pointing to the `Platform GitOps` repository. It reports its `compliance` status to Azure Resource Graph: 
 
 :::image type="content" source="media/tutorial-workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
 
-The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository that waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed, that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
+The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository. This workflow waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
 
 :::image type="content" source="media/tutorial-workload-management/checkpromote-to-dev.png" alt-text="Screenshot showing promotion to dev.":::
 
@@ -416,7 +416,7 @@ The Application Team regularly submits pull requests to the `main` branch in the
 
 :::image type="content" source="media/tutorial-workload-management/run-workflow-button.png" alt-text="Screenshot showing the Run workflow option.":::
 
-The workflow does the following:
+The workflow performs the following actions:
 
 - Builds the application Docker image and pushes it to the GitHub repository package.
 - Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are added to a pull request and auto-merged in the `dev` branch.
@@ -456,7 +456,7 @@ kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-
 
 This time, use `8080` port and open `localhost:8080` in your browser.
 
-Once you are satisfied with the `Dev` environment, approve and merge the PR to the `Stage` environment. After that, test the `uat-test` application instance in the `Stage` environment on both clusters.
+Once you're satisfied with the `Dev` environment, approve and merge the PR to the `Stage` environment. After that, test the `uat-test` application instance in the `Stage` environment on both clusters.
 
 Run the following command for the `drone` cluster and open `localhost:8001` in your browser:
  
@@ -514,7 +514,7 @@ In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` reposi
 
 Approve the PR and merge it.
 
-The `large` cluster is handled by ArgoCD, which, by default, is configured to reconcile every three minutes. This cluster doesn't report its compliance state to Azure like the clusters such as `drone` which have the [GitOps extension](conceptual-gitops-flux2.md). However, you can still monitor the reconciliation state on the cluster with ArgoCD UI. 
+The `large` cluster is handled by ArgoCD, which, by default, is configured to reconcile every three minutes. This cluster doesn't report its compliance state to Azure like the clusters such as `drone` that have the [GitOps extension](conceptual-gitops-flux2.md). However, you can still monitor the reconciliation state on the cluster with ArgoCD UI. 
 
 To access the ArgoCD UI on the `large` cluster, run the following command:
 
@@ -547,7 +547,7 @@ You'll see the updated database url:
 
 ## 5 - Platform Team: Add cluster type to environment
 
-Currently, only `drone` and `large` cluster types are included in the `Stage` environment. Let's include the `small` cluster type to `Stage` as well. Even though we don't have a physical cluster representing this cluster type, you can see how the scheduler reacts to this change.
+Currently, only `drone` and `large` cluster types are included in the `Stage` environment. Let's include the `small` cluster type to `Stage` as well. Even though there's no physical cluster representing this cluster type, you can see how the scheduler reacts to this change.
 
 ```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder
@@ -575,7 +575,7 @@ git pull --no-edit
 git push
 ```
 
-In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository. According to the `uat-test-policy` that you created, it assigns the `uat-test` deployment target to the new cluster type, as it is supposed to work on all available cluster types in the environment.
+In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository. According to the `uat-test-policy` that you created, it assigns the `uat-test` deployment target to the new cluster type, as it's supposed to work on all available cluster types in the environment.
 
 :::image type="content" source="media/tutorial-workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type." lightbox="media/tutorial-workload-management/small-cluster-type-assignment.png":::
 
