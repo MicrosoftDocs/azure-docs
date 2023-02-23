@@ -16,7 +16,6 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 
 ### Visual Studio
 
-Full-Solution Analysis
 For the best experience, you want to enable full solution analysis in your Visual Studio settings. This can be done in Tools -> Options -> Text Editor -> C# -> Advanced -> "Entire solution":
 
 :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-1.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
