@@ -1567,8 +1567,7 @@ productDirectory:
       summary: Need some blurb text here
       imageSrc: ./media/index/web-pubsub.svg
       azureCategories:
-        - networking
-        - 5g-space
+       - 5g-space
       url: azure-operator-nexus/index.yml
 tools:
   title: Languages and tools
