@@ -20,17 +20,17 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Fixed
 
-- The extension service now correctly restarts when the Azure Connected Machine agent is being upgraded by Update Management Center
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
 - Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
 - Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
 - Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
-- Tenant IDs are now validated during onboarding for correctness
+- Tenant IDs are better validated when connecting the server
 
 ## Version 1.26 - January 2023
 
 > [!NOTE]
-> Version 1.26 is only available for Linux operating systems. The most recent Windows agent version is 1.25.
+> Version 1.26 is only available for Linux operating systems.
 
 ### Fixed
 
