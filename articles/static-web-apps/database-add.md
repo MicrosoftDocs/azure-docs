@@ -265,7 +265,7 @@ The following framework-agnostic commands demonstrate how to do full CRUD operat
 
 The output for each function appears in the browser's console window.
 
-Open the developer tools by pressing <kbd>CMD/CTRL</kbd> + <kbd>SHIFT</kdb> + <kbd>I</kbd> and select the **Console** tab.
+Open the developer tools by pressing <kbd>CMD/CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>I</kbd> and select the **Console** tab.
 
 ### List all items
 
@@ -638,7 +638,7 @@ To deploy this site to production, you just need to commit the configuration fil
     git push origin main
     ```
 
-Now wait for your web app to build, and then send a request to [list all items](#list-all-items) to verify a production connection to the database.
+Now wait for your web app to build, and then select the **List** button a to [list all items](#list-all-items) to verify a production connection to the database. Make sure to check the developer console for output.
 
 ## Clean up resources
 
