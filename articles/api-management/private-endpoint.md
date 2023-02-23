@@ -1,6 +1,6 @@
 ---
-title: Set up private endpoint for Azure API Management Preview
-description: Learn how to restrict access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
+title: Set up inbound private endpoint for Azure API Management
+description: Learn how to restrict inbound access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
@@ -9,9 +9,9 @@ ms.date: 02/23/2023
 
 ---
 
-# Connect privately to API Management using a private endpoint
+# Connect privately to API Management using an inbound private endpoint
 
-You can configure a [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
+You can configure an inbound [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
 
 * The private endpoint uses an IP address from an Azure VNet in which it's hosted.
 
@@ -19,7 +19,7 @@ You can configure a [private endpoint](../private-link/private-endpoint-overview
 
 * Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
-:::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure connection to API Management using private endpoint.":::
+:::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management using private endpoint.":::
 
 [!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
 
