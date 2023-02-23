@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 01/30/2023
 ---
 
 # Security filters for trimming results in Azure Cognitive Search
@@ -37,9 +37,9 @@ This article assumes you have an [Azure subscription](https://azure.microsoft.co
 Your documents must include a field specifying which groups have access. This information becomes the filter criteria against which documents are selected or rejected from the result set returned to the issuer.
 Let's assume that we have an index of secured files, and each file is accessible by a different set of users.
 
-1. Add field `group_ids` (you can choose any name here) as a `Collection(Edm.String)`. Make sure the field has a `filterable` attribute set to `true` so that search results are filtered based on the access the user has. For example, if you set the `group_ids` field to `["group_id1, group_id2"]` for the document with `file_name` "secured_file_b", only users that belong to group ids "group_id1" or "group_id2" have read access to the file.
+1. Add field `group_ids` (you can choose any name here) as a `Collection(Edm.String)`. Make sure the field has a `filterable` attribute set to `true` so that search results are filtered based on the access the user has. For example, if you set the `group_ids` field to `["group_id1, group_id2"]` for the document with `file_name` "secured_file_b", only users that belong to group IDs "group_id1" or "group_id2" have read access to the file.
    
-   Make sure the field's `retrievable` attribute is set to `false` so that it is not returned as part of the search request.
+   Make sure the field's `retrievable` attribute is set to `false` so that it isn't returned as part of the search request.
 
 2. Also add `file_id` and `file_name` fields for the sake of this example.  
 
@@ -152,7 +152,7 @@ You should get the documents back where `group_ids` contains either "group_id1" 
 
 ## Next steps
 
-This article described a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principle identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
+This article described a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
 
 For an alternative pattern based on Active Directory, or to revisit other security features, see the following links.
 

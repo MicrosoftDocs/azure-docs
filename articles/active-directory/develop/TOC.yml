@@ -26,7 +26,7 @@
         - name: Microsoft Authentication Library (MSAL)
           href: msal-overview.md
         - name: Microsoft Graph
-          href: microsoft-graph-intro.md
+          href: /graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Glossary of terms
           displayName: dictionary, terminology
           href: developer-glossary.md
@@ -61,6 +61,8 @@
           href: application-model.md
         - name: Workload identities
           href: workload-identities-overview.md
+        - name: Workload identities FAQs
+          href: workload-identities-faqs.md
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
         - name: How and why apps are added to Azure AD
@@ -124,14 +126,10 @@
               href: active-directory-optional-claims.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
-            - name: Configure token lifetimes
-              href: configure-token-lifetimes.md
             - name: Customize JWT claims
               href: active-directory-jwt-claims-customization.md
             - name: Customize SAML claims
               href: active-directory-saml-claims-customization.md
-            - name: Customize claims using PowerShell
-              href: active-directory-claims-mapping.md
             - name: Directory extension attributes
               href: active-directory-schema-extensions.md
             - name: SAML app multi-instancing

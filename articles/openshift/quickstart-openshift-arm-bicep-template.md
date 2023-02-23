@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 02/15/2023
 keywords: azure, openshift, aro, red hat, arm, bicep
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
@@ -575,6 +575,9 @@ This section provides information on deploying the azuredeploy.json template.
 
 The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
 
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
+
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
 | `domain` |The domain prefix for the cluster. | | none |
@@ -793,7 +796,7 @@ az deployment group create \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters clusterName=$CLUSTER \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
@@ -809,7 +812,7 @@ To connect to your new cluster, review the steps in [Connect to an Azure Red Hat
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
 ```azurecli-interactive
-az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 > [!TIP]

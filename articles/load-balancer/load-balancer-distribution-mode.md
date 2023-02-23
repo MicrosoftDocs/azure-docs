@@ -3,12 +3,10 @@ title: Configure Azure Load Balancer distribution mode
 titleSuffix: Azure Load Balancer
 description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.tgt_pltfrm: na
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, template-how-to
 ms.workload: infrastructure-services
 ms.date: 12/05/2022
 ms.author: mbender
@@ -20,6 +18,8 @@ Azure Load Balancer supports two distribution modes for distributing traffic to 
 
 * Hash-based
 * Source IP affinity
+
+To learn more about the different distribution modes supported by Azure Load Balancer, see [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
 
 In this article, you learn how to configure the distribution mode for your Azure Load Balancer.
 
@@ -40,8 +40,8 @@ You can change the configuration of the distribution mode by modifying the load-
 The following options are available: 
 
 * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-* **Client IP (source IP affinity two-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-* **Client IP and protocol (source IP affinity three-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+* **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+* **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
 

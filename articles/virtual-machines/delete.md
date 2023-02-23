@@ -171,7 +171,7 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
 ## Update the delete behavior on an existing VM
 
-You can change the behavior when you delete a VM. The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
+You can change the behavior when you delete a VM. 
 
 ### [CLI](#tab/cli3)
 
@@ -182,6 +182,8 @@ az resource update --resource-group myResourceGroup --name myVM --resource-type 
 ```
 
 ### [REST](#tab/rest3)
+
+The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
@@ -297,7 +299,7 @@ Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure
 az vm delete \
     --resource-group myResourceGroup \
     --name myVM \
-    --force-deletion
+    --force-deletion none
 ```
 
 ### [PowerShell](#tab/powershell4)
@@ -317,18 +319,18 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 ---
 
-## Force Delete for virtual machine scale sets
+## Force Delete for scale sets
 
-Force delete allows you to forcefully delete your **Uniform** virtual machine scale sets, reducing delete latency and immediately freeing up attached resources. . Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. . Force Delete will not immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately re-use the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to re-use virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal5)
 
-When you go to delete an existing virtual machine scale set, you will find an option to apply force delete in the delete pane.  
+When you go to delete an existing scale set, you will find an option to apply force delete in the delete pane.  
 
 1. Open the [portal](https://portal.azure.com).
-1. Navigate to your virtual machine scale set.
+1. Navigate to your Virtual Machine Scale Set.
 1. On the **Overview** page, select **Delete**. 
-1. In the **Delete virtual machine scale set** pane, select the checkbox for **Apply force delete**. 
+1. In the **Delete Virtual Machine Scale Set** pane, select the checkbox for **Apply force delete**. 
 1. Select **Ok**.  
 
 ### [CLI](#tab/cli5)
@@ -355,7 +357,7 @@ Remove-AzVmss `
 
 ### [REST](#tab/rest5)
 
-You can use the Azure REST API to apply force delete to your virtual machine scale set. Use the `forceDeletion` parameter for [Virtual Machines Scale Sets - Delete](/rest/api/compute/virtual-machine-scale-sets/delete).
+You can use the Azure REST API to apply force delete to your scale set. Use the `forceDeletion` parameter for [Virtual Machines Scale Sets - Delete](/rest/api/compute/virtual-machine-scale-sets/delete).
 
 ---
 
@@ -376,9 +378,9 @@ A: This feature is supported on all managed disk types used as OS disks and Data
 A: No, this feature is only available on disks and NICs associated with a VM.
 
 
-### Q:	How does this feature work with Flexible virtual machine scale sets?
+### Q:	How does this feature work with Flexible Virtual Machine Scale Set?
 
-A: For Flexible virtual machine scale sets the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted. 
+A: For Flexible Virtual Machine Scale Set the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted. 
 
 For data disks that were explicitly created and attached to the VMs, you can modify this property to ‘Detach’ instead of ‘Delete’ if you want the disks to persist after the VM is deleted.
 

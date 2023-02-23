@@ -3,10 +3,10 @@ title: Integrate CyberArk with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with CyberArk.
 ms.topic: tutorial
 ms.date: 02/08/2022
-ms.custom: template-tutorial
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate CyberArk with Microsoft Defender for IoT
+# Integrate CyberArk with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate, and use CyberArk with Microsoft Defender for IoT.
 

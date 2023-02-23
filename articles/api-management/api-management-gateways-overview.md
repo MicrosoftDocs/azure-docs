@@ -27,6 +27,11 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 [!INCLUDE [api-management-gateway-role](../../includes/api-management-gateway-role.md)]
 
+
+> [!NOTE]
+> All requests to the API Management gateway, including those rejected by policy configurations, count toward configured rate limits, quotas, and billing limits if applied in the service tier. 
+
+
 ## Managed and self-hosted
 
 API Management offers both managed and self-hosted gateways:
@@ -52,6 +57,7 @@ The following table compares features available in the managed gateway versus th
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
+> * For the current supported features of the self-hosted gateway, ensure that you have upgraded to the latest major version of the self-hosted gateway [container image](self-hosted-gateway-overview.md#container-images).
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
 
 ### Infrastructure
@@ -61,16 +67,17 @@ The following table compares features available in the managed gateway versus th
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ |
 | [Built-in cache](api-management-howto-cache.md) | ✔️ |  ❌ | ❌ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ | ✔️ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1</sup> |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ✔️<sup>1,2</sup> |
 | [Private endpoints](private-endpoint.md)  |  ✔️ |  ❌ | ❌ |
 | [Availability zones](zone-redundancy.md)  |  Premium |  ❌ | ✔️<sup>1</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium |  ❌ | ✔️<sup>1</sup> |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>2</sup> |  
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
-<sup>2</sup> Requires configuration of local CA certificates.<br/>
+<sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
+<sup>3</sup> Requires configuration of local CA certificates.<br/>
 
 ### Backend APIs
 
@@ -92,17 +99,19 @@ The following table compares features available in the managed gateway versus th
 
 ### Policies
 
-Managed and self-hosted gateways support all available [policies](api-management-howto-policies.md) in policy definitions with the following exceptions.
+Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions.
 
-| Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
+| Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
-| [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
+| [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
-| [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>2</sup>
+| [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 | [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
-<sup>1</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>2</sup> By default, rate limit counts in self-hosted gateways are per-gateway, per-node.
+<sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
+<sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
+<sup>3</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+
 
 ### Monitoring
 

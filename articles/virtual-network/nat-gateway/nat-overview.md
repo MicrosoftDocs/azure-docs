@@ -62,7 +62,7 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 * NAT gateway supports TCP and UDP protocols only. ICMP isn't supported.
 
-* When virtual machine instances or other compute resources attempt to communicate on a TCP connection that doesn't exist, they send TCP reset packets. An example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address of the virtual machine to signal and force connection closure. The public side of a NAT gateway doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
+* NAT gateway will send a TCP Rest (RST) packet to the connection endpoint that attempts to communicate on a connection flow that does not exist. This connection flow may no longer exist if the NAT gateway idle timeout was reached or the connection was closed earlier. When the NAT gateway TCP RST packet is received by the connection endpoint, this signifies that the connection is no longer usable.
 
 ### NAT gateway configurations
 

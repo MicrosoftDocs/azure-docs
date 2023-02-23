@@ -109,6 +109,8 @@
           href: use-azure-monitor-workbooks.md
         - name: Secure remote access to VMs
           href: secure-remote-vm-access.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/azure-active-directory-domain-services-security-baseline?toc=/azure/active-directory-domain-services/TOC.json          
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template

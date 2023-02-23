@@ -1,12 +1,11 @@
 ---
 title: Azure Peering Service overview
-description: Learn about Azure Peering Service
+description: Learn about Azure Peering Service.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.workload: Infrastructure-services
-ms.date: 01/15/2023
+ms.date: 01/19/2023
 ms.author: halkazwini
 ms.custom: template-overview, engagement-fy23
 ---
@@ -17,7 +16,7 @@ Azure Peering Service is a networking service that enhances the connectivity to 
 
 With Peering Service, customers can select a well-connected partner service provider in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
-:::image type="content" source="./media/peering-service-about/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud.":::
+:::image type="content" source="./media/about/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud.":::
 
 Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service connection in the Azure portal. 
 
@@ -46,7 +45,7 @@ Microsoft 365, Dynamics 365, and any other Microsoft SaaS services are hosted in
 
 Microsoft and partner service providers ensure that the traffic for the prefixes registered with a Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the Microsoft global network. Microsoft ensures that the networking traffic egressing from the prefixes registered with Peering Service connections takes the nearest Microsoft Edge PoP locations on the Microsoft global network.
 
-:::image type="content" source="./media/peering-service-about/peering-service-background-final.png" alt-text="Diagram showing Microsoft network and public connectivity.":::
+:::image type="content" source="./media/about/peering-service-background-final.png" alt-text="Diagram showing Microsoft network and public connectivity.":::
 
 > [!NOTE]
 > For more information about the Microsoft global network, see [Microsoft global network](../networking/microsoft-global-network.md).
@@ -78,7 +77,7 @@ Peering Service uses two types of redundancy:
 
     This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft Edge PoP to the end user and ensures that the customer is one network hop (AS hops) away from Microsoft​.
 
-    :::image type="content" source="./media/peering-service-about/peering-service-geo-shortest.png" alt-text="Diagram showing geo-redundancy.":::
+    :::image type="content" source="./media/about/peering-service-geo-shortest.png" alt-text="Diagram showing geo-redundancy.":::
 
 ### Optimal routing
 
@@ -90,7 +89,7 @@ The following routing technique is preferred:
    
    Routing that doesn't use the cold-potato technique is referred to as hot-potato routing. With hot-potato routing, traffic that originates from the Microsoft cloud then goes over the internet.
 
-    :::image type="content" source="./media/peering-service-about/peering-service-cold-potato.png" alt-text="Diagram showing cold-potato routing.":::
+    :::image type="content" source="./media/about/peering-service-cold-potato.png" alt-text="Diagram showing cold-potato routing.":::
 
 ### Monitoring platform
 
@@ -108,7 +107,7 @@ The following routing technique is preferred:
 
    Monitoring captures the events if there's any service degradation.
 
-    :::image type="content" source="./media/peering-service-about/peering-service-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
+    :::image type="content" source="./media/about/peering-service-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
 
 ### Traffic protection
 

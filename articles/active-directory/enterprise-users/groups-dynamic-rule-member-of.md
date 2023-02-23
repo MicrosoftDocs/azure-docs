@@ -4,7 +4,7 @@ description: How to create a dynamic membership group that can contain members o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

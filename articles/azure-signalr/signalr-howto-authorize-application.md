@@ -3,7 +3,7 @@ title: Authorize request to SignalR resources with Azure AD from Azure applicati
 description: This article provides information about authorizing request to SignalR resources with Azure AD from Azure applications
 author: vicancy
 ms.author: lianwei
-ms.date: 07/18/2022
+ms.date: 02/03/2023
 ms.service: signalr
 ms.topic: how-to
 ms.devlang: csharp
@@ -158,9 +158,6 @@ services.AddSignalR().AddAzureSignalR(option =>
 ```
 
 ### Azure Functions SignalR bindings
-
-> [!WARNING]
-> SignalR trigger binding does not support identity-based connection yet and connection strings are still necessary.
 
 Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure Azure application identities to access your SignalR resources.
 

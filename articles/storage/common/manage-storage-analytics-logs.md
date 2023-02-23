@@ -44,7 +44,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 3. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
    > [!div class="mx-imgBorder"]
-   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
+   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
 4. To retain logs, ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days.  If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
@@ -56,6 +56,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   
+   > [!NOTE]
+   > For classic storage accounts, the $logs container appears only in Azure Storage Explorer. The $logs container isn't visible from storage browser or the container view that is available in the Azure portal.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -141,7 +144,7 @@ Log data can accumulate in your account over time which can increase the cost of
 3. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control.
 
    > [!div class="mx-imgBorder"]
-   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
+   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
    The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the monitoring data.
 

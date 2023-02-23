@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/31/2023
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
@@ -42,9 +42,7 @@ The location selected during tenant creation will map to one of the following ge
 * North America
 * Worldwide  
 
-Azure AD handles Core Store data based on usability, performance, residency and/or other requirements based on geo-location. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geo-location.
-
-Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
+Azure AD handles Core Store data based on usability, performance, residency and/or other requirements based on geo-location. Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
 
 * Azure AD Core Store data, stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
 * Azure AD Core Store data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events
@@ -108,3 +106,11 @@ For more information on data residency in Microsoft Cloud offerings, see the fol
 * [Microsoft 365 data locations - Microsoft 365 Enterprise](/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide&preserve-view=true)
 * [Microsoft Privacy - Where is Your Data Located?](https://www.microsoft.com/trust-center/privacy/data-location?rtc=1)
 * Download PDF: [Privacy considerations in the cloud](https://go.microsoft.com/fwlink/p/?LinkID=2051117&clcid=0x409&culture=en-us&country=US)
+
+## Next steps
+
+* [Azure Active Directory and data residency](azure-ad-data-residency.md) (You're here)
+
+* [Data operational considerations](data-operational-considerations.md)
+* [Data protection considerations](data-protection-considerations.md)
+

@@ -4,6 +4,8 @@
   items:
   - name: About Azure Container Instances
     href: container-instances-overview.md
+  - name: Resources and Quota Limits
+    href: container-instances-resource-and-quota-limits.md
 - name: Quickstarts
   expanded: true
   items:
@@ -53,10 +55,8 @@
   items:
   - name: Container groups
     href: container-instances-container-groups.md
-  - name: Quotas and limits
-    href: container-instances-quotas.md
-  - name: Region availability
-    href: container-instances-region-availability.md
+  - name: Region and resource availability
+    href: container-instances-resource-and-quota-limits.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Security
@@ -185,7 +185,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-container-instances
   - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-instances
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-instances/
   - name: Roadmap

@@ -36,7 +36,7 @@ productDirectory:
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./datadog/overview.md
-          text: Monitor and analyze large-scale applications.
+          text: Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.
     # Card 3
     - title: Logz.io
       imageSrc: ./media/index/logz.io.svg
@@ -62,12 +62,12 @@ productDirectory:
         - url: ./nginx/nginx-overview.md
           text: Deliver secure, high-performance applications by using familiar and trusted load-balancing solutions.
   # Card 7
-    # - title: Qumulo
-    #   imageSrc: ./media/index/qumulo.svg
-    #   links:
-    #     - url: ./qumulo/qumulo-overview.md
-    #       text: Adopt a cloud-native file system that's enterprise ready, highly scalable, highly performant, and simple to use.
-  # Card 
+    - title: Qumulo Preview
+      imageSrc: ./media/index/qumulo.svg
+      links:
+        - url: ./qumulo/qumulo-overview.md
+          text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
+  # Card 8
     - title: New Relic Preview
       imageSrc: ./media/index/new-relic.svg
       links:

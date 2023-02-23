@@ -7,6 +7,10 @@ items:
   items:
   - name: What is Azure Spring Apps?
     href: overview.md
+  - name: Compare Java application hosting options on Azure
+    href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring workloads to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -124,6 +128,8 @@ items:
         href: how-to-enterprise-application-configuration-service.md
       - name: Use Build Service
         href: how-to-enterprise-build-service.md
+      - name: Configure APM integration and CA certificates
+        href: how-to-enterprise-configure-apm-intergration-and-ca-certificates.md
       - name: Use Service Registry
         href: how-to-enterprise-service-registry.md
       - name: Use API portal
@@ -156,11 +162,11 @@ items:
       href: how-to-maven-deploy-apps.md
     - name: Deploy Spring apps with Azure PowerShell
       href: how-to-deploy-powershell.md
-    - name: Deploy non-Java enterprise applications
-      href: how-to-enterprise-deploy-non-java-apps.md
+    - name: Deploy polyglot enterprise applications
+      href: how-to-enterprise-deploy-polyglot-apps.md
     - name: Deploy with a custom container
       href: how-to-deploy-with-custom-container-image.md
-    - name: Deploy static files in Azure Spring Enterprise tier
+    - name: Deploy web static files
       href: how-to-enterprise-deploy-static-file.md
   - name: Manage
     items:
@@ -337,6 +343,3 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
-  - name: What's New
-    displayName: What's New
-    href: https://azure.microsoft.com/updates/?query=spring

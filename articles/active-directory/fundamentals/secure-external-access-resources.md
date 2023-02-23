@@ -19,17 +19,21 @@ ms.collection: M365-identity-device-management
 
 Secure collaboration with your external partners ensures they have correct access to internal resources, and for the expected duration. Learn about governance practices to reduce security risks, meet compliance goals, and ensure accurate access.
 
+## Governance benefits
+
 Governed collaboration improves clarity of ownership of access, reduces exposure of sensitive resources, and enables you to attest to access policy.
 
 * Manage external organizations, and their users who access resources
 * Ensure access is correct, reviewed, and time bound
 * Empower business owners to manage collaboration with delegation 
 
+## Collaboration methods
+
 Traditionally, organizations use one of two methods to collaborate:
 
 * Create locally managed credentials for external users, or
 * Establish federations with partner identity providers (IdP)
- 
+
 Both methods have drawbacks. For more information, see the following table.
 
 | Area of concern | Local credentials | Federation |
@@ -40,7 +44,7 @@ Both methods have drawbacks. For more information, see the following table.
 
 Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, and Microsoft 365 services. Azure AD B2B simplifies collaboration, reduces expense, and increases security. 
 
-Azure AD B2B benefits: 
+## Azure AD B2B benefits
 
 - If the home identity is disabled or deleted, external users can't access resources
 - User home IdP handles authentication and credential management
