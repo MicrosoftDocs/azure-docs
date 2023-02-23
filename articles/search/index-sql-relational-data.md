@@ -151,7 +151,7 @@ Fields that have a parent, such as the fields under Address and Rooms, are calle
 
 For complex types like Address, where there is just one "Address/City" or "Address/stateProvince" in the document, the facet behavior works as expected. However, in the case of Rooms, where there are multiple subdocuments for each main document, the facet counts can be misleading.
 
-As noted in [Model complex types](search-howto-complex-data-types): "the document counts returned in the facet results are calculated for the parent document (a hotel), not the sub-documents in a complex collection (rooms). For example, suppose a hotel has 20 rooms of type "suite". Given this facet parameter facet=Rooms/Type, the facet count will be one for the hotel, not 20 for the rooms."
+As noted in [Model complex types](search-howto-complex-data-types.md): "the document counts returned in the facet results are calculated for the parent document (a hotel), not the sub-documents in a complex collection (rooms). For example, suppose a hotel has 20 rooms of type "suite". Given this facet parameter facet=Rooms/Type, the facet count will be one for the hotel, not 20 for the rooms."
 
 ## Next steps
 
