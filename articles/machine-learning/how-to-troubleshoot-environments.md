@@ -1713,6 +1713,31 @@ pip install --ignore-installed [package]
 
 Try creating a separate environment using conda
 
+## *Make issues*
+### No targets specified and no makefile found
+<!--issueDescription-->
+This issue can happen when no targets are specified and no makefile is found when running `make`.
+
+**Potential causes:**
+* Makefile doesn't exist in the current directory
+* No targets are specified
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+
+**Troubleshooting steps**
+* Ensure that the makefile is spelled correctly
+* Ensure that the makefile exists in the current directory
+* If you have a custom makefile, specify it using ```make -f custommakefile```
+* Specify targets in the makefile or in the command line
+* Configure your build and generate a makefile
+* Ensure your makefile is formatted correctly and tabs are used for indentation
+
+**Resources**
+* [GNU Make](https://www.gnu.org/software/make/manual/make.html)
+<!--/issueDescription-->
+
 ## *Docker push issues*
 ### Failed to store Docker image
 <!--issueDescription-->
