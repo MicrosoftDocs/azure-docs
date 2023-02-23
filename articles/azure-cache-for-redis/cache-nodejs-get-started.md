@@ -30,8 +30,8 @@ For examples of using other Node.js clients, see the individual documentation fo
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
 ```powershell
-set AZURE_CACHE_FOR_REDIS_HOSTNAME=contosoCache
-set AZURE_CACHE_FOR_REDIS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
+set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## Connect to the cache
@@ -49,7 +49,58 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
 
 1. Add the following example JavaScript to the file. 
 
-    :::code language="javascript" source="~/azure-cache-redis-samples/quickstart/nodejs/redistest.js":::
+
+    ```javascript
+    const redis = require("redis");
+    
+    // Environment variables for cache
+    const cacheHostName = process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME;
+    const cachePassword = process.env.AZURE_CACHE_FOR_REDIS_ACCESS_KEY;
+    
+    if(!cacheHostName) throw Error("AZURE_CACHE_FOR_REDIS_HOST_NAME is empty")
+    if(!cachePassword) throw Error("AZURE_CACHE_FOR_REDIS_ACCESS_KEY is empty")
+    
+    async function testCache() {
+    
+        // Connection configuration
+        const cacheConnection = redis.createClient({
+            // rediss for TLS
+            url: `rediss://${cacheHostName}:6380`,
+            password: cachePassword
+        });
+    
+        // Connect to Redis
+        await cacheConnection.connect();
+    
+        // PING command
+        console.log("\nCache command: PING");
+        console.log("Cache response : " + await cacheConnection.ping());
+    
+        // GET
+        console.log("\nCache command: GET Message");
+        console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+        // SET
+        console.log("\nCache command: SET Message");
+        console.log("Cache response : " + await cacheConnection.set("Message",
+            "Hello! The cache is working from Node.js!"));
+    
+        // GET again
+        console.log("\nCache command: GET Message");
+        console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+        // Client list, useful to see if connection list is growing...
+        console.log("\nCache command: CLIENT LIST");
+        console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+    
+        // Disconnect
+        cacheConnection.disconnect()
+    
+        return "Done"
+    }
+    
+    testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
+    ```
     
     This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
@@ -76,7 +127,7 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     Cache response : Hello! The cache is working from Node.js!
     
     Cache command: CLIENT LIST
-    Cache response : id=3129885 addr=76.22.73.183:64798 fd=14 name= age=0 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
+    Cache response : id=10017364 addr=76.22.73.183:59380 fd=221 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
     
     Done
     ```
