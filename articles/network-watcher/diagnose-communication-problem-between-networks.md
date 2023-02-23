@@ -43,7 +43,7 @@ In this section, you create two virtual networks that you connect later using vi
 
 ### Create first virtual network
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
 
     :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -89,7 +89,7 @@ In this section, you create a storage account, then you create a container in it
 
 If you have a storage account that you want to use, you can skip the following steps and go to [Create VPN gateways](#create-vpn-gateways).
 
-1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
@@ -131,7 +131,7 @@ In this section, you create two VPN gateways that will be used to connect the tw
 
 ### Create first VPN gateway
 
-1. In the search box at the top of the portal, enter *virtual network gateways*. Select **Virtual network gateways** in the search results.
+1. In the search box at the top of the portal, enter *virtual network gateway*. Select **Virtual network gateways** in the search results.
 
 1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 
