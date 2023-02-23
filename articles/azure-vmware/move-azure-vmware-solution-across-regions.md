@@ -104,8 +104,8 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 1. From the target, sign in to the [Azure portal](https://portal.azure.com/).
 
-    > [!NOTE] 
-    > If you need access to the Azure US Gov portal, go to https://portal.azure.us/  
+   > [!NOTE]
+   > If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
   
 
