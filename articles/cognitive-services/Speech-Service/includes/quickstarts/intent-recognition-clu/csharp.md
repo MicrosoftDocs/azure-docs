@@ -89,10 +89,10 @@ Follow these steps to create a new console application and install the Speech SD
                     Console.WriteLine($"RECOGNIZED: Text={recognitionResult.Text}");
                     Console.WriteLine($"    Intent Id: {recognitionResult.IntentId}.");
                     
-                    // The IntentService_DetailedResult property is a temporary preview and will be replaced 
-                    // by LanguageUnderstandingServiceResponse_JsonResult in a future release.
-                    Console.WriteLine($"    Language Understanding JSON: {recognitionResult.Properties.GetProperty("IntentService_DetailedResult")}.");
-                    //Console.WriteLine($"    Language Understanding JSON: {recognitionResult.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)}.");
+                    // There is a known issue with the LanguageUnderstandingServiceResponse_JsonResult 
+                    // property when used with CLU in the Speech SDK version 1.25. 
+                    // The following should return JSON in a future release.
+                    Console.WriteLine($"    Language Understanding JSON: {recognitionResult.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)}.");
                 }
                 else if (recognitionResult.Reason == ResultReason.RecognizedSpeech)
                 {
@@ -138,86 +138,11 @@ Speak into your microphone when prompted. What you speak should be output as tex
 Say something ...
 RECOGNIZED: Text=Go ahead and delete the e-mail.
     Intent Id: Delete.
-    Language Understanding JSON: {"kind":"ConversationResult","result":{"query":"go ahead and delete the email","prediction":{"topIntent":"Delete","projectKind":"Conversation","intents":[{"category":"Delete","confidenceScore":0.95413816},{"category":"Cancel","confidenceScore":0.8985081},{"category":"SendEmail","confidenceScore":0.76236105},{"category":"Confirm","confidenceScore":0.7585944},{"category":"QueryLastText","confidenceScore":0.7434454},{"category":"CheckMessages","confidenceScore":0.70770377},{"category":"SearchMessages","confidenceScore":0.7021245},{"category":"ReadAloud","confidenceScore":0.6168782},{"category":"AddMore","confidenceScore":0.6116944},{"category":"Reply","confidenceScore":0.6059992},{"category":"ShowNext","confidenceScore":0.5359252},{"category":"AddFlag","confidenceScore":0.504695},{"category":"ShowPrevious","confidenceScore":0.49446106},{"category":"Forward","confidenceScore":0.41094807},{"category":"None","confidenceScore":0.34945187}],"entities":[]}}}.
+    Language Understanding JSON: 
 ```
 
-The intents are returned in the probability order of most likely to least likely. Here's a formatted version of the JSON output where the `topIntent` is `Delete` with a confidence score of 0.95413816 (95.41%):
-
-```json
-{
-	"kind": "ConversationResult",
-	"result": {
-		"query": "go ahead and delete the email",
-		"prediction": {
-			"topIntent": "Delete",
-			"projectKind": "Conversation",
-			"intents": [
-				{
-					"category": "Delete",
-					"confidenceScore": 0.95413816
-				},
-				{
-					"category": "Cancel",
-					"confidenceScore": 0.8985081
-				},
-				{
-					"category": "SendEmail",
-					"confidenceScore": 0.76236105
-				},
-				{
-					"category": "Confirm",
-					"confidenceScore": 0.7585944
-				},
-				{
-					"category": "QueryLastText",
-					"confidenceScore": 0.7434454
-				},
-				{
-					"category": "CheckMessages",
-					"confidenceScore": 0.70770377
-				},
-				{
-					"category": "SearchMessages",
-					"confidenceScore": 0.7021245
-				},
-				{
-					"category": "ReadAloud",
-					"confidenceScore": 0.6168782
-				},
-				{
-					"category": "AddMore",
-					"confidenceScore": 0.6116944
-				},
-				{
-					"category": "Reply",
-					"confidenceScore": 0.6059992
-				},
-				{
-					"category": "ShowNext",
-					"confidenceScore": 0.5359252
-				},
-				{
-					"category": "AddFlag",
-					"confidenceScore": 0.504695
-				},
-				{
-					"category": "ShowPrevious",
-					"confidenceScore": 0.49446106
-				},
-				{
-					"category": "Forward",
-					"confidenceScore": 0.41094807
-				},
-				{
-					"category": "None",
-					"confidenceScore": 0.34945187
-				}
-			],
-			"entities": []
-		}
-	}
-}
-```
+> [NOTE]
+> There is a known issue with the LanguageUnderstandingServiceResponse_JsonResult property when used with CLU in the Speech SDK version 1.25. You can get detailed JSON output in a future release. Via JSON, the intents are returned in the probability order of most likely to least likely. For example, the `topIntent` might be `Delete` with a confidence score of 0.95413816 (95.41%). The second most likely intent might be `Cancel` with a confidence score of 0.8985081 (89.85%).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
