@@ -9,7 +9,7 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/22/2023
 ---
 
 # Troubleshoot issues with Shared Private Links in Azure Cognitive Search
@@ -69,7 +69,8 @@ A search service initiates the request to create a shared private link, but Azur
 Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the following table.
 
 | Deployment failure reason | Description | Resolution |
-| --- | --- | --- |
+| ------------------------- | ----------- | ---------- |
+| Error code"LinkedAuthorizationFailed" | An error message states that the client has permission to create the shared private link on the search service, but does not have permission to perform action 'privateEndpointConnectionApproval/action' on the linked scope. | Re-check the private link ID in the request to make sure there are no errors or omissions in the URI. If Azure Cognitive Search and the Azure PaaS resource are in different subscriptions, and if you're using REST or a command line interface, make sure that the [active Azure account is for the Azure PaaS resource](search-indexer-howto-access-private.md#rest-api). For REST clients, make sure you're not using an expired bearer token, and that the token is valid for the active subscription. |
 | Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, Azure Cosmos DB, Azure SQL) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") isn't registered with `Microsoft.Network` RP, then the Azure Resource Manager deployment can fail. | You need to register this RP in their target subscription. You can [register the resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) using the Azure portal, PowerShell, or CLI.|
 | Invalid `groupId` for the target resource | When Azure Cosmos DB accounts are created, you can specify the API type for the database account. While Azure Cosmos DB offers several different API types, Azure Cognitive Search only supports "Sql" as the `groupId` for shared private link resources. When a shared private link of type "Sql" is created for a `privateLinkResourceId` pointing to a non-Sql database account, the Azure Resource Manager deployment will fail because of the `groupId` mismatch. The Azure resource ID of an Azure Cosmos DB account isn't sufficient to determine the API type that is being used. Azure Cognitive Search tries to create the private endpoint, which is then denied by Azure Cosmos DB. | You should ensure that the `privateLinkResourceId` of the specified Azure Cosmos DB resource is for a database account of "Sql" API type |
 | Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the Azure Resource Manager deployment. If the target resource is no longer available, then the deployment will fail. | You should ensure that the target resource is present in the specified subscription and resource group and isn't moved or deleted. |
