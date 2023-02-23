@@ -117,13 +117,14 @@ You now have an Azure Machine Learning workspace, which contains a compute insta
 Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud.  
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md)
+> [Quickstart: Get to know Azure Machine Learning](tutorial-azure-ml-in-a-day.md) 
 
 Use your compute instance with the following tutorials to train and deploy a model.
 
 |Tutorial  |Description  |
 |---------|---------|
-| [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)     |  Basic end-to-end train and deploy a model      |
-| [Access and explore your data]()     |  Store large data in the cloud and retrieve it from notebooks and scripts |
-| [Train a model]()   |    Dive in to the details of training a model     |
-| [Deploy a model]()  |   Dive in to the details of deploying a model      |
+| [Quickstart: Get to know Azure Machine Learning](tutorial-azure-ml-in-a-day.md)   |  Basic end-to-end train and deploy a model      |
+| [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md)     |  Store large data in the cloud and retrieve it from notebooks and scripts |
+| [Model development on a cloud workstation](tutorial-cloud-workstation.md) | Start prototyping and developing machine learning models |
+| [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
+| [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |

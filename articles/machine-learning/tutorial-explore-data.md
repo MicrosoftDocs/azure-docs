@@ -31,8 +31,6 @@ The start of a machine learning project typically involves exploratory data anal
 * Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
-
-* Complete [Run notebooks on your cloud workstation](quickstart-run-notebooks.md) if you need help to:
     * Create a new notebook, if you want to copy/paste code into cells.
     * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 

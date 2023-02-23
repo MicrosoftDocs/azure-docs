@@ -40,19 +40,19 @@ You'll learn how to use the AzureML Python SDK v2 to:
 * Complete [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
-* [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model.
-* Complete the [Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md) to learn how to clone the **SDK v2/tutorials** folder.
-
 
 ## Open the notebook
 
-1. Open the **tutorials** folder that was cloned into your **Files** section from the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Open your workspace if it isn't already open.
+1. From the navigation bar on the left, select **Notebook**.
+1. At the top, select **Samples**.
     
-1. Select the **e2e-ml-workflow.ipynb** file from your **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder. 
+1. Select the **e2e-ml-workflow.ipynb** file from **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder. 
 
     :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
-
-1. On the top bar, select the compute instance you created during the  [Create resources to get started](quickstart-create-resources.md) to use for running the notebook.
+1. Select **Clone this notebook**.
+1. On the top bar, select the compute instance you created during the  [Create resources to get started](quickstart-create-resources.md) to use for running the notebook. Start the compute if it isn't already started.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
