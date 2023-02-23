@@ -228,10 +228,10 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
 
-> [!div class="nextstepaction"]
-> [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
-> [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
-> [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
+
+* [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
+* [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
+* [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
 
 <!-- LINKS - External -->

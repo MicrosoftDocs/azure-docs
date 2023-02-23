@@ -73,8 +73,6 @@
        href: container-instances-image-security.md
   - name: Virtual networking
     href: container-instances-virtual-network-concepts.md
-  - name: Confidential containers
-    href: container-instances-confidential-containers-overview.md
   - name: Confidential container groups
     href: container-instances-confidential-overview.md
 - name: How-to guides
