@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diagnose communication problem between networks using the Azure portal'
+title: 'Tutorial: Diagnose communication problem between virtual networks - Azure portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to use Azure Network Watcher VPN diagnostics to troubleshoot a communication problem between two Azure virtual networks connected by Azure VPN gateways.
 services: network-watcher
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, engagement-fy23
-# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
+# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
 
-# Tutorial: Diagnose a communication problem between networks using the Azure portal
+# Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
 
 Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Multiple connections can be created to the same VPN gateway. You can use Azure Network Watcher to troubleshoot and diagnose a VPN gateway and its connections.
 
