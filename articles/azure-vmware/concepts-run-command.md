@@ -30,8 +30,8 @@ You can view the status of any executed run command, including the output, error
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
     
-   >[!NOTE] 
-   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 
 1. Select **Run command** > **Run execution status**.

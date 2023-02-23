@@ -127,8 +127,8 @@ Now that you have the ExpressRoute circuit IDs and authorization keys for both e
  
 1. From the target, sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the source’s ExpressRoute circuit.  
    
-   >[!NOTE] 
-   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. Under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
 

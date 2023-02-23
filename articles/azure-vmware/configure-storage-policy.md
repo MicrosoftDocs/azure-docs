@@ -52,8 +52,8 @@ You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policie
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
    
-   >[!NOTE] 
-   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 
 1. Select **Run command** > **Packages** > **Get-StoragePolicies**.
