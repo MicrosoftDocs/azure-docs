@@ -42,7 +42,7 @@ Environment isolation implies that Python dependencies installed in the base ima
 
 ### Create and manage environments
 
-You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, VS code extension. 
+You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, Visual Studio Code extension. 
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment without registering or referencing an already existing environment.
 They aren't listed but you can retrieve them by version or label.
@@ -68,7 +68,7 @@ There are some ways to decrease the impact of vulnerabilities:
 
 #### *Vulnerabilities vs Reproducibility*
 
-Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
+Reproducibility is one of the foundations of software development. When you're developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
 
 AzureML's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
@@ -1141,7 +1141,7 @@ See the [samples repository](https://aka.ms/azureml/environment/train-r-models-c
 
 **Troubleshooting steps**
 
-Ensure that you are specifying your environment name correctly, along with the correct version
+Ensure that you're specifying your environment name correctly, along with the correct version
 * `path-to-resource:version-number`
 
 You should specify the 'latest' version of your environment in a different way
@@ -1233,7 +1233,7 @@ This issue can happen when a Docker image pull fails due to a network issue.
 **Potential causes:**
 * Network connection issue, which could be temporary
 * Firewall is blocking the connection
-* ACR is unreachable and there's network isolation. For more details, see [ACR unreachable](#acr-unreachable). 
+* ACR is unreachable and there's network isolation. For more information, see [ACR unreachable](#acr-unreachable). 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -1640,7 +1640,7 @@ Alternatively, use a different version of Python that's compatible with the pack
 
 ### Conda bare redirection
 <!--issueDescription-->
-This issue can happen when a package is specified on the command line using "<" or ">" without using quotes, causing conda environment creation or update to fail.
+This issue can happen when you've specified a package on the command line using "<" or ">" without using quotes, which can cause conda environment creation or update to fail.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -1671,7 +1671,7 @@ This issue can happen when your image build fails during Python package installa
 
 **Potential causes:**
 * There are many issues that could cause this error
-* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+* This message is generic and is surfaced when AzureML analysis doesn't yet cover the error you're encountering
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -1687,7 +1687,7 @@ Leave feedback for the AzureML team to analyze the error you're experiencing
 
 ### Can't uninstall package
 <!--issueDescription-->
-This can happen when pip fails to uninstall a Python package that was installed via the operating system's package manager.
+This issue can happen when pip fails to uninstall a Python package that the operating system's package manager installed.
 
 **Potential causes:**
 * An existing pip problem or a problematic pip version
@@ -1700,8 +1700,8 @@ This can happen when pip fails to uninstall a Python package that was installed 
 
 **Troubleshooting steps**
 
-Read the following and determine if your failure is caused by an existing pip problem
-* [Cannot uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
+Read the following and determine if an existing pip problem caused your failure
+* [Can't uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
 * [pip 10 disutils partial uninstall issue](https://github.com/pypa/pip/issues/5247)
 * [pip 10 no longer uninstalls disutils packages](https://github.com/pypa/pip/issues/4805)
 
@@ -1716,7 +1716,7 @@ Try creating a separate environment using conda
 ## *Make issues*
 ### No targets specified and no makefile found
 <!--issueDescription-->
-This issue can happen when no targets are specified and no makefile is found when running `make`.
+This issue can happen when you haven't specified any targets and no makefile is found when running `make`.
 
 **Potential causes:**
 * Makefile doesn't exist in the current directory
@@ -1727,12 +1727,12 @@ This issue can happen when no targets are specified and no makefile is found whe
 * Failure in running jobs because AzureML implicitly builds the environment in the first step.
 
 **Troubleshooting steps**
-* Ensure that the makefile is spelled correctly
+* Ensure that you've spelled the makefile correctly
 * Ensure that the makefile exists in the current directory
 * If you have a custom makefile, specify it using ```make -f custommakefile```
 * Specify targets in the makefile or in the command line
 * Configure your build and generate a makefile
-* Ensure your makefile is formatted correctly and tabs are used for indentation
+* Ensure that you've formatted your makefile correctly and that you've used tabs for indentation
 
 **Resources**
 * [GNU Make](https://www.gnu.org/software/make/manual/make.html)
@@ -1741,7 +1741,7 @@ This issue can happen when no targets are specified and no makefile is found whe
 ## *Docker push issues*
 ### Failed to store Docker image
 <!--issueDescription-->
-This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
+This issue can happen when a Docker image push to a container registry fails.  
 
 **Potential causes:**
 * A transient issue has occurred with the ACR associated with the workspace
@@ -1754,7 +1754,7 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 
 **Troubleshooting steps**  
 
-Retry the environment build if you suspect this is a transient issue with the workspace's Azure Container Registry (ACR)  
+Retry the environment build if you suspect the failure is a transient issue with the workspace's Azure Container Registry (ACR)  
 
 If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
