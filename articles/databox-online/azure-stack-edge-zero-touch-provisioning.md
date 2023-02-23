@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/15/2023
+ms.date: 02/22/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -19,7 +19,7 @@ You can run as many rounds of device configuration as necessary. You can also us
 
 ## Usage considerations
 
-- You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file.
+- You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file. You can apply changes with a JSON file at any point in the appliance lifecycle. 
 - To manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You can't change device authentication using this method. To change device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - Cluster formation is not supported using PowerShell cmdlets. For more information about Azure Stack Edge clusters, see [Install a two-node cluster](azure-stack-edge-gpu-deploy-install.md?pivots=two-node).  
@@ -35,7 +35,9 @@ Device setup and configuration declarations define the configuration for that de
 - Network
 - Time
 - Update
-- Activation
+- Virtual IP configuration
+- Proactive log consent
+- Device activation
 
 A device configuration operation doesn't have to include every declaration; you can include only the declarations that create a desired configuration for your device.
 
@@ -53,8 +55,8 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |*To-json* |A utility command that formats the cmdlet response in a JSON file. |
 |*Get-DeviceLogConsent* |Fetch the proactive log consent setting for the device. |
 |*Set-DeviceLogConsent* |Set the proactive log consent setting for the device. |
-|*Get-DeviceVip* |Fetch the virtual IP settings on an ACS or NFS two-node cluster. |
-|*Set-DeviceVip* |Set the virtual IP settings on an ACS or NFS two-node cluster. |
+|*Get-DeviceVip* |Fetch virtual IP configuration for your Azure Stack Edge two-node cluster. |
+|*Set-DeviceVip* |Set the virtual IP configuration for your Azure Stack Edge two-node cluster. |
 
 ## Prerequisites
 
@@ -180,12 +182,12 @@ Run the following cmdlets in PowerShell:
 
 1. After saving device configuration settings to a JSON file, you can use steps in the following section to use the JSON file to apply those device configuration settings to one or more devices.
 
-## Apply a configuration to a device using a JSON file, without device activation
+## Update a device using a JSON file, without device activation
 
 Once a config.json file has been created, as shown in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
 > [!NOTE]
-> Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
+> Use a config.json file that meets the needs of your organization. [Sample config.json files are available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
 
 This sequence of PowerShell cmdlets signs in to the device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
@@ -252,6 +254,381 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | To-json
    ```
+
+This sequence of PowerShell cmdlets signs in to a two-node device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
+
+Run the following cmdlets in PowerShell:
+
+===Start > new from test===
+
+1. Sign in to the device.
+
+   ```azurepowershell
+   Set-Login "https://<IP address>" "<Password>"
+   ```
+
+1. Before you run the device configuration operation, ensure that the JSON file uses the `nodeName` of the device to be changed. 
+
+   > [!NOTE]
+   > Each device has a unique `nodeName`. To change device configuration settings, the `nodeName` in the JSON file must match the `nodeName` of the device to be changed.
+
+   Fetch the `nodeName` from the device with the following command in PowerShell:
+
+   ```azurepowershell
+   Get-DeviceConfiguration | To-json
+   ```
+
+   Here's an example of output showing `nodeName` for the device:
+
+   ```output
+
+      PS C:\> Get-DeviceConfiguration | To-json
+      {
+        "device":  {
+                         "deviceInfo":  {
+                                            "model":  "Azure Stack Edge",
+                                            "softwareVersion":  "2.2.2075.5523",
+                                            "serialNumber":  "1HXQG13",
+                                            "isActivated":  false,
+                                            "nodes":  [
+                                                    {
+                                                        "id":  "d0d8cb16-60d4-4970-bb65-b9d254d1a289",
+                                                        "name":  "1HXQG13"
+                                                    }
+                                                ]
+                                  },
+   ```
+
+1. Create a package that uses a local JSON file for device configuration settings.
+
+   ```azurepowershell
+   $p = Get-Content -Path "<Local path>\<ConfigFileName-two-node-device.json>" | ConvertFrom-json
+   ```
+
+1. Run the package.
+
+   ```azurepowershell
+   $newCfg = Set-DeviceConfiguration -DesiredDeviceConfig $p
+   ```
+
+1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
+
+   ```azurepowershell
+   Get-DeviceConfigurationStatus | To-json
+   ```
+
+1. After the operation is complete, fetch the new device configuration.
+
+   ```azurepowershell
+   Get-DeviceConfiguration | To-json
+   ```
+
+   Here is sample output:
+
+   ```output
+			{
+			    "device":  {
+			                   "deviceInfo":  {
+			                                      "model":  "Azure Stack Edge",
+			                                      "softwareVersion":  "2.2.2162.730",
+			                                      "serialNumber":  "1D9NHQ2",
+			                                      "isActivated":  true,
+			                                      "nodes":  [
+			                                                    {
+			                                                        "id":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                        "name":  "HWDH1T2"
+			                                                    },
+			                                                    {
+			                                                        "id":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                        "name":  "1D9NHQ2"
+			                                                    }
+			                                                ]
+			                                  },
+			                   "deviceEndpoint":  {
+			                                          "name":  "DBE-1D9NHQ2",
+			                                          "dnsDomain":  "microsoftdatabox.com"
+			                                      },
+			                   "encryptionAtRestKeys":  null,
+			                   "network":  {
+			                                   "dhcpPolicy":  "AttemptRenew",
+			                                   "interfaces":  [
+			                                                      {
+			                                                          "name":  "Port1",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  false,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.100.10",
+			                                                                       "subnetMask":  "255.255.255.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  null,
+			                                                          "dnsSuffix":  null,
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port1",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  false,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.100.10",
+			                                                                       "subnetMask":  "255.255.255.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  null,
+			                                                          "dnsSuffix":  null,
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port2",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "10.126.77.23",
+			                                                                       "subnetMask":  "255.255.248.0",
+			                                                                       "gateway":  "10.126.72.1"
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "10.50.50.50",
+			                                                                                     "10.50.10.50"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "corp.microsoft.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port2",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "10.126.76.65",
+			                                                                       "subnetMask":  "255.255.248.0",
+			                                                                       "gateway":  "10.126.72.1"
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "10.50.50.50",
+			                                                                                     "10.50.10.50"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "corp.microsoft.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port3",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.5.238",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port3",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.1.166",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port4",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.5.239",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port4",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.1.165",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port5",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.1.208",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port5",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.4.120",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port6",
+			                                                          "nodeName":  "1D9NHQ2",
+			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.5.227",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      },
+			                                                      {
+			                                                          "name":  "Port6",
+			                                                          "nodeName":  "HWDH1T2",
+			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
+			                                                          "isDhcpEnabled":  true,
+			                                                          "iPv4":  {
+			                                                                       "address":  "192.168.4.100",
+			                                                                       "subnetMask":  "255.255.0.0",
+			                                                                       "gateway":  null
+			                                                                   },
+			                                                          "iPv6":  null,
+			                                                          "dnsServerAddresses":  [
+			                                                                                     "192.168.0.1"
+			                                                                                 ],
+			                                                          "dnsSuffix":  "wdshcsso.com",
+			                                                          "routes":  null,
+			                                                          "ipConfigType":  "IP"
+			                                                      }
+			                                                  ],
+			                                   "vSwitches":  [
+			                                                     {
+			                                                         "name":  "vSwitch1",
+			                                                         "interfaceName":  "Port2",
+			                                                         "enabledForCompute":  false,
+			                                                         "enabledForStorage":  false,
+			                                                         "enabledForMgmt":  true,
+			                                                         "supportsAcceleratedNetworking":  false,
+			                                                         "enableEmbeddedTeaming":  true,
+			                                                         "ipAddressPools":  [
+			
+			                                                                            ]
+			                                                     },
+			                                                     {
+			                                                         "name":  "vSwitch2",
+			                                                         "interfaceName":  "Port3",
+			                                                         "enabledForCompute":  false,
+			                                                         "enabledForStorage":  true,
+			                                                         "enabledForMgmt":  false,
+			                                                         "supportsAcceleratedNetworking":  false,
+			                                                         "enableEmbeddedTeaming":  true,
+			                                                         "ipAddressPools":  [
+			
+			                                                                            ]
+			                                                     },
+			                                                     {
+			                                                         "name":  "vSwitch3",
+			                                                         "interfaceName":  "Port4",
+			                                                         "enabledForCompute":  false,
+			                                                         "enabledForStorage":  true,
+			                                                         "enabledForMgmt":  false,
+			                                                         "supportsAcceleratedNetworking":  false,
+			                                                         "enableEmbeddedTeaming":  true,
+			                                                         "ipAddressPools":  [
+			
+			                                                                            ]
+			                                                     }
+			                                                 ],
+			                                   "virtualNetworks":  [
+			
+			                                                       ]
+			                               },
+			                   "time":  {
+			                                "timeZone":  "Alaskan Standard Time",
+			                                "primaryTimeServer":  "time.windows.com",
+			                                "secondaryTimeServer":  ""
+			                            },
+			                   "update":  {
+			                                  "serverType":  "None",
+			                                  "wsusServerURI":  null
+			                              },
+			                   "webProxy":  {
+			                                    "isEnabled":  false,
+			                                    "connectionURI":  null,
+			                                    "authentication":  "None",
+			                                    "username":  null,
+			                                    "password":  null
+			                                }
+			               }
+			}
+    PS C:\>
+    ```
 
 ## Activate a device
 
@@ -428,12 +805,6 @@ Use the following steps to fetch the current setting and then enable or disable 
     Get-DeviceConfiguration | To-json
     ```
 
-1.	Fetch the device log consent configuration.
-	
-    ```azurepowershell
-    Get-DeviceLogConsent
-    ```
-
 1.	Enable device log consent.
 	
     ```azurepowershell
@@ -443,15 +814,20 @@ Use the following steps to fetch the current setting and then enable or disable 
     Here's sample output:
 
     ```output
-    PS C:\ztp> Get-DeviceLogConsent
+    PS C:\> Get-DeviceLogConsent
     False
-    PS C:\ztp> Set-DeviceLogConsent -logConsent $true
+    PS C:\> Set-DeviceLogConsent -logConsent $true
     True
-    PS C:\ztp> Get-DeviceLogConsent
+    PS C:\> Get-DeviceLogConsent
     True
-    PS C:\ztp>
+    PS C:\>
     ```
 
+1.	Fetch the device log consent configuration.
+	
+    ```azurepowershell
+    Get-DeviceLogConsent
+    ```
 ## Run device diagnostics
 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
@@ -605,7 +981,7 @@ You can set either an ACS or an NFS configuration. Additional options include st
 
 Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
 
-The example below shows a static ACS configuration. 
+The example below shows a static ACS configuration, followed by an example that shows a DHCP configuration. 
 
 1. Sign in to the device.
 
@@ -689,7 +1065,98 @@ The example below shows a static ACS configuration.
                             }
                         ]
     }
-    PS C:\ztp> 
+    PS C:\> 
+    ```
+
+Use the following steps to set the `DeviceVIP` configuration on a two-node Azure Stack Edge device.
+
+The example below shows a DHCP configuration.
+
+1.	Sign in to the device.
+
+    ```azurepowershell
+    Set-Login "https://<IP address>" "Password"
+    ```
+
+1.	Fetch the device configuration.
+
+    ```azurepowershell
+    Get-DeviceConfiguration | To-json
+    ```
+
+1.	Fetch the `DeviceVIP` configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+1. Set the `DeviceVIP` property with DHCP enabled.
+
+    ```azurepowershell
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    ```
+
+1. Update the device with the `DeviceVIP` property.
+
+    ```azurepowershell
+    Set-DeviceVip -vip $acsVip
+    ```	
+
+    Here is sample output:
+
+    ```output
+    acsVIP                                                                                         nfsVIP
+    ------                                                                                         ------
+    @{type=ACS; name=Azure Consistent Services; address=192.168.2.8; network=; isDhcpEnabled=True} @{ty...
+
+    PS C:\>
+    ```
+
+1.	Fetch the updated `DeviceVIP` configuration.
+
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
+
+    Here is sample output:
+
+    ```output
+    {
+    "acsVIP":  {
+                   "type":  "ACS",
+                   "name":  "Azure Consistent Services",
+                   "address":  "192.168.2.8",
+                   "network":  {
+                                   "name":  "Cluster Network 1",
+                                   "address":  "192.168.0.0",
+                                   "subnet":  "255.255.0.0",
+                                   "dhcpEnabled":  true
+                               },
+                   "isDhcpEnabled":  true
+               },
+    "nfsVIP":  {
+                   "type":  "NFS",
+                   "name":  "Network File System",
+                   "address":  null,
+                   "network":  null,
+                   "isDhcpEnabled":  false
+               },
+    "clusterNetworks":  [
+                            {
+                                "name":  "Cluster Network 1",
+                                "address":  "192.168.0.0",
+                                "subnet":  "255.255.0.0",
+                                "dhcpEnabled":  true
+                            },
+                            {
+                                "name":  "Cluster Network 4",
+                                "address":  "10.126.72.0",
+                                "subnet":  "255.255.248.0",
+                                "dhcpEnabled":  true
+                            }
+                        ]
+    }
+    PS C:\>
     ```
 
 ## Troubleshooting
