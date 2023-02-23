@@ -80,7 +80,7 @@ landingContent:
           url: quickstart-python.md
         - text: Azure Resource Manager template
           url: quickstart-resource-manager.md       
-        - text: Container Apps
+        - text: Azure Container Apps
           url: quickstart-container-apps.md
       - linkListType: tutorial
         links:  
