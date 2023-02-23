@@ -45,7 +45,7 @@ To change the access tier of a blob after it's uploaded to storage, use [setAcce
 
 ## Copy a blob into a different access tier
 
-Use the BlobClient.[beginCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl) method to copy a blob. Use the [BlobBeginCopyFromURLOptions](/javascript/api/@azure/storage-blob/blobbegincopyfromurloptions) `tier` property with a different access [tier](storage-blob-storage-tiers.md) than the original blob. 
+Use the BlobClient.[beginCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl) method to copy a blob. To change the access tier during the copy operation, use the [BlobBeginCopyFromURLOptions](/javascript/api/@azure/storage-blob/blobbegincopyfromurloptions) `tier` property and specify a different access [tier](storage-blob-storage-tiers.md) than the source blob.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-to-different-access-tier.js" id="Snippet_CopyWithAccessTier" highlight="8":::
 
