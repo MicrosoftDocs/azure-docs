@@ -16,9 +16,9 @@ To publish a managed application definition to your service catalog, do the foll
 
 - Create an Azure Resource Manager template (ARM template) that defines the Azure resources deployed by the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
-- Create a _.zip_ package that contains the required ARM template JSON files.
+- Create a _.zip_ package that contains the required JSON files.
 - Create a storage account where you store the managed application definition.
-- Deploy the managed application definition to your own storage account.
+- Deploy the managed application definition to your own storage account so it's available in your service catalog.
 
 If you're managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
 
@@ -41,7 +41,7 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.json_ and save it.
 
-Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and a storage account for the managed application. This storage account isn't for the managed application definition.
+Add the following JSON and save the file. It defines the managed application's resources to deploy an App Service, App Service plan, and a storage account.
 
 ```json
 {
@@ -288,6 +288,12 @@ Set-AzStorageBlobContent `
   -Context $ctx
 ```
 
+Use the following commands to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
+
+```azurepowershell
+$packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+```
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -322,6 +328,16 @@ az storage blob upload \
 
 For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
 
+Use the following command to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
+
+```azurecli
+packageuri=$(az storage blob url \
+  --account-name demostorageaccount \
+  --container-name appcontainer \
+  --auth-mode login \
+  --name app.zip --output tsv)
+```
+
 ---
 
 ## Bring your own storage for the managed application definition
@@ -350,15 +366,15 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Use the following command to store the storage account's resource ID in a variable named `storageId`. You use this variable's value when you deploy the managed application definition.
+Use the following command to store the storage account's resource ID in a variable named `storageid`. You use the variable's value when you deploy the managed application definition.
 
 ```azurepowershell
-$storageId = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage).Id
+$storageid = (Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage).Id
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az group create --name byosDefinitionStorageGroup --location westus3
 
 az storage account create \
@@ -369,10 +385,10 @@ az storage account create \
     --kind StorageV2
 ```
 
-Use the following command to store the storage account's resource ID in a variable named `storageId`. You use this variable's value when you deploy the managed application definition.
+Use the following command to store the storage account's resource ID in a variable named `storageid`. You use the variable's value to set up the storage account's role assignment and when you deploy the managed application definition.
 
 ```azurecli
-storageId=$(az storage account show --resource-group byosDefinitionStorageGroup --name definitionstorage --query id)
+storageid=$(az storage account show --resource-group byosDefinitionStorageGroup --name definitionstorage --query id --output tsv)
 ```
 
 ---
@@ -383,27 +399,26 @@ Before you deploy your managed application definition to your storage account, a
 
 # [PowerShell](#tab/azure-powershell)
 
-In PowerShell, you can use variables for the role assignment. This example uses the `$storageId` you created in a previous step and creates the `$arpId` variable.
+You can use variables to set up the role assignment. This example uses the `$storageid` variable you created in the previous step and creates the `$arpid` variable.
 
 ```azurepowershell
-$arpId = (Get-AzADServicePrincipal -SearchString "Appliance Resource Provider").Id
+$arpid = (Get-AzADServicePrincipal -SearchString "Appliance Resource Provider").Id
 
-New-AzRoleAssignment -ObjectId $arpId `
+New-AzRoleAssignment -ObjectId $arpid `
 -RoleDefinitionName Contributor `
--Scope $storageId
+-Scope $storageid
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-In Azure CLI, you need to use the string values to create the role assignment. This example gets string values from the `storageId` variable you created in a previous step and gets the object ID value for the Appliance Resource Provider. The command has placeholders for those values `arpId` and `storageId`. Replace the placeholders with the string values and use the quotes as shown.
+You can use variables to set up the role assignment. This example uses the `$storageid` variable you created in the previous step and creates the `$arpid` variable.
 
 ```azurecli
-echo $storageId
-arpId=$(az ad sp list --display-name "Appliance Resource Provider" --query [].id --output tsv)
+arpid=$(az ad sp list --display-name "Appliance Resource Provider" --query [].id --output tsv)
 
-az role assignment create --assignee "arpId" \
+az role assignment create --assignee $arpid \
 --role "Contributor" \
---scope "storageId"
+--scope $storageid
 ```
 
 If you're running CLI commands with Git Bash for Windows, you might get an `InvalidSchema` error because of the `scope` parameter's string. To fix the error, run `export MSYS_NO_PATHCONV=1` and then rerun your command to create the role assignment.
@@ -416,7 +431,7 @@ The _Appliance Resource Provider_ is a service principal in your Azure Active Di
 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You'll use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use the variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
@@ -434,7 +449,7 @@ principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
 
 ---
 
-Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You'll use this variable's value when you deploy the managed application definition.
+Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use the variable's value when you deploy the managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -477,8 +492,8 @@ param principalId string
 param roleId string
 
 var definitionLockLevel = 'ReadOnly'
-var definitionDescription = 'Sample BYOS Managed application definition'
-var definitionDisplayName = 'Sample BYOS Managed application definition'
+var definitionDisplayName = 'Sample BYOS managed application'
+var definitionDescription = 'Sample BYOS managed application that deploys web resources'
 
 resource managedApplicationDefinition 'Microsoft.Solutions/applicationDefinitions@2021-07-01' = {
   name: managedApplicationDefinitionName
@@ -497,7 +512,6 @@ resource managedApplicationDefinition 'Microsoft.Solutions/applicationDefinition
     ]
   }
 }
-
 ```
 
 For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions).
@@ -540,11 +554,13 @@ The following table describes the parameter values for the managed application d
 
 | Parameter | Value |
 | ---- | ---- |
-| `managedApplicationDefinitionName` | Name of the managed application definition. For this example, use  _sampleByosManagedAppDefinition_.|
-| `definitionStorageResourceID` | Resource ID for the storage account where the definition is stored. Use the `storageId` variable's value. |
-| `packageFileUri` | Enter the URI for your _.zip_ package file. Use the URI for the _.zip_ [package file](#package-the-files) you created in an earlier step. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
+| `managedApplicationDefinitionName` | Name of the managed application definition. For this example, use  _sampleByosManagedApplication_.|
+| `definitionStorageResourceID` | Resource ID for the storage account where the definition is stored. Use your `storageid` variable's value. |
+| `packageFileUri` | Enter the URI for your _.zip_ package file. Use your `packageuri` variable's value. The format is `https://yourStorageAccountName.blob.core.windows.net/appcontainer/app.zip`. |
 | `principalId` | The publishers Principal ID that needs permissions to manage resources in the managed resource group. Use your `principalid` variable's value. |
 | `roleId` | Role ID for permissions to the managed resource group. For example Owner, Contributor, Reader. Use your `roleid` variable's value. |
+
+To get your variable values in Azure PowerShell, from the command prompt type `$variableName` like `$storageid` to display the value in your console. In Azure CLI, type `echo $variableName` like `echo $storageid` to display the value.
 
 ## Deploy the definition
 
@@ -584,10 +600,10 @@ You can use the following commands to verify that the managed application defini
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzStorageAccount -ResourceGroupName byosDefinitionStorageGroup -Name definitionstorage |
 Get-AzStorageContainer -Name applicationdefinitions |
-Get-AzStorageBlob | Select-Object -Property *
+Get-AzStorageBlob | Select-Object -Property Name | Format-List
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -596,10 +612,10 @@ Get-AzStorageBlob | Select-Object -Property *
 az storage blob list \
   --container-name applicationdefinitions \
   --account-name definitionstorage \
-  --query "[].{container:container, name:name}"
+  --query "[].{Name:name}"
 ```
 
-When you run the Azure CLI command, you might see a warning message similar to the CLI command in [package the files](#package-the-files).
+When you run the Azure CLI command, you might see a credentials warning message similar to the CLI command in [package the files](#package-the-files). To clear the warning message, you can assign yourself _Storage Blob Data Contributor_ or _Storage Blob Data Reader_ to the storage account's scope, and then include the `--auth-mode login` parameter in the command.
 
 ---
 

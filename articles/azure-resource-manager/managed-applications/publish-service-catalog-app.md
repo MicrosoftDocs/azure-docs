@@ -16,9 +16,8 @@ To publish a managed application to your service catalog, do the following tasks
 
 - Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
-- Create a _.zip_ package that contains the required template files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
-- Decide which user, group, or application needs access to the resource group in the user's subscription.
-- Create the managed application definition that points to the _.zip_ package and requests access for the identity.
+-Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
+- Deploy the managed application definition so it's available in your service catalog.
 
 If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
@@ -32,7 +31,7 @@ If your managed application definition is more than 120 MB or if you want to use
 To complete this quickstart, you need the following items:
 
 - An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). If you're using Bicep, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
+- [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
@@ -394,12 +393,12 @@ The `blob` command that's run from Azure PowerShell or Azure CLI creates a varia
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
-  -Name "sampleManagedAppDefinition" `
+  -Name "sampleManagedApplication" `
   -Location "westus3" `
   -ResourceGroupName appDefinitionGroup `
   -LockLevel ReadOnly `
-  -DisplayName "Sample Managed application definition" `
-  -Description "Sample Managed application definition" `
+  -DisplayName "Sample managed application" `
+  -Description "Sample managed application that deploys web resources" `
   -Authorization "${principalid}:$roleid" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
@@ -416,12 +415,12 @@ blob=$(az storage blob url \
   --name app.zip --output tsv)
 
 az managedapp definition create \
-  --name "sampleManagedAppDefinition" \
+  --name "sampleManagedApplication" \
   --location "westus3" \
   --resource-group appDefinitionGroup \
   --lock-level ReadOnly \
-  --display-name "Sample Managed application definition" \
-  --description "Sample Managed application definition" \
+  --display-name "Sample managed application" \
+  --description "Sample managed application that deploys web resources" \
   --authorizations "$principalid:$roleid" \
   --package-file-uri "$blob"
 ```
