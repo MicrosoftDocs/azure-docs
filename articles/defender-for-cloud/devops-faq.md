@@ -111,7 +111,7 @@ The following languages are supported by Defender for DevOps:
 ### I'm getting an error that informs me that there's no CLI tool
 
 When you run the pipeline in Azure DevOps, you receive the following error: 
-"no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'".
+`no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'`.
 
 :::image type="content" source="media/devops-faq/error-in-run.png" alt-text="Screenshot that shows an error that states there's no CLI tool." lightbox="media/devops-faq/error-in-run.png":::
 
