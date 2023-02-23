@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Workload management in a multi-cluster environment with GitOps'
-description: This tutorial walks through typical use-cases that Platform and Application teams face on a daily basis working with K8s workloads in a multi-cluster environment.
+description: This tutorial walks through typical use-cases that Platform and Application teams face on a daily basis working with Kubernetes workloads in a multi-cluster environment.
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 02/08/2023
+ms.date: 02/23/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
-Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale.  
+Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale. This fleet may include Azure Kubernetes Service (AKS) clusters as well as clusters running on other public cloud providers or in on-premises data centers that are connected to Azure through the Azure Arc.
 
 This tutorial walks you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team. 
 
@@ -93,9 +93,9 @@ The infrastructure also includes a couple of the Application Team repositories:
 
 The script created the following Azure Kubernetes Service (AKS) clusters:
 
-- `control-plane` - This cluster doesn't run any workloads. It's a management cluster. It hosts [Kalypso Scheduler](https://github.com/microsoft/kalypso-scheduler) operator that transforms high level abstractions from the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repository to the raw Kubernetes manifests in the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
-- `drone` - A sample workload cluster. It has [GitOps extension](conceptual-gitops-flux2.md) installed and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
-- `large` - A sample workload cluster. It has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `control-plane` - This cluster is a management cluster that doesn't run any workloads. The `control-plane` cluster hosts [Kalypso Scheduler](https://github.com/microsoft/kalypso-scheduler) operator that transforms high level abstractions from the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repository to the raw Kubernetes manifests in the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `drone` - A sample workload cluster. This cluster has the [GitOps extension](conceptual-gitops-flux2.md) installed and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository. For this sample, the `drone` cluster can represent an Azure Arc-enabled cluster or an AKS cluster with the Flux/GitOps extension.
+- `large` - A sample workload cluster. This cluster has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 
 ### Explore Control Plane
 
