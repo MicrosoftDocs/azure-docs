@@ -102,6 +102,8 @@
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
+    - name: Zero trust infrastructure and integrations
+      href: zero-trust.md
     - name: Planning multicloud security
       items:
       - name: Get started
