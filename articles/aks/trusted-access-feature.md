@@ -4,13 +4,13 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 ms.author: schaffererin
 ---
 
-# Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (PREVIEW)
+# Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (Preview)
 
-Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature. 
+Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature.
 
 This feature allows services to securely connect to AKS and Kubernetes via the Azure backend without requiring private endpoint. Instead of relying on identities with [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications you want to use on top of AKS.
 
@@ -21,9 +21,6 @@ Trusted Access addresses the following scenarios:
 * Providing admin access to the Kubernetes API to an Azure service doesn't follow the least privileged access best practices and could lead to privilege escalations or risks of credential leakage.
 
   * For example, you may have to implement high-privileged service-to-service permissions, which aren't ideal during audit reviews.
-
-> [!NOTE]
-> Using the Trusted Access feature on Azure RBAC-enabled clusters isn't supported.
 
 This article shows you how to enable secure access from your Azure services to your Kubernetes API server in AKS using Trusted Access.
 
@@ -38,7 +35,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Resource types that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 * Pre-defined Roles with appropriate [AKS permissions](concepts-identity.md).
-  * To learn about what Roles to use in various scenarios, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
+  * To learn about what Roles to use in various scenarios, see [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md).
 * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
 
 First, install the aks-preview extension by running the following command:
