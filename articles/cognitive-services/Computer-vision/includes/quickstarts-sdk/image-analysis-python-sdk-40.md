@@ -31,44 +31,35 @@ Use the Image Analysis client library for Python to analyze a remote image to re
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
 
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Analyze image
+## Set up application
 
-1. Install the client library.
-
-    You can install the client library with:
+First, install the client library. You can install the client library with:
 
     ```console
     python -m pip install azure-ai-vision
     ```
 
-1. Create a new Python application.
+Next create a new Python file &mdash; *quickstart-file.py*, for example. 
 
-    Create a new Python file &mdash; *quickstart-file.py*, for example. 
+[!INCLUDE [create environment variables](../environment-variables.md)]
 
-1. Find the key and endpoint.
+## Analyze Image
 
-    [!INCLUDE [find key and endpoint](../find-key.md)]
+Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
 
-1. Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-4-0.py?name=snippet_single)]
 
-   [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart-single-4-0.py?name=snippet_single)]
+Then run the application with the `python` command on your quickstart file.
 
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
-
-   > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
-
-1. Run the application with the `python` command on your quickstart file.
-
-   ```console
-   python quickstart-file.py
-   ```
+```console
+python quickstart-file.py
+```
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>

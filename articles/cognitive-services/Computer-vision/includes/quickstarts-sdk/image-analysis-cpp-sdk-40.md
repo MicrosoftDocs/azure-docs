@@ -29,40 +29,33 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Analyze image
+## Set up application
 
-1. Create a new C++ application.
+Create a new C++ application.
 
-    In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Select the **Console App** template that has C++, Windows, and Console tags, and then choose **Next**.
+In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Select the **Console App** template that has C++, Windows, and Console tags, and then choose **Next**.
 
-    In the **Configure your new project** dialog, enter _ImageAnalysisQuickstart_ in the **Project name** edit box. Choose **Create** to create the project.
+In the **Configure your new project** dialog, enter _ImageAnalysisQuickstart_ in the **Project name** edit box. Choose **Create** to create the project.
 
-    ### Install the client library 
+### Install the client library 
 
-    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
 
-1. Find the key and endpoint.
+[!INCLUDE [create environment variables](../environment-variables.md)]
 
-    [!INCLUDE [find key and endpoint](../find-key.md)]
+## Analyze Image
 
-1. From the project directory, open the _ImageAnalysisQuickstart.cpp_ file in your preferred editor or IDE. Clear its contents and paste in the following code:
+From the project directory, open the _ImageAnalysisQuickstart.cpp_ file in your preferred editor or IDE. Clear its contents and paste in the following code:
 
-   [!code-cpp[](~/cognitive-services-quickstart-code/cpp/ComputerVision/ImageAnalysisQuickstart-single-4-0.cpp?name=snippet_single)]
+[!code-cpp[](~/cognitive-services-quickstart-code/cpp/ComputerVision/ImageAnalysisQuickstart-single-4-0.cpp?name=snippet_single)]
 
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
-
-   > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
-
-1. Run the application
-
-   Run the application by clicking the **Debug** button at the top of the IDE window.
+Then, run the application by clicking the **Debug** button at the top of the IDE window.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
