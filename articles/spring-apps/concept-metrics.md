@@ -18,17 +18,16 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
-In Azure Spring Apps, there are two viewpoints for metrics.
-* Charts in each application overview page
-* Common metrics page
+In an Azure Spring Apps instance, there are two viewpoints for metrics.
+
+* Select an app in the **Apps** page for quick status charts shown in its overview page.
+* Select the **Metrics** page for common metrics that are available for all apps to reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 :::image type="content" source="media/metrics/metrics-1.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Overview page for Apps and Metrics highlighted in the left pane.":::
 
-The Overview page for an app in **Apps** provides charts for quick status checks for each application. The **Metrics** page for an Azure Spring Apps instance contains common metrics available for all apps to reference. You can build your own charts in the common metrics page and pin them in Dashboard.
-
 ## Application overview page
 
-Select **Apps** in the navigation pane and then select an app in the list of apps in your Azure Spring Apps instance. Each application's **Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
+Select **Apps** in the navigation pane and then select an app from the list. Each application's **Overview** page presents metrics chart that enables you to perform a quick status check of your application.
 
 ![Application Metrics Overview](media/metrics/metrics-3.png)
 
@@ -44,7 +43,7 @@ For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
-Select **Metrics** in the left navigation pane for an Azure Spring Apps instance to view common metrics.
+Select **Metrics** in the left navigation pane to access common metrics.
 
 First, select metrics to view:
 
