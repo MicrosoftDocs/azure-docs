@@ -23,9 +23,9 @@ AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [AP
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD) and that your Azure AD identity has the proper role assignments for both source and destination accounts. 
+> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD) and that your Azure AD identity has the proper role assignments for the destination account. The source account, if different from the destination, must use a SAS token with the proper read permissions or allow public access. For example: azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'. 
 >
-> Alternatively you can append a SAS token to either the source or destination URL in each AzCopy command. For example: `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'`.
+> Alternatively you can also append a SAS token to the destination URL in each AzCopy command. For example: azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>'.
 
 ## Guidelines
 

@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2022
 ms.author: duau

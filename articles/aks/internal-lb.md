@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 03/04/2019
+ms.date: 02/22/2023
 
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
@@ -16,7 +16,7 @@ ms.date: 03/04/2019
 # Use an internal load balancer with Azure Kubernetes Service (AKS)
 
 You can create and use an internal load balancer to restrict access to your applications in Azure Kubernetes Service (AKS).
-An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with AKS.
+An internal load balancer does not have a public IP and makes a Kubernetes service accessible only to applications that can reach the private IP. These applications can be within the same VNET or in another VNET through VNET peering. This article shows you how to create and use an internal load balancer with AKS.
 
 > [!NOTE]
 > Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. When you create a *LoadBalancer* service type, you'll get the same load balancer type as when you provisioned the cluster. For more information, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
@@ -260,7 +260,7 @@ As with any Kubernetes resource, you can directly delete a service, such as `kub
 
 ## Next steps
 
-Learn more about Kubernetes services in the [Kubernetes services documentation][kubernetes-services].
+To learn more about Kubernetes services, see the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

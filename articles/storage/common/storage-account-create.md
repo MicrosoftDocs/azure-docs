@@ -61,7 +61,6 @@ None.
 None.
 
 ---
-
 Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
@@ -95,7 +94,6 @@ N/A
 N/A
 
 ---
-
 ## Create a storage account
 
 A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
@@ -436,7 +434,6 @@ To learn how to modify this template or create new ones, see:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
 ## Delete a storage account
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
@@ -503,7 +500,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ```
 
 ---
-
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Next steps
@@ -512,3 +508,6 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+- [Migrate a classic storage account](storage-account-migrate-classic.md)
+   
+
