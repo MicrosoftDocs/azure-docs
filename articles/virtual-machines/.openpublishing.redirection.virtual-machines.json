@@ -1786,6 +1786,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/instance-metadata-service.md",
+            "redirect_url": "/azure/virtual-machines/instance-metadata-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/instance-metadata-service.md",
+            "redirect_url": "/azure/virtual-machines/instance-metadata-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/managed-disks-overview.md",
             "redirect_url": "/azure/virtual-machines/managed-disks-overview",
             "redirect_document_id": false
