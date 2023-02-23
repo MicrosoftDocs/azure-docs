@@ -24,13 +24,13 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 :::row:::
    :::column:::
-      :::image type="content" source="media/overview/read-model-icon.png" alt-text="Screenshot of read model icon." link="#read":::
+      :::image type="content" source="media/overview/read-icon.png" alt-text="Screenshot of read model icon." link="#read":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/general-document-model-icon.png" alt-text="Screenshot of general document model icon." link="#general-document":::
+      :::image type="content" source="media/overview/general-document-icon.png" alt-text="Screenshot of general document model icon." link="#general-document":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/layout-model-icon.png" alt-text="Screenshot of layout model icon." link="#layout":::
+      :::image type="content" source="media/overview/layout-icon.png" alt-text="Screenshot of layout model icon." link="#layout":::
    :::column-end:::
 :::row-end:::
 
@@ -38,38 +38,36 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 :::row:::
    :::column:::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+      :::image type="content" source="media/overview/w2-icon.png" alt-text="Screenshot of w2 model icon." link="#w-2":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+      :::image type="content" source="media/overview/invoice-icon.png" alt-text="Screenshot of invoice model icon." link="#invoice":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+      :::image type="content" source="media/overview/receipt-icon.png" alt-text="Screenshot of receipt model icon." link="#receipt":::
+   :::column-end:::
+:::row-end:::
+::row:::
+   :::column span="":::
+      :::image type="content" source="media/overview/id-document-icon.png" alt-text="Screenshot of identity document model icon." link="#identity":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+      :::image type="content" source="media/overview/business-card-icon.png" alt-text="Screenshot of business card model icon." link="#business-card":::
    :::column-end:::
-   :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+:::column span="":::
    :::column-end:::
 :::row-end:::
 
-## Custom model
+## Custom models
+
 :::row:::
    :::column:::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+      :::image type="content" source="media/overview/custom-model-icon.png" alt-text="Screenshot of custom model icon" link="#custom":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
    :::column-end:::
    :::column span="":::
-     :::image type="content" source="{source}" alt-text="{alt-text}":::
-   :::column-end:::
-   :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
-   :::column-end:::
-   :::column span="":::
-      :::image type="content" source="{source}" alt-text="{alt-text}":::
+ 
    :::column-end:::
 :::row-end:::
 
@@ -78,3 +76,15 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 ## General document
 
 ## Layout
+
+## W-2
+
+## Invoice
+
+## Receipt
+
+## Identity
+
+## Business card
+
+## Custom 
