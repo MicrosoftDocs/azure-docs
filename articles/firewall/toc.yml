@@ -39,7 +39,7 @@ items:
   - name: Deploy firewall with DDoS protection
     href: tutorial-protect-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
-    href: /azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall?toc=/azure/firewall/toc.json
+    href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
 
 - name: Samples
   items:

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -61,17 +61,34 @@ When you're ready to upload a model, you can use the following code snippet for 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-You can also upload multiple models in a single transaction. 
+On upload, model files are validated by the service.
+
+You'll usually need to upload more than one model to the service. There are several ways that you can upload many models at once in a single transaction. To help you pick a strategy, consider the size of your model set as you continue through the rest of this section. 
+
+### Upload small model sets
+
+For smaller model sets, you can upload multiple models at once using individual API calls. You can check the current limit for how many models can be uploaded in a single API call in the [Azure Digital Twins limits](reference-service-limits.md).
 
 If you're using the SDK, you can upload multiple model files with the `CreateModels` method like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-On upload, model files are validated by the service.
+### Upload large model sets with the Jobs API
+
+For large model sets, you can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for models and bulk jobs.
+
+>[!TIP]
+>The Jobs API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
+
+To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import job) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+
+[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Retrieve models
 

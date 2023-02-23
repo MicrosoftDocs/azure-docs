@@ -1,13 +1,10 @@
 ---
-title: Tutorial - Add custom domain to your Azure Front Door configuration
+title: 'Tutorial: Add custom domain to your Azure Front Door configuration'
 description: In this tutorial, you learn how to onboard a custom domain to Azure Front Door.
 services: frontdoor
-documentationcenter: ''
 author: jessie-jyy
-editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia

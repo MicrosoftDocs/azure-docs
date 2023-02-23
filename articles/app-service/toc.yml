@@ -42,6 +42,8 @@
   items:
     - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
+    - name: Multi-region app
+      href: tutorial-multi-region-app.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
@@ -470,6 +472,8 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Routine maintenance
+      href: routine-maintenance.md
     - name: Language support policy
       href: language-support-policy.md
     - name: Kudu service

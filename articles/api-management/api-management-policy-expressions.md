@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/07/2022
+ms.date: 01/13/2023
 ms.author: danlep
 ---
 # API Management policy expressions
@@ -214,7 +214,7 @@ The `context` variable is implicitly available in every policy [expression](api-
 |<a id="ref-context-user"></a>`context.User`|`Email`: `string`<br /><br /> `FirstName`: `string`<br /><br /> `Groups`: `IEnumerable<`[`IGroup`](#ref-igroup)`>`<br /><br /> `Id`: `string`<br /><br /> `Identities`: `IEnumerable<`[`IUserIdentity`](#ref-iuseridentity)`>`<br /><br /> `LastName`: `string`<br /><br /> `Note`: `string`<br /><br /> `RegistrationDate`: `DateTime`|
 |<a id="ref-iapi"></a>`IApi`|`Id`: `string`<br /><br /> `Name`: `string`<br /><br /> `Path`: `string`<br /><br /> `Protocols`: `IEnumerable<string>`<br /><br /> `ServiceUrl`: [`IUrl`](#ref-iurl)<br /><br /> `SubscriptionKeyParameterNames`: [`ISubscriptionKeyParameterNames`](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>`IGroup`|`Id`: `string`<br /><br /> `Name`: `string`|
-|<a id="ref-imessagebody"></a>`IMessageBody`|`As<T>(preserveContent: bool = false): Where T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument`<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read either a request and response message body in specified type `T`. By default, the method:<br /><ul><li>Uses the original message body stream.</li><li>Renders it unavailable after it returns.</li></ul> <br />To avoid that and have the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`, as in [this example](api-management-transformation-policies.md#SetBody).|
+|<a id="ref-imessagebody"></a>`IMessageBody`|`As<T>(bool preserveContent = false): Where T: string, byte[], JObject, JToken, JArray, XNode, XElement, XDocument` <br /><br /> - The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods read a request or response message body in specified type `T`. <br/><br/> - Or - <br/><br/>`AsFormUrlEncodedContent(bool preserveContent = false)` <br/></br>- The `context.Request.Body.AsFormUrlEncodedContent()` and `context.Response.Body.AsFormUrlEncodedContent()` methods read URL-encoded form data in a request or response message body and return an `IDictionary<string, IList<string>` object. The decoded object supports `IDictionary` operations and the following expressions: `ToQueryString()`, `JsonConvert.SerializeObject()`, `ToFormUrlEncodedContent().` <br/><br/> By default, the `As<T>` and `AsFormUrlEncodedContent()` methods:<br /><ul><li>Use the original message body stream.</li><li>Render it unavailable after it returns.</li></ul> <br />To avoid that and have the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`, as shown in examples for the [set-body](set-body-policy.md#examples) policy.|
 |<a id="ref-iprivateendpointconnection"></a>`IPrivateEndpointConnection`|`Name`: `string`<br /><br /> `GroupId`: `string`<br /><br /> `MemberName`: `string`<br /><br />For more information, see the [REST API](/rest/api/apimanagement/current-ga/private-endpoint-connection/list-private-link-resources).|
 |<a id="ref-iurl"></a>`IUrl`|`Host`: `string`<br /><br /> `Path`: `string`<br /><br /> `Port`: `int`<br /><br /> [`Query`](#ref-iurl-query): `IReadOnlyDictionary<string, string[]>`<br /><br /> `QueryString`: `string`<br /><br /> `Scheme`: `string`|
 |<a id="ref-iuseridentity"></a>`IUserIdentity`|`Id`: `string`<br /><br /> `Provider`: `string`|
