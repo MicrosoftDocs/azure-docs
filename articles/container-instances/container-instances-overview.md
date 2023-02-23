@@ -74,16 +74,7 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## Confidential container deployment
-Confidential containers on ACI enables you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential Containers on ACI is supported as a new SKU that you can select when deploying your workload.
-
-### Hardware Based Trusted Execution Environment 
-Confidential containers on ACI are deployed in a container group with a Hyper-V isolated TEE which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory within the TEE is encrypted with this key to help provide protection against data replay, corruption, remapping- and aliasing-based attacks.  
-
-### Verifiable Execution Policies
-Confidential containers on ACI can run with verifiable execution policies that enable customers to have full control over what software and actions are allowed to run within the TEE. These execution policies help to protect against bad actors creating unexpected application modifications that could potentially leak sensitive data.  Execution policies are authored by the customer through provided tooling and are verified through cryptographic proof before any code begins to run.
-
-### Remote Guest Attestation
-Confidential containers on ACI provide support for remote guest attestation which is used to verify the trust worthiness of your container group before creating a secure channel with a relying party. Container groups can generate an SNP hardware attestation report which is signed by the hardware and includes information about the hardware and software. This generated hardware attestation report can then be verified by the Microsoft Azure Attestation service via an [open-source sidecar application](https://github.com/microsoft/confidential-sidecar-containers) or by another attestation service before any sensitive data is released to the TEE. 
+Confidential containers on ACI enables you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential Containers on ACI is supported as a SKU that you can select when deploying your workload.
 
 ## Considerations
 
