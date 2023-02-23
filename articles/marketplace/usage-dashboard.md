@@ -34,8 +34,8 @@ The Usage page filters are applied at the Usage page level. You can select one o
 - Sales Channel
 - Is Free Trial
 - Marketplace License Type
-- Marketplace Subscription Id
-- Customer Id
+- Marketplace Subscription ID
+- Customer ID
 - Customer Company Name
 - Country
 - Offer Name
@@ -60,23 +60,23 @@ You can choose to analyze usage for different offers from the dropdown picker at
 
 ### Public and private offer
 
-You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public Offers** sub-tab, **Private Offers** sub-tab, and the **All** sub-tab respectively.
+You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public Offers** subtab, **Private Offers** subtab, and the **All** subtab respectively.
 
 [ ![Screenshot of the three tabs on the Usage dashboard.](./media/usage-dashboard/usage-dashboard-tabs.png) ](./media/usage-dashboard/usage-dashboard-tabs.png#lightbox)
 
 ## Virtual Machines (VM)
-In this section, you will find information about the widgets for **VM Normalized usage** and **VM Raw usage**
+In this section, you'll find information about the widgets for **VM Normalized usage** and **VM Raw usage**
 
 > [!NOTE]
 > These widgets are available in both **VM Normalized Usage** and **VM Raw Usage** dashboard. It will show Normalized usage and raw usage in respective dashboards.
 
 ### Usage trend
 
-In this widget, you'll find total usage hours and trend for your VM offers that are consumed by your customers during the selected computation period. Metrics and growth trends are represented by a line chart. Show the value for each month by hovering over the line on the chart. The percentage value below the usage metrics in the widget represents the amount of growth or decline during the selected computation period.
+In this widget, you find total usage hours and trend for your VM offers that are consumed by your customers during the selected computation period. Metrics and growth trends are represented by a line chart. Show the value for each month by hovering over the line on the chart. The percentage value below the usage metrics in the widget represents the amount of growth or decline during the selected computation period.
 
 There are two representations of usage hours: VM normalized usage and VM raw usage.
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM vCPU ([number of VM vCPU] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM vCPU] multiplier.
-- Raw usage hours are defined as the amount of time VMs have been running in terms of hours.
+- Raw usage hours are defined as the number of time VMs have been running in terms of hours.
 
 [![Illustrates the normalized usage and raw usage data on the Usage dashboard.](./media/usage-dashboard/normalized-usage.png)](./media/usage-dashboard/normalized-usage.png#lightbox)
 
@@ -119,10 +119,10 @@ Note the following:
 - You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
 
 ## Containers
-In this section, you will find the information about widgets available for container raw usage.
+In this section, you'll find the information about widgets available for container raw usage.
 
 ### Raw usage
-This widget shows usage against all the pricing options you have configured for container offers. Possible pricing options are:
+This widget shows usage against all the pricing options you've configured for container offers. Possible pricing options are:
 - Per core
 - Per every core in cluster
 - Per node
@@ -178,7 +178,7 @@ This widget shows the usage for customers based on pricing option selected. You 
 
 The **usage details** table displays a numbered list of the top 500 usage records sorted by usage. Note the following:
 
-- Data in this table is displayed based on the page you have selected
+- Data in this table is displayed based on the page you've selected
 - Each column in the grid is sortable.
 - Apply filters to **detailed usage data** to display only the data you're interested in. Filter data by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
@@ -197,7 +197,7 @@ Click on the ellipsis (three dots '...') to copy the widget image, or download t
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | Plan | SKU | The plan associated with the offer. | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
-| Is Preview SKU | Is Preview SKU | The value shows if you've tagged the plan as "preview". Value will be "Yes" if the plan has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the plan hasn't been identified as "preview". | IsPreviewSKU |
+| Is Preview SKU | Is Preview SKU | The value shows if you've tagged the plan as "preview". Value is "Yes" if the plan has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value is "No" if the plan hasn't been identified as "preview". | IsPreviewSKU |
 | SKU Billing Type | SKU Billing Type | The Billing type associated with each plan in the offer. The possible values are:<ul><li>Free</li><li>Paid</li></ul> | SKUBillingType |
 | VM Size | Virtual Machine Size | For VM-based offer types, this entity signifies the size of the VM associated with the plan of the offer. | VMSize |
 | Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. | CloudInstanceName |
@@ -222,10 +222,10 @@ Click on the ellipsis (three dots '...') to copy the widget image, or download t
 | Usage Quantity | Usage Quantity | The total usage units consumed by the asset that is deployed by the customer.<br>This is based on Usage type item. For example, if the Usage Type is Normalized usage, then Usage Quantity is for Normalized Usage. | UsageQuantity |
 | NormalizedUsage | Normalized Usage | The total normalized usage units consumed by the asset that is deployed by the customer.<br>Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM vCPU] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM vCPU] multiplier. | NormalizedUsage |
 | MeteredUsage | Metered Usage | The total usage units consumed by the meters that are configured with the offer that is deployed by the customer. | MeteredUsage |
-| RawUsage | Raw Usage | The total raw usage units consumed by the asset that is deployed by the customer.<br>Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. | RawUsage |
+| RawUsage | Raw Usage | The total raw usage units consumed by the asset that is deployed by the customer.<br>Raw usage hours are defined as the number of time VMs have been running in terms of usage units. | RawUsage |
 | Estimated Extended Charge (CC) | Estimated Extended Charge in Customer Currency | Signifies the charges associated with the usage. The column is the product of Price (CC) and Usage Quantity. | EstimatedExtendedChargeCC |
 | Estimated Extended Charge (PC) | Estimated Extended Charge in Payout Currency | Signifies the charges associated with the usage. The column is the product of Estimated Price (PC) and Usage Quantity. | EstimatedExtended ChargePC |
-| Meter Id | Meter Id | **Applicable for offers with custom meter dimensions.**<br>Signifies the meter ID for the offer. | MeterId |
+| Meter ID | Meter ID | **Applicable for offers with custom meter dimensions.**<br>Signifies the meter ID for the offer. | MeterId |
 | Metered Dimension | Metered Dimension | **Applicable for offers with custom meter dimensions.**<br>Metered dimension of the custom meter. For example, user/device - billing unit | MeterDimension |
 | Partner Center Detected Anomaly | Partner Center Detected Anomaly | **Applicable for offers with custom meter dimensions**.<br>Signifies whether the publisher reported overage usage for the offer’s custom meter dimension that was is flagged as an anomaly by Partner Center. The possible values are: <ul><li>0 (Not an anomaly)</li><li>1 (Anomaly)</li></ul>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | PartnerCenterDetectedAnomaly |
 | Publisher Marked Anomaly | Publisher Marked Anomaly | **Applicable for offers with custom meter dimensions**.<br>Signifies whether the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false. The possible values are:<ul><li>0 (Publisher has marked it as not an anomaly)</li><li>1 (Publisher has marked it as an anomaly)</li></ul>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | PublisherMarkedAnomaly |
@@ -233,9 +233,9 @@ Click on the ellipsis (three dots '...') to copy the widget image, or download t
 | Action Taken At | Action Taken At | **Applicable for offers with custom meter dimensions**.<br>Specifies the time when the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenAt |
 | Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
-| Asset Id | Asset Id | **Applicable for offers with custom meter dimensions**.<br>The unique identifier of the customer's order subscription for your commercial marketplace service. Virtual machine usage-based offers aren't associated with an order. | Asset Id |
-| PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a number. | PlanID |
-| Not available | Reference Id | A key to link transactions of usage-based offers with corresponding transactions in the orders report. For SaaS offers with custom meters, this key represents the AssetId. For VM software reservations, this key can be used for linking orders and usage reports. | ReferenceId |
+| Asset ID | Asset ID | **Applicable for offers with custom meter dimensions**.<br>The unique identifier of the customer's order subscription for your commercial marketplace service. Virtual machine usage-based offers aren't associated with an order. | Asset ID |
+| PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. PlanId was originally a number. | PlanID |
+| Not available | Reference ID | A key to link transactions of usage-based offers with corresponding transactions in the orders report. For SaaS offers with custom meters, this key represents the AssetId. For VM software reservations, this key can be used for linking orders and usage reports. | ReferenceId |
 | Not available |	List Price(USD)	|	The publicly listed price of the offer plan in U.S dollars	|	ListPriceUSD	|
 | Not available |	Discount Price(USD)	|	The discounted price of the offer plan in U.S dollars	|	DiscountPriceUSD	|
 | Not available |	Is Private Plan 	|	Indicates whether an offer plan is private plan <li> 0 value indicates false </li> <li> 1 value indicates true </li>	|	IsPrivatePlan	|
@@ -252,5 +252,5 @@ Click on the ellipsis (three dots '...') to copy the widget image, or download t
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md)
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and the Microsoft commercial marketplace, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).

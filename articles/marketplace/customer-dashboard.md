@@ -1,5 +1,5 @@
 ---
-title: Customers dashboard in Microsoft commercial marketplace analytics on Partner Center
+title: Customers dashboard at Microsoft commercial marketplace analytics on Partner Center
 description: Learn how to access information about your customers, including growth trends, using the Customers dashboard in commercial marketplace analytics.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -43,10 +43,10 @@ The page has dashboard-level filters for the following:
 
 - Sales Channel
 - Marketplace Subscription ID
-- Customer Id
+- Customer ID
 - Customer Name
 - Customer Company Name
-- Country
+- Country/region
 
 Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
 
@@ -145,7 +145,7 @@ The **Customer details** table displays a numbered list of the top 1,000 custome
 - Each column in the grid is sortable.
 - Apply filters to the table to display only the data you're interested in. Filter data by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
 - When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
-- Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or Microsoft AppSource transaction level.
+- Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or the Microsoft commercial marketplace transaction level.
 
 Select the ellipsis (...) to copy the widget image, or download the image as a PDF.
 
@@ -156,8 +156,8 @@ _**Table 1: Dictionary of data terms**_
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases don't require an Azure subscription. | MarketplaceSubscriptionId |
 | DateAcquired | Date Acquired | The first date the customer purchased any offer you published. | DateAcquired |
 | DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. | DateLost |
-| Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderName |
-| Provider Email | Provider Email | The email address of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderEmail |
+| Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this is the reseller. If a Cloud Solution Provider (CSP) is involved, this is the CSP. | ProviderName |
+| Provider Email | Provider Email | The email address of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this is the reseller. If a Cloud Solution Provider (CSP) is involved, this is the CSP. | ProviderEmail |
 | FirstName | Customer First Name | The first name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. | FirstName |
 | LastName | Customer Last Name | The last name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. | LastName |
 | Email | Customer Email | The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer's Azure subscription. | Email |
@@ -167,7 +167,7 @@ _**Table 1: Dictionary of data terms**_
 | CustomerCommunicationCulture | Customer Communication Language | The language preferred by the customer for communication. | CustomerCommunicationCulture |
 | CustomerCountryRegion | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountryRegion |
 | AzureLicenseType | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the _channel_. The possible values are:<br>- Cloud Solution Provider<br>- Enterprise<br>- Enterprise through Reseller<br>- Pay as You Go | AzureLicenseType |
-| PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we aren't presenting the option to customers, so we've indicated "No" across the board. After this feature is deployed, we'll start updating accordingly. | PromotionalCustomers |
+| PromotionalCustomers | Is Promotional Contact Opt In | The value lets you know if the customer proactively opted in for promotional contact from publishers. At this time, we aren't presenting the option to customers, so we've indicated "No" across the board. After this feature is deployed, we'll start updating accordingly. | PromotionalCustomers |
 | CustomerState | Customer State | The state of residence provided by the customer. State could be different than the state provided in a customer's Azure subscription. | CustomerState |
 | CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. | CommerceRootCustomer |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
@@ -178,12 +178,12 @@ _**Table 1: Dictionary of data terms**_
 | SKU | SKU | The plan associated with the offer | SKU |
 | N/A | lastModifiedAt | The latest timestamp for customer purchases. Use this field, via programmatic API access, to pull the latest snapshot of all customer purchase transactions since a specific date | lastModifiedAt |
 |	N/A	|	AddressLine1	|	The Address Line 1 section of customer’s street address	|	AddressLine1	|
-|	N/A	|	Billing Id  	|	The Billing Id of the enterprise customer	|	Billing Id  	|
-|	N/A	|	Private Offer Id  	|	The Id to identify a private marketplace offer	|	Private Offer Id  	|
+|	N/A	|	Billing ID  	|	The Billing ID of the enterprise customer	|	Billing ID  	|
+|	N/A	|	Private Offer ID  	|	The ID to identify a private marketplace offer	|	Private Offer ID  	|
 |	N/A	|	Private Offer Name  	|	The name provided during private offer creation	|	Private Offer Name  	|
 |	N/A	|	Purchaser Email  	|	Email of the entity purchasing or provisioning an offer. This could be same or different than the email of “bill-to” entity	|	Purchaser Email  	|
 |	N/A	|	ReferenceId	|	A unique identifier to indicate provisioned instances or purchased offers by the customer. This key can be used to link with Orders and Usage report  	|	ReferenceId	|
-|	Offer Id  	|	Offer Id  	|	The Id to identify a marketplace offer	|	OfferId  	|
+|	Offer ID  	|	Offer ID  	|	The ID to identify a marketplace offer	|	OfferId  	|
 |	Is Private Plan  	|	Is Private Plan  	|	Indicates whether a marketplace offer is private plan. <li> 0 value indicates false </li> <li> 1 value indicates true </li>	|	IsPrivatePlan  	|
 
 ## Next steps
@@ -193,5 +193,5 @@ _**Table 1: Dictionary of data terms**_
 - For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](./orders-dashboard.md).
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and the Microsoft commercial marketplace, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).

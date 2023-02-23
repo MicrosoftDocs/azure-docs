@@ -37,7 +37,7 @@ Filter the data by offer names. Filter options are dynamic and based on the sele
 
 To select the filters, in the top-right of the page, select **Filters**.
 
-:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu..":::
+:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu.":::
 
 In the panel that appears on the right, select the offer names you want, and then select **Apply**.
 

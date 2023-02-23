@@ -32,7 +32,7 @@ The page has dashboard-level filters for the following:
 
 Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
 
-### Ratings and reviews summary
+## Ratings and reviews summary
 
 The summary section displays the following metrics for a selected date range:
 
@@ -47,13 +47,13 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 :::image type="content" source="media/ratings-reviews/menu-elipsis.png" alt-text="Screenshot showing the Filters menu on the Insights screen of the Ratings and Reviews dashboard.":::
 
-### Review comments
+## Review comments
 
 Reviews appear in chronological order as posted. The default view displays all reviews; filter reviews by star rating using the **rating filter** in the dropdown menu. Additionally, you can search by keywords that appear in the review.  
 
 :::image type="content" source="media/ratings-reviews/review-contact.png" alt-text="Screenshot showing a sample review for an app in the commercial marketplace." :::
 
-### Respond to a review
+## Respond to a review
 
 Your response will be visible on either the AppSource or Azure Marketplace storefront. This applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
 
@@ -67,11 +67,11 @@ To respond to a review:
 
 The response will appear under the text of the original review in the product detail page in the storefront:
 
-##### Microsoft AppSource
+### Microsoft AppSource
 
 :::image type="content" source="media/ratings-reviews/review-appsource.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Microsoft Appsource." lightbox="media/ratings-reviews/review-appsource.png":::
 
-##### Azure Marketplace
+### Azure Marketplace
 
 :::image type="content" source="media/ratings-reviews/review-azure.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Azure Marketplace." lightbox="media/ratings-reviews/review-azure.png":::
 

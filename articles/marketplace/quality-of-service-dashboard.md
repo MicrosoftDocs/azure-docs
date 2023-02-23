@@ -30,16 +30,16 @@ Additionally, view [offer deployment details](#detailed-data) in tabular form.
 > [!IMPORTANT]
 > This dashboard is currently only available for **Azure application** offers available to all (not private offers).
 
-This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
+This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report won't show data for other marketplace offers.
 
 ### Quality of service page dashboard filters
 
 The page has different dashboard-level filters you can use to filter the Quality of service data based on the following:
 
 - Application type
-- Azure subscription Id
-- Customer Id
-- Offer Id
+- Azure subscription ID
+- Customer ID
+- Offer ID
 - Pricing
 - Deployment location
 
@@ -53,7 +53,7 @@ In the panel that appears on the right, select the filters you want, and then se
 
 :::image type="content" source="./media/quality-of-service/filters-panel.png" alt-text="Screenshot of the Filters panel.":::
 
-### Total deployments
+## Total deployments
 
 This graph shows the total deployment of offers. Metrics and growth trends are represented by a line chart. View value for each month by hovering over the line chart.
 
@@ -69,7 +69,7 @@ About this graph:
 - Change in percentage of offer deployments during the selected date range.
 - Month over month trend of total count for offer deployments.
 
-### Deployments by status
+## Deployments by status
 
 This graph shows the metric and trend of successful and failed offer deployments by customers for the selected month range. Offer deployments can have two statuses: **Successful** or **Failed**.
 
@@ -83,7 +83,7 @@ About this graph:
 - Change in percentage of successful and failed offer deployments for the selected date range.
 - Month over month trend of successful and failed offer deployment counts.
 
-### Quality by offers
+## Quality by offers
 
 This graph shows quality-of-service by offers and their corresponding SKUs, also called plans. It provides metrics and trends for **Total**, **Successful**, and **Failed** offer deployments monthly. The bar chart represents the number of deployments.
 
@@ -116,7 +116,7 @@ About this graph:
 - When viewing a month-over-month trend for an offer, select a maximum of three SKUs of that offer.
 - The line chart represents the same percentage changes as noted for the prior graph.
 
-### Deployment errors codes and resources
+## Deployment errors codes and resources
 
 This graph shows metrics and trends of the offer deployments basis error codes and resources. The tabular section can be pivoted on error codes and resources. The first subtab provides analytics basis error codes, description, and error counts. The second provides an analytic basis for the deployment of resources. The line chart provides the total error count basis error codes and resources.
 
@@ -135,7 +135,7 @@ About these graphs:
 - When viewing a month-over-month trend by error codes or resources, select a maximum of three items in the table.
 - Sort error codes and resources for deployment failures by basis error count in the table.
 
-### Deployment errors by offer plan
+## Deployment errors by offer plan
 
 On this graph, the Y-axis represents deployment error count and the X-axis represents the percentile of top offer plans (by error count).
 
@@ -148,13 +148,13 @@ About this graph:
 - The bar chart represents the deployment error counts for the selected month range.
 - The values on the line chart represent the cumulative error percentages by offer plan.
 
-### Quality by deployment duration
+## Quality by deployment duration
 
 This graph shows the metric and trend for the average time duration for a successful and failed deployment. View the metrics by selecting an offer in the drop-down menu. Select a SKU in the tabular view or enter it in the search bar. The following list shows different mean deployments durations (in minutes):
 
 - **Success duration** – Mean time of deployment duration with offer deployments status marked as Success. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with successful status.
 - **Failure duration** – Mean time of deployments duration with offer deployment status marked as Failure. This aggregated metric is calculated using the time duration between start and end timestamps of deployments marked with Failure status.
-- **First Successful deployment duration** – Mean time of deployment duration with offer deployment status marked as Success. This aggregated metric is calculated using the time duration between start timestamp of first deployment and end timestamp of the final deployment marked with Successful status. It is calculated for each deployment marked for a specific Offer SKU and Customer.
+- **First Successful deployment duration** – Mean time of deployment duration with offer deployment status marked as Success. This aggregated metric is calculated using the time duration between start timestamp of first deployment and end timestamp of the final deployment marked with Successful status. It's calculated for each deployment marked for a specific Offer SKU and Customer.
 
 Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
@@ -166,7 +166,7 @@ About this graph:
 - The line graph presents the Mean duration of deployments marked as successful, failed, and successful deployments with failed prior attempts.
 - Mean time for first deployment factors the time spent on failure attempts before the deployment is marked as successful.
 
-### Geographical spread
+## Geographical spread
 
 This graph shows the geographical spread heat map for successful and failed deployment counts for the selected month range. It also shows failure percentage against each region. The Green to Red color scale represents low to high value of failure rates. Select a record in the table to zoom in on a deployment region.
 
@@ -182,7 +182,7 @@ About this graph:
 - Red regions indicate higher failure rates and green indicate lower.
 - Search and select a country/region in the grid to zoom to the location in the map. Revert to the original view with the **Home** icon.
 
-### Detailed data
+## Detailed data
 
 > [!IMPORTANT]
 > To download the data in CSV, please use the Download data option available on top of page.
@@ -200,7 +200,7 @@ About this table:
 - Expand the control and export the table.
 - The detail view is paginated. Select other pages at the bottom.
 
-### Dictionary of data terms
+## Dictionary of data terms
 
 | Column name | Attribute Name | Definition |
 | --- | --- | --- |
@@ -210,10 +210,10 @@ About this table:
 | Subscription ID | Subscription ID | The Subscription ID of the customer |
 | Customer Tenant ID | Customer Tenant ID | The Tenant ID of the customer |
 | Customer Name | Customer Name | The name of the customer |
-| Template Type | Template Type | Type of Azure App deployed. It can be either Managed App or Solution Templates and it cannot be private. |
+| Template Type | Template Type | Type of Azure App deployed. It can be either Managed App or Solution Templates and it can't be private. |
 | Deployment Start Time | Deployment Start Time | The start time of the deployment |
 | Deployment End Time | Deployment End Time | The end time of the deployment |
-| Deployment Duration: | Deployment Duration: | The total time duration of offer deployment in milliseconds. It is shown in minutes in the graph. |
+| Deployment Duration: | Deployment Duration: | The total time duration of offer deployment in milliseconds. It's shown in minutes in the graph. |
 | Deployment Region | Deployment Region | The location of the Azure App deployment |
 | Resource Provider | Resource Provider | The resource provider for the particular deployed resource |
 | Resource Uri | Resource Uri | The URI of the deployed resource |

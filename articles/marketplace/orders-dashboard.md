@@ -1,5 +1,5 @@
 ---
-title: Partner Center Orders dashboard in Commercial Marketplace analytics | Microsoft AppSource and Azure Marketplace
+title: Partner Center Orders dashboard in Commercial Marketplace analytics | the Microsoft commercial marketplace and Azure Marketplace
 description: Learn how to access analytic reports about your commercial marketplace offer orders in a graphical and downloadable format.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -40,8 +40,8 @@ The page has different dashboard-level filters you can use to filter the data ba
 - Is Free Trial
 - Subscription Status
 - Marketplace License Type
-- Marketplace Subscription Id
-- Customer Id
+- Marketplace Subscription ID
+- Customer ID
 - Customer Company Name
 - Country
 - Offer Name
@@ -56,7 +56,7 @@ Each filter is expandable with multiple options that you can select. Filter opti
 
 
 ### Public and Private offer
-You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public offer** sub-tab, **Private offer** sub-tab, and the **All** sub-tab respectively.
+You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public offer** subtab, **Private offer** subtab, and the **All** subtab respectively.
 
 [ ![Illustrates other filters on the Orders dashboard.](./media/orders-dashboard/offer-tabs.png) ](./media/orders-dashboard/offer-tabs.png#lightbox)
 
@@ -113,11 +113,11 @@ You can create multiple plans to configure different price points based on the n
 
 Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
-For more details on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Changing prices in active commercial marketplace offers](price-changes.md).
+For more information on seat, site, and metered-based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md) and [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ### Orders by offers
 
-The Orders by offers widget shows information about offers and SKUs (also known as plans). This  widget shows the measures and trends of all purchased orders. Orders are categorized under different statuses: New, Convert, Renewed, Canceled.
+The Orders by offers widget show information about offers and SKUs (also known as plans). This  widget shows the measures and trends of all purchased orders. Orders are categorized under different statuses: New, Convert, Renewed, Canceled.
 
 For different statuses, the _Orders_ tab provides information about the count of purchased orders, the _Quantity_ tab provides information about the number of seats added and/or removed by customers for existing active subscriptions, and the _Revenue_ tab provides information about the billed revenue of orders for the selected month range. Each order is categorized with one of below statuses:
 
@@ -185,7 +185,7 @@ Note the following:
 This table displays a numbered list of the 500 top orders sorted by date of acquisition.
 
 - Each column in the grid is sortable.
-- If records number over 500, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- If records number over 500, exported data is asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the **Order details** table to display only the data you're interested in. Filter by Country/Region, Azure license type, commercial marketplace license type, Offer type, Order status, Free trails, commercial marketplace subscription ID, Customer ID, and Company name.
 - When an order is purchased by a protected customer, information in **Orders Detailed Data** is masked (************).
 
@@ -200,11 +200,11 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
-| Is Preview SKU | Is Preview SKU | The value will let you know if you tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU hasn't been identified as "preview". | IsPreviewSKU |
+| Is Preview SKU | Is Preview SKU | The value lets you know if you tagged the SKU as "preview". Value is "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU hasn't been identified as "preview". | IsPreviewSKU |
 | Asset ID | Asset ID | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers aren't associated with an order. | AssetId |
 | Quantity | Quantity | Number of assets associated with the order ID for active orders | OrderQuantity |
 | Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. | CloudInstanceName |
-| Is New Customer | Is New Customer | The value identifies whether a new customer acquired one or more of your offers for the first time. Value will be "Yes" if within the same calendar month for "Date Acquired". Value will be "No" if the customer has purchased any of your offers prior to the calendar month reported. | IsNewCustomer |
+| Is New Customer | Is New Customer | The value identifies whether a new customer acquired one or more of your offers for the first time. Value is "Yes" if within the same calendar month for "Date Acquired". Value is "No" if the customer has purchased any of your offers prior to the calendar month reported. | IsNewCustomer |
 | Order Status | Order Status | The status of a commercial marketplace order at the time the data was last refreshed. Possible values are: <ul><li>**Active**: Subscription asset is active and used by customer</li><li>**Canceled**: Subscription of an asset is canceled by customer</li><li>**Expired**: Subscription for an offer expired in the system automatically post trial period</li><li>**Abandoned**: Indicates a system error during offer creation or subscription fulfillment wasn't completed<li><li>**Warning**: </li>Subscription order is still active but customer has defaulted in payments</ul> | OrderStatus |
 | Order Cancel Date | Order Cancel Date | The date the commercial marketplace order was canceled. | OrderCancelDate |
 | Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
@@ -223,12 +223,12 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Is Trial | IsTrial | Represents whether an offer SKU is in trial period | IsTrial |
 | Order Action | Order Action | Indicates the customer action for an offer subscription. Possible values are: <ul><li>**Purchase**: Order was purchased</li><li>**Renewed**: Order was renewed</li><li>**Canceled**: Order was canceled</li></ul> | OrderAction |
 | Quantity changed | Quantity changed | The net change in seats added and seats removed for existing subscription orders. Same applies for sites (flat rate) pricing model | QuantityChanged |
-| Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
+| Trial End Date | Trial End Date | The date the trial period for this order ends or has ended. | TrialEndDate |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerID |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | Reference ID | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for Reference ID key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
-| PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. | PlanId |
-| Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product doesn't support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
+| PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. PlanId was originally a numeric number. | PlanId |
+| Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription renews automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription expires.</li><li>NULL: The product doesn't support renewals. Indicates that on the TermEnd the subscription expires. This is displayed "-" on the UI</li></ul> | AutoRenew |
 | Not available | Event Timestamp | Indicates the timestamp of an order management event, such as an order purchase, cancelation, renewal, and so on | EventTimestamp |
 | Not available | OrderVersion | A key to indicate updated versions of an order purchase. The highest value indicates latest key | OrderVersion |
 | Not available |	List Price(USD)	|	The publicly listed price of the offer plan in U.S dollars	|	ListPriceUSD	|

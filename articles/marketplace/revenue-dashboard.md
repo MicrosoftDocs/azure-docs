@@ -111,11 +111,11 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 
 [ ![Screenshot of the geographical spread section of the Revenue dashboard.](./media/revenue-dashboard/revenue-geographical-spread.png) ](./media/revenue-dashboard/revenue-geographical-spread.png#lightbox)
 
-**Note:**
-- You can move around the map to view an exact location.
-- You can zoom into a specific location.
-- The heatmap has a supplementary grid to view the details of country or region name, total revenue, estimated revenue of sent, unprocessed, and upcoming earnings.
-- You can search and select a country/region in the grid to zoom to the location in the map. To revert to the original view, select the **Home** button in the map.
+> [!NOTE]
+> - You can move around the map to view an exact location.
+> - You can zoom into a specific location.
+> - The heatmap has a supplementary grid to view the details of country or region name, total revenue, estimated revenue of sent, unprocessed, and upcoming earnings.
+> - You can search and select a country/region in the grid to zoom to the location in the map. To revert to the original view, select the **Home** button in the map.
 
 ### Details
 
@@ -154,16 +154,16 @@ Note the following:
 | Status - Rejected | The overall revenue for which payments or safe approval were rejected. |
 | Status - Not eligible | The overall revenue for which a partner isn't eligible to receive payouts. [Learn more](/partner-center/payout-statement) about eligibility. |
 | Status - Reprocessed | The overall revenue under-reprocessing due to various reasons. For example, invoice cancellation or safe approval cancelation, and so on. |
-| Status - Unreconciled | The overall revenue for which successful reconciliation with earnings couldn't happen. This can occur for multiple reasons:<ul><li>Estimated revenue is generated but earnings are not yet posted</li><li>Some issues with software systems</li></ul> |
+| Status - Unreconciled | The overall revenue for which successful reconciliation with earnings couldn't happen. This can occur for multiple reasons:<ul><li>Estimated revenue is generated but earnings aren't yet posted</li><li>Some issues with software systems</li></ul> |
 | Status - Uncollected | The overall revenue for which an end customer hasn't yet paid or has defaulted. [Learn more](/partner-center/payout-policy-details#process-for-customer-non-payment) about write-offs. For enterprise agreement (EA) customers, there may be entries and for non-EA customers there will be no entries in the transaction history report. |
 | Transactions | An order purchase or an offer usage event for which a purchase order id and line-item id are generated in the customer invoice. |
-| Purchase record Id | Relates to a customer's invoice. Same as `order id` in the transaction history report. |
-| Line-item Id | Individual line in a customer's invoice. Same as  `lineItemId` in the transaction history report. |
+| Purchase record ID | Relates to a customer's invoice. Same as `order id` in the transaction history report. |
+| Line-item ID | Individual line in a customer's invoice. Same as  `lineItemId` in the transaction history report. |
 | Customer name | Name of the customer |
 | Customer company name | Name of the customer’s company |
-| Customer Id | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. Same as `customer id` in the customers report. |
-| Billing account Id | Identifier for the billing account of the customer. Same as `customer id` in the transaction history report. |
-| Asset Id | An identifier for the software assets. Same as the `order id` in the orders report in Partner Center. |
+| Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. Same as `customer id` in the customers report. |
+| Billing account ID | Identifier for the billing account of the customer. Same as `customer id` in the transaction history report. |
+| Asset ID | An identifier for the software assets. Same as the `order id` in the orders report in Partner Center. |
 | Offer type | Type of offer, such as SaaS, VM, and so on. |
 | Offer name | Display name of the offer |
 | Is Private Offer | Indicates whether a marketplace offer is a private or a public offer.<br><ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>
@@ -182,7 +182,7 @@ Note the following:
 | Earnings amount (PC) | Earnings amount in partner preferred payout currency |
 | Exchange rate date | The date used to calculate exchange rates for currency conversions |
 | Estimated pay out month | The month for receiving your estimated earnings |
-| Sales channel | Represents the sales channel for the customer. It is the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
+| Sales channel | Represents the sales channel for the customer. It's the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
 | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note: PlanId was originally a numeric number. |
 | Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
 | Customer postal code | The postal code name provided by the bill-to customer |
@@ -191,7 +191,7 @@ Note the following:
 | Customer country | The country or region name provided by the customer. The country/region could be different than the country/region in a customer's Azure subscription. |
 | Customer company | The company name provided by the customer |
 | Customer email | The e-mail address provided by the end customer. This address could be different than the e-mail address in a customer's Azure subscription. |
-| Payout currency | The partner preferred currency to receive payout. It is same as the _lastpaymentcurrency_ column in the transaction history report. |
+| Payout currency | The partner preferred currency to receive payout. It's same as the _lastpaymentcurrency_ column in the transaction history report. |
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
