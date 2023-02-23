@@ -4,7 +4,7 @@ description: Learn about the supported systems and first-party development tools
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/04/2019
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Prepare your development and test environment for IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 IoT Edge moves your existing business logic to devices operating at the edge. To prepare your applications and workloads to run as [IoT Edge modules](iot-edge-modules.md), you need to build them as containers. This article provides guidance around how to configure your development environment so that you can successfully create an IoT Edge solution. Once you have your development environment set up, you can learn how to [Develop your own IoT Edge modules](module-development.md).
 
@@ -42,9 +42,11 @@ If you prefer to develop with other editors or from the CLI, the Azure IoT Edge 
 
 The Azure IoT Edge extension for Visual Studio Code provides IoT Edge module templates built on programming languages including C, C#, Java, Node.js, and Python. Templates for Azure functions in C# are also included.
 
-For more information and to download, see [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+For more information and to download, see [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
 In addition to the IoT Edge extensions, you may find it helpful to install additional extensions for developing. For example, you can use [Docker Support for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) to manage your images, containers, and registries. Additionally, all the major supported languages have extensions for Visual Studio Code that can help when you're developing modules.
+
+The [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension is useful as a companion for the Azure IoT Edge extension.
 
 #### Prerequisites
 

@@ -9,17 +9,15 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 10/04/2022
+ms.date: 01/06/2023
 ms.custom: event-tier1-build-2022
 ---
 
-# Use network isolation with managed online endpoints (preview)
+# Use network isolation with managed online endpoints
 
 [!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
 
-When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). Using a private endpoint with online endpoints is currently a preview feature.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
 You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
@@ -48,6 +46,8 @@ The following diagram shows how communications flow through private endpoints to
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
 
+* If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
+
 > [!IMPORTANT]
 > The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands: 
 >
@@ -64,11 +64,13 @@ The following diagram shows how communications flow through private endpoints to
 
 * Secure outbound communication creates three private endpoints per deployment. One to the Azure Blob storage, one to the Azure Container Registry, and one to your workspace.
 
-* Azure Log Analytics and Application Insights aren't supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
+* When you use network isolation with a deployment, Azure Log Analytics is partially supported. All metrics and the `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, the [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).
 
 * You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
 
     Outbound communication from a managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+    
+* When you use network isolation with a deployment, you can use Azure Container Registry (ACR), Storage account, Key Vault and Application Insights from a different resource group in the same subscription, but you cannot use them if they are in a different subscription. 
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
@@ -117,10 +119,13 @@ When `public_network_access` is `Disabled`, inbound scoring requests are receive
 
 ## Outbound (resource access)
 
-To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough—your workspace must also have a private link that allows access to Azure resources via a private endpoint. See the [Prerequisites](#prerequisites) for more details.
+To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough — your workspace must also have a private link that allows access to Azure resources via a private endpoint. See the [Prerequisites](#prerequisites) for more details.
 
 > [!WARNING]
 > You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
+
+> [!NOTE]
+> For online deployments with `egress_public_network_access` flag set to `disabled`, access from the deployments to Microsoft Container Registry (MCR) is restricted. If you want to leverage container images from MCR (such as when using curated environment or mlflow no-code deployment), recommendation is to push the images into the Azure Container Registry (ACR) which is attached with the workspace. The images in this ACR is accessible to secured deployments via the private endpoints which are automatically created on behalf of you when you set `egress_public_network_access` flag to `disabled`. For a quick example, please refer to this [custom container example](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container/minimal/single-model).
 
 # [Azure CLI](#tab/cli)
 
@@ -175,7 +180,8 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
 > [!IMPORTANT]
-> Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+> - When `egress_public_network_access` is disabled, the deployment can only access the resources secured in the VNET. When `egress_public_network_access` is enabled, the deployment can only access the resources with public access, which means it cannot access the resources secured in the VNET.   
 
 ## End-to-end example
 
@@ -207,19 +213,32 @@ The following diagram shows the overall architecture of this example:
 
 :::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
+To create the resources, use the following Azure CLI commands. To create a resource group. Replace `<my-resource-group>` and `<my-location>` with the desierd values.  
+
+```azurecli
+# create resource group
+az group create --name <my-resource-group> --location <my-location>
+```
+
+Clone the example files for the deployment, use the following command:
+
+```azurecli
+#Clone the example files
+git clone https://github.com/Azure/azureml-examples
+```
+
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
-
-:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
-
+```azurecli
+az deployment group create --template-file endpoints/online/managed/vnet/setup_ws/main.bicep --parameters suffix=$SUFFIX --resource-group <my-resource-group>
+```
 ### Create the virtual machine jump box
 
 To create an Azure Virtual Machine that can be used to connect to the VNet, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
 
 ```azurecli
 # create vm
-az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password>
+az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password> --resource-group <my-resource-group>
 ```
 
 > [!IMPORTANT]

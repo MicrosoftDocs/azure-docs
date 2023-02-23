@@ -20,7 +20,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription.
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
-- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp). Note the phone number you acquired for use in this quickstart. 
+- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp) or connect your carrier using [Azure direct routing](../../../concepts/telephony/direct-routing-infrastructure.md). Note the phone number you acquired or provisioned using Azure direct routing for use in this quickstart. 
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature.
 - The latest version of Visual Studio 2022 (17.4.0 or higher)
 - An audio file for the message you want to play in the call. This audio should be accessible via a url. 
@@ -44,6 +44,8 @@ dotnet add <path-to-project> package Azure.Messaging.EventGrid
 ## Use Visual Studio Dev Tunnels for your webhook
 
 In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
+
+Note by default the dev tunnels are disabled in Visual Studio. To enable dev tunnels, please go to Tools, than Options and enable dev tunnels in Preview Features menu.
 
 If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
 

@@ -26,13 +26,14 @@ This article describes how you can create and configure a self-hosted IR.
 ## Considerations for using a self-hosted IR
 
 - You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
-- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories or Synapse workspaces that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  
+- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  Synapse workspace does not support Integration Runtime Sharing.
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
 - Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Full licensing details are provided on the first page of the self-hosted integration runtime setup.
 
 > [!NOTE]
 > Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
@@ -74,7 +75,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-  - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
+  - Java Runtime (JRE) version 8 from a JRE provider such as [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=8). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
   >[!NOTE]
   >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
   
@@ -194,8 +195,8 @@ Here are details of the application's actions and arguments:
 |`-t`,<br/>`-Stop`||Stop the self-hosted integration runtime host service.|
 |`-sus`,<br/>`-StartUpgradeService`||Start the self-hosted integration runtime upgrade service.|
 |`-tus`,<br/>`-StopUpgradeService`||Stop the self-hosted integration runtime upgrade service.|
-|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
-|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 |`-elma`,<br/>`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
@@ -452,6 +453,8 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
+
+If all your data source and sink and self-hosted integration runtime are in on-premises environment, then the copied data will not go to cloud but strictly remain within on-premises.
 
 ## Credentials store
 There are two ways to store the credentials when using self-hosted integration runtime:

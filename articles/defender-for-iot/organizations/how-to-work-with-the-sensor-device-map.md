@@ -36,7 +36,7 @@ Your user role determines which tools are available in the Device Map window. Fo
 The following basic search tools are available:
 - Search by IP or MAC address
 - Multicast or broadcast traffic
-- Last seen: Filter the devices on the map according to the time they last communicated with other devices.
+- Last activity: Filter the devices on the map according to the time they last communicated with other devices.
 
     :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::
 
@@ -75,7 +75,7 @@ The following predefined groups are available:
 | **VLAN** | Devices associated with a specific VLAN ID. |
 | **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
 | **Attack vector simulations** | Vulnerable devices detected in attack vector reports. To view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v3.png" alt-text="Screenshot of the Add Attack Vector Simulations":::|
-| **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, or seven days. |
+| **Last activity** | Devices grouped by the time frame they were last active, for example: One hour, six hours, one day, or seven days. |
 | **Not In Active Directory** | All non-PLC devices that aren't communicating with the Active Directory. |
 
 For information about creating custom groups, see [Define custom groups](#define-custom-groups).
@@ -96,7 +96,7 @@ You can display devices from saved filters in the Device map. For more informati
 |--|--|
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false"::: | Fit to screen. |
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-selection-icon.png" border="false"::: | Fits a group of selected devices to the center of the screen. |
-| :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT/OT presentation. Collapse view to enable a focused view on OT devices, and group IT devices.  |
+| :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT/OT Presentation Options. Select **Disable Display IT Networks Groups** to prevent the ability to collapse IT networks in the map. This option is turned on by default. |
 |:::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false"::: | Layout options, including: <br />**Pin layout**. Drag devices on the map to a new location. Use the Pin option to save those locations when you leave the map to use another option.  <br />**Layout by connection**. View connections between devices. <br />**Layout by Purdue**. View the devices in the map according to Enterprise, supervisory and process control layers. <br /> |
 | :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in or out of the map. |
 
@@ -248,7 +248,7 @@ This section describes device details.
 |--|--|
 | Name | The device name. <br /> By default, the sensor discovers the device name as it's defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
 | Authorized status | Indicates if the device is authorized or not. During the Learning period, all the devices discovered in the network are identified as Authorized. When a device is discovered after the Learning period, it appears as Unauthorized by default. You can change this definition manually. For information on this status and manually authorizing and unauthorizing, see [Authorize and unauthorize devices](#authorize-and-unauthorize-devices). |
-| Last seen | The last time the device was detected. |
+| Last activity | The last time the device was detected. |
 | Alert | The number of open alerts associated with the device. |
 | Type | The device type as detected by the sensor. |
 | Vendor | The device vendor. This is determined by the leading characters of the device MAC address. This field is read-only. |

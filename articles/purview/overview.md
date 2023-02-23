@@ -25,8 +25,12 @@ Microsoft Purview's solutions in the governance portal provide a unified data go
 
 ## Data Map
 
-Microsoft Purview automates data discovery by providing data scanning and classification for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
+Microsoft Purview automates data discovery by providing data scanning and classification for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Microsoft Purview Data Map provides the foundation for data discovery and data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the data map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
+Microsoft Purview Data Map powers the Microsoft Purview Data Catalog, the Microsoft Purview Data Estate Insights and the Microsoft Purview Data Policy as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
+For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
+
+Atop the Data Map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
 |App  |Description  |
 |----------|-----------|
@@ -34,12 +38,6 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 |[Data Estate Insights](#data-estate-insights-app) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
 |[Data Sharing](#data-sharing-app) | Allows you to securely share data internally or cross organizations with business partners and customers. |
 |[Data Policy](#data-policy-app) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
-
-
-Microsoft Purview Data Map provides the foundation for data discovery and data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the data map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
-Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview Data Estate Insights as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
-
-For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 
 ## Data Catalog app
 
@@ -125,6 +123,10 @@ Lastly, Microsoft Purview Data Policy app applies the metadata in the Data Map, 
    - Easier to review access/revoke it in a central vs. distributed access provisioning model.
    - Reduced need for privileged accounts to configure access.
    - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
+
+## In-region data residency
+
+Microsoft Purview processes data and stores metadata information, but does not store customer data. Data is processed in its data region, and customer metadata stays within the region where Microsoft Purview is deployed. For regions with data residency requirements, customer data stays within its region, and customer metadata is always kept within the same region where Microsoft Purview is deployed.
 
 ## Next steps
 

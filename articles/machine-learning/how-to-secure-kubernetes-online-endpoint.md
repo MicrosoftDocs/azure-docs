@@ -22,14 +22,14 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to onlin
 > * Specifically, Kubernetes online endpoints support TLS version 1.2 for Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.
 > * TLS version 1.3 for Azure Machine Learning Kubernetes inference is unsupported.
 
-TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
+TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [public_key_infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!WARNING]
 > If you don't use HTTPS for your online endpoints, data that's sent to and from the service might be visible to others on the internet.
 >
 > HTTPS also enables the client to verify the authenticity of the server that it's connecting to. This feature protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
 
-This is the general process to secure an online endpoint:
+The following is the general process to secure an online endpoint:
 
 1. [Get a domain name](#get-a-domain-name).
 
@@ -102,8 +102,6 @@ metadata:
 type: Opaque
 ```
 
-For more information on configuring `sslSecret`, see [Reference for configuring a Kubernetes cluster for Azure Machine Learning](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
-
 After you save the secret in your cluster, you can use the following Azure CLI command to specify `sslSecret` as the name of this Kubernetes secret. (This command will work only if you're using AKS.)
 
 ```azurecli
@@ -171,7 +169,7 @@ TLS/SSL certificates expire and must be renewed. Typically, this happens every y
    If you directly configured the PEM files in the extension deployment command before, you need to run the extension update command and specify the new PEM file's path:
 
    ```azurecli
-      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config sslCname=<ssl cname> --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 
 ## Disable TLS
@@ -183,7 +181,7 @@ To disable TLS for a model deployed to Kubernetes:
 1. Run the following Azure CLI command in your Kubernetes cluster, and then perform an update. This command assumes that you're using AKS.
 
    ```azurecli
-      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableInference=True inferenceRouterServiceType=LoadBalancer allowInsercureconnection=True --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+      az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableInference=True inferenceRouterServiceType=LoadBalancer allowInsercureconnection=True --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 
 > [!WARNING]

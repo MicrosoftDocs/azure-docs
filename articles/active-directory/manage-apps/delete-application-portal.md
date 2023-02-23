@@ -69,7 +69,7 @@ To delete an enterprise application, you need:
 1. Delete the enterprise application.
    
    ```powershell
-   Remove-AzureADServicePrincipal $ObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Remove-AzureADServicePrincipal -ObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
    ```
 :::zone-end
 
@@ -100,20 +100,24 @@ To delete an enterprise application, you need:
 :::zone pivot="ms-graph"
 
 Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. To get the list of applications in your tenant, run the following query.
+1. To get the list of service principals in your tenant, run the following query.
+
    
    ```http
-   GET /servicePrincipals
+   GET https://graph.microsoft.com/v1.0/servicePrincipals
    ```
+
 1. Record the ID of the enterprise app you want to delete.
 1. Delete the enterprise application.
-   
+
    ```http
-   DELETE /servicePrincipals/{id}
+   DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}
    ```
+
 
 :::zone-end
 
 ## Next steps
 
 - [Restore a deleted enterprise application](restore-application.md)
+

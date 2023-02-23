@@ -26,10 +26,6 @@ Call Automation enables you to build custom calling workflows within your applic
 
 Learn more about [Call Automation](../voice-video-calling/call-automation.md), currently available in public preview.
 
-**Inbound calling with Azure Bot Framework**
-
-Customers participating in Azure Bot Framework Telephony Channel preview can find the [instructions here](/azure/bot-service/bot-service-channel-connect-telephony)
-
 **Inbound calling with Power Virtual Agents**
 
 *Coming soon*

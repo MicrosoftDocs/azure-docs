@@ -7,7 +7,9 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: mbender
+ms.custom: template-concept
 ---
+
 # What's new in Azure Load Balancer?
 
 Azure Load Balancer is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:
@@ -44,6 +46,7 @@ The product group is actively working on resolutions for the following known iss
 | ---------- |---------|---------|
 | IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, please leverage NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
 | numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, is not respected. Load Balancer health probes will probe up/down immediately after 1 probe regardless of the property's configured value | To reflect the current behavior, please set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
+|Cross region balancer in West Europe| Currently, there are a limited amount of IP addresses available in West Europe for Azure's cross region Load Balancer. This may impact customers' ability to deploy cross region load balancers in the West Europe region.| We recommend that customers use another home region as part of their cross region deployment.|                                        
 
   
 

@@ -3,14 +3,12 @@ title: Analyze network security - Security Group View - Azure REST API
 titleSuffix: Azure Network Watcher
 description: This article will describe how to the Azure REST API to analyze a virtual machines security with Security Group View.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 03/01/2022
-ms.author: damendo 
+ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 

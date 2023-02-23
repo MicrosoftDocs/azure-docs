@@ -8,7 +8,8 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 09/15/2022
+ms.reviewer: sgilley
+ms.date: 02/02/2023
 ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -53,9 +54,6 @@ The steps you'll take are:
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
 
-Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
-
-:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
 
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
@@ -98,7 +96,7 @@ For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2
 
 ## Create a job environment
 
-To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
+To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
 
 AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
 
@@ -131,7 +129,7 @@ After running the training job, you'll deploy the model, then use it to produce 
 
 ## Create training script
 
-Let's start by creating the training script - the *main.py* python file.
+Let's start by creating the training script - the *main.py* Python file.
 
 First create a source folder for the script:
 

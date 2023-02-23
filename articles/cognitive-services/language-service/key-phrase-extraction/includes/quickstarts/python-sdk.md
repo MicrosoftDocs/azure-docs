@@ -3,7 +3,7 @@ author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/15/2022
+ms.date: 02/17/2023
 ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
@@ -41,7 +41,7 @@ pip install azure-ai-textanalytics==5.2.0
 
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 

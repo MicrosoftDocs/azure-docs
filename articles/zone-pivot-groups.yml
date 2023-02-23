@@ -70,6 +70,23 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-set-translator
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: "C#: Visual Studio"
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: "Java: Gradle"
+  - id: programming-language-javascript
+    title: "JavaScript: Node.js"
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -279,7 +296,7 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: programming-languages-set-functions-lang-workers
   title: Programming languages
   prompt: Choose a programming language
@@ -318,6 +335,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions-full
   title: Programming languages
   prompt: Choose a programming language
@@ -354,6 +373,16 @@ groups:
     title: v1
   - id: python-mode-decorators
     title: v2
+- id: create-java-durable-options
+  title: Create option
+  prompt: Choose how to create the app
+  pivots:
+  - id: create-option-manual-setup
+    title: Manual setup
+  - id: create-option-maven-command
+    title: Maven command
+  - id: create-option-vscode
+    title: Visual Studio Code
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -911,7 +940,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container    
+    title: Windows container
 - id: app-service-containers-windows-linux-portal-ps-cli
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
@@ -1089,7 +1118,7 @@ groups:
   - id: platform-web
     title: Web
   - id: platform-android
-    title: Android    
+    title: Android
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1546,7 +1575,7 @@ groups:
   - id: identity-wif-mi-methods-azp
     title: Azure portal
   - id: identity-wif-mi-methods-powershell
-    title: Azure PowerShell 
+    title: Azure PowerShell
   - id: identity-wif-mi-methods-azcli
     title: Azure CLI
   - id: identity-wif-mi-methods-arm
@@ -1735,6 +1764,17 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cshoe
+- id: arm-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
 # Owner: cebundy
 - id: container-apps-interface-types
   title: Interaction type
@@ -1809,6 +1849,15 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
+## Template without portal and Azure AD Graph
+- id: enterprise-apps-minus-portal-aad
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 ## template without graph
 - id: enterprise-apps-minus-graph
   title: Manage Enterprise apps
@@ -1844,6 +1893,15 @@ groups:
     title: Azure CLI
   - id: admin-consent-url
     title: Admin consent URL
+## Create service principal with appId
+- id: enterprise-apps-ms-graph-ms-powershell
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph  
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -1937,10 +1995,12 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: jorgegarc
-- id: acs-xamarin-react
+- id: acs-maui-xamarin-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
+  - id: platform-maui
+    title: .NET MAUI
   - id: platform-xamarin
     title: Xamarin
   - id: platform-react
@@ -1967,3 +2027,12 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: rolyon
+- id: app-provisioning-cross-tenant-synchronization
+  title: Application provisioning or cross-tenant synchronization
+  prompt: Choose an option
+  pivots:
+  - id: app-provisioning
+    title: Application provisioning
+  - id: cross-tenant-synchronization
+    title: Cross-tenant synchronization

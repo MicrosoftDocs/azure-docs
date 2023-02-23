@@ -3,7 +3,7 @@ title: JavaScript and page layout versions
 titleSuffix: Azure AD B2C
 description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.custom: project-no-code, devx-track-js, engagement-fy23
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

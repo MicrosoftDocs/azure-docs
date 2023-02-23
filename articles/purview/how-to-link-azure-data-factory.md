@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 12/14/2022
 ---
 # How to connect Azure Data Factory and Microsoft Purview
 
@@ -65,7 +65,7 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
 Grant the data factory's managed identity **Data Curator** role on Microsoft Purview **root collection**. Learn more about [Access control in Microsoft Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-### Remove data factory connections
+### Remove Data Factory connections
 
 To remove a data factory connection, do the following:
 
@@ -73,6 +73,10 @@ To remove a data factory connection, do the following:
 2. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
+
+## Monitor the Data Factory links
+
+In Microsoft Purview governance portal, you can [monitor the Data Factory links](how-to-monitor-data-map-population.md#monitor-links).
 
 ## Supported Azure Data Factory activities
 

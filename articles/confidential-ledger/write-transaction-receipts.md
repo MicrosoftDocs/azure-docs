@@ -54,7 +54,7 @@ We authenticate using the [DefaultAzureCredential class](/python/api/azure-ident
 credential = DefaultAzureCredential() 
 ```
 
-Then, we get and save the Confidential Ledger service certificate using the Certificate client from the [Confidential Ledger Identity URL](https://identity.confidential-ledger.core.azure.com/ledgerIdentity). The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it's used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
+Then, we get and save the Confidential Ledger service certificate using the Certificate client from the Confidential Ledger Identity URL. The service certificate is a network identity public key certificate used as root of trust for [TLS](https://microsoft.github.io/CCF/main/overview/glossary.html#term-TLS) server authentication. In other words, it's used as the Certificate Authority (CA) for establishing a TLS connection with any of the nodes in the CCF network.
 
 ```python
 # Create a Certificate client and use it to 
@@ -175,13 +175,12 @@ Here's an example of a JSON response payload returned by an Azure Confidential L
 {
     "receipt": {
         "cert": "-----BEGIN CERTIFICATE-----\nMIIB0jCCAXmgAwIBAgIQPxdrEtGY+SggPHETin1XNzAKBggqhkjOPQQDAjAWMRQw\nEgYDVQQDDAtDQ0YgTmV0d29yazAeFw0yMjA3MjAxMzUzMDFaFw0yMjEwMTgxMzUz\nMDBaMBMxETAPBgNVBAMMCENDRiBOb2RlMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD\nQgAEWy81dFeEZ79gVJnfHiPKjZ54fZvDcFlntFwJN8Wf6RZa3PaV5EzwAKHNfojj\noXT4xNkJjURBN7q+1iE/vvc+rqOBqzCBqDAJBgNVHRMEAjAAMB0GA1UdDgQWBBQS\nwl7Hx2VkkznJNkVZUbZy+TOR/jAfBgNVHSMEGDAWgBTrz538MGI/SdV8k8EiJl5z\nfl3mBTBbBgNVHREEVDBShwQK8EBegjNhcGljY2lvbmUtdGVzdC1sZWRnZXIuY29u\nZmlkZW50aWFsLWxlZGdlci5henVyZS5jb22CFWFwaWNjaW9uZS10ZXN0LWxlZGdl\ncjAKBggqhkjOPQQDAgNHADBEAiAsGawDcYcH/KzF2iK9Ldx/yABUoYSNti2Cyxum\n9RRNKAIgPB/XGh/FQS3nmZLExgBVXkDYdghQu/NCY/hHjQ9AvWg=\n-----END CERTIFICATE-----\n",
-        "is_signature_transaction": false,
-        "leaf_components": {
-            "claims_digest": "0000000000000000000000000000000000000000000000000000000000000000",
-            "commit_evidence": "ce:2.40:f36ffe2930ec95d50ebaaec26e2bec56835abd051019eb270f538ab0744712a4",
-            "write_set_digest": "8452624d10bdd79c408c0f062a1917aa96711ea062c508c745469636ae1460be"
+        "leafComponents": {
+            "claimsDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+            "commitEvidence": "ce:2.40:f36ffe2930ec95d50ebaaec26e2bec56835abd051019eb270f538ab0744712a4",
+            "writeSetDigest": "8452624d10bdd79c408c0f062a1917aa96711ea062c508c745469636ae1460be"
         },
-        "node_id": "70e995887e3e6b73c80bc44f9fbb6e66b9f644acaddbc9c0483cfc17d77af24f",
+        "nodeId": "70e995887e3e6b73c80bc44f9fbb6e66b9f644acaddbc9c0483cfc17d77af24f",
         "proof": [
             {
                 "left": "b78230f9abb27b9b803a9cae4e4cec647a3be1000fc2241038867792d59d4bc1"
@@ -190,7 +189,6 @@ Here's an example of a JSON response payload returned by an Azure Confidential L
                 "left": "a2835d4505b8b6b25a0c06a9c8e96a5204533ceac1edf2b3e0e4dece78fbaf35"
             }
         ],
-        "service_endorsements": [],
         "signature": "MEUCIQCjtMqk7wOtUTgqlHlCfWRqAco+38roVdUcRv7a1G6pBwIgWKpCSdBmhzgEdwguUW/Cj/Z5bAOA8YHSoLe8KzrlqK8="
     },
     "state": "Ready",
@@ -213,25 +211,23 @@ The `receipt` field contains the following fields.
 
 * **cert**: String with the [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) public key certificate of the CCF node that signed the write transaction. The certificate of the signing node should always be endorsed by the service identity certificate. See also more details about how transactions get regularly signed and how the signature transactions are appended to the ledger in CCF at the following [link](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
-* **is_signature_transaction**: Boolean value indicating whether the receipt is related to a signature transaction or not. Receipts for signature transactions can't be retrieved for Confidential Ledgers.
+* **nodeId**: Hexadecimal string representing the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash digest of the public key of the signing CCF node.
 
-* **node_id**: Hexadecimal string representing the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash digest of the public key of the signing CCF node.
-
-* **leaf_components**: The components of the leaf node hash in the [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) that are associated to the specified transaction. A Merkle Tree is a tree data structure that records the hash of every transaction and guarantees the integrity of the ledger. For more information on how a Merkle Tree is used in CCF, see the related [CCF documentation](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
+* **leafComponents**: The components of the leaf node hash in the [Merkle Tree](https://en.wikipedia.org/wiki/Merkle_tree) that are associated to the specified transaction. A Merkle Tree is a tree data structure that records the hash of every transaction and guarantees the integrity of the ledger. For more information on how a Merkle Tree is used in CCF, see the related [CCF documentation](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html).
 
 * **proof**: List of key-value pairs representing the Merkle Tree nodes hashes that, when combined with the leaf node hash corresponding to the given transaction, allow the recomputation of the root hash of the tree. Thanks to the properties of a Merkle Tree, it's possible to recompute the root hash of the tree only a subset of nodes. The elements in this list are in the form of key-value pairs: keys indicate the relative position with respect to the parent node in the tree at a certain level; values are the SHA-256 hash digests of the node given, as hexadecimal strings.
 
-* **service_endorsements**: List of PEM-encoded certificates strings representing previous service identities certificates. It's possible that the service identity that endorsed the signing node isn't the same as the one that issued the receipt. For example, the service certificate is renewed after a disaster recovery of a Confidential Ledger. The list of past service certificates allows auditors to build the chain of trust from the CCF signing node to the current service certificate.
+* **serviceEndorsements**: List of PEM-encoded certificates strings representing previous service identities certificates. It's possible that the service identity that endorsed the signing node isn't the same as the one that issued the receipt. For example, the service certificate is renewed after a disaster recovery of a Confidential Ledger. The list of past service certificates allows auditors to build the chain of trust from the CCF signing node to the current service certificate.
 
 * **signature**: Base64 string representing the signature of the root of the Merkle Tree at the given transaction, by the signing CCF node.
 
-The `leaf_components` field contains the following fields.
+The `leafComponents` field contains the following fields.
 
-* **claims_digest**: Hexadecimal string representing the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. Application claims are currently unsupported as the Confidential Ledger application doesn't attach any claim when executing a write transaction.
+* **claimsDigest**: Hexadecimal string representing the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. Application claims are currently unsupported as the Confidential Ledger application doesn't attach any claim when executing a write transaction.
 
-* **commit_evidence**: A unique string produced per transaction, derived from the transaction ID and the ledger secrets. For more information about the commit evidence, see the related [CCF documentation](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#commit-evidence).
+* **commitEvidence**: A unique string produced per transaction, derived from the transaction ID and the ledger secrets. For more information about the commit evidence, see the related [CCF documentation](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#commit-evidence).
 
-* **write_set_digest**: Hexadecimal string representing the SHA-256 hash digest of the [Key-Value store](https://microsoft.github.io/CCF/main/build_apps/kv/index.html), which contains all the keys and values written at the time the transaction was completed. For more information about the write set, see the related [CCF documentation](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Write-Set).
+* **writeSetDigest**: Hexadecimal string representing the SHA-256 hash digest of the [Key-Value store](https://microsoft.github.io/CCF/main/build_apps/kv/index.html), which contains all the keys and values written at the time the transaction was completed. For more information about the write set, see the related [CCF documentation](https://microsoft.github.io/CCF/main/overview/glossary.html#term-Write-Set).
 
 ### More resources
 

@@ -20,7 +20,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which will show you how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which will show you how to deploy polyglot apps to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
 The following diagram shows a common application architecture:
 

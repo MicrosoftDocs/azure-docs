@@ -47,7 +47,7 @@ If you get an error while filling out the form to create the Managed Grafana ins
 Enter a name that:
 
 - Is unique in the entire Azure region. It can't already be used by another user.
-- Is 30 characters long or smaller
+- Is 23 characters long or smaller
 - Begins with a letter. The rest can only be alphanumeric characters or hyphens, and the name must end with an alphanumeric character.
 
 ### Solution 2: review deployment error
@@ -216,4 +216,4 @@ Data sources configured with a managed identity may still be able to access data
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [Support](./find-help-open-support-ticket.md)

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -83,6 +83,10 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
@@ -161,12 +165,11 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 > Before enabling this option, you should understand the [considerations](#considerations).   
 > The **Allow local NFS users with LDAP** option is part of the **LDAP with extended groups** feature and requires registration. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details.
 
-1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
+1. Select **Active Directory connections**. On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
 
 2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
     ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
-
 
 ## Manage LDAP POSIX Attributes
 
@@ -189,7 +192,7 @@ The values specified for `objectClass` are separate entries. For example, in Mul
 
 ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
-Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify POSIX attributes on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
+Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
 If you are synchronizing the users and groups in your Azure AD tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
@@ -211,6 +214,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 ## Next steps  
 
 * [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 03/04/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -45,7 +45,7 @@ This table describes the ports and protocols that are required for communication
 | HTTP |80 (TCP) |Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. |
 | HTTPS |443 (TCP) |Used to synchronize with Azure AD. |
 
-For a list of URLs and IP addresses you need to open in your firewall, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) and [Troubleshooting Azure AD Connect connectivity](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
+For a list of URLs and IP addresses you need to open in your firewall, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) and [Troubleshooting Azure AD Connect connectivity](tshoot-connect-connectivity.md#connectivity-issues-in-the-installation-wizard).
 
 ## Table 3 - Azure AD Connect and AD FS Federation Servers/WAP
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and AD FS Federation/WAP servers.  

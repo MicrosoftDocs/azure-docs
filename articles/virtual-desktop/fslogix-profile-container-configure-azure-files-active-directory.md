@@ -140,7 +140,7 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 1. In the box for **Azure Active Directory Domain Services**, select **Set up**.
 
-1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a computer account named the same as the storage account will be created in that OU. 
+1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a user account named the same as the storage account will be created in that OU. This account will be used as the Azure Files service account.
 
 ---
 

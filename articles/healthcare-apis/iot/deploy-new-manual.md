@@ -11,9 +11,9 @@ ms.author: jasteppe
 
 # Quickstart: Deploy the MedTech service manually using the Azure portal
 
-You may prefer to manually deploy MedTech service if you need to track every step of the developmental process. Manual deployment might be necessary if you have to customize or troubleshoot your deployment. Manual deployment will help you by providing all the details for implementing each task.
+You may prefer to manually deploy the MedTech service if you need to track every step of the developmental process. Manual deployment might be necessary if you have to customize or troubleshoot your deployment. Manual deployment will help you by providing all the details for implementing each task.
 
-The explanation of MedTech service manual deployment using the Azure portal is divided into three parts that cover each of key tasks required:
+The explanation of the MedTech service manual deployment using the Azure portal is divided into three parts that cover each of key tasks required:
 
 - Part 1: Prerequisites (see Prerequisites below)
 - Part 2: Configuration (see [Configure for manual deployment](deploy-new-config.md))

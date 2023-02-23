@@ -62,7 +62,39 @@ For example,
 
 To access the  API, you need to register a client app with Azure Active Directory and request a token.
 1. [Register an app in Azure Active Directory](./register-app-for-token.md).
+
+1. On the app's overview page, select **API permissions**  
+1. Select **Add a permission**
+1. In the **APIs my organization uses** tab search for *log analytics* and select **Log Analytics API** from the list.  
+:::image type="content" source="../media/api-register-app/request-api-permissions.png" alt-text="A screenshot showing the Request API permissions page.":::
+
+1. Select **Delegated permissions**
+1. Check the checkbox for **Data.Read**
+1. Select **Add permissions**
+:::image type="content" source="../media/api-register-app/add-requested-permissions.png" alt-text="A screenshot showing the continuation of the Request API permissions page.":::  
+
+Now that your app is registered and has permissions to use the API, grant your app access to your Log Analytics Workspace.
+
+1. From your Log analytics Workspace overview page, select **Access control (IAM)**.
+1. Select **Add role assignment**.
+
+    :::image type="content" source="../media/api-register-app/workspace-access-control.png" alt-text="A screenshot showing the access control page for a log analytics workspace.":::
+
+1. Select the **Reader** role then select **Members**
+    
+    :::image type="content" source="../media/api-register-app/add-role-assignment.png" alt-text="A screenshot showing the add role assignment page for a log analytics workspace.":::
+
+1. In the Members tab, select **Select members**
+1. Enter the name of your app in the **Select** field.
+1. Choose your app and select **Select**
+1. Select **Review and assign**
+     
+    :::image type="content" source="../media/api-register-app/select-members.png" alt-text="A screenshot showing the select members blade on the role assignment page for a log analytics workspace.":::
+
 1. After completing the Active Directory setup and workspace permissions, request an authorization token.
+
+>[!Note]
+> For this example we applied the **Reader** role. This role is one of many built-in roles and may include more permissions than you require. More granular roles and permissions can be created. For more information, see [Manage access to Log Analytics workspaces](../../logs/manage-access.md).
 
 ## Request an Authorization Token
 
@@ -86,7 +118,7 @@ Use the `https://api.loganalytics.azure.com` endpoint.
 ##### Client Credentials Token URL (POST request)
 
 ```http
-    POST /<your-tenant-id>/oauth2/v2.0/token
+    POST /<your-tenant-id>/oauth2/token
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     

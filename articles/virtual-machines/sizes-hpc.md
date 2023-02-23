@@ -30,13 +30,8 @@ HBv2 VMs feature 200 Gb/sec Mellanox HDR InfiniBand, while both HB and HC-series
 
 [HC-series](hc-series.md) VMs are optimized for applications driven by dense computation, such as implicit finite element analysis, molecular dynamics, and computational chemistry. HC VMs feature 44 Intel Xeon Platinum 8168 processor cores, 8 GB of RAM per CPU core, and no hyperthreading. The Intel Xeon Platinum platform supports Intel’s rich ecosystem of software tools such as the Intel Math Kernel Library.
 
-[H-series](h-series.md) VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, 7 or 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs support Intel MPI 5.x and MS-MPI.
-
 > [!NOTE]
 > All HBv3, HBv2, HB, and HC-series VMs have exclusive access to the physical servers. There is only 1 VM per physical server and there is no shared multi-tenancy with any other VMs for these VM sizes.
-
-> [!NOTE]
-> The [A8 – A11 VMs](./sizes-previous-gen.md#a-series---compute-intensive-instances) are retired as of 3/2021. No new VM deployments of these sizes are now possible. If you have existing VMs, refer to emailed notifications for next steps including migrating to other VM sizes in [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## RDMA-capable instances
 
@@ -50,11 +45,11 @@ This secondary interface allows the RDMA-capable instances to communicate over a
 > IP over IB is only supported on the SR-IOV enabled VMs.
 > RDMA is not enabled over the Ethernet network.
 
-- **Operating System** - Linux distributions such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2 and Windows Server 2012 are also supported on the non-SR-IOV enabled VMs. Note that [Windows Server 2012 R2 is not supported on HBv2 onwards as VM sizes with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. The respective VM size pages also list out the software stack support.
+- **Operating System** - Linux distributions such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Windows Server 2016 and newer versions are supported on all the HPC series VMs. Note that [Windows Server 2012 R2 is not supported on HBv2 onwards as VM sizes with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. The respective VM size pages also list out the software stack support.
 
 - **InfiniBand and Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately. Also see [enabling InfiniBand](./workloads/hpc/enable-infiniband.md) to learn about VM extensions or manual installation of InfiniBand drivers.
 
-- **MPI** - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED. On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Intel MPI 5.x and Microsoft MPI (MS-MPI) 2012 R2 or later versions are supported. Later versions of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers. See [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) for more details on setting up MPI on HPC VMs on Azure.
+- **MPI** - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED. See [Setup MPI for HPC](./workloads/hpc/setup-mpi.md) for more details on setting up MPI on HPC VMs on Azure.
 
   > [!NOTE]
   > **RDMA network address space**: The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.

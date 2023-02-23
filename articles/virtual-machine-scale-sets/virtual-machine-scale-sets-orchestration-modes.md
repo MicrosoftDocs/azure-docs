@@ -87,14 +87,11 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 - Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
 - Use the Get VM API and commands to get model and instance view for a single instance.
 
-### Scale sets VM batch operations
-Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) aren't used with Flexible orchestration mode.
-
 ### Monitor application health
 Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
 
 ### List scale sets VM API changes
-Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or [Azure Resource Graph](../governance/resource-graph/overview.md).
+Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the details for many VMs in the scale set, use [Azure Resource Graph](../governance/resource-graph/overview.md) or the standard List VM API and commands. Use the standard GET VM API and commands to get information on a single instance.
 
 ### Retrieve boot diagnostics data
 Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The Virtual Machine Scale Sets VM boot diagnostic APIs and commands aren't used with Flexible orchestration mode instances.
@@ -114,7 +111,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | SKUs supported  | All SKUs | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with Virtual Machine Scale Sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute Virtual Machine Scale Sets Write, Compute VM Write, Network | Compute Virtual Machine Scale Sets Write  | N/A |
-| Cross tenant shared image gallery | No | Yes | Yes |
+| Cross tenant shared image gallery | Yes | Yes | Yes |
 | Accelerated networking  | Yes  | Yes  | Yes |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
@@ -122,7 +119,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
 | Write Accelerator   | Yes  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
-| Azure Dedicated Hosts   | No  | Yes  | Yes |
+| Azure Dedicated Hosts   | Yes  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
@@ -148,7 +145,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
-| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) | Yes | No |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Yes | Yes | No |
 
 ### High availability 
 
@@ -188,67 +185,19 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 ### Unsupported parameters
 
 The following Virtual Machine Scale Set parameters aren't currently supported with Virtual Machine Scale Sets in Flexible orchestration mode:
-- Single placement group - you must choose `singlePlacementGroup=False`
+- Single placement group - this can be set to `null` and the platform will select the correct value
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
 - Virtual Machine Scale Set Overprovisioning
 - Image-based Automatic OS Upgrades
 - Application health via SLB health probe - use Application Health Extension on instances
 - Virtual Machine Scale Set upgrade policy - must be null or empty
-- Deployment onto Azure Dedicated Host
 - Unmanaged disks
 - Virtual Machine Scale Set Scale in Policy
 - Virtual Machine Scale Set Instance Protection
 - Basic Load Balancer
-- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules to specific instances
+- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules
+- System assigned Managed Identity - Use User assigned Managed Identity instead
 
-
-## Troubleshoot scale sets with Flexible orchestration
-Find the right solution to your troubleshooting scenario.
-
-<!-- error -->
-### InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
-
-```
-InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
-```
-
-**Cause:** The `platformFaultDomainCount` parameter is invalid for the region or zone selected.
-
-**Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/availability.md) to determine the maximum fault domain count per region.
-
-
-<!-- error -->
-### OperationNotAllowed. Deletion of Virtual Machine Scale Set isn't allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
-
-```
-OperationNotAllowed. Deletion of Virtual Machine Scale Set isn't allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
-```
-
-**Cause:** Trying to delete a scale set in Flexible orchestration mode that is associated with one or more virtual machines.
-
-**Solution:** Delete all of the virtual machines associated with the scale set in Flexible orchestration mode, then you can delete the scale set.
-
-
-<!-- error -->
-### InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
-
-```
-InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
-```
-**Cause:** The `singlePlacementGroup` parameter is set to *True*.
-
-**Solution:** The `singlePlacementGroup` must be set to *False*.
-
-
-<!-- error -->
-### OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
-
-```
-OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
-```
-**Cause:** Trying to create a Virtual Machine Scale Set in Flexible Orchestration Mode with no outbound internet connectivity.
-
-**Solution:** Enable secure outbound access for your Virtual Machine Scale Set in the manner best suited for your application. Outbound access can be enabled with a NAT Gateway on your subnet, adding instances to a Load Balancer backend pool, or adding an explicit public IP per instance. For highly secure applications, you can specify custom User Defined Routes through your firewall or virtual network applications. See [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md) for more details.
 
 ## Get started with Flexible orchestration mode
 
@@ -267,7 +216,7 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
     |-|-|-|-|
     | Deploy across availability zones  | Yes  | Yes  | No  |
     | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
-    | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
+    | Placement groups  | N/A  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
     | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
 - **What is the absolute max instance count with guaranteed fault domain availability?**

@@ -15,6 +15,19 @@ ms.author: rwaller
 
 # Immersive Reader JavaScript SDK Release Notes
 
+## Version 1.3.0
+
+This release contains new features, security vulnerability fixes, and updates to code samples.
+
+#### New Features
+
+* Added the capability for the Immersive Reader iframe to request microphone permissions for Reading Coach
+
+#### Improvements
+
+* Update code samples to use v1.3.0
+* Update code samples to demonstrate the usage of latest options from v1.2.0
+
 ## Version 1.2.0
 
 This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.

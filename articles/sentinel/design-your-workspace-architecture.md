@@ -4,13 +4,10 @@ description: Use a decision tree to understand how you might want to design your
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Design your Microsoft Sentinel workspace architecture
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article provides a decision tree to help you make key decisions about how to design your Microsoft Sentinel workspace architecture. For more information, see [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md) and [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 

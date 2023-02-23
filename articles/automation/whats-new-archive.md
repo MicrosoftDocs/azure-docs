@@ -1,6 +1,6 @@
 ---
 title: Archive for What's new in Azure Automation
-description: The What's new release notes in the Overview section of this content set contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
+description: The What's new release notes in the Overview section of this content set contain six months of activity. Thereafter, the items are removed from the main article and put into this article.
 services: automation
 ms.topic: overview
 ms.date: 10/27/2021
@@ -204,7 +204,7 @@ Automation account and State Configuration availability in Brazil South East. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## September 2020
 
@@ -272,7 +272,7 @@ The New-OnPremiseHybridWorker runbook has been updated to support Az modules. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## May 2020
 

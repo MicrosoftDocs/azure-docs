@@ -6,7 +6,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

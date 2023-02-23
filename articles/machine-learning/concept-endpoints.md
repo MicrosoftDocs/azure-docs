@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
-ms.date: 05/24/2022
+ms.date: 02/07/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -33,7 +33,7 @@ In this article, you learn about:
 
 After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** and **deployments** to do so.
 
-An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) and receive the inferencing (scoring) output of a trained model. An endpoint provides:
 - Authentication using "key & token" based auth 
 - SSL termination 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
@@ -43,12 +43,12 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
+Azure Machine Learning allows you to implement both [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
 
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- The Azure CLI
+- The Azure CLI and the Python SDK
 - Azure Resource Manager/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
@@ -58,7 +58,7 @@ Create and manage batch and online endpoints with multiple developer tools:
 
 **Online endpoints** are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
 
-The following diagram shows an online endpoint that has two deployments, 'blue' and 'green'. The blue deployment uses VMs with a CPU SKU, and runs v1 of a model. The green deployment uses VMs with a GPU SKU, and uses v2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while green receives the remaining 10%.
+The following diagram shows an online endpoint that has two deployments, 'blue' and 'green'. The blue deployment uses VMs with a CPU SKU, and runs version 1 of a model. The green deployment uses VMs with a GPU SKU, and uses version 2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while green receives the remaining 10%.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following elements:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the [CLI](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
+Learn how to deploy online endpoints from the [CLI/SDK](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 
@@ -119,11 +119,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-### Private endpoint support (preview)
+### Private endpoint support
 
-Optionally, you can secure communication with a managed online endpoint by using private endpoints. This functionality is currently in preview.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Optionally, you can secure communication with a managed online endpoint by using private endpoints.
 
 You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created per deployment.
 
@@ -142,15 +140,17 @@ The following table highlights the key differences between managed online endpoi
 |                               | Managed online endpoints                                                                                                          | Kubernetes online endpoints                                                                                             |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | **Recommended users**         | Users who want a managed model deployment and enhanced MLOps experience                                                           | Users who prefer Kubernetes and can self-manage infrastructure requirements                                             |
-| **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening                                              | User responsibility                                                                                                     |
-| **Compute type**              | Managed (AmlCompute)                                                                                                              | Kubernetes cluster (Kubernetes)                                                                                         |
-| **Out-of-box monitoring**     | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput)                    | Supported                                                                                                               |
-| **Out-of-box logging**        | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Unsupported                                                                                                             |
-| **Application Insights**      | Supported                                                                                                                         | Supported                                                                                                               |
+| **Node provisioning**         | Managed compute provisioning, update, removal                                                                                     | User responsibility                                                                                                     |
+| **Node maintenance**          | Managed host OS image updates, and security hardening                                                                             | User responsibility                                                                                                     |
+| **Cluster sizing (scaling)** | [Managed manual and autoscale](how-to-autoscale-endpoints.md), supporting additional nodes provisioning                                                             | [Manual and autoscale](v1/how-to-deploy-azure-kubernetes-service.md#autoscaling), supporting scaling the number of replicas within fixed cluster boundaries                         |
+| **Compute type**              | Managed by the service                                                                                                            | Customer-managed Kubernetes cluster (Kubernetes)                                                                        |
 | **Managed identity**          | [Supported](how-to-access-resources-from-endpoints-managed-identities.md)                                                         | Supported                                                                                                               |
-| **Virtual Network (VNET)**    | [Supported](how-to-secure-online-endpoint.md) (preview)                                                                           | Supported                                                                                                               |
-| **View costs**                | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md)                                                            | Cluster level                                                                                                           |
-| **Mirrored traffic**          | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)                          | Unsupported                                                                                                             |
+| **Virtual Network (VNET)**    | [Supported via managed network isolation](how-to-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
+| **Out-of-box monitoring & logging** | [Azure Monitor and Log Analytics powered](how-to-monitor-online-endpoints.md) (includes key metrics and log tables for endpoints and deployments) | User responsibility                                                                        |
+| **Logging with Application Insights (legacy)** | Supported                                                                                                        | Supported                                                                                                               |
+| **View costs**                | [Detailed to endpoint / deployment level](how-to-view-online-endpoints-costs.md)                                                  | Cluster level                                                                                                           |
+| **Cost applied to**          | VMs assigned to the deployments                                                                                                   | VMs assigned to the cluster                                                                                             |
+| **Mirrored traffic**          | [Supported](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) (preview)                | Unsupported                                                                                                             |
 | **No-code deployment**        | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models)           | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
 
 ### Managed online endpoints
@@ -209,13 +209,13 @@ You can [override compute resource settings](batch-inference/how-to-use-batch-en
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](v1/how-to-connect-data-ui.md)
-- Data stored locally - it will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
+- Cloud data: Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Data in Azure Machine Learning](concept-data.md).
+- Data stored locally: The data will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
 
 > [!NOTE]
-> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
-> - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
-> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> - If you're using existing V1 FileDatasets for batch endpoints, we recommend migrating them to V2 data assets. You can then refer to the V2 data assets directly when invoking batch endpoints. Currently, only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Datasets.
+> - You can also extract the datastores' URI or path from V1 FileDatasets. For this, you'll use the `az ml dataset show` command with the `--query` parameter and use that information for invoke.
+> - While batch endpoints created with earlier APIs will continue to support V1 FileDatasets, we'll be adding more support for V2 data assets in the latest API versions for better usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2](how-to-read-write-data-v2.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 For more information on supported input options, see [Accessing data from batch endpoints jobs](batch-inference/how-to-access-data-batch-endpoints-jobs.md).
 

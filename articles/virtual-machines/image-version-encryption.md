@@ -1,17 +1,17 @@
 ---
-title: Create an image version encrypted with your own keys 
+title: Create an encrypted image version with customer-managed keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/6/2022
+ms.date: 02/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Use customer-managed keys for encrypting images
+# Create an encrypted image version with customer-managed keys
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -34,16 +34,15 @@ This article requires that you already have a disk encryption set in each region
 
 ## Limitations
 
-When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:	
+When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:
 
 - Encryption key sets must be in the same subscription as your image.
 
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
 
-- You can't copy or share images that use customer-managed keys. 
+- After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
-- After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
-
+- VM image version source doesn't currently support customer-managed key encryption.
 
 ## PowerShell
 

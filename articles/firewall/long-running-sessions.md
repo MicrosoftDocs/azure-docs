@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 01/04/2023
 ms.author: victorh 
 ---
 
@@ -31,7 +31,9 @@ The Azure Firewall engineering team updates the firewall on an as-needed basis (
 
 ### Idle timeout
 
-An idle timer is in place to recycle idle sessions. The default value is four minutes. Applications that maintain keepalives don't idle out. If the application needs more than 4 minutes (typical of IOT devices), you can contact support to extend the time to 30 minutes in the backend.
+An idle timer is in place to recycle idle sessions. The default value is four minutes for east-west connections and can't be changed. Applications that maintain keepalives don't idle out. 
+
+For north-south connections that need more than 4 minutes (typical of IOT devices), you can contact support to extent the time for inbound connections to 30 minutes in the backend.
 
 ### Auto-recovery
 

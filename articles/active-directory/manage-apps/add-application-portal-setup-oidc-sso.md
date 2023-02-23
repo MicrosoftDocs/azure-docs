@@ -2,14 +2,15 @@
 title: 'Add an OpenID Connect-based single sign-on application'
 description: Learn how to add OpenID Connect-based single sign-on application in Azure Active Directory.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/14/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ---
 
 # Add an OpenID Connect-based single sign-on application

@@ -3,38 +3,29 @@ title: Troubleshoot the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 services: cognitive-services
-author: jhakulin
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 12/08/2022
+ms.author: eur
 ---
 
 # Troubleshoot the Speech SDK
 
 This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 
-## Error: WebSocket Upgrade failed with an authentication error (403)
+## Authentication failed
 
-You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct.
+You might observe one of several authentication errors, depending on the programming environment, API, or SDK. Here are some example errors:
+- Did you set the speech resource key and region values? 
+- AuthenticationFailure
+- HTTP 403 Forbidden or HTTP 401 Unauthorized. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
+- ValueError: cannot construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting environment variables. You might also see it when you set the environment variables to something invalid such as your key or region. 
+- Exception with an error code: 0x5. This access denied error could be observed, for example, when you run one of the Speech SDK for C# quickstarts without setting environment variables.
 
-Also, there might be a problem with your Speech resource key or authorization token. For more information, see the next section.
-
-## Error: HTTP 403 Forbidden or HTTP 401 Unauthorized
-
-This error often is caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
-
-* If you're using a resource key for authentication, you might see the error because:
-
-    - The key is missing or invalid
-    - You have exceeded your resource's usage quota
-
-* If you're using an authorization token for authentication, you might see the error because:
-
-    - The authorization token is invalid
-    - The authorization token is expired
+For baseline authentication troubleshooting tips, see [validate your resource key](#validate-your-resource-key) and [validate an authorization token](#validate-an-authorization-token). For more information about confirming credentials, see [get the keys for your resource](../cognitive-services-apis-create-account.md?tabs=speech#get-the-keys-for-your-resource).
 
 ### Validate your resource key
 
@@ -43,80 +34,92 @@ You can verify that you have a valid resource key by running one of the followin
 > [!NOTE]
 > Replace `YOUR_RESOURCE_KEY` and `YOUR_REGION` with your own resource key and associated region.
 
-* PowerShell
+# [PowerShell](#tab/powershell)
 
-    ```powershell
-    $FetchTokenHeader = @{
-      'Content-type'='application/x-www-form-urlencoded'
-      'Content-Length'= '0'
-      'Ocp-Apim-Subscription-Key' = 'YOUR_RESOURCE_KEY'
-    }
-    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
-    $OAuthToken
-    ```
+```powershell
+$FetchTokenHeader = @{
+    'Content-type'='application/x-www-form-urlencoded'
+    'Content-Length'= '0'
+    'Ocp-Apim-Subscription-Key' = 'YOUR_RESOURCE_KEY'
+}
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
+$OAuthToken
+```
 
-* cURL
+# [cURL](#tab/curl)
 
-    ```
-    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
-    ```
+```
+curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
+```
+
+---
 
 If you entered a valid resource key, the command returns an authorization token, otherwise an error is returned.
 
 ### Validate an authorization token
+
+If you're using an authorization token for authentication, you might see an authentication error because:
+- The authorization token is invalid
+- The authorization token is expired
 
 If you use an authorization token for authentication, run one of the following commands to verify that the authorization token is still valid. Tokens are valid for 10 minutes.
 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token returned in the preceding step. Replace `YOUR_REGION` with the correct region.
 
-* PowerShell
+# [PowerShell](#tab/powershell)
 
-    ```powershell
-    $SpeechServiceURI =
-    'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
+```powershell
+$SpeechServiceURI =
+'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
 
-    # $OAuthToken is the authorization token returned by the token service.
-    $RecoRequestHeader = @{
-      'Authorization' = 'Bearer '+ $OAuthToken
-      'Transfer-Encoding' = 'chunked'
-      'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
-    }
+# $OAuthToken is the authorization token returned by the token service.
+$RecoRequestHeader = @{
+    'Authorization' = 'Bearer '+ $OAuthToken
+    'Transfer-Encoding' = 'chunked'
+    'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
+}
 
-    # Read audio into byte array.
-    $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
+# Read audio into byte array.
+$audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
 
-    $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
+$RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
 
-    # Show the result.
-    $RecoResponse
-    ```
+# Show the result.
+$RecoResponse
+```
 
-* cURL
+# [cURL](#tab/curl)
 
-    ```
-    curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
-    ```
-
-If you entered a valid authorization token, the command returns the transcription for your audio file, otherwise an error is returned.
+```
+curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
+```
 
 ---
 
-## Error: HTTP 400 Bad Request
+If you entered a valid authorization token, the command returns the transcription for your audio file, otherwise an error is returned.
+
+
+## InitialSilenceTimeout via RecognitionStatus
+
+This issue usually is observed with [single-shot recognition](./how-to-recognize-speech.md#single-shot-recognition) of a single utterance. For example, the error can be returned under the following circumstances:
+
+* The audio begins with a long stretch of silence. In that case, the service stops the recognition after a few seconds and returns `InitialSilenceTimeout`.
+* The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
+
+It's OK to have silence at the beginning of audio, but only when you use [continuous recognition](./how-to-recognize-speech.md#continuous-recognition).
+
+## SPXERR_AUDIO_SYS_LIBRARY_NOT_FOUND
+
+This can be returned, for example, when multiple versions of Python have been installed, or if you're not using a supported version of Python. You can try using a different python interpreter or uninstall all python versions and re-install the latest version of python and the Speech SDK.
+
+## HTTP 400 Bad Request
 
 This error usually occurs when the request body contains invalid audio data. Only WAV format is supported. Also, check the request's headers to make sure you specify appropriate values for `Content-Type` and `Content-Length`.
 
-## Error: HTTP 408 Request Timeout
+## HTTP 408 Request Timeout
 
 The error most likely occurs because no audio data is being sent to the service. This error also might be caused by network issues.
-
-## "RecognitionStatus" in the response is "InitialSilenceTimeout"
-
-This issue usually is caused by audio data. You might see this error because:
-
-* There's a long stretch of silence at the beginning of the audio. In that case, the service stops the recognition after a few seconds and returns `InitialSilenceTimeout`.
-
-* The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
 
 ## Connection closed or timeout
 

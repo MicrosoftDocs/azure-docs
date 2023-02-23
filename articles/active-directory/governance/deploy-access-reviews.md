@@ -442,5 +442,5 @@ For more advanced queries and analysis of access reviews, and to track changes a
 
 Learn about the following related technologies:
 
-* [What is Microsoft Entra entitlement management?](entitlement-management-overview.md)
-* [What is Microsoft Entra Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+* [What is Microsoft entitlement management?](entitlement-management-overview.md)
+* [What is Microsoft Privileged Identity Management?](../privileged-identity-management/pim-configure.md)

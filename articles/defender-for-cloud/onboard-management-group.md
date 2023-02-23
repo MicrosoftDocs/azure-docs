@@ -2,14 +2,24 @@
 title: Onboard a management group to Microsoft Defender for Cloud
 description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 ms.topic: how-to
-ms.date: 11/23/2022
+ms.date: 02/21/2023
 ---
 
 # Enable Defender for Cloud on all subscriptions in a management group
 
 You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
 
-To onboard a management group and all its subscriptions:
+## Prerequisites
+
+Enable the resource provider `_Microsoft.Security_` for the management group using the following Azure CLI command:
+
+```azurecli
+az provider register --namespace Microsoft.Security --management-group-id …
+```
+
+## Onboard a management group and all its subscriptions
+
+**To onboard a management group and all its subscriptions**:
 
 1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition `Enable Microsoft Defender for Cloud on your subscription`.
 
@@ -26,13 +36,17 @@ To onboard a management group and all its subscriptions:
 
     :::image type="content" source="./media/get-started/remediation-task.png" alt-text="Screenshot that shows how to create a remediation task for the Azure Policy definition Enable Defender for Cloud on your subscription.":::
 
-1. When the definition is assigned, it will:
+1. Select **Review + create**.
 
-    1. Detect all subscriptions in the MG that aren't yet registered with Defender for Cloud.
-    1. Mark those subscriptions as “non-compliant”.
-    1. Mark as "compliant" all registered subscriptions (regardless of whether they have Defender for Cloud's enhanced security features on or off).
+1. Review your information and select **Create**.
 
-    The remediation task will then enable Defender for Cloud, for free, on the non-compliant subscriptions.
+When the definition is assigned, it will:
+
+- Detect all subscriptions in the MG that aren't yet registered with Defender for Cloud.
+- Mark those subscriptions as “non-compliant”.
+- Mark as "compliant" all registered subscriptions (regardless of whether they have Defender for Cloud's enhanced security features on or off).
+
+The remediation task will then enable Defender for Cloud's basic functionality on the non-compliant subscriptions.
 
 ## Optional modifications
 

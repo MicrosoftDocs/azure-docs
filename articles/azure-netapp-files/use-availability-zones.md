@@ -53,3 +53,5 @@ For a list of regions that that currently support availability zones, refer to [
 ## Next steps
 
 * [Manage availability zone volume placement](manage-availability-zone-volume-placement.md)
+* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
+* [Create cross-zone replication](create-cross-zone-replication.md)

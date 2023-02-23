@@ -9,8 +9,6 @@ ms.custom: mode-other
 
 # Quickstart: How to sign up and upload your first video
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 You can access Azure Video Indexer capabilities in three ways:

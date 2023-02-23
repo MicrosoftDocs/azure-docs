@@ -9,7 +9,7 @@ ms.author: tchladek
 ms.date: 08/05/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: identity
+ms.subservice: teams-interop
 zone_pivot_groups: acs-azcli-js-csharp-java-python
 ms.custom: mode-other
 ---
@@ -21,7 +21,7 @@ Teams external users are authenticated as Azure Communication Services users in 
 In this quickstart, you'll learn how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a [server-side service](../../concepts/client-and-server-architecture.md).
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](../includes/access-tokens/access-token-azcli.md)]
+[!INCLUDE [Azure CLI](../includes/access-tokens/access-token-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

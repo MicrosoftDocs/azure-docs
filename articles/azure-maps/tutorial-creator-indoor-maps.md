@@ -334,7 +334,7 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 5. Enter the `status URL` you copied in [Create a tileset](#create-a-tileset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.

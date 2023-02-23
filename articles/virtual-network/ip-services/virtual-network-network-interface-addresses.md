@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/05/2022
+ms.date: 12/06/2022
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -19,8 +19,6 @@ Both Private and Public IP addresses can be assigned to a virtual machine's netw
 If you need to create, change, or delete a network interface, read the [Manage a network interface](../../virtual-network/virtual-network-network-interface.md) article. If you need to add network interfaces to or remove network interfaces from a virtual machine, read the [Add or remove network interfaces](../../virtual-network/virtual-network-network-interface-vm.md) article.
 
 ## Prerequisites
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
 

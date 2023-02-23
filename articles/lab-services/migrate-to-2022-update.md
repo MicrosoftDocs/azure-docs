@@ -10,21 +10,20 @@ ms.date: 11/30/2022
 
 # Transition from lab accounts to the improved Azure Lab Services August 2022 Update 
 
-This article applies to users of Azure Lab Services with labs created with a lab account. If you are a brand new user to Azure Lab Services, start with [create a lab plan](tutorial-setup-lab-plan.md).
+This article applies to users of Azure Lab Services with labs created with a lab account. If you're a brand new user to Azure Lab Services, start with [create a lab plan](tutorial-setup-lab-plan.md).
 
 In this article, you'll learn the sequence to getting started using the features and resources made available beginning in the August 2022 update. The important update to Azure Lab Services August 2022 includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. 
 
->[!Important]
-> While you don't have to migrate to the August 2022 update of Azure Lab Services yet, we do recommend you begin using the update for all new labs.
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 ## What's different in the update?
 
-A big part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the differences between [lab plans and lab accounts](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
+A significant part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the differences between [lab plans and lab accounts](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
 
 If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
 
 For a full description of the update, read the article, [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
-## Transition path at-a-glace
+## Transition path at-a-glance
 
 There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
 
@@ -63,15 +62,12 @@ As a customer, you're now assigned your own [dedicated VM cores quota](/azure/la
 1. [Request a core limit increase](/azure/lab-services/how-to-request-capacity-increase?tabs=Labplans).
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
 
-#### Tips for requesting capacity
+### Tips for requesting a capacity increase
 
-The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested. To ensure you have the resources you require when you need them, you should:
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
 
-- Request capacity as far in advance as possible.
-- Make incremental requests for VM cores rather than making large, bulk requests. Breaking requests for large numbers of cores into smaller requests gives extra flexibility in how those requests are fulfilled.
-  - For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
-- If possible, be flexible on the region where you're requesting capacity.
-- Capacity remains assigned for the lifetime of a subscription. You only need to request extra capacity if you need more than is already assigned to your subscription.
+For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
+ 
 
 ## 3. Configure shared resources  
 
@@ -109,8 +105,8 @@ Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](/az
 
 ## 6. Create and publish labs
 
-Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. Creating representative labs is an optional but highly recommended step, which enables you to validate performance based on common student workloads. 
-
+Once you have capacity assigned to your subscription, you can [create and publish](/azure/lab-services/tutorial-setup-lab) representative labs to validate the educator and student experience. 
+Creating a selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
 ### Lab strategies
 
 You cannot migrate existing labs to the August 2022 Update. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.

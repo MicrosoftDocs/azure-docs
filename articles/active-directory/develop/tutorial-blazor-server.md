@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Create a Blazor Server app that uses the Microsoft identity platform for authentication
 description: In this tutorial, you set up authentication using the Microsoft identity platform in a Blazor Server app.
-author: janicericketts
-ms.author: jricketts
+author: henrymbuguakiarie
+ms.author: henrymbugua
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 11/29/2022
+ms.date: 02/09/2023
 ms.custom: "engagement-fy23"
+ms.reviewer: janicericketts
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---
 
@@ -27,9 +28,9 @@ In this tutorial:
 
 ## Prerequisites
 
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [.NET Core 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+- The Azure account must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
@@ -51,16 +52,10 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 
 ## Create the app using the .NET CLI
 
-Run the following command to download the templates for `Microsoft.Identity.Web`, which we'll make use of in this tutorial.
+To create the application, run the following command. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
-dotnet new install Microsoft.Identity.Web.ProjectTemplates
-```
-
-Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
-
-```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}"
+dotnet new blazorserver --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}" -f net7.0
 ```
 
 | Placeholder   | Azure portal name       | Example                                |
@@ -78,13 +73,13 @@ Now, navigate to your new Blazor app in your editor and add the client secret to
 
 ## Test the app
 
-You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK.
+In your terminal, run the following command:
 
 ```dotnetcli
-dotnet run --framework netcoreapp3.1
+dotnet run
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running.
+In your browser, navigate to `https://localhost:<port number> `, and log in using an Azure AD user account to see the app running.
 
 ## Retrieving data from Microsoft Graph
 
@@ -100,13 +95,13 @@ Now you'll update your app's registration and code to pull a user's email and di
 1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.
 1. Select **Add permissions**.
 
-In the *appsettings.json* file, update your code so it fetches the appropriate token with the right permissions. Add `mail.read` after the `user.read` scope under `DownstreamAPI`. This is specifying which scopes (or permissions) the app will request access to.
+In the _appsettings.json_ file, update your code so it fetches the appropriate token with the right permissions. Add `mail.read` after the `user.read` scope under `DownstreamAPI`. This is specifying which scopes (or permissions) the app will request access to.
 
 ```json
 "Scopes": "user.read mail.read"
 ```
 
-Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
+Next, in the _Pages_ folder, update the code in the _FetchData.razor_ file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
 
 ```csharp
 @page "/fetchdata"

@@ -38,7 +38,7 @@ Specifically, this SharePoint List Online connector uses service principal authe
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -60,6 +60,9 @@ The SharePoint List Online connector uses service principal authentication to co
             ```
 
             :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+            
+        > [!NOTE]
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Azure Active Directory (AAD) to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
     3. Click "Trust It" for this app.
 

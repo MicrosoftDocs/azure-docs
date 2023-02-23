@@ -4,15 +4,14 @@ description: Learn about the basics of security tokens in the Microsoft identity
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/1/2022
+ms.date: 01/06/2023
 ms.author: davidmu
-ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, engagement-fy23
+ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 #Customer intent: As an application developer, I want to understand the basic concepts of security tokens in the Microsoft identity platform.
 ---
 

@@ -78,12 +78,22 @@ To determine whether most of your requests are metadata-centric, start by follow
 
 ![Screenshot of the metrics options for premium file shares, showing an "API name" property filter.](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-#### Workaround
+#### Workarounds
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
-- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of local directly attached storage.
-    -   To mount a VHD on a Windows client, use the [`Mount-DiskImage`](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
-    -   To mount a VHD on Linux, consult the documentation for your Linux distribution. [Here's an example](https://man7.org/linux/man-pages/man5/nfs.5.html).  
+- Separate the file share into multiple file shares within the same storage account.
+- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of local directly attached storage. However, because the data is in a VHD, it can't be accessed via any other means other than the SMB mount, such as REST API or through the Azure portal.
+    1. From the machine which needs to access the Azure file share, mount the file share using the storage account key and map it to an available network drive (for example, Z:).
+    1. Go to **Disk Management** and select **Action > Create VHD**.
+    1. Set **Location** to the network drive that the Azure file share is mapped to, set **Virtual hard disk size** as needed, and select **Fixed size**.
+    1. Select **OK**. Once the VHD creation is complete, it will automatically mount, and a new unallocated disk will appear.
+    1. Right-click the new unknown disk and select **Initialize Disk**.
+    1. Right-click the unallocated area and create a **New Simple Volume**.
+    1. You should see a new drive letter appear in **Disk Management** representing this VHD with read/write access (for example, E:). In **File Explorer**, you should see the new VHD on the mapped Azure file share's network drive (Z: in this example). To be clear, there should be two drive letters present: the standard Azure file share network mapping on Z:, and the VHD mapping on the E: drive.
+    1. There should be much better performance on heavy metadata operations against files on the VHD mapped drive (E:) versus the Azure file share mapped drive (Z:). If desired, it should be possible to disconnect the mapped network drive (Z:) and still access the mounted VHD drive (E:).
+
+    - To mount a VHD on a Windows client, you can also use the [`Mount-DiskImage`](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
+    - To mount a VHD on Linux, consult the documentation for your Linux distribution. [Here's an example](https://man7.org/linux/man-pages/man5/nfs.5.html).  
 
 ### Cause 3: Single-threaded application
 
@@ -316,6 +326,7 @@ Depending on the exact compression method and unzip operation used, decompressio
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## See also
-- [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  
+- [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)  
+- [Understand Azure Files performance](understand-performance.md)
 - [Azure Files FAQ](storage-files-faq.md)

@@ -45,7 +45,7 @@ The format of the scope value varies depending on the resource (the API) receivi
 
 For Microsoft Graph only, the `user.read` scope maps to `https://graph.microsoft.com/User.Read`, and both scope formats can be used interchangeably.
 
-Certain web APIs such as the Azure Resource Manager API (https://management.core.windows.net/) expect a trailing forward slash ('/') in the audience claim (`aud`) of the access token. In this case, pass the scope as `https://management.core.windows.net//user_impersonation`, including the double forward slash ('//').
+Certain web APIs such as the Azure Resource Manager API (`https://management.core.windows.net/`) expect a trailing forward slash ('/') in the audience claim (`aud`) of the access token. In this case, pass the scope as `https://management.core.windows.net//user_impersonation`, including the double forward slash ('//').
 
 Other APIs might require that *no scheme or host* is included in the scope value, and expect only the app ID (a GUID) and the scope name, for example:
 

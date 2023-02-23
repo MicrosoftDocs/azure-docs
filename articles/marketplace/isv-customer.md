@@ -68,7 +68,7 @@ Create and manage private offers from the **Private offers** dashboard in Partne
 
 ## Create a private offer for a customer
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. Select the **Marketplace offers** workspace.
 3. Select **Private offers** from the left-nav menu.
 4. Select the **Customers** tab.
@@ -79,16 +79,18 @@ Create and manage private offers from the **Private offers** dashboard in Partne
 
 Use this page to define private offer terms, notification contacts, and pricing for your customer.
 
-- **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
+- - **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
 
-    > [!NOTE]
-    > Customers can find their billing account in the [Azure portal ](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
+   > [!NOTE]
+   > Customers can find their billing account ID in 2 ways. 1) In the [Azure portal](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 2) If the customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription > **Properties** (or Billing Properties) > **Billing Account ID**. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
+   
+:::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
-    :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
+![Screenshot showing subscription name properties.](media/isv-customer/subscription-name-properties.png)
+
 
 - **Private offer terms** – Specify the duration, accept-by date, and terms:
-
-    - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
+       - **Start date** – Choose **Accepted date** if you want the private offer to start as soon as the customer accepts it. If a private offer is extended to an existing customer of a Pay-as-you-go product, this will make the private price applicable for the entire month. To have your private offer start in an upcoming month, select **Specific month** and choose one. The start date for this option will always be the first day of the selected month.
     - **End date** – Choose the month for your private offer's **End date**. This will always be the last day of the selected month.
     - **Accept by** – Choose the expiration date for your private offer. Your customer must accept the private offer prior to this date.
     - **Terms and conditions** – Optionally, upload a PDF with terms and conditions your customer must accept as part of the private offer.
@@ -120,7 +122,7 @@ When you're ready, select **Submit**. You'll be returned to the dashboard where 
 
 ## Clone a private offer
 
-You can clone an existing offer and update its customer information to send it to different customers so you don't have to start from scratch. Or, update the offer/plan pricing to send additional discounts to the same customer.
+You can clone an existing offer and update its customer information to send it to different customers, so you don't have to start from scratch. Or, update the offer/plan pricing to send additional discounts to the same customer.
 
 1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.

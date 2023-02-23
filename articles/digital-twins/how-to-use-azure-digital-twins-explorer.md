@@ -115,21 +115,21 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
 
-The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#schema).
 
 | Icon | Data type |
 | --- | --- |
-| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) |
-| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#enum) |
-| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#map) |
-| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#object) |
-| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
-| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#component) |
+| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#enum) |
+| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#map) |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#object) |
+| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
 
 ##### Errors
 
@@ -312,15 +312,15 @@ You can also apply one of several layout algorithms to the model graph from the 
 
 ### Filter and highlight model graph elements
 
-You can filter the types of connections that appear in the Model Graph. Turning off one of the connection types via the switches in this menu will prevent that connection type from displaying in the graph.
+You can filter the types of model references that appear in the Model Graph. Turning off one of the reference types via the switches in this menu will prevent that reference type from displaying in the graph.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-connections.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-references.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The filter menu for Relationships, Inheritance, and Components are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-references.png":::
 
-You can also filter the models and connections that appear in the graph by text, by selecting this **Filter** icon:
+You can also filter the models and references that appear in the graph by text, by selecting this **Filter** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-filter-text.png":::
 
-You can highlight the models and connections that appear in the graph by text, by selecting this **Highlight** icon:
+You can highlight the models and references that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-highlight-text.png":::
 
@@ -384,7 +384,7 @@ In the file selector box that appears, navigate on your machine to a folder cont
 
 #### Limitations of bulk model upload
 
-The limitations in this section apply to models that are contained within a single JSON file, therefore being uploaded at the same time.
+The limitations in this section apply to models that are contained within a single JSON file, being uploaded to Azure Digital Twins Explorer at the same time.
 
 While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
 * If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.
@@ -486,39 +486,35 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 
 ## Link to your environment and specific query
 
-You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
+You can share a link to your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to generate a link to your Azure Digital Twins Explorer environment, which can optionally include a specific query to run when the link is opened. This section also describes what permissions the recipient needs to have in order to interact with your twin data.
 
-To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
+### Recipient access requirements
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
+For the recipient to open the link and view the instance in Azure Digital Twins Explorer, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). 
 
->[!NOTE]
-> The value for the host name placeholder is not preceded by the `https://` prefix here.
+For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-Here's an example of a URL with the placeholder values filled in:
+### Generate link to environment with specific query
 
-`https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
+To generate a link to your Azure Digital Twins Explorer environment that includes a specific query, enter the query you want to capture in the **Query Explorer**, then select the **Share** button to copy the full link.
 
-For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-with-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. The query text and the Send button are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-with-query.png":::
 
-### Link to a specific query
+For the example and query in the screenshot above, the **Share** button produces this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins%20T%20WHERE%20T.InFlow%20%3E%2070&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. The link contains the tenant ID and host name of the Azure Digital Twins instance, as well as formatted query text.
 
-You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
+You can share this URL to allow someone to access your instance and this query. When they open Azure Digital Twins Explorer with the link, the results of the query will automatically populate in the **Twin Graph** panel.
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>&query=<query-text>`
+### Generate link to environment without specific query
 
-The query text should be URL encoded. 
+To share a link to your Azure Digital Twins Explorer environment with no specific query attached, start by using the **Share** button to copy the link to your instance.
 
->[!TIP]
->You can copy the query text from the **Query Explorer** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
->
-> You can also use an independent URL encoder to convert the query text.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-without-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. Only the Send button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-without-query.png":::
 
-Here's an example of the parameter for a query to `SELECT * FROM digitaltwins`:
+Then, manually remove the query parameter from the result.
 
-`...&query=SELECT%20*%20FROM%20digitaltwins`
+For example, the **Share** button in the screenshot above would produce this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. You can remove the `query=SELECT%20*%20FROM%20digitaltwins&` portion to produce the URL `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`.
 
-You can then share the completed URL.
+Then, share this URL to allow someone to access your instance. When they open Azure Digital Twins Explorer with the link, they'll be connected to your instance and won't see any pre-populated query results.
 
 ## Accessibility and advanced settings
 

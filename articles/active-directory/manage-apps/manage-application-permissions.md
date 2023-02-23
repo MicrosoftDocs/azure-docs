@@ -56,7 +56,7 @@ Each option generates PowerShell scripts that enable you to control user access 
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-AzureAD Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
+Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All", 
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -70,7 +70,7 @@ $spOAuth2PermissionsGrants | ForEach-Object {
 }
 
 # Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo-ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
 # Remove all application permissions
 $spApplicationPermissions | ForEach-Object {
@@ -83,7 +83,7 @@ $spApplicationPermissions | ForEach-Object {
 Remove appRoleAssignments for users or groups to the application using the following scripts.
 
 ```powershell
-Connect-AzureAD Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
+Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -103,7 +103,7 @@ $assignments | ForEach-Object {
 Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -132,7 +132,7 @@ Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id  -AppRoleA
 Remove appRoleAssignments for users or groups to the application using the following scripts.
 
 ```powershell
-Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -156,7 +156,7 @@ To review permissions, Sign in to [Graph Explorer](https://developer.microsoft.c
 
 You'll need to consent to the following permissions: 
 
-`Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
+`Application.ReadWrite.All`, `Directory.ReadWrite.All`, `DelegatedPermissionGrant.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`.
 
 ### Delegated permissions
 

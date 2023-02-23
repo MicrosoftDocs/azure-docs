@@ -6,11 +6,15 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/29/2022
 ---
 # Custom classifications in Microsoft Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
+
+>[IMPORTANT]
+>To create a custom classification you need either **data curator** or **data source administrator** permission on a collection. Permissions at any collection level are sufficient.
+>For more information about permissions, see: [Microsoft Purview permissions](catalog-permissions.md).
 
 ## Default system classifications
 
@@ -30,11 +34,13 @@ You also have the ability to create custom classifications, if any of the defaul
 
 To create a custom classification, follow these steps:
 
+1. You'll need [**data curator** or **data source administrator** permissions on any collection](catalog-permissions.md) to be able to create a custom classification.
+
 1. From your catalog, select **Data Map** from the left menu.
 
-2. Select **Classifications** under **Annotation management**.
+1. Select **Classifications** under **Annotation management**.
 
-3. Select **+ New**
+1. Select **+ New**
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="New classification" border="true":::
 
@@ -43,7 +49,7 @@ classification a name and a description. It's good practice to use a name-spacin
 
 The Microsoft system classifications are grouped under the reserved `MICROSOFT.` namespace. An example is **MICROSOFT.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
-The name of your classification must start with a letter followed by a sequence of letters, numbers, and period (.) or underscore characters. No spaces are allowed. As you type, the UX automatically generates a friendly name. This friendly name is what users see when you apply it to an asset in the catalog.
+The name of your classification must start with a letter followed by a sequence of letters, numbers, and period (.) or underscore characters. As you type, the UX automatically generates a friendly name. This friendly name is what users see when you apply it to an asset in the catalog.
 
 To keep the name short, the system creates the friendly name based on
 the following logic:
@@ -75,6 +81,9 @@ These details include the count of how many instances there are, the formal name
 
 The catalog service provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability can be powerful when you're trying to find data within your data estate.
 
+>[!NOTE]
+>Custom classification rules are only supported in the English language.
+
 As an example, let\'s say that a company named Contoso has employee IDs that are standardized throughout the company with the word \"Employee\" followed by a GUID to create EMPLOYEE{GUID}. For example, one instance of an employee ID looks like `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
 Contoso can configure the scanning system to find instances of these IDs by creating a custom classification rule. They can supply a regular expression that matches the data pattern, in this
@@ -87,7 +96,7 @@ The scanning system can then use this rule to examine the actual data in the col
 
 To create a custom classification rule:
 
-1. Create a custom classification by following the instructions in the previous section. You will add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
+1. Create a custom classification by following the instructions in the previous section. You'll add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
 
 2. Select the **Data Map** icon.
 
@@ -112,7 +121,10 @@ To create a custom classification rule:
 
 ### Creating a Regular Expression Rule
 
-1. If creating a regular expression rule, you will see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule.
+>[!IMPORTANT]
+>Regular expressions in custom classifications are case insensitive.
+
+1. If creating a regular expression rule, you'll see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule. Only English language rules are supported.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
 
@@ -122,8 +134,8 @@ To create a custom classification rule:
 
    |Field     |Description  |
    |---------|---------|
-   |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
-   |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large. |
+   |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
+   |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is large. |
 
 1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
@@ -133,7 +145,7 @@ To create a custom classification rule:
 1. You can now verify your rule and **create** it.
 1. Test the classification rule before completing the creation process to validate that it will apply tags to your assets. The classifications in the rule will be applied to the sample data uploaded just as it would in a scan. This means all of the system classifications and your custom classification will be matched to the data in your file.
 
-   Input files may include delimited files (CSV, PSV, SSV, TSV), JSON, or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of 3 columns.
+   Input files may include delimited files (CSV, PSV, SSV, TSV), JSON, or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of three columns.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Test rule before creating" border="true":::
 
@@ -141,7 +153,7 @@ To create a custom classification rule:
 
 ### Creating a Dictionary Rule
 
-1. If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
+1. If creating a dictionary rule, you'll see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column. Only English language rules are supported.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
 

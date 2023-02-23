@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-how-to, ignite-fall-2021
+ROBOTS: NOINDEX
 ---
 
 # Install Azure Percept development tools

@@ -15,9 +15,7 @@ ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, s
 
 # Deploy and score a machine learning model by using an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
@@ -28,6 +26,9 @@ Online endpoints are endpoints that are used for online (real-time) inferencing.
 Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. 
 
 The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. 
+
+> [!TIP]
+> To create managed online endpoints in the Azure Machine Learning studio, see [Use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md).
 
 ## Prerequisites
 
@@ -62,7 +63,7 @@ The main example in this doc uses managed online endpoints for deployment. To us
 # [ARM template](#tab/arm)
 
 > [!NOTE]
-> While the Azure CLI and CLI extension for machine learning are used in these steps, they are not the main focus. They are used more as utilities, passing templates to Azure and checking the status of template deployments.
+> While the Azure CLI and CLI extension for machine learning are used in these steps, they're not the main focus. they're used more as utilities, passing templates to Azure and checking the status of template deployments.
 
 [!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
 
@@ -305,7 +306,7 @@ In this article, we first define names of online endpoint and deployment for deb
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -354,7 +355,7 @@ For more information on creating an environment, see
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_model":::
 
-1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into an environment variables:
+1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into environment variables:
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
 
@@ -371,11 +372,14 @@ The preceding YAML uses a general-purpose type (`Standard_DS2_v2`) and a non-GPU
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubermentes compute target](./how-to-attach-kubernetes-anywhere.md)
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel/README.md).
+Currently, you can specify only one model per deployment in the YAML. If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel).
+
+> [!TIP]
+> If you have more than 1500 files to register, you may consider compressing the files or subdirectories as .tar.gz when registering the model. To consume the models, you can uncompress the files or subdirectories in the init() function from the scoring script. In this case, uncompression happens once in the initialization stage.
 
 ## Understand the scoring script
 
@@ -383,26 +387,30 @@ Currently, you can specify only one model per deployment in the YAML. If you've 
 > The format of the scoring script for online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
 
 # [Azure CLI](#tab/azure-cli)
-As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
+As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. 
 
 # [Python](#tab/python)
-As noted earlier, the script specified in `CodeConfiguration(scoring_script="score.py")` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/onlinescoring/score.py). 
+As noted earlier, the script specified in `CodeConfiguration(scoring_script="score.py")` must have an `init()` function and a `run()` function. 
 
 # [ARM template](#tab/arm)
 
 As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
 
-When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store and then register it:
+When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store, and then register it:
 
 1. The following example uses the Azure CLI command `az storage blob upload-batch` to upload the scoring file(s):
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_code":::
 
-1. The following example demonstrates hwo to register the code using a template:
+1. The following example demonstrates how to register the code using a template:
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_code":::
 
 ---
+
+This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/onlinescoring/score.py):
+__score.py__
+:::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
 The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. Write logic here for global initialization operations like caching the model in memory (as we do in this example). The `run()` function is called for every invocation of the endpoint and should do the actual scoring and prediction. In the example, we extract the data from the JSON input, call the scikit-learn model's `predict()` method, and then return the result.
 
@@ -418,6 +426,9 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
 > - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
+
+> [!TIP]
+> You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
 
 ### Deploy the model locally
 
@@ -869,16 +880,16 @@ To understand how `update` works:
     ```
 
     > [!Note]
-    > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML. You can make updates without using the YAML by using the `--set` flag.
-    
+    > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML.
+
+    > [!TIP]
+    > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-parameters) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+
 1. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 The `update` command also works with local deployments. Use the same `az ml online-deployment update` command with the `--local` flag.
-
-> [!TIP]
-> With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
 # [Python](#tab/python)
 

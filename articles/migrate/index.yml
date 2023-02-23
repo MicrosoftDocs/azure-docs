@@ -39,11 +39,11 @@ landingContent:
             url: ./tutorial-discover-physical.md
           - text: Assess servers using imported data
             url: ./tutorial-discover-import.md
-          - text: Migrate VMware VMs with Server Migration
+          - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
-          - text: Migrate Hyper-V VMs with Server Migration
+          - text: Migrate Hyper-V VMs with Migration and modernization
             url: ./tutorial-migrate-hyper-v.md
-          - text: Migrate physical servers/VMs with Server Migration
+          - text: Migrate physical servers/VMs with Migration and modernization
             url: ./tutorial-migrate-physical-virtual-machines.md
 
   - title: Start deployment
@@ -67,6 +67,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Business case
+            url: ./how-to-build-a-business-case.md
           - text: Add assessment tools
             url: ./how-to-assess.md
           - text: Discover application inventory

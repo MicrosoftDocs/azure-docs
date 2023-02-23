@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 11/09/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,59 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Standard storage with cool access](manage-cool-access.md) (Preview)
 
     The majority of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use Azure NetApp Files standard service level capacity pool with [a cool access option](cool-access-about.md), which enables you to have inactive data transparently moved from Azure NetApp Files' standard service-level storage (the hot tier) to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure the standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool.” Views of and access to the data stays transparent to the user, with the only difference being a higher access time to data blocks that were moved to the cool tier.
+
+## February 2023
+
+* [Large volumes](large-volumes-requirements-considerations.md) (Preview)
+
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 500 TiB in size. The large volumes capability enables a variety of use cases and workloads that require large volumes with a single directory namespace.
+  
+* [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
+
+    Azure NetApp Files volumes now support encryption with customer-managed keys and Azure Key Vault to enable an extra layer of security for data at rest.  
+    
+    Data encryption with customer-managed keys for Azure NetApp Files allows you to bring your own key for data encryption at rest. You can use this feature to implement separation of duties for managing keys and data. Additionally, you can centrally manage and organize keys using Azure Key Vault. With customer-managed encryption, you are in full control of, and responsible for, a key's lifecycle, key usage permissions, and auditing operations on keys. 
+ 
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md) (Preview)
+
+    Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
+
+    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using standard network features. This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md#supported-regions).
+
+## December 2022
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
+    
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases in Linux environments. 
+
+    AzAcSnap 7 is being released with the following fixes and improvements: 
+    * Shortening of snapshot names
+    * Restore (`-c restore`) improvements
+    * Test (`-c test`) improvements 
+    * Validation improvements 
+    * Timeout improvements 
+    * Azure Backup integration improvements 
+    * Features moved to GA (generally available):
+        None
+    * The following features are now in preview: 
+        * Preliminary support for [Azure NetApp Files backup](backup-introduction.md)
+        * [IBM Db2 database](https://www.ibm.com/products/db2) support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
+
+* [Cross-zone replication](create-cross-zone-replication.md) (Preview)
+
+    With Azure’s push towards the use of availability zones (AZs) the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
+
+    Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs, hence it is highly cost-effective.  
+
+    The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
+    
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+
+* [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
+
+    [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) is now supported on Azure NetApp Files with Standard network features. Azure Virtual WAN is a spoke-and-hub architecture, enabling cloud-hosted network hub connectivity between endpoints, creating networking, security, and routing functionalities in one interface. Use cases for Azure Virtual WAN include remote user VPN connectivity (point-to-site), private connectivity (ExpressRoute), intra-cloud connectivity, and VPN ExpressRoute inter-connectivity. 
 
 ## November 2022 
 

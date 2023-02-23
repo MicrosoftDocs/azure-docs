@@ -2,13 +2,81 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 11/06/2022
+ms.date: 01/06/2023
 ms.author: edbaynash
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.  
+## January 2023  
+  
+|Subservice| Article | Description |
+|---|---|---|
+Agents|[Tutorial: Transform text logs during ingestion in Azure Monitor Logs](agents/azure-monitor-agent-transformation.md)|New tutorial on how to write a KQL query that transforms text log data and add the transformation to a data collection rule.|
+Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|SQL Best Practices Assessment now available with Azure Monitor Agent.|
+Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Streamlined alerts documentation, added the common schema definition to the common schema article, and moving sample ARM templates for alerts to the Samples section.|
+Alerts|[Non-common alert schema definitions for Test Action Group (Preview)](alerts/alerts-non-common-schema-definitions.md)|Added a sample payload for the Actual Cost and Forecasted Budget schemas.|
+Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](app/live-stream.md)|Updated Live Metrics troubleshooting section.|
+Application-Insights|[Application Insights for Azure VMs and Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)|Easily monitor your IIS-hosted .NET Framework and .NET Core applications running on Azure VMs and Virtual Machine Scale Sets using a new App Insights Extension.|
+Application-Insights|[Sampling in Application Insights](app/sampling.md)|We've added embedded links to assist with looking up type definitions. (Dependency, Event, Exception, PageView, Request, Trace)|
+Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Instructions are now available on how to set the http proxy using an environment variable, which overrides the JSON configuration. We've also provided a sample to configure connection string at runtime.|
+Application-Insights|[Application Insights for Java 2.x](app/deprecated-java-2x.md)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
+Autoscale|[Diagnostic settings in Autoscale](autoscale/autoscale-diagnostics.md)|Updated and expanded content|
+Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Clarification of weekend profiles|
+Autoscale|[Autoscale with multiple profiles](autoscale/autoscale-multiprofile.md)|Added clarifications for profile end times|
+Change-Analysis|[Scenarios for using Change Analysis in Azure Monitor](change/change-analysis-custom-filters.md)|Merged two low engagement docs into Visualizations article and removed from TOC|
+Change-Analysis|[Scenarios for using Change Analysis in Azure Monitor](change/change-analysis-query.md)|Merged two low engagement docs into Visualizations article and removed from TOC|
+Change-Analysis|[Scenarios for using Change Analysis in Azure Monitor](change/change-analysis-visualizations.md)|Merged two low engagement docs into Visualizations article and removed from TOC|
+Change-Analysis|[Track a web app outage using Change Analysis](change/tutorial-outages.md)|Added new section on virtual network changes to the tutorial|
+Containers|[Azure Monitor container insights for Azure Kubernetes Service (AKS) hybrid clusters (preview)](containers/container-insights-enable-provisioned-clusters.md)|New article.|
+Containers|[Syslog collection with Container Insights (preview)](containers/container-insights-syslog.md)|New article.|
+Essentials|[Query Prometheus metrics using Azure workbooks (preview)](essentials/prometheus-workbooks.md)|New article.|
+Essentials|[Azure Workbooks data sources](visualize/workbooks-data-sources.md)|Added section for Prometheus metrics.|
+Essentials|[Query Prometheus metrics using Azure workbooks (preview)](essentials/prometheus-workbooks.md)|New article|
+Essentials|[Azure Monitor workspace (preview)](essentials/azure-monitor-workspace-overview.md)|Updated design considerations|
+Essentials|[Supported metrics with Azure Monitor](essentials/metrics-supported.md)|Updated and refreshed the list of supported metrics|
+Essentials|[Supported categories for Azure Monitor resource logs](essentials/resource-logs-categories.md)|Updated and refreshed the list of supported logs|
+General|[Multicloud monitoring with Azure Monitor](best-practices-multicloud.md)|New article.|
+Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Clarified special case for daily cap logic.|
+Logs|[Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md)|Updated and refreshed how to send custom metrics|
+Logs|[Migrate from Splunk to Azure Monitor Logs](logs/migrate-splunk-to-azure-monitor-logs.md)|New article that explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis.|
+Logs|[Manage access to Log Analytics workspaces](logs/manage-access.md)|Added permissions required to run a search job and restore archived data.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added information about how to modify a table schema using the API.|
+Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Per customer feedback, added new note that Consumption plan is not supported|
+Virtual-Machines|[Collect IIS logs with Azure Monitor Agent](agents/data-collection-iis.md)|Added sample log queries.|
+Virtual-Machines|[Collect text logs with Azure Monitor Agent](agents/data-collection-text-log.md)|Added sample log queries.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor: Deploy agent](vm/monitor-virtual-machine-agent.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor: Alerts](vm/monitor-virtual-machine-alerts.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor: Analyze monitoring data](vm/monitor-virtual-machine-analyze.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor: Collect data](vm/monitor-virtual-machine-data-collection.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor: Migrate management pack logic](vm/monitor-virtual-machine-management-packs.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)|Rewritten for Azure Monitor agent.|
+Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|VM scenario updates for AMA|
+
+## December 2022  
+  
+|Subservice| Article | Description |
+|---|---|---|
+General|[Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)|Updated for AMA and SCOM managed instance.|
+Application-Insights|[Create an Application Insights resource](app/create-new-resource.md)|Classic Application Insights resources are deprecated and support will end on February 29th, 2024. Migrate to workspace-based resources to take advantage of new capabilities.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)|Updated Node.js sample code for JavaScript and TypeScript.|
+Application-Insights|[System performance counters in Application Insights](app/performance-counters.md)|Updated code samples for .NET 6/7.|
+Application-Insights|[Sampling in Application Insights](app/sampling.md)|Updated code samples for .NET 6/7.|
+Application-Insights|[Availability alerts](app/availability-alerts.md)|This article has been rewritten with new guidance and screenshots.|
+Change-Analysis|[Tutorial: Track a web app outage using Change Analysis](change/tutorial-outages.md)|Change tutorial content to reflect changes to repo; remove and replace a few sections.|
+Containers|[Configure Azure CNI networking in Azure Kubernetes Service (AKS)](../../articles/aks/configure-azure-cni.md)|Added steps to enable IP subnet usage|
+Containers|[Reports in Container insights](containers/container-insights-reports.md)|Updated the documents to reflect the steps to enable IP subnet Usage|
+Essentials|[Best practices for data collection rule creation and management in Azure Monitor](essentials/data-collection-rule-best-practices.md)|New article|
+Essentials|[Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.](essentials/prometheus-self-managed-grafana-azure-active-directory.md)|New Article: Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.|
+Logs|[Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md)|New article|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Updated the list of tables that support Basic logs.|
+Virtual-Machines|[Tutorial: Create availability alert rule for Azure virtual machine (preview)](vm/tutorial-monitor-vm-alert-availability.md)|New article|
+Virtual-Machines|[Tutorial: Enable recommended alert rules for Azure virtual machine](vm/tutorial-monitor-vm-alert-recommended.md)|New article|
+Virtual-Machines|[Tutorial: Enable monitoring with VM insights for Azure virtual machine](vm/tutorial-monitor-vm-enable-insights.md)|New article|
+Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|Updated for AMA and availability metric.|
+Virtual-Machines|[Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)|Updated flow for enabling VM insights with Azure Monitor Agent by using Azure Policy.|
+Visualizations|[Creating an Azure Workbook](visualize/workbooks-create-workbook.md)|added Tutorial - resource centric logs queries in workbooks|
 
 ## November 2022  
   
@@ -58,7 +126,7 @@ Visualizations|[Get started with Azure Workbooks](visualize/workbooks-getting-st
 |General|Table of contents|We have updated the Azure Monitor Table of Contents. The new TOC structure better reflects the customer experience and makes it easier for users to navigate and discover our content.|
 Alerts|[Connect Azure to ITSM tools by using IT Service Management](./alerts/itsmc-definition.md)|Deprecating support for sending ITSM actions and events to ServiceNow. Instead, use ITSM actions in action groups based on Azure alerts to create work items in your ITSM tool.|
 Alerts|[Create a new alert rule](./alerts/alerts-create-new-alert-rule.md)|New PowerShell commands to create and manage log alerts.|
-Alerts|[Types of Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-types)|Updated to include Prometheus alerts.|
+Alerts|[Types of Azure Monitor alerts](alerts/alerts-types.md)|Updated to include Prometheus alerts.|
 Alerts|[Customize alert notifications using Logic Apps](./alerts/alerts-logic-apps.md)|New: How to use alerts to send emails or Teams posts using logic apps|
 Application-insights|[Sampling in Application Insights](./app/sampling.md)|The  "When to use sampling" and "How sampling works" sections have been prioritized as prerequisite information for the rest of the article.|
 Application-insights|[What is auto-instrumentation for Azure Monitor Application Insights?](./app/codeless-overview.md)|The auto-instrumentation overview has been visually overhauled with links and footnotes.|
@@ -73,21 +141,21 @@ Application-insights|[Share Azure dashboards by using Azure role-based access co
 Application-insights|[Application Monitoring for Azure App Service and ASP.NET](./app/azure-web-apps-net.md)|Important notes added regarding System.IO.FileNotFoundException after 2.8.44 auto-instrumentation upgrade.|
 Application-insights|[Geolocation and IP address handling](./app/ip-collection.md)| Geolocation lookup information has been updated.|
 Containers|[Metric alert rules in Container insights (preview)](./containers/container-insights-metric-alerts.md)|Container insights metric Alerts|
-Containers|[Custom metrics collected by Container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-custom-metrics?tabs=portal)|New article.|
-Containers|[Overview of Container insights in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)|Rewritten to simplify onboarding options.|
-Containers|[Enable Container insights for Azure Kubernetes Service (AKS) cluster](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=azure-cli)|Updated to combine new and existing clusters.|
-Containers Prometheus|[Query logs from Container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-log-query)|Now includes log queries for Prometheus data.|
-Containers Prometheus|[Collect Prometheus metrics with Container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-prometheus?tabs=cluster-wide)|Updated to include Azure Monitor managed service for Prometheus.|
-Essentials Prometheus|[Metrics in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics)|Updated to include Azure Monitor managed service for Prometheus|
-Essentials Prometheus|<ul> <li>  [Azure Monitor workspace overview (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/azure-monitor-workspace-overview?tabs=azure-portal) </li><li> [Overview of Azure Monitor Managed Service for Prometheus (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-overview) </li><li>[Rule groups in Azure Monitor Managed Service for Prometheus (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-rule-groups)</li><li>[Remote-write in Azure Monitor Managed Service for Prometheus (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-remote-write-managed-identity)  </li><li>[Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-grafana)</li><li>[Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-troubleshoot)</li><li>[Default Prometheus metrics configuration in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-scrape-default)</li><li>[Scrape Prometheus metrics at scale in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)</li><li>[Customize scraping of Prometheus metrics in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration)</li><li>[Create, validate and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-scrape-validate)</li><li>[Minimal Prometheus ingestion profile in Azure Monitor (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration-minimal)</li><li>[Collect Prometheus metrics from AKS cluster (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-enable)</li><li>[Send Prometheus metrics to multiple Azure Monitor workspaces (preview)](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-multiple-workspaces) </li></ul>   |New articles. Public preview of Azure Monitor managed service for Prometheus|
+Containers|[Custom metrics collected by Container insights](containers/container-insights-custom-metrics.md?tabs=portal)|New article.|
+Containers|[Overview of Container insights in Azure Monitor](containers/container-insights-overview.md)|Rewritten to simplify onboarding options.|
+Containers|[Enable Container insights for Azure Kubernetes Service (AKS) cluster](containers/container-insights-enable-aks.md?tabs=azure-cli)|Updated to combine new and existing clusters.|
+Containers Prometheus|[Query logs from Container insights](containers/container-insights-log-query.md)|Now includes log queries for Prometheus data.|
+Containers Prometheus|[Collect Prometheus metrics with Container insights](containers/container-insights-prometheus.md?tabs=cluster-wide)|Updated to include Azure Monitor managed service for Prometheus.|
+Essentials Prometheus|[Metrics in Azure Monitor](essentials/data-platform-metrics.md)|Updated to include Azure Monitor managed service for Prometheus|
+Essentials Prometheus|<ul> <li>  [Azure Monitor workspace overview (preview)](essentials/azure-monitor-workspace-overview.md?tabs=azure-portal) </li><li> [Overview of Azure Monitor Managed Service for Prometheus (preview)](essentials/prometheus-metrics-overview.md) </li><li>[Rule groups in Azure Monitor Managed Service for Prometheus (preview)](essentials/prometheus-rule-groups.md)</li><li>[Remote-write in Azure Monitor Managed Service for Prometheus (preview)](essentials/prometheus-remote-write-managed-identity.md)  </li><li>[Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](essentials/prometheus-grafana.md)</li><li>[Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-troubleshoot.md)</li><li>[Default Prometheus metrics configuration in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-default.md)</li><li>[Scrape Prometheus metrics at scale in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-scale.md)</li><li>[Customize scraping of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration.md)</li><li>[Create, validate and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-validate.md)</li><li>[Minimal Prometheus ingestion profile in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration-minimal.md)</li><li>[Collect Prometheus metrics from AKS cluster (preview)](essentials/prometheus-metrics-enable.md)</li><li>[Send Prometheus metrics to multiple Azure Monitor workspaces (preview)](essentials/prometheus-metrics-multiple-workspaces.md) </li></ul>   |New articles. Public preview of Azure Monitor managed service for Prometheus|
 Essentials Prometheus|[Azure Monitor managed service for Prometheus remote write - managed identity (preview)](./essentials/prometheus-remote-write-managed-identity.md)|Addition: Verify Prometheus remote write is working correctly|
 Essentials|[Azure resource logs](./essentials/resource-logs.md)|Clarification: Which blobs logs are written to, and when|
-Essentials|[Resource Manager template samples for Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/resource-manager-samples?tabs=portal)|Added template deployment methods.|
-Essentials|[Azure Monitor service limits](https://learn.microsoft.com/azure/azure-monitor/service-limits)|Added Azure Monitor managed service for Prometheus|
+Essentials|[Resource Manager template samples for Azure Monitor](resource-manager-samples.md?tabs=portal)|Added template deployment methods.|
+Essentials|[Azure Monitor service limits](service-limits.md)|Added Azure Monitor managed service for Prometheus|
 Logs|[Manage access to Log Analytics workspaces](./logs/manage-access.md)|Table-level role-based access control (RBAC) lets you give specific users or groups read access to particular tables.|
 Logs|[Configure Basic Logs in Azure Monitor](./logs/basic-logs-configure.md)|General availability of the Basic Logs data plan, retention and archiving, search job, and the table management user experience in the Azure portal.|
-Logs|[Guided project - Analyze logs in Azure Monitor with KQL - Training](https://learn.microsoft.com/training/modules/analyze-logs-with-kql/)|New Learn module. Learn to write KQL queries to retrieve and transform log data to answer common business and operational questions.|
-Logs|[Detect and analyze anomalies with KQL in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/logs/kql-machine-learning-azure-monitor)|New tutorial. Walkthrough of how to use KQL for time series analysis and anomaly detection in Azure Monitor Log Analytics. |
+Logs|[Guided project - Analyze logs in Azure Monitor with KQL - Training](/training/modules/analyze-logs-with-kql/)|New Learn module. Learn to write KQL queries to retrieve and transform log data to answer common business and operational questions.|
+Logs|[Detect and analyze anomalies with KQL in Azure Monitor](logs/kql-machine-learning-azure-monitor.md)|New tutorial. Walkthrough of how to use KQL for time series analysis and anomaly detection in Azure Monitor Log Analytics. |
 Virtual-machines|[Enable VM insights for a hybrid virtual machine](./vm/vminsights-enable-hybrid.md)|Updated versions of standalone installers.|
 Visualizations|[Retrieve legacy Application Insights workbooks](./visualize/workbooks-retrieve-legacy-workbooks.md)|New article about how to access legacy workbooks in the Azure portal.|
 Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to see how you can use Azure Workbooks to get insights and visualize your data. |
@@ -107,16 +175,16 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |---|---|
 |[Convert ITSM actions that send events to ServiceNow to secure webhook actions](./alerts/itsm-convert-servicenow-to-webhook.md)|As of September 2022, we're starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
 |[Create a new alert rule](./alerts/alerts-create-new-alert-rule.md)|Added description of all available monitoring services to create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
-|[Types of Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-types)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
+|[Types of Azure Monitor alerts](alerts/alerts-types.md)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
 |[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](./alerts/alerts-log-api-switch.md)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
 
 ### Application insights
 
 | Article | Description |
 |---|---|
-|[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](./app/java-in-process-agent.md)|New OpenTelemetry `@WithSpan` annotation guidance.|
+|[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](./app/opentelemetry-enable.md?tabs=java)|New OpenTelemetry `@WithSpan` annotation guidance.|
 |[Capture Application Insights custom metrics with .NET and .NET Core](./app/tutorial-asp-net-custom-metrics.md)|Tutorial steps and images have been updated.|
-|[Configuration options - Azure Monitor Application Insights for Java](./app/java-in-process-agent.md)|Connection string guidance updated.|
+|[Configuration options - Azure Monitor Application Insights for Java](./app/opentelemetry-enable.md)|Connection string guidance updated.|
 |[Enable Application Insights for ASP.NET Core applications](./app/tutorial-asp-net-core.md)|Tutorial steps and images have been updated.|
 |[Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](./app/opentelemetry-enable.md)|Our product feedback link at the bottom of each document has been fixed.|
 |[Filter and preprocess telemetry in the Application Insights SDK](./app/api-filtering-sampling.md)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
@@ -169,7 +237,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | Article | Description |
 |---|---|
 |[Log Analytics agent overview](agents/log-analytics-agent.md)|Restructured the Agents section and rewrote the Agents Overview article to reflect that Azure Monitor Agent is the primary agent for collecting monitoring data.|
-|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](https://learn.microsoft.com/azure/migrate/concepts-dependency-visualization)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
+|[Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate](../migrate/concepts-dependency-visualization.md)|Revamped the guidance for migrating from Log Analytics Agent to Azure Monitor Agent.|
 
 
 ### Alerts
@@ -183,7 +251,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | Article | Description |
 |---|---|
 |[Azure Application Insights Overview Dashboard](app/overview-dashboard.md)|Important information has been added clarifying that moving or renaming resources will break dashboards, with additional instructions on how to resolve this scenario.|
-|[Azure Application Insights override default SDK endpoints](app/create-new-resource.md#application-insights-overriding-default-endpoints)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
+|[Azure Application Insights override default SDK endpoints](app/create-new-resource.md#override-default-endpoints)|We've clarified that endpoint modification isn't recommended and to use connection strings instead.|
 |[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|Important information has been added about avoiding duplicates when saving diagnostic logs in a Log Analytics workspace.|
 |[Dependency Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-dependency.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
 |[Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request.md)|Updated Django sample application and documentation in the Azure Monitor OpenCensus Python samples repository.|
@@ -191,7 +259,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Updated connection string overrides example.|
 |[Application Insights SDK for ASP.NET Core applications](app/tutorial-asp-net-core.md)|A new tutorial with step-by-step instructions to use the Application Insights SDK with .NET Core applications.|
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Our SDK support guidance has been updated and clarified.|
-|[Azure Application Insights - Dependency Auto-Collection](app/auto-collect-dependencies.md)|The latest currently supported node.js modules have been updated.|
+|[Azure Application Insights - Dependency Auto-Collection](app/asp-net-dependencies.md#dependency-auto-collection)|The latest currently supported node.js modules have been updated.|
 |[Application Insights custom metrics with .NET and .NET Core](app/tutorial-asp-net-custom-metrics.md)|A new tutorial with step-by-step instructions on how to enable custom metrics with .NET applications.|
 |[Migrate an Application Insights classic resource to a workspace-based resource](app/convert-classic-resource.md)|A comprehensive FAQ section has been added to assist with migration to workspace-based resources.|
 |[Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)|This article has been fully updated for 3.4.0-BETA.|
@@ -255,14 +323,14 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |:---|:---|
-|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table.
+|[Azure Monitor Application Insights Java](app/opentelemetry-enable.md?tabs=java)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table.
 |[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)|Clarification has been added that valueCount and itemCount have a minimum value of 1.
 |[Telemetry sampling in Azure Application Insights](app/sampling.md)|Sampling documentation has been updated to warn of the potential impact on alerting accuracy.
 |[Azure Monitor Application Insights Java (redirect to OpenTelemetry)](app/java-in-process-agent-redirect.md)|Java Auto-Instrumentation now redirects to OpenTelemetry documentation.
 |[Azure Application Insights for ASP.NET Core applications](app/asp-net-core.md)|Updated .NET Core FAQ
 |[Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md)|We've linked out to Microsoft Insights components for more information on Properties.
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|SDK support guidance has been updated and clarified.
-|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|Example code has been updated.
+|[Azure Monitor Application Insights Java](app/opentelemetry-enable.md?tabs=java)|Example code has been updated.
 |[IP addresses used by Azure Monitor](app/ip-addresses.md)|The IP/FQDN table has been updated.
 |[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|The continuous export notice has been updated and clarified.
 |[Set up availability alerts with Application Insights](app/availability-alerts.md)|Custom Alert Rule and Alert Frequency sections have been added.
@@ -322,7 +390,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | [Application Insights logging with .NET](app/ilogger.md) | Connection string sample code has been added.|
 | [Application Insights SDK support guidance](app/sdk-support-guidance.md) | Updated SDK supportability guidance. |
 | [Azure AD authentication for Application Insights](app/azure-ad-authentication.md) | Azure AD authenticated telemetry ingestion has been reached general availability.|
-| [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md).|
+| [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/opentelemetry-enable.md?tabs=java).|
 | [Azure Application Insights Telemetry Data Model - Telemetry Context](app/data-model-context.md) | Clarified that Anonymous User ID is simply User.Id for easy selection in Intellisense.|
 | [Continuous export of telemetry from Application Insights](app/export-telemetry.md) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
 | [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The Event Hubs Client SDK and ServiceBus Client SDK information has been updated.|

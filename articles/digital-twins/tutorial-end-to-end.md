@@ -29,7 +29,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -49,7 +49,7 @@ To work through the scenario, you'll interact with components of the pre-written
 
 Here are the components implemented by the building scenario AdtSampleApp sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
 * SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
@@ -112,7 +112,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet --runtime-version 6 --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
@@ -190,7 +190,7 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
-    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    az dt role-assignment create --resource-group <your-resource-group> --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
     ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access data in your Azure Digital Twins instance.
