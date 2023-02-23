@@ -140,7 +140,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --connection <name-of-connection>
     ```
     Note that `--system-identity` is necessary for passwrodless connection. For more information about this topic, please refer to [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Passwordlessflex).
-4. After connection created, use this command to check connection:
+4. After connection created, use this command to validate connection:
     ```azurecli-interactive
     az spring connection validate \
         --resource-group <name-of-resource-group> \
