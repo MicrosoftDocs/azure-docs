@@ -208,9 +208,9 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 ## Add a Verified ID requirement (Preview)
 
-Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package will need to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](..articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
+Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package will need to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](../articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
 
-1. Click + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](..articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
+1. Click + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](../articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
     :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-issuer.png" alt-text="Access package select issuer.":::
 1. Select the credential type(s) you want users to present during the request process. 
     :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-credential.png" alt-text="Select access package credential.":::
