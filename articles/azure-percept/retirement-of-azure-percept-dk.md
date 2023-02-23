@@ -5,21 +5,21 @@ author: yvonne-dq
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 02/22/2023
 ROBOTS: NOINDEX
 ---
 
 # Retirement of Azure Percept DK
 
-**Update November 9, 2022**: A firmware update that enables the Vision SoM and Audio SOM to retain their functionality with the DK beyond the retirement date, will be made available before the retirement date.
+**Update February 22, 2023**: A firmware update for the Percept DK Vision and Audio accessory components (also known as Vision and Audio SOM) is now available [here](https://aka.ms/audio_vision_som_update), and will enable the accessory components to continue functioning beyond the retirement date.
 
-The [Azure Percept](https://azure.microsoft.com/products/azure-percept/) public preview will be evolving to support new edge device platforms and developer experiences. As part of this evolution the Azure Percept DK and Audio Accessory and associated supporting Azure services for the Percept DK will be retired March 30, 2023.
+The Azure Percept preview including the Percept DK, Audio Accessory, and associated supporting Azure services will be retired March 30th, 2023.
  
 ## How does this change affect me?
 
 - After March 30, 2023, the Azure Percept DK and Audio Accessory will no longer be supported by any Azure services including Azure Percept Studio, OS updates, containers updates, view web stream, and Custom Vision integration. 
 - Microsoft will no longer provide customer success support for the Azure Percept DK and Audio Accessory and any associated supporting services for the Percept DK.
-- Existing Custom Vision and Custom Speech projects created using Percept Studio for the Percept DK will not be deleted and billing if applicable will continue. You can no longer modify or use your project with Percept Studio. 
+- Existing Custom Vision and Custom Speech projects created using Percept Studio for the Percept DK will not be deleted and billing if applicable will continue for any backend services utilized after the retirement date. You can no longer modify or use your project with Percept Studio. 
  
 ## Recommended action
 
@@ -36,5 +36,5 @@ If you have questions regarding Azure Percept DK, please refer to the below **FA
 | What is changing?                              | Azure Percept DK and Audio Accessory will no longer be supported by any Azure services including Azure Percept Studio and Updates.    | 
 | When is this change occurring?                 | On March 30, 2023. Until this date your DK and Studio will function as-is and updates and customer support will be offered. After this date, all updates and customer support will stop.    | 
 | Will my projects be deleted?                   | Your projects remain in the underlying Azure Services they were created in (example: Custom Vision, Speech Studio, etc.). They won't be deleted due to this retirement. You can no longer modify or use your project with Percept Studio.   | 
-| Do I need to do anything before March 30, 2023?    | Yes, you will need to close the resources and projects associated with the Azure Percept Studio and DK to avoid future billing, as these backend resources and projects will continue to bill after retirement.    | 
+| Do I need to do anything before March 30, 2023?    | Yes, you will need to close the resources and projects associated with the Azure Percept Studio and DK to avoid future billing, as these backend resources and projects will continue to bill after retirement. For SoMs to continue having functionality, you will need to apply a firmware update that enables the Vision SoM and Audio SoM to retain functionality that is now available [here](https://aka.ms/audio_vision_som_update).    | 
  
