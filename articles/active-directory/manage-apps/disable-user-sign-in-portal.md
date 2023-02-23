@@ -48,13 +48,14 @@ To disable user sign-in, you need:
 
 :::zone pivot="aad-powershell"
 
-Use the following Azure AD PowerShell script to disable an unlisted app.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following Azure AD PowerShell cmdlet.
 
 Ensure you've installed the AzureAD module (use the command `Install-Module -Name AzureAD`). In case you're prompted to install a NuGet module or the new Azure AD V2 PowerShell module, type Y and press ENTER.
 
-You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following cmdlet.
-
 ```PowerShell
+# Connect to Azure AD PowerShell
+Connect-AzureAD -Scopes "Application.ReadWrite.All"
+
 # The AppId of the app to be disabled
 $appId = "{AppId}"
 
@@ -72,11 +73,25 @@ if ($servicePrincipal) {
 
 :::zone pivot="ms-powershell"
 
-Use the following Microsoft Graph PowerShell script to disable an unlisted app.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
 Ensure you've installed the Microsoft Graph module (use the command `Install-Module Microsoft.Graph`).
 
-You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft, you can manually create the service principal for the app and then disable it by using the following cmdlet.
+```powershell
+# Connect to Microsoft Graph PowerShell
+Connect-MgGraph -Scopes "Application.ReadWrite.All"
+
+# The AppId of the app to be disabled  
+$appId = "{AppId}"  
+
+# Check if a service principal already exists for the app 
+$servicePrincipal = Get-MgServicePrincipal -Filter "appId eq '$appId'"  
+
+# If Service principal exists already, disable it , else, create it and disable it at the same time 
+if ($servicePrincipal) { Update-MgServicePrincipal -ServicePrincipalId $servicePrincipal.Id -AccountEnabled:$false }  
+
+else {  $servicePrincipal = New-MgServicePrincipal -AppId $appId –AccountEnabled:$false } 
+```
 
 :::zone-end
 
