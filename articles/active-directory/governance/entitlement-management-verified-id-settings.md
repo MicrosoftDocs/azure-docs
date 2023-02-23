@@ -1,6 +1,6 @@
 ---
-title: Change verified ID settings for an access package in entitlement management (Preview) - Azure AD
-description: Learn how to change verified ID settings for an access package in entitlement management.
+title: Configure verified ID settings for an access package in entitlement management (Preview) - Azure AD
+description: Learn how to configure verified ID settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Change verified ID settings for an access package in entitlement management (Preview) 
+# Configure verified ID settings for an access package in entitlement management (Preview) 
 
 When setting up an access package policy, admins can specify whether it’s for users in the directory, connected organizations, or any external user. Entitlement Management determines if the person requesting the access package is within the scope of the policy. 
 
@@ -26,7 +26,7 @@ Sometimes you might want users to present additional identity proofs during the 
 
 As an access package manager, you can include verified ID requirements for an access package at any time by editing an existing policy or adding a new policy for requesting access. 
 
-This article describes how to configure the verified ID requirement settings for an access package 
+This article describes how to configure the verified ID requirement settings for an access package.
 
 ## Prerequisites
 
