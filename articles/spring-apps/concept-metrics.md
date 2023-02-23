@@ -20,14 +20,14 @@ Azure Metrics explorer is a component of the Microsoft Azure portal that allows 
 
 In an Azure Spring Apps instance, there are two viewpoints for metrics.
 
-* Select an app in the **Apps** page for quick status charts shown in its overview page.
-* Select the **Metrics** page for common metrics that are available for all apps to reference. You can build your own charts in the common metrics page and pin them in Dashboard.
+* Select **Apps** and then an app for quick status charts shown in its overview page.
+* Select **Metrics** for common metrics that are available for all apps to reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 :::image type="content" source="media/metrics/metrics-1.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Overview page for Apps and Metrics highlighted in the left pane.":::
 
 ## Application overview page
 
-Select **Apps** in the navigation pane and then select an app from the list. Each application's **Overview** page presents metrics chart that enables you to perform a quick status check of your application.
+Select **Apps** in the navigation pane and then select an app from the list. The **Overview** page presents a metrics chart that enables you to perform a quick status check of your application.
 
 ![Application Metrics Overview](media/metrics/metrics-3.png)
 
