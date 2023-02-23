@@ -211,8 +211,8 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
 | AlmaLinux 8                                                 | X<sup>3</sup> | X |   |
-| Amazon Linux 2017.09                                        |   | X |   |
-| Amazon Linux 2                                              |   | X |   |
+| Amazon Linux 2017.09                                        | X | X |   |
+| Amazon Linux 2                                              | X | X |   |
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
@@ -226,6 +226,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
+| Red Hat Enterprise Linux Server 9                         | X |  |   |
 | Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X |   |
 | Red Hat Enterprise Linux Server 8+                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
