@@ -1212,8 +1212,6 @@ items:
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
-      - name: Detect and analyze anomalies in log data
-        href: logs/kql-machine-learning-azure-monitor.md
       - name: Standard columns
         href: logs/log-standard-columns.md
       - name: Query Basic logs
@@ -1454,7 +1452,9 @@ items:
     items:
       - name: Machine learning in Azure Monitor Logs
         href: bring-your-own-machine-learning.md
-      - name: Fit machine learning model using Jupyter Notebook
+      - name: Detect and analyze anomalies in log data with KQL
+        href: logs/kql-machine-learning-azure-monitor.md
+      - name: Integrate Jupyter Notebook 
         href: jupyter-notebook-in-azure-monitor-logs.md      
 - name: Reference
   items:

@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.topic: conceptual 
-ms.date: 25/01/2023
+ms.date: 23/02/2023
 
 #customer-intent: As a data scientist, I want to understand how to use machine learning to improve my ability to predict IT needs and identify and respond to anomalous patterns in log data.
 
