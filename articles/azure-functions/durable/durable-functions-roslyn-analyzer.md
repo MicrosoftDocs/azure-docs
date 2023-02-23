@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Durable Functions Rosyln Analyzer (C# only)
 
-The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific [code constraints](./durable-functions-code-constraints.md). When you enable this analyzer, it checks your Durable Functions code by default and produce custom diagnostics. For more information about the analyzer (diagnostic information, releases, bug fixes, etc.), refer to [GitHub releases page](https://github.com/Azure/azure-functions-durable-extension/releases?q=roslyn+analyzer&expanded=true). 
+The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific [code constraints](./durable-functions-code-constraints.md). When you enable this analyzer, it checks your Durable Functions code by default and produces custom diagnostics. For more information about the analyzer (diagnostic information, releases, bug fixes, etc.), refer to [GitHub releases page](https://github.com/Azure/azure-functions-durable-extension/releases?q=roslyn+analyzer&expanded=true). 
 
 
 ## Configuration
