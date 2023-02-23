@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Create an authorization with the GitHub API
 
-In this article, you learn how to create an [authorization](authorizations-overview.md) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type is used in this example  
+In this article, you learn how to create an [authorization](authorizations-overview.md) in API Management and call a GitHub API that requires an authorization token. The authorization code grant type is used in this example.
 
 You learn how to:
 
