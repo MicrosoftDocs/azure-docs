@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Diagnose communication problem between virtual networks - Azure portal'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you learn how to use Azure Network Watcher VPN diagnostics to troubleshoot a communication problem between two Azure virtual networks connected by Azure VPN gateways.
+description: In this tutorial, you learn how to use Azure Network Watcher VPN troubleshoot to diagnose a communication problem between two Azure virtual networks connected by Azure VPN gateways.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -15,7 +15,7 @@ ms.custom: template-tutorial, engagement-fy23
 
 # Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
 
-Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Multiple connections can be created to the same VPN gateway. You can use Azure Network Watcher to troubleshoot and diagnose a VPN gateway and its connections.
+Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway allows you to create multiple connections to on-premises VPN devices and Azure VPN gateways. For more information about the number of connections that you can create with each VPN gateway SKU, see [Gateway SKUs](../../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Whenever you need to troubleshoot an issue with a VPN gateway or one of its connections, you can use Azure Network Watcher VPN troubleshoot to help you checking the VPN gateway or its connections to find and resolve the problem in easy and simple steps.
 
 In this tutorial, you connect two virtual networks via VPN gateways using VNet-to-VNet connections and use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot a connectivity issue that's preventing the two virtual networks from communicating with each other. Once you find the issue and resolve it, you check the connectivity between the two virtual networks to verify the problem was resolved. 
 
