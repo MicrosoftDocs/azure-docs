@@ -102,7 +102,19 @@ Get from dev
 
 ---
 ## Assign initiatives
+
+Initiatives are collections of policies. There are three initiatives for Azure Monitor Diagnostics settings:
++ [Enable audit category group resource logging for supported resources to Event Hub](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
++ [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
++ [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
+
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
+
+
+
+
+
+
 
 1. From the policy **Definitions** page, select your scope.
 
