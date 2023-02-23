@@ -16,7 +16,7 @@ ms.custom: devx-track-js, devguide-js
 
 # Using access tiers
 
-This article shows how to use [access tiers](access-tiers-overview.md) for Block Blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
+This article shows how to use [access tiers](access-tiers-overview.md) for block blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
 
 ## Understand Block Blob access tiers
 
