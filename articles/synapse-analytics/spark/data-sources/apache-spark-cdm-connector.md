@@ -181,7 +181,7 @@ In the preceding example, the full path to the customer entity definition object
 
 If you don't specify a logical entity definition on write, the entity is written implicitly, based on the DataFrame schema.
 
-When you're writing implicitly, a timestamp column is normally interpreted as a Common Data Model `DateTime` data type. You can override this interpretation to create an attribute of the Common Data Model `Time` data type by providing a metadata object that's associated with the column that specifies the data type. For details, see [Handling Common Data Model time data](#handling-common-data-model-time-data) later in this article.
+When you're writing implicitly, a time stamp column is normally interpreted as a Common Data Model `DateTime` data type. You can override this interpretation to create an attribute of the Common Data Model `Time` data type by providing a metadata object that's associated with the column that specifies the data type. For details, see [Handling Common Data Model time data](#handling-common-data-model-time-data) later in this article.
 
 Support for writing time data exists for CSV files only. That support currently doesn't extend to Parquet.
 
@@ -229,7 +229,7 @@ In both cases, no extra connector options are required.
 
 SAS token credentials are an extra option for authentication to storage accounts. With SAS token authentication, the SAS token can be at the container or folder level. The appropriate permissions are required:
 
-* Read permissions for a manifest or partition needs only read-level support.
+* Read permissions for a manifest or partition need only read-level support.
 * Write permissions need both read and write support.
 
 | **Option**  |**Description**  |**Pattern and example usage**  |
@@ -350,7 +350,7 @@ The connector doesn't support the Common Data Model `Binary` data type.
 
 ### Handling Common Data Model Date, DateTime, and DateTimeOffset data
 
-The Spark CDM connector handles Common Data Model `Date` and `DateTime` data type as normal for Spark and Parquet. In CSV, the connector reads and writes those data types in ISO 8601 format.
+The Spark CDM connector handles Common Data Model `Date` and `DateTime` data types as normal for Spark and Parquet. In CSV, the connector reads and writes those data types in ISO 8601 format.
 
 The connector interprets Common Data Model `DateTime` data type values as UTC. In CSV, the connector writes those values in ISO 8601 format. An example is `2020-03-13 09:49:00Z`.
 
@@ -358,7 +358,7 @@ Common Data Model `DateTimeOffset` values intended for recording local time inst
 
 The Spark CDM connector converts a `DateTimeOffset` value in CSV to a UTC time stamp. This value is persisted as a time stamp in Parquet. If the value is later persisted to CSV, it will be serialized as a `DateTimeOffset` value with a +00:00 offset. There's no loss of temporal accuracy. The serialized values represent the same instant as the original values, although the offset is lost.
 
-Spark systems use their system time as the baseline and normally express time by using that local time. UTC times can always be computed through application of the local system offset. For Azure systems in all regions, the system time is always UTC, so all timestamp values are normally in UTC. When you're using an implicit write, where a Common Data Model definition is derived from a DataFrame, timestamp columns are translated to attributes with the Common Data Model DateTime data type, which implies a UTC time.
+Spark systems use their system time as the baseline and normally express time by using that local time. UTC times can always be computed through application of the local system offset. For Azure systems in all regions, the system time is always UTC, so all time stamp values are normally in UTC. When you're using an implicit write, where a Common Data Model definition is derived from a DataFrame, time stamp columns are translated to attributes with the Common Data Model `DateTime` data type, which implies a UTC time.
 
 If it's important to persist a local time and the data will be processed in Spark or persisted in Parquet, we recommend that you use a `DateTime` attribute and keep the offset in a separate attribute. For example, you can keep the offset as a signed integer value that represents minutes. In Common Data Model, DateTime values are in UTC, so you must apply the offset to compute local time.
 
@@ -368,7 +368,7 @@ In most cases, persisting local time isn't important. Local times are often requ
 
 Spark doesn't support an explicit `Time` data type. An attribute with the Common Data Model `Time` data type is represented in a Spark DataFrame as a column with a `Timestamp` data type. When The Spark CDM connector reads a time value, the time stamp in the DataFrame is initialized with the Spark epoch date 01/01/1970 plus the time value as read from the source.
 
-When you use explicit write, you can map a time stamp column to either a `DateTime` or `Time` attribute. If you map a time stamp to a `Time` attribute, the date portion of the timestamp is stripped off.
+When you use explicit write, you can map a time stamp column to either a `DateTime` or `Time` attribute. If you map a time stamp to a `Time` attribute, the date portion of the time stamp is stripped off.
 
 When you use implicit write, a time stamp column is mapped by default to a `DateTime` attribute. To map a time stamp column to a `Time` attribute, you must add a metadata object to the column in the DataFrame that indicates that the time stamp should be interpreted as a time value. The following code shows how to do this in Scala:
 
@@ -399,7 +399,7 @@ Here's an example of an explicit write that's defined by a referenced entity def
 
 ```text
 +-- <CDMFolder>
-     |-- default.manifest.cdm.json     << with entity ref and partition info
+     |-- default.manifest.cdm.json     << with entity reference and partition info
      +-- <Entity>
           |-- <entity>.cdm.json        << resolved physical entity definition
           |-- <data folder>
@@ -428,7 +428,7 @@ Here's an example of an implicit write in which the entity definition is derived
     +-- <Entity>
          |-- <entity>.cdm.json          << resolved physical entity definition
          +-- LogicalDefinition
-         |   +-- <entity>.cdm.json      << logical entity definition(s)
+         |   +-- <entity>.cdm.json      << logical entity definitions
          |-- <data folder>
          |-- <data folder>
          +-- ...
@@ -438,12 +438,12 @@ Here's an example of an implicit write with a submanifest:
 
 ```text
 +-- <CDMFolder>
-    |-- default.manifest.cdm.json       << contains reference to sub-manifest
+    |-- default.manifest.cdm.json       << contains reference to submanifest
     +-- <Entity>
         |-- <entity>.cdm.json           << resolved physical entity definition
-        |-- <entity>.manifest.cdm.json  << sub-manifest with reference to the entity and partition info
+        |-- <entity>.manifest.cdm.json  << submanifest with reference to the entity and partition info
         +-- LogicalDefinition
-        |   +-- <entity>.cdm.json       << logical entity definition(s)
+        |   +-- <entity>.cdm.json       << logical entity definitions
         |-- <data folder>
         |-- <data folder>
         +-- ...
