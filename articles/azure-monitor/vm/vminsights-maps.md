@@ -14,7 +14,7 @@ In VM insights, you can view discovered application components on Windows and Li
 For information about configuring VM insights, see [Enable VM insights](vminsights-enable-overview.md).
 
 ## Prerequisites
-To enable the map feature in VM insights, the virtual machine requires one of the following. See [Enable VM insights on unmonitored machine](vvminsights-enable-overview.md) for details on each.
+To enable the map feature in VM insights, the virtual machine requires one of the following. See [Enable VM insights on unmonitored machine](vminsights-enable-overview.md) for details on each.
 
 - Azure Monitor agent with **processes and dependencies** enabled.
 - Log Analytics agent enabled for VM insights. 
