@@ -177,26 +177,26 @@ For additional information on options available in the kickstart script, review 
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Solution for SAP](configure-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

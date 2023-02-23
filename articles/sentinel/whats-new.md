@@ -19,9 +19,26 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## February 2023
 
+- [New CloudWatch data type for the AWS S3 connector (Preview)](#new-cloudwatch-data-type-for-the-aws-s3-connector)
+- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
 - [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
 - [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
 - [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+
+### New CloudWatch data type for the AWS S3 connector
+
+The Microsoft Sentinel AWS S3 connector now supports [CloudWatch logs](connect-aws.md) in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
+
+The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+
+### Audit and monitor the health of your analytics rules (Preview)
+
+Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+
+Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+- Explore the new [Analytics Health & Audit workbook](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook).
 
 ### Microsoft 365 Defender data connector is now generally available
 

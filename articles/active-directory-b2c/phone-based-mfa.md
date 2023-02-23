@@ -16,8 +16,6 @@ ms.subservice: B2C
 ---
 # Securing phone-based multi-factor authentication (MFA)
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 With Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA), users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
 
 ## Prerequisites

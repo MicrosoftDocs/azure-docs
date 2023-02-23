@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Peering Service on a Direct peering - PowerShell
-description: Enable Azure Peering Service on a Direct peering using PowerShell
+description: Enable Azure Peering Service on a Direct peering using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering

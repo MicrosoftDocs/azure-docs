@@ -6,6 +6,11 @@
             "redirect_document_id": false
          },
          {
+            "source_path_from_root": "/articles/azure-monitor/observability-data.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+         },
+         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-query.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
             "redirect_document_id": false
@@ -23,6 +28,41 @@
         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio-codelens.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-native-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-angular-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-click-analytics-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-feature-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent-redirect.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
             "redirect_document_id": false
         },
         {
@@ -5703,13 +5743,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/proactive-performance-diagnostics.md",
+            "redirect_url": "https://azure.microsoft.com/updates/public-preview-alerts-based-smart-detection-for-application-insights/",
+            "redirect_document_id": false
+        },
+      {
             "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-resource-log-schema.md",
             "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/azure-monitor/alerts/proactive-performance-diagnostics.md",
-            "redirect_url": "https://azure.microsoft.com/updates/public-preview-alerts-based-smart-detection-for-application-insights/",
+      {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
             "redirect_document_id": false
         }
     ]

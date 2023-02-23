@@ -26,6 +26,8 @@ A *QoS profile* has two main components.
 
 - A *5G QoS identifier (5QI)*. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
 
+  To allow for packet prioritization on the underlying transport network, Azure Private 5G Core will attempt to configure differentiated services codepoint (DSCP) markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. For more information on the mapping of 5QI to DSCP values, see [5QI to DSCP mapping](differentiated-services-codepoint-5qi-mapping.md).
+
   You can find more information on 5QI values and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values. 
 
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).

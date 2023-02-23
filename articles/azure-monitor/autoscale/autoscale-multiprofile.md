@@ -49,8 +49,8 @@ Autoscale transitions between profiles based on their start times. The end time 
 In the portal, the end time field becomes the next start time for the default profile. You can't specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
 
 > [!TIP]
-> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
-> Creating a recurring profile with no end time is only supported via the portal.
+> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile. 
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates.
 
 ## Multiple profiles using templates, CLI, and PowerShell
 

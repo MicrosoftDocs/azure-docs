@@ -72,7 +72,7 @@ When a device connects to an IoT Edge gateway, the downstream device is the clie
 
 When you use a self-signed root CA certificate for an IoT Edge gateway, it needs to be installed on or provided to all the downstream devices attempting to connect to the gateway.
 
-![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
+:::image type="content" source="./media/how-to-create-transparent-gateway/gateway-setup.png" alt-text="Screenshot of the gateway certificate setup.":::
 
 To learn more about IoT Edge certificates and some production implications, see [IoT Edge certificate usage details](iot-edge-certs.md).
 
@@ -185,7 +185,7 @@ On Windows hosts, if you're not using OpenSSL or another TLS library, the SDK de
 
 This section introduces a sample application to connect an Azure IoT Java device client to an IoT Edge gateway.
 
-1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples).
+1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. Refer to the SDK documentation for instructions on how to run the sample on your device.
 
@@ -209,7 +209,7 @@ This command tests connections over MQTTS (port 8883). If you're using a differe
 
 The output of this command may be long, including information about all the certificates in the chain. If your connection is successful, you'll see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
 
-![Verify gateway connection](./media/how-to-connect-downstream-device/verification-ok.png)
+:::image type="content" source="./media/how-to-connect-downstream-device/verification-ok.png" alt-text="Screenshot of how to verify a gateway connection.":::
 
 ## Troubleshoot the gateway connection
 

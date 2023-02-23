@@ -177,12 +177,12 @@ We only support placing the amlarc-specific taints on your nodes, which are defi
 
 | Taint | Key | Value | Effect | Description |
 |--|--|--|--|--|
-| amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| All Azureml workloads, including extension system service pods and machine learning workload pods would tolerate this `amlarc overall` taint.|
-| amlarc system | ml.azure.com/amlarc-system |true	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only Azureml extension system services pods would tolerate this `amlarc system` taint.|
-| amlarc workload| 	ml.azure.com/amlarc-workload |true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods would tolerate this `amlarc workload` taint. |
-| amlarc resource group| 	ml.azure.com/resource-group | \<resource group name> | `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created from the specific resource group would tolerate this `amlarc resource group` taint.|
-| amlarc workspace | 	ml.azure.com/workspace |	\<workspace name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`|Only machine learning workload pods created from the specific workspace would tolerate this `amlarc workspace` taint. |
-| amlarc compute| 	ml.azure.com/compute| \<compute name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created with the specific compute target would tolerate this `amlarc compute` taint.|
+| amlarc overall| ml.azure.com/amlarc	| true| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| All Azureml workloads, including extension system service pods and machine learning workload pods would tolerate this `amlarc overall` taint.|
+| amlarc system | ml.azure.com/amlarc-system |true	| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| Only Azureml extension system services pods would tolerate this `amlarc system` taint.|
+| amlarc workload| 	ml.azure.com/amlarc-workload |true| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods would tolerate this `amlarc workload` taint. |
+| amlarc resource group| 	ml.azure.com/resource-group | \<resource group name> | `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created from the specific resource group would tolerate this `amlarc resource group` taint.|
+| amlarc workspace | 	ml.azure.com/workspace |	\<workspace name>	| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`|Only machine learning workload pods created from the specific workspace would tolerate this `amlarc workspace` taint. |
+| amlarc compute| 	ml.azure.com/compute| \<compute name>	| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created with the specific compute target would tolerate this `amlarc compute` taint.|
 
 > [!TIP]
 > 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
@@ -210,7 +210,7 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
   - `amlarc <compute X>` taint
 
   
-## Integrate other load balancers with AzureML extension over HTTP or HTTPS
+## Integrate other ingress controller with AzureML extension over HTTP or HTTPS
 
 In addition to the default AzureML inference load balancer [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md), you can also integrate other load balancers with AzureML extension over HTTP or HTTPS. 
 
@@ -388,13 +388,15 @@ az deployment group create --name <ARM deployment name> --resource-group <resour
 More information about how to use ARM template can be found from [ARM template doc](../azure-resource-manager/templates/overview.md)
 
 
-## Azureml extension release note
+## AzuremML extension release note
 > [!NOTE]
  >
  > New features are released at a biweekly calendar.
 
 | Date | Version |Version description |
 |---|---|---|
+| Feb 14, 2022 | 1.1.21 | Bug fixes.|
+| Feb 7, 2023 | 1.1.19 | Improve error return message for inference. Update default instance type to use 2Gi memory limit. Do cluster health check for pod healthiness, resource quota, Kubernetes version and extension version. Bug fixes|
 | Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
 | Nov 29, 2022 | 1.1.16 |Add instance type validation by new CRD. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |
 | Sep 13, 2022 | 1.1.10 | Bug fixes.|
@@ -402,7 +404,7 @@ More information about how to use ARM template can be found from [ARM template d
 | Jun 23, 2022 | 1.1.6 | Bug fixes. |
 | Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference azureml-fe to v2. Updated to use Volcano as training job scheduler. Bug fixes. |
 | Oct 14, 2021 | 1.0.37 | PV/PVC volume mount support in AMLArc training job. |
-| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster auto scaling support. Arc agent and ML extension deployment from on premises container registry.|
+| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue expandability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster auto scaling support. Arc agent and ML extension deployment from on premises container registry.|
 | August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
 | August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes. Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. Optimize AzureML extension components CPU/memory resources utilization.|
 | July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|

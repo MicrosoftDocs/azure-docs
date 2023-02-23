@@ -65,4 +65,5 @@ After you create your Azure Synapse workspace, do the following steps.
 ## Next steps
 
 - [Use Azure Storage blob inventory to manage blob data](blob-inventory.md)
+- [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate the total billing size of a blob container](../scripts/storage-blobs-container-calculate-billing-size-powershell.md)

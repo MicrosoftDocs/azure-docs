@@ -2,9 +2,7 @@
 title: 'Upload or download files using a native client connection'
 titleSuffix: Azure Bastion
 description: Learn how to upload or download files using Azure Bastion and a native client when connected to a VM using Azure Bastion.
-services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 03/17/2022
