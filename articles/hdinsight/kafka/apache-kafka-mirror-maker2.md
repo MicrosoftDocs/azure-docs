@@ -84,7 +84,7 @@ This architecture features two clusters in different resource groups and virtual
 
    `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
 
-1. Execute the following command and get the entries of worker nodes IP’s and FQDN’s 
+1. Execute the following command and get the entries of worker nodes IPs and FQDNs 
    
    `cat /etc/hosts` 
    
@@ -105,19 +105,19 @@ This architecture features two clusters in different resource groups and virtual
 
 1. Now change the configuration in MirrorMaker2 properties file. 
 
-1. Execute ollowing command with admin privilege 
+1. Execute following command with admin privilege 
 
    ```
    sudo su 
    vi /etc/kafka/conf/connect-mirror-maker.properties 
    ```
-1. Property file will look like this. Here source is your `PRIMARYCLUSTER and destination is your SECONDARYCLUSTER`. 
+1. Property file looks like this. Here source is your `PRIMARYCLUSTER and destination is your SECONDARYCLUSTER`. 
 1. Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics which you want to replicate along with configs with regex. 
+1. You can control the topics that you want to replicate along with configs with regex. 
 
-`replication.factor=3` will make the replication factor = 3 for all the topic which Mirror maker script will create by itself. 
+`replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
 
-1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script will replicate topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster.  
+1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster.  
 
 1. Save the file and we are good with configs.
 
@@ -172,7 +172,7 @@ This architecture features two clusters in different resource groups and virtual
    ./bin/connect-mirror-maker.sh ./config/connect-mirror-maker.properties 
    ```
  
-1. It will run fine. 
+1. It runs fine. 
 1. Now start producer in PRIMARY CLUSTER  
 
    ``` 
