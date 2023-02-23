@@ -27,21 +27,22 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location. Replace the value of the `resourcegroup` variable as needed.
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *West US 3* location. Replace the value of the variables as needed.
 
 ```azurecli-interactive
-resourcegroup="West US 3"
-az group create --name myResourceGroup --location $resourcegroup
+resourcegroup="myResourceGroupCLI"
+location="West US 3"
+az group create --name $resourcegroup --location $location
 ```
 
 ## Create virtual machine
 
 Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. Replace the values of the variables as needed.
 
-You will be prompted to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
+You'll be prompted to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
 ).
 
-Using the example below, you will be prompted to enter a password at the command line. You could also add the the `--admin-password` parameter with a value for your password. The user name and password will be used later, when you connect to the VM.
+Using the example below, you'll be prompted to enter a password at the command line. You could also add the `--admin-password` parameter with a value for your password. The user name and password will be used when you connect to the VM.
 
 ```azurecli-interactive
 vmname="myVM"
@@ -61,12 +62,12 @@ It takes a few minutes to create the VM and supporting resources. The following 
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "eastus",
+  "location": "westus3",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "52.174.34.95",
-  "resourceGroup": "myResourceGroup"
+  "resourceGroup": "myResourceGroupCLI"
 }
 ```
 
