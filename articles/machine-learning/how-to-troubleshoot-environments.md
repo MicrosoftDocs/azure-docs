@@ -1152,15 +1152,15 @@ You should specify the 'latest' version of your environment in a different way
 ## *ACR issues*
 ### ACR unreachable
 <!--issueDescription-->
-This issue can happen by failing to access a workspace's associated Azure Container Registry (ACR) resource.
+This issue can happen when there's a failure in accessing a workspace's associated Azure Container Registry (ACR) resource.
 
 **Potential causes:**
-* Workspace's ACR is behind a virtual network (VNet) (private endpoint or service endpoint), and no compute cluster is used to build images.
-* Workspace's ACR is behind a virtual network (private endpoint or service endpoint), and the compute cluster used for building images have no access to the workspace's ACR.
+* Your workspace's ACR is behind a virtual network (VNet) (private endpoint or service endpoint), and you aren't using a compute cluster to build images.
+* Your workspace's ACR is behind a virtual network (VNet) (private endpoint or service endpoint), and the compute cluster used for building images has no access to the workspace's ACR.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 * Pipeline job failures.
 * Model deployment failures.
 <!--/issueDescription-->
@@ -1207,12 +1207,12 @@ This issue can happen when a Docker image pull fails during an image build.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-If you suspect that the path name to your container registry is incorrect
+Check that the path name to your container registry is correct
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
@@ -1221,7 +1221,7 @@ If your container registry is behind a virtual network or is using a private end
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
 If the image you're trying to reference doesn't exist in the container registry you specified
-* Check that the correct tag is used and that `user_managed_dependencies` is set to `True`. Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section) to `True` disables conda and uses the user's installed packages
+* Check that you've used the correct tag and that you've set `user_managed_dependencies` to `True`. Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section) to `True` disables conda and uses the user's installed packages
 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
 * Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
@@ -1237,7 +1237,7 @@ This issue can happen when a Docker image pull fails due to a network issue.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
@@ -1255,7 +1255,7 @@ If you aren't using a virtual network, or if you've configured it correctly
 ## *Conda issues during build*
 ### Bad spec
 <!--issueDescription-->
-This issue can happen when a package listed in your conda specification is invalid or when a conda command is executed incorrectly.
+This issue can happen when a package listed in your conda specification is invalid or when you've executed a conda command incorrectly.
 
 **Potential causes:**
 * The syntax you used in your conda specification is incorrect
@@ -1263,12 +1263,12 @@ This issue can happen when a package listed in your conda specification is inval
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-Conda spec errors can happen when the conda create command is used incorrectly
+Conda spec errors can happen if you use the conda create command incorrectly
 * Read the [documentation](https://aka.ms/azureml/environment/conda-create) and ensure that you're using valid options and syntax
 * There's known confusion regarding `conda env create` versus `conda create`. You can read more about conda's response and other users' known solutions [here](https://aka.ms/azureml/environment/conda-env-create-known-issue)
 
@@ -1285,13 +1285,13 @@ This issue can happen when there's a failure in communicating with the entity fr
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
 Ensure that the conda channels/repositories you're using in your conda specification are correct
-* Check that they exist and are spelled correctly
+* Check that they exist and that you've spelled them correctly
 
 If the conda channels/repositories are correct
 * Try to rebuild the image--there's a chance that the failure is transient, and a rebuild might fix the issue
@@ -1302,12 +1302,12 @@ If the conda channels/repositories are correct
 This issue can happen when there's a failure building a package required for the conda environment due to a compiler error.
 
 **Potential causes:**
-* A package was spelled incorrectly and therefore wasn't recognized
+* You spelled a package incorrectly and therefore it wasn't recognized
 * There's something wrong with the compiler
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1318,7 +1318,7 @@ If you're using a compiler
 * Verify the version of your compiler and check that all commands or options you're using are compatible with the compiler version
 * If necessary, upgrade your compiler version
 
-Ensure that all packages you've listed are spelled correctly and that any pinned versions are correct
+Ensure that you've spelled all listed packages correctly and that you've pinned versions correctly
 
 **Resources**
 * [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
@@ -1329,18 +1329,18 @@ Ensure that all packages you've listed are spelled correctly and that any pinned
 This issue can happen when a command isn't recognized during an image build.
 
 **Potential causes:**
-* The command wasn't spelled correctly
+* You didn't spell the command correctly
 * The command can't be executed because a required package isn't installed
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-* Ensure that the command is spelled correctly
-* Ensure that any package needed to execute the command you're trying to perform is installed
+* Ensure that you've spelled the command correctly
+* Ensure that you've installed any packages needed to execute the command you're trying to perform
 * If needed, add an installation step to your Dockerfile
 
 **Resources**
@@ -1357,12 +1357,12 @@ This issue can happen when conda package resolution takes too long to complete.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 * Remove any packages from your conda specification that are unnecessary
-* Pin your packages--environment resolution will be faster
+* Pin your packages--environment resolution is faster
 * If you're still having issues, review this article for an in-depth look at [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
 
 ### Out of memory
@@ -1376,12 +1376,12 @@ This issue can happen when conda package resolution fails due to available memor
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 * Remove any packages from your conda specification that are unnecessary
-* Pin your packages--environment resolution will be faster
+* Pin your packages--environment resolution is faster
 * If you're still having issues, review this article for an in-depth look at [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
 
 ### Package not found
@@ -1389,18 +1389,18 @@ This issue can happen when conda package resolution fails due to available memor
 This issue can happen when one or more conda packages listed in your specification can't be found in a channel/repository.
 
 **Potential causes:**
-* The package's name or version was listed incorrectly in your conda specification 
+* You listed the package's name or version incorrectly in your conda specification 
 * The package exists in a conda channel that you didn't list in your conda specification
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
-* Ensure that the package is spelled correctly and that the specified version exists
+* Ensure that you've spelled the package correctly and that the specified version exists
 * Ensure that the package exists on the channel you're targeting
-* Ensure that the channel/repository is listed in your conda specification so the package can be pulled correctly during package resolution
+* Ensure that you've listed the channel/repository in your conda specification so the package can be pulled correctly during package resolution
 
 Specify channels in your conda specification:
 
@@ -1422,16 +1422,16 @@ Name: my_environment
 This issue can happen when a Python module listed in your conda specification doesn't exist or isn't valid.
 
 **Potential causes:**
-* The module was spelled incorrectly
+* You spelled the module incorrectly
 * The module isn't recognized
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
-* Ensure that the module is spelled correctly and exists
+* Ensure that you've spelled the module correctly and that it exists
 * Check to make sure that the module is compatible with the Python version you've specified in your conda specification
 * If you haven't listed a specific Python version in your conda specification, make sure to list a specific version that's compatible with your module otherwise a default may be used that isn't compatible
 
@@ -1452,18 +1452,18 @@ Name: my_environment
 This issue can happen when there's no package found that matches the version you specified.
 
 **Potential causes:**
-* The package name was spelled incorrectly
+* You spelled the package name incorrectly
 * The package and version can't be found on the channels or feeds that you specified
 * The version you specified doesn't exist
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-* Ensure that the package is spelled correctly and exists
+* Ensure that you've spelled the package correctly and that it exists
 * Ensure that the version you specified for the package exists
 * Ensure that you've specified the channel from which the package will be installed. If you don't specify a channel, defaults will be used and those defaults may or may not have the package you're looking for
 
@@ -1493,17 +1493,17 @@ This issue can happen when building wheels for mpi4py fails.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
 
-Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI being built with shared/dynamic libraries) 
+Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI built with shared/dynamic libraries) 
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 * If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
 
 Ensure that you're using a compatible python version
-* Python 2.5 or 3.5+ is required, but Python 3.7+ is recommended
+* AzureML requires Python 2.5 or 3.5+, but Python 3.7+ is recommended
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 **Resources**
@@ -1520,7 +1520,7 @@ because you can't provide interactive authentication during a build
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1558,7 +1558,7 @@ This issue can happen when an attempt to access a blob in a storage account is r
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1579,7 +1579,7 @@ This issue can happen when the conda environment fails to be created or updated 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1587,7 +1587,7 @@ This issue can happen when the conda environment fails to be created or updated 
 Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
 * Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
 * Review your Build log to see if there's an error message that surfaced when horovod failed to build
-* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
+* It's possible that the horovod troubleshooting guide explains the problem you're encountering, along with a solution
 
 **Resources**
 * [horovod installation](https://aka.ms/azureml/environment/install-horovod)
@@ -1597,13 +1597,13 @@ Many issues could cause a horovod failure, and there's a comprehensive list of t
 This issue can happen when the conda command isn't recognized during conda environment creation or update.
 
 **Potential causes:**
-* conda isn't installed in the base image you're using
-* conda isn't installed via your Dockerfile before you try to execute the conda command
-* conda isn't included in or wasn't added to your path
+* You haven't installed conda in the base image you're using
+* You haven't installed conda via your Dockerfile before you try to execute the conda command
+* You haven't included conda in your path, or you haven't added it to your path
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1624,7 +1624,7 @@ This issue can happen when there's a package specified in your conda environment
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1644,7 +1644,7 @@ This issue can happen when a package is specified on the command line using "<" 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1661,7 +1661,7 @@ This issue can happen when there's a failure decoding a character in your conda 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 ## *Pip issues during build*
@@ -1675,7 +1675,7 @@ This issue can happen when your image build fails during Python package installa
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1695,7 +1695,7 @@ This can happen when pip fails to uninstall a Python package that was installed 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
@@ -1724,7 +1724,7 @@ This issue can happen when no targets are specified and no makefile is found whe
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 
 **Troubleshooting steps**
 * Ensure that the makefile is spelled correctly
@@ -1749,7 +1749,7 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 
 **Affected areas (symptoms):**
 * Failure in building environments from the UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
@@ -1777,7 +1777,7 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 **Affected areas (symptoms):**
 * A successful build, but no available logs.
 * Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
+* Failure in running jobs because AzureML implicitly builds the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
