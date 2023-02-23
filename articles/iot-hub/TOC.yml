@@ -142,9 +142,6 @@
       - name: Use message routing to send device-to-cloud messages
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
-      - name: Use custom endpoints and routing rules for device-to-cloud messages
-        displayName: message routing, routing query
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Add queries to message routes
         href: iot-hub-devguide-routing-query-syntax.md
       - name: Compare message and event routing
