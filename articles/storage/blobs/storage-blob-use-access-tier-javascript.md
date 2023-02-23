@@ -29,7 +29,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 
 ## Restrictions
 
-Access tiers aren't supported for Append and Page Blobs. Review the current [PageBlob and BlockBlob restrictions](/rest/api/storageservices/set-blob-tier) for access tier changes.
+Setting the access tier is only allowed on block blobs. To learn more about restrictions on setting a block blob's access tier, see [Set Blob Tier (REST API)](/rest/api/storageservices/set-blob-tier#remarks).
 
 ## Set blob's access tier during upload
 
