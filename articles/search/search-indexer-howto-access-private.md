@@ -100,13 +100,13 @@ These Private Link tutorials provide steps for creating a private endpoint for A
 
 Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link.
 
-Here are a few tips to keep in mind:
+Here are a few tips:
 
-+ Give the private link a meaningful name. In the Azure PaaS resource, a shared private link appears alongside other private endpoints. Assigning a name like "shared-private-link-for-search" will help you remember how the link is used.
++ Give the private link a meaningful name. In the Azure PaaS resource, a shared private link appears alongside other private endpoints. A name like "shared-private-link-for-search" can remind you how it's used.
 
-+ Don't skip the [private link verification](#private-endpoint-verification) step. It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint, but it won't work unless the resource is registered.
++ Don't skip the [private link verification](#private-endpoint-verification) step. It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint. The link won't work if the resource isn't registered.
 
-+ SQL managed instance has extra requirements for creating a private link. Currently, you can't use the portal or the Azure CLI `az search` command because neither approach formulates a valid URI. Instead, follow the instructions in [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) in this article for a workaround.
++ SQL managed instance has extra requirements for creating a private link. Currently, you can't use the portal or the Azure CLI `az search` command because neither one formulates a valid URI. Instead, follow the instructions in [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) in this article for a workaround.
 
 When you complete these steps, you have a shared private link that's provisioned in a pending state. **It takes several minutes to create the link**. Once it's created, the resource owner needs to approve the request before it's operational.
 
