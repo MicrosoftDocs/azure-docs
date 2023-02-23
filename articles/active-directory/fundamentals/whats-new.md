@@ -114,6 +114,7 @@ In February 2023 we've added the following 10 new applications in our App galler
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
 
 For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
 ---
 
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - February 2023
