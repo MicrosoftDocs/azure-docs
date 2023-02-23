@@ -19,12 +19,11 @@ This article provides an overview of the device message data processing stages w
 
 The MedTech service device message data processing follows these steps and in this order:
 
-> [!div class="checklist"]
-> - Ingest
-> - Normalize - Device mappings applied.
-> - Group - (Optional)
-> - Transform - FHIR destination mappings applied.
-> - Persist
+* Ingest
+* Normalize - Device mappings applied.
+* Group - (Optional)
+* Transform - FHIR destination mappings applied.
+* Persist
 
 :::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
 
@@ -55,10 +54,9 @@ The normalization process not only simplifies data processing at later stages, b
 ## Group - (Optional)
 Group is the next *optional* stage where the normalized messages available from the MedTech service normalization stage are grouped using three different parameters:
 
-> [!div class="checklist"]
-> - Device identity
-> - Measurement type
-> - Time period
+* Device identity
+* Measurement type
+* Time period
 
 Device identity and measurement type grouping are optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation resource that represents a 1-hour period or a 24-hour period.
 
