@@ -124,7 +124,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 To use this feature with an existing AKS cluster, the following requirements must be met:
 
-* Follow the steps to [register the KataVMIsolationPreview](#register-the-'KataVMIsolationPreview'-feature-flag) feature flag.
+* Follow the steps to [register the KataVMIsolationPreview][#register-the-'KataVMIsolationPreview'-feature-flag] feature flag.
 * Verify the cluster is running Kubernetes version 1.24.0 and higher.
 
 Use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
