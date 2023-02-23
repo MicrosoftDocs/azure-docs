@@ -15,7 +15,7 @@ This article details some best practices that can help you avoid common problems
 
 - **Use the latest version of Durable Functions extension and SDK**
 
-    Some issues users experience with Durable Functions can be resolved by upgrading to the latest version of the extension and SDK, which contain important bug fixes and performance improvements. Having the most updated versions also ensure that the latest telemetry is collected when reproducing problems reported by users on GitHub, which would accelerate the investigation process. See [Upgrade durable functions extension version](durable-functions-extension-upgrade.md) for instructions on getting the latest extension. Check the package manager of the language you're using to get the latest SDK. 
+    Some issues users experience with Durable Functions can be resolved by upgrading to the latest version of the extension and SDK, which contain important bug fixes and performance improvements. Upgrading to the latest version also ensures that we collect the latest telemetry when we reproduce issues reported by customers and helps accelerate the investigation process. See [Upgrade durable functions extension version](durable-functions-extension-upgrade.md) for instructions on getting the latest extension. Check the package manager of the language you're using to get the latest SDK. 
 
 - **Adhere to Durable Functions [code constraints](durable-functions-code-constraints.md)**
 
