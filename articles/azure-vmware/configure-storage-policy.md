@@ -50,7 +50,8 @@ Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/V
 
 You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policies available to set on a VM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Sign in to the [Azure portal](https://portal.azure.com).
+  
     >[!NOTE] 
     > If you need access to the Azure US Gov portal, go to https://portal.azure.us/ 
 
