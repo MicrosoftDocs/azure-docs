@@ -125,7 +125,8 @@ For instance, an architecture in which the application writes to Region A but re
 In Session Consistency, the session token is used for both read and write operations.  
 
 For read operations, the cached session token is sent to the server with a guarantee of receiving data corresponding to the specified (or a more recent) session token.  
-For write operations, the session token is sent to the database with a guarantee of persisting the data only if the server has caught up to the session token provided. In single-region write accounts, the write region is always guaranteed to have caught up to the session token. However, in multi-region write accounts, the region being written to may not have caught up to writes issued to another region. If the client writes to Region A with a session token from Region B, Region A will not be able to persist the data until it has caught up to changes made in Region B.
+
+For write operations, the session token is sent to the database with a guarantee of persisting the data only if the server has caught up to the session token provided. In single-region write accounts, the write region is always guaranteed to have caught up to the session token. However, in multi-region write accounts, the region you write to may not have caught up to writes issued to another region. If the client writes to Region A with a session token from Region B, Region A won't be able to persist the data until it has caught up to changes made in Region B.
 
 It's best to use session tokens only for read operations and not for write operations when passing session tokens between client instances. 
 
