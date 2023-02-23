@@ -24,7 +24,7 @@ This article details some best practices that can help you avoid common problems
     The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific code constraints. See [Durable Functions Roslyn Analyzer](durable-functions-roslyn-analyzer.md) for instructions on how to enable it on Visual Studio and Visual Studio Code.  
 
 
-- **Avoid using activity functions to perform CPU-intensive or I/O tasks**
+- **Avoid using orchestrator functions to perform CPU-intensive or I/O tasks**
  
     Orchestrator functions are executed on a single thread to ensure that execution can be deterministic across many [replays](durable-functions-orchestrations.md#reliability). Because of this single-threaded execution, it's important that orchestrator function threads don't perform CPU-intensive tasks, do I/O, or block for any reason. Any work that may require I/O, blocking, or multiple threads should be moved into activity functions.
 
