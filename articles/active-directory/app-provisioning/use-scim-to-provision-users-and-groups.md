@@ -218,7 +218,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 ### /Schemas (Schema discovery):
 
 * [Sample request/response](#schema-discovery)
-* Schema discovery isn't currently supported on the custom non-gallery SCIM application, but it's being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add more attributes to the schema of an existing gallery SCIM application. 
+* Schema discovery is being used on certain gallery applications. Schema discovery is the sole method to add more attributes to the schema of an existing gallery SCIM application. Schema discovery isn't currently supported on custom non-gallery SCIM application.
 * If a value isn't present, don't send null values.
 * Property values should be camel cased (for example, readWrite).
 * Must return a list response.
