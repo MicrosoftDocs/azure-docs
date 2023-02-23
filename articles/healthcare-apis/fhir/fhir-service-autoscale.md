@@ -14,7 +14,7 @@ ms.author: kesheth
 
 FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. 
 
-Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling gives great elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the entire auto scaling process is automated.
+Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling gives great elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the process is automated.
 
 The autoscale feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported.
 
