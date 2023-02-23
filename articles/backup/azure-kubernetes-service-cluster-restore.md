@@ -61,7 +61,7 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
 - To restore a workload, such as Deployment from a backup via API Group, the entry should be: 
 
    - **Kind**: Select **Deployment**.
-   - **Group**: Select **v1**. We don't recommend using the format app or v1 for any Group.
+   - **Group**: Select **Group**.
    - **Namespace Mapping**: To migrate the backed-up cluster resources to a different *Namespace*, select the *backed-up Namespace*, and then enter the *Namespace* to which you want to migrate the resources.
 
      If the *Namespace* doesn't exist in the AKS cluster, it gets created. If a conflict occurs during the cluster resources restore, you can skip or patch the conflicting resources.

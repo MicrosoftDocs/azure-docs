@@ -23,7 +23,7 @@ AKS backup is available in all the Azure public cloud regions.
 
 - Container Storage Interface (CSI) driver supports performing backup and restore operations for persistent volumes.
 
-- Currently, AKS backup only supports backup of Azure Disk based persistent volumes (enabled by CSI driver). If you’re using Azure File Share and Azure Blob type Persistent Volumes in your AKS clusters, you can configure backup for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
+- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you’re using Azure File Share and Azure Blob type Persistent Volumes in your AKS clusters, you can configure backup for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
 
 - Tree Volumes aren’t supported by AKS backup. You can back up only CSI driver based volumes. You can [migrate from tree volumes to CSI driver based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
 

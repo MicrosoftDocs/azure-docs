@@ -45,7 +45,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 - AKS backup uses CSI drivers snapshot capabilities to perform backups of persistent volumes. CSI Driver support is available for AKS clusters with Kubernetes version *1.21.1* or later. 
 
   >[!Note]
-  >- Currently, AKS backup only supports backup of Azure Disk based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
+  >- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
   >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](../aks/csi-migrate-in-tree-volumes.md).
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
@@ -75,8 +75,8 @@ Also, as part of the backup and restore operations, the following roles are assi
 
 | Role | Assigned To | Assigned on | Description |
 | --- | --- | --- | --- |
-| Reader | Backup vault | AKS cluster | Allows the Backup vault to perform list and read operations on AKS cluster. |
-| Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform list and read operations on snapshot resource group. |
+| Reader | Backup vault | AKS cluster | Allows the Backup vault to perform *List* and *Read* operations on AKS cluster. |
+| Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform *List* and *Read* operations on snapshot resource group. |
 | Disk Snapshot Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
 | Storage Account Contributor | Extension Identity | Storage account | Allows Backup Extension to store cluster resource backups in the blob container. |
 

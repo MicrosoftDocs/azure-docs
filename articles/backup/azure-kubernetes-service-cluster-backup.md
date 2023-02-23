@@ -16,7 +16,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 ## Before you start
 
-- Currently, AKS backup supports Azure Disk based persistent volumes (enabled by CSI driver) only. The backups are stored in operational datastore only (backup data is stored in your tenant only and isn't moved to a vault). The Backup vault and AKS cluster should be in the same region.
+- Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored in operational datastore only (backup data is stored in your tenant only and isn't moved to a vault). The Backup vault and AKS cluster should be in the same region.
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
@@ -67,7 +67,7 @@ To create a backup policy, follow these steps:
 AKS backup allows you to back up an entire cluster or specific cluster resources deployed in the cluster, as required. You can also protect a cluster multiple times as per the deployed applications schedule and retention requirements or security requirements.
 
 >[!Note]
->You can set up multiple backup instances for the same ASK cluster by:
+>You can set up multiple backup instances for the same AKS cluster by:
 >- Configuring backup in the same Backup vault with a different backup policy.
 >- Configuring backup in a different Backup vault.
 
@@ -118,7 +118,7 @@ To configure backups for AKS cluster, follow these steps:
 
 11. In the *context* pane, enter the *cluster resources* that you want to back up.
 
-   Learn about the [backup configurations](#backup-configurations).
+    Learn about the [backup configurations](#backup-configurations).
 
 12. Select the *snapshot resource group* where *persistent volume (Azure Disk) snapshots* need to be stored, and then select **Validate**.
 
