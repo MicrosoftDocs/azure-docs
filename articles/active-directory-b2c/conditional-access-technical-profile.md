@@ -58,7 +58,11 @@ The **InputClaims** element contains a list of claims to send to Conditional Acc
 | UserId | Yes | string | The identifier of the user who signs in. |
 | AuthenticationMethodsUsed | Yes |stringCollection | The list of methods the user used to sign in. Possible values: `Password`, and `OneTimePasscode`. |
 | IsFederated | Yes |boolean | Indicates whether or not a user signed in with a federated account. The value must be `false`. |
-| IsMfaRegistered | Yes |boolean | Indicates whether the user already enrolled a phone number for multi-factor authentication. |
+| IsMfaRegistered | Yes |boolean | Indicates whether the user already enrolled a phone number for multi-factor authentication. If a conditional access policy recommends `mfa` and this claim is `false`, then the conditional access evaluation will return `block` instead. |
+
+   > [!NOTE]
+   > 
+   > If you wish to adopt a different approach to non-MFA registered users on a `mfa` result, set the `IsMfaRegistered` claim to always default to `true` and implement the custom logic in your policy.
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending them to the Conditional Access service.
 
