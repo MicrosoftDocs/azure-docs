@@ -33,11 +33,14 @@
   - name: Data exchange between cluster and Azure
     href: conceptual-data-exchange.md
   - name: Identity and access management
-    displayName: rbac, azure ad, azure active directory
-    href: conceptual-azure-rbac.md
-  - name: Access cluster from anywhere
-    displayName: connect
-    href: conceptual-cluster-connect.md
+    items:
+      - name: Access cluster from anywhere
+        displayName: connect
+        href: conceptual-cluster-connect.md
+        href:
+      - name: Azure RBAC integration
+        displayName: rbac, azure ad, azure active directory
+        href: conceptual-azure-rbac.md
   - name: Extend Azure capabilities to clusters anywhere
     items:
       - name: Cluster extensions
@@ -80,17 +83,19 @@
   items:
   - name: Upgrade agents
     href: agent-upgrade.md
-  - name: Securely connect to cluster from anywhere
-    href: cluster-connect.md
   - name: Use Private Link Scope
     href: private-link.md
   - name: Azure portal Kubernetes resource view
     href: kubernetes-resource-view.md
-  - name: Use Azure AD RBAC for authorization checks
-    href: azure-rbac.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration
     href: use-azure-policy-flux-2.md
+  - name: Manage access
+    items:
+    - name: Securely connect to cluster from anywhere
+      href: cluster-connect.md
+    - name: Use Azure AD RBAC for authorization checks
+      href: azure-rbac.md
   - name: Manage your cluster
     items:
     - name: Deploy and manage cluster extensions
