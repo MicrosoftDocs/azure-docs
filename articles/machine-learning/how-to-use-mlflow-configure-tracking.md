@@ -93,7 +93,7 @@ export MLFLOW_EXPERIMENT_NAME="experiment_with_mlflow"
 
 ## Non-public Azure Clouds support
 
-The Azure Machine Learning plugin for MLflow is configured by default to work with the public Azure cloud. However, you can configure the Azure cloud you are using by setting the environment variable `AZUREML_CURRENT_CLOUD`.
+The Azure Machine Learning plugin for MLflow is configured by default to work with the global Azure cloud. However, you can configure the Azure cloud you are using by setting the environment variable `AZUREML_CURRENT_CLOUD`.
 
 # [MLflow SDK](#tab/mlflow)
 
