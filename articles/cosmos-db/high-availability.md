@@ -100,6 +100,9 @@ Given the internal Azure Cosmos DB architecture, using multiple write regions do
 When an Azure Cosmos DB account is configured with multi-region writes, one of the regions will act as an arbiter in case of write conflicts. When such conflicts happen, they're routed to this region for consistent resolution.
 
 #### Best practices for multi-region writes
+
+Here are some best practices to consider when writing to multiple regions.
+
 #### Keep local traffic local
 When using multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. Cross-region calls must be avoided for optimal performance.  
 
