@@ -18,7 +18,7 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 ## IoT security across Microsoft 365 Defender and Azure
 
-Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and Azure portals using the following methods:
+Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) using the following methods:
 
 |Method  |Description and requirements | Configure in ... |
 |---------|---------|---------|
