@@ -23,7 +23,7 @@ See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labe
 
 ## Before you begin
 
-This article is number 8 in a series of 10 articles. We recommend you review the artiles in order. Go to the **Next steps** section to see the entire series. 
+This article is number 8 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Assign classification and enforce protection settings
 
