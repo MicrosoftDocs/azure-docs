@@ -48,10 +48,121 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 The following JSON response illustrates what the Analysis 4.0 API returns when generating dense captions for the example image.
 
-![Photo of a man pointing at a screen](./Media/quickstarts/presentation.png)
+![Photo of a woman sitting at a desk](./Images/dense-captions.png)
 
 ```json
-tbd
+{
+  "descriptionDense": {
+    "captions": [
+      {
+        "text": "a woman sitting at a table with a laptop",
+        "confidence": 0.5821409225463867,
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "w": 1038,
+          "h": 672
+        }
+      },
+      {
+        "text": "a laptop on a table",
+        "confidence": 0.5349870324134827,
+        "boundingBox": {
+          "x": 436,
+          "y": 344,
+          "w": 381,
+          "h": 239
+        }
+      },
+      {
+        "text": "a plant in a pot",
+        "confidence": 0.5180337429046631,
+        "boundingBox": {
+          "x": 638,
+          "y": 22,
+          "w": 388,
+          "h": 633
+        }
+      },
+      {
+        "text": "a woman smiling with her hands together",
+        "confidence": 0.46921396255493164,
+        "boundingBox": {
+          "x": 0,
+          "y": 93,
+          "w": 449,
+          "h": 565
+        }
+      },
+      {
+        "text": "a potted plant on a table",
+        "confidence": 0.5263017416000366,
+        "boundingBox": {
+          "x": 791,
+          "y": 437,
+          "w": 238,
+          "h": 229
+        }
+      },
+      {
+        "text": "a close up of a keyboard",
+        "confidence": 0.5036352872848511,
+        "boundingBox": {
+          "x": 363,
+          "y": 572,
+          "w": 225,
+          "h": 65
+        }
+      },
+      {
+        "text": "a woman smiling with her hands together",
+        "confidence": 0.5039903521537781,
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "w": 705,
+          "h": 419
+        }
+      },
+      {
+        "text": "a close up of a keyboard",
+        "confidence": 0.5640218257904053,
+        "boundingBox": {
+          "x": 529,
+          "y": 492,
+          "w": 144,
+          "h": 80
+        }
+      },
+      {
+        "text": "a woman sitting at a desk with her hands together",
+        "confidence": 0.5284122824668884,
+        "boundingBox": {
+          "x": 0,
+          "y": 56,
+          "w": 894,
+          "h": 593
+        }
+      },
+      {
+        "text": "a woman smiling with earrings",
+        "confidence": 0.31606525182724,
+        "boundingBox": {
+          "x": 171,
+          "y": 97,
+          "w": 214,
+          "h": 224
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "height": 672,
+    "width": 1038,
+    "format": "Png"
+  },
+  "modelVersion": "2021-05-01"
+}
 ```
 
 ---
