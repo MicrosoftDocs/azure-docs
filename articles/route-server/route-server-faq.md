@@ -115,7 +115,7 @@ Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertis
 
 No, Azure Route Server provides transit only between ExpressRoute and a Site-to-Site (S2S) VPN gateway connections (when the *branch-to-branch* setting is enabled).
 
-## <a name = "limitations"></a>Route Server Limits
+### <a name = "limitations"></a>What are Azure Route Server limits?
 
 Azure Route Server has the following limits (per deployment).
 
