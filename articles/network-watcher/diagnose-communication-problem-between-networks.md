@@ -288,7 +288,9 @@ If you're no longer need the gateways and other resources created in this tutori
 
 ## Next steps
 
-In this tutorial, you learned how to diagnose a problem with a virtual network gateway. You may want to log network communication to and from a VM so that you can review the log for anomalies. To learn how, advance to the next tutorial.
+In this tutorial, you learned how to diagnose a connectivity problem between two connected virtual networks via VPN gateways. For more information about connecting virtual networks using VPN gateways, see [VNet-to-VNet connections](../../articles/vpn-gateway/design.md#V2V).
+
+To learn how to log network communication to and from a virtual machine so that you can review the log for anomalies, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Log network traffic to and from a VM](network-watcher-nsg-flow-logging-portal.md)
