@@ -144,6 +144,11 @@ sections:
         answer: |
           Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
 
+      - question: |
+          Can you take a dependencyon the container group's IP address?
+        answer: |
+          Container group IP addresses are subject to change after being created or deleted. We recommend that your application code does not take a dependency on the container group's IP address. We also suggest using [NAT Gateway](container-instances-nat-gateway.md) or [Application Gateway](container-instances-application-gateway.md) if you would like to maintain a static IP address.
+
   - name: Pricing
     questions:
       - question: |
