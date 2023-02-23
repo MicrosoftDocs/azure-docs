@@ -33,7 +33,7 @@ The VM is assessed periodically every few days and multiple times within any 30-
 
 Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
 For IaaS VMs, customers can choose to configure VMs to enable automatic VM guest patching. This will limit the blast radius of VMs getting the updated patch and do an orchestrated update of the VMs. The service also provides [health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to detect issues any issues with the update. 
 
@@ -46,16 +46,16 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 **Across regions:**
 - A monthly update is orchestrated across Azure globally in a phased manner to prevent global deployment failures.
 - A phase can have one or more regions, and an update moves to the next phases only if eligible VMs in a phase update successfully.
-- Geo-paired regions are not updated concurrently and can't be in the same regional phase.
+- Geo-paired regions aren't updated concurrently and can't be in the same regional phase.
 - The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
 
 **Within a region:**
-- VMs in different Availability Zones are not updated concurrently with the same update.
-- VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
+- VMs in different Availability Zones aren't updated concurrently with the same update.
+- VMs that aren't part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
 
 **Within an availability set:**
-- All VMs in a common availability set are not updated concurrently.
--	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains are not updated concurrently.
+- All VMs in a common availability set aren't updated concurrently.
+-	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
 
 Narrowing the scope of VMs that are patched across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
 
@@ -75,7 +75,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 ## Supported OS images
 
 > [!IMPORTANT]
-> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported. More images are added periodically.
+> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations aren't supported. More images are added periodically.
 
 
 | Publisher               | OS Offer      |  Sku               |
@@ -175,7 +175,7 @@ VMs on Azure now support the following patch orchestration modes:
 - For Windows VMs, the Windows Update service must be running on the virtual machine.
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
 - Use Compute API version 2021-03-01 or higher to access all functionality including on-demand assessment and on-demand patching.
-- Custom images are not currently supported.
+- Custom images aren't currently supported.
 
 ## Enable automatic VM guest patching
 Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.  
