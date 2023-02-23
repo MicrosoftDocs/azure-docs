@@ -49,9 +49,9 @@ The MedTech service buffers the FHIR Observations resources created during the t
 |Potential issue|Fix|
 |---------------|---|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device mappings haven't been configured.|Configure and save conforming and valid device mappings.|
-|FHIR destination mappings haven't been configured.|Configure and save conforming and valid FHIR destination mappings.|
-|The device message doesn't contain an expected expression defined in the device mappings.|Verify `JsonPath` expressions defined in the device mappings match tokens defined in the device message.|
+|Device mappings haven't been configured.|Configure and save conforming and valid [device mappings](how-to-configure-device-mappings.md).|
+|FHIR destination mappings haven't been configured.|Configure and save conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md).|
+|The device message doesn't contain an expected expression defined in the [device mappings](how-to-configure-device-mappings.md).|Verify `JsonPath` expressions defined in the device mappings match tokens defined in the device message.|
 |A `Device` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Device` resource in the FHIR service. Ensure the `Device` resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A `Patient` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Patient` resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the `Device` resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` resource.| 

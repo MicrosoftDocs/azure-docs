@@ -28,8 +28,8 @@ This property represents the severity of the occurred error. Here's a list of po
 
 |Severity|Description|
 |--------|-----------|
-|Non-blocking|A minor issue exists in the data flow process, but processing of device messages doesn't stop.|
-|Blocking|A major issue exits in the data flow process, and no device messages are expected to process.|
+|Non-blocking|An issue exists in the data flow process, but processing of device messages doesn't stop.|
+|Blocking|An issue exits in the data flow process, and no device messages are expected to process.|
 
 ## Operation being performed by the MedTech service
 
