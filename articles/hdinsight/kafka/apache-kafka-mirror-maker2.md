@@ -119,49 +119,29 @@ This architecture features two clusters in different resource groups and virtual
 
 1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster.  
 
-1. Save the file and we are good with configs.
+1. Save the file and we're good with configs.
 
    ```
    # specify any number of cluster aliases 
-
    clusters = source, destination 
-
    # connection information for each cluster 
-
    # This is a comma separated host:port pairs for each cluster 
-
    # for example. "A_host1:9092, A_host2:9092, A_host3:9092" and you can see the exact host name on Ambari > Hosts 
-
    source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-   kafka.bx.internal.cloudapp.net:9092 
-
    destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092 
-
    # enable and configure individual replication flows 
-
    source->destination.enabled = true  
-
    # regex which defines which topics gets replicated. For eg "foo-.*" 
-
    source->destination.topics = .* 
-
    groups=.* 
-
    topics.blacklist="*.internal,__.*" 
-
    # Setting replication factor of newly created remote topics 
-
    Replication.factor=3 
-
    checkpoints.topic.replication.factor=1 
-
    heartbeats.topic.replication.factor=1 
-
    offset-syncs.topic.replication.factor=1 
-
    offset.storage.replication.factor=1 
-
    status.storage.replication.factor=1 
-
    config.storage.replication.factor=1 
    ```
 
