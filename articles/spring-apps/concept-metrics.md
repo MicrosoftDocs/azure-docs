@@ -43,13 +43,11 @@ For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
-Select **Metrics** in the left navigation pane to access common metrics.
-
-First, select metrics to view:
+Select **Metrics** in the left navigation pane to access common metrics. Select a metric to view from the **Metric** dropdown.
 
 :::image type="content" source="media/metrics/metrics-4.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Metrics page with the Metric dropdown selected.":::
 
-Details of all metrics options can be found in the [section](#user-metrics-options) below.
+See [User metric options](#user-metrics-options) for metric details.
 
 Next, select aggregation type for each metric:
 
