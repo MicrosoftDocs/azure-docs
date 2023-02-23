@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 02/03/2023
+ms.date: 02/22/2023
 ms.author: danlep
 ---
 
@@ -14,9 +14,7 @@ ms.author: danlep
 
 Use the `get-authorization-context` policy to get the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance. 
 
-The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
-
-If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be `https://azure-api.net/authorization-manager`.  
+The policy fetches and stores authorization and refresh tokens from the configured authorization provider.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -70,7 +68,7 @@ class Authorization
 
 ### Usage notes
 
-
+* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#access-policies) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
 
 ## Examples
 

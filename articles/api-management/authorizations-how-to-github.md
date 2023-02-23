@@ -57,7 +57,7 @@ You learn how to:
     |**Provider name**     |  A name of your choice, such as *github-01*       |
     |**Identity provider**     |   Select **GitHub**      |
     |**Grant type**     | Select **Authorization code**        |
-    |**Client id**     |   Paste the value you copied earlier from the app registration      |
+    |**Client ID**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
     |**Scope**     |    For this example, set the scope to *User*      |
     |**Authorization name**    | A name of your choice, such as *github-auth-01*        |
@@ -77,10 +77,12 @@ You learn how to:
 1. After successful authorization, the browser is redirected to API Management and the window is closed. When prompted during redirection, select **Allow access**. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
 
-1. Select **Managed identity** **+ Add members** and then select your subscription. 
-1. In **Managed identity**, select **API Management service**, and then select the API Management instance that is used. Click **Select** and then **Complete**.
- 
-     :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
+1. Select **Managed identity** **+ Add members**
+
+    :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
+1. Select your subscription. In **Managed identity**, select **API Management service**, and then select the API Management instance that is used. 
+1. Click **Select** and then **Complete**.
+
      
 ## Step 4: Create an API in API Management and configure a policy
 

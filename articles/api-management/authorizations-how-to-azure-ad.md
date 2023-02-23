@@ -71,7 +71,7 @@ Create an Azure AD application for the API and give it the appropriate permissio
     |Settings  |Value  |
     |---------|---------|
     |**Provider name**     |  A name of your choice, such as *aad-01*       |
-    |**Identity provider**     |   Select **Azure Active Directory**      |
+    |**Identity provider**     |   Select **Azure Active Directory v1**      |
     |**Grant type**     | Select **Authorization code**        |
     |**Client id**     |   Paste the value you copied earlier from the app registration      |
     |**Client secret**     |    Paste the value you copied earlier from the app registration      |
@@ -91,10 +91,12 @@ Create an Azure AD application for the API and give it the appropriate permissio
 1. On the confirmation page, select **Allow access**.
 1. After successful authorization, the browser is redirected to API Management and the window is closed. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
-1. Select **Managed identity** > **+ Add members** and then select your subscription. 
-1. In **Managed identity**, select **API Management service**, and then select the API Management instance that is used. Click **Select** and then **Complete**.
- 
-     :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
+1. Select **Managed identity** **+ Add members**
+
+    :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
+1. Select your subscription. In **Managed identity**, select **API Management service**, and then select the API Management instance that is used. 
+1. Click **Select** and then **Complete**.
+
 > [!NOTE]
 > If you update your Microsoft Graph permissions after this step, you will have to repeat Steps 2 and 3.
 
