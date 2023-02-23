@@ -23,9 +23,6 @@ Learn how start prototyping and developing machine learning models on an Azure M
 > * Use MLflow to track your model metrics, all from within the notebook.
 
 
-
-
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -73,11 +70,13 @@ If you do have a compute instance, start it if it's not already running.
     from sklearn.model_selection import train_test_split
     ```
 
-## Set up a new environment for prototyping
+## Set up a new environment for prototyping (optional)
 
-In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. To create the new Jupyter kernel your notebook will connect to, you'll use a yaml file that defines the dependencies.
+In order for your script to run, you'll need to be working in an environment configured with the dependencies and libraries the code expects. To create the new Jupyter kernel your notebook will connect to, you'll use a YAML file that defines the dependencies.
 
-### Upload a file
+The code in this tutorial works in the default environment that's on the compute instance. If you wish to skip creating one, skip to [Develop a training script](#develop-a-training-script). Or continue on to learn how to create a new environment, which you might need in the future.
+
+## Upload a file
 
 Upload the yml file you downloaded earlier to your workspace file system. Your files are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
