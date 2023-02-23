@@ -47,7 +47,7 @@ In this section, you create two virtual networks that you connect later using vi
 
     :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
-1. Select **+ Create**. In **Create virtual network**, enter or select the following in the **Basics** tab:
+1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
@@ -68,17 +68,7 @@ In this section, you create two virtual networks that you connect later using vi
     | Subnet name | Enter *mySubnet*. |
     | Subnet address range | Enter *10.1.0.0/24*. |
 
-1. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page. 
-
-1. Under **BastionHost**, select **Enable** and enter the following:
-
-    | Setting | Value |
-    | --- | --- |
-    | Bastion name | Enter *myBastionHost*. |
-    | AzureBastionSubnet address space | Enter *10.0.3.0/24*. |
-    | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
-
-1. Select the **Review + create** tab or select the **Review + create** button.
+1. Select the **Review + create** tab or select the **Review + create** button at the bottom of the page.
 
 1. Review the settings, and then select **Create**. 
 
@@ -101,7 +91,7 @@ If you have a storage account that you want to use, you can skip the following s
 
 1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
-1. Select **+ Create**. In **Create a storage account**, enter or select the following in the **Basics** tab:
+1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
@@ -116,7 +106,7 @@ If you have a storage account that you want to use, you can skip the following s
 
 1. Select the **Networking** tab, or select **Next: Advanced** and then **Next: Networking** button at the bottom of the page.
 
-1. Under **Network connectivity**, select **Disable public access and use private access**.
+1. Under **Network connectivity**, select **Enable public access from all networks**.
 
 1. Select the **Review** tab or select the **Review** button.
 
@@ -128,7 +118,7 @@ If you have a storage account that you want to use, you can skip the following s
 
 1. Select **+ Container**.
 
-1. In **New container**, enter or select the following then select **Create**.
+1. In **New container**, enter or select the following values then select **Create**.
 
     | Setting | Value |
     | --- | --- |
@@ -143,7 +133,7 @@ In this section, you create two VPN gateways that will be used to connect the tw
 
 1. In the search box at the top of the portal, enter *virtual network gateways*. Select **Virtual network gateways** in the search results.
 
-1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following in the **Basics** tab:
+1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
