@@ -113,7 +113,7 @@ ms.author: eur
 | `ms-MY` | Malay (Malaysia) | `ms-MY-OsmanNeural` (Male)<br/>`ms-MY-YasminNeural` (Female) |
 | `mt-MT` | Maltese (Malta) | `mt-MT-GraceNeural`<sup>2</sup> (Female)<br/>`mt-MT-JosephNeural`<sup>2</sup> (Male) |
 | `my-MM` | Burmese (Myanmar) | `my-MM-NilarNeural`<sup>2</sup> (Female)<br/>`my-MM-ThihaNeural`<sup>2</sup> (Male) |
-| `nb-NO` | Norwegian (Bokmål, Norway) | `nb-NO-FinnNeural` (Male)<br/>`nb-NO-IselinNeural` (Female)<br/>`nb-NO-PernilleNeural` (Female) |
+| `nb-NO` | Norwegian Bokmål (Norway) | `nb-NO-FinnNeural` (Male)<br/>`nb-NO-IselinNeural` (Female)<br/>`nb-NO-PernilleNeural` (Female) |
 | `ne-NP` | Nepali (Nepal) | `ne-NP-HemkalaNeural`<sup>2</sup> (Female)<br/>`ne-NP-SagarNeural`<sup>2</sup> (Male) |
 | `nl-BE` | Dutch (Belgium) | `nl-BE-ArnaudNeural` (Male)<br/>`nl-BE-DenaNeural` (Female) |
 | `nl-NL` | Dutch (Netherlands) | `nl-NL-ColetteNeural` (Female)<br/>`nl-NL-FennaNeural`<sup>1</sup> (Female)<br/>`nl-NL-MaartenNeural`<sup>1</sup> (Male) |
