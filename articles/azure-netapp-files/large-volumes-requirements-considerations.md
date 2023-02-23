@@ -23,7 +23,7 @@ This article describes the requirements and considerations you need to be aware 
 
 The large volumes feature for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. 
 
-To enroll in the preview for large volumes, use the sign-up form available at https://aka.ms/anflargevolumespreviewsignup.
+To enroll in the preview for large volumes, use the [large volumes preview sign-up form](https://aka.ms/anflargevolumespreviewsignup).
 
 ## Requirements and considerations
 
