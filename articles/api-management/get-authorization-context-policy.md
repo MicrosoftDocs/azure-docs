@@ -39,9 +39,9 @@ The policy fetches and stores authorization and refresh tokens from the configur
 | provider-id | The authorization provider resource identifier. | Yes | N/A  |
 | authorization-id | The authorization resource identifier. | Yes | N/A  |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes | N/A  |
-| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
-| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If the value is set to `false`, and the `on-error` section in the policy is configured, the error is available in the `context.LastError` property.  | No | `false` |
+| identity-type | Type of identity to check against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
+| identity | An Azure AD JWT bearer token to check against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If you set the value to `false`, and the policy configuration includes an `on-error` section, the error is available in the `context.LastError` property.  | No | `false` |
 
 ### Authorization object
 
