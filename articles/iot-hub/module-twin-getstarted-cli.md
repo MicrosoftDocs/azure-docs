@@ -55,7 +55,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 Next, you must prepare an Azure CLI session. If you're using the Cloud Shell, you run the session in a Cloud Shell tab. If using a local CLI client, you run the session in a CLI instance. 
 
-1. If you're using the Cloud Shell, skip to the next step. Otherwise, run the [az login](/cli/azure/reference-index#az-login) command to sign in to your Azure account.
+1. If you're using the Cloud Shell, skip to the next step. Otherwise, run the [az login](/cli/azure/reference-index#az-login) command in the CLI session to sign in to your Azure account.
 
    If you're using the Cloud Shell, you're automatically signed into your Azure account. All communication between your Azure CLI session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about signing in with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
