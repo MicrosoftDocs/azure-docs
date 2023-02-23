@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 02/15/2023
+ms.date: 02/22/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -17,13 +17,14 @@ ms.date: 02/15/2023
  
 Learn how start prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. This tutorial covers the basics you'll need to get started:
 
-* Set up and configuring the cloud workstation
-* Use cloud-based development environments
-* Use MLflow to track your model metrics
+> [!div class="checklist"]
+> * Set up and configuring the cloud workstation. Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
+> * Use cloud-based development environments.
+> * Use MLflow to track your model metrics, all from within the notebook.
 
-Your cloud workstation is powered by an Azure Machine Learning compute instance, which is pre-configured with environments to support your various model development needs.
 
-You'll also learn how to use MLFlow to track your model metrics, all from within a notebook. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
+
+
 
 ## Prerequisites
 
@@ -138,14 +139,14 @@ Now that you created the kernel, connect the notebook to this kernel to start ru
 
 In the top right kernel selector of the notebook, check to see if the new kernel is listed. If it is, select it. If you don't see it, select the refresh button to load the new kernel, and then select it.
 
-## Execute notebook cells in the new environment
+## Develop a training script
 
-Run a python training script that creates a credit card default prediction, using the prepared test and training datasets based on an [UCI dataset]().
+In this section you'll develop a Python training script that creates a credit card default prediction, using the prepared test and training datasets based on an [UCI dataset]().
 
 This code uses sklearn for training and MLflow for logging the metrics.
 
 1. Run the first cell in the notebook that you created early in the tutorial. This code imports the dependencies that are now installed on your kernel.
-1. Start an MLFlow run, so that you can track the metrics and results.
+1. Add the next code cell to start an MLflow run, so that you can track the metrics and results. With the iterative nature of model development, MLflow helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context when you're ready to move from the development to training phase of your workflows within Azure Machine Learning.
 
     ```python
     # Start Logging
@@ -155,7 +156,7 @@ This code uses sklearn for training and MLflow for logging the metrics.
     mlflow.sklearn.autolog()
     ```
 
-1. Next, load and process the data for this experiment.
+1. Next, load and process the data for this experiment. In this tutorial, you'll read the data from a file on the internet.
 
     ```python
     # load the data
@@ -226,9 +227,9 @@ print(classification_report(y_test, y_pred))
 mlflow.end_run()
 ```
 
-## Clean up notebook
+## Prepare notebook
 
-Once you like the model code, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to do this job for you.  
+Once you like the model code, you're ready to create a Python script from the notebook.  But first, you want to gather together only the cells that are useful for creating your preferred model.  You can look through the notebook and delete cells you don't want in your training script.  Or, you could use the **Gather** function in notebooks to create a new notebook for you with just the cells that you need.  
 
 1. Click on the cell that contains the model you wish to use.  For this tutorial, let's use the second model you created.
 1. On the toolbar that appears on the right at the top of the cell, select the **Gather tool** :::image type="icon" source="media/tutorial-cloud-workstation/gather-tool.png" border="false":::.
@@ -294,5 +295,5 @@ Learn more about:
 This tutorial showed you the early steps of creating a model, prototyping on the same machine where the code resides.  For your production training, learn how to use that training script on more powerful remote compute resources:
 
 > [!div class="nextstepaction"]
-> [Train a model]()
+> [[Train a model](tutorial-train-model.md)
 >

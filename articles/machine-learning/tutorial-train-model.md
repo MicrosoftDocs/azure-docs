@@ -459,7 +459,9 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next Steps
 
-Learn about creating a multistep pipeline for this script 
+This tutorial used an online data file.  To learn more about other ways to access data, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
+
+Now that you have a trained model, you may want to deploy it:
 
 > [!div class="nextstepaction"]
-[Create production ML pipelines in a Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb).
+[Deploy a model as an online endpoint](tutorial-deploy-model.md)
