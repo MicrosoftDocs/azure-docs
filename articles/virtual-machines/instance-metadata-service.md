@@ -66,13 +66,13 @@ The `jq` utility is available in many cases, but not all. If the `jq` utility is
 
 ## Security and authentication
 
-The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
+The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs can only interact with their own metadata/functionality. The API is HTTP only and never leaves the host.
 
 In order to ensure that requests are directly intended for IMDS and prevent unintended or unwanted redirection of requests, requests:
 - **Must** contain the header `Metadata: true`
 - Must **not** contain an `X-Forwarded-For` header
 
-Any request that does not meet **both** of these requirements will be rejected by the service.
+Any request that doesn't meet **both** of these requirements are rejected by the service.
 
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
@@ -370,7 +370,7 @@ Schema breakdown:
 | `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
 | `osType` | Linux or Windows | 2017-04-02
 | `placementGroupId` | [Placement Group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your scale set | 2017-08-01
-| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
+| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it's an Azure Marketplace Image | 2018-04-02
 | `platformUpdateDomain` |  [Update domain](availability.md) the VM is running in | 2017-04-02
 | `platformFaultDomain` | [Fault domain](availability.md) the VM is running in | 2017-04-02
 | `platformSubFaultDomain` | Sub fault domain the VM is running in, if applicable. | 2021-10-01
@@ -392,7 +392,7 @@ Schema breakdown:
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
 | `virtualMachineScaleSet.id` | ID of the [Virtual Machine Scale Set created with flexible orchestration](flexible-virtual-machine-scale-sets.md) the Virtual Machine is part of. This field isn't available for Virtual Machine Scale Sets created with uniform orchestration. | 2021-03-01
-| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. The blog referenced only suits for VMs that have SMBIOS < 2.6. For VMs that have SMBIOS >= 2.6, the UUID from DMI is displayed in little-endian format, thus, there is no requirement to switch bytes. | 2017-04-02
+| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. The blog referenced only suits for VMs that have SMBIOS < 2.6. For VMs that have SMBIOS >= 2.6, the UUID from DMI is displayed in little-endian format, thus, there's no requirement to switch bytes. | 2017-04-02
 | `vmScaleSetName` | [Virtual Machine Scale Set Name](../virtual-machine-scale-sets/overview.md) of your scale set | 2017-12-01
 | `vmSize` | [VM size](sizes.md) | 2017-04-02
 | `zone` | [Availability Zone](../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
@@ -449,9 +449,9 @@ Data | Description | Version introduced |
 | `vhd` | Virtual hard disk | 2019-06-01
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
-†† These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
+†† These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
 
-The encryption settings blob contains data about how the disk is encrypted (if it is encrypted):
+The encryption settings blob contains data about how the disk is encrypted (if it's encrypted):
 
 Data | Description | Version introduced |
 |------|-----------|--------------------|
@@ -462,7 +462,7 @@ Data | Description | Version introduced |
 
 
 The resource disk object contains the size of the [Local Temp Disk](managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
-If there is [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0. 
+If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0. 
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
@@ -1146,7 +1146,7 @@ $attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoPr
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
 
-Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+Verify that the signature is from Microsoft Azure and checks the certificate chain for errors.
 
 ```powershell
 # Get certificate chain
@@ -1287,7 +1287,7 @@ The following table lists samples of calling IMDS by using different languages i
 
 ## Errors and debugging
 
-If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
+If there's a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
 
 | HTTP status code | Reason |
 |------------------|--------|
@@ -1301,7 +1301,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 ## Frequently asked questions
 
-- I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
+- I'm getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
   - IMDS requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to IMDS.
 
 - Why am I not getting compute information for my VM?
@@ -1325,7 +1325,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 - I updated my tags in my scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?
   - Currently tags for scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
 
-- Why am I am not seeing the SKU information for my VM in `instance/compute` details?
+- Why am I'm not seeing the SKU information for my VM in `instance/compute` details?
   - For custom images created from Azure Marketplace, Azure platform doesn't retain the SKU information for the custom image and the details for any VMs created from the custom image. This is by design and hence not surfaced in the VM `instance/compute` details.
 
 - Why is my request timed out for my call to the service?
@@ -1420,11 +1420,11 @@ If there is a data element not found or a malformed request, the Instance Metada
         }
         # Output: ipexample606 True 00-0D-3A-E4-C7-2E
         ```
-    1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
+    1. If they don't match, update the routing table such that the primary NIC/IP are targeted.
 
     ---
 
-- Failover clustering in Windows Server
+- Fail over clustering in Windows Server
   - When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
 
     1. Open a command prompt with administrator privileges.
