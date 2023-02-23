@@ -14,9 +14,9 @@ ms.date: 25/01/2023
 
 Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resource into Azure Monitor Logs. 
 
-Machine learning capabilities help automate and improve the efficiency of data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
+Machine learning capabilities help enhance and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
-Azure Monitor provides built-in machine learning capabilities, as well as tools to create and run your own machine learning. 
+This article describes Azure Monitor's built-in machine learning capabilities and how you can  create and run customized machine learning models. 
 
 ## Write your own machine learning
 
