@@ -21,7 +21,7 @@ Use this article to determine and configure your organization's external collabo
 
 ## Before you begin
 
-This article is number 9 in a series of 10 articles. We recommend you review the artiles in order. Go to the **Next steps** section to see the entire series.
+This article is number 9 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series.
 
 ## External Identities settings and Azure Active Directory
 
