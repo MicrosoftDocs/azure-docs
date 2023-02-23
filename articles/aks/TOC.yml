@@ -225,6 +225,14 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
+        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          href: trusted-access-feature.md
         - name: Connect to cluster nodes
           href: node-access.md
         - name: Create virtual nodes
