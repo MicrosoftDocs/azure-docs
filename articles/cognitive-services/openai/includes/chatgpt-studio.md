@@ -23,7 +23,7 @@ keywords:
 
 Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page select **ChatGPT playground (Preview)**
+From the Azure OpenAI Studio landing page, select **ChatGPT playground (Preview)**
 
 :::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with ChatGPT playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
@@ -41,11 +41,11 @@ You can use the Chatbot setup dropdown to select a few pre-loaded **System messa
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for in-context learning.
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task you are currently performing with the playground.
+At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
-Selecting the **Send** button will send the entered text to the completions API and stream the results back to the text box.
+Selecting the **Send** button sends the entered text to the completions API and stream the results back to the text box.
 
 Select the **Clear chat** button to delete the current conversation history.
 
@@ -53,12 +53,12 @@ Select the **Clear chat** button to delete the current conversation history.
 
 | **Name**            | **Description**   |
 |:--------------------|:-------------------------------------------------------------------------------|
-| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT you need to use the `gpt-3.5` model |
-| Temperature         | Controls randomness. Lowering the temperature means that the model will produce more repetitive and deterministic responses. Increasing the temperature will result in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
-| Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly 4 characters for typical English text.|
-| Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P will narrow the model’s token selection to likelier tokens. Increasing Top P will let the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
-| Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 will include 5 user queries and 5 system responses.|
-| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response will end before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
+| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT, you need to use the `gpt-3.5` model |
+| Temperature         | Controls randomness. Lowering the temperature means that the model produces more repetitive and deterministic responses. Increasing the temperature results in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
+| Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly four characters for typical English text.|
+| Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P narrows the model’s token selection to likelier tokens. Increasing Top P lets the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
+| Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
+| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
 ### Panel configuration
 
@@ -66,10 +66,10 @@ By default there are three panes: chatbot setup, chat session, and parameters. P
 
 ## Start a chat session
 
-1. From the chatbot setup drop-down select **Xbox customer support agent**
-2. You will be prompted asking if you want to update the system message, select **Continue**.
-3. In the chat session pane enter the following question: "I am interested in buying a new Xbox", and select **Send**.
-4. You will receive a response similar to:
+1. From the chatbot setup drop-down, select **Xbox customer support agent**
+2. You'll be prompted asking if you want to update the system message, select **Continue**.
+3. In the chat session pane, enter the following question: "I'm interested in buying a new Xbox", and select **Send**.
+4. You'll receive a response similar to:
 
     :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of a first question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
@@ -77,7 +77,7 @@ By default there are three panes: chatbot setup, chat session, and parameters. P
 
     :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
-6. Now that you have a basic conversation select **View code** from under Chatbot setup and you will have a replay of the code behind the entire conversation so far:
+6. Now that you have a basic conversation select **View code** from under Chatbot setup and you'll have a replay of the code behind the entire conversation so far:
 
 ```python
 #Note: The openai-python library support for Azure OpenAI is in preview.
@@ -102,7 +102,7 @@ response = openai.Completion.create(
 
 ### Understanding the prompt structure
 
-ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message which can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
+ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
 
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
 
@@ -110,7 +110,7 @@ The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introducti
 
 ## Clean up resources
 
-Once you are done with testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done with testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
