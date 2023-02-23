@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 02/22/2023
 ---
 # How to model relational SQL data for import and indexing in Azure Cognitive Search
 
@@ -27,10 +27,10 @@ SELECT * FROM Hotels$
 INNER JOIN Rooms$
 ON Rooms$.HotelID = Hotels$.HotelID
 ```
+
 Results from this query return all of the Hotel fields, followed by all Room fields, with preliminary hotel information repeating for each room value.
 
    ![Denormalized data, redundant hotel data when room fields are added](media/index-sql-relational-data/denormalize-data-query.png "Denormalized data, redundant hotel data when room fields are added")
-
 
 While this query succeeds on the surface (providing all of the data in a flat row set), it fails in delivering the right document structure for the expected search experience. During indexing, Azure Cognitive Search will create one search document for each row ingested. If your search documents looked like the above results, you would have perceived duplicates - seven separate documents for the Twin Dome hotel alone. A query on "hotels in Florida" would return seven results for just the Twin Dome hotel, pushing other relevant hotels deep into the search results.
 
@@ -117,8 +117,9 @@ The following example is similar to the example in [How to model complex data ty
     { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
     { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
     { "name": "Description_fr", "type": "Edm.String", "searchable": true, "analyzer": "fr.lucene" },
-    { "name": "Category", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "Category", "type": "Edm.String", "searchable": true, "filterable": true, "facetable": true },
     { "name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": true, "facetable": true },
+    { "name": "Tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, "facetable": true },
     { "name": "Address", "type": "Edm.ComplexType",
       "fields": [
         { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
@@ -132,9 +133,9 @@ The following example is similar to the example in [How to model complex data ty
         { "name": "Description_fr", "type": "Edm.String", "searchable": true, "analyzer": "fr.lucene" },
         { "name": "Type", "type": "Edm.String", "searchable": true },
         { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true },
-        { "name": "BedOptions", "type": "Edm.String", "searchable": true, "filterable": true, "facetable": true },
+        { "name": "BedOptions", "type": "Edm.String", "searchable": true, "filterable": true, "facetable": false },
         { "name": "SleepsCount", "type": "Edm.Int32", "filterable": true, "facetable": true },
-        { "name": "SmokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true },
+        { "name": "SmokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": false},
         { "name": "Tags", "type": "Edm.Collection", "searchable": true }
       ]
     }
@@ -143,6 +144,14 @@ The following example is similar to the example in [How to model complex data ty
 ```
 
 Given the previous result set and the above index schema, you have all the required components for a successful indexing operation. The flattened data set meets indexing requirements yet preserves detail information. In the Azure Cognitive Search index, search results will fall easily into hotel-based entities, while preserving the context of individual rooms and their attributes.
+
+## Facet behavior on complex type subfields
+
+Fields that have a parent, such as the fields under Address and Rooms, are called *subfields*. Although you can assign a "facetable" attribute to a subfield, the count of the facet will always be for the main document.
+
+For complex types like Address, where there is just one "Address/City" or "Address/stateProvince" in the document, the facet behavior works as expected. However, in the case of Rooms, where there are multiple subdocuments for each main document, the facet counts can be misleading.
+
+As noted in [Model complex types](search-howto-complex-data-types): "the document counts returned in the facet results are calculated for the parent document (a hotel), not the sub-documents in a complex collection (rooms). For example, suppose a hotel has 20 rooms of type "suite". Given this facet parameter facet=Rooms/Type, the facet count will be one for the hotel, not 20 for the rooms."
 
 ## Next steps
 

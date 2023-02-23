@@ -152,6 +152,12 @@ Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in me
    az account show
    ```
 
+   Change the subscription if it's not the right one:
+
+   ```azurecli
+   az account set --subscription {{Azure PaaS subscription ID}}
+   ```
+
 1. Create a bearer token, and then copy the entire token (everything between the quotation marks).
 
    ```azurecli
