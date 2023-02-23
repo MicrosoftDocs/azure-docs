@@ -14,7 +14,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Convert local guest accounts to Azure Active Directory B2B guest accounts
+# Convert local guest accounts to Azure Active Directory B2B guest accounts 
 
 With Azure Active Directory (Azure AD B2B), external users collaborate with their identities. Although organizations can issue local usernames and passwords to external users, this approach isn't recommended. Azure AD B2B has improved security, lower cost, and less complexity, compared to creating local accounts. In addition, if your organization issues local credentials that external users manage, you can use Azure AD B2B instead. Use the guidance in this document to make the transition.
 
