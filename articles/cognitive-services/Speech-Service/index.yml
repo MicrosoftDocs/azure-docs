@@ -123,8 +123,8 @@ conceptualContent:
           text: Recognize speech, intents, and entities
           url: intent-recognition.md
         - itemType: how-to-guide
-          text: Recognize speech intents with LUIS
-          url: get-started-intent-recognition.md
+          text: Recognize speech intents with CLU
+          url: get-started-intent-recognition-clu.md
         - itemType: how-to-guide
           text: Recognize speech intents with simple pattern matching
           url: how-to-use-simple-language-pattern-matching.md
