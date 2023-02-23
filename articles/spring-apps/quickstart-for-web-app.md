@@ -114,8 +114,6 @@ Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
 Do you want to enable access for all IPs  (y/n): n
 ```
 
-A CLI prompt asks if you want to enable access to your IP. Enter `n` to confirm.
-
 ### 4. Connect app instance to PostgreSQL instance
 
 After app instance and the PostgreSQL instance been created, the app instance can not access the PostgreSQL instance directly. Some network settings and connection information should be configured. [Service Connector](/azure/service-connector/overview) is used to help do this work.
