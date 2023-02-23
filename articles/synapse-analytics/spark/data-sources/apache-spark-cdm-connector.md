@@ -64,7 +64,7 @@ Entity partitions can be in a mix of formats (for example, CSV and Parquet). All
 
 When the connector reads CSV data, it uses the Spark `failfast` option by default. If the number of columns isn't equal to the number of attributes in the entity, the connector returns an error.
 
-Alternatively, as of 0.19, the connector supports permissive mode (only for CSV files). With permissive mode, when a CSV row has a lower number of columns than the entity schema, the connector assigns null values for the missing columns. When a CSV row has more columns than the entity schema, the columns greater than the entity schema column count will be truncated to the schema column count. Usage is as follows:
+Alternatively, as of 0.19, the connector supports permissive mode (only for CSV files). With permissive mode, when a CSV row has a lower number of columns than the entity schema, the connector assigns null values for the missing columns. When a CSV row has more columns than the entity schema, the columns greater than the entity schema column count are truncated to the schema column count. Usage is as follows:
 
 ```scala
 .option("entity", "permissive") or .option("mode", "failfast")
@@ -94,7 +94,7 @@ The connector supports two writing modes:
 
 ## Common Data Model alias integration
 
-Common Data Model definition files use aliases in import statements to simplify the import statements and allow the location of the imported content to be late bound at execution time. Using aliases:
+Common Data Model definition files use aliases in import statements to simplify the import statements and allow the location of the imported content to be late bound at runtime. Using aliases:
 
 * Facilitates easy organization of Common Data Model files so that related Common Data Model definitions can be grouped together at different locations.
 * Allows Common Data Model content to be accessed from different deployed locations at runtime.
@@ -173,7 +173,7 @@ The following options identify the logical entity definition for the entity that
 |`entityDefinitionPath`|The location of the entity. It's the file path to the Common Data Model definition file relative to the model root, including the name of the entity in that file.|`<folderPath>/<entityName>.cdm.json/<entityName>`<br/>`"sales/customer.cdm.json/customer"`|
 `configPath`| The container and folder path to a *config.json* file that contains the adapter configurations for all aliases included in the entity definition file and any directly or indirectly referenced Common Data Model files. <br/><br/>This option is not required if *config.json* is in the model root folder.| `<container><folderPath>`|
 |`useCdmStandardModelRoot` | Indicates that the model root is located at [https://cdm-schema.microsoft.com/CDM/logical/](https://github.com/microsoft/CDM/tree/master/schemaDocuments). Used to reference entity types defined in the Common Data Model CDN. Overrides `entityDefinitionStorage` and `entityDefinitionModelRoot` (if specified).<br/>| `"useCdmStandardModelRoot"` |
-|`cdmSource`|Defines how the `cdm` alias (if it's present in Common Data Model definition files) is resolved. If you use this option, it overrides any `cdm` adapter specified in the *config.json* file. Values are `builtin` or `referenced`. The default value is `referenced`.<br/><br/> If you set this option to `referenced`, the connector uses the latest published standard Common Data Model definitions at `https://cdm-schema.microsoft.com/logical/`. If you set this option to `builtin`, the connector uses the Common Data Model base definitions built in to the Common Data Model object model that the connector is using. <br/><br/> Note: <br/> * The Spark CDM connector might not be using the latest Common Data Model SDK, so it might not contain the latest published standard definitions. <br/> * The built-in definitions include only the top-level Common Data Model content, such as *foundations.cdm.json* or *primitives.cdm.json*. If you want to use lower-level standard Common Data Model definitions, either use `referenced` or include a `cdm` adapter in *config.json*.| `"builtin"\|"referenced"` |
+|`cdmSource`|Defines how the `cdm` alias (if it's present in Common Data Model definition files) is resolved. If you use this option, it overrides any `cdm` adapter specified in the *config.json* file. Values are `builtin` or `referenced`. The default value is `referenced`.<br/><br/> If you set this option to `referenced`, the connector uses the latest published standard Common Data Model definitions at `https://cdm-schema.microsoft.com/logical/`. If you set this option to `builtin`, the connector uses the Common Data Model base definitions built in to the Common Data Model object model that the connector is using. <br/><br/> Note: <br/> * The Spark CDM connector might not be using the latest Common Data Model SDK, so it might not contain the latest published standard definitions. <br/> * The built-in definitions include only the top-level Common Data Model content, such as *foundations.cdm.json* or *primitives.cdm.json*. If you want to use lower-level standard Common Data Model definitions, either use `referenced` or include a `cdm` adapter in *config.json*.| `"builtin"|"referenced"` |
 
 In the preceding example, the full path to the customer entity definition object is `https://myAccount.dfs.core.windows.net/models/crm/core/sales/customer.cdm.json/customer`. In that path, *models* is the container in Azure Data Lake Storage.
 
@@ -191,11 +191,11 @@ You can use the following options to change folder organization and file format.
 
 |**Option**  |**Description**  |**Pattern or example usage**  |
 |---------|---------|:---------:|
-|`useSubManifest`|If `true`, causes the target entity to be included in the root manifest via a submanifest. The submanifest and the entity definition are written into an entity folder beneath the root. Default is `false`.|`"true"\|"false"` |
-|`format`|Defines the file format. Current supported file formats are CSV and Parquet. Default is `csv`.|`"csv"\|"parquet"` <br/> |
-|`delimiter`|CSV only. Defines the delimiter that you're using. Default is comma. | `"\|"` |
-|`columnHeaders`| CSV only. If `true`, adds a first row to data files with column headers. Default is `true`.|`"true"\|"false"`|
-|`compression`|Write only. Parquet only. Defines the compression format that you're using. Default is `snappy`. |`"uncompressed" \| "snappy" \| "gzip" \| "lzo"` |
+|`useSubManifest`|If `true`, causes the target entity to be included in the root manifest via a submanifest. The submanifest and the entity definition are written into an entity folder beneath the root. Default is `false`.|`"true"|"false"` |
+|`format`|Defines the file format. Current supported file formats are CSV and Parquet. Default is `csv`.|`"csv"|"parquet"` <br/> |
+|`delimiter`|CSV only. Defines the delimiter that you're using. Default is comma. | `"|"` |
+|`columnHeaders`| CSV only. If `true`, adds a first row to data files with column headers. Default is `true`.|`"true"|"false"`|
+|`compression`|Write only. Parquet only. Defines the compression format that you're using. Default is `snappy`. |`"uncompressed" | "snappy" | "gzip" | "lzo"` |
 |`dataFolderFormat`|Allows a user-definable data folder structure within an entity folder. Allows you to substitute date and time values into folder names by using `DateTimeFormatter` formatting. Non-formatter content must be enclosed in single quotation marks. Default format is `"yyyy"-"MM"-"dd"`, which produces folder names like *2020-07-30*.| `year "yyyy" / month "MM"` <br/> `"Data"`|
 
 ### Save mode
@@ -208,7 +208,7 @@ The save mode specifies how the connector handles existing entity data in the Co
 |`SaveMode.Append` |Appends data that's being written in new partitions alongside the existing partitions.<br/><br/>This mode doesn't support changing the schema. If the schema of the data that's being written is incompatible with the existing entity definition, the connector throws an error.|
 |`SaveMode.ErrorIfExists`|Returns an error if partitions already exist.|
 
-For details of how data files are named and organized on write, see the [Folder and file naming and organization](#folder-and-file-naming-and-organization) section later in this article.
+For details of how data files are named and organized on write, see the [Folder and file naming and organization](#naming-and-organization-of-folders-and-files) section later in this article.
 
 ## Authentication
 
@@ -356,7 +356,7 @@ The connector interprets Common Data Model `DateTime` data type values as UTC. I
 
 Common Data Model `DateTimeOffset` values intended for recording local time instants are handled differently in Spark and Parquet from CSV. CSV and other formats can express a local time instant as a structure that comprises a datetime, such as `2020-03-13 09:49:00-08:00`. Parquet and Spark don't support such structures. Instead, they use a `TIMESTAMP` data type that allows an instant to be recorded in UTC (or in an unspecified time zone).
 
-The Spark CDM connector converts a `DateTimeOffset` value in CSV to a UTC time stamp. This value is persisted as a time stamp in Parquet. If the value is subsequently persisted to CSV, it will be serialized as a `DateTimeOffset` value with a +00:00 offset. There's no loss of temporal accuracy. The serialized values represent the same instant as the original values, although the offset is lost.
+The Spark CDM connector converts a `DateTimeOffset` value in CSV to a UTC time stamp. This value is persisted as a time stamp in Parquet. If the value is later persisted to CSV, it will be serialized as a `DateTimeOffset` value with a +00:00 offset. There's no loss of temporal accuracy. The serialized values represent the same instant as the original values, although the offset is lost.
 
 Spark systems use their system time as the baseline and normally express time by using that local time. UTC times can always be computed through application of the local system offset. For Azure systems in all regions, the system time is always UTC, so all timestamp values are normally in UTC. When you're using an implicit write, where a Common Data Model definition is derived from a DataFrame, timestamp columns are translated to attributes with the Common Data Model DateTime data type, which implies a UTC time.
 
