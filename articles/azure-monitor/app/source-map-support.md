@@ -74,8 +74,9 @@ Any user on the portal who uses this feature must be assigned at least as a [Sto
 ### Source map not found
 
 1. Verify that the corresponding source map is uploaded to the correct blob container.
-1. Verify that the source map file is named after the JavaScript file it maps to and uses the suffix `.map`:
-    - For example, `/static/js/main.4e2ca5fa.chunk.js` searches for the blob named `main.4e2ca5fa.chunk.js.map`.
+1. Verify that the source map file is named after the JavaScript file it maps to and uses the suffix `.map`.
+   
+   For example, `/static/js/main.4e2ca5fa.chunk.js` searches for the blob named `main.4e2ca5fa.chunk.js.map`.
 1. Check your browser's console to see if any errors were logged. Include this information in any support ticket.
 
 ## Next steps
