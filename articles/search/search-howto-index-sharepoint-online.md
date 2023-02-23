@@ -483,7 +483,7 @@ These are the considerations when using this feature:
 
 + Since changing file metadata or content in SharePoint will trigger document processing, when [AI enrichment](cognitive-search-concept-intro.md) is configured, consider using [Incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md) so skill re-processing is avoided, while the cache is valid.
 
-+ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](../../microsoftgraph/microsoft-graph-docs/blob/main/concepts/data-connect-concept-overview.md) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](../../microsoftgraph/microsoft-graph-docs/blob/main/concepts/use-the-api.md) for incremental indexing.
++ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](https://learn.microsoft.com/graph/data-connect-concept-overview) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](https://learn.microsoft.com/graph/use-the-api) for incremental indexing.
 
 
 
