@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: eur
-zone_pivot_groups: programming-languages-speech-services
+zone_pivot_groups: programming-languages-set-thirteen
 keywords: intent recognition
 ---
 
@@ -26,34 +26,6 @@ keywords: intent recognition
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java include](includes/quickstarts/intent-recognition-clu/java.md)]
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript include](includes/quickstarts/intent-recognition-clu/javascript.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](includes/quickstarts/intent-recognition-clu/python.md)]
-::: zone-end
-
-::: zone pivot="programming-language-go"
-[!INCLUDE [Go include](includes/quickstarts/intent-recognition-clu/go.md)]
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [Objective-C include](includes/quickstarts/intent-recognition-clu/objectivec.md)]
-::: zone-end
-
-::: zone pivot="programming-language-swift"
-[!INCLUDE [Swift include](includes/quickstarts/intent-recognition-clu/swift.md)]
-::: zone-end
-
-::: zone pivot="programming-language-rest"
-[!INCLUDE [REST include](includes/quickstarts/intent-recognition-clu/rest.md)]
-::: zone-end
-
-::: zone pivot="programming-language-cli"
-[!INCLUDE [CLI include](includes/quickstarts/intent-recognition-clu/cli.md)]
 ::: zone-end
 
 ## Next steps

@@ -23,7 +23,9 @@ Use pattern matching if:
 * You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](../LUIS/index.yml).
 * You don't have access to a CLU model, but still want intents. 
 
-For more information, see the [pattern matching overview](./pattern-matching-overview.md).
+For more information, see the [pattern matching concepts](./pattern-matching-overview.md) and then:
+* Start with [simple pattern matching](how-to-use-simple-language-pattern-matching.md).
+* Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
 
 ## Conversational Language Understanding
 
@@ -31,7 +33,7 @@ Conversational language understanding (CLU) enables users to build custom natura
 
 Both a Speech resource and Language resource are required to use CLU with the Speech SDK. The Speech resource is used to transcribe the user's speech into text, and the Language resource is used to recognize the intent of the utterance. To get started, see the [quickstart](get-started-intent-recognition-clu.md).
 
-For information about how to use conversational language understanding without the Speech SDK, see the [Language service documentation](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
+For information about how to use conversational language understanding without the Speech SDK and without speech recognition, see the [Language service documentation](/azure/cognitive-services/language-service/conversational-language-understanding/overview).
 
 > [!IMPORTANT]
 > LUIS will be retired on October 1st 2025 and starting April 1st 2023 you will not be able to create new LUIS resources. We recommend [migrating your LUIS applications](/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis) to [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) to benefit from continued product support and multilingual capabilities.
