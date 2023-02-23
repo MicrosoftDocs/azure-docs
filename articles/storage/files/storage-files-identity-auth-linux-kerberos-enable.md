@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -186,8 +186,8 @@ fi
 1. Make sure that you're able to ping the domain server by the domain name.
 
 ```bash
-localadmin@contosovm:~$ ping aadintcanary.contoso.com
-PING aadintcanary.contoso.com (10.0.2.4) 56(84) bytes of data.
+localadmin@contosovm:~$ ping contosodomain.contoso.com
+PING contosodomain.contoso.com (10.0.2.4) 56(84) bytes of data.
 64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=1 ttl=128 time=1.41 ms
 64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=2 ttl=128 time=1.02 ms
 64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=3 ttl=128 time=0.740 ms
@@ -195,7 +195,7 @@ PING aadintcanary.contoso.com (10.0.2.4) 56(84) bytes of data.
 
 ^C 
 
---- aadintcanary.contoso.com ping statistics ---
+--- contosodomain.contoso.com ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss, time 3016ms
 rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms 
 ```
@@ -205,14 +205,14 @@ rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms
 ```bash
 localadmin@contosovm:~$ nslookup
 > set type=SRV
-> _ldap._tcp.aadintcanary.contoso.com.
+> _ldap._tcp.contosodomain.contoso.com.
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
 Non-authoritative answer: 
 
-_ldap._tcp.aadintcanary.contoso.com service = 0 100 389 pwe-oqarc11l568.aadintcanary.contoso.com.
-_ldap._tcp.aadintcanary.contoso.com service = 0 100 389 hxt4yo--jb9q529.aadintcanary.contoso.com. 
+_ldap._tcp.contosodomain.contoso.com service = 0 100 389 pwe-oqarc11l568.contosodomain.contoso.com.
+_ldap._tcp.contosodomain.contoso.com service = 0 100 389 hxt4yo--jb9q529.contosodomain.contoso.com. 
 ```
 
 ### Set up hostname and fully qualified domain name (FQDN)
@@ -220,26 +220,26 @@ _ldap._tcp.aadintcanary.contoso.com service = 0 100 389 hxt4yo--jb9q529.aadintca
 1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter much for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
 ```bash
-127.0.0.1       contosovm.aadintcanary.contoso.com contosovm
+127.0.0.1       contosovm.contosodomain.contoso.com contosovm
 #cmd=sudo vim /etc/hosts   
-#then enter this value instead of localhost "ubuntvm.aadintcanary.contoso.com UbuntuVM" 
+#then enter this value instead of localhost "ubuntvm.contosodomain.contoso.com UbuntuVM" 
 ```
 
 2. Now, your hostname should resolve. You can ignore the IP address it resolves to for now. The short hostname should resolve to the FQDN.
 
 ```bash
 localadmin@contosovm:~$ getent hosts contosovm
-127.0.0.1       contosovm.aadintcanary.contoso.com contosovm
+127.0.0.1       contosovm.contosodomain.contoso.com contosovm
 localadmin@contosovm:~$ dnsdomainname
-aadintcanary.contoso.com
+contosodomain.contoso.com
 localadmin@contosovm:~$ hostname -f
-contosovm.aadintcanary.contoso.com 
+contosovm.contosodomain.contoso.com 
 ```
 
 > [!Note]
 > Some distros require you to run the `hostnamectl` command in order for hostname -f to be updated:
 > 
-> `hostnamectl set-hostname contosovm.aadintcanary.contoso.com`
+> `hostnamectl set-hostname contosovm.contosodomain.contoso.com`
 
 ### Set up krb5.conf
 
@@ -250,7 +250,7 @@ contosovm.aadintcanary.contoso.com
 
 localadmin@contosovm:~$ cat /etc/krb5.conf
 [libdefaults]
-        default_realm = AADINTCANARY.CONTOSO.COM
+        default_realm = CONTOSODOMAIN.CONTOSO.COM
         dns_lookup_realm = false
         dns_lookup_kdc = true
 ```
@@ -272,9 +272,9 @@ localadmin@contosovm:~$ sudo smbd -b | grep "CONFIGFILE"
 ```bash
 localadmin@contosovm:~$ cat /etc/samba/smb.conf
 [global]
-   workgroup = AADINTCANARY
+   workgroup = CONTOSODOMAIN
    security = ADS
-   realm = AADINTCANARY.CONTOSO.COM
+   realm = CONTOSODOMAIN.CONTOSO.COM
 
    winbind refresh tickets = Yes
    vfs objects = acl_xattr
@@ -297,8 +297,8 @@ localadmin@contosovm:~$ cat /etc/samba/smb.conf
    idmap config * : backend = tdb
    idmap config * : range = 3000-7999
 
-   idmap config AADINTCANARY : backend = rid
-   idmap config AADINTCANARY : range = 10000-999999
+   idmap config CONTOSODOMAIN : backend = rid
+   idmap config CONTOSODOMAIN : range = 10000-999999
 
    template shell = /bin/bash
    template homedir = /home/%U 
@@ -318,18 +318,18 @@ localadmin@contosovm:~$ sudo smbcontrol all reload-config
 localadmin@contosovm:~$ sudo net ads join -U contososmbadmin    # user  - garead
 
 Enter contososmbadmin's password:
-Using short domain name -- AADINTCANARY
-Joined 'CONTOSOVM' to dns domain 'aadintcanary.contoso.com' 
+Using short domain name -- CONTOSODOMAIN
+Joined 'CONTOSOVM' to dns domain 'contosodomain.contoso.com' 
 ```
 
 2. Make sure that the DNS record exists for this host on the domain server.
 
 ```bash
-localadmin@contosovm:~$ nslookup contosovm.aadintcanary.contoso.com 10.0.2.5
+localadmin@contosovm:~$ nslookup contosovm.contosodomain.contoso.com 10.0.2.5
 Server:         10.0.2.5
 Address:        10.0.2.5#53
 
-Name:   contosovm.aadintcanary.contoso.com
+Name:   contosovm.contosodomain.contoso.com
 Address: 10.0.0.8
 ```
 
@@ -427,7 +427,7 @@ nslookup <clientname> <dnsserver>
 Next, use the `klist` command to view the tickets in the Kerberos cache. There should be an entry beginning with `krbtgt` that looks similar to:
 
 ```bash
-krbtgt/AADINTCANARY.CONTOSO.COM@AADINTCANARY.CONTOSO.COM
+krbtgt/CONTOSODOMAIN.CONTOSO.COM@CONTOSODOMAIN.CONTOSO.COM
 ```
 
 If you didn't [configure PAM for winbind](#configure-pam-for-winbind), `klist` might not show the ticket entry. In this case, you can manually authenticate the user to get the tickets:
@@ -456,7 +456,9 @@ Before you mount the share, you need to choose one of the following three access
 
 After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined your Linux VM, you can mount the file share. The mount options differ somewhat depending on the [access control model](#choose-an-access-control-model) you're using. These mount options are specific to Linux clients connecting to an Azure file share. Your scenario could span multiple use cases, in which case you can merge the mount options.
 
-The following are base mount options for all access control models: `nosharesock,mfsymlinks,sec=krb5`
+For detailed mounting instructions, see [Mount the Azure file share on-demand with mount](storage-how-to-use-files-linux.md?tabs=smb311#mount-the-azure-file-share-on-demand-with-mount).
+
+Use the following additional mount option with all access control models to enable Kerberos security: `sec=krb5`
 
 ### Other mount options
 
