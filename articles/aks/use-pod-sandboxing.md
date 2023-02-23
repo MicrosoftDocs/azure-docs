@@ -19,11 +19,11 @@ This article helps you understand this new feature, and how to implement it.
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later to select the [Mariner operating system][mariner-cluster-config] generation 2 SKU.
 
-- The `KataVMIsolationPreview` feature is registered in your Azure subscription.
+- Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
-- Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported.
+- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher.
 
-- To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
+- To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
 ### Install the aks-preview Azure CLI extension
 
@@ -73,11 +73,11 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 * [Kata][kata-network-limitations] host-network isn't supported.
 
-* [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] aren't supported in the preview release.
+* AKS does not support [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] in this preview release.
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod and doesn't share them with other Kata Containers or namespace containers running on the same host.
 
 The solution architecture is based on the following components:
 
@@ -87,11 +87,11 @@ The solution architecture is based on the following components:
 * Open-source [Cloud-Hypervisor][cloud-hypervisor] Virtual Machine Monitor (VMM)
 * Integration with [Kata Container][kata-container] framework
 
-Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
+Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that you can define in the pod template.
 
-For a pod to use this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
+To use this feature with a pod, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
 
-When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is one core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use one + xCPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2 GB + yMemory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
+When a pod uses the *kata-mshv-vm-isolation* runtimeClass, it creates a VM to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is one core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When you specify a limit for CPU or memory in the container resource manifest, the VM has `containers[].resources.limits.cpu` with the `1` argument to use *one + xCPU*, and `containers[].resources.limits.memory` with the `2` argument to specify *2 GB + yMemory*. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
@@ -99,7 +99,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--workload-runtime**: Specify *KataMshvVmIsolation* to enable the Pod Sandboxing feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -134,7 +134,7 @@ Use the following command to enable Pod Sandboxing (preview) by creating a node 
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified to enable the Pod Sandboxing feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters are required. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+   * **--workload-runtime**: Specify *KataMshvVmIsolation* to enable the Pod Sandboxing feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
      * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
      * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -215,7 +215,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify Kernel Isolation configuration
 
-1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example you're accessing the container inside the *untrusted* pod.
+1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command. In this example, you're accessing the container inside the *untrusted* pod.
 
     ```bash
     kubectl exec -it untrusted -- /bin/bash
@@ -223,7 +223,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a pod sandbox that has a different kernel version compared to the *trusted* container outside the sandbox.
+2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a pod sandbox. You'll notice that it has a different kernel version compared to the *trusted* container outside the sandbox.
 
    To see the kernel version run the following command:
 
@@ -257,7 +257,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Cleanup
 
-If you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
+When you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
 ```azurecli
 az aks delete --resource-group myResourceGroup --name myAKSCluster
