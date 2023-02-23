@@ -61,7 +61,7 @@ Created repositories:
 ---------------------------------
 Created AKS clusters in kalypso-rg resource group:
   - control-plane
-  - drone (Azure Arc Flux based workload cluster)
+  - drone (Flux based workload cluster)
   - large (ArgoCD based workload cluster)
 ---------------------------------  
 ```
@@ -354,7 +354,7 @@ Once we have approved and merged the PR to the `Platform GitOps` repository, the
 
 :::image type="content" source="media/tutorial-workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
 
-The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository that waits until all Azure Arc-enabled clusters looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
+The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository that waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed, that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
 
 :::image type="content" source="media/tutorial-workload-management/checkpromote-to-dev.png" alt-text="Screenshot showing promotion to dev.":::
 
@@ -400,7 +400,7 @@ The policy states that all deployment targets from the `kaizen-app-team` workspa
 
 Pushing this policy to the `stage` branch triggers the scheduling process, which creates a PR with the assignment manifests to the `Platform GitOps` repository, similar to those for the `Dev` environment.
 
-As in the case with the `Dev` environment, after reviewing and merging the PR to the `Platform GitOps` repository, the `checkpromote` workflow in the `control plane` repository waits until Azure Arc-enabled clusters with Flux (`drone`) reconcile the assignment manifests.
+As in the case with the `Dev` environment, after reviewing and merging the PR to the `Platform GitOps` repository, the `checkpromote` workflow in the `control plane` repository waits until clusters with the [GitOps extension](conceptual-gitops-flux2.md) (`drone`) reconcile the assignment manifests.
 
  :::image type="content" source="media/tutorial-workload-management/check-promote-to-stage.png" alt-text="Screenshot showing promotion to stage.":::
 
