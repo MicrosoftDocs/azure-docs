@@ -1741,7 +1741,7 @@ This issue can happen when you haven't specified any targets and no makefile is 
 ## *Docker push issues*
 ### Failed to store Docker image
 <!--issueDescription-->
-This issue can happen when a Docker image push to a container registry fails.  
+This issue can happen when there's a failure in pushing a Docker image to a container registry.  
 
 **Potential causes:**
 * A transient issue has occurred with the ACR associated with the workspace
