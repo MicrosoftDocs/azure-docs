@@ -46,12 +46,12 @@ This release includes our first 3 recommendations:
 
 - Convert from per-user MFA to Conditional Access MFA
 - Migration applications from AD FS to AAD
-- Minimize MFA prompts from known devices.
+- Minimize MFA prompts from known devices
 
 
 For more information, see: 
 
-- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md).
+- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md)
 - [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
 
 ---
@@ -79,7 +79,7 @@ For more information Microsoft cloud settings for B2B collaboration, see: [Micro
 **Service category:** Group Management                  
 **Product capability:** End User Experiences            
 
-A new and improved My Groups experience is now available at myaccount.microsoft.com/groups. This experience replaces the existing My Groups experience at mygroups.microsoft.com in May. For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
+A new and improved My Groups experience is now available at [myaccount.microsoft.com/groups](https://myaccount.microsoft.com/groups). This experience replaces the existing My Groups experience at [mygroups.microsoft.com](https://mygroups.microsoft.com) in May. For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
 
 
 ---
