@@ -27,7 +27,7 @@ Learn more:
 
 ## Before you begin
 
-This article is number 6 in a series of 10 articles. We recommend you review the artiles in order. Go to the **Next steps** section to see the entire series. 
+This article is number 6 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Enable entitlement management
 
