@@ -1,7 +1,6 @@
 ---
 title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
-services: container-service
 author: miwithro
 ms.topic: conceptual
 ms.date: 02/22/2023

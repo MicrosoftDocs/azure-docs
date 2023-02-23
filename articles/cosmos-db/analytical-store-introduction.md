@@ -271,12 +271,12 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
-##### Representation challenges Workaround
+##### Representation challenges workarounds
 
-Currently the base schema can't be reset and It is possible that an old document, with an incorrect schema, was used to create that base schema. To delete or update the problematic documents won't help. The possible solutions are:
+It is possible that an old document, with an incorrect schema, was used to create your container's analytical store base schema. Based on all the rules presented above, you may be receiving `NULL` for certain properties when querying your analytical store using Azure Synapse Link. To delete or update the problematic documents won't help because base schema reset isn't currently supported. The possible solutions are:
 
  * To migrate the data to a new container, making sure that all documents have the correct schema.
- * To abandon the property with the wrong schema and add a new one, with another name, that has the correct datatypes. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have **NULL**. You can add the **status2** property to all documents and start to use it, instead of the original property.
+ * To abandon the property with the wrong schema and add a new one, with another name, that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
 
 #### Full fidelity schema representation
 
