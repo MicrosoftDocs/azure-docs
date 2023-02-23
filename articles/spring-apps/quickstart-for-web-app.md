@@ -187,40 +187,7 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```
 
 ## Deploy the app to Azure Spring Apps
-1. Now the cloud environment is ready. Let's update `web/pom.xml` to make the app can connect Azure Database for PostgreSQL. Firstly, `h2` is not used anymore, delete it to make less confusing.
-    ```xml
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    ```
-    Secondly, `spring-cloud-azure-starter-jdbc-postgresql` dependency is necessary for passwordless connection. Let's add it:
-    ```xml
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
-    </dependency>
-    ```
-    Then specify `spring-cloud-azure-starter-jdbc-postgresql`'s version by adding `spring-cloud-azure-dependencies` like this:
-    ```xml
-    <dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>com.azure.spring</groupId>
-          <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.6.0</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-      </dependencies>
-    </dependencyManagement>
-    ```
-2. Package the app by this command:
-    ```shell
-    ./mvnw clean package -DskipTests -f ./web/pom.xml
-    ```
-3. Deploy the app by this command:
+1. Now the cloud environment is ready. Deploy the app by this command:
     ```azurecli-interactive
     az spring app deploy \
         --resource-group <name-of-resource-group> \
@@ -228,8 +195,8 @@ After app instance and the PostgreSQL instance been created, the app instance ca
         --name <name-of-app> \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-4. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
-5. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
+2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
+3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
         --resource-group <name-of-resource-group> \
