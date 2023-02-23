@@ -111,6 +111,8 @@
       href: batch-certificate-migration-guide.md
     - name: Pools without public IP addresses (classic)
       href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
+    - name: Classic Compute Node Communication Model
+      href: classic-compute-node-communication-model-retirement-migration-guide.md
     - name: TLS 1.0 and TLS 1.1
       href: batch-tls-101-migration-guide.md
     - name: Job and pool lifetime statistics
