@@ -19,7 +19,7 @@ A set of built-in policies and initiatives exists to direct resource logs to Log
 
 The policies enable audit logging, sending logs belonging to the **audit** log category group to an Event Hub, Log Analytics workspace or Storage Account.
 
-The policies' `effect` is set to `DeployIfNotExists` which deploys the policy as a default if there are not other settings defined.
+The policies' `effect` is  `DeployIfNotExists`, which deploys the policy as a default if there aren't other settings defined.
 
 
 ## Deploy policies.
@@ -41,13 +41,13 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select the Log Analytics Workspace that you want to send the audit logs to.
 1. Select the **Remediation** tab.
  :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-parameters.png" alt-text="A screenshot of the assign policy page, parameters tab.":::
-1. On the remediation tab, select the the keyvault policy from the **Policy to remediate** dropdown.
+1. On the remediation tab, select the keyvault policy from the **Policy to remediate** dropdown.
 1. Select the **Create a Managed Identity** checkbox.
 1. Under **Type of Managed Identity**, select **System assigned Managed Identity**.
 1. Select **Review + create**, then select **Create** .
   :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
-The policy will be applied to resources after approximately 30 minutes.
+The policy visible in the resources' diagnostic setting after approximately 30 minutes.
 
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
@@ -63,14 +63,25 @@ For example, to apply the policy to send audit logs to a log analytics workspace
   az policy assignment create --name "policy-assignment-1"  --policy "6b359d8f-f88d-4052-aa7c-32015963ecc1"  --scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg-001 --params "{\"logAnalytics\": {\"value\": \"/subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourcegroups/rg-001/providers/microsoft.operationalinsights/workspaces/workspace001\"}}" --mi-system-assigned --location eastus
 ```
 
-2. Assign the Contributor role to the identity created for the policy assignment
+2. Assign the required role to the identity created for the policy assignment.
+Find the role in the policy definition by searching for *role*
+
+```json
+       ...},
+          "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+          ],
+          "deployment": {
+            "properties": {...
+```
 
 ```azurecli
-az policy assignment identity assign --system-assigned -g <resource group name> --role Contributor --identity-scope </scope> -n <policy assignment name>
+az policy assignment identity assign --system-assigned -g <resource group name> --role <role name or ID> --identity-scope </scope> -n <policy assignment name>
 ```
-For example. 
+For example:
+
 ```azurecli
-az policy assignment identity assign --system-assigned -g rg-001  --role Owner --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 -n policy-assignment-1
+az policy assignment identity assign --system-assigned -g rg-001  --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 -n policy-assignment-1
 ```
 
 3. Create a remediation task to apply the policy to existing resources.
@@ -78,17 +89,81 @@ az policy assignment identity assign --system-assigned -g rg-001  --role Owner -
 ```azurecli
 az policy remediation create -g <resource group name> --policy-assignment <policy assignment name> --name <remediation name> 
 ```
+
 For example,
 ```azurecli
 az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  policy-assignment-1
 ```
 
-For more information on policy assignment using CLI see [Azure CLI reference - az policy assignment](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 ### [PowerShell](#tab/Powershell)
 
-Get form dev
+Get from dev
 
 ---
+## Assign initiatives
+In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
+
+1. From the policy **Definitions** page, select your scope.
+
+1. Select *Initiative* in the **Definition type** dropdown.
+1. Select *Monitoring* in the **Category** dropdown.
+1. Enter *audit* in the **Search** field.
+1. Select thee *Enable audit category group resource logging for supported resources to Log Analytics* initiative.
+1. On the following page, select **Assign**
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" alt-text="A screenshot showing the initiatives definitions page.":::
+
+1. On the **Basics** tab of the **Assign initiative** page, select a **Scope** that you want the initiative to apply to.
+1. Enter a name in the **Assignment name** field.
+1. Select the **Parameters** tab.
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab":::  
+
+    The **Parameters** contains the parameters defined in the policy. In this case, we need to select the Log Analytics workspace that we want to send the logs to. For more information in the individual parameters for each policy, see [Policy-specific parameters](#policy-specific-parameters).
+
+1. Select the **Log Analytics workspace** to send your audit logs to.
+
+1. Select **Review + create** then **Create**
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab":::
+
+To verify that your policy or initiative assignment is working, create a resource in the subscription or resource group scope that you defined in your policy assignment.
+
+After 10 minutes, select the **Diagnostics settings** page for your resource.
+Your diagnostic setting appears in the list with the default name *setByPolicy-LogAnalytics and the workspace name that you configured in the policy.
+
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
+
+Change the default name in the **Parameters** tab of the **Assign initiative** or policy page by unselecting the **Only show parameters that need input or review** checkbox.
+
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+
+## Remediation tasks
+
+Policies are applied to new resources when they're created. To apply a policy to existing resources, create a remediation task. Remediation tasks bring resources into compliance with a policy.
+
+Remediation tasks act for specific policies. For initiatives that contain multiple policies, create a remediation task for each policy in the initiative where you have resources that you want to bring into compliance.
+
+ Define remediation tasks when you first assign the policy, or at any stage after assignment. 
+
+To create a remediation task for policies during the policy assignment, select the **Remediation** tab on **Assign policy** page and select the **Create remediation task** checkbox.
+
+To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
+ 
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+
+Select **Remediate**.
+Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
+
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
+
+
+
+
+For more information on remediation tasks, see [Remediate non-compliant resources](../../governance/policy/how-to/remediate-resources.md)
+
+
+
+
+
 ## Common parameters
 
 The following table describes the common parameters for each set of policies.
@@ -99,7 +174,8 @@ The following table describes the common parameters for each set of policies.
 |diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
 |categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
 
-## Log Analytics policy parameters
+## Policy-specific parameters
+### Log Analytics policy parameters
  This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
 
 |Parameter| Description| Valid Values|Default|
@@ -107,7 +183,7 @@ The following table describes the common parameters for each set of policies.
 |resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*|
 |logAnalytics|Log Analytics Workspace|||
 
-## Event Hubs policy parameters
+### Event Hubs policy parameters
 
 This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
 
@@ -118,7 +194,7 @@ This policy deploys a diagnostic setting using a category group to route logs to
 |eventHubName|Event Hub Name||Monitoring|
 
 
-## Storage Accounts policy parameters
+### Storage Accounts policy parameters
 This policy deploys a diagnostic setting using a category group to route logs to a Storage Account.
 
 |Parameter| Description| Valid Values|Default|
@@ -128,7 +204,7 @@ This policy deploys a diagnostic setting using a category group to route logs to
 
 ## Supported Resources
 
-Built-in DeployIfNotExists policies exist for Log analytics, Event Hubs and Storage Accounts for the following resources:
+Built-in Audit logs policies for Log Analytics workspaces, Event Hubs, and Storage Accounts exist for the following resources:
 
 * microsoft.agfoodplatform/farmbeats
 * microsoft.apimanagement/service
