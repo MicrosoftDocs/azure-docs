@@ -167,7 +167,7 @@ To create a new environment, you must use one of the following approaches:
 ### Missing Docker definition
 *Applies to: Python SDK v1*
 <!--issueDescription-->
-This issue can happen when your environment definition is missing a `DockerSection.` This section configures settings related to the final Docker image built from your environment specification.
+This issue can happen when your environment definition is missing a `DockerSection`. This section configures settings related to the final Docker image built from your environment specification.
  
 **Potential causes:**
 * You didn't specify the `DockerSection` of your environment definition
@@ -831,7 +831,7 @@ env.python.conda_dependencies = conda_dep
 
 *Applies to: Azure CLI & Python SDK v2*
 
-You must specify a base Docker image for the environment, and AzureML will build the conda environment on top of that image
+You must specify a base Docker image for the environment, and AzureML then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
@@ -886,7 +886,7 @@ env.python.conda_dependencies = conda_dep
 
 *Applies to: Azure CLI & Python SDK v2*
 
-You must specify a base Docker image for the environment, and AzureML will build the conda environment on top of that image
+You must specify a base Docker image for the environment, and AzureML then builds the conda environment on top of that image
 * Provide the relative path to the conda file
 * See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
@@ -1465,7 +1465,7 @@ This issue can happen when there's no package found that matches the version you
 
 * Ensure that you've spelled the package correctly and that it exists
 * Ensure that the version you specified for the package exists
-* Ensure that you've specified the channel from which the package will be installed. If you don't specify a channel, defaults will be used and those defaults may or may not have the package you're looking for
+* Ensure that you've specified the channel from which the package will be installed. If you don't specify a channel, defaults are used and those defaults may or may not have the package you're looking for
 
 How to list channels in a conda yaml specification:
 
@@ -1640,7 +1640,7 @@ Alternatively, use a different version of Python that's compatible with the pack
 
 ### Conda bare redirection
 <!--issueDescription-->
-This issue can happen when you've specified a package on the command line using "<" or ">" without using quotes, which can cause conda environment creation or update to fail.
+This issue can happen when you've specified a package on the command line using "<" or ">" without using quotes. This syntax can cause conda environment creation or update to fail.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
