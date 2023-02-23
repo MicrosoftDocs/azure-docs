@@ -19,7 +19,7 @@ When deploying a machine learning model to a batch endpoint, you can secure thei
 
 ## Securing batch endpoints
 
-All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. In order to have fully operational batch endpoints working with private networking, follow the following steps:
+Batch endpoints inherent the networking configuration from the workspace where they are deployed. All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. In order to have fully operational batch endpoints working with private networking, follow the following steps:
 
 1. You have configured your Azure Machine Learning workspace for private networking. For more details about how to achieve it read [Create a secure workspace](tutorial-create-secure-workspace.md).
 
@@ -29,6 +29,8 @@ All the batch endpoints created inside of secure workspace are deployed as priva
     > Azure Container Registries with Quarantine feature enabled are not supported by the moment.
 
 3. Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Batch deployments require all the 4 to properly work.
+
+4. Create the batch endpoint as regularly done. 
 
 The following diagram shows how the networking looks like for batch endpoints when deployed in a private workspace:
 
