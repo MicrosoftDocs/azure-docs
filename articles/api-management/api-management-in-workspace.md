@@ -1,17 +1,17 @@
 ---
 title: Use a workspace in Azure API Management
-description: Members of a workspace in Azure API Management can manage and productize their own APIs.
+description: Members of a workspace in Azure API Management can collaborate to manage and productize their own APIs.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 02/15/2023
+ms.date: 02/22/2023
 ms.custom: 
 ---
 
 # Manage APIs and other resources in your API Management workspace
 
-This article is an introduction to managing APIs, products, subscriptions, and other API Management resources in a *workspace*. A workspace is a place where a development team can own, manage, update, and productize their own APIs, while a central API platform team manages the API Management infrastructure. Learn about the [workspace features](workspaces-overview.md).
+This article is an introduction to managing APIs, products, subscriptions, and other API Management resources in a *workspace*. A workspace is a place where a development team can own, manage, update, and productize their own APIs, while a central API platform team manages the API Management infrastructure. Learn about the [workspace features](workspaces-overview.md)
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
