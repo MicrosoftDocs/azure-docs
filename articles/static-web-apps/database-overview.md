@@ -25,6 +25,7 @@ Features supported by database connections include:
 | **Supports SQL and NoSQL** | You can use relational and document databases as your application's database. |
 | **Serverless architecture** | Connections scale from 0 to 1 worker (during preview). |
 | **Database relationships** | Supported only via GraphQL the endpoint. |
+| **CLI support** | Develop locally with the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli). Use the `--data-api-location` option to processes requests to data APIs in development just as they are handled in the cloud. |
 
 ## Supported databases
 
