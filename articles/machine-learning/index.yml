@@ -36,9 +36,7 @@ landingContent:
         links:   
         - text: Set up resources
           url: quickstart-create-resources.md
-        - text: Run Jupyter notebooks
-          url: quickstart-run-notebooks.md
-        - text: "Azure Machine Learning in a day"
+        - text: Get to know Azure Machine Learning"
           url: tutorial-azure-ml-in-a-day.md
 
   # Card
@@ -46,12 +44,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Create datastore
-          url: how-to-datastore.md
         - text: Access data in a notebook
           url: how-to-access-data-interactive.md
         - text: Use Apache Spark in Azure ML
           url: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - text: Create datastore
+          url: how-to-datastore.md
         - text: Create data assets
           url: how-to-create-data-assets.md
         - text: Work with tables
