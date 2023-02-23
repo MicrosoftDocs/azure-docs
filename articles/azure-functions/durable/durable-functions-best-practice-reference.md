@@ -70,7 +70,7 @@ There are several tools available to help you diagnose problems.
 
 - **Azure Portal**
 
-    *Diagnostic and solve problems*
+    *Diagnose and solve problems*
     Azure Function App Diagnostics is a useful resource on Azure portal for monitoring and diagnosing potential issues in your application. It also provides suggestions to help resolve problems based on diagnosis. See [Azure Function App Diagnostics](function-app-diagnostics.md). 
 
     *Durable Functions Orchestration traces*
