@@ -52,8 +52,6 @@ In this article, you'll learn how to install and configure the following virtual
    >[!NOTE]
    >Make sure the file is accessible from the virtual machine.
 
-
-
 ## Step 2. Access the local vCenter Server of your private cloud
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -72,9 +70,6 @@ In this article, you'll learn how to install and configure the following virtual
 1. Sign in with the `cloudadmin@vsphere.local` user credentials you copied earlier.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Screenshot showing the VMware vSphere sign in page." border="true":::
-
-
-
 
 ## Step 3. Install the Bitnami OVA/OVF file in vCenter Server
 
