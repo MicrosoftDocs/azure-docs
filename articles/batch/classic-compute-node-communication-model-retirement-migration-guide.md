@@ -1,6 +1,6 @@
 ---
-title: Classic Compute Node Communication Model in Batch
-description: Learn how to migrate Azure Batch classic compute node communication model and plan for feature end of support.
+title: Migrate Azure Batch pools to the Simplified compute node communication model
+description: Learn how to migrate Azure Batch pools to the simplified compute node communication model and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 02/23/2023
 ---
 
-# Classic Compute Node Communication Model in Batch
+# Migrate Azure Batch pools to the Simplified compute node communication model 
 
-To improve security, simplify the user experience, and enable key future improvements, Azure Batch will retire the Classic compute node communication model on *March 31, 2026*. Learn how to migrate your Batch pools using simplified compute node communication model. You must opt in to migration your Batch pools
+To improve security, simplify the user experience, and enable key future improvements, Azure Batch will retire the classic compute node communication model on *March 31, 2026*. Learn how to migrate your Batch pools to using the simplified compute node communication model.
 
 
 ## About the feature
@@ -29,7 +29,7 @@ The simplified model also provides more fine-grained data exfiltration control, 
 
 ## Migrate Your Eligible Pools
 
-To migrate your Batch pools from classic to the simplified compute node communication model, follow this document [simplified-compute-node-communication](simplified-compute-node-communication.md#potential-impact-between-classic-and-simplified-communication-modes) and from the section entitled potential impact between classic and simplified communication modes to either create new pools or update existing pools with simplified compute node communication.
+To migrate your Batch pools from classic to the simplified compute node communication model, please follow this document from the section entitled [potential impact between classic and simplified communication modes](simplified-compute-node-communication.md#potential-impact-between-classic-and-simplified-communication-modes) to either create new pools or update existing pools with simplified compute node communication.
 
 ## FAQs
 
