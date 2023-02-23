@@ -104,7 +104,8 @@ When an Azure Cosmos DB account is configured with multi-region writes, one of t
 Here are some best practices to consider when writing to multiple regions.
 
 #### Keep local traffic local
-When using multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. Cross-region calls must be avoided for optimal performance.  
+
+When you use multi-region writes, the application should issue read and write traffic originating in the local region, strictly to the local Cosmos DB region. You must avoid cross-region calls for optimal performance. 
 
 It's important for the application to minimize conflicts by avoiding the following anti-patterns: 
 * Sending the same write operation to all regions to hedge bets on response times from the fastest region. 
