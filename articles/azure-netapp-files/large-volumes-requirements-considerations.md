@@ -10,6 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
+ms.custom: references_regions
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/23/2023
