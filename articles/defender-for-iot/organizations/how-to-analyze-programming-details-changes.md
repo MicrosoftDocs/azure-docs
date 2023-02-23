@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Analyze programming details and changes
 
-Use the OT sensor to watch for programming events occurring on your network devices and analyze any code changes. Watching for programming events helps you investigate suspicious programming activity, such as:
+Watch for programming events occurring on your network devices and analyze any code changes using the OT sensor. Watching for programming events helps you investigate suspicious programming activity, such as:
 
   - **Human error**: An engineer programming the wrong device.
   - **Corrupted programming automation**: Programming errors due to automation failures.
