@@ -29,7 +29,7 @@ These differences make workload identities harder to manage and put them at high
 
 > [!IMPORTANT]
 > Workload Identities Premium licenses are required to create or modify Conditional Access policies scoped to service principals. 
-> In directories without appropriate licenses, Conditional Access policies created prior to the introduction of the workload identities SKU continue to fucntion, but can't be modified. 
+> In directories without appropriate licenses, existing Conditional Access policies for workload identities will continue to function, but can't be modified. For more information see [Microsoft Entra Workload Identities](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).  
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
