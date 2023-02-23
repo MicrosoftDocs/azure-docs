@@ -142,9 +142,9 @@ When you complete these steps, you have a shared private link that's provisioned
 > Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 > For `managedInstance`, see [create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for help formulating a fully qualified domain name.
 
-Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign in. If you're using a REST client, such as Postman, you'll need to provide a bearer token that allows your request to go through. Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For other approaches, see [Manage with REST](search-manage-rest.md).
+Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in. If you're using a REST client, such as Postman, you'll need to provide a bearer token that allows your request to go through. Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For other approaches, see [Manage with REST](search-manage-rest.md).
 
-1. Open a command line and run `az login` for Azure sign in.
+1. Open a command line and run `az login` for Azure sign-in.
 
 1. Show the active account and subscription. Verify that this subscription is the same one that has the Azure PaaS resource for which you're creating the shared private link.
 
