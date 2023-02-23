@@ -37,8 +37,8 @@ Use the following procedure to create a computer group from a log search in the 
 
 1. Click **Logs** in the **Azure Monitor** menu in the Azure portal.
 1. Create and run a query that returns the computers that you want in the group.
-1. Click **Save** at the top of the screen.
-1. Change **Save as** to **Function** and select **Save this query as a computer group**.
+1. Click **Save** at the top of the screen, and select **Save as function** from the dropdown.
+1. Select **Save as computer group**.
 1. Provide values for each property for the computer group described in the table and click **Save**.
 
 The following table describes the properties that define a computer group.
