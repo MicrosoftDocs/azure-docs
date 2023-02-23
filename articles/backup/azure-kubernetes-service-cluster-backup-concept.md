@@ -61,9 +61,9 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 To perform AKS backup and restore operations as a user, you need to have specific roles on the AKS cluster, Backup vault, Storage account, and Snapshot resource group.
 
-| Scope | Preferred Role | Description |
+| Scope | Preferred role | Description |
 | --- | --- | --- |
-| AKS Cluster | Allows you to install Backup Extension, enable *Trusted Access* and grant permissions to Backup vault over the cluster. |
+| AKS Cluster | Owner | Allows you to install Backup Extension, enable *Trusted Access* and grant permissions to Backup vault over the cluster. |
 | Backup vault resource group | Backup Contributor | Allows you to create Backup vault in a resource group, create backup policy, configure backup, and restore and assign missing roles required for Backup operations. |
 | Storage account | Owner | Allows you to perform read and write operations on the storage account and assign required roles to other Azure resources as a part of backup operations. |
 | Snapshot resource group | Owner | Allows you to perform read and write operations on the Snapshot resource group and assign required roles to other Azure resources as part of backup operations. |

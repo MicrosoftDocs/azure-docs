@@ -207,7 +207,7 @@ For more information, see [Overview of operational backup for Azure Blobs](blob-
 
 ## Enhancements to encryption using customer-managed keys for Azure Backup (in preview)
 
-Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you a better control.
+Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you with better control.
 
 - Supports user-assigned managed identities to grant permissions to the keys to manage data encryption in the Recovery Services vault.
 - Enables encryption with customer-managed keys while creating a Recovery Services vault.
