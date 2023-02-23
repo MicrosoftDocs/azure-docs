@@ -14,12 +14,12 @@ ms.subservice: spark
 
 In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use Python, jar, and R packages within a notebook session.
 
-When using session-scoped libraries, it is important to keep the following points in mind:
+When using session-scoped libraries, it's important to keep the following points in mind:
 
 - When you install session-scoped libraries, only the current notebook has access to the specified libraries.
-- These libraries will not impact other sessions or jobs using the same Spark pool.
-- These libraries are installed on top of the base runtime and pool level libraries, and take thr highest precedence.
-- Session-scoped libraries do not persist across sessions.
+- These libraries have no impact on other sessions or jobs using the same Spark pool.
+- These libraries install on top of the base runtime and pool level libraries, and take the highest precedence.
+- Session-scoped libraries don't persist across sessions.
 
 ## Session-scoped Python packages
 
@@ -29,18 +29,18 @@ To specify session-scoped Python packages:
 
 1. Navigate to the selected Spark pool and ensure that you have enabled session-level libraries.  You can enable this setting by navigating to the **Manage** > **Apache Spark pool** > **Packages** tab.
   :::image type="content" source="./media/apache-spark-azure-portal-add-libraries/enable-session-packages.png" alt-text="Screenshot of enabling session packages." lightbox="./media/apache-spark-azure-portal-add-libraries/enable-session-packages.png":::
-2. Once the setting has been applied, you can open a notebook and select **Configure Session**> **Packages**.
+2. Once the setting applies, you can open a notebook and select **Configure Session**> **Packages**.
   ![Screenshot of specifying session packages.](./media/apache-spark-azure-portal-add-libraries/update-session-notebook.png "Update session configuration")
   ![Screenshot of uploading Yml file.](./media/apache-spark-azure-portal-add-libraries/upload-session-notebook-yml.png)
-3. Here, you can upload a Conda *environment.yml* file to install or upgrade packages within a session. Once you start your session, the specified libraries will be installed. Once your session ends, these libraries will no longer be available as they are specific to your session.
+3. Here, you can upload a Conda *environment.yml* file to install or upgrade packages within a session.The specified libraries are present once the session starts. These libraries will no longer be available after session ends.
 
 ### Manage session-scoped Python packages through *%pip* and *%conda* commands
 
-You can leverage the popular *%pip* and *%conda* commands to install additional 3rd party libraries or your custom libraries during your Apache Spark notebook session. In this section, we will use *%pip* commands to demonstrate several common scenarios.
+You can use the popular *%pip* and *%conda* commands to install additional third party libraries or your custom libraries during your Apache Spark notebook session. In this section, we use *%pip* commands to demonstrate several common scenarios.
 
-### Install a third-party package
+### Install a third party package
 
-You can easily install an Python library from [PyPI](https://pypi.org/).
+You can easily install a Python library from [PyPI](https://pypi.org/).
 
 ```python
 # Install vega_datasets
@@ -92,7 +92,7 @@ You can use the following command to see what's the built-in version of certain 
 %pip show pandas
 ```
 
-The result will be as following:
+The result is as following log:
 
 ```markdown
 Name: pandas
@@ -110,7 +110,7 @@ You can use the following command to switch *pandas* to another version, let's s
 
 ### Uninstall a session-scoped library
 
-If you want to uninstall a package which was installed on this notebook session, you may refer to following commands. However, you cannot uninstall the built-in packages.
+If you want to uninstall a package, which installed on this notebook session, you may refer to following commands. However, you cannot uninstall the built-in packages.
 
 ```python
 %pip uninstall altair vega_datasets --yes
@@ -146,7 +146,7 @@ To specify session-scoped Java or Scala packages, you can use the ```%%configure
 
 ## Session-scoped R packages (Preview)
 
-Azure Synapse Analytics pools include many popular R libraries out-of-the-box. You can also install additional 3rd party libraries during your Apache Spark notebook session.
+Azure Synapse Analytics pools include many popular R libraries out-of-the-box. You can also install extra third party libraries during your Apache Spark notebook session.
 
 > [!NOTE]
 >
@@ -162,7 +162,7 @@ You can easily install an R library from [CRAN](https://cran.r-project.org/).
 install.packages(c("nycflights13", "Lahman"))
 ```
 
-You can also leverage CRAN snapshots as the repository to ensure that the same package version is downloaded each time.
+You can also use CRAN snapshots as the repository to ensure to download the same package version each time.
 
 ```r
 install.packages("highcharter", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
@@ -215,7 +215,7 @@ packageVersion("caesar")
 
 ### Remove an R package from a session
 
-You can use the ```detach``` function to remove a library from the namespace. These libraries will stay on disk until they are loaded again.
+You can use the ```detach``` function to remove a library from the namespace. These libraries stay on disk until they're loaded again.
 
 ```r
 # detach a library
@@ -223,14 +223,14 @@ You can use the ```detach``` function to remove a library from the namespace. Th
 detach("package: caesar")
 ```
 
-To remove a session-scoped package from a notebook, use the ```remove.packages()``` command. This will not impact other sessions on the same cluster. Users cannot uninstall or remove libraries that are installed as part of the default Azure Synapse Analytics runtime.
+To remove a session-scoped package from a notebook, use the ```remove.packages()``` command. This library change has no impact on other sessions on the same cluster. Users can't uninstall or remove built-in libraries of the default Azure Synapse Analytics runtime.
 
 ```r
 remove.packages("caesar")
 ```
 
 > [!NOTE]
-> You cannot remove core packages like SparkR, SparklyR, or R.
+> You can't remove core packages like SparkR, SparklyR, or R.
 
 ### Session-scoped R libraries and SparkR
 
@@ -256,7 +256,7 @@ spark.lapply(docs, str_length_function)
 
 ### Session-scoped R libraries and SparklyR
 
-With spark_apply() in SparklyR, you can use any R package inside Spark. By default, in sparklyr::spark_apply(), the packages argument is set to FALSE. This copies libraries in the current libPaths to the workers, allowing you to import and use them on workers. For example, you can run the following to generate a caesar-encrypted message with sparklyr::spark_apply():
+With spark_apply() in SparklyR, you can use any R package inside Spark. By default, in sparklyr::spark_apply(), the packages argument sets to FALSE. This copies libraries in the current libPaths to the workers, allowing you to import and use them on workers. For example, you can run the following to generate a caesar-encrypted message with sparklyr::spark_apply():
 
 ```r
 install.packages("caesar", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
