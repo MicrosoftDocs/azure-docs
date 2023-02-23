@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/11/2023
+ms.date: 02/23/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins data history (with Azure Data Explorer)
 
-**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph updates are automatically historized to Azure Data Explorer. These historized updates include twin property updates, and optionally twin and relationship lifecycle events.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph updates are automatically historized to Azure Data Explorer. These historized updates include twin property updates, twin lifecycle events, and relationship lifecycle events.
 
 Once graph updates are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data. This can be used to look back in time at what the state of the graph used to be, or to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins.
 
@@ -38,7 +38,7 @@ These resources are connected into the following flow:
 
 When the digital twin graph is updated, the information passes through the event hub into the target Azure Data Explorer cluster, where Azure Data Explorer stores the data as a timestamped record in the corresponding table.
 
-When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
+When working with data history, use the [2023-01-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2023-01-31) version of the APIs.
 
 ### History from multiple Azure Digital Twins instances
 

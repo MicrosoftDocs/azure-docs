@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/08/2023
+ms.date: 02/23/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -161,7 +161,7 @@ This command will also create three tables in your Azure Data Explorer database 
 
 # [CLI](#tab/cli) 
 
-Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command will always create a table for historized twin property events, and the parameter options included with the code below also create the tables for relationship lifecycle and twin lifecycle events.
+Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command will always create a table for historized twin property events, and it includes parameters to create the tables for relationship lifecycle and twin lifecycle events.
 
 >[!NOTE]
 >By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the [parameter options](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx) for this command.
