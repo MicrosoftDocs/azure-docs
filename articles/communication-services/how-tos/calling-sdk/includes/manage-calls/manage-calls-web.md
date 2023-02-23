@@ -113,6 +113,27 @@ The `incomingCall` event includes an `incomingCall` instance that you can accept
 
 When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it is disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
 
+## Hold and resume call
+
+> [!NOTE]
+> At any given moment of time, there should be only 1 active call ( in `Connected` state, with active media ). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+
+To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
+
+To hold the call
+```js
+await call.hold();
+```
+When `hold` API will resolve, call state will be set to 'LocalHold' , if this is a 1:1 call, other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold', That participant may further put it's call on hold, which would result in state change to 'LocalHold'
+If this is a group call - hold is just a local operation, it won't hold the call for other participants of that call.
+To fully resume that call all users who initiated hold must resume it.
+
+To resume call from hold:
+```
+await call.resume();
+```
+When `resume` API will resolve, call state will be set again to 'Connected'
+
 ## Mute and unmute
 
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
