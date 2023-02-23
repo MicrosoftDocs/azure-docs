@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 ms.author: jasteppe
 ---
 
@@ -35,27 +35,32 @@ The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R
 
 The MedTech service requires the device and FHIR destination mappings to perform normalization and transformation processes on the device message data. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
 
-## How long does it take for device message data to show up on the FHIR service?
+## How long does it take for device message data to show up in the FHIR service?
 
-The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).  
+The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).
 
 ## Why is the MedTech service device message data not showing up in the FHIR service?
 
-|Potential issue:|Fix:|
-|----------------|----|
+> [!TIP]
+> Having access to MedTech service logs are essential for troubleshooting and assessing the overall health and performance of your MedTech service.
+>
+> To learn how to troubleshoot MedTech service errors found in the logs, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
+
+|Potential issue|Fix|
+|---------------|---|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device mappings haven't been configured.|Configure and save conforming and valid device mappings.|
 |FHIR destination mappings haven't been configured.|Configure and save conforming and valid FHIR destination mappings.|
 |The device message doesn't contain an expected expression defined in the device mappings.|Verify `JsonPath` expressions defined in the device mappings match tokens defined in the device message.|
-|A `Device` resource hasn't been created in the FHIR service (Resolution Type: `Lookup` only)*.|Create a valid `Device` resource in the FHIR service. Ensure the `Device` resource contains an identifier that matches the device identifier provided in the incoming message.|
-|A `Patient` resource hasn't been created in the FHIR service (**Resolution type**: `Lookup` only)*.|Create a valid `Patient` resource in the FHIR service.|
-|The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Look up only)*.|Make sure the `Device` resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` resource.| 
+|A `Device` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Device` resource in the FHIR service. Ensure the `Device` resource contains an identifier that matches the device identifier provided in the incoming message.|
+|A `Patient` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Patient` resource in the FHIR service.|
+|The `Device.patient` reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the `Device` resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` resource.| 
 
-\* Reference [Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (for example, `Create` or `Lookup`).
+\* Reference [Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (**Create** or **Lookup**).
 
 ## Does the MedTech service perform backups of device messages?
 
-No. The MedTech service doesn't back up the device messages that come into the customer's event hub. The customer controls the device message retention period within their event hub, which can be from 1-7 days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
+No. The MedTech service doesn't back up the device messages that come into the customer's event hub. The customer controls the device message retention period within their event hub, which can be from one to seven days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
 
 To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) 
 
@@ -65,7 +70,7 @@ To learn more about event hub message retention, see [What is the maximum retent
 * 10 MedTech services per Azure Health Data Services workspace (not adjustable).
 * One FHIR destination* per MedTech service (not adjustable).
 
-(* - FHIR destination is a child resource of the MedTech service)
+\* FHIR destination is a child resource of the MedTech service)
 
 ## Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ ms.author: jasteppe
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 
 > [!TIP]
-> Having access to MedTech service metrics and logs are essential for troubleshooting and assessing the overall health and performance of your MedTech service. Check out these MedTech service articles to learn how to enable, configure, and use these MedTech service monitoring features:
+> Having access to MedTech service metrics and logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service. Check out these MedTech service articles to learn how to enable, configure, and use these MedTech service monitoring features:
 >  
 > [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md) 
 >
@@ -28,7 +28,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 
 ## MedTech service resource errors and fixes
 
-Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for those errors:
+Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for these errors:
 
 |Error:|
 |------|
@@ -40,33 +40,39 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 ### The maximum number of resource type `iotconnectors` has been reached.
 
-**Displayed**:  ARM API and Azure portal
+**Displayed**: ARM API and Azure portal
 
-**Condition**: MedTech service subscription quota is reached (default is 10 MedTech services per workspace and 10 workspaces per subscription).
+**Description**: MedTech service subscription quota is reached (default is 10 MedTech services per workspace and 10 workspaces per subscription).
 
-**Fix**: Delete one of the existing instances of the MedTech service. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+**Fix**: 
+
+* Delete one of the existing instances of the MedTech service. 
+
+* Use a different subscription that hasn't reached the subscription quota. 
+
+* Request a subscription quota increase.
 
 ### Invalid `deviceMapping` mapping. Validation errors: {List of errors}
 
 **Displayed**: ARM API and Azure portal
 
-**Condition**: The `properties.deviceMapping` provided in the MedTech service Resource provisioning request is invalid.
+**Description**: The `properties.deviceMapping` provided in the MedTech service provisioning request is invalid.
 
 **Fix**: Correct the errors in the mappings JSON provided in the `properties.deviceMapping` property.
 
 ### `fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.
 
-**Displayed**: ARM API and Azure portal
+**Displayed**: ARM API
 
-**Condition**: The MedTech service provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` isn't valid.
+**Description**: The MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` provided in the provisioning request isn't valid.
 
-**Fix**: Update the MedTech service `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
+**Fix**: Update the MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. The format should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
 
 ### Ancestor resources must be fully provisioned before a child resource can be provisioned.
 
 **Displayed**: ARM API
 
-**Condition**: The parent workspace is still provisioning.
+**Description**: The parent workspace is still provisioning.
 
 **Fix**: Wait until the parent workspace provisioning has completed and submit the provisioning request again.
 
@@ -74,13 +80,13 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API
 
-**Condition**: The MedTech service provisioning request `location` property is different from the parent workspace `location` property.
+**Description**: The MedTech service's `location` property provided in the provisioning request is different from the parent workspace's `location` property.
 
-**Fix**: Set the `location` property of the MedTech service in the provisioning request to the same value as the parent workspace `location` property.
+**Fix**: Set the `location` property of the MedTech service in the provisioning request to the same value as the parent workspace's `location` property.
 
 ## FHIR destination resource errors and fixes
 
-Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for those errors:
+Here's a list of errors that can be found in the Azure Resource Manager (ARM) API or Azure portal and fixes for these errors:
 
 |Error:|
 |------|
@@ -93,23 +99,23 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API and Azure portal
 
-**Condition**: MedTech service Destination Resource quota is reached (default is one per MedTech service).
+**Description**: MedTech service Destination resource quota is reached (default is one per MedTech service).
 
-**Fix**: Delete the existing instance of MedTech service Destination Resource. Only one Destination Resource is permitted per MedTech service.
+**Fix**: Delete the existing instance of the MedTech service's Destination resource. Only one Destination resource is permitted per MedTech service.
 
 ### The `fhirServiceResourceId` provided is invalid.
 
 **Displayed**: ARM API and Azure portal
 
-**Condition**: The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request isn't a valid resource ID for an instance of the FHIR service.
+**Description**: The `properties.fhirServiceResourceId` provided in the Destination provisioning request isn't a valid resource ID for an instance of the FHIR service.
 
-**Fix**: Ensure the resource ID is formatted correctly, and make sure the resource ID is for the FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/fhirservices/{FHIR_SERVICE_NAME}`|
+**Fix**: Ensure the resource ID is formatted correctly, and make sure the resource ID is for the FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/fhirservices/{FHIR_SERVICE_NAME}`
 
 ### Ancestor resources must be fully provisioned before a child resource can be provisioned.
 
 **Displayed**: ARM API
 
-**Condition**: The parent workspace or the parent MedTech service is still provisioning.
+**Description**: The parent workspace or the parent MedTech service is still provisioning.
 
 **Fix**: Wait until the parent workspace or the parent MedTech service provisioning completes, then submit the provisioning request again.
 
@@ -117,18 +123,18 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API
 
-**Condition**: The Destination provisioning request `location` property is different from the parent MedTech service `location` property.
+**Description**: The Destination provisioning request `location` property is different from the parent MedTech service `location` property.
 
-**Fix**: Set the `location` property of the Destination in the provisioning request to the same value as the parent MedTech service `location` property.|
+**Fix**: Set the `location` property of the Destination in the provisioning request to the same value as the parent MedTech service's `location` property.
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket also attaching copies of the device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix MedTech service provisioning errors. 
+In this article, you learned how to troubleshoot and fix MedTech service deployment errors. 
 
-To learn about the MedTech service frequently asked question (FAQs), see
+To learn about the MedTech service frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
 > [Frequently asked questions about the MedTech service](frequently-asked-questions.md)

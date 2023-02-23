@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot MedTech service error logs - Azure Health Data Services
+title: Troubleshoot errors using the MedTech service logs - Azure Health Data Services
 description: This article assists troubleshooting and fixing MedTech service error logs.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: jasteppe
 ---
 
@@ -18,40 +18,44 @@ ms.author: jasteppe
 This article provides troubleshooting steps and fixes for errors found in the MedTech service logs. 
 
 > [!TIP]
-> Having access to MedTech service logs are essential for troubleshooting and assessing the overall health and performance of your MedTech service. 
+> Having access to MedTech service logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service. 
 >  
-> To learn how to access the MedTech service logs, see [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
+> To learn how to access the MedTech service logs, see [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md).
 
 ## MedTech service error severity
 
 This property represents the severity of the occurred error. Here's a list of possible values for this property:
 
-|Severity:|Description:|
-|---------|------------|
-|`Warning`|A minor issue exists in the data flow process, but processing of device messages doesn't stop.|
-|`Critical`|A major issue exits in the data flow process, and no device messages are expected to process.|
+|Severity|Description|
+|--------|-----------|
+|Non-blocking|A minor issue exists in the data flow process, but processing of device messages doesn't stop.|
+|Blocking|A major issue exits in the data flow process, and no device messages are expected to process.|
 
 ## Operation being performed by the MedTech service
 
-This property represents the operation being performed by the MedTech service when the error has occurred. An operation generally represents the data flow stage while processing a device message. The data flow stage is displayed in the error logs as `OperationName`. Here's a list of possible values for this property:
+This property represents the operation being performed by the MedTech service when the error occurred. An operation generally represents the data flow stage in which a device message is processed. The data flow stage is displayed in the error logs as **OperationName**. Here's a list of possible values for this property:
 
-|OperationName:|Description:|
-|--------------|------------|
-|`Normalization`|Normalization is the data flow stage where the device message gets normalized.|
-|`FHIRConversion`|FHIRConversion is the data flow stage where the grouped-normalized data is transformed into a FHIR Observation resource.|
+|OperationName|Description|
+|-------------|-----------|
+|Normalization|The data flow stage where the device message gets normalized.|
+|FHIRConversion|The data flow stage where the grouped-normalized data is transformed into a FHIR Observation resource.|
 
 > [!NOTE]
 > To learn about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
 
-## MedTech service HealthCheckExceptions and fixes
+## MedTech service health check exceptions and fixes
 
-Health checks are performed automatically and periodically to check whether a MedTech service can normalize and transform device messages. If one of the health checks didn't pass, then a HealthCheckException occurs. This table provides a list of errors that can be found in the MedTech service logs and fixes for those errors:
+Health checks are performed automatically and periodically to check whether a MedTech service can normalize and transform device messages. If a health check didn't pass, then a HealthCheckException occurs and is logged.
+	
+In the MedTech service logs, a health check failure is logged with a **LogType** of `HealthCheckException`, and the failed health check's name is logged in the **Message**.
+	
+The health checks' names are listed in the following table, and the fixes for any of their failures are described below the table:
 
-|Log error:|
-|----------|
-|[`CredentialStore:IsCustomerFacingMiCredentialBundlePresent`](#credentialstoreiscustomerfacingmicredentialbundlepresent)|
-|[`ExternalEventHub:IsAuthenticated`](#externaleventhubisauthenticated)|
-|[`FhirService:IsAuthenticated`](#fhirserviceisauthenticated)|
+|HealthCheck|
+|---------|
+|[CredentialStore:IsCustomerFacingMiCredentialBundlePresent](#credentialstoreiscustomerfacingmicredentialbundlepresent)|
+|[ExternalEventHub:IsAuthenticated](#externaleventhubisauthenticated)|
+|[FhirService:IsAuthenticated](#fhirserviceisauthenticated)|
 
 ### CredentialStore:IsCustomerFacingMiCredentialBundlePresent
 
@@ -73,10 +77,14 @@ Health checks are performed automatically and periodically to check whether a Me
 
 ## MedTech service errors and fixes
 
-This table provides a list of errors that can be found in the MedTech service logs and fixes for those errors:
+If an error occurs while normalizing or transforming device messages, then it's logged. 
 
-|Log error:|
-|----------|
+In the MedTech service logs, the error's name is logged in the **LogType**.
+
+The errors' names are listed in the following table, and the fixes for them are provided below the table:
+
+|LogType|
+|---------|
 |[CorrelationIdNotDefinedException](#correlationidnotdefinedexception)|
 |[FhirDataMappingException](#fhirdatamappingexception)|
 |[FhirResourceNotFoundException](#fhirresourcenotfoundexception)|
@@ -98,15 +106,15 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 ### CorrelationIdNotDefinedException
 
-**Description**: If a `CorrelationIdExpression` (for example, the expression to parse the correlation identifier from the device message) is specified in the device mappings, then this error occurs when the correlation identifier isn’t present in a device message, or when the `CorrelationIdExpression` isn’t configured correctly in the device mappings. **Note:** The `CorrelationIdExpression` is *optional*. This error occurs when grouping measurements that share the same device, type, and correlation identifier into a single FHIR Observation resource.
+**Description**: If a CorrelationIdExpression (which is the expression to parse the correlation identifier from the device message) is specified in the device mappings, then this error occurs when the correlation identifier isn’t present in a device message, or when the CorrelationIdExpression isn’t configured correctly in the device mappings. **Note:** The CorrelationIdExpression is *optional*. This error occurs when grouping measurements that share the same device, type, and correlation identifier into a single FHIR Observation resource.
 
 **Severity**: Critical
 
 **Fix**:
 
-* If the `CorrelationIdExpression` is needed: Ensure that your device messages contain the correlation identifier. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `correlationIdExpression` value in the device mappings exists and correctly references the correlation identifier’s key in your device messages.
+* If the CorrelationIdExpression is needed: Ensure that your device messages contain the correlation identifier. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `correlationIdExpression` value in the device mappings exists and correctly references the correlation identifier’s key in your device messages.
 
-* If the `CorrelationIdExpression` isn't needed: On the Azure portal, go to the **Device mapping** blade of your MedTech service, and remove the line containing `correlationIdExpression` in the device mappings.
+* If the CorrelationIdExpression isn't needed: On the Azure portal, go to the **Device mapping** blade of your MedTech service, and remove the line containing `correlationIdExpression` in the device mappings.
 
 ### FhirDataMappingException
 
@@ -114,15 +122,15 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 **Severity**: Critical
 
-**Fix:** On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mappings, there's a template with the same `typeName` value in the FHIR destination mappings. Also, fix any validation errors that are shown when editing and saving the FHIR destination mappings in the **Destination** blade.
+**Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mappings, there's a template with the same `typeName` value in the FHIR destination mappings. Also, fix any validation errors that are shown when editing and saving the FHIR destination mappings in the **Destination** blade.
 
 ### FhirResourceNotFoundException
 
-**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the `Device` FHIR resource with the device identifier given in the device message doesn't reference a `Patient` FHIR resource. The FHIR resource’s type (for example, `Device`, `Patient`, `Encounter`, or `Observation`) is specified in the error message. **Note:** This error occurs when the MedTech service’s resolution type is set to `Lookup`.
+**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is `Patient`, then the error may be that the `Device` FHIR resource with the device identifier given in the device message doesn't reference a `Patient` FHIR resource. The FHIR resource’s type (for example, `Device`, `Patient`, `Encounter`, or `Observation`) is specified in the error message. **Note:** This error occurs when the MedTech service’s resolution type is set to **Lookup**.
 
 **Severity**: Warning
 
-**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `FHIR resource’s type specified in the error message`IdExpression value in the device mappings exists and correctly references the identifier’s key in your device messages.
+**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIDExpression`) value in the device mappings exists and correctly references the identifier’s key in your device messages.
 
 ### IncompatibleDataException
 
@@ -134,7 +142,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 ### InvalidDataFormatException
 
-**Description**: |A device message isn't in a format that can be parsed into a JSON object.
+**Description**: A device message isn't in a format that can be parsed into a JSON object.
 
 **Severity**: Warning
 
@@ -154,7 +162,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 * Go through your services and ensure that your MedTech service is the only service that accesses the consumer group.
 
-* Go to your event hub in the Azure portal, create a new consumer group that only your MedTech service accesses, go to the Event Hubs blade of your MedTech service, and select your new consumer group in the **Consumer group** field.
+* Go to your event hub in the Azure portal, create a new consumer group that only your MedTech service accesses, go to the **Event Hubs** blade of your MedTech service, and select your new consumer group in the **Consumer group** field.
 
 ### InvalidFhirServiceException
 
@@ -170,7 +178,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 **Severity**: Warning
 
-**Fix**: Ensure that the values in your device messages are in supported `datatypes` according to the [FHIR Quantity.value specifications](https://build.fhir.org/datatypes-definitions.html).
+**Fix**: Ensure that the values in your device messages are in supported datatypes according to the [FHIR Quantity.value specifications](https://build.fhir.org/datatypes-definitions.html#Quantity.value).
 
 ### InvalidTemplateException
 
@@ -178,9 +186,13 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 * A template’s template type (represented by the `templateType` property) is missing or has a blank value.
 
-* A template (represented by the template property) under the root collection template doesn't have a JSON object, which is identified by braces `{}`, as its value.
+* A template (represented by the `template` property) under the root collection template doesn't have a JSON object, which is identified by braces `{}`, as its value.
  
-* A template’s type (represented by the `typeName` property) is missing or has a blank value. 4) More than one template in the mappings has the same type (for example, has the same value for its `typeName` property). The template’s type and line with the error are specified in the error message.
+* A template’s type (represented by the `typeName` property) is missing or has a blank value.
+
+* More than one template in the mappings has the same type (has the same value for its `typeName` property). 
+
+The template’s type and line with the error are specified in the error message.
 
 **Severity**: Critical
 
@@ -188,7 +200,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 ### ManagedIdentityCredentialNotFound
 
-**Description**: When connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist. **Note**: The managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
+**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist. **Note:** The system-assigned managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
 
 **Severity**: Critical
 
@@ -196,7 +208,9 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 * The system-assigned managed identity’s **Status** is set to **On**.
 
-* The Azure role assignments show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+* The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+
+* If you're deploying a MedTech service using an ARM template, ensure that the MedTech service resource in the ARM template has an identity property containing the type value of "SystemAssigned" (see example ARM template in the azuredeploy.json file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
 
 ### MultipleResourceFoundException
 
@@ -216,7 +230,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 ### PatientDeviceMismatchException
 
-**Description**: A `Device` FHIR resource in the FHIR destination references a `Patient` FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (for example, the device is linked to another patient).
+**Description**: A `Device` FHIR resource in the FHIR destination references a `Patient` FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
 **Severity**: Warning
 
@@ -228,7 +242,7 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 **Severity**: Warning
 
-**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the *FHIR resource’s type specified in the error message*`IdExpression` value in the device mappings exists and correctly references the identifier’s key in your device messages.
+**Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (`deviceIdExpression`) value in the device mappings exists and correctly references the identifier’s key in your device messages.
 
 ### TemplateExpressionException
 
@@ -236,9 +250,11 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 * A required expression is missing.
 
-* An expression’s language (represented by the language property) isn't supported. All template types support expressions in JSONPath; only the CalculatedContent template type supports expressions in JMESPath.
+* * An expression’s language (represented by the `language` property) isn't supported. All template types support expressions in JSONPath; only the [CalculatedContent](how-to-use-calculatedcontent-mappings.md) template type supports expressions in JMESPath.
 
-* An expression’s value (represented by the value property) is incorrectly formatted as per the syntax of the expression’s language. The expression and line with the error are specified in the error message.
+* An expression’s value (represented by the `value` property) is incorrectly formatted as per the syntax of the expression’s language. 
+
+The expression and line with the error are specified in the error message.
 
 **Severity**: Critical
 
@@ -254,28 +270,28 @@ This table provides a list of errors that can be found in the MedTech service lo
 
 ### UnauthorizedAccessEventHubException
 
-**Description**: The MedTech service is missing receiver access to the event hub.
+**Description**: The MedTech service is missing receiving access to the event hub.
 
 **Severity**: Critical
 
-### UnauthorizedAccessFhirServiceException
-
 **Fix**: On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+
+### UnauthorizedAccessFhirServiceException
 
 **Description**: The MedTech service is missing write access to the FHIR destination.
 
 **Severity**: Critical
 
-**Fix**: On the Azure portal, go to your FHIR service, and assign the FHIR Data Writer role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-fhir-service)).
+**Fix**: On the Azure portal, go to your FHIR service, and assign the **FHIR Data Writer** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-fhir-service)).
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket also attaching copies of the device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket and attach copies of your device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
 
 ## Next steps
 
 In this article, you learned how to troubleshoot and fix errors using the MedTech service logs. 
 
-To learn about the MedTech service frequently asked question (FAQs), see
+To learn about the MedTech service frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
 > [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
