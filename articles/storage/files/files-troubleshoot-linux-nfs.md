@@ -70,7 +70,7 @@ Unlike SMB, NFS doesn't have user-based authentication. The authentication for a
 
 The following diagram depicts connectivity using public endpoints.
 
-:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg":::
+:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-public-endpoints.jpg" alt-text="Diagram of public endpoint connectivity." lightbox="media/files-troubleshoot-linux-nfs/connectivity-using-public-endpoints.jpg":::
 
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
@@ -78,7 +78,7 @@ The following diagram depicts connectivity using public endpoints.
     - Virtual network peering with virtual networks hosted in the private endpoint give the NFS share access to the clients in peered virtual networks.
     - You can use private endpoints with ExpressRoute, point-to-site VPNs, and site-to-site VPNs.
 
-:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram of private endpoint connectivity." lightbox="media/files-troubleshoot-linux-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### Cause 2: Secure transfer required is enabled
 
