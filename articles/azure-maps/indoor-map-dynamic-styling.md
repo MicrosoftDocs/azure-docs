@@ -66,7 +66,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 3. Enter a **Request name** for the request, such as *POST Data Upload*.
 
-4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Your-Azure-Maps-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
+4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `statesetId` with the `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
