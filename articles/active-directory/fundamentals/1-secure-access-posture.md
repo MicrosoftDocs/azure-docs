@@ -64,7 +64,7 @@ The primary goals of delegating access are:
 Levels of control can be accomplished through various methods, depending on your version of Azure AD and Microsoft 365.
 
 * [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
-* [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
+* [Compare Microsoft 365 Enterprise pricing](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 #### Reduce attack surface
 

@@ -1,19 +1,21 @@
 ---
-title: Provision access to resource groups and subscriptions for DevOps actions
-description: Step-by-step guide showing how to provision access to entire resource groups and subscriptions through Microsoft Purview DevOps policies
+title: Manage access to entire resource groups or subscriptions for monitoring system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to all data sources inside a resource group or subscription, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 02/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in resource groups or subscriptions
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. They can be created only on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source. Microsoft Purview access policies apply to Azure AD Accounts only.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-In this guide we cover how to register an entire resource group or subscription and then create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
+This how-to guide covers how to register an entire resource group or subscription and then create a single policy that will provision access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. and provisioning access to its system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
+
+
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]

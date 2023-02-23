@@ -1,15 +1,16 @@
 ---
 title: Backend Pool Management
 titleSuffix: Azure Load Balancer
-description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer
+description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
+
 # Backend pool management
 
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
