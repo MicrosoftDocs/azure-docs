@@ -74,6 +74,7 @@ After you choose your Azure AD license, you'll get access to some or all of the 
 |Managed identities for Azure resources|Provide your Azure services with an automatically managed identity in Azure AD that can authenticate any Azure AD-supported authentication service, including Key Vault. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).|
 |Privileged identity management (PIM)|Manage, control, and monitor access within your organization. This feature includes access to resources in Azure AD and Azure, and other Microsoft Online Services, like Microsoft 365 or Intune. For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
 |Reports and monitoring|Gain insights into the security and usage patterns in your environment. For more information, see [Azure Active Directory reports and monitoring](../reports-monitoring/index.yml).|
+| Workload identities| Give an identity to your software workload (such as an application, service, script, or container) to authenticate and access other services and resources. For more information, see [workload identities faqs](../develop/workload-identities-faqs.md).
 
 ## Terminology
 
