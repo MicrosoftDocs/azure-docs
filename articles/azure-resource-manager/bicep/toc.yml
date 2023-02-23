@@ -262,6 +262,8 @@
   - name: Variables (var)
     href: variables.md
     displayName: configuration
+  - name: Import (import)
+    href: bicep-import-providers.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -354,6 +356,10 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Bicep extensibility
+      items:
+      - name: Kubernetes provider
+        href: ./bicep-extensibility-kubernetes-provider.md
     - name: Patterns
       items:
       - name: Configuration set
