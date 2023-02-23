@@ -310,16 +310,20 @@ async function list() {
 }
 ```
 
+::: zone-end
+
 Refresh the page and select the **List** button.
 
 The browser's console window now displays a table that lists all the records in the database.
-
-::: zone-end
 
 | ID | Name |
 |---|---|
 | 1 | Sunny |
 | 2 | Dheeraj |
+
+Here's a screenshot of what it should look like in your browser.
+
+:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
 
 ### Get by ID
 
@@ -638,7 +642,15 @@ To deploy this site to production, you just need to commit the configuration fil
     git push origin main
     ```
 
-Now wait for your web app to build, and then select the **List** button a to [list all items](#list-all-items) to verify a production connection to the database. Make sure to check the developer console for output.
+1. Wait for your web app to build.
+
+1. Go to your static web app in the browser.
+
+1. Select the **List** button to list all items.
+
+    The output should resemble the what's shown in this screenshot.
+
+    :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
 
 ## Clean up resources
 
