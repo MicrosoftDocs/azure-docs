@@ -8,7 +8,7 @@ ms.author: mirequa
 
 # Backups in CycleCloud
 
-By default, CycleCloud will take point-in-time snapshots of the underlying application datastore as recovery points. These are stored in _/opt/cycle_server/backups/_. The _backups_ directory does not have stringent read-write IO or latency requirements, so it is often mounted to an NFS share or blob fuse for additional durability.
+By default, CycleCloud will take point-in-time snapshots of the underlying application datastore as recovery points. These are stored in _/opt/cycle_server/data/backups/_. The _backups_ directory does not have stringent read-write IO or latency requirements, so it is often mounted to an NFS share or blob fuse for additional durability.
 
 > [!IMPORTANT]
 > Within this directory is also a sub-directory named _shared/_, which holds data common to all backups and must be preserved to enable restoration.
