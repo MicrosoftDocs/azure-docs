@@ -51,9 +51,9 @@ For more information, see [Connect via proxy chaining](connect-sensors.md#connec
 
 ## Direct connections
 
-The following image shows how you can connect your sensors to the Defender for IoT portal in Azure directly over the internet from remote sites, without transversing the enterprise network.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure directly over the internet from remote sites, without traversing the enterprise network.
 
-:::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure.":::
+:::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure." border="false":::
 
 With direct connections
 
