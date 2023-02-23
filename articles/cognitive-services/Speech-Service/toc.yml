@@ -232,7 +232,9 @@ items:
       href: gaming-concepts.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment with speech to text
+       - name: Overview
+         href: language-learning-overview.md
+       - name: Pronunciation Assessment with speech to text
           items:
             - name: Pronunciation Assessment in Speech Studio
               href: pronunciation-assessment-tool.md
