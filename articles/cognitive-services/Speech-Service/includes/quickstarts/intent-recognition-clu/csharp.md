@@ -66,10 +66,9 @@ Follow these steps to create a new console application and install the Speech SD
             speechConfig.SpeechRecognitionLanguage = "en-US";
     
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-            using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
     
             // Creates an intent recognizer in the specified language using microphone as audio input.
-            using (var intentRecognizer = new IntentRecognizer(speechConfig))
+            using (var intentRecognizer = new IntentRecognizer(speechConfig, audioConfig))
             {
                 var cluModel = new ConversationalLanguageUnderstandingModel(
                     languageKey,
