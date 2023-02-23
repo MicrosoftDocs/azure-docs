@@ -17,7 +17,7 @@ If you aren't integrating your app with a virtual network and you haven't config
 
 If you configured your virtual network with a list of custom DNS servers, name resolution uses these servers. If your virtual network is using custom DNS servers and you're using private endpoints, you should read [this article](../private-link/private-endpoint-dns.md) carefully. You also need to consider that your custom DNS servers are able to resolve any public DNS records used by your app. Your DNS configuration needs to either forward requests to a public DNS server, include a public DNS server like Azure DNS in the list of custom DNS servers or specify an alternative server at the app level.
 
-When your app needs to resolve a domain name using DNS, the app sends a name resolution request to all configured DNS servers. If the first server in the list returns a response within the timeout limit, the result is returned immediately. If not, the app waits for the other servers to respond within the timeout period and evaluates the DNS server responses in the order you've configured the servers. If none of the servers respond within the timeout and you have configured retry, you repeat the process.
+When your app needs to resolve a domain name using DNS, the app sends a name resolution request to all configured DNS servers. If the first server in the list returns a response within the timeout limit, you get the result returned immediately. If not, the app waits for the other servers to respond within the timeout period and evaluates the DNS server responses in the order you've configured the servers. If none of the servers respond within the timeout and you have configured retry, you repeat the process.
 
 ## Configuring DNS servers
 
@@ -33,7 +33,13 @@ Using the app setting `WEBSITE_DNS_ALT_SERVER`, you append a DNS server to end o
 
 ## Configure name resolution behavior
 
-If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. We allow you to modify retry attempts, retry timeout and cache timeout. Default retry count is `1` meaning you send only one name resolution request (per configured server). You can configure the setting from `1-5` where `5` means four retry attempts. Default timeout for retry attempts is `3` seconds, and you can configure it from `1-30` seconds. You can configure DNS Cache timeout from `0-60` seconds. Default is `30` seconds and `0` means you've disabled caching. Disabling or lowering cache duration may influence performance.
+If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. You can modify retry attempts, retry timeout and cache timeout. Changing behavior like disabling or lowering cache duration may influence performance.
+
+|Property name|Default value|Allowed values|Description|
+|-|-|-|
+|dnsRetryAttemptCount|1|1-5|Defines the number of attempts to resolve where one means no retries|
+|dnsMaxCacheTimeout|30|0-60|Cache timeout defined in seconds. Setting cache to zero means you've disabled caching|
+|dnsRetryAttemptTimeout|3|1-30|Timeout before retrying or failing. Timeout also defines the time to wait for secondary server results if the primary doesn't respond|
 
 >[!NOTE]
 > Changing name resolution behavior is not supported on Windows Container apps
