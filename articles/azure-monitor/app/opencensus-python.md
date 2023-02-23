@@ -154,7 +154,7 @@ LOGGING = {
         "azure": {
             "level": "DEBUG",
         "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-            "instrumentation_key": "<your-ikey-here>",
+            "connection_string": "<your-application-insights-connection-string>",
          },
         "console": {
             "level": "DEBUG",
@@ -321,7 +321,9 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
 
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+        export_interval=60,  # Application Insights backend assumes aggregation on a 60s interval
+    )
     # You can also instantiate the exporter directly if you have the environment variable
     # `APPLICATIONINSIGHTS_CONNECTION_STRING` configured
     # exporter = metrics_exporter.new_metrics_exporter()
@@ -343,7 +345,7 @@ OpenCensus.stats supports four aggregation methods but provides partial support 
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. To modify the export interval, pass in `export_interval` as a parameter in seconds to `new_metrics_exporter()`. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase, and resets to 0 on restart.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. You must set this value to 60s as Application Insights backend assumes aggregation of metrics points on a 60s time interval. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The data is cumulative, can only increase, and resets to 0 on restart.
 
    You can find the data under `customMetrics`, but the `customMetrics` properties `valueCount`, `valueSum`, `valueMin`, `valueMax`, and `valueStdDev` aren't effectively used.
 
@@ -519,7 +521,7 @@ Each exporter accepts the same arguments for configuration, passed through the c
 `connection_string`| The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.|
 `credential`| Credential class used by Azure Active Directory authentication. See the "Authentication" section that follows.|
 `enable_standard_metrics`| Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.|
-`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`.|
+`export_interval`| Used to specify the frequency in seconds of exporting. Defaults to `15s`. For metrics you MUST set this to 60s or else your metric aggregations will not make sense in the metrics explorer.|
 `grace_period`| Used to specify the timeout for shutdown of exporters in seconds. Defaults to `5s`.|
 `instrumentation_key`| The instrumentation key used to connect to your Azure Monitor resource.|
 `logging_sampling_rate`| Used for `AzureLogHandler` and `AzureEventHandler`. Provides a sampling rate [0,1.0] for exporting logs/events. Defaults to `1.0`.|
@@ -574,6 +576,6 @@ For more information about how to use queries and logs, see [Logs in Azure Monit
 
 ### Alerts
 
-* [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Availability overview](./availability-overview.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../alerts/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.

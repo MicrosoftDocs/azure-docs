@@ -410,7 +410,7 @@ The default module code that comes with the solution is located at the following
 
 # [C\#](#tab/csharp)
 
-modules/*&lt;your module name&gt;*/**Program.cs**
+modules/*&lt;your module name&gt;*/**ModuleBackgroundService.cs**
 
 # [Azure Functions](#tab/azfunctions)
 
@@ -455,7 +455,7 @@ In the Visual Studio Code integrated terminal, change the directory to the ***&l
 dotnet build
 ```
 
-Open the file `Program.cs` and add a breakpoint.
+Open the file `ModuleBackgroundService.cs` and add a breakpoint.
 
 Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
@@ -521,7 +521,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 ### Build and run container for debugging and debug in attach mode
 
-1. Open your module file (`Program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
+1. Open your module file (`ModuleBackgroundService.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
@@ -685,7 +685,7 @@ Open the module file for your development language and add a breakpoint:
 
 # [C\#](#tab/csharp)
 
-Add your breakpoint to the file `Program.cs`.
+Add your breakpoint to the file `ModuleBackgroundService.cs`.
 
 # [Azure Functions](#tab/azfunctions)
 
