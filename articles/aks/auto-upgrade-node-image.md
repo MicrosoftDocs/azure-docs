@@ -1,7 +1,6 @@
 ---
 title: Automatically upgrade Azure Kubernetes Service (AKS) cluster node operating system images
 description: Learn how to automatically upgrade Azure Kubernetes Service (AKS) cluster node operating system images.
-services: container-service
 ms.topic: article
 ms.author: nickoman
 author: nickomang
