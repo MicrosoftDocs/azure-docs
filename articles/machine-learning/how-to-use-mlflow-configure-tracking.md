@@ -35,7 +35,7 @@ You will need the following prerequisites to follow this tutorial:
 
 To connect MLflow to an Azure Machine Learning workspace you will need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [mlflow-configure-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -49,7 +49,7 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it will authenticate as that user.
 1. __Interactive browser__: it will interactively authenticate a user via the default browser.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [mlflow-configure-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
@@ -90,6 +90,34 @@ export MLFLOW_EXPERIMENT_NAME="experiment_with_mlflow"
 ```
 
 ---
+
+## Non-public Azure Clouds support
+
+The Azure Machine Learning plugin for MLflow is configured by default to work to public Azure cloud. However, you can configure the Azure cloud you are using by setting the environment variable `AZUREML_CURRENT_CLOUD`.
+
+# [MLflow SDK](#tab/mlflow)
+
+```Python
+import os
+
+os.environ["AZUREML_CURRENT_CLOUD"] = "AzureChinaCloud"
+```
+
+# [Using environment variables](#tab/environ)
+
+```bash
+export AZUREML_CURRENT_CLOUD="AzureChinaCloud"
+```
+
+---
+
+You can identify the cloud you are using with the following Azure CLI command:
+
+```bash
+az cloud list
+```
+
+The current cloud used is has the value `IsActive` set to `True`.
 
 ## Next steps
 
