@@ -122,6 +122,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-with-containers  |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core-g2 |
@@ -129,7 +130,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-core-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-azure-edition-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk-g2 |
+
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
