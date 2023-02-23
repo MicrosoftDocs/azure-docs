@@ -22,9 +22,9 @@ The Azure Cognitive Service for Speech platform is a comprehensive collection of
 The [Pronunciation Assessment](pronunciation-assessment-tool.md) feature is designed to provide instant feedback to users on the accuracy, fluency, and prosody of their speech when learning a new language, so that they can speak and present in a new language with confidence. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
 The Pronunciation Assessment feature offers several benefits for educators, service providers, and students. 
-• For educators, it provides instant feedback, eliminates the need for time-consuming oral language assessments, and offers consistent and comprehensive assessments. 
-• For service providers, it offers high real-time capabilities, worldwide Speech cognitive service and supports growing global business. 
-• For students and learners, it provides a convenient way to practice and receive feedback, authoritative scoring to compare with native pronunciation and helps to follow the exact text order for long sentences or full documents.
+- For educators, it provides instant feedback, eliminates the need for time-consuming oral language assessments, and offers consistent and comprehensive assessments. 
+- For service providers, it offers high real-time capabilities, worldwide Speech cognitive service and supports growing global business. 
+- For students and learners, it provides a convenient way to practice and receive feedback, authoritative scoring to compare with native pronunciation and helps to follow the exact text order for long sentences or full documents.
 
 ## Speech-to-Text 
 
