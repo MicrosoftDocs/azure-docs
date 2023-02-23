@@ -17,13 +17,11 @@ This article helps you understand this new feature, and how to implement it.
 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the Mariner operating system SKU.
+- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the [Mariner operating system][mariner-cluster-config] generation 2 SKU.
 
 - The `KataVMIsolationPreview` feature is registered in your Azure subscription.
 
 - Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported.
-
-- [Mariner](https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#mariner-os) [Gen 2](https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#mariner-os) OS SKU
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
@@ -299,3 +297,4 @@ kubectl delete pod pod-name
 [csi-storage-driver]: csi-storage-drivers.md
 [csi-secret-store driver]: csi-secrets-store-driver.md
 [az-aks-update]: /cli/azure/aks#az-aks-update
+[mariner-cluster-config]: cluster-configuration.md#mariner-os
