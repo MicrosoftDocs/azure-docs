@@ -10,17 +10,19 @@ ms.reviewer: mmcc
 
 # Microsoft Azure Monitor Application Insights JavaScript SDK
 
-[Microsoft Azure Monitor Application Insights](app-insights-overview.md) JavaScript SDK is a powerful tool that allows developers to monitor and analyze the performance of their JavaScript web applications. It enables developers to track page views, user sessions, and custom events, and configure other options to suit their needs. With the SDK, developers can gain valuable insights into how their web applications are being used and identify areas for improvement.
+[Microsoft Azure Monitor Application Insights](app-insights-overview.md) JavaScript SDK allows you to monitor and analyze the performance of JavaScript web applications.
 
-## Get started
-
-The Application Insights JavaScript SDK is easily implemented with a runtime snippet for quick enablement of out-of-the-box web analytics.
-
-### Prerequisites
+## Prerequisites
 
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
-- An application that includes [JavaScript](https://learn.microsoft.com/visualstudio/javascript)
+- An application that uses [JavaScript](https://learn.microsoft.com/visualstudio/javascript)
+
+## [Snippet](#tab/snippet)
+
+## Get started
+
+The Application Insights JavaScript SDK is implemented with a runtime snippet for out-of-the-box web analytics.
 
 ### Enable Application Insights SDK for JavaScript
 
@@ -108,17 +110,29 @@ Additional snippet configuration is optional.
 | onInit | function(aiSdk) { ... } *[optional]* | This callback function which is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value), it is passed a reference to the sdk instance that it is being called for and it is also called _before_ the first initial page view. If the SDK has already been loaded and initialized this callback will still be called. NOTE: As this callback is called during the processing of the sdk.queue array you CANNOT add any additional items to the queue as they will be ignored and dropped. (Added as part of snippet version 5 -- the sv:"5" value within the snippet script)
 | cfg | object **[required]** | The configuration passed to the Application Insights SDK during initialization.
 
+## [npm](#tab/npm)
+
+## Get started
+
+The Application Insights JavaScript SDK is implemented with a runtime snippet for out-of-the-box web analytics.
+
+### Enable Application Insights SDK for JavaScript
+
+The npm setup installs the JavaScript SDK as a dependency to your project and enables IntelliSense.
+
+This option is only needed for developers who require more custom events and configuration.
+
+---
+
 ## Advanced SDK configuration
 
 Additional information is available for the following advanced scenarios:
 
-- JavaScript SDK npm setup
-- React plugin
-- React native plugin
-- Angular plugin
-- Click Analytics plugin
-
-TODO: Add links to the tabs in javascript-framework-extensions.md and javascript-feature-extensions.md
+- [JavaScript SDK npm setup](javascript-sdk.md?tabs=npm)
+- [React plugin](javascript-framework-extensions.md?tabs=react)
+- [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
+- [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
+- [Click Analytics plugin](javascript-feature-extensions.md)
 
 ## Frequently asked questions
 
