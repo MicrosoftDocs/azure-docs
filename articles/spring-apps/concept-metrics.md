@@ -22,17 +22,13 @@ In Azure Spring Apps, there are two viewpoints for metrics.
 * Charts in each application overview page
 * Common metrics page
 
- ![Metrics Charts](media/metrics/metrics-1.png)
+:::image type="content" source="media/metrics/metrics-1.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Overview page for Apps and Metrics highlighted in the left pane.":::
 
-Charts in the application **Overview** provide quick status checks for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
+The Overview page for an app in **Apps** provides charts for quick status checks for each application. The **Metrics** page for an Azure Spring Apps instance contains common metrics available for all apps to reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application overview page
 
-Select an app in **Apps** to find charts in the overview page.
-
-![Application Metrics Management](media/metrics/metrics-2.png)
-
-Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
+Select **Apps** in the navigation pane and then select an app in the list of apps in your Azure Spring Apps instance. Each application's **Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
 
 ![Application Metrics Overview](media/metrics/metrics-3.png)
 
@@ -48,11 +44,11 @@ For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
-The **Metrics** in the left navigation pane links to the common metrics page.
+Select **Metrics** in the left navigation pane for an Azure Spring Apps instance to view common metrics.
 
 First, select metrics to view:
 
-![Select Metric View](media/metrics/metrics-4.png)
+:::image type="content" source="media/metrics/metrics-4.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Metrics page with the Metric dropdown selected.":::
 
 Details of all metrics options can be found in the [section](#user-metrics-options) below.
 
