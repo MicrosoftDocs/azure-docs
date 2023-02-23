@@ -29,7 +29,6 @@ Here is the diagram about the system:
 
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
-- [Docker](https://www.docker.com/).
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -98,7 +97,7 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
     ```
 
 ### 3. Prepare PostgreSQL instance
-When run the spring web app in localhost, we use docker container to provide a PostgreSQL server. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
+When run the spring web app in localhost, we use H2 as database. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
 
 ```azurecli-interactive
 az postgres flexible-server create \
