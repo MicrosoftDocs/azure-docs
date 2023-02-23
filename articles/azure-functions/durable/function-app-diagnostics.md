@@ -19,18 +19,33 @@ Azure Functions App Diagnostics is a useful resource on Azure portal for monitor
 
     :::image type="content" source="media/durable-functions-best-practice/search-for-detector.png" alt-text="Screenshot showing how to search for Durable Functions detector.":::
 
-3.	You're now inside the Durable Functions detector, and as the name suggests, it detects potential problems in your Durable Functions application. Go through the various insights in the detector to learn about the application’s health. Examples of what the detector tells you include: Durable Functions version your app is running on, any errors or warnings, and performance issues. If there are issues, you'll see suggestions on how to mitigate and resolve the issue.
+3.	You're now inside the Durable Functions detector, which checks for common problems Durable Functions apps tend to have. The detector also gives you links to tools and reference documentation you might find helpful. Go through the various insights in the detector to learn about the application’s health. Examples of what the detector tells you include: Durable Functions extension version your app is using, any errors or warnings, and performance issues. If there are issues, you'll see suggestions on how to mitigate and resolve them.
 
     :::image type="content" source="media/durable-functions-best-practice/durable-functions-detector.png" alt-text="Screenshot of Durable Functions detector.":::
  
  
 **Other useful detectors**
-- High CPU Analysis
-
-    An example of what this detector would suggest based on CPU analysis.
-    
-    :::image type="content" source="media/durable-functions-best-practice/high-cpu-analysis.png" alt-text="Screenshot of Durable Functions high CPU analysis detector.":::
+On the left side of the window, there is a list of detectors designed to check for different problems. This section highlights a few. 
 
 - Functions App Down or Report Errors detector
-- Memory Analysis
+    This detector pulls results from different detectors checking key areas of your application that may be the cause of your application being down or reporting errors. The screenshot below shows the checks performed (not all 15 are captured in the screenshot) and the two issues requiring attention. 
+
+    :::image type="content" source="media/durable-functions-best-practice/functions-app-down-report-errors.png" alt-text="Screenshot of Durable Functions App Down or Report Errors detector.":::
+
+    - High CPU Analysis
+        Maximizing *High CPU Analysis* shows that one app is causing high CPU usage. 
+    
+        :::image type="content" source="media/durable-functions-best-practice/high-cpu-analysis.png" alt-text="Screenshot of Durable Functions high CPU analysis detector.":::
+
+        The following is suggested when click on "View Solutions". If you decide follow the second option, you can easily restart your site by clicking the button. 
+
+        :::image type="content" source="media/durable-functions-best-practice/high-cpu-solution.png" alt-text="Screenshot of suggested solution from high CPU analysis detector.":::
+
+    - Memory Analysis
+        Maximizing *Memory Analysis* shows the following warning and graph. (Note that there's more content not captured in the screenshot.)
+
+        :::image type="content" source="media/durable-functions-best-practice/memory-analysis.png" alt-text="Screenshot of Durable Functions memory analysis detector.":::
  
+        The following is suggested when click on "View Solutions". You can easily scale up by clicking a button. 
+
+        :::image type="content" source="media/durable-functions-best-practice/memory-analysis-solution.png" alt-text="Screenshot of suggested solution from memory analysis detector.":::
