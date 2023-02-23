@@ -18,18 +18,18 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
-In an Azure Spring Apps instance, there are two viewpoints for metrics.
+In an Azure Spring Apps instance, there are two viewpoints for metrics that you can select.
 
 * Select **Apps** and then select an app for quick status charts that are shown in its overview page.
 * Select **Metrics** for common metrics that are available to all apps in the Azure Spring Apps instance. You can build your own charts in the common metrics page and pin them in your Dashboard.
 
-:::image type="content" source="media/metrics/metrics-1.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Overview page for Apps and Metrics highlighted in the left pane.":::
+:::image type="content" source="media/metrics/metrics-1.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Overview page with Apps and Metrics highlighted in the navigation pane.":::
 
 ## Application overview page
 
 Select **Apps** in the navigation pane and then select an app from the list. Its overview page presents metrics charts that enable you to perform a quick status check of your application.
 
-:::image type="content" source="media/metrics/metrics-3.png" alt-text="Screenshot of the Azure portal showing the overview page for an Azure Spring Apps application with the selectable time periods for metric charts highlighted." lightbox="media/metrics/metrics-3.png":::
+:::image type="content" source="media/metrics/metrics-3.png" alt-text="Screenshot of the Azure portal showing the overview page for an Azure Spring Apps application with the time period selector for charts highlighted." lightbox="media/metrics/metrics-3.png":::
 
 Azure Spring Apps provides these five charts with metrics that are updated every minute:
 
@@ -43,7 +43,7 @@ For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
-Select **Metrics** in the left navigation pane to access common metrics. Select a metric to view from the **Metric** dropdown.
+Select **Metrics** in the navigation pane to access common metrics. Select a metric to use from the **Metric** dropdown.
 
 :::image type="content" source="media/metrics/metrics-4.png" alt-text="Screenshot of the Azure portal showing the Apps Spring Apps Metrics page with the Metric dropdown selected.":::
 
