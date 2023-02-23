@@ -182,6 +182,29 @@ You can check the following items to troubleshoot the issue:
 
 ## Training guide
 
+### Job retry
+
+If the training job pod running in the cluster was terminated due to the node running to node OOM (out of memory), the job will be **automatically retried** to another available node.
+
+To further debug the root cause of the job try, you can go to the workspace portal to check the job retry log.
+
+* Each retry log will be recorded in a new log folder with the format of "retry-<retry number\>"(such as: retry-001).
+
+Then you can get the retry job-node mapping information as mentioned above, to figure out which node the retry-job has been running on.
+
+:::image type="content" source="media/how-to-troubleshoot-kubernetes-compute/job-retry-log.png" alt-text="Screenshot of adding a new extension to the Azure Arc-enabled Kubernetes cluster from the Azure portal.":::
+
+You can get job-node mapping information from the
+**amlarc_cr_bootstrap.log** under system_logs folder.
+
+The host name of the node which the job pod is running on will be indicated in this log, for example:
+
+```bash
+++ echo 'Run on node: ask-agentpool-17631869-vmss0000"
+```
+
+"ask-agentpool-17631869-vmss0000" represents the **node host name** running this job in your AKS cluster. Then you can access the cluster to check about the node status for further investigation.
+
 ### UserError
 
 #### AzureML Kubernetes job failed. E45004
