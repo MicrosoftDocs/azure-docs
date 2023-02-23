@@ -70,7 +70,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png":::
 
-4. Should you choose to Create a new Flexible Server, select **Create new** and select **Go to Create Wizard**. This action takes you through the Flexible Server creation process and deploy the Flexible Server.
+4. Should you choose to Create a new Flexible Server, select **Create new** and select **Go to Create Wizard**. This action takes you through the Flexible Server creation process and deploys the Flexible Server.
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-create-new.png":::
 
@@ -159,7 +159,7 @@ After the migration has moved to the **Succeeded** state, follow the post-migrat
 
 Possible migration states include:
 
-- **InProgress**: The migration infrastructure set up is underway, or the actual data migration is in progress.
+- **InProgress**: The migration infrastructure setup is underway, or the actual data migration is in progress.
 - **Canceled**: The migration is canceled or deleted.
 - **Failed**: The migration has failed.
 - **Succeeded**: The migration has succeeded and is complete.

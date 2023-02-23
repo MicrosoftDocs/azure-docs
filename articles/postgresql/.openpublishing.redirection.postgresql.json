@@ -1447,7 +1447,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/migrate/how-to-set-up-azure-ad-app-portal.md",
-        "redirect_url": "/azure/postgresql/single-server/how-to-setup-azure-ad-app-portal",
+        "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
         "redirect_document_id": false
     }    
     ]
