@@ -30,10 +30,10 @@ This article explains how to configure the new AWS S3 connector. The process of 
 
 Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
 
-- **Amazon VPC**: gzip csv with headers, delimiter: space
-- **Amazon GuardDuty**: json-line and gzip
-- **AWS CloudTrail**: gzip json
-- **CloudWatch**: zipped CSV format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+- **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
+- **Amazon GuardDuty**: json-line and GZIP formats.
+- **AWS CloudTrail**: .json file in GZIP format.
+- **CloudWatch**: gzipped file in CSV format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
 
 ## Connect the S3 connector
 
