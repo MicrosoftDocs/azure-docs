@@ -34,8 +34,6 @@ Select **Containers** > **Container Instances**.
 
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
 
-On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
-
 * Resource group: **Create new** > `myresourcegroup`
 * Container name: `myconfidentialcontainer`
 * Region: One of `West Europe`/`North Europe`/`East US`
