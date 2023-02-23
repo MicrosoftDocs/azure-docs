@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 If you choose to use PowerShell locally, this article requires that you install the Azure PowerShell
 module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-Note that some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powershellgallery.com/packages/Az.ImageBuilder) module, which needs to be installed separately by
+Some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powershellgallery.com/packages/Az.ImageBuilder) module. Install separately by using the following command.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.ImageBuilder
