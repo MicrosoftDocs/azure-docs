@@ -95,7 +95,7 @@ Use the following series of articles to learn about securing external access to 
 
 1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md) (You are here)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
