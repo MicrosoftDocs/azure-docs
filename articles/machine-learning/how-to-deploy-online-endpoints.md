@@ -82,10 +82,9 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Virtual machine quota allocation for deployment
 
-For managed online endpoints, AzureML reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2*number of instances requested for deployment)* number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 2 cores) in a deployment, you should have a quota for 24 cores (`12 instances*2 cores`) available.
+For managed online endpoints, AzureML reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2*number of instances requested for deployment)* number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 2 cores) in a deployment, you should have a quota for 24 cores (`12 instances*2 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
-In this tutorial, you'll request one instance of a Standard_DS2_v2 VM SKU (that comes with 2 cores) in your deployment; therefore, you should have a minimum quota for 4 cores (`2 instances*2 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
-
+<!-- In this tutorial, you'll request one instance of a Standard_DS2_v2 VM SKU (that comes with 2 cores) in your deployment; therefore, you should have a minimum quota for 4 cores (`2 instances*2 cores`) available.  -->
 ---
 
 ## Prepare your system
@@ -477,7 +476,7 @@ The preceding definition in the _blue-deployment.yml_ file uses a general-purpos
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md).
 
 # [Python](#tab/python)
 
@@ -486,7 +485,7 @@ The preceding definition of the `blue_deployment` uses a general-purpose type `S
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md).
 
 # [Studio](#tab/azure-studio)
 
@@ -496,7 +495,9 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 # [ARM template](#tab/arm)
 
-Add info here.
+The preceding registration of the environment specifies a non-GPU docker image `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1` by passing the value to the template using the `dockerImage` parameter. For a GPU compute, provide a value for a GPU docker image to the `environment-version.json` template (using the `dockerImage` parameter) and provide a GPU compute type SKU to the `online-endpoint-deployment.json` template (using the `skuName` parameter).
+
+For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 ---
 
