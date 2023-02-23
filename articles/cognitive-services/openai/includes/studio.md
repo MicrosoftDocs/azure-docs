@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 03/01/2023
 keywords: 
 ---
 

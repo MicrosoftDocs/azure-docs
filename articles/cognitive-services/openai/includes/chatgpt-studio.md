@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 03/01/2023
 keywords: 
 ---
 
@@ -25,13 +25,13 @@ Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_bla
 
 From the Azure OpenAI Studio landing page select **ChatGPT playground (Preview)**
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/chatgpt-playground.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with ChatGPT playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
 Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio ChatGPT playground. From this page, you can quickly iterate and experiment with the capabilities.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the ChatGPT playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
 ### Chatbot setup
 
@@ -41,7 +41,7 @@ You can use the Chatbot setup dropdown to select a few pre-loaded **System messa
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for in-context learning.
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API clients.
+At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task you are currently performing with the playground.
 
 ### Chat session
 
@@ -58,7 +58,7 @@ Select the **Clear chat** button to delete the current conversation history.
 | Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly 4 characters for typical English text.|
 | Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P will narrow the model’s token selection to likelier tokens. Increasing Top P will let the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
 | Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 will include 5 user queries and 5 system responses.|
-| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response will end before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using <|im_end|> ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
+| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response will end before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
 ### Panel configuration
 
@@ -71,11 +71,11 @@ By default there are three panes: chatbot setup, chat session, and parameters. P
 3. In the chat session pane enter the following question: "I am interested in buying a new Xbox", and select **Send**.
 4. You will receive a response similar to:
 
-    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/xbox.png":::
+    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of a first question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
 5. Enter a follow-up question like: "What models are available?"
 
-    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/xbox.png":::
+    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
 6. Now that you have a basic conversation select **View code** from under Chatbot setup and you will have a replay of the code behind the entire conversation so far:
 
