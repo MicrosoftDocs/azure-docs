@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/23/2023
 
 ---
 
@@ -110,8 +110,8 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Subscription | Select your subscription. |
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
     | **Instance details** |  |
-    | Name  | Enter a name for the endpoint such as **myPrivateEndpoint**. |
-    | Network Interface Name | Enter a name for the network interface, such as **myInterface** |
+    | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
+    | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
     | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
 
 1. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page. The following information about your API Management instance is already populated:
@@ -138,6 +138,8 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 1. In **Private DNS integration**, enter or select this information:
 
+    | Setting | Value |
+    | ------- | ----- |
     | Integrate with private DNS zone | Leave the default of **Yes**. |
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group. |
