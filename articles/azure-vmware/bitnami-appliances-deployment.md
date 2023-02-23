@@ -56,7 +56,11 @@ In this article, you'll learn how to install and configure the following virtual
 
 ## Step 2. Access the local vCenter Server of your private cloud
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select your private cloud, and then **Manage** > **Identity**.
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+   > [!NOTE] 
+   > If you need access to the Azure US Gov portal, go to https://portal.azure.us/  
+
+1. Select your private cloud, and then **Manage** > **Identity**.
 
 1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
