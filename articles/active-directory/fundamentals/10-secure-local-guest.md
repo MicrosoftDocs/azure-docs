@@ -20,6 +20,10 @@ With Azure Active Directory (Azure AD B2B), external users collaborate with thei
 
 Learn more: [Plan an Azure AD B2B collaboration deployment](secure-external-access-resources.md)
 
+## Before you begin
+
+This article is number 10 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
+
 ## Identify external-facing applications
 
 Before migrating local accounts to Azure AD B2B, confirm the applications and workloads external users can access. For example, for applications hosted on-premises, validate the application is integrated with Azure AD. On-premises applications are a good reason to create local accounts. 
@@ -44,7 +48,7 @@ After mapping external local accounts to identities, add external identities or 
 
 ## End user communications
 
-Notify external users about migration timing. Communicate expectations, such as when external users must stop using a current password to enable authenticate by home and corporate credentials. Communications can include email campaigns and announcements.
+Notify external users about migration timing. Communicate expectations, for instance when external users must stop using a current password to enable authentication by home and corporate credentials. Communications can include email campaigns and announcements.
 
 ## Migrate local guest accounts to Azure AD B2B
 
@@ -63,15 +67,24 @@ If external user local accounts were synced from on-premises, reduce their on-pr
 
 ## Next steps
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your desired security posture for external access](1-secure-access-posture.md)
-1. [Discover your current state](2-secure-access-current-state.md)
-1. [Create a governance plan](3-secure-access-plan.md)
-1. [Use groups for security](4-secure-access-groups.md)
-1. [Transition to Azure AD B2B](5-secure-access-b2b.md)
-1. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
-1. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md) 
-1. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
-1. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
-1. [Convert local guest accounts to B2B](10-secure-local-guest.md) (You’re here)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
+
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
+
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md)
+
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md) (You're here)
