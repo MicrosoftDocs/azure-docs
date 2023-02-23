@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -120,9 +120,9 @@ Both Ultra Disks and Premium SSD v2 managed disks have the unique capability of 
 |Attribute  |Description  |
 |---------|---------|
 |DiskIOPSReadWrite (Read/write disk IOPS)     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
-|DiskMBpsReadWrite (Read/write disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
+|DiskMBpsReadWrite (Read/write disk throughput)    |The total throughput (MBps) allowed across all VMs mounting the shared disk with write access.         |
 |DiskIOPSReadOnly* (Read-only disk IOPS)    |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
-|DiskMBpsReadOnly* (Read-only disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
+|DiskMBpsReadOnly* (Read-only disk throughput)    |The total throughput (MBps) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
 
 \* Applies to shared Ultra Disks and shared Premium SSD v2 managed disks only
 
@@ -133,14 +133,14 @@ The following formulas explain how the performance attributes can be set, since 
         - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
     - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
 - DiskMBpsReadWrite (Read/write disk throughput)
-    - The minium throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minium MB/s you can set is 1.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The minium throughput (MBps) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minium MBps you can set is 1.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MBps.
 - DiskIOPSReadOnly (Read-only disk IOPS)
     - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
     - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
 - DiskMBpsReadOnly (Read-only disk throughput)
-    - The minimum throughput (MB/s) for this attribute is 1. For DiskMBpsReadOnly, the baseline doesn't increase with IOPS.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The minimum throughput (MBps) for this attribute is 1. For DiskMBpsReadOnly, the baseline doesn't increase with IOPS.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MBps.
 
 #### Examples
 
