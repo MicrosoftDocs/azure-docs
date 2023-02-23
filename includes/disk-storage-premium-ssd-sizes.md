@@ -14,9 +14,9 @@
 |-------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Disk size in GiB | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,096 | 8,192 | 16,384 | 32,767 |
 | Provisioned IOPS per disk | 120 | 120 | 120 | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
-| Provisioned Throughput per disk | 25 MBpsec | 25 MBpsec | 25 MBpsec | 25 MBpsec | 50 MBpsec | 100 MBpsec | 125 MBpsec | 150 MBpsec | 200 MBpsec | 250 MBpsec | 250 MBpsec| 500 MBpsec | 750 MBpsec | 900 MBpsec |
+| Provisioned Throughput per disk | 25 MBps | 25 MBps | 25 MBps | 25 MBps | 50 MBps | 100 MBps | 125 MBps | 150 MBps | 200 MBps | 250 MBps | 250 MBps| 500 MBps | 750 MBps | 900 MBps |
 | Max burst IOPS per disk | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 30,000* | 30,000* | 30,000* | 30,000* | 30,000* | 30,000* |
-| Max burst throughput per disk | 170 MBpsec | 170 MBpsec | 170 MBpsec | 170 MBpsec | 170 MBpsec | 170 MBpsec | 170 MBpsec | 170 MBpsec | 1,000 MBpsec* | 1,000 MBpsec* | 1,000 MBpsec* | 1,000 MBpsec* | 1,000 MBpsec* | 1,000 MBpsec* |
+| Max burst throughput per disk | 170 MBps | 170 MBps | 170 MBps | 170 MBps | 170 MBps | 170 MBps | 170 MBps | 170 MBps | 1,000 MBps* | 1,000 MBps* | 1,000 MBps* | 1,000 MBps* | 1,000 MBps* | 1,000 MBps* |
 | Max burst duration | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | Unlimited* | Unlimited* | Unlimited* | Unlimited* | Unlimited* | Unlimited* |
 | Eligible for reservation | No  | No  | No  | No  | No  | No  | No  | No  | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year |
 
