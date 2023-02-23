@@ -5,8 +5,13 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+<<<<<<< HEAD
 ms.topic: reference
 ms.date: 02/03/2023
+=======
+ms.topic: article
+ms.date: 12/08/2022
+>>>>>>> 3a6c85b5fa601a907ee20cc273fcc52e3f70ff8c
 ms.author: danlep
 ---
 
