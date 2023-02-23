@@ -42,16 +42,23 @@ The following example shows how to use the `IAsyncCollector` interface to send a
 [FunctionName("EH2EH")]
 public static async Task Run(
     [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
-    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<EventData> outputEvents,
     ILogger log)
 {
     foreach (EventData eventData in events)
     {
-        // do some processing:
-        var myProcessedEvent = DoSomething(eventData);
-
-        // then send the message
-        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+        // Do some processing:
+        string newEventBody = DoSomething(eventData);
+        
+        // Queue the message to be sent in the background by adding it to the collector.
+        // If only the event is passed, an Event Hub partition to be be assigned via
+        // round-robin for each batch.
+        await outputEvents.AddAsync(new EventData(newEventBody));
+        
+        // If your scenario requires that certain events are grouped together in an
+        // Event Hub partition, you can specify a partition key.  Events added with 
+        // the same key will always be assigned to the same partition.        
+        await outputEvents.AddAsync(new EventData(newEventBody), "sample-key");
     }
 }
 ```
@@ -311,7 +318,7 @@ In-process C# class library functions supports the following types:
 
 This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
 
-Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<string>` or `IAsyncCollector<string>` in place of `out string`.
+Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<EventData>` or `IAsyncCollector<EventData>` in place of `out string`.  Partition keys may only be used with `IAsyncCollector<EventData>`.
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 
