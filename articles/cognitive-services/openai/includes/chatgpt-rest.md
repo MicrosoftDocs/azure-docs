@@ -112,6 +112,8 @@ ChatGPT was trained to use special tokens to delineate different parts of the pr
 
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
 
+The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the new model effectively.
+
 ## Clean up resources
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
@@ -121,4 +123,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-Learn more about how to work with ChatGPT and the new `gpt-3.5' model in the [how-to guide on ChatGPT](../how-to/chatgpt.md).
+Learn more about how to work with ChatGPT and the new `gpt-3.5` model in the [how-to guide on ChatGPT](../how-to/chatgpt.md).

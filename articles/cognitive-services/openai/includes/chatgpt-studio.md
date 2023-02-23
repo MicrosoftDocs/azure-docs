@@ -33,38 +33,84 @@ Start exploring OpenAI capabilities with a no-code approach through the Azure Op
 
 :::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
-You can use the Chatbot setup dropdown to select a few pre-loaded System message examples to get started. System messages give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the chatbot’s personality, tell it what it should and shouldn’t answer, and tell it how to format responses.
+### Chatbot setup
 
-- Selecting the **Send** button will send the entered text to the completions API and stream the results back to the text box.
-- Select the **Clear chat** button to delete the current conversation history.
+You can use the Chatbot setup dropdown to select a few pre-loaded **System message** examples to get started.
 
-Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
+**System messages** give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the chatbot’s personality, tell it what it should and shouldn’t answer, and tell it how to format responses.
 
-In the ChatGPT playground you can also view Python, curl, and json code samples pre-filled based on your current chat session and settings. Just select **View code** from Chatbot setup panel. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API clients.
+**Add few-shot examples** allows you to provide conversational examples that are used by the model for in-context learning.
 
-## Try text summarization
+At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API clients.
 
-To use Azure OpenAI service for text summarization in the GPT-3 Playground, follow these steps:
+### Chat session
 
-1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
-1. Select the subscription and OpenAI resource to work with.
-1. Select **GPT-3 Playground** at the top of the landing page.
-1. Select your deployment from the **Deployments** dropdown. If your resource doesn't have a deployment, select **Create a deployment** and then revisit this step.
-1. Select **Summarize Text** from the **Examples** dropdown.
+Selecting the **Send** button will send the entered text to the completions API and stream the results back to the text box.
 
-    :::image type="content" source="../media/quickstarts/summarize-text.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the Summarize Text dropdown selection visible" lightbox="../media/quickstarts/summarize-text.png":::
+Select the **Clear chat** button to delete the current conversation history.
 
-1. Select `Generate`. OpenAI will grasp the context of text and rephrase it succinctly. You should get a result that resembles the following text:
+### Parameters
 
-    ```
-    Tl;dr A neutron star is the collapsed core of a supergiant star. These incredibly dense objects are incredibly fascinating due to their strange properties and their potential for phenomena such as extreme gravitational forces and a strong magnetic field.
-    ```
+| **Name**            | **Description**   |
+|:--------------------|:-------------------------------------------------------------------------------|
+| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT you need to use the `gpt-3.5` model |
+| Temperature         | Controls randomness. Lowering the temperature means that the model will produce more repetitive and deterministic responses. Increasing the temperature will result in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
+| Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly 4 characters for typical English text.|
+| Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P will narrow the model’s token selection to likelier tokens. Increasing Top P will let the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
+| Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 will include 5 user queries and 5 system responses.|
+| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response will end before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using <|im_end|> ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
-The accuracy of the response can vary per model. The Davinci based model in this example is well-suited to this type of summarization, whereas a Codex based model wouldn't perform as well at this particular task.
+### Panel configuration
+
+By default there are three panes: chatbot setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
+
+## Start a chat session
+
+1. From the chatbot setup drop-down select **Xbox customer support agent**
+2. You will be prompted asking if you want to update the system message, select **Continue**.
+3. In the chat session pane enter the following question: "I am interested in buying a new Xbox", and select **Send**.
+4. You will receive a response similar to:
+
+    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/xbox.png":::
+
+5. Enter a follow-up question like: "What models are available?"
+
+    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/xbox.png":::
+
+6. Now that you have a basic conversation select **View code** from under Chatbot setup and you will have a replay of the code behind the entire conversation so far:
+
+```python
+#Note: The openai-python library support for Azure OpenAI is in preview.
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = "https://docs-test-001.openai.azure.com/"
+openai.api_version = "2022-12-01"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+response = openai.Completion.create(
+  engine="text-chat-davinci-002-test",
+  prompt="<|im_start|>system\nYou are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox.\n<|im_end|>\n<|im_start|>user\nI am interested in buying an Xbox?\n<|im_end|>\n<|im_start|>assistant\nGreat! Xbox is a popular gaming console that offers a wide variety of games and features. You can purchase an Xbox from various retailers such as Amazon, Best Buy, and the Microsoft Store. Additionally, you can also purchase an Xbox bundle that includes games and accessories. If you have any specific questions about the Xbox or the purchasing process, please let me know and I'll be happy to assist you.\n\n<|im_end|>\n<|im_start|>user\nWhat models are available?\n<|im_end|>\n<|im_start|>assistant\nCurrently, there are three Xbox models available for purchase: Xbox Series X, Xbox Series S, and Xbox One X. \n\nThe Xbox Series X is the most powerful Xbox console to date, with a custom-designed processor, 12 teraflops of processing power, and 16GB of memory. It also supports 4K gaming and has a built-in 4K Ultra HD Blu-ray player.\n\nThe Xbox Series S is a more affordable option, with a custom-\n<|im_end|>\n",
+  temperature=0,
+  max_tokens=100,
+  top_p=0.95,
+  frequency_penalty=0,
+  presence_penalty=0,
+  best_of=1,
+  stop=["<|im_end|>"])
+```
+
+### Understanding the prompt structure
+
+ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message which can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
+
+The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
+
+The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the new model effectively.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you are done with testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
