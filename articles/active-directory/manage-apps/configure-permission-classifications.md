@@ -52,7 +52,7 @@ In this example, we've classified the minimum set of permission required for sin
 
 :::zone pivot="aad-powershell"
 
-You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/??preserve-view=true&view=azureadps-2.0), to classify permissions. Permission classifications are configured on the **ServicePrincipal** object of the API that publishes the permissions.
 
 Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
@@ -204,7 +204,7 @@ Remove-MgServicePrincipalDelegatedPermissionClassification -DelegatedPermissionC
 ``` 
 :::zone-end
 
-:::zone pivot="ms-graph
+:::zone pivot="ms-graph"
 
 To configure permissions classifications for an enterprise application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
