@@ -1,22 +1,27 @@
 ---
-author: LittleBoxOfSunshine
-manager: KumariSupriya
+title: Azure Instance Metadata Service for virtual machines
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
+author: KumariSupriya
+manager: paulmey
 ms.service: virtual-machines
-ms.subservice: monitoring
-ms.topic: include
-ms.date: 01/04/2021
-ms.author: chhenk
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 02/22/2023
+ms.author: frdavid
 ms.reviewer: azmetadatadev
-ms.custom: references_regions
 ---
+
+# Azure Instance Metadata Service 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
+IMDS is available for running instances of virtual machines (VMs) and scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
-Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md).
+Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Usage
 
@@ -42,6 +47,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 #### [Linux](#tab/linux/)
 
+
 ```bash
 curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
@@ -55,22 +61,23 @@ The `jq` utility is available in many cases, but not all. If the `jq` utility is
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
+[!INCLUDE [imds-full-instance-response](./includes/imds-full-instance-response.md)]
+
 
 ## Security and authentication
 
-The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
+The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs can only interact with their own metadata/functionality. The API is HTTP only and never leaves the host.
 
 In order to ensure that requests are directly intended for IMDS and prevent unintended or unwanted redirection of requests, requests:
 - **Must** contain the header `Metadata: true`
 - Must **not** contain an `X-Forwarded-For` header
 
-Any request that does not meet **both** of these requirements will be rejected by the service.
+Any request that doesn't meet **both** of these requirements are rejected by the service.
 
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If it is not necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
+If it isn't necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
 For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
 
 
@@ -217,6 +224,7 @@ IMDS is versioned and specifying the API version in the HTTP request is mandator
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
 When you don't specify a version, you get an error with a list of the newest supported versions:
+
 ```json
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
@@ -266,7 +274,7 @@ A full Swagger definition for IMDS is available at: https://github.com/Azure/azu
 
 ## Regional availability
 
-The service is **generally available** in all Azure Clouds.
+The service is **generally available** in all Azure clouds.
 
 ## Root endpoint
 
@@ -335,7 +343,8 @@ This endpoint supports response filtering via [route parameters](#route-paramete
 
 #### Response
 
-[!INCLUDE [virtual-machines-imds-full-instance-response](./virtual-machines-imds-full-instance-response.md)]
+[!INCLUDE [imds-full-instance-response](./includes/imds-full-instance-response.md)]
+
 
 Schema breakdown:
 
@@ -346,7 +355,7 @@ Schema breakdown:
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
 | `additionalCapabilities.hibernationEnabled` | Identifies if hibernation is enabled on the VM | 2021-11-01
 | `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
-| `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
+| `evictionPolicy` | Sets how a [Spot VM](spot-vms.md) will be evicted. | 2020-12-01
 | `extendedLocation.type` | Type of the extended location of the VM. | 2021-03-01
 | `extendedLocation.name` | Name of the extended location of the VM | 2021-03-01
 | `host.id` | Name of the host of the VM. Note that a VM will either have a host or a hostGroup but not both. | 2021-11-15
@@ -360,35 +369,35 @@ Schema breakdown:
 | `osProfile.computerName` | Specifies the name of the computer | 2020-07-15
 | `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
 | `osType` | Linux or Windows | 2017-04-02
-| `placementGroupId` | [Placement Group](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
-| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
+| `placementGroupId` | [Placement Group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your scale set | 2017-08-01
+| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it's an Azure Marketplace Image | 2018-04-02
+| `platformUpdateDomain` |  [Update domain](availability.md) the VM is running in | 2017-04-02
+| `platformFaultDomain` | [Fault domain](availability.md) the VM is running in | 2017-04-02
 | `platformSubFaultDomain` | Sub fault domain the VM is running in, if applicable. | 2021-10-01
-| `priority` | Priority of the VM. Refer to [Spot VMs](../articles/virtual-machines/spot-vms.md) for more information | 2020-12-01
+| `priority` | Priority of the VM. Refer to [Spot VMs](spot-vms.md) for more information | 2020-12-01
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
-| `resourceGroupName` | [Resource group](../articles/azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
+| `resourceGroupName` | [Resource group](../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 | `resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 | `sku` | Specific SKU for the VM image | 2017-04-02
 | `securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
 | `securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-| `securityProfile.encryptionAtHost` | Identifies if [Encryption at Host](../articles/virtual-machines/disks-enable-host-based-encryption-portal.md) is enabled on the VM | 2021-11-01
-| `securityProfile.securityType` | Identifies if the VM is a [Trusted VM](../articles/virtual-machines/trusted-launch.md) or a [Confidential VM](../articles/confidential-computing/confidential-vm-overview.md) | 2021-12-13
+| `securityProfile.encryptionAtHost` | Identifies if [Encryption at Host](disks-enable-host-based-encryption-portal.md) is enabled on the VM | 2021-11-01
+| `securityProfile.securityType` | Identifies if the VM is a [Trusted VM](trusted-launch.md) or a [Confidential VM](../confidential-computing/confidential-vm-overview.md) | 2021-12-13
 | `storageProfile` | See Storage Profile below | 2019-06-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
-| `tags` | [Tags](../articles/azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
+| `tags` | [Tags](../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
-| `virtualMachineScaleSet.id` | ID of the [Virtual Machine Scale Set created with flexible orchestration](../articles/virtual-machines/flexible-virtual-machine-scale-sets.md) the Virtual Machine is part of. This field is not available for Virtual Machine Scale Sets created with uniform orchestration. | 2021-03-01
-| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. The blog referenced only suits for VMs that have SMBIOS < 2.6. For VMs that have SMBIOS >= 2.6, the UUID from DMI is displayed in little-endian format, thus, there is no requirement to switch bytes. | 2017-04-02
-| `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
-| `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
-| `zone` | [Availability Zone](../articles/availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+| `virtualMachineScaleSet.id` | ID of the [Virtual Machine Scale Set created with flexible orchestration](flexible-virtual-machine-scale-sets.md) the Virtual Machine is part of. This field isn't available for Virtual Machine Scale Sets created with uniform orchestration. | 2021-03-01
+| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. The blog referenced only suits for VMs that have SMBIOS < 2.6. For VMs that have SMBIOS >= 2.6, the UUID from DMI is displayed in little-endian format, thus, there's no requirement to switch bytes. | 2017-04-02
+| `vmScaleSetName` | [Virtual Machine Scale Set Name](../virtual-machine-scale-sets/overview.md) of your scale set | 2017-12-01
+| `vmSize` | [VM size](sizes.md) | 2017-04-02
+| `zone` | [Availability Zone](../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
-† This version is not fully available yet and may not be supported in all regions.
+† This version isn't fully available yet and may not be supported in all regions.
 
 **Storage profile**
 
@@ -440,9 +449,9 @@ Data | Description | Version introduced |
 | `vhd` | Virtual hard disk | 2019-06-01
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
-†† These fields are only populated for Ultra Disks; they will be empty strings from non-Ultra Disks.
+†† These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
 
-The encryption settings blob contains data about how the disk is encrypted (if it is encrypted):
+The encryption settings blob contains data about how the disk is encrypted (if it's encrypted):
 
 Data | Description | Version introduced |
 |------|-----------|--------------------|
@@ -452,8 +461,8 @@ Data | Description | Version introduced |
 | `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01
 
 
-The resource disk object contains the size of the [Local Temp Disk](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
-If there is [no local temp disk for the VM](../articles/virtual-machines/azure-vms-no-temp-disk.yml), this value is 0. 
+The resource disk object contains the size of the [Local Temp Disk](managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
+If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0. 
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
@@ -475,7 +484,7 @@ If there is [no local temp disk for the VM](../articles/virtual-machines/azure-v
 
 ### Get user data
 
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](../articles/virtual-machines/user-data.md). 
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](user-data.md). 
 
 To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS. This feature is released with version `2021-01-01` and above.
 
@@ -529,7 +538,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
-You can also use [Availability Zones](../articles/availability-zones/az-overview.md) for the instances to make these decisions.
+You can also use [Availability Zones](../availability-zones/az-overview.md) for the instances to make these decisions.
 You can query this data directly via IMDS.
 
 **Request**
@@ -1050,13 +1059,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ---
 
 >[!NOTE]
-> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](../articles/load-balancer/howto-load-balancer-imds.md?tabs=windows) for more infomration.
+> * If you're looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](../load-balancer/howto-load-balancer-imds.md?tabs=windows) for more infomration.
 
 ## Attested data
 
 ### Get Attested data
 
-IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you are running on Azure.
+IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you're running on Azure.
 
 ```
 GET /metadata/attested/document
@@ -1137,7 +1146,7 @@ $attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoPr
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
 
-Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+Verify that the signature is from Microsoft Azure and checks the certificate chain for errors.
 
 ```powershell
 # Get certificate chain
@@ -1236,7 +1245,7 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 
 In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
 
-You can find the intermediate certificates on [this page](../articles/security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
+You can find the intermediate certificates on [this page](../security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
@@ -1250,13 +1259,13 @@ If you pinned the intermediate certificates for Azure China as part of a root ch
 A managed identity, assigned by the system, can be enabled on the VM. You can also assign one or more user-assigned managed identities to the VM.
 You can then request tokens for managed identities from IMDS. Use these tokens to authenticate with other Azure services, such as Azure Key Vault.
 
-For detailed steps to enable this feature, see [Acquire an access token](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+For detailed steps to enable this feature, see [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## Load Balancer Metadata
-When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances. For more information, see [Retrieve load balancer information](../articles/load-balancer/instance-metadata-service-load-balancer.md).
+When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances. For more information, see [Retrieve load balancer information](../load-balancer/instance-metadata-service-load-balancer.md).
 
 ## Scheduled events
-You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
+You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](./linux/scheduled-events.md) or [Scheduled events for Windows](./windows/scheduled-events.md).
 
 
 ## Sample code in different languages
@@ -1278,45 +1287,45 @@ The following table lists samples of calling IMDS by using different languages i
 
 ## Errors and debugging
 
-If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
+If there's a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
 
 | HTTP status code | Reason |
 |------------------|--------|
 | `200 OK` | The request was successful.
 | `400 Bad Request` | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
 | `404 Not Found` | The requested element doesn't exist
-| `405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
+| `405 Method Not Allowed` | The HTTP method (verb) isn't supported on the endpoint.
 | `410 Gone` | Retry after some time for a max of 70 seconds
 | `429 Too Many Requests` | API [Rate Limits](#rate-limiting) have been exceeded
 | `500 Service Error` | Retry after some time
 
 ## Frequently asked questions
 
-- I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
+- I'm getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
   - IMDS requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to IMDS.
 
 - Why am I not getting compute information for my VM?
   - Currently, IMDS only supports instances created with Azure Resource Manager.
 
 - I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?
-  - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+  - If you created your VM after September 2016, add a [tag](../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
 - Is user data the same as custom data?
-  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](../articles/virtual-machines/custom-data.md). However you can only get custom data through local system folder, not through IMDS.
+  - User data offers the similar functionality to custom data, allowing you to pass your own metadata to the VM instance. The difference is, user data is retrieved through IMDS, and is persistent throughout the lifetime of the VM instance. Existing custom data feature will continue to work as described in [this article](custom-data.md). However you can only get custom data through local system folder, not through IMDS.
 
 - Why am I not seeing all data populated for a new version?
-  - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+  - If you created your VM after September 2016, add a [tag](../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
 - Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
   - Retry your request. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the problem persists, create a support issue in the Azure portal for the VM.
 
-- Would this work for virtual machine scale set instances?
-  - Yes, IMDS is available for virtual machine scale set instances.
+- Would this work for scale set instances?
+  - Yes, IMDS is available for scale set instances.
 
-- I updated my tags in virtual machine scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?
-  - Currently tags for virtual machine scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
+- I updated my tags in my scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?
+  - Currently tags for scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
 
-- Why am I am not seeing the SKU information for my VM in `instance/compute` details?
+- Why am I'm not seeing the SKU information for my VM in `instance/compute` details?
   - For custom images created from Azure Marketplace, Azure platform doesn't retain the SKU information for the custom image and the details for any VMs created from the custom image. This is by design and hence not surfaced in the VM `instance/compute` details.
 
 - Why is my request timed out for my call to the service?
@@ -1398,7 +1407,7 @@ If there is a data element not found or a malformed request, the Instance Metada
                 set-name: eth0
         version: 2
         ```
-    1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
+    1. If you're using a dynamic IP, note the MAC address. If you're using a static IP, you may note the listed IP(s) and/or the MAC address.
     1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
         ```powershell
         $ResourceGroup = '<Resource_Group>'
@@ -1411,11 +1420,11 @@ If there is a data element not found or a malformed request, the Instance Metada
         }
         # Output: ipexample606 True 00-0D-3A-E4-C7-2E
         ```
-    1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
+    1. If they don't match, update the routing table such that the primary NIC/IP are targeted.
 
     ---
 
-- Failover clustering in Windows Server
+- Fail over clustering in Windows Server
   - When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
 
     1. Open a command prompt with administrator privileges.
@@ -1460,7 +1469,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 ## Support
 
-If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
+If you'ren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
 
 ## Product feedback
 
@@ -1468,8 +1477,9 @@ You can provide product feedback and ideas to our user feedback channel under Vi
 
 ## Next steps
 
-- [Acquire an access token for the VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [Acquire an access token for the VM](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-- [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md)
+- [Scheduled events for Linux](./linux/scheduled-events.md)
 
-- [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md)
+- [Scheduled events for Windows](./windows/scheduled-events.md)
+
