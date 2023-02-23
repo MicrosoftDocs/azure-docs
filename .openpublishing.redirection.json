@@ -1,5 +1,10 @@
 {
     "redirections": [
+     {
+      "source_path": "articles/virtual-machines/h-series.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/h-series",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/h-series-retirement.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/h-series-retirement",
