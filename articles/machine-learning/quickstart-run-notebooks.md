@@ -204,7 +204,7 @@ Use the sample notebooks available in studio to help you learn about how to trai
 
 Still in the **Notebooks** section, select **Samples** at the top.
 
-:::image type="content" source="media/quickstart-create-resources/samples.png" alt-text="Screenshot: Sample notebooks.":::
+:::image type="content" source="media/quickstart-create-resources/samples.png" alt-text="Screenshot showing sample notebooks.":::
 
 * Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
 * These notebooks are read-only, and are updated periodically.  When you open a notebook, select the **Clone** button at the top to add your copy of the notebook and any associated files into your own files.  
