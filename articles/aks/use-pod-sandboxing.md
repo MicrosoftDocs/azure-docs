@@ -244,7 +244,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     kubectl exec -it trusted -- /bin/bash
     ```
 
-  To see the kernel version run the following command:
+   To see the kernel version run the following command:
 
     ```bash
     uname -r
