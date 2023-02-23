@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 02/03/2023
+ms.topic: article
+ms.date: 02/22/2023
 ms.author: danlep
 ---
 
@@ -14,9 +14,7 @@ ms.author: danlep
 
 Use the `get-authorization-context` policy to get the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance. 
 
-The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
-
-If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be `https://azure-api.net/authorization-manager`.  
+The policy fetches and stores authorization and refresh tokens from the configured authorization provider.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -41,9 +39,9 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 | provider-id | The authorization provider resource identifier. | Yes | N/A  |
 | authorization-id | The authorization resource identifier. | Yes | N/A  |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes | N/A  |
-| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
-| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | `false` |
+| identity-type | Type of identity to check against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
+| identity | An Azure AD JWT bearer token to check against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If you set the value to `false`, and the policy configuration includes an `on-error` section, the error is available in the `context.LastError` property.  | No | `false` |
 
 ### Authorization object
 
@@ -67,6 +65,10 @@ class Authorization
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+
+### Usage notes
+
+* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#access-policies) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
 
 ## Examples
 
