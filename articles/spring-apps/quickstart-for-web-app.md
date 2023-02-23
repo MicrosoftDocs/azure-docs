@@ -51,9 +51,8 @@ Here is the diagram about the system:
     ```shell
     ./mvnw spring-boot:run -f web/pom.xml
     ```
-1. Access `http://localhost:8080` by browser, you will see a page like this:
-
-> ![ToDo app home page](./media/quickstart-for-web-app/todo-app.png)
+4. Access `http://localhost:8080` by browser, you will see a page like this:
+    ![ToDo app home page](./media/quickstart-for-web-app/todo-app.png)
 
 ## Prepare the cloud environment
 
