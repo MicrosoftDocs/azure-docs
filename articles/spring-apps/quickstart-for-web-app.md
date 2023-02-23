@@ -169,10 +169,18 @@ After app instance and the PostgreSQL instance been created, the app instance ca
       },
       {
         "additionalProperties": {},
-        "description": "",
+        "description": null,
         "errorCode": null,
         "errorMessage": null,
-        "name": "The username and password is validated",
+        "name": "The configured values (except username/password) is validated",
+        "result": "success"
+      },
+      {
+        "additionalProperties": {},
+        "description": null,
+        "errorCode": null,
+        "errorMessage": null,
+        "name": "The identity existence is validated",
         "result": "success"
       }
     ]
