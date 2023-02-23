@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 
 ---
 
@@ -22,6 +22,8 @@ This article helps you understand this new feature, and how to implement it.
 - The `KataVMIsolationPreview` feature is registered in your Azure subscription.
 
 - Kubernetes version 1.24.0 and higher. Earlier versions of Kubernetes aren't supported.
+
+- [Mariner](https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#mariner-os) [Gen 2](https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#mariner-os) OS SKU
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
@@ -213,7 +215,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     pod/untrusted created
     ```
 
-## Verify isolation configuration
+## Verify Kernel Isolation configuration
 
 
 
@@ -225,51 +227,26 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a VM that has different number of CPUs and memory from the *trusted* container.
+2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a Nested VM that has different kernel version from the *trusted* container.
 
-   To see the number of CPUs available, run:
-
-    ```bash
-    cat /proc/cpuinfo
-    ```
-
-   The following example resembles consolidated output from the command:
-
-    ```output
-    root@untrusted:/# cat /proc/cpuinfo
-    processor       : 0
-    vendor_id       : GenuineIntel
-    cpu family      : 6
-    model           : 85
-    model name      : Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
-    stepping        : 7
-    microcode       : 0xffffffff
-    cpu MHz         : 2593.905
-    cache size      : 36608 KB
-    physical id     : 0
-    siblings        : 1
-    core id         : 0
-    cpu cores       : 1
-    ```
-
-   To see how much memory is available, run:
+   To see the kernel version run:
 
     ```bash
-    cat /proc/meminfo
+    uname -r
     ```
 
-   The following example resembles consolidated output from the command:
+   The following example resembles the nested VM kernel output from the command:
 
     ```output
-    root@untrusted:/# cat /proc/meminfo
-    MemTotal:        2042616 kB
-    MemFree:         1963160 kB
-    MemAvailable:    1949004 kB
-    Buffers:               0 kB
-    Cached:            55648 kB
-    SwapCached:            0 kB
-    Active:             1228 kB
-    Inactive:          12824 kB
+    root@untrusted:/# uname -r
+    5.15.48.1-8.cm2
+    ```
+
+   
+   The following example resembles the shared VM kernel output from the command:
+
+    ```output
+    5.15.80.mshv2-hvl1.m2
     ```
 
 ## Cleanup
