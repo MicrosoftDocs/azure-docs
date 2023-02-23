@@ -1,5 +1,5 @@
 ---
-title: AIOps and advanced analytics using machine learning in Azure Monitor Logs
+title: AIOps and machine learning in Azure Monitor Logs
 description: Use machine learning to improve your ability to predict IT needs and identify and respond to anomalous patterns in log data. 
 author: guywi-ms
 ms.author: guywild
@@ -10,7 +10,7 @@ ms.date: 23/02/2023
 #customer-intent: As a data scientist, I want to understand how to use machine learning to improve my ability to predict IT needs and identify and respond to anomalous patterns in log data.
 
 ---
-# AIOps and advanced analytics using machine learning in Azure Monitor Logs 
+# AIOps and machine learning in Azure Monitor Logs 
 
 Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resources into Azure Monitor Logs. 
 
@@ -18,7 +18,7 @@ Machine learning capabilities help enhance and automate data-driven tasks, such 
 
 This article describes Azure Monitor's built-in machine learning capabilities and how you can  create and run customized machine learning models. 
 
-## Use the built-in machine learning capabilities of Azure Monitor Logs
+## Use built-in AIOps and machine learning capabilities of Azure Monitor Logs
 
 ### Kusto Query Language (KQL) time series analysis and machine learning functions
 
