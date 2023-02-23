@@ -197,7 +197,7 @@
     - name: Availability and recovery
       href: search-performance-optimization.md
     - name: Availability migration guidance
-      href: /azure/reliability/migrate-search-service
+      href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management

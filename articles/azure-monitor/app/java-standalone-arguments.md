@@ -2,7 +2,7 @@
 title: Add the JVM arg - Application Insights for Java
 description: Learn how to add the JVM arg that enables Application Insights for Java.
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/14/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -16,7 +16,7 @@ For more information, see [Application monitoring for Azure App Service and Java
 
 ## Azure Functions
 
-For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
+For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
 
 ## Spring Boot
 

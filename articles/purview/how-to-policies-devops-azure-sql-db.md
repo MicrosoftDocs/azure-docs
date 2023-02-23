@@ -1,21 +1,21 @@
 ---
-title: Provision access to Azure SQL Database for DevOps actions (preview)
-description: Step-by-step guide on provisioning access to Azure SQL Database through Microsoft Purview DevOps policies
+title: Manage access to Azure SQL Database system health and performance using Microsoft Purview DevOps policies, a type of RBAC policies.
+description: Use Microsoft Purview DevOps policies to provision access to Azure SQL Database system metadata, so IT operations personnel can monitor performance, health and audit security, while limiting the insider threat.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/04/2022
-ms.custom: references_regions
+ms.date: 02/10/2023
+ms.custom:
 ---
 # Provision access to system metadata in Azure SQL Database (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
-This how-to guide covers how to provision access from Microsoft Purview to Azure SQL Database system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+This how-to guide covers how to configure Azure SQL Database to enforce policies created in Microsoft Purview. It covers the configuration steps for Azure SQL Database and the ones in Microsoft Purview to provision access to Azure SQL Database system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]

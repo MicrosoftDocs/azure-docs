@@ -33,7 +33,7 @@ Currently, Azure supports both modes of VPN gateways: route-based VPN gateways a
 
 | Category | Policy-based VPN Gateway | Route-based VPN Gateway | Route-based VPN Gateway |  Route-based VPN Gateway
 | -------- | ----------------------- | ---------------------- | ---------------------- | ----------------------- |
-| **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3  | VpnGw4 and VpnGw5 |
+| **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw1AZ, VpnGw2AZ, VpnGw3AZ | VpnGw4, VpnGw5, VpnGw4AZ, VpnGw5AZ |
 | **IKE version**          | IKEv1                       | IKEv2                            | IKEv1 and IKEv2         | IKEv1 and IKEv2   |
 | **Max. S2S connections** | **1**                       | 10                               | 30                      | 100               |
 |                          |                             |                                  |                         |                   |

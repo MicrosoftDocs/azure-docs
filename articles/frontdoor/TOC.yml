@@ -177,6 +177,8 @@
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Logs and metrics
+        href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
         href: best-practices.md
       - name: Scenarios
@@ -315,11 +317,11 @@
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
-      - name: Monitor and Reports
+      - name: Monitor and reports
         items:
-        - name: Configure diagnostic
+        - name: Configure diagnostic logs
           href: standard-premium/how-to-logs.md
-        - name: Set up monitoring and alerts
+        - name: Access metrics and create alerts
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
