@@ -27,7 +27,7 @@ Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 
 1. In the left menu, select **Workspaces** (preview) > **+ Add**.
-:::image type="content" source="media/how-to-create-workspace/create-workspace-portal.png" alt-text="Screenshot of creating an API Management workspace in the portal.":::
+:::image type="content" source="media/how-to-create-workspace/create-workspace-portal.png" alt-text="Screenshot of creating an API Management workspace in the portal." lightbox="media/how-to-create-workspace/create-workspace-portal-enlarged.png":::
     
 1. In the **Create workspace** window, enter a descriptive **Name**, resource **Id**, and optional **Description** for the workspace. Select **Save**.
 
