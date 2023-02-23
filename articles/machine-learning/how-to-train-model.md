@@ -299,13 +299,13 @@ The following examples demonstrate how to register a model in your AzureML works
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml.constants import ModelType
+from azure.ai.ml.constants import AssetTypes
 
 run_model = Model(
     path="azureml://jobs/{}/outputs/artifacts/paths/model/".format(returned_job.name),
     name="run-model-example",
     description="Model created from run.",
-    type=ModelType.MLFLOW
+    type=AssetTypes.MLFLOW_MODEL
 )
 
 ml_client.models.create_or_update(run_model)
