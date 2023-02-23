@@ -20,7 +20,7 @@ Use this article to get started making your first calls to the Azure OpenAI serv
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio quickstart](includes/studio.md)]
+[!INCLUDE [Studio quickstart](includes/chatgpt-studio.md)]
 
 ::: zone-end
 
