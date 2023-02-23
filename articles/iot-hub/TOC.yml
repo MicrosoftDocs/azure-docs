@@ -50,9 +50,6 @@
         - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Use Microsoft-supplied scripts to create test certificates
-          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
-          href: tutorial-x509-scripts.md
         - name: Create self-signed certificates
           displayName: X.509 certificates, OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
@@ -142,9 +139,6 @@
       - name: Use message routing to send device-to-cloud messages
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
-      - name: Use custom endpoints and routing rules for device-to-cloud messages
-        displayName: message routing, routing query
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Add queries to message routes
         href: iot-hub-devguide-routing-query-syntax.md
       - name: Compare message and event routing

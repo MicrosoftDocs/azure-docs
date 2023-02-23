@@ -27,6 +27,8 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
 
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
+
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
@@ -225,3 +227,4 @@ jobs:
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[auto-upgrade-node-image]: auto-upgrade-node-image.md
