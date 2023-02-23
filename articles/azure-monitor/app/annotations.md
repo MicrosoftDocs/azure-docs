@@ -106,8 +106,8 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
     # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
 
-    [!NOTE]
-    Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
+    > [!NOTE]
+    > Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
 
 1. Call the PowerShell script with the following code. Replace the angle-bracketed placeholders with your values. The `-releaseProperties` are optional.
 
