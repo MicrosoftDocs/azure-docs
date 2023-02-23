@@ -70,7 +70,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Ubuntu 20.04 Linux distro.
-**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 20.04 Linux distro.<br/><br/> Modernized experience to enable disaster recovery of VMware vritual machines is now generally available.[Learn more](https://azure.microsoft.com/updates/vmware-dr-ga-with-asr).<br/><br/> Protecting physical machines modernized experience is now supported.<br/><br/> Portecting machines with private endpoint and managed identity enabled is now supported with modernized experience.
+**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 20.04 Linux distro.<br/><br/> Modernized experience to enable disaster recovery of VMware virtual machines is now generally available.[Learn more](https://azure.microsoft.com/updates/vmware-dr-ga-with-asr).<br/><br/> Protecting physical machines modernized experience is now supported.<br/><br/> Protecting machines with private endpoint and managed identity enabled is now supported with modernized experience.
 
 ## Updates (August 2022)
 
@@ -126,7 +126,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Support added for retention points to be available for up to 15 days.<br/><br/>Added support for replication to be enabled on Azure virtual machines via Azure Policy. <br/><br/> Added support for ZRS managed disks when replicating Azure virtual machines. <br/><br/> Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux Linux 8.4 and Red Hat Enterprise Linux Linux 8.5 <br/><br/> 
+**Azure VM disaster recovery** | Support added for retention points to be available for up to 15 days.<br/><br/>Added support for replication to be enabled on Azure virtual machines via Azure Policy. <br/><br/> Added support for ZRS managed disks when replicating Azure virtual machines. <br/><br/> Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/> 
 **VMware VM/physical disaster recovery to Azure** | Support added for retention points to be available for up to 15 days.<br/><br/>Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux Linux 8.4 and Red Hat Enterprise Linux Linux 8.5 <br/><br/> 
 
 
@@ -162,13 +162,13 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 > [!NOTE]
 > Update rollup only provides updates for the public preview of VMware to Azure protections. No other fixes or improvements have been covered in this release.
-> To setup the preview experience, you will have to perform a fresh setup and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
+> To setup the preview experience, you will have to perform a fresh set up and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
 
-This public preview covers a complete overhaul of the current architecture for pretecting VMware machines.
+This public preview covers a complete overhaul of the current architecture for protecting VMware machines.
 - [Learn](/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
-- Check the pre-requisites and setup the ASR replication appliance by following [these steps](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
+- Check the pre-requisites and setup the Azure Site Recovery replication appliance by following [these steps](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
 - [Enable replication](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview) for your VMware machines.
-- Check out the [automatic upgrade](/azure/site-recovery/upgrade-mobility-service-preview) and [switch](/azure/site-recovery/switch-replication-appliance-preview) capability for ASR replication appliance.
+- Check out the [automatic upgrade](/azure/site-recovery/upgrade-mobility-service-preview) and [switch](/azure/site-recovery/switch-replication-appliance-preview) capability for Azure Site Recovery replication appliance.
 
 
 ## Updates (July 2021)
@@ -196,7 +196,7 @@ This public preview covers a complete overhaul of the current architecture for p
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
-**Azure VM disaster recovery** | Support added for cross-continental disaster recovery of Azure VMs.<br/><br/> REST API support for protection of VMSS Flex.<br/><br/> Now supported for VMs running Oracle Linux 8.2 and 8.3.
+**Azure VM disaster recovery** | Support added for cross-continental disaster recovery of Azure VMs.<br/><br/> REST API support for protection of Virtual Machine Scale Sets Flex.<br/><br/> Now supported for VMs running Oracle Linux 8.2 and 8.3.
 **VMware VM/physical disaster recovery to Azure** | Added support for using Ubuntu-20.04 while setting up master target server.<br/><br/> Now supported for VMs running Oracle Linux 8.2 and 8.3.
 
 
