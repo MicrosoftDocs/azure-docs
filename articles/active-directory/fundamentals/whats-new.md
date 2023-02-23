@@ -56,17 +56,6 @@ For more information, see:
 
 ---
 
-### Public Preview - Cross-tenant synchronization
-
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Collaboration          
-
-Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
-
-
----
-
 ### General Availability - Microsoft cloud settings for Azure AD B2B
 
 **Type:** New feature   
