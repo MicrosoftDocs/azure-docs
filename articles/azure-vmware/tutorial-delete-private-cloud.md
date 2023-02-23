@@ -31,7 +31,7 @@ If you require the VMs and their data later, make sure to backup the data before
 1. Access the Azure VMware Solutions console in the [Azure portal](https://portal.azure.com).  
    
    >[!NOTE]
-   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/ 
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 2. Select the private cloud you want to delete.
 
