@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/18/2023
+ms.date: 1/20/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -139,7 +139,7 @@ The MedTech service processes the data in five steps:
 
 If the processing was successful and you didn't get any error messages, your device data is now a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource.
 
-For more information on the data flow through MedTech, see [The MedTech service data flow](data-flow.md).
+For more information on the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
 
 ## Step 6: Verify the processed data
 

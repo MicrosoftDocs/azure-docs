@@ -61,7 +61,7 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 
 ## Use a persistent volume with Azure Files
 
-A [persistent volume (PV)][persistent-volume] represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or [NFS protocol][nfs-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share][azure-files-storage-provision.md#statically-provision-a-volume].
+A [persistent volume (PV)][persistent-volume] represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or [NFS protocol][nfs-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share][statically-provision-a-volume].
 
 With Azure Files shares, there is no limit as to how many can be mounted on a node.
 
@@ -489,54 +489,25 @@ The output of the commands resembles the following example:
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
-[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
-[vhd-disk-feature]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/disk
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
 [azure-disk-csi]: azure-disk-csi.md
 [azure-blob-csi]: azure-blob-csi.md
 [persistent-volume-claim-overview]: concepts-storage.md#persistent-volume-claims
-[access-tier-file-share]: ../storage/files/storage-files-planning#storage-tiers.md
-[access-tier-storage-account]: ../storage/blobs/access-tiers-overview.md
-[azure-tags]: ../azure-resource-manager/management/tag-resources.md 
-[azure-disk-volume]: azure-disk-volume.md
-[azure-files-pvc]: azure-files-dynamic-pv.md
-[azure-files-pvc-manual]: azure-files-volume.md
-[premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az_disk_list
-[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
-[az-disk-create]: /cli/azure/disk#az_disk_create
-[az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
-[install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
-[storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
 [storage-tiers]: ../storage/files/storage-files-planning.md#storage-tiers
-[use-tags]: use-tags.md
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
-[zrs-account-type]: ../storage/common/storage-redundancy.md#zone-redundant-storage
 [access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
+[statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume

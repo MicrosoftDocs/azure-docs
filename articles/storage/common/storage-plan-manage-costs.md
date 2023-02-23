@@ -118,6 +118,8 @@ You can pay for Azure Blob Storage charges with your Azure Prepayment (previousl
 
 Consider using these options to reduce costs.
 
+- Analyze existing containers and blobs
+
 - Reserve storage capacity
 
 - Organize data into access tiers
@@ -125,6 +127,18 @@ Consider using these options to reduce costs.
 - Automatically move data between access tiers
 
 This section covers each option in more detail.
+
+#### Analyze existing containers and blobs
+
+If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
+
+See any of these articles to itemize and analyze your existing containers and blobs:
+
+- [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
+
+- [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
+
+- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.md)
 
 #### Reserve storage capacity
 
@@ -134,9 +148,15 @@ To learn more, see [Optimize costs for Blob Storage with reserved capacity](../b
 
 #### Organize data into access tiers
 
-You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
+You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
 
-To learn more, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal).
+See any of these articles:
+
+- [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
+
+- [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
+
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
 #### Automatically move data between access tiers
 

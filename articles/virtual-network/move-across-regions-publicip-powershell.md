@@ -1,5 +1,5 @@
 ---
-title: Move Azure Public IP configuration to another Azure region using Azure PowerShell  
+title: Move Azure Public IP configuration to another Azure region - Azure PowerShell  
 description: Use Azure Resource Manager template to move Azure Public IP configuration from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: virtual-network

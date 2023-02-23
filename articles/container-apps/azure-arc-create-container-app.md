@@ -43,7 +43,8 @@ az extension add -s https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-
 Create a resource group for the services created in this tutorial.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+myResourceGroup="my-container-apps-resource-group"
+az group create --name $myResourceGroup --location eastus 
 ```
 
 ## Get custom location information
@@ -75,7 +76,8 @@ Now that you have the custom location ID, you can query for the connected enviro
 A connected environment is largely the same as a standard Container Apps environment, but network restrictions are controlled by the underlying Arc-enabled Kubernetes cluster.
 
 ```azure-interactive
-myConnectedEnvironment = az containerapp connected-env list --custom-location customLocationId -o tsv --query '[].id'
+myContainerApp="my-container-app"
+myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
 ```
 
 ## Create an app
@@ -83,17 +85,16 @@ myConnectedEnvironment = az containerapp connected-env list --custom-location cu
 The following example creates a Node.js app.
 
 ```azurecli-interactive
- az container app create \
-    --resource-group myResourceGroup \
-    --name myContainerApp \
-    --environment myConnectedEnvironment \
+ az containerapp create \
+    --resource-group $myResourceGroup \
+    --name $myContainerApp \
+    --environment $myConnectedEnvironment \
     --environment-type connected \
-    --image mcr.microsoft.com/azuredocs/container-apps-helloworld:latest \
+    --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
     --target-port 80 \
     --ingress 'external'
 
-az containerapp browse --resource-group myResourceGroup \
-    --name myContainerApp
+az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
 ```
 
 ## Get diagnostic logs using Log Analytics
@@ -112,7 +113,7 @@ let StartTime = ago(72h);
 let EndTime = now();
 ContainerAppsConsoleLogs_CL
 | where TimeGenerated between (StartTime .. EndTime)
-| where AppName_s =~ "myContainerApp"
+| where AppName_s =~ "my-container-app"
 ```
 
 The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.

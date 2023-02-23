@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 01/17/2023
 ---
 
 # Service Connector internals
@@ -48,6 +48,10 @@ Service Connector runs multiple tasks while creating or updating service connect
 - Creating or updating connection rollback in case of failure
 
 If a step fails during this process, Service Connector rolls back all previous steps to keep the initial settings in the source and target instances.
+
+## Resource provider
+
+[!INCLUDE [Service Connector MicrosoftServiceLinker](../../includes/service-connector-service-linker.md)]
 
 ## Connection configurations
 

@@ -4,9 +4,9 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 10/14/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure file share backup

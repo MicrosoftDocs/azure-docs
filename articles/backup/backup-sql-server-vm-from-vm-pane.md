@@ -3,6 +3,8 @@ title: Back up a SQL Server VM from the VM pane
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines from the VM pane.
 ms.topic: conceptual
 ms.date: 08/11/2022
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up a SQL Server from the VM pane
 

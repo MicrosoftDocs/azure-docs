@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to use OpenSSL to self-sign device certificates.
 ---
 
-# Tutorial: Using OpenSSL to create self-signed certificates
+# Tutorial: Use OpenSSL to create self-signed certificates
 
 You can authenticate a device to your IoT hub using two self-signed device certificates. This type of authentication is sometimes called *thumbprint authentication* because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps show you how to create two self-signed certificates. This type of certificate is typically used for testing.
 
@@ -112,7 +112,7 @@ Navigate to your IoT hub in the Azure portal and create a new IoT device identit
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
 
 ```bash
 openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx

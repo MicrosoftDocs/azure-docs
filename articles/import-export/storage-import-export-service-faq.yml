@@ -144,7 +144,10 @@ sections:
           What happens if I accidentally send an HDD that does not conform to the supported requirements?
         answer: |
           The Azure data center will return the drive that does not conform to the supported requirements to you. If only some of the drives in the package meet the support requirements, those drives will be processed, and the drives that do not meet the requirements will be returned to you.
-
+      - question: |
+          If I ship the drive in custom packaging, will Microsoft return the drive in the same packaging I sent it in?
+        answer: |
+          Microsoft will not necessarily return the drive in the same custom packaging it was shipped in. If you would like the drive to be returned in the same packaging, please request so by sending an email to adbops@microsoft.com.
       - question: |
           Does the service format the drives before returning them?
         answer: |
