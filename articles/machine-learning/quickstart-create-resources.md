@@ -103,7 +103,7 @@ Use the sample notebooks available in studio to help you learn about how to trai
 
 * Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
 * These notebooks are read-only, and are updated periodically.  
-* When you open a notebook, select the **Clone** button at the top to add your copy of the notebook and any associated files into your own files.  
+* When you open a notebook, select the **Clone this notebook** button at the top to add your copy of the notebook and any associated files into your own files.  A new folder with the notebook is created for you in the **Files** section.
 
 ## Create a new notebook
 
