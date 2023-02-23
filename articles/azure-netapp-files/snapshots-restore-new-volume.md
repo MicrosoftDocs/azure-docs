@@ -37,7 +37,7 @@ ms.author: anfdocs
 
     By default, the new volume includes a reference to the snapshot that was used for the restore operation from the original volume from Step 2, referred to as the *base snapshot*. This base snapshot does *not* consume any additional space because of [how snapshots work](snapshots-introduction.md). If you don't want the new volume to contain this base snapshot, select **Delete base snapshot** during the new volume creation.
 
-    :::image type="content" source="../media/azure-netapp-files/delete-base-snapshop.png" alt-text="Screenshot showing the Delete Base Snapshot checkbox."::: 
+    :::image type="content" source="../media/azure-netapp-files/snapshot-restore-new-volume.png" alt-text="Screenshot showing the Create a Volume window for restoring a volume from a snapshot."::: 
 
 4. Select **Review+create**. Select **Create**.   
     The Volumes page displays the new volume that the snapshot restores to.   
