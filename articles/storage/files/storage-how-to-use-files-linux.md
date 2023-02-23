@@ -323,11 +323,12 @@ After you've created the file share snapshot, following these instructions to mo
    
 6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
 
-If the mount fails, see [Troubleshoot Azure Files problems in Linux (SMB)](storage-troubleshoot-linux-file-connection-problems.md).
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md).
 
 ## Next steps
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
-- [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Troubleshoot general NFS issues on Linux](files-troubleshoot-linux-nfs.md)

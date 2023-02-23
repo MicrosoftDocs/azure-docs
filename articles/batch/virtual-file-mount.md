@@ -183,7 +183,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
 
 1. Review the error messages. For example, `mount error(13): Permission denied`.
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files connectivity and access issues (SMB)](../storage/files/files-troubleshoot-smb-connectivity.md&tabs=linux).
+1. Troubleshoot the problem using [Troubleshoot Azure Files connectivity and access issues (SMB)](../storage/files/files-troubleshoot-smb-connectivity.md).
 
 ---
 
