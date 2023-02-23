@@ -71,7 +71,7 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 * [Dashboard version history](https://grafana.com/docs/grafana/latest/dashboards/)
 * [Dashboard export and import](https://grafana.com/docs/grafana/latest/dashboards/export-import/)
 * [Dashboard JSON model](https://grafana.com/docs/grafana/latest/dashboards/json-model/)
-* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/scripted-dashboards/)
+* [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/)
 
 ## Next steps
 

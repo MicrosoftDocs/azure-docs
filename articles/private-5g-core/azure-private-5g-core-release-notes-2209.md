@@ -53,6 +53,7 @@ The following table provides a summary of known issues carried over from the pre
   | 13 | 4G/5G Signaling  | In rare scenarios, due to a race condition triggered during a RAN disconnect/re-connect sequence, Azure Private 5G Core may fail to process incoming requests from the eNodeB or gNodeB.   | Reinstall the packet core.  |
   | 14 | Local dashboards  | On the packet core dashboards, the 4G interface panel doesn’t display the data.  | Select each panel’s edit button and select Data source again as Prometheus and select refresh to see the data. |
   | 15 | 4G/5G Signaling  | In rare scenarios when a significant number of UEs are bulk registered and send continuous data , the core may incorrectly release data sessions. | If sessions are released, UEs may need to re-connect with the system to use data services.  |
+  | 16 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 ## Next steps
 

@@ -9,13 +9,13 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 02/17/2021
+ms.date: 01/24/2023
 ms.author: mbaldwin
 ---
 
 # About keys
 
-Azure Key Vault provides two types of resources to store and manage cryptographic keys. Vaults support software-protected and HSM-protected (Hardware Security Module) keys. Managed HSMs only support HSM-protected keys. 
+Azure Key Vault provides two types of resources to store and manage cryptographic keys. Vaults support software-protected and HSM-protected (Hardware Security Module) keys. Managed HSMs only support HSM-protected keys.
 
 |Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|

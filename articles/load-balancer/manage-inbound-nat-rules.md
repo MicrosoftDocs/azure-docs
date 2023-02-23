@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/15/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
+
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal
 
 An inbound NAT rule is used to forward traffic from a load balancer frontend to one or more instances in the backend pool. 

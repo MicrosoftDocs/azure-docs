@@ -372,8 +372,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/libraries-sdks.md",
-      "redirect_url": "/azure/iot-develop/libraries-sdks",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/libraries-sdks.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play.md",

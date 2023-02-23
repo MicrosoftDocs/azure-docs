@@ -4,7 +4,7 @@ description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Az
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 02/07/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -31,7 +31,7 @@ The article details the steps to configure a Point-to-Site VPN on Linux to mount
 - A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## Install required software
-The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux. 
+The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux.
 
 > Verified with Ubuntu 18.10.
 
@@ -40,6 +40,12 @@ sudo apt update
 sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
 installDir="/etc/"
+```
+
+If the installation fails or you get an error such as **EAP_IDENTITY not supported, sending EAP_NAK**, you might need to install extra plugins:
+
+```bash
+sudo apt install -y libcharon-extra-plugins
 ```
 
 ### Deploy a virtual network 
@@ -176,18 +182,20 @@ sudo cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
 sudo cp "Generic/VpnServerRoot.cer_0" "${installDir}ipsec.d/cacerts"
 sudo cp "${username}.p12" "${installDir}ipsec.d/private" 
 
-echo -e "\nconn $virtualNetworkName" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tkeyexchange=$vpnType" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\ttype=tunnel" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftfirewall=yes" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleft=%any" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftauth=eap-tls" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftid=%client" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tright=$vpnServer" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\trightid=%$vpnServer" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\trightsubnet=$routes" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
-echo -e "\tleftsourceip=%config" | sudo tee -a "${installDir}ipsec.conf" > /dev/null 
-echo -e "\tauto=add" | sudo tee -a "${installDir}ipsec.conf" > /dev/null
+sudo tee -a "${installDir}ipsec.conf" <<EOF
+conn $virtualNetworkName
+    keyexchange=$vpnType
+    type=tunnel
+    leftfirewall=yes
+    left=%any
+    leftauth=eap-tls
+    leftid=%client
+    right=$vpnServer
+    rightid=%$vpnServer
+    rightsubnet=$routes
+    leftsourceip=%config
+    auto=add
+EOF
 
 echo ": P12 client.p12 '$password'" | sudo tee -a "${installDir}ipsec.secrets" > /dev/null
 

@@ -14,6 +14,8 @@ ms.author: mbaldwin
 ---
 # Best practices when using Managed HSM
 
+This article provides best practices for securing your Azure Managed HSM key management system.  For a full list of security recommendations, see the [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline).
+
 ## Control Access to your managed HSM
 
 Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your managed HSMs by allowing only authorized applications and users. This [article](access-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
@@ -39,8 +41,9 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Next steps
 
-- See [Full backup/restore](backup-restore.md) for information on full HSM backup/restore.
-- See [Managed HSM logging](logging.md) to learn how to use Azure Monitor to configure logging
-- See [Manage managed HSM keys](key-management.md) for key management.
-- See [Managed HSM role management](role-management.md) for managing role assignments.
-- See [Managed HSM soft-delete overview](soft-delete-overview.md) for recovery options.
+- [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
+- [Full backup/restore](backup-restore.md)
+- [Managed HSM logging](logging.md)
+- [Manage managed HSM keys](key-management.md)
+- [Managed HSM role management](role-management.md)
+- [Managed HSM soft-delete overview](soft-delete-overview.md)

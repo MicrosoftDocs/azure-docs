@@ -4,9 +4,9 @@ description: Learn how to integrate Microsoft Defender for Cloud and Azure Backu
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/30/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points

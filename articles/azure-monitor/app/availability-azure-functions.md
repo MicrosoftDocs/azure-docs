@@ -8,7 +8,7 @@ ms.devlang: csharp
 
 # Create and run custom availability tests by using Azure Functions
 
-This article explains how to create an Azure function with `TrackAvailability()` that will run periodically according to the configuration given in the `TimerTrigger` function with your own business logic. The results of this test will be sent to your Application Insights resource, where you can query for and alert on the availability results data. Then you can create customized tests similar to what you can do via [availability monitoring](./monitor-web-app-availability.md) in the Azure portal. By using customized tests, you can:
+This article explains how to create an Azure function with `TrackAvailability()` that will run periodically according to the configuration given in the `TimerTrigger` function with your own business logic. The results of this test will be sent to your Application Insights resource, where you can query for and alert on the availability results data. Then you can create customized tests similar to what you can do via [availability monitoring](./availability-overview.md) in the Azure portal. By using customized tests, you can:
 
 - Write more complex availability tests than is possible by using the portal UI.
 - Monitor an app inside of your Azure virtual network.

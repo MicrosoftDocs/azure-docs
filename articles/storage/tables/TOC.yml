@@ -120,10 +120,6 @@
     items:
     - name: Manage access rights with Azure RBAC
       href: assign-azure-role-data-access.md
-    - name: Get an access token for authorization with Azure AD
-      href: ../common/identity-library-acquire-token.md?toc=/azure/storage/tables/toc.json
-    - name: Authorize from an application running in Azure
-      href: authorize-managed-identity.md
     - name: View and manage account keys
       href: ../common/storage-account-keys-manage.md?toc=/azure/storage/tables/toc.json
     - name: Configure connection strings
@@ -217,7 +213,7 @@
   - name: Table storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-table-storage
   - name: Pricing for Table storage
-    href: https://azure.microsoft.com/en-us/pricing/details/storage/tables/
+    href: https://azure.microsoft.com/pricing/details/storage/tables/
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference

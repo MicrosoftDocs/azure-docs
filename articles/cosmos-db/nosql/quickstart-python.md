@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Azure Cosmos DB for NoSQL client library for Python
-description: Learn how to build a .NET app to manage Azure Cosmos DB for NoSQL account resources and data in this quickstart.
+description: Learn how to build a Python app to manage Azure Cosmos DB for NoSQL account resources and data.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 1/17/2023
-ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey, passwordless-python
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for Python
@@ -20,7 +20,7 @@ ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-
 Get started with the Azure Cosmos DB client library for Python to create databases, containers, and items within your account. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-python-samples) are available on GitHub as a .NET project.
+> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-python-samples) are available on GitHub as a Python project.
 
 [API reference documentation](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Package (PyPI)](https://pypi.org/project/azure-cosmos) | [Samples](samples-python.md)
 
@@ -34,12 +34,12 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ### Prerequisite check
 
-- In a terminal or command window, run ``python --version`` to check that the .NET SDK is version 3.7 or later.
+- In a command shell, run `python --version` to check that the version is 3.7 or later.
 - Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
+This section walks you through creating an Azure Cosmos DB account and setting up a project that uses the Azure Cosmos DB for NoSQL client library for Python to manage resources.
 
 ### Create an Azure Cosmos DB account
 
@@ -52,13 +52,29 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 
 Create a new Python code file (*app.py*) in an empty folder using your preferred integrated development environment (IDE).
 
-### Install the package
+### Install packages
 
-Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to the Python app. Use the `pip install` command to install the package.
+Use the `pip install` command to install packages you'll need in the quickstart.
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) and [`azure-identity`](https://pypi.org/project/azure-identity) PyPI packages to the Python app. 
+
+```bash
+pip install azure-cosmos
+pip install azure-identity
+```
+
+### [Connection String](#tab/connection-string)
+
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to the Python app. 
 
 ```bash
 pip install azure-cosmos
 ```
+
+---
+
 
 ### Configure environment variables
 
@@ -83,86 +99,123 @@ You'll use the following Python classes to interact with these resources:
 - [Get an item](#get-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``cosmicworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 For this sample code, the container will use the category as a logical partition key.
 
 ### Authenticate the client
 
-From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
-#### [Sync](#tab/sync)
+## [Passwordless (Recommended)](#tab/passwordless)
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
+[!INCLUDE [python-default-azure-credential-overview](../../../includes/passwordless/python-default-azure-credential-overview.md)]
 
-#### [Async](#tab/async)
+[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="imports":::
+#### Authenticate using DefaultAzureCredential
 
----
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Create constants for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
+From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos DB and authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
-#### [Sync / Async](#tab/sync+async)
+[!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="environment_variables":::
+Create an environment variable that specifies your Cosmos DB endpoint.
 
----
+[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
 
 Create constants for the database and container names.
 
-#### [Sync / Async](#tab/sync+async)
+[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-constants.md)]
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="constants":::
+Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the `DefaultAzureCredential` object.
 
----
+[!INCLUDE [sync async code create client - create](./includes/quickstart-python/credential-string-sync-async-code-create-client.md)]
+
+## [Connection String](#tab/connection-string)
+
+From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
+
+[!INCLUDE [sync async code imports](./includes/quickstart-python/connection-string-sync-async-code-imports.md)]
+
+Create constants for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
+
+[!INCLUDE [sync async code environment variables](./includes/quickstart-python/connection-string-sync-async-code-environment-variables.md)]
+
+Create constants for the database and container names.
+
+[!INCLUDE [sync async code constants](./includes/quickstart-python/connection-string-sync-async-code-constants.md)]
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
-
-#### [Async](#tab/async)
-
-> [!IMPORTANT]
-> Please the client instance in a coroutine function named `manage_cosmos`. Within the coroutine function, define the new client with the `async with` keywords. Outside of the coroutine function, use the `asyncio.run` function to execute the coroutine asynchronously.
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="24-26":::
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="70":::
+[!INCLUDE [sync async code create client](./includes/quickstart-python/connection-string-sync-async-code-create-client.md)]
 
 ---
 
 ### Create a database
 
+## [Passwordless (Recommended)](#tab/passwordless)
+
+The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations, such as creating and deleting databases, you must use RBAC through one of the following options:
+
+> - [Azure CLI scripts](manage-with-cli.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md)
+> - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
+> - [Azure Resource Manager Python client library](https://pypi.org/project/azure-mgmt-cosmosdb)
+
+The Azure CLI approach is used in for this quickstart and passwordless access. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command to create a Cosmos DB for NoSQL database.
+
+```azurecli
+# Create a SQL API database `
+az cosmosdb sql database create `
+    --account-name <cosmos-db-account-name> `
+    --resource-group <resource-group-name> `
+    --name cosmicworks
+```
+
+The command line to create a database is for PowerShell, shown on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line.
+
+## [Connection String](#tab/connection-string)
+
 Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_database":::
-
-#### [Async](#tab/async)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="28-29":::
+[!INCLUDE [sync async code create database](./includes/quickstart-python/connection-string-sync-async-code-create-database.md)]
 
 ---
 
 ### Create a container
 
+## [Passwordless (Recommended)](#tab/passwordless)
+
+The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
+
+> - [Azure CLI scripts](manage-with-cli.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md)
+> - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
+> - [Azure Resource Manager Python client library](https://pypi.org/project/azure-mgmt-cosmosdb)
+
+The Azure CLI approach is used in this example. Use the [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) command to create a Cosmos DB container.
+
+```azurecli
+# Create a SQL API container
+az cosmosdb sql container create `
+    --account-name <cosmos-db-account-name> `
+    --resource-group <resource-group-name> `
+    --database-name cosmicworks `
+    --partition-key-path "/categoryId" `
+    --name products
+```
+
+The command line to create a container is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll also need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key parameter correctly.
+
+After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
+
+## [Connection String](#tab/connection-string)
+
 The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_partition_key":::
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_container":::
-
-#### [Async](#tab/async)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="31":::
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="33-36":::
+[!INCLUDE [sync async code partition key](./includes/quickstart-python/connection-string-sync-async-code-partition-key.md)]
 
 ---
 

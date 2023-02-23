@@ -1,21 +1,15 @@
 ---
-title: TCP/IP performance tuning for Azure VMs | Microsoft Docs
+title: TCP/IP performance tuning for Azure VMs
 description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: paragk
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: allensu
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-
 ---
 
 # TCP/IP performance tuning for Azure VMs
