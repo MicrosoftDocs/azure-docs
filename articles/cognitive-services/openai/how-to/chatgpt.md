@@ -2,8 +2,8 @@
 title: How to work with the ChatGPT model (preview)
 titleSuffix: Azure OpenAI
 description: Learn how to work with the ChatGPT model (preview)
-author: mrbullwinkle #swap back to dereklegenzoff
-ms.author: mbullwin #swap back to delegenz
+author: dereklegenzoff
+ms.author: delegenz
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/01/2023
