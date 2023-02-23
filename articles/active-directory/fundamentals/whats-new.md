@@ -52,7 +52,7 @@ This release includes our first 3 recommendations:
 For more information, see: 
 
 - [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md).
-- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview?view=graph-rest-beta)
+- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
 
 ---
 
