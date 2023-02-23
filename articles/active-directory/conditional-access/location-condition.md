@@ -120,7 +120,7 @@ This option applies to:
 
 #### Multifactor authentication trusted IPs
 
-Using the trusted ips section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
+Using the trusted IPs section of multifactor authentication's service settings is no longer recommended. This control only accepts IPv4 addresses and should only be used for specific scenarios covered in the article [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md#trusted-ips)
 
 If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
 
@@ -137,6 +137,8 @@ Conditional Access policies apply to all IPv4 **and** IPv6 traffic.
 You can discover IPv6 traffic in your tenant by going the [Azure AD sign-in activity reports](../reports-monitoring/concept-sign-ins.md). After you have the activity report open, add the “IP address” column and add a colon (**:**) to the field. This filter helps distinguish IPv6 traffic from IPv4 traffic.
 
 You can also find the client IP by clicking a row in the report, and then going to the “Location” tab in the sign-in activity details. 
+
+:::image type="content" source="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png" alt-text="A screenshot showing Azure AD Sign-in logs and an IP address filter for IPv6 addresses." lightbox="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png":::
 
 ## What you should know
 
