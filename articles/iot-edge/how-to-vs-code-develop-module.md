@@ -223,7 +223,7 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/new-solution.png" alt-text="Screenshot of how to run a new IoT Edge solution.":::
 
 1. Browse to the folder where you want to create the new solution and then select **Select folder**.
 1. Enter a name for your solution.
@@ -231,7 +231,7 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use sign in server from your registry's settings. The sign in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
-   ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository.":::
 
 Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
@@ -525,7 +525,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
+   :::image type="content" source="media/how-to-vs-code-develop-module/view-log.png" alt-text="Screenshot of the Watch Variables.":::
 
 1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
