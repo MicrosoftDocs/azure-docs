@@ -20,60 +20,6 @@ With batch transcriptions, you submit the [audio data](batch-transcription-audio
 
 ## Create a transcription job
 
-::: zone pivot="speech-cli"
-
-To create a transcription, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
-
-- Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
-- Set the required `language` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
-
-Here's an example Speech CLI command that creates a transcription job:
-
-```azurecli-interactive
-spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
-```
-
-You should receive a response body in the following format:
-
-```json
-{
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
-  "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
-  },
-  "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
-  },
-  "properties": {
-    "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": false,
-    "channels": [
-      0,
-      1
-    ],
-    "punctuationMode": "DictatedAndAutomatic",
-    "profanityFilterMode": "Masked"
-  },
-  "lastActionDateTime": "2022-10-21T14:21:59Z",
-  "status": "NotStarted",
-  "createdDateTime": "2022-10-21T14:21:59Z",
-  "locale": "en-US",
-  "displayName": "My Transcription",
-  "description": ""
-}
-```
-
-The top-level `self` property in the response body is the transcription's URI. Use this URI to get details such as the URI of the transcriptions and transcription report files. You also use this URI to update or delete a transcription.
-
-For Speech CLI help with transcriptions, run the following command:
-
-```azurecli-interactive
-spx help batch transcription
-```
-
-::: zone-end
-
 ::: zone pivot="rest-api"
 
 To create a transcription, use the [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
@@ -138,17 +84,61 @@ regularly from the service, after you retrieve the results. Alternatively, set t
 
 ::: zone-end
 
-## Request configuration options
-
 ::: zone pivot="speech-cli"
 
-For Speech CLI help with transcription configuration options, run the following command:
+To create a transcription, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
+
+- Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
+- Set the required `language` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+
+Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli-interactive
-spx help batch transcription create advanced
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
+  },
+  "properties": {
+    "diarizationEnabled": false,
+    "wordLevelTimestampsEnabled": false,
+    "channels": [
+      0,
+      1
+    ],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked"
+  },
+  "lastActionDateTime": "2022-10-21T14:21:59Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-10-21T14:21:59Z",
+  "locale": "en-US",
+  "displayName": "My Transcription",
+  "description": ""
+}
+```
+
+The top-level `self` property in the response body is the transcription's URI. Use this URI to get details such as the URI of the transcriptions and transcription report files. You also use this URI to update or delete a transcription.
+
+For Speech CLI help with transcriptions, run the following command:
+
+```azurecli-interactive
+spx help batch transcription
 ```
 
 ::: zone-end
+
+## Request configuration options
 
 ::: zone pivot="rest-api"
 
@@ -171,20 +161,21 @@ Here are some property options that you can use to configure a transcription whe
 
 ::: zone-end
 
+::: zone pivot="speech-cli"
+
+For Speech CLI help with transcription configuration options, run the following command:
+
+```azurecli-interactive
+spx help batch transcription create advanced
+```
+
+::: zone-end
 
 ## Using custom models
 
 Batch transcription uses the default base model for the locale that you specify. You don't need to set any properties to use the default base model. 
 
 Optionally, you can modify the previous [create transcription example](#create-a-batch-transcription) by setting the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
-
-::: zone pivot="speech-cli"
-
-```azurecli-interactive
-spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
-```
-
-::: zone-end
 
 ::: zone pivot="rest-api"
 
@@ -203,6 +194,14 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
     "wordLevelTimestampsEnabled": true,
   },
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+```
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+```azurecli-interactive
+spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end
