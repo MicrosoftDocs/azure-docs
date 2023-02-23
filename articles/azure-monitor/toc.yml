@@ -1476,6 +1476,12 @@ items:
         href: autoscale/autoscale-troubleshoot.md
       - name: Resource Log schemas
         href: autoscale/autoscale-resource-log-schema.md  
+  - name: AIOps
+    items:
+      - name: Machine learning in Azure Monitor Logs
+        href: bring-your-own-machine-learning.md
+      - name: Fit machine learning model using Jupyter Notebook
+        href: jupyter-notebook-in-azure-monitor-logs.md      
 - name: Reference
   items:
   - name: Service limits
