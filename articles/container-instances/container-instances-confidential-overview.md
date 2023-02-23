@@ -13,14 +13,14 @@ ms.custom: "seodec18, mvc"
 # Confidential containers on Azure Container Instances
 This article introduces how confidential containers on Azure Container Instances can enable you to secure your workloads running in the cloud. This article provides background about the feature set, scenarios, limitations, and resources.
 
-Confidential containers on Azure Container Instances enables customers to run Linux containers within a hardware-based trusted execution environment (TEE), providing the simplicity of a serverless container platform with the enhanced security of confidential computing. Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt any specialized programming models to achieve the benefits of confidentiality in a TEE. Confidential containers on ACI protects data-in-use and the code by encrypting the contents through hardware/CPU transparently. ACI extends this capability through verifiable execution policies, and verifiable hardware root of trust assurances through guest attestation while leveraging the simplicity and benefits of a fully managed serverless container platform. 
+Confidential containers on Azure Container Instances enable customers to run Linux containers within a hardware-based trusted execution environment (TEE). Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt any specialized programming models to achieve the benefits of confidentiality in a TEE. Confidential containers on ACI protect data-in-use and the code by encrypting the contents through hardware/CPU transparently. ACI extends this capability through verifiable execution policies, and verifiable hardware root of trust assurances through guest attestation.
 
    ![Screenshot of a confidential container group on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-tee.png)
 
 ## Features of confidential containers on Azure Container Instances
 
 ### Hardware based trusted execution environment 
-Confidential containers on Azure Container Instances are deployed in a container group with a Hyper-V isolated TEE which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory within the TEE is encrypted with this key to help provide protection against data replay, corruption, remapping- and aliasing-based attacks.  
+Confidential containers on Azure Container Instances are deployed in a container group with a Hyper-V isolated TEE, which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory within the TEE is encrypted with this key to help provide protection against data replay, corruption, remapping- and aliasing-based attacks.  
 
 ### Verifiable execution policies
 Confidential containers on Azure Container Instances can run with verifiable execution policies that enable customers to have full control over what software and actions are allowed to run within the TEE. These execution policies help to protect against bad actors creating unexpected application modifications that could potentially leak sensitive data.  Execution policies are authored by the customer through provided [tooling](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) and are verified through cryptographic proof. 
@@ -32,33 +32,33 @@ Confidential containers on ACI provide support for remote guest attestation whic
 Confidential containers support container-level integrity and attestation via confidential computing enforcement policies, which prescribe the components that are permitted to run within the container group and is enforced by the container runtime. 
 
 ### Azure CLI confcom extension 
-The Azure CLI confcom extension enables customers to generate confidential computing enforcement policies using an ARM template as an input and providing a base 64 string policy as an output. This output is used in the definition of the container group to enforce which components are permitted to run. See [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) for more details on authoring confidential computing execution policies. 
+The Azure CLI confcom extension enables customers to generate confidential computing enforcement policies using an ARM template as an input and providing a base 64 string policy as an output. This output is included in the definition of the container group to enforce which components are permitted to run. For more details on authoring confidential computing execution policies, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
 
 
 ## Secure key release and encrypted file system sidecars
 Confidential containers on Azure Container Instances integrates with two open source sidecars to support confidential functionality within the container group.  You can find these sidecars and more information in the [confidential sidecar repository](https://github.com/microsoft/confidential-sidecar-containers).
 
 ### Secure key release sidecar 
-Confidential containers on Azure Container Instances provides a sidecar tool for attestation and secure key release. This tool instantiates a web server which exposes a REST API so that other containers can retrieve a hardware attestation report or an Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
+Confidential containers on Azure Container Instances provide a sidecar tool for attestation and secure key release. This tool instantiates a web server, which exposes a REST API so that other containers can retrieve a hardware attestation report or a Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
 
 ### Encrypted file system sidecar 
-Confidential containers on Azure Container Instances provides a sidecar container to mount a remote encrypted filesystem previously uploaded to Azure Blob Storage.The sidecar container transparently retrieves the hardware attestation and the certificate chain endorsing the attestation’s signing key. It then requests Microsoft Azure Attestation to authorize an attestation token, which is required for securely releasing the filesystem’s encryption key from the managed HSM. The key is released to the sidecar container only if the attestation token is signed by the expected authority and the attestation claims match the key’s release policy. Finally, the sidecar container transparently uses the key to mount the remote encrypted filesystem; this process will preserve the confidentiality and integrity of the filesystem upon any operation from a container running within the container group.
+Confidential containers on Azure Container Instances provide a sidecar container to mount a remote encrypted filesystem previously uploaded to Azure Blob Storage. The sidecar container transparently retrieves the hardware attestation and the certificate chain endorsing the attestation’s signing key. It then requests Microsoft Azure Attestation to authorize an attestation token, which is required for securely releasing the filesystem’s encryption key from the managed HSM. The key is released to the sidecar container only if the attestation token is signed by the expected authority and the attestation claims match the key’s release policy. The sidecar container transparently uses the key to mount the remote encrypted filesystem; this process will preserve the confidentiality and integrity of the filesystem upon any operation from a container that is running within the container group.
 
 
 ## Scenarios 
 
 ### Data clean rooms for multi-party data analytics and machine learning training
-Business transactions and project collaborations often require sharing confidential data amongst multiple parties. This data may include personal information, financial information, and medical records which need to be protected from unauthorized access. Confidential containers on ACI provide the necessary features (hardware-based TEEs, remote attestation) for customers to process training data from multiple sources without exposing input data to other parties. This enables organizations to get more value from their/partners dataset while maintaining  control over access to their sensitive information. This makes confidential containers on ACI ideal for multi-party data analytics scenarios such as confidential machine learning. 
+Business transactions and project collaborations often require sharing confidential data amongst multiple parties. This data may include personal information, financial information, and medical records which need to be protected from unauthorized access. Confidential containers on Azure Container Instances provide the necessary features (hardware-based TEEs, remote attestation) for customers to process training data from multiple sources without exposing input data to other parties. This enables organizations to get more value from their/partners dataset while maintaining  control over access to their sensitive information. This makes confidential containers on Azure Container Instances ideal for multi-party data analytics scenarios such as confidential machine learning. 
 
    ![Screenshot of a ML training model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-training.png)
 
 ### Confidential inference
-ACI provides fast and easy deployments, flexible resource allocation and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on ACI, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a sample deployment of confidential inference using confidential containers on ACI.  
+ACI provides fast and easy deployments, flexible resource allocation and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on Azure Container Instances, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a sample deployment of confidential inference using confidential containers on Azure Container Instances.  
 
    ![Screenshot of a ML inference model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-inference.png)
 
 ## Unsupported Scenarios
-* Confidential computing enforcement policies must be generated by the Azure CLI confcom extension and cannot be manually created.
+* Confidential computing enforcement policies must be generated by the Azure CLI confcom extension and can't be manually created.
 
 ## Resources 
 
