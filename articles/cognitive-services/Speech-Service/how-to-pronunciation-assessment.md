@@ -696,31 +696,26 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone pivot="programming-language-java"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/1e525f57608efaea085ea46cd2236a3a11f7bf47/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/1e525f57608efaea085ea46cd2236a3a11f7bf47/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-
-For how to use Pronunciation Assessment in streaming mode in your own application, see [sample codes](https://aka.ms/pronunciationassessment/sample).
 
 ::: zone-end
 
@@ -730,5 +725,7 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ## Next steps
 
+- Learn our quality [benchmark](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/speech-service-update-hierarchical-transformer-for-pronunciation/ba-p/3740866)
 - Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)
-- Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
+- See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) on GitHub
+- Check out easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
