@@ -19,7 +19,6 @@ You can create a computer group in Azure Monitor using any of the methods in the
 | Method | Description |
 |:--- |:--- |
 | Log query |Create a log query that returns a list of computers. |
-| Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log query. |
 | Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Azure Monitor for each security group. (Windows machines only)|
 | Configuration Manager | Import collections from Microsoft Endpoint Configuration Manager and create a group in Azure Monitor for each. |
 | Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Azure Monitor for each. |
@@ -69,7 +68,7 @@ When you configure Azure Monitor to import Configuration Manager collection memb
 You configure Azure Monitor to import WSUS groups from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **System Center Configuration Manager** tab, and then **Import Configuration Manager collection memberships**. When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ## Managing computer groups
-You can view computer groups that were created from a log query or the Log Search API from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
+You can view computer groups that were created from a log query from the **Legacy computer groups** menu item in your Log Analytics workspace in the Azure portal.  Select the **Saved Groups** tab to view the list of groups.  
 
 Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 
