@@ -481,9 +481,9 @@ These are the limitations of this feature:
 
 These are the considerations when using this feature:
 
-+ Since changing file metadata or content in SharePoint will trigger document processing, when [AI enrichment](cognitive-search-concept-intro.md) is configured, consider using [Incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md) so skill re-processing is avoided, while the cache is valid.
++ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](/graph/data-connect-concept-overview) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](/graph/use-the-api) for incremental indexing.
 
-+ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](https://learn.microsoft.com/graph/data-connect-concept-overview) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](https://learn.microsoft.com/graph/use-the-api) for incremental indexing.
++ There could be Microsoft 365 processes that update SharePoint file system-metadata (based on different configurations in SharePoint) and will cause the SharePoint indexer to trigger. Make sure that you test your setup and understand the document processing count prior to using any AI enrichment. Since this is a third-party connector to Azure (since SharePoint is located in Microsoft 365), SharePoint configuration is not checked by the indexer.
 
 
 
