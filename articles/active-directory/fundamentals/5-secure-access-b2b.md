@@ -249,7 +249,7 @@ Use the following series of articles to learn about securing external access to 
 
 4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) (You're here)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) (You're here) 
 
 6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
