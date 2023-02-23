@@ -22,8 +22,6 @@
             href: migrate/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible server migration tool (Preview)- Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
-          - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
-            href: migrate/how-to-set-up-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
