@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.3
-description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.3.
+title: Azure Synapse Runtime for Apache Spark 3.3 
+description: New runtime is GA and ready for production workloads. Spark 3.3.1, Python 3.10, Delta Lake 2.2.
 author: ekote
 ms.service: synapse-analytics 
 ms.topic: reference
@@ -8,15 +8,14 @@ ms.subservice: spark
 ms.date: 11/17/2022 
 ms.author: eskot
 ms.custom: has-adal-ref, ignite-2022
-ms.reviewer: eskot
+ms.reviewer: ekote
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.3 (Preview)
+# Azure Synapse Runtime for Apache Spark 3.3 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
 > [!IMPORTANT]
-> * Azure Synapse Runtime for Apache Spark 3.3 is currently in Public Preview.
-> * We are actively rolling out the final changes to all production regions with the goal of ensuring a seamless implementation. As we monitor the stability of these updates, we tentatively anticipate a general availability date of February 23rd. Please note that this is subject to change and we will provide updates as they become available.
+> * Azure Synapse Runtime for Apache Spark 3.3 has been in public preview since Nov 2022. As of Feb 23, 2023, we are excited to announce that after notable improvements in performance and stability, Azure Synapse Runtime for Apache Spark 3.3 now becomes generally available and ready for production workloads.
 
 ## Component versions
 
