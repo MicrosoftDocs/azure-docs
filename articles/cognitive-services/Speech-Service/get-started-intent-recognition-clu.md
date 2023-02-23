@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/17/2023
+ms.date: 02/22/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 keywords: intent recognition
