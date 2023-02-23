@@ -13,15 +13,15 @@ ms.date: 03/01/2023
 keywords: 
 ---
 
-<a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
+[Library source code](https://github.com/openai/openai-python?azure-portal=true) | <a href="https://pypi.org/project/openai/" target="_blank">[Package (PyPi)](https://pypi.org/project/openai?azure-portal=true)</a> |
 
 ## Prerequisites
 
-- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-- The following Python libraries: os
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+- Access granted to the Azure OpenAI service in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
+- [Python 3.7.1 or later version](https://www.python.org?azure-portal=true).
+- The following Python libraries: os.
 - An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
