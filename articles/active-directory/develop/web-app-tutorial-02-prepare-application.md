@@ -123,7 +123,7 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
 
 1. Open *appsettings.json* and replace the file contents with the following snippet: 
   
-   :::code language="json" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/appsettings.json":::
+   :::code language="json" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/appsettings.json" :::
 
     * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
