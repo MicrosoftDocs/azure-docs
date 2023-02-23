@@ -42,6 +42,8 @@
         href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Authoring Azure Resource Manager templates
         href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Create a load balancer
+        href: ../../load-balancer/quickstart-load-balancer-standard-public-powershell.md
       - name: Backup VMs at Scale
         href: ../../backup/tutorial-backup-vm-at-scale.md
   - name: How To Guides

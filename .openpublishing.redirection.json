@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/virtual-machines/linux/tutorial-load-balancer.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-load-balancer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/windows/tutorial-load-balancer.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/h-series-retirement.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/h-series-retirement",
       "redirect_document_id": false
