@@ -1,28 +1,28 @@
 ---
-title: Azure Route Server frequently asked questions (FAQs)
+title: Azure Route Server frequently asked questions (FAQ)
 description: Find answers to frequently asked questions about Azure Route Server.
 services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 02/23/2023
 ms.author: halkazwini
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
 ---
 
-# Azure Route Server frequently asked questions (FAQs)
+# Azure Route Server frequently asked questions (FAQ)
 
 ## What is Azure Route Server?
 
 Azure Route Server is a fully managed service that allows you to easily manage routing between your network virtual appliance (NVA) and your virtual network.
 
-### Is Azure Route Server just a VM?
+### Is Azure Route Server just a virtual machine?
 
-No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it will have zone-level redundancy.
+No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it'll have zone-level redundancy.
 
-### How many Azure Route Servers can I create in a virtual network?
+### How many route servers can I create in a virtual network?
 
-You can create only one route server in a virtual network. It must be deployed in a dedicated subnet called *RouteServerSubnet*.
+You can create only one route server in a virtual network. The route server must be deployed in a dedicated subnet called *RouteServerSubnet*.
 
 ### Does Azure Route Server support virtual network peering?
 
@@ -31,7 +31,7 @@ Yes, if you peer a virtual network hosting the Azure Route Server to another vir
 
 ### <a name = "protocol"></a>What routing protocols does Azure Route Server support?
 
-Azure Route Server supports Border Gateway Protocol (BGP) only. Your NVA needs to support multi-hop external BGP because you’ll need to deploy Azure Route Server in a dedicated subnet in your virtual network. The [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) you choose must be different from the one Azure Route Server uses when you configure the BGP on your NVA.
+Azure Route Server supports Border Gateway Protocol (BGP) only. Your NVA needs to support multi-hop external BGP because you’ll need to deploy Azure Route Server in a dedicated subnet in your virtual network. The ASN you choose must be different from the one Azure Route Server uses when you configure the BGP on your NVA.
 
 ### Does Azure Route Server route data traffic between my NVA and my VMs?
 
@@ -56,8 +56,9 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 Yes, Azure Route Server propagates the route with the BGP AS Path intact.
 
-### Do I need to peer each NVA with both Route Server instances?
-Yes, to ensure that VNet routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instances with both instances of Route Server.
+### Do I need to peer each NVA with both Azure Route Server instances?
+
+Yes, to ensure that virtual network routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instance with both instances of Route Server.
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
@@ -82,11 +83,11 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
-### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
+### Can I associate a user defined route (UDR) to the RouteServerSubnet?
 
 No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server doesn't route any data traffic between NVAs and VMs.
 
-### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
+### Can I associate a network security group (NSG) to the RouteServerSubnet?
 
 No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
 
@@ -102,13 +103,17 @@ No, Azure Route Server doesn't forward data traffic. To enable transit connectiv
 
 ### Can I use Azure Route Server to direct traffic between subnets in the same virtual network to flow inter-subnet traffic through the NVA?
 
-No. System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. As Route Server uses BGP to advertise routes, currently this is not supported by design. You must continue to use UDRs to force override the routes, and you can't utilize BGP to quickly failover these routes. You must continue to use a third party solution to update the UDRs via the API in a failover situation, or use an Azure Load Balancer with HA ports mode to direct traffic.
+No. System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. As Route Server uses BGP to advertise routes, currently this is not supported by design. You must continue to use UDRs to force override the routes, and you can't utilize BGP to quickly failover these routes. You must continue to use a third-party solution to update the UDRs via the API in a failover situation, or use an Azure Load Balancer with HA ports mode to direct traffic.
 
 You can still use Route Server to direct traffic between subnets in different virtual networks to flow using the NVA. The only possible design that may work is one subnet per "spoke" virtual network and all virtual networks are peered to a "hub" virtual network, but this is very limiting and needs to take into scaling considerations and Azure's maximum limits on virtual networks vs subnets.
 
 ### Can Azure Route Server filter out routes from NVAs?
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertises routes with this community string to the route server, the route server won't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes to be sent from Azure Route Server to ExpressRoute.
+
+### Can Azure Route Server provide transit between ExpressRoute and a Point-to-Site (P2S) VPN gateway connection if the branch-to-branch setting is enabled?
+
+No, Azure Route Server provides transit only between ExpressRoute and a Site-to-Site (S2S) VPN gateway connections (when the *branch-to-branch* setting is enabled).
 
 ## <a name = "limitations"></a>Route Server Limits
 
