@@ -105,7 +105,7 @@ To manually update, follow these steps:
 
    :::image type="content"source="./media/azure-web-apps/startup-command.png" alt-text="Screenshot of startup command.":::
    
-   **Startup Command** won't honour `JAVA_OPTS`.
+   **Startup Command** won't honor `JAVA_OPTS`.
 
    If you don't use **Startup Command**, create a new environment variable, `JAVA_OPTS`, with the value
    `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
