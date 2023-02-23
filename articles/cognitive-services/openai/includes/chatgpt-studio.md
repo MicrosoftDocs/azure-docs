@@ -39,13 +39,13 @@ You can use the Chatbot setup dropdown to select a few pre-loaded **System messa
 
 **System messages** give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the chatbot’s personality, tell it what it should and shouldn’t answer, and tell it how to format responses.
 
-**Add few-shot examples** allows you to provide conversational examples that are used by the model for in-context learning.
+**Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
 At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
-Selecting the **Send** button sends the entered text to the completions API and stream the results back to the text box.
+Selecting the **Send** button sends the entered text to the completions API and the results are returned back to the text box.
 
 Select the **Clear chat** button to delete the current conversation history.
 
@@ -62,7 +62,7 @@ Select the **Clear chat** button to delete the current conversation history.
 
 ### Panel configuration
 
-By default there are three panes: chatbot setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
+By default there are three panels: chatbot setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
 
 ## Start a chat session
 
@@ -102,11 +102,11 @@ response = openai.Completion.create(
 
 ### Understanding the prompt structure
 
-ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
+If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
 
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
 
-The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the new model effectively.
+The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-3.5` model effectively.
 
 ## Clean up resources
 

@@ -16,7 +16,7 @@ recommendations: false
 
 # Quickstart: Get started using ChatGPT with Azure OpenAI Service
 
-Use this article to get started making your first calls to the Azure OpenAI service.
+Use this article to get started using Azure OpenAI.
 
 ::: zone pivot="programming-language-studio"
 
