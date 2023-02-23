@@ -47,8 +47,8 @@ The following list presents the set of features that are currently available in 
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️       | ❌              | ❌                 |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️    | ✔️*      | ✔️*              | ✔️*                |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️*      | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -73,6 +73,8 @@ The following list presents the set of features that are currently available in 
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+
+- The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, please visit, [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 
 ## UI Library
 
