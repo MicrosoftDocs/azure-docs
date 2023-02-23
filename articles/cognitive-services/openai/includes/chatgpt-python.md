@@ -13,7 +13,7 @@ ms.date: 03/01/2023
 keywords: 
 ---
 
-[Library source code](https://github.com/openai/openai-python?azure-portal=true) | <a href="https://pypi.org/project/openai/" target="_blank">[Package (PyPi)](https://pypi.org/project/openai?azure-portal=true)</a> |
+[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) |
 
 ## Prerequisites
 
