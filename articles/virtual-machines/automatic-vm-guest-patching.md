@@ -81,19 +81,22 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 16.04-LTS |
+| Canonical  | UbuntuServer | 16.04.0-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS-Gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts |
+| Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-1 |
 | microsoftcblmariner  | cbl-mariner | 1-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
 | microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8_5, 8-LVM |
+| Redhat  | RHEL | 8, 8.1, 8.2, 82gen2, 8_3, 8_4, 8_5, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
 | OpenLogic  | centos-lvm | 7-lvm |
@@ -103,6 +106,9 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | SUSE  | sles-15-sp2 | gen1, gen2 |
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-gensecond |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-datacenter-gensecond  |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
@@ -115,6 +121,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-smalldisk-g2  |
 | MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-with-containers  |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-smalldisk    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-g2    |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter-core-g2 |
