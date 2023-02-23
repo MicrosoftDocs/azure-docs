@@ -92,7 +92,7 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 **Use for**: Parsing text, simple classification, address correction, keywords
 
-### GPT 3.5 (ChatGPT)
+### ChatGPT (GPT 3.5)
 
 The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
@@ -174,7 +174,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | Text-davinci-003 | Yes | No | East US | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
-| GPT 3.5 | Yes | No | N/A | East US, South Central US |
+| GPT-3.5 (ChatGPT) | Yes | No | N/A | East US, South Central US |
 
 \*Models available by request only. We are currently unable to onboard new customers at this time.
 
