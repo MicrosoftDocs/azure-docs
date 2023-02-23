@@ -27,7 +27,7 @@ Using authorizations, customers can enable different scenarios and easily connec
 
 * **Unattended** - Azure function using a timer trigger that uses an authorization to connect to a backend API.
 
-    :::image type="content" source="media/authorizations-overview/azure-function-connects-backend-apis.png" alt-text="Diagram showing unattended scenario for API Management authorization" border="false":::
+    :::image type="content" source="media/authorizations-overview/azure-function-connects-backend-apis.png" alt-text="Diagram showing unattended scenario for API Management authorization." border="false":::
 
 ## How do authorizations work?
 
@@ -39,7 +39,7 @@ The management part takes care of configuring identity providers, enabling the
 
 The following image summarizes the process flow for creating an authorization in API Management that uses the authorization code grant type. 
 
-:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
+:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Diagram showing process flow for creating authorizations." border="false":::
 
 | Step | Description
 | --- | --- |
