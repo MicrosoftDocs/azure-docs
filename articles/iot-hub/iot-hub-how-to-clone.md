@@ -213,7 +213,7 @@ This section provides specific instructions for migrating the hub.
 
 ### Edit the template 
 
-You have to make some changes before you can use the template to create the new hub in the new region. Use [VS Code](https://code.visualstudio.com) or a text editor to edit the template.
+You have to make some changes before you can use the template to create the new hub in the new region. Use [Visual Studio Code](https://code.visualstudio.com) or a text editor to edit the template.
 
 #### Edit the hub name and location
 
@@ -389,7 +389,7 @@ The application targets .NET Core, so you can run it on either Windows or Linux.
 
 1. To run the application, specify three connection strings and five options. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables. 
 
-   The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or VS Code, whichever you are using. 
+   The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or Visual Studio Code, whichever you are using. 
 
 ### Options
 
