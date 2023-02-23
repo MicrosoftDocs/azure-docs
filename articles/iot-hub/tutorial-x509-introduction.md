@@ -43,17 +43,12 @@ Using a CA-signed certificate chain backed by a PKI to authenticate a device pro
 
 - For testing purposes, we recommend using OpenSSL to create an X.509 certificate chain. OpenSSL is used widely across the industry to work with X.509 certificates. You can follow the steps in [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md) to create a root CA and intermediate CA certificate with which to create and sign device certificates. The tutorial also shows how to upload and verify a CA certificate. Then, follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
-- Several of the Azure IoT SDKs provide convenience scripts to help you create test certificate chains. For instructions about how to create certificate chains in PowerShell or Bash using scripts provided in the Azure IoT C SDK, see [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md). The tutorial also shows how to upload and verify a CA certificate. Then follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
-
-You can also use self-signed certificates to authenticate a device while testing IoT Hub features. Don't use self-signed certificates in production, because they provide less security than a certificate chain anchored with a CA-signed certificate backed by a PKI. To learn more about creating and using a self-signed X.509 certificate to authenticate with IoT Hub, see the [Create a self-signed certificate](reference-x509-certificates.md#create-a-self-signed-certificate) section of [X.509 certificates](reference-x509-certificates.md).
-
 ## Next steps
 
 To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
 * [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
 * If you want to use self-signed certificates for testing, see the [Create a self-signed certificate](reference-x509-certificates.md#create-a-self-signed-certificate) section of [X.509 certificates](reference-x509-certificates.md).
 

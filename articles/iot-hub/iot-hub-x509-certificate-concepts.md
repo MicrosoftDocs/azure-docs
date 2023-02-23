@@ -121,7 +121,6 @@ To learn more about the fields that make up an X.509 certificate, see [X.509 cer
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
 * [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
 * If you want to use self-signed certificates for testing, see the [Create a self-signed certificate](reference-x509-certificates.md#create-a-self-signed-certificate) section of [X.509 certificates](reference-x509-certificates.md).
 
