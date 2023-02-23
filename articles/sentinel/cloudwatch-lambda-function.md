@@ -6,25 +6,25 @@ ms.author: lwainstein
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 02/09/2023
-#Customer intent: As a security operator, I want to create a Lambda function to send CloudWatch events to S3 bucket so I can convert the format to the gzipped CSV without a header.  
+#Customer intent: As a security operator, I want to create a Lambda function to send CloudWatch events to S3 bucket so I can convert the format to the format accepted by Microsoft Sentinel.  
 ---
 
 # Create a Lambda function to send CloudWatch events to an S3 bucket
 
-In this article, you use a [Lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the gzipped CSV format without a header.  
+In some cases, your CloudWatch logs may not match the format accepted by Microsoft Sentinel - gzipped CSV format without a header. In this article, you use a [lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the accepted format. 
 
-## Create the Lambda function 
+## Create the lambda function 
 
-The Lambda function uses Python 3.9 runtime and x86_64 architecture. 
+The lambda function uses Python 3.9 runtime and x86_64 architecture. 
 
-1. In the AWS Management Console, select the Lambda service.
+1. In the AWS Management Console, select the lambda service.
 1. Select **Create function**. 
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-basic-information.png" alt-text="Screenshot of the AWS Management Console Basic information screen." lightbox="media/cloudwatch-lambda-function/lambda-basic-information.png":::
 
 1. Type a name for the function and select **Python 3.9** as the runtime and **x86_64** as the architecture. 
 1. Select **Create function**. 
-1. Under **Layers**, select **Add layer** and select **Add**.
+1. Under **Choose a layer**, select a layer and select **Add**.
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-add-layer.png" alt-text="Screenshot of the AWS Management Console Add layer screen." lightbox="media/cloudwatch-lambda-function/lambda-add-layer.png":::
 
