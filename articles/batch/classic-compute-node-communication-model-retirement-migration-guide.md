@@ -29,7 +29,7 @@ The simplified model also provides more fine-grained data exfiltration control, 
 
 ## Migrate Your Eligible Pools
 
-To migrate your Batch pools from classic to the simplified compute node communication model, please follow this document [simplified-compute-node-communication](#potential-impact-between-classic-and-simplified-communication-modes) from the section entitled potential impact between classic and simplified communication modes to either create new pools or update existing pools with simplified compute node communication.
+To migrate your Batch pools from classic to the simplified compute node communication model, please follow this document [simplified-compute-node-communication](simplified-compute-node-communication.md#potential-impact-between-classic-and-simplified-communication-modes) from the section entitled potential impact between classic and simplified communication modes to either create new pools or update existing pools with simplified compute node communication.
 
 ## FAQs
 
