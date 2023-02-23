@@ -35,6 +35,10 @@ Quota rules only come into effect on the CRR destination volume after the replic
     * During sync or reverse resync operations:
         * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
         * If you create, update, or delete a rule on a destination volume after the deletion of the replication relationship, the rule will be reverted to keep the source and destination volumes in sync.
+* If you are using [large volumes](large-volumes-requirements-considerations.md) (volumes larger than 100 TiB):    
+    * The space and file usage in a large volume might exceed as much as five percent more than the configured hard limit before the quota limit is enforced and rejects traffic.   
+    * To provide optimal performance, the space consumption may exceed configured hard limit before the quota is enforced. The additional space consumption will not exceed either the lower of 1 GB or five percent of the configured hard limit.    
+    * After reaching the quota limit, if a user or administrator delete files or directories to reduce quota usage under the limit, subsequent quota-consuming file operations may resume with a delay of up to five seconds.
 
 ## Register the feature  
 
