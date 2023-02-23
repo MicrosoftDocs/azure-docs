@@ -138,10 +138,11 @@ When you complete these steps, you have a shared private link that's provisioned
 
 ### [**REST API**](#tab/rest-create)
 
-Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign in. If you're using a REST client, such as Postman, you'll need to provide a bearer token that allows your request to go through. Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For other approaches, see [Manage with REST](search-manage-rest.md).
-
 > [!NOTE]
-> Remember to use the preview API version, either `2020-08-01-preview` or `2021-04-01-preview`, if you're using a group ID that's in preview. The following resource types are in preview and require a preview Management REST API: `managedInstance`, `mySqlServer`, `sites`. Remember to use the instructions in [create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for that resource type.
+> Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
+> For `managedInstance`, see [create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for help formulating a fully qualified domain name.
+
+Other tools like the portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign in. If you're using a REST client, such as Postman, you'll need to provide a bearer token that allows your request to go through. Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For other approaches, see [Manage with REST](search-manage-rest.md).
 
 1. Open a command line and run `az login` for Azure sign in.
 
