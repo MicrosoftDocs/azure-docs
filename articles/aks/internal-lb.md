@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 03/04/2019
+ms.date: 02/22/2023
 
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
@@ -260,7 +260,7 @@ As with any Kubernetes resource, you can directly delete a service, such as `kub
 
 ## Next steps
 
-Learn more about Kubernetes services in the [Kubernetes services documentation][kubernetes-services].
+To learn more about Kubernetes services, see the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

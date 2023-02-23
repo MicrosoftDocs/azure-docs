@@ -41,8 +41,6 @@ By default, managed disks use platform-managed encryption keys. All managed disk
 
 For now, customer-managed keys have the following restrictions:
 
-- If this feature is enabled for your disk, you cannot disable it.
-    If you need to work around this, you must copy all the data using either the [Azure PowerShell module](windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) or the [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk), to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 #### Supported regions
