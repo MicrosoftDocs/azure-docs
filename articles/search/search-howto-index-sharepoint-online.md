@@ -9,7 +9,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 ---
 
 # Index data from SharePoint document libraries
