@@ -139,7 +139,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > result = app.acquire_token_silent(config["scope"], account=None)
 > 
 > if not result:
->     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+>     logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 >     result = app.acquire_token_for_client(scopes=config["scope"])
 > ```
 > 

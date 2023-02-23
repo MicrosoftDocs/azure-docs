@@ -14,7 +14,7 @@ Your application must be authenticated to access Cognitive Services resources. F
 
 To set the environment variable for your Speech resource key, open a console window, and follow the instructions for your operating system and development environment. 
 - To set the `SPEECH_KEY` environment variable, replace `your-key` with one of the keys for your resource.
-- To set the `SPEECH_REGION` environment variable, replace `your-region` with one of the keys for your resource.
+- To set the `SPEECH_REGION` environment variable, replace `your-region` with one of the regions for your resource.
 
 #### [Windows](#tab/windows)
 

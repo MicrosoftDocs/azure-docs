@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep Kubernetes provider
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md
         - name: Use Bicep
           displayName: Resource Manager,arm,template
           href: learn/quick-kubernetes-deploy-bicep.md
@@ -184,6 +187,8 @@
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
           href: auto-upgrade-cluster.md
+        - name: Automatically upgrade AKS cluster node operating system images (preview)
+          href: auto-upgrade-node-image.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
         - name: Custom node configuration
@@ -332,6 +337,8 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
+            - name: Create an OIDC Issuer for your cluster
+              href: use-oidc-issuer.md
             - name: Workload identity (preview)
               items:
                 - name: Overview
@@ -422,7 +429,7 @@
             - name: Use a Standard Load Balancer
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
-              href: configure-kube-proxy.md   
+              href: configure-kube-proxy.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -438,7 +445,7 @@
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Shared file storage
-          items: 
+          items:
             - name: On Azure Blob storage
               items:
                 - name: Azure Blob CSI driver
@@ -452,7 +459,7 @@
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
             - name: Provision Azure NetApp Files storage
-              href: azure-netapp-files.md 
+              href: azure-netapp-files.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
@@ -487,7 +494,7 @@
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md          
+          href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers

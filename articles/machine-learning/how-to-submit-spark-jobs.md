@@ -2,7 +2,7 @@
 title: Submit Spark jobs in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
-author: ynpandey
+author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
