@@ -188,7 +188,7 @@ Use the following series of articles to learn about securing external access to 
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You are here)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You're here)
 
 5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
@@ -198,6 +198,6 @@ Use the following series of articles to learn about securing external access to 
 
 8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
 
 10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
