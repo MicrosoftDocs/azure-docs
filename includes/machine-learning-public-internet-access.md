@@ -51,16 +51,16 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 
 | Host name | Purpose |
 | ----- | ----- |
-| **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
-| **\*.anaconda.org** | Used to get repo data. |
-| **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
-| **cloud.r-project.org** | Used when installing CRAN packages for R development. |
-| **\*pytorch.org** | Used by some examples based on PyTorch. |
-| **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-| **code.visualstudio.com** | Required to download and install Visual Studio Code desktop. This isn't required for Visual Studio Code Web. |
-| **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve Visual Studio Code server bits that are installed on the compute instance through a setup script. |
-| **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install Visual Studio Code extensions. These hosts enable the remote connection to Compute Instances provided by the Azure ML extension for Visual Studio Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](../articles/machine-learning/how-to-set-up-vs-code-remote.md). |
-| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits, which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+| `anaconda.com`</br>`*.anaconda.com` | Used to install default packages. |
+| `*.anaconda.org` | Used to get repo data. |
+| `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
+| `cloud.r-project.org` | Used when installing CRAN packages for R development. |
+| `*pytorch.org` | Used by some examples based on PyTorch. |
+| `*.tensorflow.org` | Used by some examples based on Tensorflow. |
+| `code.visualstudio.com` | Required to download and install Visual Studio Code desktop. This isn't required for Visual Studio Code Web. |
+| `update.code.visualstudio.com`</br>`*.vo.msecnd.net` | Used to retrieve Visual Studio Code server bits that are installed on the compute instance through a setup script. |
+| `marketplace.visualstudio.com`</br>`vscode.blob.core.windows.net`</br>`*.gallerycdn.vsassets.io` | Required to download and install Visual Studio Code extensions. These hosts enable the remote connection to Compute Instances provided by the Azure ML extension for Visual Studio Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](../articles/machine-learning/how-to-set-up-vs-code-remote.md). |
+| `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits, which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
 
 > [!NOTE]
 > When using the [Azure Machine Learning VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) the remote compute instance will require an access to public repositories to install the packages required by the extension. If the compute instance requires a proxy to access these public repositories or the Internet, you will need to set and export the `HTTP_PROXY` and `HTTPS_PROXY` environment variables in the `~/.bashrc` file of the compute instance. This process can be automated at provisioning time by using a [custom script](../articles/machine-learning/how-to-customize-compute-instance.md).
