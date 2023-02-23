@@ -1,5 +1,5 @@
 ---
-title: Durable Functions best practice and diagnostic tools
+title: Durable Functions best practices and diagnostic tools
 description: Learn about the best practices when using Durable Functions and the various tools available for diagnosing problems.
 author: lilyjma
 ms.topic: conceptual
@@ -7,11 +7,11 @@ ms.date: 02/15/2023
 ms.author: azfuncdf
 ---
 
-# Durable Functions best practice and diagnostic tools
+# Durable Functions best practices and diagnostic tools
 
 This article details some best practices that can help you avoid common problems when using Durable Functions. It also includes various tools you can use to help diagnose problems during development and testing and when running your app in production.
 
-## Best practice
+## Best practices
 
 - **Use the latest version of Durable Functions extension and SDK**
 
