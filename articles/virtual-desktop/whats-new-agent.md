@@ -33,7 +33,7 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 This update was released in February 2023 and includes the following changes:
 
 - Domain Trust health check is now enabled. When virtual machines (VMs) fail the Domain Trust health check, they're now given the "Unavailable" status.
-- General improvement and bug fixes.
+- General improvements and bug fixes.
 
 ## Version 1.0.5739.9000/1.0.5739.9800
 
