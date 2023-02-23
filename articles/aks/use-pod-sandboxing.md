@@ -223,7 +223,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
    Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a nested VM that has a different kernel version compared to the *trusted* container.
+2. After starting a shell session to the container of the *untrusted* pod, you can run commands to verify that the *untrusted* container is running in a pod sandbox that has a different kernel version compared to the *trusted* container outside the sandbox.
 
    To see the kernel version run the following command:
 
@@ -231,18 +231,29 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     uname -r
     ```
 
-   The following example resembles output from the nested VM kernel:
+   The following example resembles output from the pod sandbox kernel:
 
     ```output
     root@untrusted:/# uname -r
     5.15.48.1-8.cm2
     ```
 
-   Running the same command on the shared VM kernel resembles output from the same command used earlier:
+3. Start a shell session to the container of the *trusted* pod to verify the kernel output:
+
+    ```bash
+    kubectl exec -it trusted -- /bin/bash
+    ```
+
+  To see the kernel version run the following command:
+
+    ```bash
+    uname -r
+    ```
+
+   The following example resembles output from the VM that is running the *trusted* pod, which is a different kernel than the *untrusted* pod running within the pod sandbox:
 
     ```output
     5.15.80.mshv2-hvl1.m2
-    ```
 
 ## Cleanup
 
