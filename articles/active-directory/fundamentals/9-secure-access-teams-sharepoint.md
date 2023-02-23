@@ -25,7 +25,7 @@ This article is number 9 in a series of 10 articles. We recommend you review the
 
 ## External Identities settings and Azure Active Directory
 
-Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration** settings in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
+Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration settings** in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
 
    ![Screenshot of options and entries under External Identities, External collaboration settings.](media/secure-external-access/9-external-collaboration-settings.png)
 
