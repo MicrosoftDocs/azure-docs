@@ -37,7 +37,7 @@ Configured trusted [network locations](../conditional-access/location-condition.
 Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA) and secure password change.
 
 > [!WARNING]
-> Users must register for Azure AD MFA before they face a situation requiring remediation.For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
+> Users must register for Azure AD MFA before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
 > 
 > Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password change.
 
