@@ -180,9 +180,12 @@ The following regions are available for public preview.  Provisioning in regions
 - France Central
 - Japan East
 - Korea Central
+- Korea South
 - North Central US
 - North Europe
+- Norway East
 - Southeast Asia
+- South Africa North
 - South Central US
 - Switzerland North
 - UK South
