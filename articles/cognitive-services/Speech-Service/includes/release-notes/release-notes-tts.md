@@ -6,6 +6,12 @@ ms.date: 11/14/2022
 ms.author: eur
 ---
 
+### February 2023 release
+
+#### Custom neural voice
+
+Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
 ### December 2022 release
 
 #### Batch synthesis REST API (Preview)

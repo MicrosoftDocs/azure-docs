@@ -31,6 +31,10 @@ Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.
 
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for the `de-AT` locales.
+
 ### January 2023 release
 
 #### Custom Speech
