@@ -41,7 +41,7 @@ Here is the diagram about the system:
     The sample project is a typical 3 layers web application:
     1. Frontend is a bounded [React js](https://reactjs.org/) application.
     2. Backend is a spring web application that use Spring Data JPA to access a relational database.
-    3. PostgreSQL is used as the relational database.
+    3. [H2](https://www.h2database.com/html/main.html) is used as the relational database.
 2. Build the sample project.
     ```shell
     cd ASA-Samples-Web-Application
