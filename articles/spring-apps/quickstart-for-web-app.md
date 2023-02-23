@@ -122,11 +122,11 @@ After app instance and the PostgreSQL instance been created, the app instance ca
     ```azurecli-interactive
     az provider register --namespace Microsoft.ServiceLinker
     ```
-2.  `serviceconnector-passwordless` is used to help to implement passwordless connection in Service Connector. Add this extension by this command:
+2.  To achieve passwordless connection in Service Connector. Add `serviceconnector-passwordless` extension by this command:
     ```azurecli-interactive
     az extension add --name serviceconnector-passwordless --upgrade
     ```
-3. Now preparation is ready, create a service connection between Azure Spring Apps and the PostgreSQL by this command:
+3. Create a service connection between the app and the PostgreSQL by this command:
     ```azurecli-interactive
     az spring connection create postgres-flexible \
         --resource-group <name-of-resource-group> \
