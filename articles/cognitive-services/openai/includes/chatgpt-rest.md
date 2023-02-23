@@ -22,6 +22,8 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
 - An Azure OpenAI Service resource with the `gpt-3.5` model deployed. This model is currently available in East US and `TODO: Enter other regions if available`. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
+## Set up
+
 ### Retrieve key and endpoint
 
 To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
@@ -92,8 +94,6 @@ curl https://$OPENAI_API_BASE/openai/deployments/docs-test/completions?api-versi
 
 ## Output
 
-Output formatting adjusted for readability.
-
 ```bash
 {"id":"cmpl-6mZPEDkBPasCTxueCy9iVRMY4ZGD4",
 "object":"text_completion",
@@ -103,6 +103,8 @@ Output formatting adjusted for readability.
 [{"text":"\nYes, Azure OpenAI supports customer managed keys. These keys allow customers to manage their own encryption keys for the OpenAI services, rather than relying on Azure's managed keys. This provides an additional layer of security for customers' data and models.","index":0,"logprobs":null,"finish_reason":"stop"}],
 "usage":{"prompt_tokens":66,"completion_tokens":52,"total_tokens":118}}
 ```
+
+Output formatting adjusted for readability, actual output is a single block of text without line breaks.
 
 ### Understanding the prompt structure
 
