@@ -27,7 +27,7 @@ This latest UX release, titled "February 2023 UX Release," consists of several i
 
 ## Version history
 
-This table provides recent version history for the Device Update for IoT Hub service and agent, with a brief summary of the changes made for each version. Detailed breakdown of the changes in the most recent release can be found in the previous section of this document.
+This table provides recent version history for the Device Update for IoT Hub service and agent, with a brief summary of the changes made for each version. Detailed breakdown of the most recent release's changes can be found in the **Detailed changelog** section of this page.
 
 | Release notes and assets | Type | Release Date | Summary |
 | ------------------------ | ---- | ------------ | ---------- |
