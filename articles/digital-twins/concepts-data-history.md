@@ -52,7 +52,7 @@ Each Azure Digital Twins instance will have its own data history connection targ
 
 Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
 
-The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. If you provide table names for relationship lifecycle events and twin lifecycle events, the command will also create tables to historize these event types.
+The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. You can also provide table names for relationship lifecycle events and twin lifecycle events, and the command will create tables with those names to historize those event types.
 
 For step-by-step instructions on how to set up a data history connection, see [Create a data history connection](how-to-create-data-history-connection.md).
 
@@ -79,13 +79,13 @@ These permissions can be assigned using the Azure CLI or Azure portal.
 
 ## Data types and schemas
 
-Data history historizes three types of events from your Azure Digital Twins instance into Azure Data Explorer: relationship lifecycle events, twin lifecycle events, and twin property updates (which can optionally include twin property deletions). Each of these event types is stored in its own table inside the Azure Data Explorer database, meaning data history keeps three tables total. You can specify custom names for the tables when you set up the data history connection, or you can use the default names.
+Data history historizes three types of events from your Azure Digital Twins instance into Azure Data Explorer: relationship lifecycle events, twin lifecycle events, and twin property updates (which can optionally include twin property deletions). Each of these event types is stored in its own table inside the Azure Data Explorer database, meaning data history keeps three tables total. You can specify custom names for the tables when you set up the data history connection.
 
-The rest of this section describes the three Azure Data Explorer tables in detail, including default table names and the data schema for each table.
+The rest of this section describes the three Azure Data Explorer tables in detail, including the data schema for each table.
 
 ### Twin property updates
 
-The Azure Data Explorer table for relationship lifecycle events has a default name of *AdtPropertyEvents*. You can leave the default name when you're creating the connection, or specify a custom table name.
+The Azure Data Explorer table for twin property updates has a default name of *AdtPropertyEvents*. You can leave the default name when you're creating the connection, or specify a custom table name.
 
 The time series data for twin property updates is stored with the following schema:
 
