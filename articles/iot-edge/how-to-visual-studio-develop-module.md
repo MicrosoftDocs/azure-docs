@@ -116,7 +116,7 @@ In our solution, we're going to build three projects. The main module that conta
 
 1. Select **Add** to add your module to the project.
 
-   ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/add-module.png" alt-text="Screenshot of how to add Application and Module.":::
 
    > [!NOTE]
    >If you have an existing IoT Edge project, you can change the repository URL by opening the **module.json** file. The repository URL is located in the *repository* property of the JSON file.

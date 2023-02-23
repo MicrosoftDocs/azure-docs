@@ -13,7 +13,7 @@
   items:
   - name: Set up Azure NetApp Files and create an NFS volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-# - name: Tutorials
+# - name: Tutorials 
 # - name: Samples
 - name: Concepts
   items:
@@ -45,6 +45,8 @@
       href: volume-hard-quota-guidelines.md
     - name: Regional capacity quota
       href: regional-capacity-quota.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
