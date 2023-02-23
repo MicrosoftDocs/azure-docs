@@ -67,12 +67,12 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Overview of Azure ML
+    - name: Get to know Azure ML
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Get started with machine learning
+    - name: Get started
       items:
         - name: Prepare and explore data
           href: tutorial-explore-data.md
@@ -80,10 +80,10 @@
           href: tutorial-cloud-workstation.md
         - name: Train a model
           href: tutorial-train-model.md
+        - name: Deploy a model
+          href: tutorial-deploy-model.md
         - name: Set up a reusable pipeline
           href: tutorial-pipeline-python-sdk.md
-        - name: Deploy an ML model
-          href: tutorial-deploy-model.md
     - name: Build models
       items: 
         - name: Automated ML
@@ -105,9 +105,7 @@
             - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-    - name: Visual Studio Code
-      items: 
-        - name: Train a TensorFlow image classification model
+        - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Samples
   items:

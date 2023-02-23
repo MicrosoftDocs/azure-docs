@@ -92,6 +92,29 @@ Review the parts of the studio on the left-hand navigation bar:
 
 :::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure ML studio." lightbox="media/quickstart-create-resources/overview.png":::
 
+## Learn from sample notebooks
+
+Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
+
+1. On the left navigation, select **Notebooks**.
+1. At the top, select **Samples**.
+
+:::image type="content" source="media/quickstart-create-resources/samples.png" alt-text="Screenshot shows sample notebooks.":::
+
+* Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
+* These notebooks are read-only, and are updated periodically.  
+* When you open a notebook, select the **Clone** button at the top to add your copy of the notebook and any associated files into your own files.  
+
+## Create a new notebook
+
+When you clone a notebook from **Samples**, a copy is added to your files and you can start running or modifying it.  To create a new, empty notebook:
+
+1. Still in the **Notebooks** section, select **Files** to go back to your files,
+1. Select **+** to add files.
+1. Select **Create new file**.
+    
+    :::image type="content" source="media/quickstart-create-resources/create-new-file.png" alt-text="Screenshot shows how to create a new file.":::
+    
 
 ## Clean up resources
 
