@@ -90,7 +90,7 @@ If you select **Start TLS** from the **Create Alert Notification** page, and you
 1. Go to the Apache Ambari UI.
 2. Go to **Alerts > ManageNotifications > Edit (Edit Notification)**.
 3. Select **Add Property**.
-4. Add the new property, `mail.smtp.ssl.protocol` with a value of `TLSv1.2`.
+4. Add the new property, `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
 
 
 

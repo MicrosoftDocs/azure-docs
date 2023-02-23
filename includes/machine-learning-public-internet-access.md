@@ -47,11 +47,6 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > 
 > The IP addresses may change periodically.
 
-> [!IMPORTANT]
-> When using a compute cluster that is configured for __no public IP address__, you must allow the following traffic:
-> * **Inbound** from source of **VirtualNetwork** and any port source, to destination of **VirtualNetwork**, and destination port of **29876, 29877**.
-> * **Inbound** from source **AzureLoadBalancer** and any port source to destination **VirtualNetwork** and port **44224** destination.
-
 You may also need to allow __outbound__ traffic to Visual Studio Code and non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
 | Host name | Purpose |
@@ -66,6 +61,9 @@ You may also need to allow __outbound__ traffic to Visual Studio Code and non-Mi
 | **update.code.visualstudio.com**</br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
 | **marketplace.visualstudio.com**</br>**vscode.blob.core.windows.net**</br>**\*.gallerycdn.vsassets.io** | Required to download and install VS Code extensions. These enable the remote connection to Compute Instances provided by the Azure ML extension for VS Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](../articles/machine-learning/how-to-set-up-vs-code-remote.md) for more information. |
 | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits, which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+
+> [!NOTE]
+> When using the [Azure Machine Learning VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) the remote compute instance will require an access to public repositories to install the packages required by the extension. If the compute instance requires a proxy to access these public repositories or the Internet, you will need to set and export the `HTTP_PROXY` and `HTTPS_PROXY` environment variables in the `~/.bashrc` file of the compute instance. This process can be automated at provisioning time by using a [custom script](../articles/machine-learning/how-to-customize-compute-instance.md).
 
 When using Azure Kubernetes Service (AKS) with Azure Machine Learning, allow the following traffic to the AKS VNet:
 

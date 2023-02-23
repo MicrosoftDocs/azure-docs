@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: quickstart 
-ms.date: 11/11/2022
+ms.date: 02/09/2023
 ms.custom: template-quickstart, FY23 content-maintenance
 ---
 
@@ -27,11 +27,11 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
-3. Select **+ Create**. 
+1. Select **+ Create**. 
 
-4. In **Create network address translation (NAT) gateway**, enter or select this information in the **Basics** tab:
+1. In **Create network address translation (NAT) gateway**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -42,21 +42,21 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
     | NAT gateway name             | Enter **myNATgateway**                                    |
     | Region           | Select **West Europe**  |
     | Availability Zone | Select **No Zone**. |
-    | Idle timeout (minutes) | Enter **10**. |
+    | TCP idle timeout (minutes) | Enter **10**. |
 
     For information about availability zones and NAT gateway, see [NAT gateway and availability zones](./nat-availability-zones.md).
 
-5. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
+1. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 
-6. In the **Outbound IP** tab, enter or select the following information:
+1. In the **Outbound IP** tab, enter or select the following information:
 
     | **Setting** | **Value** |
     | ----------- | --------- |
     | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myPublicIP**. </br> Select **OK**. |
 
-7. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
-8. Select **Create**.
+1. Select **Create**.
 
 ## Virtual network
 
@@ -64,9 +64,9 @@ Before you deploy a virtual machine and can use your NAT gateway, you need to cr
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **Create**.
+1. Select **+ Create**.
 
-3. In **Create virtual network**, enter or select this information in the **Basics** tab:
+1. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -77,36 +77,42 @@ Before you deploy a virtual machine and can use your NAT gateway, you need to cr
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **(Europe) West Europe** |
 
-4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+1. Select the **Security** tab or select the **Next: Security** button at the bottom of the page.
 
-5. Accept the default IPv4 address space of **10.1.0.0/16**.
-
-6. In the subnet section in **Subnet name**, select the **default** subnet.
-
-7. In **Edit subnet**, enter this information:
+1. Under **Azure Bastion**, select **Enable Azure Bastion**. Enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
-    | **NAT GATEWAY** |
+    | Azure Bastion name | Enter **myBastionHost** |
+    | Azure Bastion public IP address | Select **New(myVNet-publicipAddress1)** |
+
+1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+
+1. Accept the default IPv4 address space of **10.0.0.0/16**.
+
+1. In the subnet section in **Subnet name**, select the **default** subnet, then select **Save**.
+
+1. In **Edit subnet**, enter this information:
+
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Name| Enter **mySubnet** |
+    | Starting address | Enter **10.0.0.0** |
+    | Subnet size    | Select **/24**    |
+    | **Security** |
     | NAT gateway | Select **myNATgateway**. |
 
-8. Select **Save**.
-
-9. Select the **Security** tab.
-
-10. Under **BastionHost**, select **Enable**. Enter this information:
+1. Select **Add a subnet** and enter the following information, then select **Add**.
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
+    | Subnet template | Select **Azure Bastion** |
+    | Starting address | Enter **10.0.1.0** |
+    | Subnet size    | Select **/26**    |
 
-11. Select the **Review + create** tab or select the **Review + create** button.
+1. Select the **Review + create** tab or select the **Review + create** button.
 
-12. Select **Create**.
+1. Select **Create**.
 
 It can take a few minutes for the deployment of the virtual network to complete. Proceed to the next steps when the deployment completes.
     
@@ -116,9 +122,9 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **+ Create** > **Azure virtual machine**.
+1. Select **+ Create** > **Azure virtual machine**.
 
-2. In the **Create a virtual machine** page in the **Basics** tab, enter, or select the following information:
+1. In the **Create a virtual machine** page in the **Basics** tab, enter, or select the following information:
 
     | **Setting** | **Value** |
     | ----------- | --------- |
@@ -139,13 +145,13 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
 
-3. Select the **Disks** tab, or select the **Next: Disks** button at the bottom of the page.
+1. Select the **Disks** tab, or select the **Next: Disks** button at the bottom of the page.
 
-4. Leave the default in the **Disks** tab.
+1. Leave the default in the **Disks** tab.
 
-5. Select the **Networking** tab, or select the **Next: Networking** button at the bottom of the page.
+1. Select the **Networking** tab, or select the **Next: Networking** button at the bottom of the page.
 
-6. In the **Networking** tab, enter or select the following information:
+1. In the **Networking** tab, enter or select the following information:
 
     | **Setting** | **Value** |
     | ----------- | --------- |
@@ -156,9 +162,9 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **None**. |
 
-7. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
-8. Select **Create**.
+1. Select **Create**.
 
 ## Test NAT gateway
 
@@ -166,25 +172,25 @@ In this section, you'll test the NAT gateway. You'll first discover the public I
     
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
-2. Select **myPublicIP**.
+1. Select **myPublicIP**.
 
-3. Make note of the public IP address:
+1. Make note of the public IP address:
 
     :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
 
-4. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-5. Select **myVM**.
+1. Select **myVM**.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, then **Bastion**.
 
-6. Enter the username and password entered during VM creation. Select **Connect**.
+1. Enter the username and password entered during VM creation. Select **Connect**.
 
-7. Open **Microsoft Edge** on **myTestVM**.
+1. Open **Microsoft Edge** on **myTestVM**.
 
-8. Enter **https://whatsmyip.com** in the address bar.
+1. Enter **https://whatsmyip.com** in the address bar.
 
-9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
+1. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
     :::image type="content" source="./media/quickstart-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
 
@@ -195,11 +201,11 @@ the virtual network, virtual machine, and NAT gateway with the following steps:
 
 1. From the left-hand menu, select **Resource groups**.
 
-2. Select the **myResourceGroupNAT** resource group.
+1. Select the **myResourceGroupNAT** resource group.
 
-3. Select **Delete resource group**.
+1. Select **Delete resource group**.
 
-4. Enter **myResourceGroupNAT** and select **Delete**.
+1. Enter **myResourceGroupNAT** and select **Delete**.
 
 ## Next steps
 

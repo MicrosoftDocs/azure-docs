@@ -14,7 +14,9 @@ It replicates events to three replicas, distributed across Azure availability zo
 In addition to these storage-related features and all capabilities and protocol support of the standard tier, the isolation model of the premium tier enables features like [dynamic partition scale-up](dynamically-add-partitions.md). You also get far more generous [quota allocations](event-hubs-quotas.md). Event Hubs Capture is included at no extra cost.
 
 > [!NOTE]
-> Event Hubs Premium supports TLS 1.2 or greater. 
+> - Event Hubs Premium supports TLS 1.2 or greater. 
+> - The premium tier isn't available in all regions. Try to create a namespace in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Namespace** page.
+
 
 You can purchase 1, 2, 4, 8 and 16 processing units for each namespace. As the premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle as it is in the standard tier, but depends on the work you ask Event Hubs to do, similar to the dedicated tier. The effective ingest and stream throughput per PU will depend on various factors, including:
 
