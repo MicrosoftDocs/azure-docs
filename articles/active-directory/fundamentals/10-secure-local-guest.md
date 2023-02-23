@@ -58,8 +58,8 @@ If external user local accounts were synced from on-premises, reduce their on-pr
 
 - Transition external user local accounts to Azure AD B2B and stop creating local accounts
   - Invite external users in Azure AD
-- Randomize external usesr local-account passwords to prevent authentication to on-premises resources 
-  - This action ensures authentication and user lifecycle is connecteed to the external user home identity
+- Randomize external user's local-account passwords to prevent authentication to on-premises resources 
+  - This action ensures authentication and user lifecycle is connected to the external user home identity
 
 ## Next steps
 
