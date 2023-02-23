@@ -18,7 +18,9 @@ Auto scaling is a capability to dynamically scale your FHIR service based on the
 
 The autoscale feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported.
 
->[!Note] Autoscale feature is subject to the resources availablitity in Azure regions.   
+
+> [!NOTE]
+>  Autoscale feature is subject to the resources availablitity in Azure regions.   
 
 ## Description
 
