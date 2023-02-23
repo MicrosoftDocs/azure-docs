@@ -5,7 +5,6 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 02/23/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli, mode-api
@@ -31,7 +30,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 
 ```azurecli-interactive
 resourcegroup="myResourceGroupCLI"
-location="West US 3"
+location="westus3"
 az group create --name $resourcegroup --location $location
 ```
 
@@ -68,10 +67,11 @@ It takes a few minutes to create the VM and supporting resources. The following 
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "52.174.34.95",
   "resourceGroup": "myResourceGroupCLI"
+  "zones": ""
 }
 ```
 
-Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
+Take a note your own `publicIpAddress` in the output when you create your VM. This IP address is used to access the VM later in this article.
 
 ## Install web server
 
