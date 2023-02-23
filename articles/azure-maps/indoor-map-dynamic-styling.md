@@ -3,7 +3,7 @@ title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: stevemunk
 ms.author: eriklind
-ms.date: 10/28/2021
+ms.date: 02/28/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -15,10 +15,10 @@ You can use the Azure Maps Creator [Feature State service] to apply styles that 
 
 ## Prerequisites
 
-- A `statesetId`.  For more information, see [How to create a feature stateset]. <!--- TODO: Use tutorial-creator-feature-stateset.md to create how-to article ----->
+- A `statesetId`.  For more information, see [How to create a feature stateset].
 - A web application. For more information, see [How to use the Indoor Map module].
 
-This tutorial uses the [Postman] application, but you may choose a different API development environment.
+This article uses the [Postman] application, but you may choose a different API development environment.
 
 ## Implement dynamic styling
 
@@ -141,7 +141,7 @@ Learn more by reading:
 [Sample Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples-->
 [How to use the Indoor Map module]: how-to-use-indoor-module.md
 [Postman]: https://www.postman.com/
-<!--[How to create a feature stateset]: TODO:Create how-to article-->
+[How to create a feature stateset]: how-to-creator-feature-stateset.md
 [See live demo]: https://samples.azuremaps.com/?sample=creator-indoor-maps
 [Feature Update States API]: /rest/api/maps/v2/feature-state/update-states
 [Create an indoor map]: tutorial-creator-indoor-maps.md

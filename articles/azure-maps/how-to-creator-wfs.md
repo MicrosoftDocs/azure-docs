@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Query datasets with WFS API'
-titleSuffix: Microsoft Azure Maps
-description: The second tutorial on Microsoft Azure Maps Creator. How to Query datasets with WFS API
+title: Query datasets with WFS API
+titleSuffix: Microsoft Azure Maps Creator
+description: How to Query datasets with WFS API
 author: stevemunk
-ms.author: v-munksteve
-ms.date: 01/28/2022
-ms.topic: tutorial
+ms.author: eriklind
+ms.date: 02/28/2023
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -19,12 +19,14 @@ This article describes how to query Azure Maps Creator [datasets] using [WFS API
 * Successful completion of [Tutorial: Use Creator to create indoor maps].
 * The `datasetId` obtained in [Check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
+This article uses the same sample indoor map as used in the Tutorial: Use Creator to create indoor maps.
+
 >[!IMPORTANT]
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services].
 > * In the URL examples in this article you will need to replace:
->    * `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
->    * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
+>   * `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+>   * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
 ## Query for feature collections
 
@@ -70,41 +72,41 @@ In this section, you'll query [WFS API] for the `unit` feature collection.
 
 To query the unit collection in your dataset, create a new **HTTP GET Request**:
 
-```http
-https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
-```
+    ```http
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
+    ```
 
 After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". You'll use "UNIT26" as your feature `id` when you [Update a feature state].
 
-```json
-{
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": ["..."]
-            },
-            "properties": {
-                "original_id": "b7410920-8cb0-490b-ab23-b489fd35aed0",
-                "category_id": "CTG8",
-                "is_open_area": true,
-                "navigable_by": [
-                    "pedestrian"
-                ],
-                "route_through_behavior": "allowed",
-                "level_id": "LVL14",
-                "occupants": [],
-                "address_id": "DIR1",
-                "name": "157"
-            },
-            "id": "UNIT26",
-            "featureType": ""
-        }, {"..."}
-    ]
-}
-```
+    ```json
+    {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": ["..."]
+                },
+                "properties": {
+                    "original_id": "b7410920-8cb0-490b-ab23-b489fd35aed0",
+                    "category_id": "CTG8",
+                    "is_open_area": true,
+                    "navigable_by": [
+                        "pedestrian"
+                    ],
+                    "route_through_behavior": "allowed",
+                    "level_id": "LVL14",
+                    "occupants": [],
+                    "address_id": "DIR1",
+                    "name": "157"
+                },
+                "id": "UNIT26",
+                "featureType": ""
+            }, {"..."}
+        ]
+    }
+    ```
 
 ## Next steps
 

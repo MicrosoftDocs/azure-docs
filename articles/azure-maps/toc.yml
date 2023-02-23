@@ -32,10 +32,8 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Azure Maps Creator Tutorials
-      items:
-      - name: Create indoor maps
-        href: tutorial-creator-indoor-maps.md
+    - name: Create indoor maps
+      href: tutorial-creator-indoor-maps.md
     - name: Set up a geofence
       href: tutorial-geofence.md
     - name: Spatial analytics
@@ -141,6 +139,10 @@ items:
     items:
     - name: Manage Creator
       href: how-to-manage-creator.md
+    - name: Query datasets with WFS API
+      href: how-to-creator-wfs.md
+    - name: Create a feature stateset
+      href: how-to-creator-feature-stateset.md
     - name: Custom styling for indoor maps
       href: how-to-create-custom-styles.md
     - name: Indoor maps wayfinding service
@@ -249,7 +251,7 @@ items:
         href: map-route.md
     - name: creator indoor maps module
       items:
-      - name: Creator indoor maps module
+      - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
@@ -349,12 +351,6 @@ items:
       href: interact-map-ios-sdk.md  
     - name: Use the Azure Maps indoor maps module
       href: how-to-use-indoor-module-ios.md
-  - name: Creator Indoor Maps
-    items: 
-      - name: Query datasets with WFS API
-        href: tutorial-creator-wfs.md
-      - name: Create a feature stateset
-        href: tutorial-creator-feature-stateset.md
   - name: Use Azure Maps in Power BI
     items: 
     - name: The Azure Maps Power BI visual
