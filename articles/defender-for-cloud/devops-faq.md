@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 01/26/2023
+ms.date: 02/23/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -22,22 +22,21 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
 - [Is it possible to block the developers committing code with exposed secrets](#is-it-possible-to-block-the-developers-committing-code-with-exposed-secrets)
-- [I am not able to configure Pull Request Annotations](#i-am-not-able-to-configure-pull-request-annotations)
-- [What are the programing languages that are supported by Defender for DevOps?](#what-are-the-programing-languages-that-are-supported-by-defender-for-devops) 
-- [I'm getting the There's no CLI tool error in Azure DevOps](#im-getting-the-theres-no-cli-tool-error-in-azure-devops)
-
+- [I'm not able to configure Pull Request Annotations](#im-not-able-to-configure-pull-request-annotations)
+- [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
+- [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
 
 ### I'm getting an error while trying to connect
 
-When selecting the *Authorize* button, the presently signed-in account is used, which could be the same email but different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
+When you select the *Authorize* button, the account that you're logged in with is used. That account can have the same email but may have a different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
 
-The presently signed-in account can be checked [here](https://app.vssps.visualstudio.com/profile/view).
+You can [check which account is signed in](https://app.vssps.visualstudio.com/profile/view).
 
 ### Why can't I find my repository
 
-Only TfsGit is supported on Azure DevOps service.
+The Azure DevOps service only supports `TfsGit`.
 
-Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the connector that was created, sign in with the correct user account and re-create the connector.
+Ensure that you've [onboarded your repositories](/azure/defender-for-cloud/quickstart-onboard-devops?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
 
 ### Secret scan didn't run on my code 
 
@@ -47,7 +46,7 @@ In addition to onboarding resources, you must have the [Microsoft Security DevOp
 
 If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
 
-If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline) or a scan isn't performed for at least 14 days, the resource will show as `N/A` in Defender for Cloud.
+If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline) or a scan isn't performed for at least 14 days, the resource shows as `N/A` in Defender for Cloud.
 
 ### I don’t see generated SARIF file in the path I chose to drop it
 
@@ -63,7 +62,7 @@ Azure DevOps repositories only have the total exposed secrets available and will
 
 For a previously unhealthy scan result to be healthy again, updated healthy scan results need to be from the same build definition as the one that generated the findings in the first place.  A common scenario where this issue occurs is when testing with different pipelines.  For results to refresh appropriately, scan results need to be for the same pipeline(s) and branch(es). 
 
-If no scanning is performed for 14 days, the scan results would be revert to “N/A”. 
+If no scan is performed for 14 days, the scan results revert to `N/A`. 
 
 ### I don’t see Recommendations for findings
 
@@ -87,7 +86,7 @@ Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?
 
 ### Is Exemptions capability available and tracked for app sec vulnerability management?
 
-Exemptions are not available for Defender for DevOps within Microsoft Defender for Cloud.
+Exemptions aren't available for Defender for DevOps within Microsoft Defender for Cloud.
 
 ### Is continuous, automatic scanning available?
 
@@ -95,26 +94,32 @@ Currently scanning occurs at build time.
 
 ### Is it possible to block the developers committing code with exposed secrets?  
 
-The ability to block developers from committing code with exposed secrets is not currently available.
+The ability to block developers from committing code with exposed secrets isn't currently available.
 
-### I am not able to configure Pull Request Annotations
+### I'm not able to configure Pull Request Annotations
 
 Make sure you have write (owner/contributor) access to the subscription. 
 
-### What are the programing languages that are supported by Defender for DevOps? 
+### What programming languages are supported by Defender for DevOps?
 
 The following languages are supported by Defender for DevOps:
 
 - Python
-- Java Script
-- Type Script
+- JavaScript
+- TypeScript
 
-### I'm getting the There's no CLI tool error in Azure DevOps
+### I'm getting an error that informs me that there's no CLI tool
 
-If when running the pipeline in Azure DevOps, you receive the following error: 
-"no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'".
+When you run the pipeline in Azure DevOps, you receive the following error: 
+`no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'`.
 
-This error occurs if you are missing the dependency of `dotnet6` in the pipeline's YAML file. DotNet6 is required to allow the Microsoft Security DevOps extension to run. Include this as a task in your YAML file to eliminate the error.
+:::image type="content" source="media/devops-faq/error-in-run.png" alt-text="Screenshot that shows an error that states there's no CLI tool." lightbox="media/devops-faq/error-in-run.png":::
+
+This error can be seen in the extensions job as well.
+
+:::image type="content" source="media/devops-faq/error-in-job.png" alt-text="Screenshot that shows the job's extension where the error is visible." lightbox="media/devops-faq/error-in-job.png":::
+
+This error occurs if you're missing the dependency of `dotnet6` in the pipeline's YAML file. DotNet6 is required to allow the Microsoft Security DevOps extension to run. Include this as a task in your YAML file to eliminate the error.
  
 You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 

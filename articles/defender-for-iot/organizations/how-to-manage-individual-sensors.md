@@ -35,7 +35,7 @@ Select the link in each widget to drill down for more information in your sensor
 
 ### Validate connectivity status
 
-Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page. 
+Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page.
 
 If there are any connection issues, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
 
@@ -49,12 +49,11 @@ If there are any connection issues, a disconnection message is shown in the **Ge
 
     :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
-
 ## Download software for OT sensors
 
 You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-In Defender for IoT in the Azure portal, use one of the following options:
+In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
 - For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
 
@@ -368,7 +367,7 @@ You'll need an SMTP mail server configured to enable email alerts about disconne
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md). 
+Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md).
 
 **To configure an SMTP server on your sensor**:
 
