@@ -1666,7 +1666,7 @@ items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
     - name: Legacy Application Insights pricing
-      href: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/legacy-pricing
+      href: /previous-versions/azure/azure-monitor/app/legacy-pricing
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator
