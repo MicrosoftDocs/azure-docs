@@ -119,7 +119,7 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
 1. Open the Postman app, select **New** again. In the **Create New** window, select **HTTP Request**, and enter a request name for the request.
 
-2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{Your-Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofence to the Data Upload API. Make sure to replace `{Your-Azure-Maps-Primary-Subscription-key}` with your Azure Maps subscription key.
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson
