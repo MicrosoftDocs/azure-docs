@@ -1138,7 +1138,7 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 ### (Optional) Integrate with Log Analytics
 
-The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
+The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs).
 
 <!-- [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)] -->
 
