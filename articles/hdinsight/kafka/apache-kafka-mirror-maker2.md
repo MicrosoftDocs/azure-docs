@@ -20,11 +20,11 @@ In this article, you use mirroring to replicate topics between two HDInsight clu
 
 Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) tool, which is part of Apache Kafka. MirrorMaker consumes records from topics on the primary cluster, and then creates a local copy on the secondary cluster. MirrorMaker uses one (or more) *consumers* that read from the primary cluster, and a *producer* that writes to the local (secondary) cluster.
 
-The most useful mirroring setup for disaster recovery uses Kafka clusters in different Azure regions. To achieve this, the virtual networks where the clusters reside peered together.
+The most useful mirroring setup for disaster recovery uses Kafka clusters in different Azure regions. To achieve this result, the virtual networks where the clusters reside peered together.
 
 The following diagram illustrates the mirroring process and how the communication flows between clusters:
 
-:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagram of the mirroring process." border="false":::
+:::image type="content" source="./media/apache-kafka-mirror-maker2/kafka-mirroring-vnets2.png" alt-text="Diagram showing the mirroring process." border="false":::
 
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that used for partitioning, so record order preserved on a per-key basis.
 
@@ -75,7 +75,6 @@ This architecture features two clusters in different resource groups and virtual
     1. On the **Add peering** screen, enter the details as shown in the following screenshot.
 
         :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering." border="true":::
-
 
 ## Delete cluster
 
