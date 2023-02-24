@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messages-read-custom.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-d2c",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md",
       "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
@@ -1122,6 +1127,16 @@
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-certificates.md",
       "redirect_url": "/azure/iot-hub/reference-x509-certificates",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-self-sign.md",
+      "redirect_url": "/azure/iot-hub/reference-x509-certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-scripts.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-openssl",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-reliability-features-in-sdks.md",
