@@ -55,8 +55,6 @@
       href: ./linux/tutorial-custom-images.md
     - name: Manage networking
       href: ./linux/tutorial-virtual-network.md
-    - name: Highly available VMs
-      href: ./linux/tutorial-availability-sets.md
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
     - name: Create a scale set
@@ -73,8 +71,6 @@
       href: ./windows/tutorial-custom-images.md
     - name: Manage networking
       href: ./windows/tutorial-virtual-network.md  
-    - name: Highly available VMs
-      href: ./windows/tutorial-availability-sets.md
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
     - name: Create a scale set
@@ -1110,12 +1106,6 @@
     - name: Overview
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: ./windows/change-availability-set.md
