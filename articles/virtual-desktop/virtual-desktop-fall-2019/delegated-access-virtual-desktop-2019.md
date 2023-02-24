@@ -49,7 +49,7 @@ You can run the following cmdlets to create, view, and remove role assignments:
 You can modify the basic three cmdlets with the following parameters:
 
 * **AadTenantId**: specifies the Azure Active Directory tenant ID from which the service principal is a member.
-* **AppGroupName**: name of the Remote Desktop app group.
+* **AppGroupName**: name of the Remote Desktop application group.
 * **Diagnostics**: indicates the diagnostics scope. (Must be paired with either the **Infrastructure** or **Tenant** parameters.)
 * **HostPoolName**: name of the Remote Desktop host pool.
 * **Infrastructure**: indicates the infrastructure scope.

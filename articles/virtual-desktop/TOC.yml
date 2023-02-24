@@ -45,7 +45,7 @@
   items:
   - name: 1. Create a host pool
     href: create-host-pools-azure-marketplace.md
-  - name: 2. Manage app groups
+  - name: 2. Manage application groups
     href: manage-app-groups.md
   - name: 3. Create a host pool to validate service updates
     href: create-validation-host-pool.md
@@ -221,7 +221,7 @@
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
-      - name: Manage app groups using PowerShell or the Azure CLI
+      - name: Manage application groups using PowerShell or the Azure CLI
         href: manage-app-groups-powershell.md
   - name: Delete a host pool
     href: delete-host-pool.md

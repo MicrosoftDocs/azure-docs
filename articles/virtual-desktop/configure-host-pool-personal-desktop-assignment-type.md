@@ -76,8 +76,8 @@ To directly assign a user to a session host in the Azure portal:
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
 5. Select the host pool you want to assign users to.
 6. Next, go to the menu on the left side of the window and select **Application groups**.
-7. Select the name of the app group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
-8. Select **+ Add**, then select the users or user groups you want to assign to this app group.
+7. Select the name of the application group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
+8. Select **+ Add**, then select the users or user groups you want to assign to this application group.
 9. Select **Assign VM** in the Information bar to assign a session host to a user.
 10. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
 11. Select the user you want to assign the session host to from the list of available users.

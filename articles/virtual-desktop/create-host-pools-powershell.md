@@ -14,7 +14,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop. Each host pool can be associated with multiple RemoteApp groups, one desktop application group, and multiple session hosts.
 
 You can create host pools in the following Azure regions:
 
@@ -49,7 +49,7 @@ Run the following cmdlet to sign in to the Azure Virtual Desktop environment:
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> -PreferredAppGroupType <appgrouptype>
 ```
 
-This cmdlet will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.
+This cmdlet will create the host pool, workspace and desktop application group. Additionally, it will register the desktop application group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.
 
 Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the *-ExpirationTime* parameter.
 
@@ -66,13 +66,13 @@ For example, if you want to create a token that expires in two hours, run this c
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
-After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
+After that, run this cmdlet to add Azure Active Directory users to the default desktop application group for the host pool.
 
 ```powershell
 New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-Run this next cmdlet to add Azure Active Directory user groups to the default desktop app group for the host pool:
+Run this next cmdlet to add Azure Active Directory user groups to the default desktop application group for the host pool:
 
 ```powershell
 New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
@@ -187,7 +187,7 @@ To update the agent:
 
 ## Next steps
 
-Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage app groups tutorial.
+Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage application groups tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](./manage-app-groups.md)
+> [Manage application groups tutorial](./manage-app-groups.md)

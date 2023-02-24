@@ -23,13 +23,13 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 This section lists PowerShell commands that are typically used while setting up Azure Virtual Desktop and provides ways to resolve issues that may occur while using them.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
+### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp application group in the specified Host Pool
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Cause:** The username used has been already assigned to an app group of a different type. Users can't be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The username used has been already assigned to an application group of a different type. Users can't be assigned to both a remote desktop and RemoteApp application group under the same session host pool.
 
 **Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 

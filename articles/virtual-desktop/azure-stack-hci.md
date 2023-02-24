@@ -54,7 +54,7 @@ To set up Azure Virtual Desktop for Azure Stack HCI:
 
 6. Add the virtual machine to the Azure Virtual Desktop host pool you created earlier by installing the [Azure Virtual Desktop Agent](agent-overview.md). After that, follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
 
-7. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
+7. Follow the directions in [Create application groups and manage user assignments](manage-app-groups.md) to create an application group for testing and assign user access to it.
 
 8. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
 

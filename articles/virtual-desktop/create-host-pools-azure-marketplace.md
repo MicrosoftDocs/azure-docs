@@ -13,7 +13,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Azure Virtual Desktop (classic) can't be managed with the Azure portal.
 
-Host pools are a collection of one or more identical virtual machines (VMs), also known as "session hosts," within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop. If you'd like to learn more about deployment architecture, check out [Azure Virtual Desktop environment](environment-setup.md). If you're an app developer using remote app streaming for Azure Virtual Desktop, your customers or users can use your apps just like local apps on a physical device. For more information how to use Azure Virtual Desktop as an app developer, check out our [Azure Virtual Desktop remote app streaming](./remote-app-streaming/custom-apps.md) documentation.
+Host pools are a collection of one or more identical virtual machines (VMs), also known as "session hosts," within Azure Virtual Desktop environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop. If you'd like to learn more about deployment architecture, check out [Azure Virtual Desktop environment](environment-setup.md). If you're an app developer using remote app streaming for Azure Virtual Desktop, your customers or users can use your apps just like local apps on a physical device. For more information how to use Azure Virtual Desktop as an app developer, check out our [Azure Virtual Desktop remote app streaming](./remote-app-streaming/custom-apps.md) documentation.
 
 >[!NOTE]
 >If you're an app developer using remote app streaming for Azure Virtual Desktop and your app's users are in the same organization as your deployment, you can use your existing Azure tenant to create your host pool. If your users are outside of your organization, then for security reasons you'll need to create separate Azure tenants with at least one host pool for each organization. Learn more about which practices we recommend you follow to keep your deployment secure at [Architecture recommendations](./remote-app-streaming/architecture-recs.md).
@@ -251,24 +251,24 @@ For additional information on using the Azure CLI to create Azure virtual machin
     - [Tutorial: Create and Manage Linux VMs with the Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 
 ---
 
-With that, we're ready to start the next phase of setting up your host pool: registering your app group to a workspace.
+With that, we're ready to start the next phase of setting up your host pool: registering your application group to a workspace.
 
 ## Workspace information
 
-The host pool setup process creates a desktop application group by default. For the host pool to work as intended, you'll need to publish this app group to users or user groups, and you must register the app group to a workspace.
+The host pool setup process creates a desktop application group by default. For the host pool to work as intended, you'll need to publish this application group to users or user groups, and you must register the application group to a workspace.
 
 >[!NOTE]
 >If you're an app developer trying to publish your organization’s apps, you can dynamically attach MSIX apps to user sessions or add your app packages to a custom VM image. See How to serve your custom app with Azure Virtual Desktop for more information.
 
 ### [Portal](#tab/azure-portal)
 
-To register the desktop app group to a workspace:
+To register the desktop application group to a workspace:
 
 1. Select **Yes**.
 
-   If you select **No**, you can register the app group later, but we recommend you get the workspace registration done as soon as you can so your host pool works properly.
+   If you select **No**, you can register the application group later, but we recommend you get the workspace registration done as soon as you can so your host pool works properly.
 
-2. Next, choose whether you want to create a new workspace or select from existing workspaces. Only workspaces created in the same location as the host pool will be allowed to register the app group to.
+2. Next, choose whether you want to create a new workspace or select from existing workspaces. Only workspaces created in the same location as the host pool will be allowed to register the application group to.
 
 3. Optionally, you can select **Next: Tags >**.
 
@@ -298,9 +298,9 @@ az desktopvirtualization workspace create --name "MyWorkspace" \
 This starts the deployment process, which creates the following objects:
 
 - Your new host pool.
-- A desktop app group.
+- A desktop application group.
 - A workspace, if you chose to create it.
-- If you chose to register the desktop app group, the registration will be completed.
+- If you chose to register the desktop application group, the registration will be completed.
 - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
 - A download link for an Azure Resource Management template based on your configuration.
 
@@ -318,4 +318,4 @@ If you'd rather use an automated process, [download our Azure Resource Manager t
 Now that you've made your host pool, you can populate it with RemoteApp programs. To learn more about how to manage apps in Azure Virtual Desktop, head to our next tutorial:
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](./manage-app-groups.md)
+> [Manage application groups tutorial](./manage-app-groups.md)

@@ -47,7 +47,7 @@ To publish Windows Sandbox to your host pool:
 
 3. Select **Application groups**, then select the name of the application group in the host pool you want to publish Windows Sandbox to.
 
-4. Once you're in the application group, select the **Applications** tab. The Applications grid will display all existing apps within the app group.
+4. Once you're in the application group, select the **Applications** tab. The Applications grid will display all existing apps within the application group.
 
 5. Select **+ Add** to open the **Add application** tab.
 

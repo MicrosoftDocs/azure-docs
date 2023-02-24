@@ -21,7 +21,7 @@ This article will show you how to set up Private Link for Azure Virtual Desktop 
 In order to use Private Link in your Azure Virtual Desktop deployment, you'll need the following things:
 
 - An Azure account with an active subscription.
-- An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
+- An Azure Virtual Desktop deployment with service objects, such as host pools, application groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
 >[!IMPORTANT]
