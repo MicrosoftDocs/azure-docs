@@ -4,7 +4,7 @@ description: Use a Resource Manager template and PowerShell to easily create a n
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/22/2019
+ms.date: 02/24/2023
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
