@@ -65,5 +65,5 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 
 ## Next steps
 
-* To learn about steps to set up Direct peering with Microsoft, see [Direct peering walkthrough](walkthrough-direct-all.md).
-* To learn about steps to set up Exchange peering with Microsoft, see [Exchange peering walkthrough](walkthrough-exchange-all.md).
+* To learn how to set up Direct peering with Microsoft, see [Direct peering walkthrough](walkthrough-direct-all.md).
+* To learn how to set up Exchange peering with Microsoft, see [Exchange peering walkthrough](walkthrough-exchange-all.md).
