@@ -86,7 +86,7 @@ Service redundancy is necessary if operational requirements include:
 
 + [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search doesn't provide instant failover in the event of an outage).
 
-+ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance . Creating additional services in regions with close proximity to these users can equalize performance for all users.
++ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
 
 If you need two or more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
