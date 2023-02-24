@@ -18,19 +18,19 @@ ms.subservice: calling
 
 ![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
 
-When a user intends to join a web call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure the device and client they are using is ready for the call
+When a user intends to join a web call, their primary focus is on the conversation they want to have with the other person(s) on the call – this persona could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It's critical to ensure the device and client they're using is ready for the call
 
-It may be impossible to predict every issue or combination of issues that may arise, but by leveraging this tutorial you can:
+It may be impossible to predict every issue or combination of issues that may arise, but by applying this tutorial you can:
 
 1. Reduce the likelihood of issues affecting a user during a call
 2. Only expose an issue if it is going to negatively impact the experience
 3. Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
-Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This can be run by users for further troubleshooting in customer support scenarios.
+Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This tool can be used by users for further troubleshooting in customer support scenarios.
 
 ## Tutorial Structure
 
-This tutorial we will use the Azure Communication Services UI Library to create an experience that gets the user ready to join a call. This tutorial is structured into three parts:
+In this tutorial, we use the Azure Communication Services UI Library to create an experience that gets the user ready to join a call. This tutorial is structured into three parts:
 
 - Part 1: [Getting your user onto a supported browser](./call-readiness-tutorial-part-1-browser-support.md)
 - Part 2: [Ensuring your App has access to the microphone and camera](./call-readiness-tutorial-part-2-requesting-device-access.md)
@@ -47,9 +47,9 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 
 ## App Structure
 
-Users have several hurdles to cross when joining a call from browser support to selecting the correct camera. This tutorial uses [React](https://reactjs.org/) with Azure Communication Services [UI Library](https://aka.ms/acsstorybook) to create an app that will perform call readiness checks. These checks will guide the user through browser support, camera and microphone permissions and finally device setup.
+Users have several hurdles to cross when joining a call from browser support to selecting the correct camera. This tutorial uses [React](https://reactjs.org/) with Azure Communication Services [UI Library](https://aka.ms/acsstorybook) to create an app that performs call readiness checks. These checks guide the user through browser support, camera and microphone permissions and finally device setup.
 
-The user flow of the App will be as follows:
+The user flow of the App is as follows:
 
 ![flow diagram showing user flow through the call readiness sample](../media/call-readiness/call-readiness-flow-diagram.png)
 <!--
@@ -81,13 +81,13 @@ flowchart TD
 ```
 -->
 
-Your final app will prompt the user onto a supported browser and access for the camera and microphone, then let the user choose and preview their microphone and camera settings before joining the call:
+Your final app prompts the user onto a supported browser and access for the camera and microphone, then let the user choose and preview their microphone and camera settings before joining the call:
 
 ![Gif showing the end to end experience of the call readiness checks and device setup](../media/call-readiness/call-readiness-user-flow.gif)
 
-## Setup the Project
+## Set up the Project
 
-To set up the [React](https://reactjs.org/) App, we'll use the create-react-app template for this quickstart. This `create-react-app` command will create an easy to run TypeScript App powered by React. The command will also install the Azure Communication Services npm packages, as well as the [FluentUI](https://developer.microsoft.com/fluentui/) npm package for creating advanced UI. For more information on create-react-app, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
+To set up the [React](https://reactjs.org/) App, we use the create-react-app template for this quickstart. This `create-react-app` command creates an easy to run TypeScript App powered by React. The command installs the Azure Communication Services npm packages, and the [FluentUI](https://developer.microsoft.com/fluentui/) npm package for creating advanced UI. For more information on create-react-app, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -98,7 +98,7 @@ cd ui-library-call-readiness-app
 ```
 
 At the end of this process, you should have a full application inside of the folder `ui-library-call-readiness-app`.
-For this quickstart, we'll be modifying files inside of the `src` folder.
+For this quickstart, we modify the files inside of the `src` folder.
 
 ### Install Packages
 
@@ -114,9 +114,9 @@ npm install @azure/communication-react@1.5.1-beta.1 @azure/communication-calling
 
 ### Initial App Setup
 
-To get us started, we'll replace the create-react-app default `App.tsx` content with a basic setup that:
+To get us started, we replace the create-react-app default `App.tsx` content with a basic setup that:
 
-- Registers the necessary icons we'll use in this tutorial
+- Registers the necessary icons we use in this tutorial
 - Sets a theme provider that can be used to set a custom theme
 - Create a [`StatefulCallClient`](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) with a provider that gives child components access to the call client
 
