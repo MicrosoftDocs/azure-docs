@@ -107,7 +107,7 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 In order to ensure the user has the proper permissions to make the Petrel DDMS API calls, the user must be apart of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlements group. This call adds the user to the proper groups. 
 
-The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if I generate my token using a client ID of `8cd97786-0e29-4304-8c78-2c352c22af12`, I must add `8cd97786-0e29-4304-8c78-2c352c22af12` to the **users.datalake.admins** group.
+The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if I generate my token using a client ID of `8cd97786-0e29-4304-8c78-xxxxxxxxxxxx`, I must add `8cd97786-0e29-4304-8c78-xxxxxxxxxxxx` to the **users.datalake.admins** group.
 
 API: **Setup** > **Add User to DATALAKE Admins**
 
