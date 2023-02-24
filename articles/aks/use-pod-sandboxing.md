@@ -309,3 +309,4 @@ kubectl delete pod pod-name
 [csi-secret-store driver]: csi-secrets-store-driver.md
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [mariner-cluster-config]: cluster-configuration.md#mariner-os
+[register-the-katavmisolationpreview-feature-flag]: #register-the-katavmisolationpreview-feature-flag
