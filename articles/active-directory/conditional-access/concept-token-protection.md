@@ -1,5 +1,5 @@
 ---
-title: Token protection in Azure AD Conditonal Access
+title: Token protection in Azure AD Conditional Access
 description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -144,7 +144,7 @@ AADNonInteractiveUserSignInLogs
 | sort by Requests desc 
 ```
 
-The result of the previous query should be similar to those in the following screenshot:
+The result of the previous query should be similar to the following screenshot:
 
 :::image type="content" source="media/concept-token-protection/log-analytics-results.png" alt-text="Screenshot showing example results of a Log Analytics query looking for token protection policies" lightbox="media/concept-token-protection/log-analytics-results.png":::
 
