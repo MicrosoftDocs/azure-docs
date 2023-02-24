@@ -19,15 +19,15 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ## Alternative: Use Azure Compute Gallery references for Batch custom image pools
 
-When you use the Azure Compute Gallery (formerly known as Shared Image Gallery) for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your shared image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned. You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
+When you use the Azure Compute Gallery (formerly known as Shared Image Gallery) for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your shared image can include applications and reference data that become available on all the Batch pool nodes as soon as they're provisioned. You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM.
 
-Using a shared image saves time in preparing your pool's compute nodes to run your Batch workload. It's possible to use an Azure Marketplace image and install software on each compute node after provisioning, but using a shared image can lead to more efficiencies in faster compute node to ready state and reproducible workloads. Additionally, you can specify multiple replicas for the shared image so when you create pools with many compute nodes, provisioning latencies can be lower.
+Using a shared image saves time in preparing your pool's compute nodes to run your Batch workload. It's possible to use an Azure Marketplace image and install software on each compute node after provisioning, but using a shared image can lead to more efficiencies, in faster compute node to ready state and reproducible workloads. Additionally, you can specify multiple replicas for the shared image so when you create pools with many compute nodes, provisioning latencies can be lower.
 
 ## Migrate Your Eligible Pools
 
 To migrate your Batch custom image pools from managed image to shared image, review the Azure Batch guide on using [Azure Compute Gallery to create a custom image pool](./batch/batch-sig-images.md).
 
-If you have either a VHD blob or a managed image, you can convert these directly to a Compute Gallery image that can be used with Azure Batch custom image pools. When creating a VM image definition for a Compute Gallery, on the Version tab, there will be an option to select the source for image types to migrate that are being retired for Batch custom image pools:
+If you have either a VHD blob or a managed image, you can convert them directly to a Compute Gallery image that can be used with Azure Batch custom image pools. When you're creating a VM image definition for a Compute Gallery, on the Version tab, there is an option to select the source for image types to migrate that're being retired for Batch custom image pools:
 
 | Source | Other fields |
 |---|---|
@@ -52,9 +52,9 @@ For more information about this process, see [creating an image definition and v
 
 - Can I use Azure Compute Gallery images in different subscriptions or in different AAD tenants?
   
-  If the Shared Image is not in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same Azure AD tenant.
+  If the Shared Image isn't in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same AAD tenant.
 
-The image can be in a different region as long as it has replicas in the same region as your Batch account. This behavior is unaffected – all user-specified resources that require Azure Storage such as resource files, output files, or application packages are made from the compute node directly to Azure Storage. You'll need to ensure your networking configuration allows these flows.
+The image can be in a different region as long as it has replicas in the same region as your Batch account. This behavior is unaffected – all user-specified resources that require Azure Storage such as resource files, output files, or application packages are made from the compute node directly to Azure Storage. You need to ensure your networking configuration allows these flows.
 
 
 ## Next steps
