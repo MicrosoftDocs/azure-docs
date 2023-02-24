@@ -23,7 +23,23 @@ The Kubernetes iSCSI CSI driver is available on GitHub:
 - [Readme](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md)
 - [Report iSCSI driver issues](https://github.com/kubernetes-csi/csi-driver-iscsi/issues)
 
-Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
+### Licensing
+
+The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/LICENSE).
+
+## Get started
+
+### Driver installation
+
+First, install the Kubernetes iSCSI CSI driver on your cluster. You'll have to perform a local install since a few code changes are required for the driver to connect to Elastic SAN volumes.
+
+First, clone the driver repo:
+
+```
+git clone https://github.com/kubernetes-csi/csi-driver-iscsi.git 
+```
+
+Since Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
 
 Make the following modifications to pkg/lib/iscsi/iscsi/iscsi.go:
 
@@ -52,25 +68,9 @@ with:
 if err := c.discoverTargetStatically
 ```
 
-### Licensing
-
-The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/LICENSE).
-
-## Get started
-
-### Driver installation
-
-First, install the Kubernetes iSCSI CSI driver on your cluster.
-
-You can either perform a remote install with the following command:
-
-`curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-iscsi/master/deploy/install-driver.sh | bash -s master --`
-
-or you can perform a local install with the following command:
+After the modifications, run the remaining install scripts:
 
 ```
-git clone https://github.com/kubernetes-csi/csi-driver-iscsi.git 
-
 cd csi-driver-iscsi 
 
 ./deploy/install-driver.sh master local
