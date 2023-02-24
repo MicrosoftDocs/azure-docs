@@ -257,7 +257,7 @@
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
-        href: data-connectors-reference.md#windows-security-events-via-ama
+        href: data-connectors-reference.md/windows-security-events-via-ama
     - name: All connectors
       items:
       - name: AbnormalSecurity (using Azure Function)
