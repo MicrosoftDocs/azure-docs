@@ -127,8 +127,6 @@ az postgres flexible-server create \
     --resource-group ${RESOURCE_GROUP} \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
-    --admin-user <admin-username> \
-    --admin-password <admin-password> \
     --active-directory-auth Enabled
 ```
 There will be a prompt to ask you whether you need to enable access to specific IP, all input `n` to disable these accesses. Because we only want the PostgreSQL been accessed by the App in Azure Spring Apps. Here is a sample about the prompt:
