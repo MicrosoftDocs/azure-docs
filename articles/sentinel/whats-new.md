@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 02/24/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -163,7 +163,7 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
 ### Out-of-the-box content centralization changes
-A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in templates section of the **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
+A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in the templates section of **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
 
 :::image type="content" source="media/whats-new/example-content-central-change-banner.png" alt-text="This screenshot shows an example informational banner in the **Workbooks** gallery. The banner reads, 'All Workbook templates, and additional out-of-the-box (OOTB) content are now centrally available in Content hub. Starting Q2 2023, only Workbook templates installed from the content hub will be available in this gallery. Learn more about the OOTB content centralization changes.'":::
 
