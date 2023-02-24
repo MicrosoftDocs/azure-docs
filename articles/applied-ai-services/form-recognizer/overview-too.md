@@ -18,13 +18,9 @@ recommendations: false
 
 # What's Azure Form Recognizer?
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. 
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. Select one of the tiles below to learn more about Form Recognizer models and development options:
 
-## Model types
-
-Select one of the tiles below to learn more about Form Recognizer models and development options:
-
-### Document Analysis
+### Document Analysis models
 
 :::row:::
    :::column:::
@@ -38,10 +34,10 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
    :::column-end:::
 :::row-end:::
 
-## Prebuilt
+## Prebuilt models
 
 :::row:::
-   :::column:::
+   :::column span="":::
       :::image type="content" source="media/overview/w2-icon.png" alt-text="Screenshot of w2 model icon." link="#w-2":::
    :::column-end:::
    :::column span="":::
@@ -51,7 +47,7 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
       :::image type="content" source="media/overview/receipt-icon.png" alt-text="Screenshot of receipt model icon." link="#receipt":::
    :::column-end:::
 :::row-end:::
-::row:::
+:::row:::
    :::column span="":::
       :::image type="content" source="media/overview/id-document-icon.png" alt-text="Screenshot of identity document model icon." link="#identity-id":::
    :::column-end:::
@@ -62,7 +58,7 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
    :::column-end:::
 :::row-end:::
 
-## Custom
+## Custom model
 
 :::row:::
    :::column:::
@@ -94,7 +90,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Read OCR model**](concept-read.md)|Extract text lines, words, detected languages, and handwritten style if detected.| <ul><li>Contract processing. </li><li>Financial or medical report processing.</li></ul>|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul> |
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#document-analysis-models)
 
 ## General document
 
@@ -103,13 +99,16 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**General document model**](concept-general-document.md)|Extract text, tables, structure, and key-value pairs.|<ul><li>Key-value pair extraction.</li><li>Form processing.</li><li>Survey data collection and analysis.</li></ul>|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</li></ul> |
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#document-analysis-models)
 
 ## Layout
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
 |[**Layout analysis model**](concept-layout.md) | Extract text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents.</br></br> Layout API has been updated to a prebuilt model. |<ul><li>Document indexing and retrieval by structure.</li><li>Preprocessing prior to OCR analysis.</li></ul> |<ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/layout)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#layout-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#layout-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#layout-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#layout-model)</li></ul>|
+
+> [!div class="nextstepaction"]
+> [Return to model types](#document-analysis-models)
 
 ## Custom models
 
@@ -118,7 +117,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Custom model**](concept-custom.md) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.</br></br>Custom model API v3.0 supports **signature detection for custom template (custom form) models**.</br></br>Custom model API v3.0 now supports two model types:<ul><li>[**Custom Template model**](concept-custom-template.md) (custom form) is used to analyze structured and semi-structured documents.</li><li> [**Custom Neural model**](concept-custom-neural.md) (custom document) is used to analyze unstructured documents.</li></ul>|<ul><li>Identification and compilation of data, unique to your business, impacted by a regulatory change or market event.</li><li>Identification and analysis of previously overlooked unique data.</li></ul> |[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#custom-model)
 
 ## W-2
 
@@ -127,7 +126,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**W-2 Form**](concept-w2.md) | Extract information reported in each box on a W-2 form.|<ul><li>Automated tax document management.</li><li>Mortgage loan application processing.</li></ul> |<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)<li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul> |
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#prebuilt-models)
 
 ## Invoice
 
@@ -136,7 +135,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Invoice model**](concept-invoice.md) | Automated data processing and extraction of key information from sales invoices. |<ul><li>Accounts payable processing.</li><li>Automated tax recording and reporting.</li></ul> |<ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#prebuilt-models)
 
 ## Receipt
 
@@ -145,7 +144,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Receipt model (updated)**](concept-receipt.md) | Automated data processing and extraction of key information from sales receipts.</br></br>Receipt model v3.0 supports processing of **single-page hotel receipts**.|<ul><li>Expense management.</li><li>Consumer behavior data analysis.</li><li>Customer loyalty program.</li><li>Merchandise return processing.</li><li>Automated tax recording and reporting.</li></ul> |<ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#prebuilt-models)
 
 ## Identity (ID)
 
@@ -154,7 +153,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Identity document (ID) model (updated)**](concept-id-document.md) |Automated data processing and extraction of key information from US driver's licenses and international passports.</br></br>Prebuilt ID document API supports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |<ul><li>Know your customer (KYC) financial services guidelines compliance.</li><li>Medical account management.</li><li>Identity checkpoints and gateways.</li><li>Hotel registration.</li></ul> |<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#prebuilt-models)
 
 ## Business card
 
@@ -163,7 +162,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Business card model**](concept-business-card.md) |Automated data processing and extraction of key information from business cards.|<ul><li>Sales lead and marketing management.</li></ul> |<ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#model-types)
+> [Return to model types](#prebuilt-models)
 
 ::: moniker range="form-recog-2.1.0"
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
