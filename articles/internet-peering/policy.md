@@ -60,7 +60,7 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 
 ## Traffic requirements
 
-* Peers over Exchange peering must have at minimum 500 Mb of traffic and less than 2 GB. For traffic exceeding 2 GB, Direct peering should be established.
+* Peers over Exchange peering must have at minimum 500 MB of traffic and less than 2 GB. For traffic exceeding 2 GB, Direct peering should be established.
 * Microsoft requires at minimum 2 GB for direct peering. Each mutually agreed to peering location must support failover that ensures peering remains localized during a failover scenario. 
 
 ## Next steps
