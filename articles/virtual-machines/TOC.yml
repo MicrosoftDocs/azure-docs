@@ -53,12 +53,12 @@
       href: ./linux/tutorial-automate-vm-deployment.md
     - name: Create VM images
       href: ./linux/tutorial-custom-images.md
-    - name: Create a scale set
-      href: ./linux/tutorial-create-vmss.md
-    - name: Load balance VMs
-      href: ./linux/tutorial-load-balancer.md
     - name: Manage networking
       href: ./linux/tutorial-virtual-network.md
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
+    - name: Create a scale set
+      href: ./linux/tutorial-create-vmss.md
   - name: Windows
     items:
     - name: Create / manage a VM
@@ -69,12 +69,12 @@
       href: ./windows/tutorial-automate-vm-deployment.md
     - name: Create VM images
       href: ./windows/tutorial-custom-images.md
+    - name: Manage networking
+      href: ./windows/tutorial-virtual-network.md  
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
     - name: Create a scale set
       href: ./windows/tutorial-create-vmss.md
-    - name: Load balance VMs
-      href: ./windows/tutorial-load-balancer.md
-    - name: Manage networking
-      href: ./windows/tutorial-virtual-network.md
 - name: Develop
   items:
   - name: REST API
@@ -213,6 +213,8 @@
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
         href: dplsv5-dpldsv5-series.md
+      - name: Dlsv5 and Dldsv5-series
+        href: dlsv5-dldsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -345,10 +347,6 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -1870,13 +1868,8 @@
       href: tag-template.md
       displayname: tag, tagging, tag a vm
   - name: Monitor metadata
-    items:
-    - name: CLI
-      displayName: Monitor metadata
-      href: ./linux/instance-metadata-service.md
-    - name: PowerShell
-      displayName: Monitor metadata
-      href: ./windows/instance-metadata-service.md
+    displayName: instance metadata service IMDS
+    href: instance-metadata-service.md
   - name: Get usage metrics with REST
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics

@@ -87,7 +87,7 @@ Security DevOps uses the following Open Source tools:
     
             # Upload alerts to the Security tab
             - name: Upload alerts to Security tab
-              uses: github/codeql-action/upload-sarif@v1
+              uses: github/codeql-action/upload-sarif@v2
               with:
                 sarif_file: ${{ steps.msdo.outputs.sarifFile }}
     ```

@@ -130,7 +130,7 @@ Now you can modify the scoring script (`score.py`) and test your changes by runn
 
 There are two ways to use Visual Studio Code (VS Code) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package ([Launch and Attach modes](https://code.visualstudio.com/docs/editor/debugging#_launch-versus-attach-configurations)). 
 
--  **Launch mode**: set up the `launch.json` in VS Code and start the AzureML inference HTTP server within VS Code.
+-  **Launch mode**: set up the `launch.json` in VS Code and start the Azure Machine Learning inference HTTP server within VS Code.
    1. Start VS Code and open the folder containing the script (`score.py`).
    1. Add the following configuration to `launch.json` for that workspace in VS Code:
 
@@ -155,7 +155,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
 
     1. Start debugging session in VS Code. Select "Run" -> "Start Debugging" (or `F5`).
 
--  **Attach mode**: start the AzureML inference HTTP server in a command line and use VS Code + Python Extension to attach to the process.
+-  **Attach mode**: start the Azure Machine Learning inference HTTP server in a command line and use VS Code + Python Extension to attach to the process.
     > [!NOTE]
     > If you're using Linux environment, first install the `gdb` package by running `sudo apt-get install -y gdb`.
    1. Add the following configuration to `launch.json` for that workspace in VS Code:
@@ -272,20 +272,20 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 
 ## Understanding logs
 
-Here we describe logs of the AzureML inference HTTP server. You can get the log when you run the `azureml-inference-server-http` locally, or [get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs) if you're using online endpoints. 
+Here we describe logs of the Azure Machine Learning inference HTTP server. You can get the log when you run the `azureml-inference-server-http` locally, or [get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs) if you're using online endpoints. 
 
 > [!NOTE]
 > The logging format has changed since version 0.8.0. If you find your log in different style, update the `azureml-inference-server-http` package to the latest version.
 
 > [!TIP]
-> If you are using online endpoints, the log from the inference server starts with `Azure ML Inferencing HTTP server <version>`.
+> If you are using online endpoints, the log from the inference server starts with `Azure Machine Learning Inferencing HTTP server <version>`.
 
 ### Startup logs
 
 When the server is started, the server settings are first displayed by the logs as follows:
 
 ```
-Azure ML Inferencing HTTP server <version>
+Azure Machine Learning Inferencing HTTP server <version>
 
 
 Server Settings
@@ -312,7 +312,7 @@ Score:          POST  127.0.0.1:<port>/score
 For example, when you launch the server followed the [end-to-end example](#end-to-end-example):
 
 ```
-Azure ML Inferencing HTTP server v0.8.0
+Azure Machine Learning Inferencing HTTP server v0.8.0
 
 
 Server Settings
