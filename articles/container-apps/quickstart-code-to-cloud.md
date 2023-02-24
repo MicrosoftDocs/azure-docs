@@ -10,6 +10,7 @@ ms.author: v-bcatherine
 zone_pivot_groups: container-apps-image-build-from-repo
 ---
 
+
 # Quickstart: Build and deploy your container app from a repository in Azure Container Apps
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
@@ -292,7 +293,7 @@ Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endp
 
 ## Clean up resources
 
-If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart with the following command.
+If you're not going to continue on to the [Deploy a frontend](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart with the following command.
 
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If the group contains resources outside the scope of this quickstart, they are also deleted.

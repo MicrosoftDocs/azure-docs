@@ -4,19 +4,20 @@ description: Code to cloud deploying your application to Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.topic: quickstart
+ms.topic: quicksttutorialart
 ms.date: 05/11/2022
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
 
+
 # Quickstart: Deploy your code to Azure Container Apps
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-This quickstart is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a back end web API service that returns a static collection of music albums.
+This tutorial is the first in a series of articles that walk you through how to use core capabilities within Azure Container Apps. The first step is to create a back end web API service that returns a static collection of music albums.
 
-The following screenshot shows the output from the album API deployed in this quickstart.
+The following screenshot shows the output from the album API deployed in this tutorial.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
@@ -326,7 +327,7 @@ From your web browser, navigate to the `/albums` endpoint of the FQDN.
 
 ## Clean up resources
 
-If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
+If you're not going to continue on to the [Deploy a frontend](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this tutorial. Run the following command to delete the resource group along with all the resources created in this tutorial.
 
 # [Bash](#tab/bash)
 
@@ -347,7 +348,7 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
+This tutorial is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Communication between microservices](communicate-between-microservices.md)

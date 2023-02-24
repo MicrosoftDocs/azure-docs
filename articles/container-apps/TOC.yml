@@ -138,9 +138,9 @@
     - name: Build a multiple service app 
       expanded: true
       items:
-        - name: Deploy a backend app
+        - name: Deploy a backend microservice app
           href: tutorial-code-to-cloud.md
-        - name: Deploy a frontend app
+        - name: Deploy a frontend microservice app
           href: communicate-between-microservices.md
     - name: Deploy microservices with Dapr
       expanded: true
