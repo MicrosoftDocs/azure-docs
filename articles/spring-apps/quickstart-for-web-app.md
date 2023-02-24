@@ -62,10 +62,10 @@ To make the steps easier to proceed, let's set the name at the beginning.
 ```azurecli-interactive
 RESOURCE_GROUP=WebAppResourceGroup
 LOCATION=eastus
-POSTGRESQL_SERVER=WebAppPostgreSQLServer
+POSTGRESQL_SERVER=webapppostgresqlserver
 POSTGRESQL_DB=WebAppPostgreSQLDB
 AZURE_SPRING_APPS_NAME=web-app-azure-spring-apps
-APP_NAME=WebApp
+APP_NAME=webapp
 CONNECTION=WebAppConnection
 ```
 If some of above name already been taken in your cloud environment, it will have error when you execute the commands in the following part of this article. If it happens, just set another name and continue.
@@ -105,14 +105,11 @@ Azure Spring Apps will be used to host the spring web app. Let's create an Azure
 
 1. Create an Azure Spring Apps service instance.
     ```azurecli-interactive
-    az spring create \
-        --resource-group ${RESOURCE_GROUP} \
-        --name ${AZURE_SPRING_APPS_NAME}
+    az spring create --name ${AZURE_SPRING_APPS_NAME}
     ```
 2. Create an app in the created Azure Spring Apps instance.
     ```azurecli-interactive
     az spring app create \
-        --resource-group ${RESOURCE_GROUP} \
         --service ${AZURE_SPRING_APPS_NAME} \
         --name ${APP_NAME} \
         --runtime-version Java_17 \
@@ -124,7 +121,6 @@ When run the spring web app in localhost, we use H2 as database. In Azure, we us
 
 ```azurecli-interactive
 az postgres flexible-server create \
-    --resource-group ${RESOURCE_GROUP} \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
     --active-directory-auth Enabled
@@ -211,7 +207,6 @@ After app instance and the PostgreSQL instance been created, the app instance ca
 1. Now the cloud environment is ready. Deploy the app by this command:
     ```azurecli-interactive
     az spring app deploy \
-        --resource-group ${RESOURCE_GROUP} \
         --service ${AZURE_SPRING_APPS_NAME} \
         --name ${APP_NAME} \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
@@ -220,7 +215,6 @@ After app instance and the PostgreSQL instance been created, the app instance ca
 3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
-        --resource-group ${RESOURCE_GROUP} \
         --service ${AZURE_SPRING_APPS_NAME} \
         --name ${APP_NAME}
     ```
