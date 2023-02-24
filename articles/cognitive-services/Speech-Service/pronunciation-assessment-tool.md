@@ -220,7 +220,7 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 
 ### Assessment scores in streaming mode
 
-Pronunciation Assessment supports uninterrupted streaming mode. The demo on the Speech Studio supports up to 60 minutes of recording in streaming mode for evaluation. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you do not press the stop recording button, the evaluation process does not finish and you can pause and resume evaluation conveniently.
+Pronunciation Assessment supports uninterrupted streaming mode. The Speech Studio demo allows for up to 60 minutes of recording in streaming mode for evaluation. As long as you don't press the stop recording button, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
 
 Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, fluency, and completeness. At the bottom of **Assessment result**, you can see **Pronunciation score** as aggregated overall score which includes 3 sub aspects: **Accuracy score**, **Fluency score**, and **Completeness score**. In streaming mode, since the **Accuracy score**, **Fluency score and Completeness score** will vary over time throughout the recording process, we demonstrate an approach on Speech Studio to display approximate overall score incrementally before the end of the evaluation, which weighted only with Accuracy score and Fluency score. The **Completeness score** is only calculated at the end of the evaluation after you press the stop button, so the final overall score is aggregated from **Accuracy score**, **Fluency score**, and **Completeness score** with weight.
 
