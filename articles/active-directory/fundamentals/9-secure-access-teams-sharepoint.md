@@ -85,7 +85,7 @@ Teams differentiates between external users (outside your organization) and gues
 
 Learn more: [Use guest access and external access to collaborate with people outside your organization](/microsoftteams/communicate-with-users-from-other-organizations). 
 
-The External Identities collaboration feaure in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
+The External Identities collaboration feature in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
 
 Learn more:
 
