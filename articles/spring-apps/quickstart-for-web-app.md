@@ -32,7 +32,7 @@ Here is the diagram about the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Version >= 2.45.0.
 
-## Build and run the sample project locally
+## Clone and run the sample project locally
 1. The sample project is ready on GitHub. Just clone sample project by this command:
     ```shell
     git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
