@@ -22,7 +22,7 @@ For configuration details for change tracking for use with the Azure SQL trigger
 
 ## Functionality Overview
 
-The Azure SQL Trigger binding uses a polling loop to check for changes, triggering the user function when changes are detected. At a high level the loop looks like this :
+The Azure SQL Trigger binding uses a polling loop to check for changes, triggering the user function when changes are detected. At a high level the loop looks like this:
 
 ```
 while (true) {
@@ -32,13 +32,13 @@ while (true) {
 }
 ```
 
-Changes will always be processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about this :
+Changes will always be processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about this:
 
 1. If changes to multiple rows are made at once the exact order that they'll be sent to the function is based on the order returned by the CHANGETABLE function
-2. Changes are "batched" together for a row - if multiple changes are made to a row between each iteration of the loop than only a single change entry will exist for that row that shows the difference between the last processed state and the current state
+2. Changes are "batched" together for a row - if multiple changes are made to a row between each iteration of the loop then only a single change entry will exist for that row that shows the difference between the last processed state and the current state
 3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows then the half that wasn't changed a second time will be processed first. This is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
 
-See [Work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it is used by applications such as Azure SQL triggers.
+See [Work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) for more information on change tracking and how it's used by applications such as Azure SQL triggers.
 
 ## Example usage
 
@@ -139,7 +139,7 @@ In addition to the required ConnectionStringSetting [application setting](./func
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [VS Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
@@ -167,7 +167,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
 ## Enable runtime-driven scaling
 
-Optionally, your functions can scale automatically based on the amount of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
+Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
 
 [!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
