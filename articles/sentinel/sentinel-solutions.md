@@ -83,13 +83,13 @@ Microsoft Sentinel out-of-the-box content can be applied with one or more of the
 | **Security - Others**   | Other security products and services with no other clear category           |
 | **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products, and services        |
 | **Security - Threat Protection**   | Threat protection, email protection, and XDR and endpoint protection products and services     |
-| **Security – 0-day Vulnerability**   | Specialized solutions for zero-day vulnerability attacks like [Nobelium](../security/fundamentals/recover-from-identity-compromise.md) |
-| **Security – Automation (SOAR)**   | Security automations, SOAR (Security Operations and Automated Responses), security operations, and incident response products and services.   |
-| **Security – Cloud Security** | CASB (Cloud Access Service Broker), CWPP (Cloud workload protection platforms), CSPM (Cloud security posture management and other Cloud Security products and services |
-| **Security – Information Protection**   | Information protection and document protection products and services|
-| **Security – Insider Threat**  | Insider threat and user and entity behavioral analytics (UEBA) for security products and services                |
-| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention), and network packet capture   |
-| **Security – Vulnerability Management** | Vulnerability management products and  services                    |
+| **Security - 0-day Vulnerability**   | Specialized solutions for zero-day vulnerability attacks like [Nobelium](../security/fundamentals/recover-from-identity-compromise.md) |
+| **Security - Automation (SOAR)**   | Security automations, SOAR (Security Operations and Automated Responses), security operations, and incident response products and services.   |
+| **Security - Cloud Security** | CASB (Cloud Access Service Broker), CWPP (Cloud workload protection platforms), CSPM (Cloud security posture management and other Cloud Security products and services |
+| **Security - Information Protection**   | Information protection and document protection products and services|
+| **Security - Insider Threat**  | Insider threat and user and entity behavioral analytics (UEBA) for security products and services                |
+| **Security - Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention), and network packet capture   |
+| **Security - Vulnerability Management** | Vulnerability management products and  services                    |
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
 | **User Behavior (UEBA)**    | User behavior analytics products and services|
