@@ -81,7 +81,6 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```azurecli-interactive
     az account set --subscription <SubscriptionId>
     ```
-
 4. Create a resource group.
     ```azurecli-interactive
     az group create --resource-group ${RESOURCE_GROUP}
