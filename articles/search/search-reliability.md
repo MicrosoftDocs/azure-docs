@@ -17,17 +17,17 @@ Across Azure, *reliability* means maintaining resiliency and availability if the
 
 + Configure a service to use multiple replicas, paired with availability zone support.
 
-+ Deploy multiple search services across different geographic regions.
++ Deploy multiple services across different geographic regions.
 
-All search workloads are fully contained within a single service that runs in a single geographic region. Within a region, you can configure search to use multiple replicas that run in different availability zones. 
+All search workloads are fully contained within a single service that runs in a single geographic region. On a service, you can configure multiple replicas that automatically run in different availability zones. This capability is how you achieve high availability.
 
-For business continuity and recovery from disasters at a regional level, you should develop a strategy that includes a cross-regional architecture, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
+For business continuity and recovery from disasters at a regional level, you should develop a strategy that includes a cross-regional topology, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
 
 <a name="scale-for-availability"></a>
 
 ## High availability
 
-In Cognitive Search, replicas are copies of your index. A search service is installed with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) is how you achieve high availability. Multiple replicas allow Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
+In Cognitive Search, replicas are copies of your index. A search service is installed with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
 
 For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria:
 
@@ -86,7 +86,7 @@ Service redundancy is necessary if operational requirements include:
 
 + [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search doesn't provide instant failover in the event of an outage).
 
-+ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
++ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance . Creating additional services in regions with close proximity to these users can equalize performance for all users.
 
 If you need two or more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
