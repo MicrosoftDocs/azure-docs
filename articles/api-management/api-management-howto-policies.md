@@ -101,13 +101,11 @@ For more information, see [Set or edit policies](set-edit-policies.md#use-base-e
 
 ### GraphQL resolver policies
 
-In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a GraphQL schema.
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
 
-<!-- Link to GraphQL API overview -->
-
-*  Currently, GraphQL resolver policies specify HTTP data sources to retrieve or set data for a GraphQL field. The policy definition for a resolver contains a single `http-data-source` element to specify a request to (and optionally response from) an HTTP data source.
-* The `http-data-source` element is unique to resolver policies. You can't include it in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
-* Resolver-scoped policies are evaluated *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+* Currently, API Management supports GraphQL resolvers that specify HTTP data sources. Configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
 
 For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
