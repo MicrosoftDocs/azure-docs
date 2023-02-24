@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/16/2023
+ms.date: 02/24/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -125,10 +125,9 @@ The recommendations listed in the following table are available to all Azure AD 
     - Mark a recommendation as **Postponed** if you want to address the recommendation at a later time.
         - The recommendation becomes **Active** when the selected date occurs.
     - You can reactivate a completed or postponed recommendation to keep it top of mind and reassess the resources.
-     - Recommendations change to **Completed** if all impacted resources have been addressed.
-        - Active resources may still appear in the list of resources for manually completed recommendations. If the resource is completed, the service will update the status the next time the service runs. 
-        - If the service identifies an active resource for a manually completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
-        - Completing a recommendation is the only action collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
+    - Recommendations change to **Completed** if all impacted resources have been addressed.
+       - If the service identifies an active resource for a completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
+       - Completing a recommendation is the only action collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
 
 Continue to monitor the recommendations in your tenant for changes.
 
