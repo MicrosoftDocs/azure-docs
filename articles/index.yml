@@ -1571,6 +1571,14 @@ productDirectory:
       azureCategories:
        - 5g-space
       url: azure-operator-nexus/index.yml
+    # Card
+    - title: Azure Network Function Manager
+      summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
+      imageSrc: ./media/index/web-pubsub.svg
+      azureCategories:
+       - networking
+       - 5g-space
+      url: network-function-manager/index.yml
 tools:
   title: Languages and tools
   items:
