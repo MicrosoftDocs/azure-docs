@@ -229,7 +229,7 @@ This training pipeline contains the following steps:
    - Input: Trained model and the deploy flag.
    - Output: Registered model in Azure Machine Learning.
 
-## Deploying the Model Training Pipeline to the Test Environment
+## Deploying the Model Training Pipeline
 
 Next, you will deploy the model training pipeline to your new Azure Machine Learning workspace. This pipeline will create a compute cluster instance, register a training environment defining the necessary Docker image and python packages, register a training dataset, then start the training pipeline described in the last section. When the job is complete, the trained model will be registered in the Azure ML workspace and be available for deployment.
 
@@ -252,7 +252,7 @@ With the trained model registered in the Azure Machine learning workspace, you a
 
 ### Deploying the Trained Model
 
-This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflowsto test the performance of the model in your Azure ML workspace.
+This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure ML workspace.
 
 1. In your GitHub project repository (ex: taxi-fare-regression), select **Actions**  
  
@@ -267,6 +267,10 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
     Once completed, you will find the online endpoint deployed in the Azure ML workspace and available for testing.
 
    ![AzureML taxi Online endpoint](./media/how-to-setup-mlops-azureml/aml-taxi-oep.png)
+
+1. To test this deployment, go to the **Endpoints** tab in your AzureML workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
+   
+    ![AzureML taxi Online endpoint test](./media/how-to-setup-mlops-azureml/azureml-online-endpoint-test.png)
 
 ### Batch Endpoint
       
