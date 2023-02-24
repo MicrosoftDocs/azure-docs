@@ -330,7 +330,11 @@ az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-nam
 
 This step isn't related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-### Browse to the apps
+## Call the backend
+
+Shows how you use the token to call the backend.
+
+## Browse to the apps
 
 1. Use the frontend web site in a browser. The URL is in the formate of `https://<FRONTEND-APP-NAME>.azurewebsites.net/`.
 1. The browser requests your authentication to the web app. Complete the authentication.
@@ -400,13 +404,22 @@ Because the client web app calls the API web app from server source code, this i
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. 
 
-```azurecli-interactive
-az group delete --name myAuthResourceGroup
-```
+1. Delete the resource group by running the following command in the Cloud Shell. This command may take a minute to run.
 
-This command may take a minute to run.
+
+    ```azurecli-interactive
+    az group delete --name myAuthResourceGroup
+    ```
+
+
+2. Delete app registrations
+
+    ```azurecli-interactive
+    
+    ```
+
 
 <a name="next"></a>
 ## Next steps
