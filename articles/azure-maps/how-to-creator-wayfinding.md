@@ -23,7 +23,7 @@ The Azure Maps Creator [wayfinding service][wayfinding service] allows you to na
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL. For more information, see [Access to Creator Services][how to manage access to creator services].
 > - In the URL examples in this article you will need to:
->   - Replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>   - Replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 >   - Replace `{datasetId`} with your `datasetId`. For more information, see the [Check the dataset creation status][check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
 ## Create a routeset

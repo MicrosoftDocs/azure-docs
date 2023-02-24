@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 02/22/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
@@ -79,7 +79,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.8/applicationinsights-agent-3.4.8.jar) file.
+Download the [applicationinsights-agent-3.4.10.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.10/applicationinsights-agent-3.4.10.jar) file.
 
 > [!WARNING]
 >
@@ -181,7 +181,7 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.10.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -303,7 +303,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
     
-- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.10.jar` with the following content:
     
    ```json
    {
@@ -1360,7 +1360,7 @@ This is not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.8</version>
+      <version>3.4.10</version>
     </dependency>
     ```
 
