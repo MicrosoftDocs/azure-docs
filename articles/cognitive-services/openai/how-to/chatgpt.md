@@ -33,7 +33,7 @@ openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="text-davinci-002",
+  engine="gpt-3.5-turbo",
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=800,
@@ -181,7 +181,7 @@ The following code sample shows a simple example of how you could keep track of 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_base = ""
+openai.api_base = "https://{your-resource-name}.openai.azure.com/"
 openai.api_version = "2022-12-01"
 openai.api_key = os.getenv('api_key')
 
@@ -201,7 +201,7 @@ system_message = "<|im_start|>system\n{}\n<|im_end|>".format("--your system mess
 messages = [{"sender": "user", "text": user_input}]
 
 response = openai.Completion.create(
-    engine="chat-davinci-003",
+    engine="gpt-3.5-turbo",
     prompt=create_prompt(system_message, messages),
     temperature=1,
     max_tokens=250,
@@ -229,7 +229,7 @@ import tiktoken
 cl100k_base = tiktoken.get_encoding("cl100k_base") 
 
 enc = tiktoken.Encoding( 
-    name="chat-davinci-003",  
+    name="gpt-3.5-turbo",  
     pat_str=cl100k_base._pat_str, 
     mergeable_ranks=cl100k_base._mergeable_ranks, 
     special_tokens={ 

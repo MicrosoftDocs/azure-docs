@@ -53,12 +53,12 @@ Select the **Clear chat** button to delete the current conversation history.
 
 | **Name**            | **Description**   |
 |:--------------------|:-------------------------------------------------------------------------------|
-| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT, you need to use the `gpt-3.5-turbo` model |
+| Deployments         | Your deployment name that is associated with a specific model. For ChatGPT, you need to use the `gpt-3.5-turbo` model. |
 | Temperature         | Controls randomness. Lowering the temperature means that the model produces more repetitive and deterministic responses. Increasing the temperature results in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
 | Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly four characters for typical English text.|
 | Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P narrows the model’s token selection to likelier tokens. Increasing Top P lets the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
 | Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
-| Stop sequences      | Stop sequence Make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
+| Stop sequences      | Stop sequence make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
 ### Panel configuration
 
@@ -110,7 +110,7 @@ The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introducti
 
 ## Clean up resources
 
-Once you're done with testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
