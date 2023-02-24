@@ -60,7 +60,7 @@ Wait until the cluster is running before proceeding further.
 
 Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. 
 
-To use automated ML, skip to [Add the Azure Machine Learning SDK with AutoML](#add-the-azure-ml-sdk-with-automl-to-databricks).
+To use automated ML, skip to [Add the Azure Machine Learning SDK with AutoML](#add-the-azureml-sdk-with-automl-to-databricks).
 
 
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.

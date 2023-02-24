@@ -195,7 +195,7 @@ Now, let's look at other options for invoking the batch endpoint. When it comes 
 - When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>` for folder, `https://<public-path>/<file-name>` for a specific file.
 
 > [!NOTE]
-> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
+> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azureml-data-reference-uri).
 
 Below are some examples using different types of input data.
 
