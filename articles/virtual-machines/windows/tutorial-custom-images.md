@@ -219,6 +219,6 @@ In this tutorial, you created a specialized VM image. You learned how to:
 > * Share a gallery
 
 Advance to the next tutorial to learn about Virtual Machine Scale Sets.
- cvvvvvvvvvvvvvvv
+
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
