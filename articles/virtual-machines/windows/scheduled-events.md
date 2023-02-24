@@ -51,7 +51,7 @@ Scheduled Events provides events in the following use cases:
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
 ### Scope
-Scheduled events are delivered to and can be acknowleged by:
+Scheduled events are delivered to and can be acknowledged by:
 
 - Standalone Virtual Machines.
 - All the VMs in an [Azure cloud service (classic)](../../cloud-services/index.yml).
@@ -79,7 +79,7 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 | 2020-07-01 | General Availability | All | <li> Added support for Event Duration |
 | 2019-08-01 | General Availability | All | <li> Added support for EventSource |
 | 2019-04-01 | General Availability | All | <li> Added support for Event Description |
-| 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
+| 2019-01-01 | General Availability | All | <li> Added support for Virtual Machine Scale Sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All | <li>Initial release |
@@ -398,4 +398,4 @@ if __name__ == '__main__':
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).
 - Learn how to [monitor scheduled events for your VMs through Log Analytics](./scheduled-event-service.md).
-- Learn how to log scheduled events using Azure Event Hub in the [Azure Samples GitHub repository](https://github.com/Azure-Samples/virtual-machines-python-scheduled-events-central-logging).
+- Learn how to log scheduled events using Azure Event Hubs in the [Azure Samples GitHub repository](https://github.com/Azure-Samples/virtual-machines-python-scheduled-events-central-logging).
