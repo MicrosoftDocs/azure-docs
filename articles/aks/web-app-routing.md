@@ -11,7 +11,7 @@ ms.author: asabbour
 
 # Web Application Routing (Preview)
 
-The Web Application Routing add-on configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. Optionally, it also integrates with Open Service Mesh (OSM) for end-to-end encryption of inter cluster communication using mutual TLS (mTLS). When you deply ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
+The Web Application Routing add-on configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. Optionally, it also integrates with Open Service Mesh (OSM) for end-to-end encryption of inter cluster communication using mutual TLS (mTLS). When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
