@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 02/23/2023
 ---
 
-# Migrate Azure Batch custom image pools to Azure compute gallery 
+# Migrate Azure Batch custom image pools to Azure Compute Gallery 
 
 To improve reliability, scale, and align with modern Azure offerings, Azure Batch will retire custom image Batch pools specified from virtual hard disk (VHD) blobs in Azure Storage and Azure Managed Images on *March 31, 2024*. Learn how to migrate your Azure Batch custom image pools using Azure Compute Gallery.
 
@@ -52,7 +52,7 @@ For more information about this process, see [creating an image definition and v
 
 - Can I use Azure Compute Gallery images in different subscriptions or in different AAD tenants?
   
-  If the Shared Image isn't in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same AAD tenant.
+  If the Shared Image isn't in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same AAD tenant. 
 
 The image can be in a different region as long as it has replicas in the same region as your Batch account. This behavior is unaffected – all user-specified resources that require Azure Storage such as resource files, output files, or application packages are made from the compute node directly to Azure Storage. You need to ensure your networking configuration allows these flows.
 
