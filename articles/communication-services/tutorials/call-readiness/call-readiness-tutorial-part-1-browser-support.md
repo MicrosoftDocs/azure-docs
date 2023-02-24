@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-In this tutorial, we'll be using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, as well as a rich set of APIs to understand the user state.
+In this tutorial, we are using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, and a rich set of APIs to understand the user state.
 
 ## Prerequisites
 
@@ -30,13 +30,13 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 ## Checking for Browser Support
 
 To ensure the user gets the best experience, we want to first make sure they're on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
-In this section, we'll create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
+In this section, we create a page that displays "Preparing your session" whilst we perform a quick support check in the background on the user's browser.
 
 ![Gif showing browser check being performed](../media/call-readiness/checking-browser-support.gif)
 
 ### Preparing Your Session Page
 
-Create a new file called `PreparingYourSession.tsx` where we'll create a spinner to show to the user while we perform asynchronous checks in the background:
+Create a new file called `PreparingYourSession.tsx` where we create a spinner to show to the user while we perform asynchronous checks in the background:
 
 `src/PreparingYourSession.tsx`
 
@@ -85,7 +85,7 @@ const spinnerContainerStyles = (theme: ITheme): IStackStyles => ({
 ```
 
 We can then hook up this Preparing your session screen into our App.
-In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningEnvironmentChecks` state we'll show the Preparing Your Session Screen.
+In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningEnvironmentChecks` state we show the Preparing Your Session Screen.
 
 First, add the following imports to our `App.tsx` file that we created in the overview:
 
@@ -112,7 +112,7 @@ const App = (): JSX.Element => {
           </>
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
@@ -120,9 +120,9 @@ const App = (): JSX.Element => {
 }
 ```
 
-### Performing a Environment information check
+### Performing an Environment information check
 
-First create a utility file call `environmentSupportUtils.ts`. Inside this call, we'll add a method `checkEnvironmentSupport`. This method will use the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
+First create a utility file call `environmentSupportUtils.ts`. Inside this call, we add a method `checkEnvironmentSupport`. This method uses the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
 
 `src/environmentSupportUtils.ts`
 
@@ -147,14 +147,14 @@ The data that returns from this call is the following:
 
 ### Informing the user they are on an unsupported browser
 
-Next, we will need to use this information provided from the Calling SDK to inform the user of the state of their environment if there is a issue. The UI library provides three different components to serve this purpose depending on what the issue is.
+Next, we need to use this information provided from the Calling SDK to inform the user of the state of their environment if there's an issue. The UI library provides three different components to serve this purpose depending on what the issue is.
 
 - `UnsupportedOperatingSystem`
 - `UnsupportedBrowser`
 - `UnsupportedBrowserVersion`
 
-To do this, we'll host the UI Library's components inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
-Create a new file called `UnsupportedEnvironmentPrompts.tsx` where we'll create the different prompts:
+We start by hosting the UI Library's components inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
+Create a new file called `UnsupportedEnvironmentPrompts.tsx` where we create the different prompts:
 
 `src/UnsupportedEnvironmentPrompts.tsx`
 
@@ -201,9 +201,9 @@ export const OperatingSystemUnsupportedPrompt = (props: { isOpen: boolean }): JS
 );
 ```
 
-We can then show these prompts in a Environment Check Component.
-Create a file called `EnvironmentChecksComponent.tsx` that will contain the logic for showing this prompt:
-This component will have a callback `onTestsSuccessful` that can take the user to the next page in the App.
+We can then show these prompts in an Environment Check Component.
+Create a file called `EnvironmentChecksComponent.tsx` that contains the logic for showing this prompt:
+This component has a callback `onTestsSuccessful` that can take the user to the next page in the App.
 
 `src/EnvironmentChecksComponent.tsx`
 
@@ -237,21 +237,21 @@ export const EnvironmentChecksComponent = (props: {
   useEffect(() => {
     const runEnvironmentChecks = async (): Promise<void> => {
 
-      // First we will get the environment information from the calling SDK.
+      // First we get the environment information from the calling SDK.
       const environmentInfo = await checkEnvironmentSupport(callClient);
 
       if (!environmentInfo.isSupportedPlatform) {
         setCurrentCheckState('operatingSystemUnsupported');
-        // If the platform or operating system is not supported we will stop here and display a modal to the user.
+        // If the platform or operating system is not supported we stop here and display a modal to the user.
         return;
       } else if (!environmentInfo.isSupportedBrowser) {
         setCurrentCheckState('browserUnsupported');
-        // If browser support fails, we will stop here and display a modal to the user.
+        // If browser support fails, we stop here and display a modal to the user.
         return;
       } else if (!environmentInfo.isSupportedBrowserVersion) {
         setCurrentCheckState('browserVersionUnsupported');
         /**
-         *  If the browser version is unsupported, we will stop here and show a modal that can allow the user 
+         *  If the browser version is unsupported, we stop here and show a modal that can allow the user 
          *  to continue into the call.
          */
         return;
@@ -279,7 +279,7 @@ export const EnvironmentChecksComponent = (props: {
 }
 ```
 
-We can then add the `EnvironmentChecksComponent` to the `App.tsx`. The App will then move the user to the _Device Checks_ stage once the test is successful using the `onTestsSuccessful` callback:
+We can then add the `EnvironmentChecksComponent` to the `App.tsx`. The App then move the user to the _Device Checks_ stage once the test is successful using the `onTestsSuccessful` callback:
 
 Let's now import the new component into our app in `App.tsx`
 
@@ -306,7 +306,7 @@ const App = (): JSX.Element => {
           </>
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
