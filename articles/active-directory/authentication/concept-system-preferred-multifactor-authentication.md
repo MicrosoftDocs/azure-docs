@@ -28,29 +28,6 @@ If the user doesn't have that have the most secure method available, they can si
 
 For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, such as a time-based one-time passcode (TOTP). After sign-in, their Security info page appears and they need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
 
-## Order of system-preferred multifactor authentication methods
-
-When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge.
-
-1. Temporary Access Pass
-1. Certificate-based authentication
-1. FIDO2 security key
-1. Microsoft Authenticator notification
-1. Companion app notification
-1. Microsoft Authenticator time-based one-time password (TOTP)
-1. Companion app TOTP
-1. Hardware token based TOTP
-1. Software token based TOTP
-1. SMS over mobile
-1. OnewayVoiceMobileOTP
-1. OnewayVoiceAlternateMobileOTP
-1. OnewayVoiceOfficeOTP
-1. TwowayVoiceMobile
-1. TwowayVoiceAlternateMobile
-1. TwowayVoiceOffice
-1. TwowaySMSOverMobile
-
-
 ## Enable system-preferred MFA
 
 To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. 
@@ -110,14 +87,33 @@ Content-Type: application/json
 }
 ```
 
-### Response 
-
-
 ## Known issues
 
 - FIDO2 security key isn't supported on iOS mobile devices. This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
 
 ## Common questions
+
+### How does system-preferred MFA determine the most secure method?
+
+When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge.
+
+1. Temporary Access Pass
+1. Certificate-based authentication
+1. FIDO2 security key
+1. Microsoft Authenticator notification
+1. Companion app notification
+1. Microsoft Authenticator time-based one-time password (TOTP)
+1. Companion app TOTP
+1. Hardware token based TOTP
+1. Software token based TOTP
+1. SMS over mobile
+1. OnewayVoiceMobileOTP
+1. OnewayVoiceAlternateMobileOTP
+1. OnewayVoiceOfficeOTP
+1. TwowayVoiceMobile
+1. TwowayVoiceAlternateMobile
+1. TwowayVoiceOffice
+1. TwowaySMSOverMobile
 
 ### How does system-preferred MFA affect AD FS or NPS extension?
 
