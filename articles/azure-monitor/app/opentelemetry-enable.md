@@ -843,8 +843,7 @@ import io.opentelemetry.api.metrics.Meter;
 public class Program {
 
     public static void main(String[] args) {
-        Meter meter = GlobalOpenTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
-                .build();
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
         DoubleHistogram histogram = meter.histogramBuilder("histogram").build();
         histogram.record(1.0);
         histogram.record(100.0);
@@ -958,8 +957,7 @@ import io.opentelemetry.api.metrics.Meter;
 public class Program {
 
     public static void main(String[] args) {
-        Meter meter = GlobalOpenTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
-                .build();
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
 
         LongCounter myFruitCounter = meter
                 .counterBuilder("MyFruitCounter")
