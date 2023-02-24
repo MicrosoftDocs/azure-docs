@@ -181,7 +181,7 @@ If your team is only using Azure Machine Learning, you may consider provisioning
 
 ### Prototyping models
 
-We recommend v2 for prototyping models. You may consider using the CLI for an interactive use of Azur ML, while your model training code is Python or any other programming language. Alternatively, you may adopt a full-stack approach with Python solely using the Azure Machine Learning SDK or a mixed approach with the Azure Machine Learning Python SDK and YAML files.
+We recommend v2 for prototyping models. You may consider using the CLI for an interactive use of Azure Machine Learning, while your model training code is Python or any other programming language. Alternatively, you may adopt a full-stack approach with Python solely using the Azure Machine Learning SDK or a mixed approach with the Azure Machine Learning Python SDK and YAML files.
 
 ### Production model training
 
