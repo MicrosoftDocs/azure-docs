@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/24/2023
+ms.date: 12/13/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -96,7 +96,7 @@ Using a key vault or managed HSM has associated costs. For more information, see
 
 When you configure encryption with customer-managed keys, you have two options for updating the key version:
 
-- **Automatically update the key version:** To automatically update a customer-managed key when a new version is available, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, Azure Storage checks the key vault or managed HSM daily for a new version of a customer-managed key. If a new key version is available, Azure Storage immediately begins using the latest version of the key without impacting performance.
+- **Automatically update the key version:** To automatically update a customer-managed key when a new version is available, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks the key vault or managed HSM daily for a new version of a customer-managed key. If a new key version is available, then Azure Storage automatically uses the latest version of the key.
 
     Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
 
