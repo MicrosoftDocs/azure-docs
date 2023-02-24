@@ -2,7 +2,7 @@
 title: Use Video Indexer with storage behind firewall
 description: This article gives an overview how to configure Azure Video Indexer to use storage behind firewall.
 ms.topic: article
-ms.date: 02/24/2024
+ms.date: 02/24/2023
 ms.author: juliako
 ---
 
