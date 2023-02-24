@@ -30,7 +30,7 @@ The following table provides a list of supported compute environments and the ac
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
-| [Azure Synapse Analytics (Artifacts)](#azure-synapse-analytics-artifacts-linked-service) | [Synapse Naotbook activity](transform-data-synapse-notebook.md), [Synapse Spark job definition](transform-data-synapse-spark-job-definition.md) |
+| [Azure Synapse Analytics (Artifacts)](#azure-synapse-analytics-artifacts-linked-service) | [Synapse Notebook activity](transform-data-synapse-notebook.md), [Synapse Spark job definition](transform-data-synapse-spark-job-definition.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
 
 
@@ -579,7 +579,7 @@ You create a SQL Server linked service and use it with the [Stored Procedure Act
 
 ## Azure Synapse Analytics (Artifacts) linked service
 
-You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notebook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md) to invoke a stored procedure from a pipeline. 
+You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notebook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md). 
 
 ### Example
 
