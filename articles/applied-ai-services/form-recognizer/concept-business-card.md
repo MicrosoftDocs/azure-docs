@@ -11,7 +11,7 @@ ms.date: 11/14/2022
 ms.author: lajanuar
 recommendations: false
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Azure Form Recognizer business card model
 
