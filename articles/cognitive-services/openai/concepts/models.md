@@ -19,7 +19,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 
 | Model family | Description |
 |--|--|
-| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35) |
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](chatgpt-gpt-35-turbo) |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -38,7 +38,7 @@ Azure OpenAI model names typically correspond to the following standard naming c
 
 | Element | Description |
 | --- | --- |
-| `{family}` | The model family of the model. For example, [GPT-3 models](#chatgpt-gpt-35-turbo) uses `text`, while [Codex models](#codex-models) use `code`.|
+| `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
 | `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
