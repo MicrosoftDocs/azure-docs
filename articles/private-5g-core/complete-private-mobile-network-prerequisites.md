@@ -117,22 +117,22 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 > If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) on the portal.
     
 1. Sign into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     > [!TIP]
     > See [Sign in interactively](/cli/azure/authenticate-azure-cli) for full instructions.    
 1. If your account has multiple subscriptions, make sure you are in the correct one:
-    ```azurecli-interactive
+    ```azurecli
     az account set –-subscription <subscription_id>
     ```
 1. Check the Azure CLI version:
-    ```azurecli-interactive
+    ```azurecli
     az version
     ```
     If the CLI version is below 2.37.0, you will need to upgrade your Azure CLI to a newer version. See [How to update the Azure CLI](/cli/azure/update-azure-cli).
 1. Register the following resource providers:
-    ```azurecli-interactive
+    ```azurecli
     az provider register --namespace Microsoft.MobileNetwork
     az provider register --namespace Microsoft.HybridNetwork
     az provider register --namespace Microsoft.ExtendedLocation
@@ -140,7 +140,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
 1. Register the following features:
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name allowVnfCustomer --namespace Microsoft.HybridNetwork
     az feature register --name previewAccess --namespace  Microsoft.Kubernetes
     az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
