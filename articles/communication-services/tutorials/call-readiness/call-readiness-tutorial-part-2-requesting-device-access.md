@@ -26,14 +26,14 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 ## Requesting access to the camera and microphone
 
 For calling applications, it's often vital a user has given permission to use the microphone and camera.
-In this section, we'll create a series of components that will encourage the user to grant access to the camera and microphone.
-We'll display prompts to the user to guide them through granting access.
-We'll also inform the user with a prompt if access isn't granted.
+In this section, we create a series of components that will encourage the user to grant access to the camera and microphone.
+We display prompts to the user to guide them through granting access.
+We inform the user with a prompt if access isn't granted.
 
 ### Creating prompts for camera and microphone access
 
-We'll first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneSitePermissions` component
-from the UI Library. Like the Unsupported Browser prompt, we'll also host these prompts inside a FluentUI `modal`.
+We first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneSitePermissions` component
+from the UI Library. Like the Unsupported Browser prompt, we host these prompts inside a FluentUI `modal`.
 
 `src/DevicePermissionPrompts.tsx`
 
@@ -70,8 +70,8 @@ const PermissionsModal = (props: { isOpen: boolean, kind: "denied" | "request" |
 
 ### Checking for camera and microphone access
 
-Here we'll add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
-`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we'll ensure we handle the `unknown` case when prompting the user for permissions.
+Here we add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
+`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we ensure we handle the `unknown` case when prompting the user for permissions.
 
 `src/DevicePermissionUtils.ts`
 
@@ -110,12 +110,12 @@ export const requestCameraAndMicrophonePermissions = async (callClient: Stateful
 
 ### Prompting the user to grant access to the camera and microphone
 
-Now we have the prompts and check and request logic, we'll create a `DeviceAccessComponent` to prompt the user regarding device permissions.
-In this component we'll display different prompts to the user based on the device permission state:
+Now we have the prompts and check and request logic, we create a `DeviceAccessComponent` to prompt the user regarding device permissions.
+In this component we display different prompts to the user based on the device permission state:
 
-- If the device permission state is unknown, we'll display a prompt to the user informing them we're checking for device permissions.
-- If we're requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
-- If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
+- If the device permission state is unknown, we display a prompt to the user informing them we're checking for device permissions.
+- If we're requesting permissions, we display a prompt to the user encouraging them to accept the permissions request.
+- If the permissions are denied, we display a prompt to the user informing them that they've denied permissions, and that they need to grant permissions to continue.
 
 `src/DeviceAccessChecksComponent.tsx`
 
@@ -193,13 +193,13 @@ export const DeviceAccessChecksComponent = (props: {
 
 ```
 
-After we have finished creating this component we will add it to the `App.tsx`. First, add the import:
+After we have finished creating this component, we will add it to the `App.tsx`. First, add the import:
 
 ```ts
 import { DeviceAccessChecksComponent } from './DeviceAccessChecksComponent';
 ```
 
-Then update the `TestingState` type to be the following:
+Then update the `TestingState` type to be the following value:
 
 ```ts
 type TestingState = 'runningEnvironmentChecks' | 'runningDeviceAccessChecks' | 'finished';
