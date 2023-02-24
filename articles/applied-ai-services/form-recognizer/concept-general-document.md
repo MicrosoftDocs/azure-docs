@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 02/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -17,8 +17,11 @@ recommendations: false
 # Form Recognizer general document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
-
 The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-migration-guide.md).
+
+***Sample document processed in the Form Recognizer Studio***
+
+:::image type="content" source="media/overview/general-document-analyze.png" alt-text="Screenshot of general document analysis.":::
 
 ### Key-value pair extraction
 
@@ -39,7 +42,7 @@ The general document API supports most form types and will analyze your document
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
-***Sample document processed in the Form Recognizer Studio***
+
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
