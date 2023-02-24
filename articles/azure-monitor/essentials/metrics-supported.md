@@ -50,7 +50,7 @@ Host OS metrics *are* available and listed in the tables. Host OS metrics relate
 > [!TIP]
 > A best practice is to use and configure the Azure Monitor agent to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The agent routes guest OS metrics through the [custom metrics](../essentials/metrics-custom-overview.md) API. You can then chart, alert, and otherwise use guest OS metrics like platform metrics. 
 >
-> Alternatively or in addition, you can send the guest OS metrics to Azure Monitor Logs by using the same agent. There you can query on those metrics in combination with non-metric data by using Log Analytics. 
+> Alternatively or in addition, you can send the guest OS metrics to Azure Monitor Logs by using the same agent. There you can query on those metrics in combination with non-metric data by using Log Analytics. Standard [Log Analytics workspace costs](https://azure.microsoft.com/pricing/details/monitor/) would then apply.  
 
 The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analytics agent, which were previously used for guest OS routing. For important additional information, see [Overview of Azure Monitor agents](../agents/agents-overview.md).
 

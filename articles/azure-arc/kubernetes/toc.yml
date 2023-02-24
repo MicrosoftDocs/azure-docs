@@ -20,6 +20,9 @@
   - name: Implement CI/CD with GitOps
     displayName: flux
     href: tutorial-gitops-flux2-ci-cd.md
+  - name: Workload management in a multi-cluster environment with GitOps  
+    displayName: flux
+    href: tutorial-workload-management.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
