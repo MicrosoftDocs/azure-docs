@@ -59,4 +59,4 @@ The definition indicates which streams should be sent to which destinations.
 
 ## Next steps
 
-[Overview of data collection rules including methods for creating them](data-collection-rule-overview.md)
+[Overview of data collection rules and methods for creating them](data-collection-rule-overview.md)

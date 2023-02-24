@@ -33,7 +33,7 @@ You can use any resource in your Azure subscription that supports diagnostic set
 ## Create a diagnostic setting
 [Diagnostic settings](../essentials/diagnostic-settings.md) define where to send resource logs for a particular resource. A single diagnostic setting can have multiple [destinations](../essentials/diagnostic-settings.md#destinations), but we only use a Log Analytics workspace in this tutorial.
 
-Under the **Monitoring** section of your resource's menu, select **Diagnostic settings** > **Add diagnostic setting**.
+Under the **Monitoring** section of your resource's menu, select **Diagnostic settings**. Then select **Add diagnostic setting**.
 
 > [!NOTE]
 > Some resources might require other selections. For example, a storage account requires you to select a resource before the **Add diagnostic setting** option is displayed. You might also notice a **Preview** label for some resources because their diagnostic settings are currently in preview.

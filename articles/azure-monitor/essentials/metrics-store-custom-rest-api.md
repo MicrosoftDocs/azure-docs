@@ -1,6 +1,6 @@
 ---
 title: Send metrics to the Azure Monitor metric database by using a REST API
-description: Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API.
+description: Send custom metrics for an Azure resource to the Azure Monitor metrics store by using a REST API.
 author: EdB-MSFT
 services: azure-monitor
 ms.reviewer: priyamishra
@@ -72,7 +72,7 @@ Save the access token from the response for use in the following HTTP requests.
 
 ## Send a metric via the REST API
 
-1. Paste the following JSON into a file. Save it as *custommetric.json* on your local computer. Update the time parameter so that it's within the last 20 minutes. You can't put a metric into the store that's more than 20 minutes old. The metric store is optimized for alerting and real-time charting.
+1. Paste the following JSON into a file. Save it as *custommetric.json* on your local computer. Update the time parameter so that it's within the last 20 minutes. You can't put a metric into the store that's more than 20 minutes old. The metrics store is optimized for alerting and real-time charting.
     
     ```JSON
     { 

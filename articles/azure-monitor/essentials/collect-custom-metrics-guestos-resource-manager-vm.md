@@ -1,5 +1,5 @@
 ---
-title: Collect Windows VM metrics in Azure Monitor with template
+title: Collect Windows VM metrics in Azure Monitor with a template
 description: Send guest OS metrics to the Azure Monitor metric database store by using a Resource Manager template for a Windows virtual machine.
 author: anirudhcavale
 services: azure-monitor
@@ -10,7 +10,7 @@ ms.author: bwren
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an ARM template for a Windows VM
 
-Performance data from the guest OS of Azure virtual machines (VMs) isn't collected automatically like other [platform metrics](./monitor-azure-resource.md#monitoring-data). Install the Azure Monitor [diagnostics extension](../agents/diagnostics-extension-overview.md) to collect guest OS metrics into the metrics database so that it can be used with all features of Azure Monitor Metrics. These features include near real time alerting, charting, routing, and access from a REST API. This article describes the process for sending guest OS performance metrics for a Windows VM to the metrics database by using an Azure Resource Manager template (ARM template).
+Performance data from the guest OS of Azure virtual machines (VMs) isn't collected automatically like other [platform metrics](./monitor-azure-resource.md#monitoring-data). Install the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) to collect guest OS metrics into the metrics database so that it can be used with all features of Azure Monitor Metrics. These features include near real time alerting, charting, routing, and access from a REST API. This article describes the process for sending guest OS performance metrics for a Windows VM to the metrics database by using an Azure Resource Manager template (ARM template).
 
 > [!NOTE]
 > For details on configuring the diagnostics extension to collect guest OS metrics by using the Azure portal, see [Install and configure the Windows Azure Diagnostics (WAD) extension](../agents/diagnostics-extension-windows-install.md).
@@ -219,7 +219,7 @@ Download and save both files locally.
 ## Deploy the ARM template
 
 > [!NOTE]
-> You must be running the Azure Diagnostics extension version 1.5 or higher *and* have the `autoUpgradeMinorVersion:` property set to `true` in your ARM template. Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template.
+> You must be running Azure Diagnostics extension version 1.5 or higher *and* have the `autoUpgradeMinorVersion:` property set to `true` in your ARM template. Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template.
 
 To deploy the ARM template, we use Azure PowerShell.
 
