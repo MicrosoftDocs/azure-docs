@@ -18,7 +18,7 @@ ms.custom: sdkv2, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning (AzureML) to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
+Learn how a data scientist uses Azure Machine Learning to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
 
 You'll learn how to submit a *command job* to run your *training script* on a specified *compute resource*, configured with the *job environment* necessary to run the script.
 

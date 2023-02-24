@@ -21,7 +21,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 > * [v1](v1/how-to-train-keras.md)
 > * [v2 (current version)](how-to-train-keras.md)
 
-In this article, learn how to run your Keras training scripts using the Azure Machine Learning (AzureML) Python SDK v2.
+In this article, learn how to run your Keras training scripts using the Azure Machine Learning Python SDK v2.
 
 The example code in this article uses Azure Machine Learning to train, register, and deploy a Keras model built using the TensorFlow backend. The model, a deep neural network (DNN) built with the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview), classifies handwritten digits from the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 

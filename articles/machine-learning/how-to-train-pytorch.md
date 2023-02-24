@@ -21,7 +21,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 > * [v1](v1/how-to-train-pytorch.md)
 > * [v2 (current version)](how-to-train-pytorch.md)
 
-In this article, you'll learn to train, hyperparameter tune, and deploy a [PyTorch](https://pytorch.org/) model using the Azure Machine Learning (AzureML) Python SDK v2.
+In this article, you'll learn to train, hyperparameter tune, and deploy a [PyTorch](https://pytorch.org/) model using the Azure Machine Learning Python SDK v2.
 
 You'll use the example scripts in this article to classify chicken and turkey images to build a deep learning neural network (DNN) based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. Transfer learning shortens the training  process by requiring less data, time, and compute resources than training from scratch. To learn more about transfer learning, see the [deep learning vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) article.
 
