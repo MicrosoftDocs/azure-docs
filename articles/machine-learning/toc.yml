@@ -708,7 +708,7 @@
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Setup MLOps with Azure DevOps
-          href: how-to-setup-mlops-ado-azureml.md
+          href: how-to-setup-mlops-azureml.md
         - name: Setup MLOps with GitHub
           href: how-to-setup-mlops-github-azureml.md
         - name: Manage models
