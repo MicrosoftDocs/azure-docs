@@ -471,6 +471,87 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
+# [With service annotations (retired)](#tab/service-annotations)
+
+> [!WARNING]
+> Configuring ingresses by adding annotations on the Service object is retired. Please consider [configuring via an Ingress object](?tabs=without-osm).
+
+### Create the application namespace
+
+For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
+
+```bash
+kubectl create namespace hello-web-app-routing
+```
+
+### Create the deployment
+
+Create a file named **deployment.yaml** and copy in the following YAML.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld
+    spec:
+      containers:
+      - name: aks-helloworld
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
+```
+
+### Create the service with the annotations (retired)
+
+Create a file named **service.yaml** and copy in the following YAML.
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault. This is the certificate that's going to be presented in the browser.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld
+  annotations:
+    kubernetes.azure.com/ingress-host: <Hostname>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <KeyVaultCertificateUri>
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld
+```
+
+### Create the resources on the cluster
+
+Use the [kubectl apply][kubectl-apply] command to create the resources.
+
+```bash
+kubectl apply -f deployment.yaml -n hello-web-app-routing
+kubectl apply -f service.yaml -n hello-web-app-routing
+```
+
+The following example output shows the created resources:
+
+```bash
+deployment.apps/aks-helloworld created
+service/aks-helloworld created
+```
+
 ---
 
 
