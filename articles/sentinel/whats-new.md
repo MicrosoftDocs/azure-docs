@@ -165,7 +165,7 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 ### Out-of-the-box content centralization changes
 A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in the templates section of **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
 
-:::image type="content" source="media/whats-new/example-content-central-change-banner.png" alt-text="This screenshot shows an example informational banner in the **Workbooks** gallery. The banner reads, 'All Workbook templates, and additional out-of-the-box (OOTB) content are now centrally available in Content hub. Starting Q2 2023, only Workbook templates installed from the content hub will be available in this gallery. Learn more about the OOTB content centralization changes.'":::
+:::image type="content" source="media/whats-new/example-content-central-change-banner.png" alt-text="Screenshot shows an example informational banner in the **Workbooks** gallery.":::
 
 For all the details on what these upcoming changes will mean for you, see [Microsoft Sentinel out-of-the-box content centralization changes](sentinel-content-centralize.md).
 
