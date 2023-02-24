@@ -728,6 +728,8 @@
         href: connect-syslog.md
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
+    - name: Configure RDP login detection
+      href: configure-connector-rdp-login-detection.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md    
     - name: Create a custom connector
