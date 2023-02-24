@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume an AK
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/24/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ---
@@ -141,7 +141,7 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
-Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). In this case, a persistent volume uses the storage class we defined earlier, with the persistent volume we defined, to referenced to the pod onto the AKS cluster by the same persistent volume name. 
+Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). Use the storage class we defined earlier, with the persistent volume we defined, to referenced to the pod onto the AKS cluster by the same persistent volume name. The following is an example of what your pvc.yml file might look like:
 
 ```yml
 apiVersion: v1
@@ -162,7 +162,7 @@ spec:
         values: ["data-iscsiplugin"]
 ```
 
-Finally, create the pod.yml file, it should look like this:
+Finally, create a [pod](../../aks/concepts-clusters-workloads.md#pods). The following is an example of what your pod.yml file might look like:
 
 ```yml
 apiVersion: v1
@@ -188,13 +188,13 @@ spec:
 
 ### Deployment
 
-Then, create the persistent volume with the following command:
+Now that you've created all the necessary files, create the persistent volume with the following command:
 
 ```bash
 kubectl apply -f pathtoyourfile/pv.yaml
 ```
 
-Now that the persistent volume is created, create a persistent volume claim.
+Then, create a persistent volume claim.
 
 ```bash
 kubectl apply -f pathtoyourfile/pvc.yaml
@@ -206,7 +206,7 @@ To verify your PersistentVolumeClaim is created and bound to the PersistentVolum
 kubectl get pvc pathtoyourfile 
 ```
 
-Finally, create the pod.
+When you've confirmed your persistent volume claim has been created, create the pod.
 
 ```bash
 kubectl apply -f pathtoyourfile/pod.yaml
