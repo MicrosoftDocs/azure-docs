@@ -210,7 +210,7 @@ def hello(city: str):
     return "Hello " + city   
 ```
 
-Review the table below for an explanation of each function and it's purpose in the sample.
+Review the table below for an explanation of each function and its purpose in the sample.
 
 | Method | Description |
 | -----  | ----------- |
