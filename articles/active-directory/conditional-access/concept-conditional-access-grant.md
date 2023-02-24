@@ -94,7 +94,6 @@ To apply this grant control, the device must be registered in Azure AD, which re
 The following client apps support this setting, this list isn't exhaustive and is subject to change::
 
 - Microsoft Azure Information Protection
-- Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
 - Microsoft Edge
@@ -114,7 +113,6 @@ The following client apps support this setting, this list isn't exhaustive and i
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
-- Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
@@ -194,7 +192,7 @@ When user risk is detected, administrators can employ the user risk policy condi
 When a user is prompted to change a password, they'll first be required to complete multifactor authentication. Make sure all users have registered for multifactor authentication, so they're prepared in case risk is detected for their account.  
 
 > [!WARNING]
-> Users must have previously registered for self-service password reset before triggering the user risk policy.
+> Users must have previously registered for multifactor authentication before triggering the user risk policy.
 
 The following restrictions apply when you configure a policy by using the password change control:  
 
