@@ -105,8 +105,8 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 As this feature is in public preview, you must use the beta versions of the Azure Communication Services npm packages. Use the `npm install` command to install these packages:
 
 ```bash
-# Install Public Preview versions of the Azure Communication Services Libraries. (peer deps is needed to reconcile alpha dependencies)
-npm install @azure/communication-calling@dev @azure/communication-react@dev --legacy-peer-deps
+# Install Public Preview versions of the Azure Communication Services Libraries.
+npm install @azure/communication-calling@next @azure/communication-react@next
 ```
 
 > [!NOTE]
