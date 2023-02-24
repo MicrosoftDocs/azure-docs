@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-In this tutorial, we are using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, and a rich set of APIs to understand the user state.
+In this tutorial, we're using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, and a rich set of APIs to understand the user state.
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ export const checkEnvironmentSupport = async (callClient: StatefulCallClient): P
 }
 ```
 
-The data that returns from this call is the following:
+The data returned from `checkEnvironmentSupport` contains the following information:
 
 - Browser support
 - Browser version support
@@ -281,7 +281,7 @@ export const EnvironmentChecksComponent = (props: {
 
 We can then add the `EnvironmentChecksComponent` to the `App.tsx`. The App then move the user to the _Device Checks_ stage once the test is successful using the `onTestsSuccessful` callback:
 
-Let's now import the new component into our app in `App.tsx`
+Now we will import the new component into our app in `App.tsx`
 
 ```ts
 import { EnvironmentChecksComponent } from './EnvironmentChecksComponent';
@@ -314,7 +314,7 @@ const App = (): JSX.Element => {
 }
 ```
 
-You can now run the app. Try running on an [unsupported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) and you'll see the unsupported browser prompt:
+You can now run the app. Try running on an [unsupported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) and you see the unsupported browser prompt:
 
 ![Gif showing browser check failing](../media/call-readiness/browser-support-check-failed.gif)
 

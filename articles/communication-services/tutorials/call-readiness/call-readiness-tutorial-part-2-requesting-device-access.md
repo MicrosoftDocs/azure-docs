@@ -111,7 +111,7 @@ export const requestCameraAndMicrophonePermissions = async (callClient: Stateful
 ### Prompting the user to grant access to the camera and microphone
 
 Now we have the prompts and check and request logic, we create a `DeviceAccessComponent` to prompt the user regarding device permissions.
-In this component we display different prompts to the user based on the device permission state:
+In this component, we display different prompts to the user based on the device permission state:
 
 - If the device permission state is unknown, we display a prompt to the user informing them we're checking for device permissions.
 - If we're requesting permissions, we display a prompt to the user encouraging them to accept the permissions request.
@@ -255,4 +255,4 @@ The app presents the user with prompts to guide them through device access:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Part 3: Selecting a microphone and camera for the call](./call-readiness-tutorial-part-3-camera-and-microphone-setup.md)
+> [Part 3: Selecting a microphone and camera for the call](./call-readiness-tutorial-part-3-camera-microphone-setup.md)

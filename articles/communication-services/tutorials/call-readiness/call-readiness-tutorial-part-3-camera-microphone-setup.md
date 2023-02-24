@@ -29,7 +29,7 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 ## Letting the user choose their camera, microphone and speaker
 
 From the previous two parts of the tutorial, the user is on a supported browser, and they have given us permission to access their camera and microphone. We can now make sure the user can choose the correct microphone, camera and speaker they want to use for their call.
-We present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
+We present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI looks like this:
 
 ![Image of the device setup page](../media/call-readiness/device-setup-page.png)
 

@@ -149,7 +149,7 @@ items:
       - name: 2. Request camera and microphone permissions
         href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
       - name: 3. Microphone and camera setup before a call
-        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-and-microphone-setup.md
+        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
   - name: Enable Push Notifications in your chat app
     href: tutorials/add-chat-push-notifications.md
 - name: Concepts

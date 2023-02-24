@@ -23,10 +23,10 @@ When a user intends to join a web call, their primary focus is on the conversati
 It may be impossible to predict every issue or combination of issues that may arise, but by applying this tutorial you can:
 
 - Reduce the likelihood of issues affecting a user during a call
-- Only expose an issue if it is going to negatively impact the experience
+- Only expose an issue if it's going to negatively impact the experience
 - Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
-Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This tool can be used by users for further troubleshooting in customer support scenarios.
+Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). Users can user the Network Testing Diagnostics Tool for further troubleshooting in customer support scenarios.
 
 ## Tutorial Structure
 
@@ -34,7 +34,7 @@ In this tutorial, we use the Azure Communication Services UI Library to create a
 
 - Part 1: [Getting your user onto a supported browser](./call-readiness-tutorial-part-1-browser-support.md)
 - Part 2: [Ensuring your App has access to the microphone and camera](./call-readiness-tutorial-part-2-requesting-device-access.md)
-- Part 3: [Having your user select their desired microphone and camera](./call-readiness-tutorial-part-3-camera-and-microphone-setup.md)
+- Part 3: [Having your user select their desired microphone and camera](./call-readiness-tutorial-part-3-camera-microphone-setup.md)
 
 ## Prerequisites
 
