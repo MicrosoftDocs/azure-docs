@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/23/2023
+ms.date: 02/24/2023
 ms.author: jasteppe
 ---
 
@@ -32,13 +32,13 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 |Error:|
 |------|
-|[The maximum number of resource type `iotconnectors` has been reached.](#the-maximum-number-of-resource-type-iotconnectors-has-been-reached)|
-|[Invalid `deviceMapping` mapping. Validation errors: {List of errors}.](#invalid-devicemapping-mapping-validation-errors-list-of-errors)|
-|[`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.](#fullyqualifiedeventhubnamespace-is-null-empty-or-formatted-incorrectly)|
+|[The maximum number of resource type iotconnectors has been reached.](#the-maximum-number-of-resource-type-iotconnectors-has-been-reached)|
+|[Invalid deviceMapping mapping. Validation errors: {List of errors}.](#invalid-devicemapping-mapping-validation-errors-list_of_errors)|
+|[fullyQualifiedEventHubNamespace is null, empty, or formatted incorrectly.](#fullyqualifiedeventhubnamespace-is-null-empty-or-formatted-incorrectly)|
 |[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned)|
-|[The `location` property of child resources must match the `location` property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources)|
+|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources)|
 
-### The maximum number of resource type `iotconnectors` has been reached.
+### The maximum number of resource type iotconnectors has been reached
 
 **Displayed**: ARM API and Azure portal
 
@@ -50,25 +50,25 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 * Use a different subscription that hasn't reached the subscription quota. 
 
-* Request a subscription quota increase.
+* Request a subscription quota increase - [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/).
 
-### Invalid `deviceMapping` mapping. Validation errors: {List of errors}
+### Invalid deviceMapping mapping. Validation errors: {LIST_OF_ERRORS}
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: The `properties.deviceMapping` provided in the MedTech service provisioning request is invalid.
+**Description**: The properties.deviceMapping provided in the MedTech service provisioning request is invalid.
 
-**Fix**: Correct the errors in the mappings JSON provided in the `properties.deviceMapping` property.
+**Fix**: Correct the errors in the mapping JSON provided in the properties.deviceMapping property.
 
-### `fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.
+### fullyQualifiedEventHubNamespace is null, empty, or formatted incorrectly
 
 **Displayed**: ARM API
 
-**Description**: The MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` provided in the provisioning request isn't valid.
+**Description**: The MedTech service's properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace provided in the provisioning request isn't valid.
 
-**Fix**: Update the MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. The format should be `{EVENTHUB_NAMESPACE}.servicebus.windows.net`.
+**Fix**: Update the MedTech service's properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace to the correct format. The format should be `{EVENTHUB_NAMESPACE}.servicebus.windows.net`.
 
-### Ancestor resources must be fully provisioned before a child resource can be provisioned.
+### Ancestor resources must be fully provisioned before a child resource can be provisioned
 
 **Displayed**: ARM API
 
@@ -76,13 +76,13 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Fix**: Wait until the parent workspace provisioning has completed and submit the provisioning request again.
 
-### The `location` property of child resources must match the `location` property of parent resources.
+### The location property of child resources must match the location property of parent resources
 
 **Displayed**: ARM API
 
-**Description**: The MedTech service's `location` property provided in the provisioning request is different from the parent workspace's `location` property.
+**Description**: The MedTech service's location property provided in the provisioning request is different from the parent workspace's location property.
 
-**Fix**: Set the `location` property of the MedTech service in the provisioning request to the same value as the parent workspace's `location` property.
+**Fix**: Set the location property of the MedTech service in the provisioning request to the same value as the parent workspace's location property.
 
 ## FHIR destination resource errors and fixes
 
@@ -90,12 +90,12 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 |Error:|
 |------|
-|[The maximum number of resource type `iotconnectors/destinations` has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
-|[The `fhirServiceResourceId` provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
+|[The maximum number of resource type iotconnectors/destinations has been reached.](#the-maximum-number-of-resource-type-iotconnectorsdestinations-has-been-reached)|
+|[The fhirServiceResourceId provided is invalid.](#the-fhirserviceresourceid-provided-is-invalid)|
 |[Ancestor resources must be fully provisioned before a child resource can be provisioned.](#ancestor-resources-must-be-fully-provisioned-before-a-child-resource-can-be-provisioned-1)
-|[The `location` property of child resources must match the `location` property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)
+|[The location property of child resources must match the location property of parent resources.](#the-location-property-of-child-resources-must-match-the-location-property-of-parent-resources-1)
 
-### The maximum number of resource type `iotconnectors/destinations` has been reached.
+### The maximum number of resource type iotconnectors/destinations has been reached
 
 **Displayed**: ARM API and Azure portal
 
@@ -103,15 +103,15 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Fix**: Delete the existing instance of the MedTech service's Destination resource. Only one Destination resource is permitted per MedTech service.
 
-### The `fhirServiceResourceId` provided is invalid.
+### The fhirServiceResourceId provided is invalid
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: The `properties.fhirServiceResourceId` provided in the Destination provisioning request isn't a valid resource ID for an instance of the FHIR service.
+**Description**: The properties.fhirServiceResourceId provided in the Destination provisioning request isn't a valid resource ID for an instance of the FHIR service.
 
 **Fix**: Ensure the resource ID is formatted correctly, and make sure the resource ID is for the FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/fhirservices/{FHIR_SERVICE_NAME}`
 
-### Ancestor resources must be fully provisioned before a child resource can be provisioned.
+### Ancestor resources must be fully provisioned before a child resource can be provisioned
 
 **Displayed**: ARM API
 
@@ -119,16 +119,16 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Fix**: Wait until the parent workspace or the parent MedTech service provisioning completes, then submit the provisioning request again.
 
-### The `location` property of child resources must match the `location` property of parent resources.
+### The location property of child resources must match the location property of parent resources
 
 **Displayed**: ARM API
 
-**Description**: The Destination provisioning request `location` property is different from the parent MedTech service `location` property.
+**Description**: The Destination provisioning request location property is different from the parent MedTech service location property.
 
-**Fix**: Set the `location` property of the Destination in the provisioning request to the same value as the parent MedTech service's `location` property.
+**Fix**: Set the location property of the Destination in the provisioning request to the same value as the parent MedTech service's location property.
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message, [device mappings, and FHIR destination mappings](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message, [device mapping, and FHIR destination mapping](how-to-create-mappings-copies.md) to your request to better help with issue determination.
 
 ## Next steps
 

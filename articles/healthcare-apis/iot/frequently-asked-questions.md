@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/23/2023
+ms.date: 02/24/2023
 ms.author: jasteppe
 ---
 
@@ -33,7 +33,7 @@ The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R
 
 ## Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
-The MedTech service requires the device and FHIR destination mappings to perform normalization and transformation processes on the device message data. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
+The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on the device message data. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
 
 ## How long does it take for device message data to show up in the FHIR service?
 
@@ -49,12 +49,12 @@ The MedTech service buffers the FHIR Observations resources created during the t
 |Potential issue|Fix|
 |---------------|---|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device mappings haven't been configured.|Configure and save conforming and valid [device mappings](how-to-configure-device-mappings.md).|
-|FHIR destination mappings haven't been configured.|Configure and save conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md).|
-|The device message doesn't contain an expected expression defined in the [device mappings](how-to-configure-device-mappings.md).|Verify `JsonPath` expressions defined in the device mappings match tokens defined in the device message.|
-|A `Device` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Device` resource in the FHIR service. Ensure the `Device` resource contains an identifier that matches the device identifier provided in the incoming message.|
-|A `Patient` resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid `Patient` resource in the FHIR service.|
-|The `Device.patient` reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the `Device` resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a `Patient` resource.| 
+|Device mapping hasn't been configured.|Configure and save conforming and valid [device mapping](how-to-configure-device-mappings.md).|
+|FHIR destination mapping hasn't been configured.|Configure and save conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md).|
+|The device message doesn't contain an expected expression defined in the [device mapping](how-to-configure-device-mappings.md).|Verify JsonPath expressions defined in the device mapping match tokens defined in the device message.|
+|A Device resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Device resource](https://www.hl7.org/fhir/device.html) in the FHIR service. Ensure the Device resource contains an identifier that matches the device identifier provided in the incoming message.|
+|A Patient resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Patient resource](https://www.hl7.org/fhir/patient.html) in the FHIR service.|
+|The Device.patient reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the Device resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient resource.| 
 
 \* Reference [Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (**Create** or **Lookup**).
 
