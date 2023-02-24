@@ -62,7 +62,7 @@ When an Azure Cosmos DB account is deployed in a single region, generally no dat
 
 To help you protect against complete data loss that might result from catastrophic disasters in a region, Azure Cosmos DB provides two backup modes:
 
-- [Continuous backups](./continuous-backup-restore-introduction.md) back up each region every 100 seconds. They provide the ability to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region.
+- [Continuous backups](./continuous-backup-restore-introduction.md) back up each region every 100 seconds. They enable you to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region.
 - [Periodic backups](./configure-periodic-backup-restore.md) fully back up all partitions from all containers under your account, with no synchronization across partitions. The minimum backup interval is 1 hour.
 
 When an Azure Cosmos DB account is deployed in multiple regions, data durability depends on the consistency level that you configure on the account. The following table details, for all consistency levels, the RPO of an Azure Cosmos DB account that's deployed in at least two regions.
@@ -102,11 +102,15 @@ When you configure an Azure Cosmos DB account for multiple write regions, strong
 
 Because of the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is a single write region with service-managed failover.
 
+#### Conflict-resolution region
+
 When an Azure Cosmos DB account is configured with multiple-region writes, one of the regions will act as an arbiter in write conflicts. When such conflicts happen, they're routed to this region for consistent resolution.
+
+#### Best practices for multi-region writes
 
 Here are some best practices to consider when you're writing to multiple regions.
 
-#### Keep local traffic local
+##### Keep local traffic local
 
 When you use multiple-region writes, the application should issue read and write traffic that originates in the local region strictly to the local Cosmos DB region. For optimal performance, avoid cross-region calls.
 
@@ -118,7 +122,7 @@ It's important for the application to minimize conflicts by avoiding the followi
 
 * Using a round-robin policy to determine the target region for a read or write operation on a per-request basis
 
-#### Avoid dependency on replication lag
+##### Avoid dependency on replication lag
 
 You can't configure multiple-region write accounts for strong consistency. The region that's being written to responds immediately after Azure Cosmos DB replicates the data locally while asynchronously replicating the data globally.  
 
@@ -126,7 +130,7 @@ Though it's infrequent, a replication lag might occur on one or a few partitions
 
 For instance, an architecture in which the application writes to Region A but reads from Region B introduces a dependency on replication lag between the two regions. However, if the application reads and writes to the same region, performance remains constant even in the presence of replication lag.
 
-#### Session consistency usage for write operations
+##### Evaluate session consistency usage for write operations
 
 In session consistency, you use the session token for both read and write operations.  
 
@@ -136,9 +140,9 @@ For write operations, Azure Cosmos DB sends the session token to the database wi
 
 It's best to use session tokens only for read operations and not for write operations when you're passing session tokens between client instances.
 
-#### Rapid updates to the same document
+##### Mitigate rapid updates to the same document
 
-The server's updates to resolve or confirm the absence of conflicts can collide with writes triggered by the application when the same document is repeatedly updated. Repeated updates in rapid succession to the same document experience higher latencies during conflict resolution. 
+The server's updates to resolve or confirm the absence of conflicts can collide with writes triggered by the application when the same document is repeatedly updated. Repeated updates in rapid succession to the same document experience higher latencies during conflict resolution.
 
 Although occasional bursts in repeated updates to the same document are inevitable, you might consider exploring an architecture where new documents are created instead if steady-state traffic sees rapid updates to the same document over an extended period.
 
