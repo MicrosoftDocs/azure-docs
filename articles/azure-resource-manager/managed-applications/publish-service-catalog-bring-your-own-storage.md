@@ -257,7 +257,7 @@ Add the following JSON to the file and save it.
 }
 ```
 
-To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+To learn more, go to [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
 ## Package the files
 
@@ -268,10 +268,10 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name storageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
-  -ResourceGroupName storageGroup `
+  -ResourceGroupName packageStorageGroup `
   -Name "demostorageaccount" `
   -Location westus3 `
   -SkuName Standard_LRS `
@@ -288,7 +288,7 @@ Set-AzStorageBlobContent `
   -Context $ctx
 ```
 
-Use the following commands to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
+Use the following command to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
 
 ```azurepowershell
 $packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
@@ -297,17 +297,17 @@ $packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $c
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name storageGroup --location westus3
+az group create --name packageStorageGroup --location westus3
 
 az storage account create \
     --name demostorageaccount \
-    --resource-group storageGroup \
+    --resource-group packageStorageGroup \
     --location westus3 \
     --sku Standard_LRS \
     --kind StorageV2
 ```
 
-After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Azure Active Directory user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Azure Active Directory user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, go to [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
 
 After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then use the parameter `--auth-mode login` in the commands to create the container and upload the file.
 
@@ -326,7 +326,7 @@ az storage blob upload \
     --file "app.zip"
 ```
 
-For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
+For more information about storage authentication, go to [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
 
 Use the following command to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
 
@@ -425,7 +425,7 @@ If you're running CLI commands with Git Bash for Windows, you might get an `Inva
 
 ---
 
-The _Appliance Resource Provider_ is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it isn't found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
+The _Appliance Resource Provider_ is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can verify if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it isn't found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ## Get group ID and role definition ID
 
@@ -514,7 +514,7 @@ resource managedApplicationDefinition 'Microsoft.Solutions/applicationDefinition
 }
 ```
 
-For more information about the template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions).
+For more information about the template's properties, go to [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions).
 
 The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
@@ -560,7 +560,9 @@ The following table describes the parameter values for the managed application d
 | `principalId` | The publishers Principal ID that needs permissions to manage resources in the managed resource group. Use your `principalid` variable's value. |
 | `roleId` | Role ID for permissions to the managed resource group. For example Owner, Contributor, Reader. Use your `roleid` variable's value. |
 
-To get your variable values in Azure PowerShell, from the command prompt type `$variableName` like `$storageid` to display the value in your console. In Azure CLI, type `echo $variableName` like `echo $storageid` to display the value.
+To get your variable values from the command prompt:
+- Azure PowerShell: type `$variableName` to display the value.
+- Azure CLI: type `echo $variableName` to display the value.
 
 ## Deploy the definition
 
@@ -615,16 +617,16 @@ az storage blob list \
   --query "[].{Name:name}"
 ```
 
-When you run the Azure CLI command, you might see a credentials warning message similar to the CLI command in [package the files](#package-the-files). To clear the warning message, you can assign yourself _Storage Blob Data Contributor_ or _Storage Blob Data Reader_ to the storage account's scope, and then include the `--auth-mode login` parameter in the command.
+When you run the Azure CLI command, a credentials warning message might be displayed similar to the CLI command in [package the files](#package-the-files). To clear the warning message, you can assign yourself _Storage Blob Data Contributor_ or _Storage Blob Data Reader_ to the storage account's scope, and then include the `--auth-mode login` parameter in the command.
 
 ---
 
 > [!NOTE]
-> For added security, you can create a managed applications definition and store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can see the definition in your service catalog.
+> For added security, you can create a managed applications definition and store it in an [Azure storage account blob where encryption is enabled](../../storage/common/storage-service-encryption.md). The definition contents are encrypted through the storage account's encryption options. Only users with permissions to the file can access the definition in your service catalog.
 
-## Make sure users can see your definition
+## Make sure users can access your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 

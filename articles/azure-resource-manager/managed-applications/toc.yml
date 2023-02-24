@@ -9,10 +9,10 @@
   items:
   - name: Publish application definition
     href: publish-service-catalog-app.md
+  - name: Publish application definition with bring your own storage
+    href: publish-service-catalog-bring-your-own-storage.md
   - name: Deploy service catalog app
     href: deploy-service-catalog-quickstart.md
-  - name: Bring your own storage
-    href: publish-service-catalog-bring-your-own-storage.md
 - name: Tutorials
   items:
   - name: Create managed application with custom provider

@@ -267,10 +267,10 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name storageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
-  -ResourceGroupName storageGroup `
+  -ResourceGroupName packageStorageGroup `
   -Name "demostorageaccount" `
   -Location westus3 `
   -SkuName Standard_LRS `
@@ -290,11 +290,11 @@ Set-AzStorageBlobContent `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name storageGroup --location westus3
+az group create --name packageStorageGroup --location westus3
 
 az storage account create \
     --name demostorageaccount \
-    --resource-group storageGroup \
+    --resource-group packageStorageGroup \
     --location westus3 \
     --sku Standard_LRS \
     --kind StorageV2
