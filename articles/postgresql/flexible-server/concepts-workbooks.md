@@ -43,7 +43,7 @@ You can also edit and customize these templates according to your requirements. 
 
 To view the templates in the Azure portal, go to the **Monitoring*- pane for Azure Database for PostgreSQL Flexible Server, and then select **Workbooks**.
 
-:::image type="content" source="./media/concepts-workbooks/monitor-workbooks-all.png" alt-text="Screenshot showing the 'Overview', 'Enhanced Metrics' templates on the Workbooks pane.":::
+:::image type="content" source="./media/concepts-workbooks/monitor-workbooks-all.png" alt-text="Screenshot showing the Overview, Enhanced Metrics templates on the Workbooks pane.":::
 
 ## Next steps
 
