@@ -40,7 +40,7 @@ The following table provides the SMB, NFS, and FileREST requirements for which o
 | NFS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | TCP 2049 |
 | FileREST | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | <ul><li>TCP 443 (HTTPS)</li><li>TCP 80 (HTTP)</li></ul> |
 
-To mount or access a file share successfully, you client must:
+To mount or access a file share successfully, your client must:
 
 - Be able to resolve the fully qualified domain name of the storage account (ex. `mystorageaccount.file.core.windows.net`) to the correct IP address for the desired network endpoint of the storage account.
 
