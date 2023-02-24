@@ -922,12 +922,6 @@ items:
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-    - name: Visual Studio
-      items:
-      - name: F5 insights
-        href: app/visual-studio.md
-      - name: CodeLens
-        href: app/visual-studio-codelens.md
     - name: Other platforms
       items:
       - name: SharePoint sites
@@ -1671,6 +1665,8 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
+    - name: Legacy Application Insights pricing
+      href: https://learn.microsoft.com/previous-versions/azure/azure-monitor/app/legacy-pricing
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator
