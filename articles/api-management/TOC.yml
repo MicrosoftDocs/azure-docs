@@ -79,8 +79,10 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-            - name: Authentication and authorization
+            - name: Authentication and authorization options
               href: authentication-authorization-overview.md
+            - name: API authorizations
+              href: authorizations-overview.md
       - name: Observability
         href: observability.md
         displayName: monitoring
@@ -284,10 +286,8 @@
             - name: Mitigate OWASP API threats
               href: mitigate-owasp-api-threats.md
               displayName: OWASP top 10, vulnerability, vulnerabilities
-          - name: Manage API authorizations
+          - name: Manage API authorizations for OAuth 2.0 backends
             items:
-            - name: Authorizations overview
-              href: authorizations-overview.md
             - name: Configure common authorization providers
               href: authorizations-configure-common-providers.md
             - name: Configure and use authorization - Azure AD
