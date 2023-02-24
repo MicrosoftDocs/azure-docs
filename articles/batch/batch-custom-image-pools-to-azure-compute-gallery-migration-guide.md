@@ -52,9 +52,7 @@ For more information about this process, see [creating an image definition and v
 
 - Can I use Azure Compute Gallery images in different subscriptions or in different AAD tenants?
   
-  If the Shared Image isn't in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same AAD tenant. 
-
-The image can be in a different region as long as it has replicas in the same region as your Batch account. This behavior is unaffected – all user-specified resources that require Azure Storage such as resource files, output files, or application packages are made from the compute node directly to Azure Storage. You need to ensure your networking configuration allows these flows.
+  If the Shared Image is not in the same subscription as the Batch account, you must register the Microsoft.Batch resource provider for that subscription. The two subscriptions must be in the same AAD tenant. The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
 
 ## Next steps
