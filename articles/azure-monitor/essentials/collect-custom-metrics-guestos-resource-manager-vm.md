@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ---
-# Send guest OS metrics to the Azure Monitor metric store by using an ARM template for a Windows VM
+# Send guest OS metrics to the Azure Monitor metrics store by using an ARM template for a Windows VM
 
 Performance data from the guest OS of Azure virtual machines (VMs) isn't collected automatically like other [platform metrics](./monitor-azure-resource.md#monitoring-data). Install the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) to collect guest OS metrics into the metrics database so that it can be used with all features of Azure Monitor Metrics. These features include near real time alerting, charting, routing, and access from a REST API. This article describes the process for sending guest OS performance metrics for a Windows VM to the metrics database by using an Azure Resource Manager template (ARM template).
 
