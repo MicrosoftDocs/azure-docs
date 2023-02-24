@@ -72,6 +72,8 @@
       href: concepts-clusters-workloads.md
     - name: Security
       items:
+        - name: Vulnerability management
+          href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Container Security
@@ -100,8 +102,6 @@
       href: node-auto-repair.md
     - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
-    - name: How Microsoft manages security patches for AKS
-      href: microsoft-manages-aks-security-patches.md
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering
