@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 02/24/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -16,15 +16,15 @@ ms.collection: M365-identity-device-management
 ---
 # System-preferred multifactor authentication  - Authentication methods policy
 
-System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
+System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method they have registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
 
-For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method that's available to them. 
+For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method they registered. 
 
-Authentication Policy Administrators can enable system-preferred MFA by using Microsoft Graph API. 
+Administrators can enable system-preferred MFA by using Microsoft Graph API. 
 
 ## How does system-preferred multifactor authentication work?
 
-When a user signs in, Azure AD checks which authentication methods are available. The user is prompted to sign-in with the most secure method according to the following order. This method order is dynamic and updated based upon the current landscape of security threats and vulnerabilities, and as better authentication methods emerge.
+When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. This order of authentication methods is dynamic. The order is updated as the security landscape changes, and as better authentication methods emerge.
 
 1. Temporary Access Pass
 1. Certificate-based authentication
@@ -47,9 +47,9 @@ When a user signs in, Azure AD checks which authentication methods are available
 
 ## Enable system-preferred MFA
 
-By default, system-preferred MFA is Microsoft managed and set as disabled during preview. When system-preferred MFA becomes generally available, the Microsoft managed setting will change to be enabled. 
+By default, system-preferred MFA is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and set as disabled during preview. When system-preferred MFA becomes generally available, the Microsoft managed setting will change to be enabled. 
 
-To enable system-preferred MFA, you'll need to choose a single target group for the schema configuration, as shown in the following example. Then use the API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
+To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. Then use the API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
 
 ```
 https://graph.microsoft.com/beta/authenticationMethodsPolicy
@@ -97,3 +97,5 @@ Content-Type: application/json
 System-preferred MFA has no affect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users will not see any change to their sign-in experience.
 
 ## Next steps
+
+[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
