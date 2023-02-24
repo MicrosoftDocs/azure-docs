@@ -54,7 +54,7 @@ Running a training script remotely requires the creation of a Docker image.
 
 #### *Vulnerabilities*
 
-You can address vulnerabilities by upgrading to a newer version of a dependency (base image, Python package, etc.) or migrating to a different dependency that satisfies security
+You can address vulnerabilities by upgrading to a newer version of a dependency (base image, Python package, etc.) or by migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
 of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
 
