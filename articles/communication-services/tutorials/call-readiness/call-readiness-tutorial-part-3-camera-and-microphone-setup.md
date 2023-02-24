@@ -29,13 +29,13 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 ## Letting the user choose their camera, microphone and speaker
 
 From the previous two parts of the tutorial, the user is on a supported browser, and they have given us permission to access their camera and microphone. We can now make sure the user can choose the correct microphone, camera and speaker they want to use for their call.
-We'll present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
+We present the user with a rich interface to choose their camera, microphone and speaker. Our final device setup UI will look like this:
 
 ![Image of the device setup page](../media/call-readiness/device-setup-page.png)
 
 ### Creating a Configuration Screen
 
-First we'll create a new file called `DeviceSetup.tsx` and add some setup code, with a callback that will return the users chosen devices back to the App:
+First we create a new file called `DeviceSetup.tsx` and add some setup code, with a callback that returns the users chosen devices back to the App:
 
 `src/DeviceSetup.tsx`
 
@@ -56,9 +56,9 @@ export const DeviceSetup = (props: {
 
 We can then add this DeviceSetup to our App.
 
-- When the PreCallChecksComponent completes, it will now forward the user to the `deviceSetup` state.
-- When the user is in the `deviceSetup` state, we'll render the `DeviceSetup` component.
-- When the device setup is complete, we'll forward the user to the `finished` state. In a production App, this forward is typically when you would move the user to a call screen.
+- When the PreCallChecksComponent completes, it forwards the user to the `deviceSetup` state.
+- When the user is in the `deviceSetup` state, we render the `DeviceSetup` component.
+- When the device setup is complete, we forward the user to the `finished` state. In a production App, this forward is typically when you would move the user to a call screen.
 
 First import the DeviceSetup component we created:
 
@@ -114,7 +114,7 @@ const App = (): JSX.Element => {
           />
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
@@ -125,10 +125,10 @@ const App = (): JSX.Element => {
 #### Retrieving and updating microphone, camera and speaker lists from the stateful client
 
 To present a list of selectable cameras, microphones and speakers to the user we can use the stateful call client.
-Here we'll create a series of React hooks. These React hooks will use the call client to query for available devices.
-The hooks will also ensure our application re-renders anytime the list changes, for example, if a new camera is plugged into the user's machine.
-For these hooks, we'll create a file called `deviceSetupHooks.ts` and we'll create three hooks: `useMicrophones`, `useSpeakers` and `useCameras`.
-Each of these hooks will use `useCallClientStateChange` to update their lists anytime the user plugs/unplugs a device:
+Here we create a series of React hooks. These React hooks use the call client to query for available devices.
+The hooks ensure our application re-renders anytime the list changes, for example, if a new camera is plugged into the user's machine.
+For these hooks, we create a file called `deviceSetupHooks.ts` and we create three hooks: `useMicrophones`, `useSpeakers` and `useCameras`.
+Each of these hooks uses `useCallClientStateChange` to update their lists anytime the user plugs/unplugs a device:
 
 `src/deviceSetupHooks.ts`
 
@@ -222,10 +222,10 @@ const useCallClientStateChange = (): CallClientState => {
 
 #### Creating dropdowns to choose devices
 
-To allow the user to choose their camera, microphone and speaker, we'll use the `Dropdown` component from Fluent UI React.
-We'll create new components that will use the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
+To allow the user to choose their camera, microphone and speaker, we use the `Dropdown` component from Fluent UI React.
+We create new components that uses the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
 the chosen device when the user selects a different device from the dropdown.
-To house these new components, we'll create a file called `DeviceSelectionComponents.tsx` that will export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
+To house these new components, we create a file called `DeviceSelectionComponents.tsx` that export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
 
 `src/DeviceSelectionComponents.tsx`
 
@@ -321,7 +321,7 @@ First, import the new Dropdowns:
 import { CameraSelectionDropdown, MicrophoneSelectionDropdown, SpeakerSelectionDropdown } from './DeviceSelectionComponents';
 ```
 
-Then create a component called `DeviceSetup` that houses these dropdowns. This component will also hold the local video preview we will create later.
+Then create a component called `DeviceSetup` that houses these dropdowns. This component holds the local video preview we create later.
 
 ```ts
 export const DeviceSetup = (props: {
@@ -347,9 +347,9 @@ export const DeviceSetup = (props: {
 
 #### Creating a local video preview
 
-Beside the dropdowns, we'll create a local video preview to allow the user to see what their camera is capturing. It will contain a small call controls bar with camera and microphone buttons to toggle camera on/off and microphone mute/unmute.
+Beside the dropdowns, we create a local video preview to allow the user to see what their camera is capturing. It contains a small call controls bar with camera and microphone buttons to toggle camera on/off and microphone mute/unmute.
 
-First we'll add a new hook to our `deviceSetupHooks.ts` called `useLocalPreview`. This hook will provide our react component with a localPreview to render and functions to start and stop the local preview:
+First we add a new hook to our `deviceSetupHooks.ts` called `useLocalPreview`. This hook provides our react component with a localPreview to render and functions to start and stop the local preview:
 
 `src/deviceSetupHooks.ts`
 
@@ -408,7 +408,7 @@ export const useLocalPreview = (): {
 }
 ```
 
-Then we'll create a new component called `LocalPreview.tsx` that will use that hook to display the local video preview to the user:
+Then we create a new component called `LocalPreview.tsx` that uses that hook to display the local video preview to the user:
 
 `src/LocalPreview.tsx`
 
