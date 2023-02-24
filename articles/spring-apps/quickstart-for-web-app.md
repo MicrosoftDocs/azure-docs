@@ -28,9 +28,9 @@ Here is the diagram about the system:
 ## Prerequisites
 
 - [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/). Version = 17.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli). Version >= 2.45.0.
 
 ## Build and run the sample project locally
 1. The sample project is ready on GitHub. Just clone sample project by this command:
