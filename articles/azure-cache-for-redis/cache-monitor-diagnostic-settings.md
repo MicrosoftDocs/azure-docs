@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type. Two options are available to log:
 
-- **Cache Metrics** (i.e. "AllMetrics") which can be used to log metrics from Azure Monitor  
+- **Cache Metrics** (i.e. "AllMetrics") which can be used to [log metrics from Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)  
 - **Connection Logs** which logs connections to the cache for security and diagnostic purposes. 
 
 ## Scope of availability
@@ -50,15 +50,16 @@ The connection logs produced look similar between the tiers, but have some diffe
 ### Basic, Standard, and Premium tiers
 - Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed inbetween 10-second intervals will not be logged.
 - Authentication events are not logged
+- All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs may cause a small performance degredation to the cache instance.
 
 ### Enterprise and Enterprise Flash tiers
 - When using **OSS Cluster Policy**, logs will be emitted from each node. When using **Enterprise Cluster Policy**, only the nodes being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
 - Data loss (i.e. missing a connection event) is rare, but possible. It is typically caused by networking issues. 
-- Using the redis-cli and redis-benchmark tools can result in missing disconnection audit logs.
+- Disconnection logs do not appear for clients using the redis-cli and redis-benchmark tools to connect to a cache instance.
 - Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set up to be 10 days, and a connection event occured 15 days ago, that connection will still exist but the log for that connection will not have been retained.
 - If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
-- After enabling connection logging, logs will not start flowing immediately. It may take up to a few hours in worst-case scenarios. 
+- All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs may cause a small performance degredation to the cache instance.
 
 
@@ -287,31 +288,50 @@ These fields and properties appear in the `Connection events` log category. In *
 | `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
 | `properties` | n/a | The contents of this field are described in the rows that follow. |
-| `clientIp` | `ClientIP` | The Redis client IP address. |
+| `eventEpochTime` | `EventEpochTime` | The timestamp in UNIX epoch format |
+| `clientIP` | `ClientIP` | The Redis client IP address. |
 | `privateLinkIpv6` | `PrivateLinkIPv6` | The Redis client private link IPv6 address (if applicable). |
-| `connectionId` | `ConnectionId` | Unique connection ID assigned by Redis. |
+| `id` | `ConnectionId` | Unique connection ID assigned by Redis. |
 | `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
 | `eventStatus` |  `EventStatus` | Results of an authentication request as a status code (only applicable for authentication event). |
 
 #### Sample storage account log
 
-If you send your logs to a storage account, the contents of the logs look like this.
+If you send your logs to a storage account, a log for a connection event will look like this:
 
 ```json
-{
-    "time": "2021-08-05T21:04:58.0466086Z",
-    "location": "canadacentral",
-    "category": "ConnectionEvents",
-    "properties": {
-        "ConnectionId": 6185063009002,
-        "ClientIp": "10.0.0.7",
-        "PrivateLinkIPv6": "fd40:5246:30:9da4:6b30:100:a00:7",
-        "EventType": "new_conn",
-        "EventStatus": null
-    },
-    "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT", 
-    "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read"
-}
+    {
+        "time": "2023-01-24T10:00:02.3680050Z",
+        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "category": "ConnectionEvents",
+        "location": "westus",
+        "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
+        "properties": {
+            "eventEpochTime": 1674554402,
+            "id": 6185063009002,
+            "clientIP": "20.228.16.39",
+            "eventType": "new_conn"
+        }
+    }
+```
+
+And the log for an auth event will look like this:
+
+```json
+ {
+        "time": "2023-01-24T10:00:02.3680050Z",
+        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "category": "ConnectionEvents",
+        "location": "westus",
+        "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
+        "properties": {
+            "eventEpochTime": 1674554402,
+            "id": 6185063009002,
+            "clientIP": "20.228.16.39",
+            "eventType": "auth",
+            "eventStatus": 8
+        }
+    }
 ```
 
 ## Log Analytics Queries
