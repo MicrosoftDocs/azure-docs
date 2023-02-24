@@ -13370,6 +13370,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/search-performance-optimization.md",
+            "redirect_url": "/articles/search/search-reliability",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-tutorial-aml-designer-custom-skill.md",
             "redirect_url": "/previous-versions/azure/search/cognitive-search-tutorial-aml-designer-custom-skill",
             "redirect_document_id": false

@@ -1,19 +1,19 @@
 ---
-title: Availability and continuity
+title: Reliability in Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
-description: learn how to make a search service highly available and resilient against period disruptions or even catastrophic failures.
+description: Find out about reliability in Azure Cognitive Search.
 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2022
-ms.custom: references_regions
+ms.date: 02/24/2023
+ms.custom: subject-reliability, references_regions
 ---
 
-# Availability and business continuity in Azure Cognitive Search
+# Reliability in Azure Cognitive Search
 
-In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity (and disaster recovery) is achieved through multiple search services. This article provides guidance that you can use as a starting point for developing a strategy that meets your business requirements for both availability and continuous operations.
+In Cognitive Search, reliability and availability is achieved through multiple replicas, whereas business continuity (and disaster recovery) is achieved through multiple search services. This article provides guidance that you can use as a starting point for developing a strategy that meets your business requirements for both availability and continuous operations.
 
 <a name="scale-for-availability"></a>
 
@@ -37,7 +37,7 @@ If both the storage account and the search service are in the same region, netwo
 
 <a name="availability-zones"></a>
 
-## Availability Zones
+## Availability zone support
 
 [Availability Zones](../availability-zones/az-overview.md) are an Azure platform capability that divides a region's data centers into distinct physical location groups to provide high-availability, within the same region. If you use Availability Zones for Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
 
@@ -135,6 +135,6 @@ Otherwise, your application code used for creating and populating an index is th
 To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). Review [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations, or checkout [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) for real-world tips.
 
 <!--Image references-->
-[1]: ./media/search-performance-optimization/geo-redundancy.png
-[2]: ./media/search-performance-optimization/scale-indexers.png
-[3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
+[1]: ./media/search-reliability/geo-redundancy.png
+[2]: ./media/search-reliability/scale-indexers.png
+[3]: ./media/search-reliability/geo-search-traffic-mgr.png
