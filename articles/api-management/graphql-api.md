@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/15/2023
+ms.date: 02/24/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -117,6 +117,25 @@ After importing the API, if needed, you can update the settings by using the [Se
 ---
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
+
+### Test a subscription
+If your GraphQL  API supports a subscription, you can test it in the test console.
+
+1. Ensure that your API allows a WebSocket URL scheme (**WS** or **WSS**) that's appropriate for your API. You can enable this setting on the **Settings** tab.
+1. Set up a subscription query in the query editor, and then select **Connect** to establish a WebSocket connection to the backend service. 
+
+    :::image type="content" source="media/graphql-api/test-graphql-subscription.png" alt-text="Screenshot of a subscription query in the query editor.":::
+1. Review connection details in the **Subscription** pane. 
+
+    :::image type="content" source="media/graphql-api/graphql-websocket-connection.png" alt-text="Screenshot of Websocket connection in the portal.":::
+    
+1. Subscribed events appear in the **Subscription** pane. The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription.  
+
+    :::image type="content" source="media/graphql-api/graphql-subscription-event.png" alt-text="Screenshot of GraphQL subscription events in the portal.":::
+
+## Secure your GraphQL API
+
+Secure your GraphQL API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and a [GraphQL validation policy](validate-graphql-request-policy.md) to secure and protect against GraphQL-specific attacks.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

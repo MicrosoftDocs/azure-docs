@@ -108,6 +108,11 @@ type User {
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 
+## Secure your GraphQL API
+
+Secure your GraphQL API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and a [GraphQL validation policy](validate-graphql-request-policy.md) to secure and protect against GraphQL-specific attacks.
+
+
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Next steps
