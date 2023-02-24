@@ -37,7 +37,7 @@ The purpose of the configuration file is to:
 - Define entity security rules
 - Control development configuration settings
 
-If you're using Azure Cosmos DB, then you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
+If you're using Azure Cosmos DB with GraphQL, then you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
 
 ## Sample configuration file
 
