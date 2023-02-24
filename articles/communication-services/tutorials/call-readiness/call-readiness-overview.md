@@ -22,9 +22,9 @@ When a user intends to join a web call, their primary focus is on the conversati
 
 It may be impossible to predict every issue or combination of issues that may arise, but by applying this tutorial you can:
 
-1. Reduce the likelihood of issues affecting a user during a call
-2. Only expose an issue if it is going to negatively impact the experience
-3. Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
+- Reduce the likelihood of issues affecting a user during a call
+- Only expose an issue if it is going to negatively impact the experience
+- Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
 Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This tool can be used by users for further troubleshooting in customer support scenarios.
 
