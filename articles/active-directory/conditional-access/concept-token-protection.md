@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Token protection in Azure AD Conditonal Access
+description: Learn how to use token protection in Conditional Access policies.
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
@@ -8,8 +8,8 @@ ms.date: 02/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: 
-ms.reviewer: 
+manager: amycolannino
+ms.reviewer: paulgarn
 
 ms.collection: M365-identity-device-management
 ---
