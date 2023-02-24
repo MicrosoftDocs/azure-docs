@@ -109,7 +109,7 @@ The `azureml-fe` can reach 5K requests per second (QPS) with good latency, havin
 >
 >* Increase resource requests/limits for `azureml-fe` pods; by default it has 2 vCPU and 1.2G memory resource limit.
 >* Increase the number of instances for `azureml-fe`. By default, Azure Machine Learning creates 3 or 1 `azureml-fe` instances per cluster.
->   * This instance count depends on your configuration of `inferenceRouterHA` of the [Azure Machine Learning entension](how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings).
+>   * This instance count depends on your configuration of `inferenceRouterHA` of the [Azure Machine Learning entension](how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings).
 >   * The increased instance count cannot be persisted, since it will be overwritten with your configured value once the extension is upgraded.
 >* Reach out to Microsoft experts for help.
 

@@ -26,7 +26,7 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 
 >[!IMPORTANT]
 > 
-> If you have [specified a nodeSelector when deploying the Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings), the nodeSelector will be applied to all instance types.  This means that:
+> If you have [specified a nodeSelector when deploying the Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings), the nodeSelector will be applied to all instance types.  This means that:
 > - For each instance type creating, the specified nodeSelector should be a subset of the extension-specified nodeSelector. 
 > - If you use an instance type **with nodeSelector**, the workload will run on any node matching both the extension-specified nodeSelector and the instance type-specified nodeSelector.
 > - If you use an instance type **without a nodeSelector**, the workload will run on any node mathcing the extension-specified nodeSelector.

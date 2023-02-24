@@ -59,7 +59,7 @@ Use the following steps to mitigate the issue.
     kubectl annotate crd jobs.batch.volcano.sh "meta.helm.sh/release-namespace=azureml" "meta.helm.sh/release-name=<extension-name>"
     ``` 
     By setting the labels and annotations to the resource, it means the resource is managed by helm and owned by Azure Machine Learning extension. 
-* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings) to see if there's a configuration setting to disable the conflict resource. 
+* If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy Azure Machine Learning extension](./how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings) to see if there's a configuration setting to disable the conflict resource. 
 
 ## HealthCheck of extension
 When the installation failed and didn't hit any of the above error messages, you can use the built-in health check job to make a comprehensive check on the extension. Azureml extension contains a `HealthCheck` job to pre-check your cluster readiness when you try to install, update or delete the extension. The HealthCheck job will output a report, which is saved in a configmap named `arcml-healthcheck` in `azureml` namespace. The error codes and possible solutions for the report are listed in [Error Code of HealthCheck](#error-code-of-healthcheck). 

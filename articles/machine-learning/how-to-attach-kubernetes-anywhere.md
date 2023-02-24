@@ -95,7 +95,7 @@ With these key differences and overall Azure Machine Learning evolution to use S
 ### Other resources
 
 - [Kubernetes version and region availability](./reference-kubernetes.md#supported-kubernetes-version-and-region)
-- [Work with custom data storage](./reference-kubernetes.md#azureml-jobs-connect-with-custom-data-storage)
+- [Work with custom data storage](./reference-kubernetes.md#azure-machine-learning-jobs-connect-with-custom-data-storage)
 
 
 ### Examples

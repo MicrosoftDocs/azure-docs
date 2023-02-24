@@ -186,7 +186,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for running pipeline jobs ([pipeline job YAML schema](reference-yaml-job-pipeline.md))
   - Added support for job input literals and input data URIs for all job types
   - Added support for job outputs for all job types
-  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure Machine Learning jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azureml-jobs-and-components)
+  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure Machine Learning jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azure-machine-learning-jobs-and-components)
 - `az ml environment`
   - Updated [environment YAML schema](reference-yaml-environment.md)
   - Added support for creating environments from Docker build context

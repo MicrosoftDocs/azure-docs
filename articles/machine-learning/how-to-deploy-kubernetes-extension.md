@@ -94,7 +94,7 @@ If you plan to deploy Azure Machine Learning extension for real-time inference w
 ### [Azure CLI](#tab/deploy-extension-with-cli)
 To deploy Azure Machine Learning extension with CLI, use `az k8s-extension create` command passing in values for the mandatory parameters.
 
-We list four typical extension deployment scenarios for reference. To deploy extension for your production usage, carefully read the complete list of [configuration settings](#review-azureml-extension-configuration-settings).
+We list four typical extension deployment scenarios for reference. To deploy extension for your production usage, carefully read the complete list of [configuration settings](#review-azure-machine-learning-extension-configuration-settings).
 
 - **Use AKS cluster in Azure for a quick proof of concept to run all kinds of ML workload, i.e., to run training jobs or to deploy models as online/batch endpoints**
 
@@ -135,7 +135,7 @@ The UI experience to deploy extension is only available for **[Arc Kubernetes](.
 
    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of selecting Azure Machine Learning extension from Azure portal.":::
 
-1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installation in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of Azure Machine Learning extension configuration settings, see [Azure Machine Learning extension configuration settings](#review-azureml-extension-configuration-settings).
+1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installation in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of Azure Machine Learning extension configuration settings, see [Azure Machine Learning extension configuration settings](#review-azure-machine-learning-extension-configuration-settings).
 
    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/deploy-extension-from-ui-settings.png" alt-text="Screenshot of configuring Azure Machine Learning extension settings from Azure portal.":::
 1. On the **Review + create** tab, select **Create**.
@@ -190,7 +190,7 @@ Upon Azure Machine Learning extension deployment completes, you can use `kubectl
 
 > [!IMPORTANT]
    > * Azure Relay resource  is under the same resource group as the Arc cluster resource. It is used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
-   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described in [configuration settings table](#review-azureml-extension-configuration-settings).
+   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described in [configuration settings table](#review-azure-machine-learning-extension-configuration-settings).
 
 > [!NOTE]
    > * **{EXTENSION-NAME}:** is the extension name specified with `az k8s-extension create --name` CLI command. 
