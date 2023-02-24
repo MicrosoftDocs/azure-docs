@@ -25,7 +25,7 @@ Using a shared image saves time in preparing your pool's compute nodes to run yo
 
 ## Migrate Your Eligible Pools
 
-To migrate your Batch custom image pools from managed image to shared image, review the Azure Batch guide on using [Azure Compute Gallery to create a custom image pool](./batch/batch-sig-images.md).
+To migrate your Batch custom image pools from managed image to shared image, review the Azure Batch guide on using [Azure Compute Gallery to create a custom image pool](batch-sig-images.md).
 
 If you have either a VHD blob or a managed image, you can convert them directly to a Compute Gallery image that can be used with Azure Batch custom image pools. When you're creating a VM image definition for a Compute Gallery, on the Version tab, there is an option to select the source for image types to migrate that're being retired for Batch custom image pools:
 
@@ -34,21 +34,21 @@ If you have either a VHD blob or a managed image, you can convert them directly 
 | Managed image | Select the **Source image** from the drop-down. The managed image must be in the same region that you chose in **Instance details.** |
 | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
-For more information about this process, see [creating an image definition and version for Compute Gallery](./virtual-machines/image-version.md).
+For more information about this process, see [creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md).
 
 ## FAQs
 
 - How can I create an Azure Compute Gallery?
 
-  See the [guide](./virtual-machines/create-gallery.md#portal-2Cportaldirect-2Ccli2) for Compute Gallery creation.
+  See the [guide](../virtual-machines/create-gallery.md#portal-2Cportaldirect-2Ccli2) for Compute Gallery creation.
 
 - How do I create a Pool with a Compute Gallery image?
 
-  See the [guide](./batch/batch-sig-images.md) for creating a Pool with a Compute Gallery image.
+  See the [guide](batch-sig-images.md) for creating a Pool with a Compute Gallery image.
 
 - What considerations are there for Compute Gallery image based Pools?
 
-  See the [guide](./batch/batch-sig-images.md#considerations-for-large-pools) for more information.
+  See the [guide](batch-sig-images.md#considerations-for-large-pools) for more information.
 
 - Can I use Azure Compute Gallery images in different subscriptions or in different AAD tenants?
   
@@ -59,4 +59,4 @@ The image can be in a different region as long as it has replicas in the same re
 
 ## Next steps
 
-For more information, see [Azure Compute Gallery](./virtual-machines/azure-compute-gallery.md).
+For more information, see [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).
