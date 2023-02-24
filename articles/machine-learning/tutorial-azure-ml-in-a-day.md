@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: AzureML in a day"
+title: "Tutorial: Azure Machine Learning in a day"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
 services: machine-learning
