@@ -417,27 +417,6 @@ When you run the cell, the notebook output shows a link to the job's details pag
 * Outputs + logs: The Outputs + logs tab contains logs generated while the job was running. This tab assists in troubleshooting if anything goes wrong with your training script or model creation.
 * Metrics: The metrics tab showcases key performance metrics from your model such as training score, f1 score, and precision score. 
 
-## Clean up resources
-
-If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
-
-### Stop compute instance
-
-If you're not going to use it now, stop the compute instance:
-
-1. In the studio, in the left navigation area, select **Compute**.
-1. In the top tabs, select **Compute instances**
-1. Select the compute instance in the list.
-1. On the top toolbar, select **Stop**.
-
-### Delete all resources
-
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
-
-
-
-
 <!-- nbend -->
 
 
