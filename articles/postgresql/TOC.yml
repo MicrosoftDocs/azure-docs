@@ -747,4 +747,4 @@
   - name: Partners
     href: partners-migration-postgresql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/
+    href: /data-migration/
