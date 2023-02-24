@@ -31,7 +31,7 @@ Here is the diagram about the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/). Version >= 17.
 - [Maven](https://maven.apache.org/).
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Version >= 2.45.0 .
+- [Azure CLI](/cli/azure/install-azure-cli). Version >= 2.45.0.
 
 ## Clone and build sample project
 1. The sample project is ready on GitHub. Just clone sample project by this command:
