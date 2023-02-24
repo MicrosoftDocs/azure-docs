@@ -47,7 +47,7 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 * The locations where you can connect with Microsoft for Direct peering or Exchange peering are listed in [PeeringDB](https://www.peeringdb.com/net/694)
 
 * **Exchange peering:**
-    * Peers are expected to have at minimum a 10 Gb connection to the exchange.
+    * Peers are expected to have at minimum a 10 Gbps connection to the exchange.
     * Peers are expected to upgrade their ports when peak utilization exceeds 50%.
     * Microsoft encourages peers to maintain diverse connectivity to exchange to support failover scenarios.
 
@@ -60,8 +60,8 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 
 ## Traffic requirements
 
-* Peers over Exchange peering must have at minimum 500 Mb of traffic and less than 2 Gb. For traffic exceeding 2 Gb, Direct peering should be established.
-* Microsoft requires at minimum 2 Gb for direct peering. Each mutually agreed to peering location must support failover that ensures peering remains localized during a failover scenario. 
+* Peers over Exchange peering must have at minimum 500 Mb of traffic and less than 2 GB. For traffic exceeding 2 GB, Direct peering should be established.
+* Microsoft requires at minimum 2 GB for direct peering. Each mutually agreed to peering location must support failover that ensures peering remains localized during a failover scenario. 
 
 ## Next steps
 
