@@ -55,55 +55,78 @@ Here is the diagram about the system:
 
 ## Prepare the cloud environment
 
-### 1. Create resource group
+The main resources needed to run this sample is an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section will give you the steps to create these resources. 
+
+### 1. Set name for each resource
+To make the steps easier to proceed, let's set the name at the beginning. 
+```azurecli-interactive
+RESOURCE_GROUP=WebAppResourceGroup
+LOCATION=eastus
+POSTGRESQL_SERVER=WebAppPostgreSQLServer
+POSTGRESQL_DB=WebAppPostgreSQLDB
+AZURE_SPRING_APPS_NAME=web-app-azure-spring-apps
+APP_NAME=WebApp
+CONNECTION=WebAppConnection
+```
+If some of above name already been taken in your cloud environment, it will have error when you execute the commands in the following part of this article. If it happens, just set another name and continue.
+
+### 2. Create a new resource group
+
+To easier to manage the resources, create a resource group to hold these resources. Follow the following steps to create a new resource group.
 
 1. Login Azure CLI.
     ```azurecli-interactive
     az login
     ```
-2. List available subscriptions.
+2. Set Default location.
+    ```azurecli-interactive
+    az configure --defaults location=${LOCATION}
+    ```
+3. Set default subscription. Firstly, list all available subscriptions:
     ```azurecli-interactive
     az account list --output table
     ```
-3. Set default subscription.
+    Then choose one subscription and set it as default subscription. Replace `<SubscriptionId>` with your chosen subscription id before run this command:
     ```azurecli-interactive
-    az account set --subscription <subscription-id>
+    az account set --subscription <SubscriptionId>
     ```
 4. Create a resource group.
     ```azurecli-interactive
-    az group create \
-        --resource-group <name-of-resource-group> \
-        --location eastus
+    az group create --resource-group ${RESOURCE_GROUP}
     ```
+5. Set the new created resource group as default resource group.
+    ```azurecli-interactive
+    az configure --defaults group=${RESOURCE_GROUP}
+    ```azurecli-interactive
 
-### 2. Prepare Azure Spring Apps instance
+### 3. Create Azure Spring Apps instance
 
 Azure Spring Apps will be used to host the spring web app. Let's create an Azure Spring Apps instance and create an app inside it.
 
 1. Create an Azure Spring Apps service instance.
     ```azurecli-interactive
     az spring create \
-        --resource-group <name-of-resource-group> \
-        --name <name-of-azure-spring-apps-instance>
+        --resource-group ${RESOURCE_GROUP} \
+        --name ${AZURE_SPRING_APPS_NAME}
     ```
 2. Create an app in the created Azure Spring Apps instance.
     ```azurecli-interactive
     az spring app create \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --name <name-of-app> \
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${AZURE_SPRING_APPS_NAME} \
+        --name ${APP_NAME} \
         --runtime-version Java_17 \
         --assign-endpoint true
     ```
 
-### 3. Prepare PostgreSQL instance
+### 4. Prepare PostgreSQL instance
 When run the spring web app in localhost, we use H2 as database. In Azure, we use [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) instead. Create a PostgreSQL instance by this command:
 
 ```azurecli-interactive
 az postgres flexible-server create \
-    --resource-group <name-of-resource-group> \
-    --name <name-of-database-server> \
-    --database-name <name-of-database> \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${POSTGRESQL_SERVER} \
+    --database-name ${POSTGRESQL_DB} \
     --admin-user <admin-username> \
     --admin-password <admin-password> \
     --active-directory-auth Enabled
@@ -114,7 +137,7 @@ Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
 Do you want to enable access for all IPs  (y/n): n
 ```
 
-### 4. Connect app instance to PostgreSQL instance
+### 5. Connect app instance to PostgreSQL instance
 
 After app instance and the PostgreSQL instance been created, the app instance can not access the PostgreSQL instance directly. Some network settings and connection information should be configured. [Service Connector](/azure/service-connector/overview) is used to help do this work.
 
@@ -129,24 +152,24 @@ After app instance and the PostgreSQL instance been created, the app instance ca
 3. Create a service connection between the app and the PostgreSQL by this command:
     ```azurecli-interactive
     az spring connection create postgres-flexible \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --app <name-of-app> \
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${AZURE_SPRING_APPS_NAME} \
+        --app ${APP_NAME} \
         --client-type springBoot \
-        --target-resource-group <name-of-resource-group> \
-        --server <name-of-database-server> \
-        --database <name-of-database> \
+        --target-resource-group ${RESOURCE_GROUP} \
+        --server ${POSTGRESQL_SERVER} \
+        --database ${POSTGRESQL_DB} \
         --system-identity \
-        --connection <name-of-connection>
+        --connection ${CONNECTION}
     ```
     Note that `--system-identity` is necessary for passwrodless connection. For more information about this topic, please refer to [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Passwordlessflex).
 4. After connection created, use this command to validate connection:
     ```azurecli-interactive
     az spring connection validate \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --app <name-of-app> \
-        --connection <name-of-connection>
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${AZURE_SPRING_APPS_NAME} \
+        --app ${APP_NAME} \
+        --connection ${CONNECTION}
     ```
     If everything goes well, the output should look like this:
     ```json
@@ -190,24 +213,24 @@ After app instance and the PostgreSQL instance been created, the app instance ca
 1. Now the cloud environment is ready. Deploy the app by this command:
     ```azurecli-interactive
     az spring app deploy \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --name <name-of-app> \
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${AZURE_SPRING_APPS_NAME} \
+        --name ${APP_NAME} \
         --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
     ```
-2. Once deployment has completed, you can access the app at `https://<name-of-azure-spring-apps-instance>-<name-of-app>.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
+2. Once deployment has completed, you can access the app at `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. If everything goes well, you can see the page just like you have seen in localhost.
 3. If there is some problem when deploy the app, you can check the app's log to do some investigation by this command:
     ```azurecli-interactive
     az spring app logs \
-        --resource-group <name-of-resource-group> \
-        --service <name-of-azure-spring-apps-instance> \
-        --name <name-of-app>
+        --resource-group ${RESOURCE_GROUP} \
+        --service ${AZURE_SPRING_APPS_NAME} \
+        --name ${APP_NAME}
     ```
 
 ## Clean up resources
 1. To avoid unnecessary cost, use the following commands to delete the resource group.
     ```azurecli-interactive
-    az group delete --name <name-of-resource-group>
+    az group delete --name ${RESOURCE_GROUP}
     ```
 
 ## Next steps
