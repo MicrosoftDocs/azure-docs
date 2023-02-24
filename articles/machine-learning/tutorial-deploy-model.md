@@ -49,8 +49,8 @@ The steps you'll take are:
     * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the compute resources you'll use in this tutorial. To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory.  <!-- MA: update this location** -->
 1. Create a new notebook or copy the contents of our notebook.
-    * Follow the [Create a new notebook](quickstart-create-resources#create-a-new-notebook) steps to create a new notebook.
-    * Or open the notebook by opening  **update these locations** from the [**Samples**](quickstart-create-resources#learn-from-sample-notebooks) section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.<!-- MA: update this location** -->
+    * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
+    * Or open the notebook by opening  **update these locations** from the [**Samples**](quickstart-create-resources.md#learn-from-sample-notebooks) section of studio. Then select **Clone this notebook**  to add the notebook to your **Files**.<!-- MA: update this location** -->
 
 ## Connect to the workspace
 
