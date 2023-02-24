@@ -6,16 +6,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cloudfoundry",
-            "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cloudfoundry/toc.yml",
-            "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cloudfoundry/cloudfoundry-deploy-your-first-app.md",
             "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
             "redirect_document_id": false
