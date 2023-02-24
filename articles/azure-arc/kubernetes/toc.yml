@@ -34,6 +34,8 @@
     href: conceptual-data-exchange.md
   - name: Identity and access management
     items:
+      - name: Identity and access overview
+        href: identity-access-overview.md
       - name: Access cluster from anywhere
         displayName: connect
         href: conceptual-cluster-connect.md
@@ -89,7 +91,7 @@
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration
     href: use-azure-policy-flux-2.md
-  - name: Manage access
+  - name: Manage identity and access
     items:
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
