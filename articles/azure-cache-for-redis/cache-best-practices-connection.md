@@ -85,7 +85,7 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 
 ## Idle timeout
 
-Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. This idle timeout for connections helps automatically clean up connection leaks and most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+Azure Cache for Redis has a 10-minute timeout for idle connections. This allows the server to automatically clean up connections that have been leaked or orphaned by their client application. Most Redis client libraries have a built-in capability to send "heartbeat" or "keepalive" commands periodically to prevent connections from being closed even if there are no requests from the client application. If there is any risk of your connections being idle for 10 minutes, configure the "keepalive" interval to a value less than 10 minutes. If your application is using a client library that doesn't have native support for "keepalive" functionality, you can implement it in your application by periodically sending a PING command.
 
 ## Next steps
 
