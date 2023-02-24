@@ -1,4 +1,3 @@
-
 ---
 title: Tutorial - Work with petrel data records by using Petrel DDMS APIs
 description: Learn how to work with petrel data records in your Microsoft Energy Data Services Preview instance by using Petrel Domain Data Management Services (Petrel DDMS) APIs in Postman.
