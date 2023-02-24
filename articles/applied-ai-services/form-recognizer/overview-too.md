@@ -18,22 +18,27 @@ recommendations: false
 
 # What's Azure Form Recognizer?
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. Select one of the tiles below to learn more about Form Recognizer models and development options:
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents. 
+
+Select one of the tiles below to learn more about Form Recognizer models and development options:
 
 ### Document Analysis models
 
 :::row:::
    :::column:::
-      :::image type="content" source="media/overview/read-icon.png" alt-text="Screenshot of read model icon." link="#read":::
+      :::image type="content" source="media/overview/icon-read-2.png" alt-text="Screenshot of read model icon." link="#read":::
+   [**Read**](#read)
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/general-document-icon.png" alt-text="Screenshot of general document model icon." link="#general-document":::
+      :::image type="content" source="media/overview/icon-general-document-2.png" alt-text="Screenshot of general document model icon." link="#general-document":::
+    [**general document**](#general-document)
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/layout-icon.png" alt-text="Screenshot of layout model icon." link="#layout":::
+      :::image type="content" source="media/overview/icon-layout-2.png" alt-text="Screenshot of layout model icon." link="#layout":::
+    [**layout**](#layout)
    :::column-end:::
 :::row-end:::
-
+<!-- 
 ## Prebuilt models
 
 :::row:::
@@ -68,7 +73,7 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
    :::column-end:::
    :::column span="":::
    :::column-end:::
-:::row-end:::
+:::row-end::: -->
 
 ## Video: Form Recognizer models
 
