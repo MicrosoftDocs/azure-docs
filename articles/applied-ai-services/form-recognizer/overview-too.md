@@ -83,7 +83,7 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
       :::image type="content" source="media/overview/icon-custom-neural.png" alt-text="Screenshot of custom neural model icon.":::</br>
     [**Custom neural**](#custom-template)
    :::column-end:::
-      ::column span="":::
+      :::column span="":::
       :::image type="content" source="media/overview/icon-custom-composed.png" alt-text="Screenshot of custom com posed model icon.":::</br>
     [**Custom composed**](#composed-custom)
    :::column-end:::
