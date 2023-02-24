@@ -18,7 +18,7 @@ ms.subservice: calling
 
 ![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
 
-When a user intends to join a call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure their readiness for the call.
+When a user intends to join a web call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure the device and client they are using is ready for the call
 
 It may be impossible to predict every issue or combination of issues that may arise, but by leveraging this tutorial you can:
 
