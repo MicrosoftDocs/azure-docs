@@ -1,14 +1,44 @@
 {
     "redirections": [
-     {
-      "source_path": "articles/virtual-machines/h-series.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/h-series-retirement.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
-      "redirect_document_id": false
+        {
+            "source_path": "articles/cloudfoundry/index.yml",
+            "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-deploy-your-first-app.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-get-started.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-oms-nozzle.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-oms-nozzle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/create-cloud-foundry-on-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/create-cloud-foundry-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/how-cloud-foundry-integrates-with-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series-retirement.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
+            "redirect_document_id": false
     },
     {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
