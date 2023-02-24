@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with HawkeyeBSB
-description: Learn how to configure single sign-on between Azure Active Directory and HawkeyeBSB.
+title: Azure Active Directory SSO integration with the Hawkeye Platform
+description: Learn how to configure single sign-on between Azure Active Directory and the Hawkeye Platform.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: jeedes
 
 ---
 
-# Azure Active Directory SSO integration with HawkeyeBSB
+# Azure Active Directory SSO integration with the Hawkeye Platform
 
-In this article, you'll learn how to integrate HawkeyeBSB with Azure Active Directory (Azure AD). HawkeyeBSB was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate HawkeyeBSB with Azure AD, you can:
+In this article, you'll learn how to integrate Hawkeye with Azure Active Directory (Azure AD). The Hawkeye Platform was developed by Redbridge Debt & Treasury Advisory to help Clients manage their bank fees. When you integrate Hawkeye with Azure AD, you can:
 
-* Control in Azure AD who has access to HawkeyeBSB.
-* Enable your users to be automatically signed-in to HawkeyeBSB with their Azure AD accounts.
+* Control in Azure AD who has access to Hawkeye.
+* Enable your users to be automatically signed-in to Hawkeye with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for HawkeyeBSB in a test environment. HawkeyeBSB supports both **SP** and **IDP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for Hawkeye in a test environment. Hawkeye supports both **SP** and **IDP** initiated single sign-on.
 
 ## Prerequisites
 
-To integrate Azure Active Directory with HawkeyeBSB, you need:
+To integrate Azure Active Directory with Hawkeye, you need:
 
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* HawkeyeBSB single sign-on (SSO) enabled subscription.
+* Hawkeye single sign-on (SSO) enabled subscription.
 
 ## Add application and assign a test user
 
