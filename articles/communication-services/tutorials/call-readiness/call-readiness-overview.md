@@ -106,7 +106,7 @@ As this feature is in public preview, you must use the beta versions of the Azur
 
 ```bash
 # Install Public Preview versions of the Azure Communication Services Libraries.
-npm install @azure/communication-calling@next @azure/communication-react@next
+npm install @azure/communication-react@1.5.1-beta.1 @azure/communication-calling@1.10.0-beta.1
 ```
 
 > [!NOTE]
