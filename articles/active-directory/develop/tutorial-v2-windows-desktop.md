@@ -61,7 +61,7 @@ This guide uses the following NuGet packages:
 
 ## Set up your project
 
-In this section you create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with _Sign-In with Microsoft_ so that the application can query web APIs that require a token.
+In this section you'll create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with _Sign-In with Microsoft_ so that the application can query web APIs that require a token.
 
 The application that you create with this guide displays a button that's used to call Microsoft Graph API, an area to show the results on the screen, and a sign-out button.
 
