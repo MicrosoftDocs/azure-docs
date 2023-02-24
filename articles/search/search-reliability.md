@@ -16,11 +16,12 @@ ms.custom: subject-reliability, references_regions
 Across Azure, *reliability* means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
 
 + Configure a service to use multiple replicas, paired with availability zone support.
+
 + Deploy multiple search services across different geographic regions.
 
-All workloads are fully contained within a single service that runs in a single geographic region. Within a region, you can configure search to use multiple replicas that run in different availability zones. 
+All search workloads are fully contained within a single service that runs in a single geographic region. Within a region, you can configure search to use multiple replicas that run in different availability zones. 
 
-For business continuity and disaster recovery, you should develop a strategy that includes a cross-regional architecture, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
+For business continuity and recovery from disasters at a regional level, you should develop a strategy that includes a cross-regional architecture, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
 
 <a name="scale-for-availability"></a>
 
@@ -81,13 +82,11 @@ Availability Zones don't impact the [Azure Cognitive Search Service Level Agreem
 
 ## Multiple services in separate geographic regions
 
-Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
+Service redundancy is necessary if operational requirements include:
 
 + [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search doesn't provide instant failover in the event of an outage).
 
-+ Globally deployed applications. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
-
-+ [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
++ Global availability. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
 
 If you need two or more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
