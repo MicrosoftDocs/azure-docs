@@ -89,7 +89,7 @@ Make sure your code follows these tips:
 
 ### DeepSpeed
 
-Don't use DeepSpeed's custom launcher to run distributed training with the [DeepSpeed](https://www.deepspeed.ai/) library on AzureML. Instead, configure an MPI job to launch the training job [with MPI](https://www.deepspeed.ai/getting-started/#mpi-and-azureml-compatibility).
+Don't use DeepSpeed's custom launcher to run distributed training with the [DeepSpeed](https://www.deepspeed.ai/) library on Azure Machine Learning. Instead, configure an MPI job to launch the training job [with MPI](https://www.deepspeed.ai/getting-started/#mpi-and-azureml-compatibility).
 
 Make sure your code follows these tips:
 
@@ -130,7 +130,7 @@ torch.distributed.init_process_group(backend='nccl', init_method='env://', ...)
 
 The most common communication backends used are `mpi`, `nccl`, and `gloo`. For GPU-based training `nccl` is recommended for best performance and should be used whenever possible. 
 
-`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on AzureML.  PyTorch will look for the following environment variables for initialization:
+`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on Azure Machine Learning.  PyTorch will look for the following environment variables for initialization:
 
 - **`MASTER_ADDR`** - IP address of the machine that will host the process with rank 0.
 - **`MASTER_PORT`** - A free port on the machine that will host the process with rank 0.
@@ -200,7 +200,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 PyTorch provides a launch utility in [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) that you can use to launch multiple processes per node. The `torch.distributed.launch` module spawns multiple training processes on each of the nodes.
 
-The following steps demonstrate how to configure a PyTorch job with a per-node-launcher on AzureML.  The job achieves the equivalent of running the following command:
+The following steps demonstrate how to configure a PyTorch job with a per-node-launcher on Azure Machine Learning.  The job achieves the equivalent of running the following command:
 
 ```shell
 python -m torch.distributed.launch --nproc_per_node <num processes per node> \
@@ -209,7 +209,7 @@ python -m torch.distributed.launch --nproc_per_node <num processes per node> \
   <your training script> <your script arguments>
 ```
 
-1. Provide the `torch.distributed.launch` command to the `command` parameter of the `ScriptRunConfig` constructor. Azure Machine Learning runs this command on each node of your training cluster. `--nproc_per_node` should be less than or equal to the number of GPUs available on each node. MASTER_ADDR, MASTER_PORT, and NODE_RANK are all set by AzureML, so you can just reference the environment variables in the command. Azure Machine Learning sets MASTER_PORT to `6105`, but you can pass a different value to the `--master_port` argument of torch.distributed.launch command if you wish. (The launch utility will reset the environment variables.)
+1. Provide the `torch.distributed.launch` command to the `command` parameter of the `ScriptRunConfig` constructor. Azure Machine Learning runs this command on each node of your training cluster. `--nproc_per_node` should be less than or equal to the number of GPUs available on each node. MASTER_ADDR, MASTER_PORT, and NODE_RANK are all set by Azure Machine Learning, so you can just reference the environment variables in the command. Azure Machine Learning sets MASTER_PORT to `6105`, but you can pass a different value to the `--master_port` argument of torch.distributed.launch command if you wish. (The launch utility will reset the environment variables.)
 2. Create a `PyTorchConfiguration` and specify the `node_count`.
 
 ```python

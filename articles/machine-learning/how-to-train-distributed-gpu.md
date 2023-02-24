@@ -92,7 +92,7 @@ torch.distributed.init_process_group(backend='nccl', init_method='env://', ...)
 
 The most common communication backends used are `mpi`, `nccl`, and `gloo`. For GPU-based training `nccl` is recommended for best performance and should be used whenever possible. 
 
-`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on AzureML.  PyTorch will look for the following environment variables for initialization:
+`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on Azure Machine Learning.  PyTorch will look for the following environment variables for initialization:
 
 - **`MASTER_ADDR`** - IP address of the machine that will host the process with rank 0.
 - **`MASTER_PORT`** - A free port on the machine that will host the process with rank 0.

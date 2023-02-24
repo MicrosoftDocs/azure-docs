@@ -17,7 +17,7 @@ ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in AzureML.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
+Up until now, there have been multiple methods for configuring a training job in Azure Machine Learning via the SDK, including Estimators, ScriptRunConfig, and the lower-level RunConfiguration.   To address this ambiguity and inconsistency, we are simplifying the job configuration process in Azure Machine Learning.  You should now use ScriptRunConfig as the recommended option for configuring training jobs. 
 
 Estimators are deprecated with the 1.19. release of the Python SDK. You should also generally avoid explicitly instantiating a RunConfiguration object yourself, and instead configure your job using the ScriptRunConfig class.
 
@@ -104,7 +104,7 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 For more information on using data for training, see:
-* [Train with datasets in AzureML](how-to-train-with-datasets.md)
+* [Train with datasets in Azure Machine Learning](how-to-train-with-datasets.md)
 
 ## Distributed training
 If you need to configure a distributed job for training, do so by specifying the `distributed_job_config` parameter in the ScriptRunConfig constructor. Pass in an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration), or [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) for distributed jobs of the respective types.

@@ -40,7 +40,7 @@ In this article you'll learn:
 > - When to use Tables instead of Files or Folders.
 > - How to install the MLTable SDK.
 > - How to define the materialization blueprint using an `MLTable` file.
-> - Examples that show use of Tables in AzureML.
+> - Examples that show use of Tables in Azure Machine Learning.
 > - How to use Tables during interactive development (for example, in a notebook).
 
 ## Prerequisites

@@ -581,6 +581,6 @@ Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse 
 
 ## Next steps
 
-[Techniques for model interpretability in AzureML](how-to-machine-learning-interpretability.md)
+[Techniques for model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md)
 
 [Check out Azure Machine Learning interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

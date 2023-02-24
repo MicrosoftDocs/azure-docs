@@ -143,7 +143,7 @@ spec:
     server: 20.98.110.84 
     readOnly: false
 ```
-2. Create PVC in the same Kubernetes namespace with ML workloads. In `metadata`, you **must** add label `ml.azure.com/pvc: "true"` to be recognized by AzureML, and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
+2. Create PVC in the same Kubernetes namespace with ML workloads. In `metadata`, you **must** add label `ml.azure.com/pvc: "true"` to be recognized by Azure Machine Learning, and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
 
 ```
 apiVersion: v1
@@ -171,7 +171,7 @@ spec:
 
 [Taint and Toleration](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concepts that work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
-Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azure Machine Learning taints and tolerations, allowing users to add specific Azure Machine Learning taints on the AzureML-dedicated nodes, to prevent non-Azure Machine Learning workloads from being scheduled onto these dedicated nodes.
+Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azure Machine Learning taints and tolerations, allowing users to add specific Azure Machine Learning taints on the Azure Machine Learning-dedicated nodes, to prevent non-Azure Machine Learning workloads from being scheduled onto these dedicated nodes.
 
 We only support placing the amlarc-specific taints on your nodes, which are defined as follows: 
 

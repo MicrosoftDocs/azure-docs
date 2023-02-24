@@ -140,7 +140,7 @@ If your AutoML forecasting job fails, you'll see an error message in the studio 
 
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 
-If you aren't familiar with Azure Machine Learning concepts, start with the ["What is AzureML"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
+If you aren't familiar with Azure Machine Learning concepts, start with the ["What is Azure Machine Learning"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
 
 ## Next steps
 * Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).

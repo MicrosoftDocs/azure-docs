@@ -52,7 +52,7 @@ Finally, you can package everything including code, cmd, environment, input, out
 
 To learn more about how to build a component, see:
 
-- How to [build a component using AzureMLCLI v2](how-to-create-component-pipelines-cli.md).
+- How to [build a component using Azure Machine LearningCLI v2](how-to-create-component-pipelines-cli.md).
 - How to [build a component using Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Next steps

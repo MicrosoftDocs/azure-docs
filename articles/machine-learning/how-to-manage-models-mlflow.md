@@ -162,7 +162,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 ## Editing and deleting models
 
-Editing registered models is supported in both Mlflow and AzureML. However, there are some differences important to be noticed:
+Editing registered models is supported in both Mlflow and Azure Machine Learning. However, there are some differences important to be noticed:
 
 > [!WARNING]
 > Renaming models is not supported in Azure Machine Learning as model objects are immmutable.
@@ -200,7 +200,7 @@ client.delete_model_version(model_name, version="2")
 
 ## Support matrix for managing models with MLflow
 
-The MLflow client exposes several methods to retrieve and manage models. The following table shows which of those methods are currently supported in MLflow when connected to AzureML. It also compares it with other models management capabilities in AzureML.
+The MLflow client exposes several methods to retrieve and manage models. The following table shows which of those methods are currently supported in MLflow when connected to Azure Machine Learning. It also compares it with other models management capabilities in Azure Machine Learning.
 
 | Feature | MLflow | Azure Machine Learning with MLflow | Azure Machine Learning CLIv2 | Azure Machine Learning Studio |
 | :- | :-: | :-: | :-: | :-: |
@@ -223,7 +223,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > [!NOTE]
 > - <sup>1</sup> Use URIs with format `runs:/<ruin-id>/<path>`.
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
-> - <sup>3</sup> Registered models are immutable objects in AzureML.
+> - <sup>3</sup> Registered models are immutable objects in Azure Machine Learning.
 > - <sup>4</sup> Use search box in Azure Machine Learning Studio. Partial match supported.
 > - <sup>5</sup> Use [registries](how-to-manage-registries.md).
 

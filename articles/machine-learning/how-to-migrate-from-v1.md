@@ -73,7 +73,7 @@ We do not recommend using the v1 and v2 SDKs together in the same code. It is te
 
 ## Resources and assets in v1 and v2
 
-This section gives an overview of specific resources and assets in AzureML. See the concept article for each entity for details on their usage in v2.
+This section gives an overview of specific resources and assets in Azure Machine Learning. See the concept article for each entity for details on their usage in v2.
 
 ### Workspace
 
@@ -171,13 +171,13 @@ For details about Key Vault, see [Use authentication credential secrets in Azure
 
 ## Scenarios across the machine learning lifecycle
 
-There are a few scenarios that are common across the machine learning lifecycle using AzureML. We'll look at a few and give general recommendations for upgrading to v2.
+There are a few scenarios that are common across the machine learning lifecycle using Azure Machine Learning. We'll look at a few and give general recommendations for upgrading to v2.
 
 ### Azure setup
 
 Azure recommends Azure Resource Manager templates (often via Bicep for ease of use) to create resources. The same is a good approach for creating Azure Machine Learning resources as well.
 
-If your team is only using AzureML, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
+If your team is only using Azure Machine Learning, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
 
 ### Prototyping models
 

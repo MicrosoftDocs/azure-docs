@@ -34,7 +34,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, Azure Machine Learning materializes the image from the context that you provide.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to Azure Machine Learning. For the second type, Docker build context based environments, Azure Machine Learning materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
@@ -82,7 +82,7 @@ These pre-created environments also allow for faster deployment time.
 In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
 compute target and for model deployment. These types of environments are represented by two subtypes:
 
-- BYOC (bring your own container): the user provides a Docker image to AzureML
+- BYOC (bring your own container): the user provides a Docker image to Azure Machine Learning
 - Docker build context: Azure Machine Learning materializes the image from the user provided content
 
 Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
@@ -550,7 +550,7 @@ If any of the above-listed properties are specified in your environment definiti
 
 The following are accepted location types:
 * Git
-	* Git URLs can be provided to AzureML, but images can't yet be built using them. Use a storage account until builds have Git support
+	* Git URLs can be provided to Azure Machine Learning, but images can't yet be built using them. Use a storage account until builds have Git support
 * Storage account
 	* See this [storage account overview](../storage/common/storage-account-overview.md)
 	* See how to [create a storage account](../storage/common/storage-account-create.md)

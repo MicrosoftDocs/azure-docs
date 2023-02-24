@@ -216,7 +216,7 @@ import sys
 import os
 
 print("*********************************************************")
-print("Hello AzureML!")
+print("Hello Azure Machine Learning!")
 
 mounted_input_path = sys.argv[1]
 mounted_output_path = sys.argv[2]

@@ -25,7 +25,7 @@ In this article, learn how to run your Keras training scripts using the Azure Ma
 
 The example code in this article uses Azure Machine Learning to train, register, and deploy a Keras model built using the TensorFlow backend. The model, a deep neural network (DNN) built with the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview), classifies handwritten digits from the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With AzureML, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With Azure Machine Learning, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
 Whether you're developing a Keras model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning can help you build production-ready models.
 
@@ -120,7 +120,7 @@ For more information on creating and using environments, see [Create and use sof
 
 ## Configure and submit your training job
 
-In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
 ### Obtain the training data
 You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
@@ -173,7 +173,7 @@ You'll use the general purpose `command` to run the training script and perform 
 
 ### Submit the job
 
-It's now time to submit the job to run in AzureML. This time, you'll use `create_or_update` on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time, you'll use `create_or_update` on `ml_client.jobs`.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=create_job)]
 

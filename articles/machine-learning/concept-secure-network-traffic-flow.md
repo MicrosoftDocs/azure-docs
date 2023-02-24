@@ -163,7 +163,7 @@ For information on the outbound configuration required for Azure Kubernetes Serv
 
 If your model requires extra inbound or outbound connectivity, such as to an external data source, use a network security group or your firewall to allow the traffic.
 
-## Scenario: Use Docker images managed by AzureML
+## Scenario: Use Docker images managed by Azure Machine Learning
 
 Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They're also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
 

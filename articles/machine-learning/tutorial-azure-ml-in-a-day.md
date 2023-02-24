@@ -160,7 +160,7 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 
 ## Submit the job 
 
-It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update`  on `ml_client.jobs`.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=create_job)]
 

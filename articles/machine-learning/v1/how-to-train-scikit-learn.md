@@ -181,7 +181,7 @@ model = run.register_model(model_name='sklearn-iris',
 
 ## Deployment
 
-The model you just registered can be deployed the exact same way as any other registered model in AzureML. The deployment how-to
+The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning. The deployment how-to
 contains a section on registering models, but you can skip directly to [creating a compute targethow-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment

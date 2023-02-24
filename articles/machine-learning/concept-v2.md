@@ -37,7 +37,7 @@ The CLI v2 is useful in the following scenarios:
 
 * On board to Azure Machine Learning without the need to learn a specific programming language
 
-    The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on. Any custom logic/IP used, say data preparation, model training, model scoring can remain in script files, which are referred to in the YAML, but not part of the YAML itself. Azure Machine Learning supports script files in python, R, Java, Julia or C#. All you need to learn is YAML format and command lines to use AzureML. You can stick with script files of your choice.
+    The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on. Any custom logic/IP used, say data preparation, model training, model scoring can remain in script files, which are referred to in the YAML, but not part of the YAML itself. Azure Machine Learning supports script files in python, R, Java, Julia or C#. All you need to learn is YAML format and command lines to use Azure Machine Learning. You can stick with script files of your choice.
 
 * Ease of deployment and automation
 

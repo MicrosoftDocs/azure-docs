@@ -24,7 +24,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Retrieve an authorization token
 > * Create a properly-formatted REST request using service principal authentication
-> * Use GET requests to retrieve information about AzureML's hierarchical resources
+> * Use GET requests to retrieve information about Azure Machine Learning's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
 > * Use PUT requests to create Azure Machine Learning workspaces
 > * Use DELETE requests to clean up resources 

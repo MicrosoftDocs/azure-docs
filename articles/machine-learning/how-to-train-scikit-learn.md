@@ -112,7 +112,7 @@ For more information on creating and using environments, see [Create and use sof
 
 ## Configure and submit your training job
 
-In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
+In this section, we'll cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
 
 ### Prepare the training script
@@ -157,7 +157,7 @@ You'll use the general purpose `command` to run the training script and perform 
 
 ### Submit the job
 
-It's now time to submit the job to run in AzureML. This time you'll use `create_or_update` on `ml_client.jobs`. 
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update` on `ml_client.jobs`. 
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=create_job)]
 
@@ -209,7 +209,7 @@ You can then register this model.
 
 ## Deploy the model
 
-After you've registered your model, you can deploy it the same way as any other registered model in AzureML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+After you've registered your model, you can deploy it the same way as any other registered model in Azure Machine Learning. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 
 ## Next steps

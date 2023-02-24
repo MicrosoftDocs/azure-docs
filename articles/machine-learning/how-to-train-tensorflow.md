@@ -106,7 +106,7 @@ In this article, you'll reuse the curated Azure Machine Learning environment `Az
 
 ## Configure and submit your training job
 
-In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
 ### Obtain the training data
 You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
@@ -159,7 +159,7 @@ You'll use the general purpose `command` to run the training script and perform 
 
 ### Submit the job
 
-It's now time to submit the job to run in AzureML. This time, you'll use `create_or_update` on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time, you'll use `create_or_update` on `ml_client.jobs`.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_job)]
 

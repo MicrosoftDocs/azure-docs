@@ -118,7 +118,7 @@ Registering the data asset will enable you to:
 
 * Reuse and share the data asset in future pipelines
 * Use versions to track the modification to the data asset
-* Use the data asset from Azure Machine Learning designer, which is AzureML's GUI for pipeline authoring
+* Use the data asset from Azure Machine Learning designer, which is Azure Machine Learning's GUI for pipeline authoring
 
 Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you'll then see the dataset registration completion message.
 
@@ -246,7 +246,7 @@ Now use your pipeline definition to instantiate a pipeline with your dataset, sp
 
 ## Submit the job 
 
-It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update`  on `ml_client.jobs`.
 
 Here you'll also pass an experiment name. An experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 

@@ -702,7 +702,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning studio Notebooks Experience (March Update)
 + **New features**
   + Render CSV/TSV. Users are able to render and TSV/CSV file in a grid format for easier data analysis. 
-  + SSO Authentication for Compute Instance. Users can now easily authenticate any new compute instances directly in the Notebook UI, making it easier to authenticate and use Azure SDKs directly in AzureML. 
+  + SSO Authentication for Compute Instance. Users can now easily authenticate any new compute instances directly in the Notebook UI, making it easier to authenticate and use Azure SDKs directly in Azure Machine Learning. 
   + Compute Instance Metrics. Users are able to view compute metrics like CPU usage and memory via terminal.
   + File Details. Users can now see file details including the last modified time, and file size by clicking the three dots beside a file.
 
@@ -824,8 +824,8 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
  ## 2021-01-31
 ### Azure Machine Learning studio Notebooks Experience (January Update)
 + **New features**
-  + Native Markdown Editor in AzureML. Users can now render and edit markdown files natively in Azure Machine Learning Studio.
-  + [Run Button for Scripts (.py, .R and .sh)](../how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
+  + Native Markdown Editor in Azure Machine Learning. Users can now render and edit markdown files natively in Azure Machine Learning Studio.
+  + [Run Button for Scripts (.py, .R and .sh)](../how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in Azure Machine Learning
   + [Variable Explorer](../how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
   + [Table of Content](../how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
   + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
@@ -1797,7 +1797,7 @@ Access the following web-based authoring tools from the studio:
     +  Added Environment.clone(new_name) API to create a copy of Environment object
     +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
     + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
-    + Added user_managed flag in RSection that indicates whether the environment is managed by user or by AzureML.
+    + Added user_managed flag in RSection that indicates whether the environment is managed by user or by Azure Machine Learning.
     + Dataset: Fixed dataset download failure if data path containing unicode characters.
     + Dataset: Improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled.
     + Dataset: We add an index for the time series column when you access a time series dataset as a pandas dataframe, which is used to speed up access to time series-based data access.  Previously, the index was given the same name as the timestamp column, confusing users about which is the actual timestamp column and which is the index. We now don't give any specific name to the index since it should not be used as a column. 

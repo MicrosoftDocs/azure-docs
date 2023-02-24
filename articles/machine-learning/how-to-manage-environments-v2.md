@@ -84,7 +84,7 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 ## Curated environments
 
-There are two types of environments in AzureML: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
+There are two types of environments in Azure Machine Learning: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
 Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Azure Machine Learning routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
 

@@ -1,7 +1,7 @@
 ---
 title: Query & compare experiments and runs with MLflow
 titleSuffix: Azure Machine Learning
-description: Explains how to use MLflow for managing experiments and runs in AzureML
+description: Explains how to use MLflow for managing experiments and runs in Azure Machine Learning
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
@@ -18,7 +18,7 @@ ms.custom: how-to, devx-track-python, ignite-2022
 Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. 
 
 > [!NOTE]
-> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in AzureML.
+> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure Machine Learning.
 
 MLflow allows you to:
 
@@ -28,7 +28,7 @@ MLflow allows you to:
 
 In this article, you'll learn how to manage experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python.
 
-## Using MLflow SDK in AzureML
+## Using MLflow SDK in Azure Machine Learning
 
 Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning. See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.
 
@@ -97,7 +97,7 @@ Another important point to notice is that get returning runs, all metrics are pa
 
 ### Ordering runs
 
-By default, experiments are ordered descending by `start_time`, which is the time the experiment was queue in AzureML. However, you can change this default by using the parameter `order_by`.
+By default, experiments are ordered descending by `start_time`, which is the time the experiment was queue in Azure Machine Learning. However, you can change this default by using the parameter `order_by`.
 
 ```python
 mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], order_by=["start_time DESC"])
@@ -289,7 +289,7 @@ The MLflow SDK exposes several methods to retrieve runs, including options to co
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
-> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in AzureML.
+> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure Machine Learning.
 > - <sup>2</sup> `!=` for tags not supported.
 
 ## Next steps

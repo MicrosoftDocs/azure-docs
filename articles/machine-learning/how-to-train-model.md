@@ -175,7 +175,7 @@ curl -X PUT \
 
 # [Python SDK](#tab/python)
 
-To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to AzureML. 
+To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure Machine Learning. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 

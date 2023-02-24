@@ -194,7 +194,7 @@ See these notebooks for examples of configuring jobs for various training scenar
     If you are submitting a user-created environment with your job, consider using the latest version of azureml-core in that environment. Versions >= 1.18.0 of azureml-core already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in the environment you submit, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
 
 
- * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in AzureML, the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure Machine Learning installs the package in the environment used for your training job.
+ * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure Machine Learning, the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure Machine Learning installs the package in the environment used for your training job.
 
     If you are using Estimators to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure Machine Learning Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
     

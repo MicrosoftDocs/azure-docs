@@ -50,7 +50,7 @@ Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pr
 
 To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It's only used with AzureML, and it can't run arbitrary bitstreams. For example, you won't be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It's only used with Azure Machine Learning, and it can't run arbitrary bitstreams. For example, you won't be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ## Deploy models on FPGAs
 

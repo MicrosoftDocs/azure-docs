@@ -123,7 +123,7 @@
       href: concept-v2.md
     - name: Work with Data
       items:
-        - name: Data concepts in AzureML
+        - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
@@ -781,7 +781,7 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
-    - name: Use R with AzureML
+    - name: Use R with Azure Machine Learning
       items:
         - name: Bring R workloads
           href: how-to-r-overview-r-capabilities.md

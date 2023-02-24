@@ -20,7 +20,7 @@ ms.date: 01/23/2023
 > * [v1](./v1/how-to-create-register-datasets.md)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
-In this article, you'll learn how to create a data asset in AzureML. An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
+In this article, you'll learn how to create a data asset in Azure Machine Learning. An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
 Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
 
