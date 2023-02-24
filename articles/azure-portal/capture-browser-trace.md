@@ -28,35 +28,35 @@ The following steps show how to use the developer tools in Microsoft Edge. For m
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
-    1. Select the **Network** tab, then select **Preserve log**.
-
-          ![Screenshot that highlights the Preserve log option on the Network tab.](media/capture-browser-trace/chromium-network-preserve-log.png)
-
     1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
 
-          ![Screenshot that highlights the Preserve log option on the Console tab.](media/capture-browser-trace/chromium-console-preserve-log.png)
+       :::image type="content" source="media/capture-browser-trace/edge-console-preserve-log.png" alt-text="Screenshot that highlights the Preserve log option on the Console tab in Edge.":::
 
-1. Select the **Network** tab, then select **Stop recording network log** and **Clear**.
+    1. Select the **Network** tab, then select **Preserve log**.
 
-    ![Screenshot of "Stop recording network log" and "Clear" on the Network tab.](media/capture-browser-trace/chromium-stop-clear-session.png)
+       :::image type="content" source="media/capture-browser-trace/edge-network-preserve-log.png" alt-text="Screenshot that highlights the Preserve log option on the Network tab in Edge.":::
+
+1. On the **Network** tab, select **Stop recording network log** and **Clear**.
+
+    :::image type="content" source="media/capture-browser-trace/edge-stop-clear-session.png" alt-text="Screenshot showing the Stop recording network log and Clear options on the Network tab in Edge.":::
 
 1. Select **Record network log**, then reproduce the issue in the portal.
 
-    ![Screenshot that shows how to record the network log.](media/capture-browser-trace/chromium-start-session.png)
+   :::image type="content" source="media/capture-browser-trace/edge-start-session.png" alt-text="Screenshot showing how to record the network log in Edge.":::
 
-    You will see session output similar to the following image.
+   You'll see session output similar to the following image.
 
-    ![Screenshot that shows the session output.](media/capture-browser-trace/chromium-browser-trace-results.png)
+   :::image type="content" source="media/capture-browser-trace/edge-browser-trace-results.png" alt-text="Screenshot showing session output in Edge.":::
 
 1. After you have reproduced the unexpected portal behavior, select **Stop recording network log**, then select **Export HAR** and save the file.
 
-    ![Screenshot that shows how to Export HAR on the Network tab.](media/capture-browser-trace/chromium-network-export-har.png)
+   :::image type="content" source="media/capture-browser-trace/edge-network-export-har.png" alt-text="Screenshot showing how to Export HAR on the Network tab in Edge.":::
 
 1. Stop the Steps Recorder and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
-    ![Screenshot that shows how to save the console output.](media/capture-browser-trace/chromium-console-select.png)
+   :::image type="content" source="media/capture-browser-trace/edge-console-select.png" alt-text="Sccreenshot showing how to save the console output in Edge.":::
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
@@ -64,7 +64,7 @@ The following steps show how to use the developer tools in Microsoft Edge. For m
 
 ## Google Chrome
 
-The following steps show how to use the developer tools in Microsoft Edge. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools).
+The following steps show how to use the developer tools in Google Chrome. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your account.
 
