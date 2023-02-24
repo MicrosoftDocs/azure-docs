@@ -28,7 +28,7 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Build and deploy apps
 
-The following procedure builds and deploys apps.
+Use the following procedure to build and deploy the sample applications.
 
 1. Clone and build the demo repository.
 
@@ -37,7 +37,7 @@ git clone https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-de
 cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 ```
 
-2. Create applications with endpoints
+1. Create applications with endpoints.
 
 ```azurecli
 az spring app create
@@ -52,7 +52,7 @@ az spring app create \
     --assign-endpoint
 ```
 
-3. Deploy applications.
+1. Deploy applications.
 
 ```azurecli
 az spring app deploy -n resilience4j \
@@ -63,7 +63,7 @@ az spring app deploy -n reactive-resilience4j \
     -s ${service_name} -g ${resource_group}
 ```
 
-> [!Note]
+> [!NOTE]
 >
 > * Include the required dependency for Resilience4j:
 >
@@ -102,31 +102,37 @@ az spring app deploy -n reactive-resilience4j \
 >   /get/fluxdelay/{seconds}
 >   ```
 
-## Locate Resilence4j Metrics from Portal
+## Locate Resilence4j Metrics from the Azure portal
 
-1. Select the **Application Insights** Blade from Azure Spring Apps portal, and select **Application Insights**.
+1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane.
 
-   [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.png#lightbox)
+1. Select **Application Insights** on the page.
 
-2. Select **Metrics** from the **Application Insights** page.  Select **azure.applicationinsights** from **Metrics Namespace**.  Also select **resilience4j_circuitbreaker_buffered_calls** metrics with **Average**.
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
 
-   [ ![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.png)](media/spring-cloud-resilience4j/resilience4J-1.png#lightbox)
+1. On the **Application Insights** page, select **Metics** in the navigation pane. This page provides dropdown menus from which you will define the charts in this procedure along with options to add a metric, add a filter, and apply splitting. For all charts, have the **Metric Namespace**, set to **azure.applicationinsights**.
 
-3. Select **resilience4j_circuitbreaker_calls** metrics and **Average**.
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing the drop down menus and options to define charts and with Metrics highlighted in the navigation pane." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
 
-   [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.png#lightbox)
+1. To begin, select *resilience4j_circuitbreaker_buffered_calls* for the **Metric** with **Aggregation** set to *Avg*.
 
-4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**. Select **Add filter**, and then select name as **createNewAccount**.
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart rendered from the circuitbreaker buffered calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
 
-   [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.png#lightbox)
+1. Select *resilience4j_circuitbreaker_calls* for the **Metric** with **Aggregation** set to *Avg*.
 
-5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then select **Apply splitting**, and select **kind**.
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart rendered from the circuitbreaker calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
 
-   [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.png#lightbox)
+1. Select *resilience4j_circuitbreaker_calls* for the **Metric** with **Aggregation** set to *Avg*. Select **Add filter**, and then select *createNewAccount*.
 
-6. Select **resilience4j_circuitbreaker_calls**, `**resilience4j_circuitbreaker_buffered_calls**, and **resilience4j_circuitbreaker_slow_calls** metrics with **Average**.
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart rendered from the circuitbreaker calls metric, averaged, and with a filter applied." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
 
-   [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.png#lightbox)
+1. Select *resilience4j_circuitbreaker_calls* for the **Metric** with **Aggregation** set to *Avg*. Then select **Apply splitting** and select *kind*.
+
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart rendered from the circuitbreaker calls, averaged, and with Apply splitting set to kind." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+
+1. Select *resilience4j_circuitbreaker_calls* for the **Metric** with **Aggregation** set to *Avg*. Select **Add metric** and select *resilience4j_circuitbreaker_buffered_calls* for the **Metric** with **Aggregation** set to *Avg*. Repeat to add the metric *resilience4j_circuitbreaker_slow_calls* with **Aggregation** set to *Avg*.
+
+  :::image type="content" source="media/how-to-circuit-breaker-metrics/slow-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart rendered from multiple metrics and averaged." lightbox="media/how-to-circuit-breaker-metrics/slow-calls.png":::
 
 ## Next steps
 
