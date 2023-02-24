@@ -13,21 +13,20 @@ ms.custom: subject-reliability, references_regions
 
 # Reliability in Azure Cognitive Search
 
-In Cognitive Search, "reliability" means maintaining high availability and business continuity if there's a service outage. Reliability is achieved when you:
+Across Azure, *reliability* means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
 
 + Configure a service to use multiple replicas, paired with availability zone support.
-
 + Deploy multiple search services across different geographic regions.
 
-  All workloads are fully contained within a single service that runs in a single geographic region. Adding cross-region support consists of creating search services that have identical configuration and content, and writing script or code that "fails over" to an alternate service if one suddenly becomes unavailable.
+All workloads are fully contained within a single service that runs in a single geographic region. Within a region, you can configure search to use multiple replicas that run in different availability zones. 
 
-This article provides guidance for developing a strategy that meets your business requirements for both availability and continuous operations.
+For business continuity and disaster recovery, you should develop a strategy that includes a cross-regional architecture, consisting of multiple search services having identical configuration and content. Your custom script or code provides the "fail over" mechanism to an alternate search service if one suddenly becomes unavailable.
 
 <a name="scale-for-availability"></a>
 
 ## High availability
 
-In Cognitive Search, replicas are copies of your index. A search service is installed with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
+In Cognitive Search, replicas are copies of your index. A search service is installed with at least one replica, and can have up to 12 replicas. [Adding replicas](search-capacity-planning.md#adjust-capacity) is how you achieve high availability. Multiple replicas allow Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
 
 For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria:
 
@@ -102,9 +101,12 @@ You can implement this architecture by creating multiple services and designing 
 
 <a name="data-sync"></a>
 
-### Keep data synchronized across multiple services
+### Synchronize data across multiple services
 
-There are two options for keeping two or more distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)). 
+There are two options for keeping two or more distributed search services in sync:
+
++ Pull content updates into a search index by using an [indexer](search-indexer-overview.md).
++ Push content into an index using the [Add or Update Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) API or an Azure SDK equivalent API.
 
 #### Option 1: Use indexers for updating content on multiple services
 
@@ -112,7 +114,7 @@ If you're already using indexer on one service, you can configure a second index
 
 Here's a high-level visual of what that architecture would look like.
 
-   ![Single data source with distributed indexer and service combinations][2]
+![Single data source with distributed indexer and service combinations][2]
 
 #### Option 2: Use REST APIs for pushing content updates on multiple services
 
@@ -122,7 +124,7 @@ If you're using the Azure Cognitive Search REST API to [push content to your sea
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. One advantage of the Traffic Manager is that it can probe Azure Cognitive Search to confirm availability and route users to alternate search services if a service is down. In addition, if you're routing search requests through Azure Web Sites, Azure Traffic Manager can help you load balance cases where the web site is up, but search isn't. Here's an example of an architecture that uses Traffic Manager.
 
-   ![Cross-tab of services by region, with central Traffic Manager][3]
+![Cross-tab of services by region, with central Traffic Manager][3]
 
 ## Data residency
 
