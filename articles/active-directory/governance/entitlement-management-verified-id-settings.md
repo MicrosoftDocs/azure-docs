@@ -52,13 +52,13 @@ To add a verified ID requirement to an access package, you must start from the a
     :::image type="content" source="media/entitlement-management-verified-id-settings/select-issuer.png" alt-text="Select issuer for entra verified credentials.":::
 
 1. Select the **credential type(s)** you want users to present during the request process.
-    :::image type="content" source="media/entitlement-management-verified-id-settings/issuer-credentials.png" alt-text="Credential types for entra verified IDs.":::
+    :::image type="content" source="media/entitlement-management-verified-id-settings/issuer-credentials.png" alt-text="Screenshot of credential types for entra verified IDs.":::
     > [!NOTE]
     > If you select multiple credential types from one issuer, users will be required to present credentials of all selected types. Similarly, if you include multiple issuers, users will be required to present credentials from each of the issuers you include in the policy. To give users the option of presenting different credentials from various issuers, configure separate policies for each issuer/credential type you’ll accept.
 1. Select **Add** to add the verified ID requirement to the access package policy. 
 
 1. Once you have finished configuring the rest of the settings, you can review your selections on the **Review + create** tab. You can see all verified ID requirements for this access package policy in the **Verified IDs** section.
-    :::image type="content" source="media/entitlement-management-verified-id-settings/verified-ids-list.png" alt-text="List of verified IDs.":::
+    :::image type="content" source="media/entitlement-management-verified-id-settings/verified-ids-list.png" alt-text="Screenshot of a list of verified IDs.":::
 
 
 ## Request an access package with verified ID requirements (Preview)
@@ -72,9 +72,9 @@ The requestor steps are as follows:
 1. Search for the access package you want to request access to (you can browse the listed packages or use the search bar at the top of the page) and select **Request**.
 
 1. If the access package requires you to present a verified ID, you should see a grey information banner as shown here:
-    :::image type="content" source="media/entitlement-management-verified-id-settings/present-verified-id-access-package.png" alt-text="present verified ID for access package.":::
+    :::image type="content" source="media/entitlement-management-verified-id-settings/present-verified-id-access-package.png" alt-text="Screenshot of the present verified ID for access package option.":::
 1. Select **Request Access**. You should now see a QR code. Use your phone to scan the QR code. This launches Microsoft Authenticator, where you'll be prompted to share your credentials.
-    :::image type="content" source="media/entitlement-management-verified-id-settings/verified-id-qr-code.png" alt-text="QR code for verified IDs.":::
+    :::image type="content" source="media/entitlement-management-verified-id-settings/verified-id-qr-code.png" alt-text="Screenshot of use QR code for verified IDs.":::
 1. After you share your credentials, My Access will automatically take you to the next step of the request process.
 
 
