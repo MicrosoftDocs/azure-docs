@@ -145,6 +145,7 @@ productDirectory:
       imageSrc: ./media/index/communications-gateway.svg
       azureCategories:
         - networking
+        - 5g-space
       url: communications-gateway/index.yml
     # Card
     - title: Computer Vision
@@ -1376,6 +1377,7 @@ productDirectory:
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
+        - 5g-space
       url: private-5g-core/index.yml
     # Card
     - title: Load Balancer
