@@ -26,13 +26,13 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 ## Requesting access to the camera and microphone
 
 For calling applications, it's often vital a user has given permission to use the microphone and camera.
-In this section, we create a series of components that will encourage the user to grant access to the camera and microphone.
+In this section, we create a series of components that encourages the user to grant access to the camera and microphone.
 We display prompts to the user to guide them through granting access.
 We inform the user with a prompt if access isn't granted.
 
 ### Creating prompts for camera and microphone access
 
-We first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneSitePermissions` component
+We first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts use the `CameraAndMicrophoneSitePermissions` component
 from the UI Library. Like the Unsupported Browser prompt, we host these prompts inside a FluentUI `modal`.
 
 `src/DevicePermissionPrompts.tsx`
@@ -71,7 +71,7 @@ const PermissionsModal = (props: { isOpen: boolean, kind: "denied" | "request" |
 ### Checking for camera and microphone access
 
 Here we add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
-`checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we ensure we handle the `unknown` case when prompting the user for permissions.
+`checkDevicePermissionsState` uses the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we ensure we handle the `unknown` case when prompting the user for permissions.
 
 `src/DevicePermissionUtils.ts`
 
@@ -84,7 +84,7 @@ import { StatefulCallClient } from "@azure/communication-react";
  *
  * @remarks
  * The Permissions API we are using is not supported in Firefox, Android WebView or Safari < 16.
- * In those cases this will return 'unknown'.
+ * In those cases this returns 'unknown'.
  */
 export const checkDevicePermissionsState = async (): Promise<{camera: PermissionState, microphone: PermissionState} | 'unknown'> => {
   try {
@@ -149,7 +149,7 @@ export const DeviceAccessChecksComponent = (props: {
   useEffect(() => {
     const runDeviceAccessChecks = async (): Promise<void> => {
 
-      // First we will check if we need to prompt the user for camera and microphone permissions.
+      // First we check if we need to prompt the user for camera and microphone permissions.
       // The prompt check only works if the browser supports the PermissionAPI for querying camera and microphone.
       // In the event that is not supported, we show a more generic prompt to the user.
       const devicePermissionState = await checkDevicePermissionsState();
@@ -193,7 +193,7 @@ export const DeviceAccessChecksComponent = (props: {
 
 ```
 
-After we have finished creating this component, we will add it to the `App.tsx`. First, add the import:
+After we have finished creating this component, we add it to the `App.tsx`. First, add the import:
 
 ```ts
 import { DeviceAccessChecksComponent } from './DeviceAccessChecksComponent';
@@ -237,7 +237,7 @@ const App = (): JSX.Element => {
         )}
 
 
-        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
@@ -245,7 +245,7 @@ const App = (): JSX.Element => {
 }
 ```
 
-The app will now present the user with prompts to guide them through device access:
+The app presents the user with prompts to guide them through device access:
 
 ![Gif showing user being prompted for camera and microphone access](../media/call-readiness/prompt-device-permissions.gif)
 
