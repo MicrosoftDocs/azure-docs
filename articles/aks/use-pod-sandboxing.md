@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 02/23/2023
 
 ---
 
@@ -41,7 +41,7 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-### Register the 'KataVMIsolationPreview' feature flag
+### Register the KataVMIsolationPreview feature flag
 
 Register the `KataVMIsolationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -124,7 +124,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 To use this feature with an existing AKS cluster, the following requirements must be met:
 
-* Follow the steps to [register the KataVMIsolationPreview][#register-the-'KataVMIsolationPreview'-feature-flag] feature flag.
+* Follow the steps to [register the KataVMIsolationPreview][register-the-katavmisolationpreview-feature-flag] feature flag.
 * Verify the cluster is running Kubernetes version 1.24.0 and higher.
 
 Use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
