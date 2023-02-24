@@ -108,7 +108,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: If a CorrelationIdExpression (which is the expression to parse the correlation identifier from the device message) is specified in the device mappings, then this error occurs when the correlation identifier isn’t present in a device message, or when the CorrelationIdExpression isn’t configured correctly in the device mappings. **Note:** The CorrelationIdExpression is *optional*. This error occurs when grouping measurements that share the same device, type, and correlation identifier into a single FHIR Observation resource.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**:
 
@@ -120,7 +120,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: An error occurred while transforming normalized data with the FHIR destination mappings. This error occurs when a template that corresponds to the normalized data isn't defined in the FHIR destination mappings.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mappings, there's a template with the same `typeName` value in the FHIR destination mappings. Also, fix any validation errors that are shown when editing and saving the FHIR destination mappings in the **Destination** blade.
 
@@ -128,7 +128,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is `Patient`, then the error may be that the `Device` FHIR resource with the device identifier given in the device message doesn't reference a `Patient` FHIR resource. The FHIR resource’s type (for example, `Device`, `Patient`, `Encounter`, or `Observation`) is specified in the error message. **Note:** This error occurs when the MedTech service’s resolution type is set to **Lookup**.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIDExpression`) value in the device mappings exists and correctly references the identifier’s key in your device messages.
 
@@ -136,7 +136,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: There's an incompatibility between the device message and the device mappings (for example, a required property may be missing or blank in the device message and/or in the device mappings. The device mappings property with the error is specified in the error message.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that your device messages contain 1) The key that is referenced by the device mappings property specified in the error message and 2) A non-blank value for the key. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the device mappings property specified in the error message has a value that correctly references the corresponding key in your device messages.
 
@@ -144,7 +144,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: A device message isn't in a format that can be parsed into a JSON object.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that your device messages are in JSON format. One way to confirm JSON format is to use an online JSON validator.
 
@@ -156,7 +156,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 * More than one service is reading from the event hub consumer group.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Event Hubs** blade of your MedTech service, and ensure that all the fields for the event hub details are filled in. To ensure that only your MedTech service reads from the consumer group, either:
 
@@ -168,7 +168,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: The FHIR destination is invalid because it's incorrectly formatted, doesn't exist, or isn't a FHIR service in Azure Health Data Services.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Destination** blade of your MedTech service, and ensure that the **FHIR server** field is correctly filled in.
 
@@ -176,7 +176,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 **Description**: The value with a `Quantity` FHIR data type is invalid (for example, it may be in a format that isn’t supported). The value with the error is specified in the error message.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that the values in your device messages are in supported datatypes according to the [FHIR Quantity.value specifications](https://build.fhir.org/datatypes-definitions.html#Quantity.value).
 
@@ -194,7 +194,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 The template’s type and line with the error are specified in the error message.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade (if error is in the device mappings) or the **Destination** blade (if error is in the FHIR destination mappings) of your MedTech service, and correct the template specified in the error message.
 
@@ -202,7 +202,7 @@ The template’s type and line with the error are specified in the error message
 
 **Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist. **Note:** The system-assigned managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure the following: 
 
@@ -216,7 +216,7 @@ The template’s type and line with the error are specified in the error message
 
 **Description**: Multiple FHIR resources with the same identifier, which is taken from the device message, are found in the FHIR destination, but only one FHIR resource should have been found. The FHIR resource’s type (for example, `Device`, `Patient`, `Encounter`, or `Observation`) is specified in the error message.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that an identifier isn't assigned to more than one FHIR resource that has the type specified in the error message.
 
@@ -224,7 +224,7 @@ The template’s type and line with the error are specified in the error message
 
 **Description**: An error occurred while normalizing a device message with the device mappings.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: Ensure that your device messages are in JSON format. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and fix any validation errors that are shown when editing and saving the device mappings.
 
@@ -232,7 +232,7 @@ The template’s type and line with the error are specified in the error message
 
 **Description**: A `Device` FHIR resource in the FHIR destination references a `Patient` FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that a patient identifier isn't assigned to more than one device.
 
@@ -240,7 +240,7 @@ The template’s type and line with the error are specified in the error message
 
 **Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mappings. The FHIR resource’s type (for example, `Device`, `Patient`, `Encounter`, or `Observation`) is specified in the error message. **Note:** This error occurs when the MedTech service’s resolution type is set to **Create**.
 
-**Severity**: Warning
+**Severity**: Non-blocking
 
 **Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (`deviceIdExpression`) value in the device mappings exists and correctly references the identifier’s key in your device messages.
 
@@ -256,7 +256,7 @@ The template’s type and line with the error are specified in the error message
 
 The expression and line with the error are specified in the error message.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade of your MedTech service, and correct the expression specified in the error message.
 
@@ -264,7 +264,7 @@ The expression and line with the error are specified in the error message.
 
 **Description**: A template in the device mappings doesn't have a matching template with the same type in the FHIR destination mappings. The template’s type is specified in the error message.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mappings, there's a template with the same `typeName` value in the FHIR destination mappings.
 
@@ -272,7 +272,7 @@ The expression and line with the error are specified in the error message.
 
 **Description**: The MedTech service is missing receiving access to the event hub.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
 
@@ -280,7 +280,7 @@ The expression and line with the error are specified in the error message.
 
 **Description**: The MedTech service is missing write access to the FHIR destination.
 
-**Severity**: Critical
+**Severity**: Blocking
 
 **Fix**: On the Azure portal, go to your FHIR service, and assign the **FHIR Data Writer** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-fhir-service)).
 

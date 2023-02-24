@@ -42,7 +42,7 @@ The MedTech service buffers the FHIR Observations resources created during the t
 ## Why is the MedTech service device message data not showing up in the FHIR service?
 
 > [!TIP]
-> Having access to MedTech service logs are essential for troubleshooting and assessing the overall health and performance of your MedTech service.
+> Having access to MedTech service logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service.
 >
 > To learn how to troubleshoot MedTech service errors found in the logs, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
 
@@ -70,7 +70,7 @@ To learn more about event hub message retention, see [What is the maximum retent
 * 10 MedTech services per Azure Health Data Services workspace (not adjustable).
 * One FHIR destination* per MedTech service (not adjustable).
 
-\* FHIR destination is a child resource of the MedTech service)
+\* FHIR destination is a child resource of the MedTech service.
 
 ## Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 
@@ -82,7 +82,7 @@ To learn more about the MedTech service open-source projects, see [Open-source p
 
 In this article, you learned about the MedTech service frequently asked questions (FAQs)
 
-To learn about the MedTech service, see
+For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)

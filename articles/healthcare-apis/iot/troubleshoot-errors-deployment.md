@@ -66,7 +66,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Description**: The MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` provided in the provisioning request isn't valid.
 
-**Fix**: Update the MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. The format should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
+**Fix**: Update the MedTech service's `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. The format should be `{EVENTHUB_NAMESPACE}.servicebus.windows.net`.
 
 ### Ancestor resources must be fully provisioned before a child resource can be provisioned.
 
