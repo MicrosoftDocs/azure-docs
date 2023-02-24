@@ -28,7 +28,7 @@ AzAcSnap 7a is being released with the following fixes:
 
 - Fixes for `-c restore` commands:
   - Enable mounting volumes on HLI (BareMetal) where the volumes have been reverted to a prior state when using `-c restore --restore revertvolume`.
-  - Correctly set ThroughputMiBps on volume clones for Azure NetApp Files volumes which are part of an Auto QoS Capacity Pool when using `-c restore --restore snaptovol`.
+  - Correctly set ThroughputMiBps on volume clones for Azure NetApp Files volumes in an Auto QoS Capacity Pool when using `-c restore --restore snaptovol`.
 
 ## Dec-2022
 
@@ -66,7 +66,7 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
  
-Since AzAcSnap v5.0 was released as GA in April 2021, there have been 8 releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6 we'll have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  This means the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
+Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we'll have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  This means the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
 
 AzAcSnap 6 is being released with the following fixes and improvements:
 
@@ -80,7 +80,7 @@ AzAcSnap 6 is being released with the following fixes and improvements:
 - ANF Client API Version updated to 2021-10-01.
 - Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
  
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
 ## May-2022
 
@@ -106,7 +106,7 @@ Download the [latest release of the Preview installer](https://aka.ms/azacsnap-p
 AzAcSnap v5.1 Preview (Build: 20220302.81795) has been released with the following new features:
 
 - Azure Key Vault support for securely storing the Service Principal.
-- A new option for `-c backup --volume` which has the `all` parameter value.
+- A new option for `-c backup --volume`, which has the `all` parameter value.
 
 ## Feb-2022
 
