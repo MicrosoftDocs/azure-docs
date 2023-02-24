@@ -51,7 +51,14 @@ You should receive a response body in the following format:
     ],
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked",
-    "duration": "PT3S"
+    "duration": "PT3S",
+    "languageIdentification": {
+      "candidateLocales": [
+        "en-US",
+        "de-DE",
+        "es-ES"
+      ]
+    }
   },
   "lastActionDateTime": "2022-09-10T18:39:09Z",
   "status": "Succeeded",
@@ -122,7 +129,6 @@ spx help batch transcription
 ## Get transcription results
 
 ::: zone pivot="rest-api"
-
 
 The [Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
 
@@ -347,7 +353,7 @@ Depending in part on the request parameters set when you created the transcripti
 |`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
-|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property is not present.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase. The value is an ISO 8601 encoded duration.|
