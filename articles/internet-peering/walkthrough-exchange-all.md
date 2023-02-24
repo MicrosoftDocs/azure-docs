@@ -17,7 +17,7 @@ In this article, you learn how to set up and manage an Exchange peering.
 
 ## Create an Exchange peering
 
-:::image type="content" source="./media/walkthrough-exchange-all/exchange-peering.png" alt-text="Diagram showing Exchange peering workflow and connection states.":::
+:::image type="content" source="./media/walkthrough-exchange-all/exchange-peering.png" alt-text="Diagram showing Exchange peering workflow and connection states." lightbox="./media/walkthrough-exchange-all/exchange-peering.png":::
 
 The following steps must be followed in order to provision an Exchange peering:
 1. Review Microsoft [peering policy](policy.md) to understand requirements for Exchange peering.
