@@ -3,7 +3,7 @@ title: Connect Microsoft Sentinel to other Microsoft services with a Windows age
 description: Learn how to connect Microsoft Sentinel to Microsoft services with Windows agent-based connections.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/24/2023
 ms.author: yelevin
 ---
 
