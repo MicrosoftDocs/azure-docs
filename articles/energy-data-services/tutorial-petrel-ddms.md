@@ -76,14 +76,14 @@ This request will generate an access token and assign it as the authorization me
 
 You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
 
-      ```bash
+```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
           --header 'Content-Type: application/x-www-form-urlencoded' \
           --data-urlencode 'grant_type=client_credentials' \
           --data-urlencode 'client_id={{CLIENT_ID}}' \
           --data-urlencode 'client_secret={{CLIENT_SECRET}}' \
           --data-urlencode 'scope={{SCOPE}}'  
-      ```
+```
 
 In order to use this cURL generated token, you must update `access_token` in your **Collection** variables with the value after `Bearer` in the response.
 
