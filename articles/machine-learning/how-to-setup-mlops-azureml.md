@@ -230,13 +230,40 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
    * In the workspace, there's also a compute cluster created.
    
-1. Now the Operationalizing Loop of the MLOps Architecture is deployed.
+1. Now the infrastructure for your MLOps project is deployed.
     ![Screenshot of ADO Infra Pipeline screen.](./media/how-to-setup-mlops-azureml/ADO-infra-pipeline.png)
 
     > [!NOTE]
     > The **Unable move and reuse existing repository to required location** warnings may be ignored.
 
-## Deploying model training pipeline and moving to test environment
+## Sample Training and Deployment Scenario
+
+The solution accelerator includes code and data for a sample end-to-end machine learning pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. Sample pipelines and workflows for the Computer Vision and NLP scenarios will have different steps and deployment steps.
+
+This training pipeline contains the following steps:
+
+**Prepare Data**
+   - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
+   - Input: Local data under ./data/ (multiple .csv files)
+   - Output: Single prepared dataset (.csv) and train/val/test datasets.
+
+**Train Model**
+   - This component trains a Linear Regressor with the training set.
+   - Input: Training dataset
+   - Output: Trained model (pickle format)
+   
+**Evaluate Model**
+   - This component uses the trained model to predict taxi fares on the test set.
+   - Input: ML model and Test dataset
+   - Output: Performance of model and a deploy flag whether to deploy or not.
+   - This component compares the performance of the model with all previous deployed models on the new test dataset and decides whether to promote or not model into production. Promoting model into production happens by registering the model in AML workspace.
+
+**Register Model**
+   - This component scores the model based on how accurate the predictions are in the test set.
+   - Input: Trained model and the deploy flag.
+   - Output: Registered model in Azure Machine Learning.
+
+## Deploying model training pipeline
 
 1. Go to ADO pipelines
    
@@ -263,28 +290,9 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 > [!NOTE]
 > At this point, the infrastructure is configured and the Prototyping Loop of the MLOps Architecture is deployed. you're ready to move to our trained model to production.      
 
-## Moving to production environment and deploying model 
-         
-**Prepare Data**
-   - This component takes multiple taxi datasets (yellow and green) and merges/filters the data, and prepare the train/val and evaluation datasets.
-   - Input: Local data under ./data/ (multiple .csv files)
-   - Output: Single prepared dataset (.csv) and train/val/test datasets.
+## Deploying the Trained model 
 
-**Train Model**
-   - This component trains a Linear Regressor with the training set.
-   - Input: Training dataset
-   - Output: Trained model (pickle format)
-   
-**Evaluate Model**
-   - This component uses the trained model to predict taxi fares on the test set.
-   - Input: ML model and Test dataset
-   - Output: Performance of model and a deploy flag whether to deploy or not.
-   - This component compares the performance of the model with all previous deployed models on the new test dataset and decides whether to promote or not model into production. Promoting model into production happens by registering the model in AML workspace.
-
-**Register Model**
-   - This component scores the model based on how accurate the predictions are in the test set.
-   - Input: Trained model and the deploy flag.
-   - Output: Registered model in Azure Machine Learning.
+This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure ML workspace. IN this example we will be using real-time scoring.
 
 ### Deploy ML model endpoint
 1. Go to ADO pipelines
@@ -311,14 +319,14 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
    ![Screenshot of Azure DevOps batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
-> [!IMPORTANT]
-> If the run fails due to an existing online endpoint name, recreate the pipeline as described previously and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
+   > [!IMPORTANT]
+   > If the run fails due to an existing online endpoint name, recreate the pipeline as described previously and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
    
 1. When the run completes, you'll see output similar to the following image:
    
    ![Screenshot of ADO Pipeline batch run result page.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline-run.png)
-   
-   Now the Prototyping Loop is connected to the Operationalizing Loop of the MLOps Architecture and inference has been run.
+
+1. To test this deployment, go to the **Endpoints** tab in your AzureML workspace, select the endpoint and click the **Test** Tab. You can use the sample input data located in the cloned repo at `/data/taxi-request.json` to test the endpoint.
 
 ## Clean up resources
 
