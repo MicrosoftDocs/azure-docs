@@ -55,7 +55,7 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
 For policy XML examples, see [API Management policy samples](./policies/index.md). 
 
 ### Error handling
-an
+
 If an error occurs during the processing of a request:
 * Any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped.
 * Execution jumps to the statements in the `on-error` section.
