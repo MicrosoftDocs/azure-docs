@@ -48,7 +48,7 @@ The developer portal provides a graphical interface for creation and management 
 
    :::image type="content" source="media/how-to-manage-environments/parameter-pane.png" alt-text="Screenshot showing the parameter pane.":::
 
-1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+1. Select **Create**. You see the environment tile in the developer portal immediately, displaying the **Creating...** status while creation is in progress.
  
 1. To view the resources created for the environment, select **Environment Resources**.
    
@@ -134,4 +134,5 @@ az devcenter dev environment delete --dev-center <devcenter-name>  --project-nam
 
 ## Next steps
 
-Learn more about managing your environments with the CLI: [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)
+- Learn about configuring Azure Deployment Environments: [Quickstart: Create and configure a dev center](quickstart-create-and-configure-devcenter.md)
+- Learn more about managing your environments with the CLI: [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)
