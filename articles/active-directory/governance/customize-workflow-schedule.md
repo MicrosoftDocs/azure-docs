@@ -32,7 +32,7 @@ Workflows created within Lifecycle Workflows follow the same schedule that you d
 1. Select **Workflow settings (Preview)** from the Lifecycle workflows overview page.
 
 1. On the workflow settings page you can set the schedule of workflows from an interval between 1-24.
-    :::image type="content" source="media/customize-workflow-schedule/workflow-schedule-settings.png" alt-text="the settings for workflow schedule.":::
+    :::image type="content" source="media/customize-workflow-schedule/workflow-schedule-settings.png" alt-text="Screenshot of the settings for workflow schedule.":::
 1. After setting the workflow schedule, select save.
 
 ## Customize the schedule of workflows using Microsoft Graph
