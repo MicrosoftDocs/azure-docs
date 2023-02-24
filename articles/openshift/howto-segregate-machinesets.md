@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, machine set, openshift, red hat
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/24/2023
 ms.custom: template-how-to
 ---
 
@@ -52,7 +52,7 @@ Use the following command to log into the jumphost:
 
 `oc login $apiServer -u kubeadmin -p <kubeadmin password>`
 
-Verify the number of nodes and machine sets using the `oc get nodes` and `oc get machineSets -n openshift-mchine-api` commands, as shown in the following examples:
+Verify the number of nodes and machine sets using the `oc get nodes` and `oc get machineSets -n openshift-machine-api` commands, as shown in the following examples:
 
 ```
 $ oc get nodes
