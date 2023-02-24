@@ -693,31 +693,39 @@
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors
-        href: connect-azure-windows-microsoft-services.md
+        items: 
+        - name: Connect Microsoft Sentinel to Microsoft connectors
+          href: connect-azure-windows-microsoft-services.md
+        - name: API-based connection
+          href: connect-services-api-based.md
+        - name: Diagnostic settings-based connection
+          href: connect-services-diagnostic-setting-based.md
+        - name: Windows agent-based connection
+          href: connect-services-windows-based.md
+        - name: Microsoft Purview Information Protection
+          href: connect-microsoft-purview.md
+        - name: Azure Virtual Desktop
+          href: connect-azure-virtual-desktop.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
+      - name: Azure Functions API connection
+        href: connect-azure-functions-template.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
       - name: CEF via AMA
         href: connect-cef-ama.md
+      - name: Custom log sources
+        href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
-      - name: Syslog (raw) sources
-        href: connect-syslog.md
-      - name: Microsoft Purview Information Protection
-        href: connect-microsoft-purview.md
-      - name: Microsoft Sentinel Data Collector API
-        href: connect-rest-api-template.md
-      - name: Azure Functions API connection
-        href: connect-azure-functions-template.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
         href: connect-logstash.md
-      - name: Custom log sources
-        href: connect-custom-logs.md
-      - name: Azure Virtual Desktop
-        href: connect-azure-virtual-desktop.md
+      - name: Microsoft Sentinel Data Collector API
+        href: connect-rest-api-template.md
+      - name: Syslog (raw) sources
+        href: connect-syslog.md
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Deploy a log forwarder
