@@ -9,7 +9,7 @@ ms.date: 09/01/2022
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. 
 
 > [!IMPORTANT]
-> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **private preview**. If you have questions or need support, please email us [mailto:ask-graph-and-grid@microsoft.com?subject=Support Request](<mailto:ask-graph-and-grid@microsoft.com?subject=>Support Request>).
+> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **private preview**. If you have questions or need support, please email us [mailto:ask-graph-and-grid@microsoft.com?subject=Support Request](<mailto:ask-graph-and-grid@microsoft.com?subject=Support Request>).
 
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
