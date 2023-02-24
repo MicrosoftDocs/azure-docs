@@ -16,3 +16,4 @@
 - Azure Disk Encryption (guest VM encryption via Bitlocker/DM-Crypt) isn't supported for VMs with Premium SSD v2 disks. We recommend you to use encryption at rest with platform-managed or customer-managed keys, which is supported for Premium SSD v2. 
 - Currently, Premium SSD v2 disks can't be attached to VMs in Availability Sets.
 - Azure Backup and Azure Site Recovery aren't supported for VMs with Premium SSD v2 disks. 
+- Premium SSD v2 disks cannot directly created and attached to the already existing VMs. Create a new Premium SSD v2 disk in the same zone and region as the VM and then attach the disk to the existing VM.
