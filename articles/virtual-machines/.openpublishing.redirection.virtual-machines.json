@@ -1,12 +1,12 @@
 {
     "redirections": [
         {
-            "source_path": "/articles/virtual-machines/linux/tutorial-load-balancer.md",
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-load-balancer",
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
         },
