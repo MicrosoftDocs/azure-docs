@@ -109,15 +109,6 @@ You can see the usage metrics and month-over-month trend against each of these d
 
 For the selected computation period, the heatmap displays the total usage against geography dimension. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country/region.
 
-:::image type="content" source="./media/usage-dashboard/normalized-usage-country.png" alt-text="Illustrates the Normalized usage country chart on the Usage dashboard.":::
-
-Note the following:
-
-- You can move the map to view the exact location.
-- You can zoom into a specific location.
-- The heatmap has a supplementary grid to view the details of customer count, order count, and normalized usage hours in the specific location.
-- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
-
 ## Containers
 In this section, you'll find the information about widgets available for container raw usage.
 
@@ -155,15 +146,6 @@ You can see the usage metrics and month-over-month trend for container offers ag
 ### Geographical spread
 
 For the selected computation period, the heatmap displays the total usage against geography dimension. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country/region. Data in this widget is filtered based on Pricing option selected on top.
-
-:::image type="content" source="./media/usage-dashboard/normalized-usage-country.png" alt-text="Illustrates the Normalized usage country chart on the Usage dashboard.":::
-
-Note the following:
-
-- You can move the map to view the exact location.
-- You can zoom into a specific location.
-- The heatmap has a supplementary grid to view the details of customer count, order count, and normalized usage hours in the specific location.
-- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
 
 ### Customers
 

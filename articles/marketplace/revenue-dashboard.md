@@ -125,7 +125,7 @@ Select the ellipsis (three dots) to copy the widget image and download the image
 The _Revenue details_ table displays a numbered list of the 1,000 top orders sorted by transaction month.
 
 - Each column in the grid is sortable.
-- Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order id_ and _line item id_.
+- Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order ID_ and _line item ID_.
 - Apply filters to the revenue details table to display only the data you're interested in. You can filter by order type, offer name, billing model, sales channel, payment instrument type, payout status, and estimated payout instrument.
 
 [ ![Screenshot of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget.png) ](./media/revenue-dashboard/details-widget.png#lightbox)
@@ -156,7 +156,7 @@ Note the following:
 | Status - Reprocessed | The overall revenue under-reprocessing due to various reasons. For example, invoice cancellation or safe approval cancelation, and so on. |
 | Status - Unreconciled | The overall revenue for which successful reconciliation with earnings couldn't happen. This can occur for multiple reasons:<ul><li>Estimated revenue is generated but earnings aren't yet posted</li><li>Some issues with software systems</li></ul> |
 | Status - Uncollected | The overall revenue for which an end customer hasn't yet paid or has defaulted. [Learn more](/partner-center/payout-policy-details#process-for-customer-non-payment) about write-offs. For enterprise agreement (EA) customers, there may be entries and for non-EA customers there will be no entries in the transaction history report. |
-| Transactions | An order purchase or an offer usage event for which a purchase order id and line-item id are generated in the customer invoice. |
+| Transactions | An order purchase or an offer usage event for which a purchase order ID and line-item ID are generated in the customer invoice. |
 | Purchase record ID | Relates to a customer's invoice. Same as `order id` in the transaction history report. |
 | Line-item ID | Individual line in a customer's invoice. Same as  `lineItemId` in the transaction history report. |
 | Customer name | Name of the customer |
