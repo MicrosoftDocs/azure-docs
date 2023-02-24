@@ -3,15 +3,12 @@ title: Testing Azure VM network throughput
 titlesuffix: Azure Virtual Network
 description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: allensu
-
 ---
 
 # Bandwidth/Throughput testing (NTTTCP)
@@ -35,6 +32,10 @@ Tip: When setting up this test for the first time, you might try a shorter test 
 > [!NOTE]
 > The sender **and** receiver must specify **the same** test duration
 parameter (-t).
+>
+> The IP address in both Sender and Receiver commands is the Receiver's IP address.
+> 
+> The -r and -s flags are no longer required for the receiver and sender parameters.
 
 To test a single TCP stream for 10 seconds:
 

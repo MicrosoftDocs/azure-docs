@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
+You can use [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
 
 To improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
 
@@ -78,7 +78,7 @@ If you switched from local usernames and passwords to Azure AD, follow the steps
 
 If you switched from Azure AD to local usernames and passwords:
 
-1. Sign in to [Azure Cloud Shell](/azure/cloud-shell/overview) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Delete the Kubernetes Secret Objects:
 
     `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig>`

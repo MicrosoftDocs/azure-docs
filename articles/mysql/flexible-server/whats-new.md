@@ -22,6 +22,18 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+
+## February 2023
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.31**
+
+  After this month's deployment, Azure Database for MySQL - Flexible Server 8.0  will be running on minor version 8.0.31*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.31 (2022-10-11, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html)
+
+- **Known issues**
+  
+  Upgrade Option Unavailable in Portal: Following technical issues after this month's deployment, the Major Version Upgrade feature has been temporarily disabled in the portal. We apologize for any inconvenience caused. Our team is working on a solution and the issue will be resolved in the next deployment cycle. If you require immediate assistance with the Major Version Upgrade, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
+
+
 ## December 2022
 - **New Replication Metrics**
   

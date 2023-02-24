@@ -13,7 +13,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - [Integrate with Microsoft Sentinel](iot-solution.md) to view Defender for IoT alerts in Microsoft Sentinel and manage them together with security incidents.
 
-- If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only. 
+- If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
 
     For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
@@ -32,7 +32,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
 ## View alerts on the Azure portal
 
-1. In Defender for IoT on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left. By default, the following details are shown in the grid:
 
     | Column | Description
     |--|--|
@@ -93,7 +93,7 @@ Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *
 
 ## Manage alert severity and status
 
-We recommend that you update alert severity as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
+We recommend that you update alert severity In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal as soon as you've triaged an alert so that you can prioritize the riskiest alerts as soon as possible. Make sure to update your alert status once you've taken remediation steps so that the progress is recorded.
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
@@ -115,8 +115,8 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
     In Defender for IoT in the Azure portal, select the **Alerts** page on the left, and then do one of the following:
 
-    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page for a learnable alert, in the **Take Action** tab, select **Learn**.
+  - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+  - On an alert details page for a learnable alert, in the **Take Action** tab, select **Learn**.
 
 ## Access alert PCAP data
 
@@ -136,14 +136,13 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
-1. In Defender for IoT on the Azure portal, select the **Alerts** page on the left.
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select the **Alerts** page on the left.
 
 1. Use the search box and filter options to show only the alerts you want to export.
 
 1. In the toolbar above the grid, select **Export** > **Confirm**.
 
 The file is generated, and you're prompted to save it locally.
-
 
 ## Next steps
 
@@ -155,3 +154,6 @@ The file is generated, and you're prompted to save it locally.
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

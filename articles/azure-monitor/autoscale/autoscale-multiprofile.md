@@ -49,8 +49,8 @@ Autoscale transitions between profiles based on their start times. The end time 
 In the portal, the end time field becomes the next start time for the default profile. You can't specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
 
 > [!TIP]
-> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
-> Creating a recurring profile with no end time is only supported via the portal.
+> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile. 
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates.
 
 ## Multiple profiles using templates, CLI, and PowerShell
 
@@ -63,9 +63,9 @@ See the autoscale section of the [ARM template resource definition](https://lear
 There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
 
-## Add a recurring profile using AIM templates
+## Add a recurring profile using ARM templates
 
-The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday end just after midnight on Saturday morning.
+The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday and end just after midnight on Saturday morning.
 
 Use the following command to deploy the template:
 ` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`

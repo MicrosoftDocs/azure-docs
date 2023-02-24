@@ -202,4 +202,4 @@ Depending on whether you have an Azure AD Premium P1 or P2 license, here are the
 
 - [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
 - [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)

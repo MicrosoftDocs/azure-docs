@@ -27,15 +27,17 @@ Use the following table to learn about changes including deprecations, retiremen
    > [!NOTE]
    > Dates and times are United States Pacific Standard Time, and are subject to change. 
 
-|Functionality, feature, or service|Change|New tenant change date |Current tenant change date|
-|---|---|---|---|
-|Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|Feb 27, 2023|Feb 27, 2023|
-|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|Mar 1, 2023|
-|[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|Nov 1, 2022|Mar 31, 2023|
-|[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|
-|[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|Jun 30, 2023|
-|[Azure AD PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|
-|[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|Sep 30, 2024|
+|Functionality, feature, or service|Change|Change date |
+|---|---|---:|
+|Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|May 8, 2023|
+|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|
+|[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|*Mar 31, 2023|
+|[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|
+|[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|
+|[Azure AD PowerShell and MSOnline PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|
+|[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|
+
+\* The legacy license management API and PowerShell cmdlets will not work for **new tenants** created after Nov 1, 2022.
 
 
    > [!IMPORTANT]
@@ -58,8 +60,6 @@ Use the definitions in this section help clarify the state, availability, and su
 ### Terminology
 
 * **End-of-life** - engineering investments have ended, and the feature is unavailable to any customer
-* **Current tenant change date** - the change date goes into effect for tenants created before the new tenant change date
-* **New tenant change date** - the change date goes into effect for tenants created after the change date
 
 ## Next steps
 [What's new in Azure Active Directory?](../../active-directory/fundamentals/whats-new.md)

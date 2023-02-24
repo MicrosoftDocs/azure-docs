@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/21/2023
 ---
 
 # Configure your Bicep environment
@@ -11,7 +11,7 @@ Bicep supports a configuration file named `bicepconfig.json`. Within this file, 
 
 To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
 
-## Create the config file in VSCode
+## Create the config file in Visual Studio Code
 
 You can use any text editor to create the config file.
 
@@ -33,16 +33,25 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+You can enable preview features by adding:
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "imports": true,
-    "userDefineTypes": true
+    "userDefineTypes": true,
+    "extensibility": true
   }
 }
 ```
+
+The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
+
+- **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
+- **paramsFiles**: Allows for the use of a Bicep-style parameters file with a terser syntax than the JSON equivalent parameters file. Currently, you also need a special build of Bicep to enable this feature, so is it inaccessible to most users. See [Parameters - first release](https://github.com/Azure/bicep/issues/9567).
+- **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
+- **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).
+- **symbolicNameCodegen**: Allows the ARM template layer to use a new schema to represent resources as an object dictionary rather than an array of objects. This feature improves the semantic equivalent of the Bicep and ARM templates, resulting in more reliable code generation. Enabling this feature has no effect on the Bicep layer's functionality.
+- **userDefinedTypes**: Allows you to define your own custom types for parameters. See [User-defined types in Bicep](https://aka.ms/bicepCustomTypes).
 
 ## Next steps
 

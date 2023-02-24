@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/02/2023
+ms.date: 02/23/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -19,9 +19,13 @@ ms.collection: M365-identity-device-management
 
 Use this article to determine and configure your organization's external collaboration using Microsoft Teams, OneDrive for Business, and SharePoint. A common challenge is balancing security and ease of collaboration for end users and external users. If an approved collaboration method is perceived as restrictive and onerous, end users evade the approved method. End users might email unsecured content, or set up external processes and applications, such as a personal DropBox or OneDrive. 
 
+## Before you begin
+
+This article is number 9 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series.
+
 ## External Identities settings and Azure Active Directory
 
-Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration** settings in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
+Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration settings** in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
 
    ![Screenshot of options and entries under External Identities, External collaboration settings.](media/secure-external-access/9-external-collaboration-settings.png)
 
@@ -73,7 +77,7 @@ For the Collaboration restrictions option, the organization's business requireme
 
 ## External users and guest users in Teams
 
-Teams differentiates between external users (outside your organization) and guest users (guest accounts). You can manage collaboration setting in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. Authorized account credentials are required to sign in to the Teams Admin portal.
+Teams differentiates between external users (outside your organization) and guest users (guest accounts). You can manage collaboration setting in the [Microsoft Teams admin center](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. Authorized account credentials are required to sign in to the Teams Admin portal.
 
 * **External Access** - Teams allows external access by default. The organization can communicate with all external domains 
   * Use External Access setting to restrict or allow domains
@@ -81,13 +85,12 @@ Teams differentiates between external users (outside your organization) and gues
 
 Learn more: [Use guest access and external access to collaborate with people outside your organization](/microsoftteams/communicate-with-users-from-other-organizations). 
 
-> [!NOTE]
-> The External Identities collaboration feaure in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
+The External Identities collaboration feature in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
 
 Learn more:
 
 * [Manage external meetings and chat in Microsoft Teams](/microsoftteams/manage-external-access)
-* [Microsoft 365 identity models and Azure AD](/microsoft-365/enterprise/about-microsoft-365-identity)
+* [Step 1. Determine your cloud identity model](/microsoft-365/enterprise/about-microsoft-365-identity)
 * [Identity models and authentication for Microsoft Teams](/microsoftteams/identify-models-authentication)
 * [Sensitivity labels for Microsoft Teams](/microsoftteams/sensitivity-labels)
 
@@ -109,8 +112,7 @@ Learn more:
 * [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration)
 * [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-> [!NOTE]
-> If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
+If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
 
 ### Sharing policies in SharePoint and OneDrive
 
@@ -175,22 +177,24 @@ Learn more:
 
 ## Next steps
 
-See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
 1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a security plan for external access](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
 
-7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md)
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: nbabar
 ms.service: azure-percept
 ms.topic: tutorial
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-tutorial
+ROBOTS: NOINDEX
 ---
 
 # Create a no-code vision solution in Azure Percept Studio
