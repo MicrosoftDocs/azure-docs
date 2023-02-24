@@ -20,6 +20,10 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
+
+For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
 ## Feb-2023
 
 ### AzAcSnap 7a (Build: 1AA8343)
@@ -79,8 +83,6 @@ AzAcSnap 6 is being released with the following fixes and improvements:
   - Azure Managed Disk as an alternate storage back-end.
 - ANF Client API Version updated to 2021-10-01.
 - Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
- 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
 ## May-2022
 
@@ -175,3 +177,4 @@ AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the followi
 ## Next steps
 
 - [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+- [Download the latest release of the installer](https://aka.ms/azacsnapinstaller)
