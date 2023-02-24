@@ -14,7 +14,7 @@ ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Deploy a model to an online endpoint, using a custom container
+# Use a custom container to deploy a model to an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
