@@ -121,7 +121,7 @@ The following sections show how to import the emulator TLS/SSL certificate into 
 
 #### Linux environment
 
-If you are working on Linux, .NET relays on OpenSSL to do the validation:
+If you are working on Linux, .NET relies on OpenSSL to do the validation:
 
 1. [Export the certificate in PFX format](local-emulator-export-ssl-certificates.md#export-emulator-certificate). The PFX option is available when choosing to export the private key.
 
