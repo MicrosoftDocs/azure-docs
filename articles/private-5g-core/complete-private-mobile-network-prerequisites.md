@@ -114,7 +114,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 To use Azure Private 5G Core, you need to register some additional resource providers and features with your Azure subscription.
 
 > [!TIP]
-> If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the Azure Cloud Shell on the portal.
+> If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) on the portal.
     
 1. Sign into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
     ```azurecli-interactive
@@ -150,10 +150,9 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 
 ## Retrieve the Object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI. You'll need to be an owner of your Azure subscription to obtain the OID.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant. You will need to provide this OID when you configure your ASE to use AKS-HCI. You can obtain the OID using the Azure CLI or the Azure Cloud Shell on the portal. You'll need to be an owner of your Azure subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **Bash**.
+1. Sign in to the Azure CLI or Azure Cloud Shell.
 1. Retrieve the OID:
 
     ```azurecli
