@@ -38,7 +38,7 @@ Azure OpenAI model names typically correspond to the following standard naming c
 
 | Element | Description |
 | --- | --- |
-| `{family}` | The model family of the model. For example, [GPT-3 models](#gpt-3-models) uses `text`, while [Codex models](#codex-models) use `code`.|
+| `{family}` | The model family of the model. For example, [GPT-3 models](#chatgpt-gpt-35-turbo) uses `text`, while [Codex models](#codex-models) use `code`.|
 | `{capability}` | The relative capability of the model. For example, GPT-3 models include `ada`, `babbage`, `curie`, and `davinci`.|
 | `{input-type}` | ([Embeddings models](#embeddings-models) only) The input type of the embedding supported by the model. For example, text search embedding models support `doc` and `query`.|
 | `{identifier}` | The version identifier of the model. |
