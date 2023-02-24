@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 02/24/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-FY23
 ---
 
 # Configure customer-managed keys in an Azure key vault for an existing storage account
@@ -116,7 +116,7 @@ You can use either a system-assigned or user-assigned managed identity to author
 
 ### Configure encryption for automatic updating of key versions
 
-Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version from the key vault. Azure Storage checks the key vault daily for a new version of the key. When a new version becomes available, then Azure Storage automatically begins using the latest version of the key for encryption.
+Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version from the key vault. Azure Storage checks the key vault daily for a new version of the key. When a new version becomes available, Azure Storage immediately begins using the latest version of the key without impacting performance.
 
 > [!IMPORTANT]
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
