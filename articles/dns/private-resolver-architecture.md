@@ -67,13 +67,15 @@ Consider the following hub and spoke VNet topology with an inbound endpoint prov
 - A private DNS zone **azure.contoso.com** is linked to the hub VNet.
 - A private resolver is located in the hub VNet.
     - The private resolver has one inbound endpoint with an IP address of **10.10.0.4**.
-    - The private resolver has one outbound endpoint and DNS forwarding ruleset.
-        - In this scenario, the DNS forwarding ruleset doesn't need a rule to forward queries for the private zone to the inbound endpoint.
+    - The private resolver has one outbound endpoint and an associated DNS forwarding ruleset.
+        - The DNS forwarding ruleset is linked to the hub VNet.
+        - A ruleset rule **is not configured** to forward queries for the private zone to the inbound endpoint.
 
-**DNS resolution in the hub VNet**: The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)). All other namespaces are resolved using Azure-provided DNS. 
-**DNS resolution in the spoke VNet**: In this example, the spoke VNet sends all of its DNS traffic to the inbound endpoint in the Hub VNet. Since **azure.contoso.com** has a virtual network link to the Hub VNet, all resources in the Hub can resolve **azure.contoso.com**, including the inbound endpoint (10.10.0.4). 
+**DNS resolution in the hub VNet**: The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)). If configured, ruleset rules determine how DNS names are resolved.  Namespaces that don't match a ruleset rule are resolved using Azure-provided DNS. 
+**DNS resolution in the spoke VNet**: In this example, the spoke VNet sends all of its DNS traffic to the inbound endpoint in the Hub VNet. Since **azure.contoso.com** has a virtual network link to the Hub VNet, all resources in the Hub can resolve **azure.contoso.com**, including the inbound endpoint (10.10.0.4). The spoke VNet also resolves all DNS names using rules provisioned in the forwarding ruleset that is linked to the hub VNet.
 
-In this scenario, both the hub and the spoke VNets don't use ruleset rules to resolve DNS names because no ruleset links are present.
+> [!NOTE]
+> In this scenario, both the hub and the spoke VNets use the hub-linked ruleset to resolve DNS names. This is because all DNS traffic from the spoke VNet is being sent to the hub due to the custom DNS configuration setting. The hub VNet doesn't require an outbound endpoint or ruleset here, but if one is provisioned and linked to the hub, both the hub and spoke VNets will use the forwarding rules. As mentioned previously, it is important that a forwarding rule for the private zone is not present because this configuration can create a DNS resolution loop.
 
 ## Next steps
 
