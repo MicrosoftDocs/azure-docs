@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK v2. 
+description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using AzureML Python SDK v2. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
