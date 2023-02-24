@@ -45,40 +45,40 @@
   items:
   - name: Linux
     items:
-    - name: 1 - Create / manage VMs
+    - name: Create / manage VMs
       href: ./linux/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./linux/tutorial-manage-disks.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./linux/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./linux/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./linux/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
-      href: ./linux/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./linux/tutorial-load-balancer.md
-    - name: 8 - Manage networking
+    - name: Manage networking
       href: ./linux/tutorial-virtual-network.md
+    - name: Highly available VMs
+      href: ./linux/tutorial-availability-sets.md
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
+    - name: Create a scale set
+      href: ./linux/tutorial-create-vmss.md
   - name: Windows
     items:
-    - name: 1 - Create / manage a VM
+    - name: Create / manage a VM
       href: ./windows/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./windows/tutorial-manage-data-disk.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./windows/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./windows/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
+    - name: Manage networking
+      href: ./windows/tutorial-virtual-network.md  
+    - name: Highly available VMs
       href: ./windows/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
+    - name: Create a scale set
       href: ./windows/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./windows/tutorial-load-balancer.md
-    - name: 8 - Manage networking
-      href: ./windows/tutorial-virtual-network.md
 - name: Develop
   items:
   - name: REST API
@@ -351,10 +351,6 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -1587,7 +1583,7 @@
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports and filter traffic
     items:
-    - name: CLI 
+    - name: CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
