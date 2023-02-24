@@ -100,8 +100,8 @@
       href: node-auto-repair.md
     - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
-    - name: Security updates overview
-      href: security-update-management-overview.md
+    - name: How Microsoft manages security patches for AKS
+      href: microsoft-manages-aks-security-patches.md
     - name: Service meshes
       href: servicemesh-about.md
     - name: Sustainable software engineering

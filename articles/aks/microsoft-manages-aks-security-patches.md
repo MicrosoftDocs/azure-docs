@@ -1,13 +1,13 @@
 ---
-title: Security Patch Management for Azure Kubernetes Service
+title: Microsoft Security Patch Management for Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
-description: Learn about our best practices to manage security updates for your Azure Kubernetes Service (AKS) cluster.
+description: Learn about how Microsoft manage security updates for Azure Kubernetes Service (AKS) clusters.
 ms.topic: conceptual
 ms.date: 02/24/2023
  
 ---
 
-# Security Patch Management for Azure Kubernetes Service (AKS)
+# How Microsoft Manages Security Patches for Azure Kubernetes Service (AKS)
 
 This article describes how Microsoft manages security vulnerabilities and security updates (also referred to as patches), for Azure Kubernetes Service (AKS) clusters.
 
