@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/15/2021
 ---
 
-# Use dual-stack kubenet networking in Azure Kubernetes Service (AKS) (Preview)
+# Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
 
 AKS clusters can now be deployed in a dual-stack (using both IPv4 and IPv6 addresses) mode when using [kubenet][kubenet] networking and a dual-stack Azure virtual network. In this configuration, nodes receive both an IPv4 and IPv6 address from the Azure virtual network subnet. Pods receive both an IPv4 and IPv6 address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address of the same family (IPv4 to IPv4 and IPv6 to IPv6).
 
@@ -17,9 +17,8 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 
 ## Limitations
 > [!NOTE]
-> Dual-stack kubenet networking is currently not available in sovereign clouds. This note will be removed when rollout is complete.
 * Azure Route Tables have a hard limit of 400 routes per table. Because each node in a dual-stack cluster requires two routes, one for each IP address family, dual-stack clusters are limited to 200 nodes.
-* During preview, service objects are only supported with `externalTrafficPolicy: Local`.
+* Service objects are only supported with `externalTrafficPolicy: Local` in Mariner node pools.
 * Dual-stack networking is required for the Azure Virtual Network and the pod CIDR - single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
 * Features **not supported on dual-stack kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy)
@@ -32,44 +31,7 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 
 * All prerequisites from [configure kubenet networking](configure-kubenet.md) apply.
 * AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended to take advantage of the [out-of-tree cloud controller manager][aks-out-of-tree], which is the default on v1.22 and up.
-* Azure CLI with the `aks-preview` extension 0.5.48 or newer.
 * If using Azure Resource Manager templates, schema version 2021-10-01 is required.
-
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'AKS-EnableDualStack' feature flag
-
-Register the `AKS-EnableDualStack` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-EnableDualStack"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AKS-EnableDualStack"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Overview of dual-stack networking in Kubernetes
 
@@ -291,7 +253,7 @@ nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-145084
 
 > [!IMPORTANT]
 > There are currently two limitations pertaining to IPv6 services in AKS. These are both preview limitations and work is underway to remove them.
-> * Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. This traffic cannot be routed to a pod and thus traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` will fail. During preview, IPv6 services MUST be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node, in order to function.
+> * Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Mariner node pools, this traffic cannot be routed to a pod and thus traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` will fail. IPv6 services MUST be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node, in order to function.
 > * Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service will only receive a public IP for its first listed IP family. In order to provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
 IPv6 services in Kubernetes can be exposed publicly similarly to an IPv4 service.
@@ -299,8 +261,8 @@ IPv6 services in Kubernetes can be exposed publicly similarly to an IPv4 service
 # [`kubectl expose`](#tab/kubectl)
 
 ```bash-interactive
-kubectl expose deployment nginx --name=nginx-ipv4 --port=80 --type=LoadBalancer --overrides='{"spec":{"externalTrafficPolicy":"Local"}}'
-kubectl expose deployment nginx --name=nginx-ipv6 --port=80 --type=LoadBalancer --overrides='{"spec":{"externalTrafficPolicy":"Local", "ipFamilies": ["IPv6"]}}'
+kubectl expose deployment nginx --name=nginx-ipv4 --port=80 --type=LoadBalancer'
+kubectl expose deployment nginx --name=nginx-ipv6 --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilies": ["IPv6"]}}'
 ```
 
 ```
@@ -319,7 +281,7 @@ metadata:
     app: nginx
   name: nginx-ipv4
 spec:
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ports:
   - port: 80
     protocol: TCP
@@ -335,7 +297,7 @@ metadata:
     app: nginx
   name: nginx-ipv6
 spec:
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ipFamilies:
   - IPv6
   ports:
