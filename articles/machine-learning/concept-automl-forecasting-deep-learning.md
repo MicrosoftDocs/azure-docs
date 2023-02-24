@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 02/06/2023
+ms.date: 02/24/2023
 show_latex: true
 ---
 
@@ -66,7 +66,7 @@ We can give a more precise definition of the TCNForecaster architecture in terms
  
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-equations.png" alt-text="Equations describing TCNForecaster operations.":::
 
-where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with-embeddings) matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the dimensions of the these variables are in the following table:
+where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with-embeddings) matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the dimensions of these variables are in the following table:
 
 |Variable|Description|Dimensions|
 |--|--|--|
