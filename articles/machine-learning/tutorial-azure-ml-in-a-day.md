@@ -165,7 +165,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run. 
+[MLFlow](how-to-log-mlflow-models.md) will be used to log the parameters and metrics during our pipeline run. 
 
 The cell below uses IPython magic to write the training script into the directory you just created.
 
@@ -208,7 +208,7 @@ def main():
 
     print("input data:", args.data)
     
-    credit_df = pd.read_excel(args.data, header=1, index_col=0)
+    credit_df = pd.read_csv(args.data, header=1, index_col=0)
 
     mlflow.log_metric("num_samples", credit_df.shape[0])
     mlflow.log_metric("num_features", credit_df.shape[1] - 1)
@@ -285,7 +285,7 @@ Now that you have a script that can perform the desired tasks, you'll use the ge
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute created earlier to run this command.
-* Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
+* Use an *environment* that defines software and runtime libraries needed for the training script. AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
 * Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure ML studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
@@ -309,7 +309,7 @@ job = command(
     ),
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
-    environment="aml-scikit-learn@latest",
+    environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
     compute="cpu-cluster",
     experiment_name="train_model_credit_default_prediction",
     display_name="credit_default_prediction",
@@ -487,6 +487,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 <!-- nbend -->
+
 
 ### Delete everything
 
