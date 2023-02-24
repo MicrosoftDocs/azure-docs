@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/03/2022
+ms.date: 02/23/2023
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -426,6 +426,7 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
 > - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
+> - Local endpoints do *not* support registered models. To use models already registered, you can download them using [CLI](https://learn.microsoft.com/en-us/cli/azure/ml/model?view=azure-cli-latest#az-ml-model-download) or [SDK](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations?view=azure-python#azure-ai-ml-operations-modeloperations-download) and refer to them in the deployment definition.
 
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
