@@ -836,30 +836,14 @@ public class Program
 #### [Java](#tab/java)
 
 ```java
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.metrics.DoubleHistogram;
 import io.opentelemetry.api.metrics.Meter;
-import io.opentelemetry.sdk.OpenTelemetrySdk;
-import io.opentelemetry.sdk.metrics.SdkMeterProvider;
-import io.opentelemetry.sdk.metrics.export.MetricExporter;
-import io.opentelemetry.sdk.metrics.export.PeriodicMetricReader;
 
 public class Program {
 
     public static void main(String[] args) {
-        MetricExporter exporter = new AzureMonitorExporterBuilder()
-                .connectionString("{connection-string}")
-                .buildMetricExporter();
-        PeriodicMetricReader periodicMetricReader = PeriodicMetricReader
-                .builder(exporter)
-                .build();
-        SdkMeterProvider sdkMeterProvider = SdkMeterProvider.builder()
-                .registerMetricReader(periodicMetricReader)
-                .build();
-        OpenTelemetry openTelemetry = OpenTelemetrySdk.builder()
-                .setMeterProvider(sdkMeterProvider)
-                .buildAndRegisterGlobal();
-        Meter meter = openTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
+        Meter meter = GlobalOpenTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
                 .build();
         DoubleHistogram histogram = meter.histogramBuilder("histogram").build();
         histogram.record(1.0);
@@ -965,32 +949,16 @@ public class Program
 #### [Java](#tab/java)
 
 ```Java
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.metrics.LongCounter;
 import io.opentelemetry.api.metrics.Meter;
-import io.opentelemetry.sdk.OpenTelemetrySdk;
-import io.opentelemetry.sdk.metrics.SdkMeterProvider;
-import io.opentelemetry.sdk.metrics.export.MetricExporter;
-import io.opentelemetry.sdk.metrics.export.PeriodicMetricReader;
 
 public class Program {
 
     public static void main(String[] args) {
-        MetricExporter exporter = new AzureMonitorExporterBuilder()
-                .connectionString("{connection-string}")
-                .buildMetricExporter();
-        PeriodicMetricReader periodicMetricReader = PeriodicMetricReader
-                .builder(exporter)
-                .build();
-        SdkMeterProvider sdkMeterProvider = SdkMeterProvider.builder()
-                .registerMetricReader(periodicMetricReader)
-                .build();
-        OpenTelemetry openTelemetry = OpenTelemetrySdk.builder()
-                .setMeterProvider(sdkMeterProvider)
-                .buildAndRegisterGlobal();
-        Meter meter = openTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
+        Meter meter = GlobalOpenTelemetry.meterBuilder("OTEL.AzureMonitor.Demo")
                 .build();
 
         LongCounter myFruitCounter = meter
@@ -1100,31 +1068,15 @@ public class Program
 #### [Java](#tab/java)
 
 ```Java
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.metrics.Meter;
-import io.opentelemetry.sdk.OpenTelemetrySdk;
-import io.opentelemetry.sdk.metrics.SdkMeterProvider;
-import io.opentelemetry.sdk.metrics.export.MetricExporter;
-import io.opentelemetry.sdk.metrics.export.PeriodicMetricReader;
 
 public class Program {
 
     public static void main(String[] args) {
-        MetricExporter exporter = new AzureMonitorExporterBuilder()
-                .connectionString("{connection-string}")
-                .buildMetricExporter();
-        PeriodicMetricReader periodicMetricReader = PeriodicMetricReader
-                .builder(exporter)
-                .build();
-        SdkMeterProvider sdkMeterProvider = SdkMeterProvider.builder()
-                .registerMetricReader(periodicMetricReader)
-                .build();
-        OpenTelemetry openTelemetry = OpenTelemetrySdk.builder()
-                .setMeterProvider(sdkMeterProvider)
-                .buildAndRegisterGlobal();
-        Meter meter = openTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+        Meter meter = GlobalOpenTelemetry.getMeter("OTEL.AzureMonitor.Demo");
 
         meter.gaugeBuilder("gauge")
                 .buildWithCallback(
