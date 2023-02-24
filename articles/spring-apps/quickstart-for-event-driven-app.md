@@ -61,7 +61,7 @@ APP_NAME=EventDrivenApp
 ```
 If some of above name already been taken in your cloud environment, it will have error when you execute the commands in the following part of this article. If it happens, just set another name and continue.
 
-### 1. Create a new resource group
+### 2. Create a new resource group
 
 To easier to manage the resources, create a resource group to hold these resources. Follow the following steps to create a new resource group.
 
@@ -90,7 +90,7 @@ To easier to manage the resources, create a resource group to hold these resourc
     az configure --defaults group=${RESOURCE_GROUP}
     ```azurecli-interactive
 
-### 2. Create Service Bus instance
+### 3. Create Service Bus instance
 1. Run the following command to create a Service Bus messaging namespace.
     ```azurecli-interactive
     az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
@@ -105,11 +105,11 @@ To easier to manage the resources, create a resource group to hold these resourc
         --name upper-case
     ```
 
-### 3. Create Azure Spring Apps Consumption plan instance
+### 4. Create Azure Spring Apps Consumption plan instance
 
 Azure Spring Apps Consumption plan will be used to host the spring event driven app. Let's create an Azure Spring Apps Consumption plan instance and create an app inside it.
 
-#### 3.1. Create a Managed Environment
+#### 4.1. Create a Managed Environment
 A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
 1. Install the Azure Container Apps extension for the CLI
@@ -129,7 +129,7 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
     az containerapp env create --name ${MANAGED_ENVIRONMENT}
     ```
 
-#### 3.2. Create Azure Spring Apps Consumption plan instance
+#### 4.2. Create Azure Spring Apps Consumption plan instance
 
 1. Install the spring extension specifically designed for StandardGen2 Azure Spring Apps.
     ```azurecli-interactive
@@ -159,7 +159,7 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
         --sku standardGen2
     ```
 
-#### 3.3. Create an app in Azure Spring Apps
+#### 4.3. Create an app in Azure Spring Apps
 
 1. Get connection string of Service Bus namespace.
     ```azurecli-interactive
