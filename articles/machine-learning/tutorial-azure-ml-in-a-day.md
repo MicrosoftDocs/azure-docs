@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 02/02/2023
+ms.date: 02/23/2023
 ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -50,24 +50,15 @@ The *training script* handles the data preparation, then trains and registers a 
 >
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/quickstart-azureml/quickstart-azure-ml.ipynb -->
+
 
 ## Connect to the workspace
 
-Before you dive in the code, you'll need to connect to your Azure ML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+Before you dive in the code, you need to connect to your Azure ML workspace. 
 
 We're using `DefaultAzureCredential` to get access to workspace. 
-`DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
-
-```python
-# Handle to the workspace
-from azure.ai.ml import MLClient
-
-# Authentication package
-from azure.identity import DefaultAzureCredential
-
-credential = DefaultAzureCredential()
-```
+`DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -78,12 +69,18 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/find-credentials.png" alt-text="Screenshot: find the credentials for your code in the upper right of the toolbar.":::
 
 ```python
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+# authenticate
+credential = DefaultAzureCredential()
+
 # Get a handle to the workspace
 ml_client = MLClient(
     credential=credential,
     subscription_id="<SUBSCRIPTION_ID>",
     resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>",
+    workspace_name="<AML_WORKSPACE_NAME>"
 )
 ```
 
@@ -133,82 +130,11 @@ except Exception:
         # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
         tier="Dedicated",
     )
-
+    print(
+        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
+    )
     # Now, we pass the object to MLClient's create_or_update method
     cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
-
-print(
-    f"AMLCompute with name {cpu_cluster.name} is created, the compute size is {cpu_cluster.size}"
-)
-```
-
-## Create a job environment
-
-To run your AzureML job on your compute cluster, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
-
-AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
-
-In this example, you'll create a custom conda environment for your jobs, using a conda yaml file.
-
-First, create a directory to store the file in.
-
-
-```python
-import os
-
-dependencies_dir = "./dependencies"
-os.makedirs(dependencies_dir, exist_ok=True)
-```
-
-Now, create the file in the dependencies directory. The cell below uses IPython magic to write the file into the directory you just created.
-
-
-```python
-%%writefile {dependencies_dir}/conda.yml
-name: model-env
-channels:
-  - conda-forge
-dependencies:
-  - python=3.8
-  - numpy=1.21.2
-  - pip=21.2.4
-  - scikit-learn=0.24.2
-  - scipy=1.7.1
-  - pandas>=1.1,<1.2
-  - pip:
-    - inference-schema[numpy-support]==1.3.0
-    - xlrd==2.0.1
-    - mlflow== 1.26.1
-    - azureml-mlflow==1.42.0
-    - psutil>=5.8,<5.9
-    - tqdm>=4.59,<4.60
-    - ipykernel~=6.0
-    - matplotlib
-```
-
-
-The specification contains some usual packages, that you'll use in your job (numpy, pip).
-
-Reference this *yaml* file to create and register this custom environment in your workspace:
-
-
-```python
-from azure.ai.ml.entities import Environment
-
-custom_env_name = "aml-scikit-learn"
-
-pipeline_job_env = Environment(
-    name=custom_env_name,
-    description="Custom environment for Credit Card Defaults pipeline",
-    tags={"scikit-learn": "0.24.2"},
-    conda_file=os.path.join(dependencies_dir, "conda.yml"),
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
-)
-pipeline_job_env = ml_client.environments.create_or_update(pipeline_job_env)
-
-print(
-    f"Environment with name {pipeline_job_env.name} is registered to workspace, the environment version is {pipeline_job_env.version}"
-)
 ```
 
 ## What is a command job?
@@ -237,7 +163,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run. 
+[MLFlow](how-to-log-mlflow-models.md) will be used to log the parameters and metrics during our pipeline run. 
 
 The cell below uses IPython magic to write the training script into the directory you just created.
 
@@ -280,7 +206,7 @@ def main():
 
     print("input data:", args.data)
     
-    credit_df = pd.read_excel(args.data, header=1, index_col=0)
+    credit_df = pd.read_csv(args.data, header=1, index_col=0)
 
     mlflow.log_metric("num_samples", credit_df.shape[0])
     mlflow.log_metric("num_features", credit_df.shape[1] - 1)
@@ -357,9 +283,10 @@ Now that you have a script that can perform the desired tasks, you'll use the ge
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute created earlier to run this command.
-* Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
+* Use an *environment* that defines software and runtime libraries needed for the training script. AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
 * Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure ML studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
+* In this sample, we access the data from a file on the internet. 
 
 
 ```python
@@ -372,7 +299,7 @@ job = command(
     inputs=dict(
         data=Input(
             type="uri_file",
-            path="https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls",
+            path="https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv",
         ),
         test_train_ratio=0.2,
         learning_rate=0.25,
@@ -380,7 +307,7 @@ job = command(
     ),
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
-    environment="aml-scikit-learn@latest",
+    environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
     compute="cpu-cluster",
     experiment_name="train_model_credit_default_prediction",
     display_name="credit_default_prediction",
@@ -558,6 +485,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 <!-- nbend -->
+
 
 ### Delete everything
 
