@@ -4,27 +4,33 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about our best practices for security updates for your Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 02/23/2023
  
 ---
 
-# Security Update Management for Azure Kubernetes Service (AKS)
+# Security Patch Management for Azure Kubernetes Service (AKS)
 
 This article describes how Microsoft manages security vulnerabilities and security updates (also referred to as patches), for Azure Kubernetes Service (AKS) clusters.
 
-## How we discover vulnerabilities
+# How vulnerabilities are discovered
 
-Microsoft has made large investments in proactive security design and hardening, but even the best designed software systems can have vulnerabilities. To find those vulnerabilities and update them before they can be exploited, Microsoft has made significant investments on multiple fronts.
+Microsoft identifies and patches vulnerabilities and missing security updates for the following components:
 
-For updating purposes, Kubernetes is an Operating System (OS) layer with containers running on top. The operating systems, Container-Optimized OS or Ubuntu, are hardened and contain the minimum amount of software required to run containers. AKS features run as containers on top of the base images.
+- AKS Container Images: 
 
-Microsoft identifies and fixes vulnerabilities and missing security updates in the following ways:
+- Ubuntu OS 18.04 & 22.04 Worker Nodes: Canonical provides Microsoft with OS builds that have all available security updates applied.
 
-- Container-Optimized OS: Microsoft scans images to identify potential vulnerabilities and missing updates. The AKS team reviews and resolves issues.
+- Windows 2022 OS Worker Nodes:  The Windows OS is patched every month (second Tuesday of each month). SLAs should be the same as per their support contract and severity.
 
-- Ubuntu: Canonical provides Microsoft with OS builds that have all available security updates applied.
+- Mariner OS Nodes: Mariner provides AKS with OS builds that have all available security updates applied.
 
-Microsoft scans containers using to discover vulnerabilities and missing updates in Kubernetes and Microsoft-managed containers. If fixes are available, the scanner automatically begins the updating and release process.
+## AKS Container Images
+
+While the bulk of the code running in AKS is owned and maintained by CNCF, the Azure Container Upstream team takes responsibility for building the open-source packages that we deploy on AKS. This provides complete ownership of the build, scan, sign, validate, and hotfix process and control over the binaries in container images which enables us to both establish a software supply chain over the binary as well as patch the software as needed.  
+
+Microsoft has invested in engineers (the Azure Container Upstream team) and infrastructure in the broader Kubernetes ecosystem to help build the future of cloud-native compute in the wider CNCF community. A notable example of this is the donation of engineering time to help manage Kubernetes releases. This work not only ensures the quality of every Kubernetes release for the world, but also enabled AKS to be the fastest to get new Kubernetes releases out into production for several years. In some cases, ahead of other clouds by multiple months. Microsoft collaborates with other industry partners in the Kubernetes security organization (the Security Response Committee (SRC)), receiving, triaging, and patching embargoed security vulnerabilities before they are announced to the public. This commitment helps ensure that Kubernetes is secure for the entire world, but also enables AKS to patch and respond to vulnerabilities faster to keep our customers safe as it is part of the Kubernetes Distributors List. In addition to Kubernetes, Microsoft has signed up to receive pre-release notifications for software vulnerabilities for products such as Envoy, container runtimes, and many other open-source projects. 
+
+Microsoft scans container images using static analysis to discover vulnerabilities and missing updates in Kubernetes and Microsoft-managed containers. If fixes are available, the scanner automatically begins the updating and release process.
 
 In addition to automated scanning, Microsoft discovers and updates vulnerabilities unknown to scanners in the following ways.
 
@@ -36,9 +42,17 @@ In addition to automated scanning, Microsoft discovers and updates vulnerabiliti
 
 * Microsoft's security collaboration happens on many levels. Sometimes it occurs formally through programs where organizations sign up to receive pre-release notifications about software vulnerabilities for products such as Kubernetes and Docker. Collaboration also happens informally due to our engagement with many open source projects such as the Linux kernel, container runtimes, virtualization technology, and others.
 
-* For Kubernetes, Microsoft is an active member of the [Security Response Committee][kubernetes-security-response-committee] (SRC). Microsoft is a member of the Kubernetes Distributors List that receives prior notification of vulnerabilities and has been involved in the triage, updating, mitigation development, and communication of nearly every serious Kubernetes security vulnerability.
+## Worker Nodes
 
-While less severe vulnerabilities are discovered and updated outside of these processes, most critical security vulnerabilities are reported privately through one of the channels previously listed. Early reporting gives Microsoft time before the vulnerability becomes public to research how it affects AKS, develop updates or mitigation's, and prepare advice and communications for customers. When possible, Microsoft updates all clusters before the public release of the vulnerability.
+### Linux nodes
+Each evening, Linux nodes in AKS get security patches through their distro security update channel. This behavior is automatically configured as the nodes are deployed in an AKS cluster. To minimize disruption and potential impact to running workloads, nodes are not automatically rebooted if a security patch or kernel update requires it. For more information about how to handle node reboots, see Apply security and kernel updates to nodes in AKS.
+
+Nightly updates apply security updates to the OS on the node, but the node image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see Azure Kubernetes Service (AKS) node image upgrade.
+
+For AKS clusters on auto upgrade channel "node-image" will not pull security updates through unattended upgrade. They will get security updates through the weekly node image upgrade.
+
+### Windows Server nodes
+For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see Upgrade a node pool in AKS.
 
 ## How vulnerabilities are classified
 
@@ -68,6 +82,33 @@ Microsoft's goal is to mitigate detected vulnerabilities within a time period ap
 ## How vulnerabilities and updates are communicated
 
 In general, Microsoft does not broadly communicate the release of new patch versions for AKS. However, Microsoft constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, Microsoft will [notify you to upgrade to the newly available patch][aks-cve-feed].
+
+## Security Reporting
+
+Please report Security issues to the Microsoft Security Response Center (MSRC) at [https://msrc.microsoft.com/create-report](https://aka.ms/opensource/security/create-report).
+
+If you prefer to submit without logging in, send email to [secure@microsoft.com](mailto:secure@microsoft.com).  If possible, encrypt your message with our PGP key; please download it from the [Microsoft Security Response Center PGP Key page](https://aka.ms/opensource/security/pgpkey).
+
+You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message. Additional information can be found at [microsoft.com/msrc](https://aka.ms/opensource/security/msrc). 
+
+Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
+
+  * Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+  * Full paths of source file(s) related to the manifestation of the issue
+  * The location of the affected source code (tag/branch/commit or direct URL)
+  * Any special configuration required to reproduce the issue
+  * Step-by-step instructions to reproduce the issue
+  * Proof-of-concept or exploit code (if possible)
+  * Impact of the issue, including how an attacker might exploit the issue
+
+This information will help us triage your report more quickly.
+
+If you are reporting for a bug bounty, more complete reports can contribute to a higher bounty award. Please visit our [Microsoft Bug Bounty Program](https://aka.ms/opensource/security/bounty) page for more details about our active programs.
+
+### Policy
+
+Microsoft follows the principle of [Coordinated Vulnerability Disclosure](https://aka.ms/opensource/security/cvd).
+
 
 ## Next steps
 
