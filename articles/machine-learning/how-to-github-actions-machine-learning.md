@@ -59,11 +59,11 @@ You'll need to update the CLI setup file variables to match your workspace.
     |---------|---------|
     |GROUP     |      Name of resource group    |
     |LOCATION     |    Location of your workspace (example: `eastus2`)    |
-    |WORKSPACE     |     Name of Azure ML workspace     | 
+    |WORKSPACE     |     Name of Azure Machine Learning workspace     | 
 
 ## Step 4. Update `pipeline.yml` with your compute cluster name
 
-You'll use a `pipeline.yml` file to deploy your Azure ML pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
+You'll use a `pipeline.yml` file to deploy your Azure Machine Learning pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 
 1. In your cloned repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
 1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. For example, if your cluster is named `my-cluster`, your new value would be `azureml:my-cluster`. There are five updates.
