@@ -41,7 +41,15 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 >[!NOTE]
 >Azure NetApp Files datastores for Azure VMware Solution are generally available. To use it, you must register Azure NetApp Files datastores for Azure VMware Solution.
 
-Azure VMware Solution is currently supported in these [regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
+## Supported regions 
+
+Azure VMware Solution are currently supported in the following regions:   
+**Asia**: East Asia, Japan East, Japan West, Southeast Asia.   
+**Australia**: Australia East, Australia Southeast.  
+**Brazil**: Brazil South.  
+**Europe**: France Central, Germany West Central, North Europe, Sweden Central, Sweden North, Switzerland West, UK South, UK West, West Europe.   
+**North America**: Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2.  
+
 
 ## Performance best practices
 
