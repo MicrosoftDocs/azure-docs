@@ -22012,6 +22012,32 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-post-deployment.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-post-deployment",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-prerequisites.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-troubleshooting",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
+            "redirect_document_id": false
+          },
+      
+        {
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
