@@ -45,7 +45,7 @@ The DSVM is a customized VM image for Data Science but [Azure Machine Learning](
 + Labeling
 + Pipelines (automate End-to-End Data science workflows)
 
-### Comparison with AzureML Compute Instances
+### Comparison with Azure Machine Learning Compute Instances
 
 [Azure Machine Learning Compute Instances](../concept-compute-instance.md) are a fully configured and __managed__ VM image whereas the DSVM is an __unmanaged__ VM.
 

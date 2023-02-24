@@ -144,13 +144,13 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 ## Capture the governance data required for MLOps
 
-AzureML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
+Azure Machine Learning gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
-- AzureML [integrates with Git](../concept-train-model-git-integration.md) to track information on which repository / branch / commit your code came from.
-- [AzureML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
+- Azure Machine Learning [integrates with Git](../concept-train-model-git-integration.md) to track information on which repository / branch / commit your code came from.
+- [Azure Machine Learning Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](../how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
-- AzureML Run history stores a snapshot of the code, data, and computes used to train a model.
-- The AzureML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+- Azure Machine Learning Run history stores a snapshot of the code, data, and computes used to train a model.
+- The Azure Machine Learning Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 - [Integration with Azure](../how-to-use-event-grid.md)  allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
 
 > [!TIP]
@@ -160,7 +160,7 @@ AzureML gives you the capability to track the end-to-end audit trail of all of y
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-AzureML publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
+Azure Machine Learning publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
@@ -175,7 +175,7 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
-There is no universal answer to "How do I know if I should retrain?" but AzureML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
+There is no universal answer to "How do I know if I should retrain?" but Azure Machine Learning event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
 - Preprocess your data using a repeatable, automated process
 - Train your new model

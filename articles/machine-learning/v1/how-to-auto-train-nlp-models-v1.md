@@ -203,7 +203,7 @@ automl_config = AutomlConfig("featurization": featurization_config)
 
 ## Distributed training
 
-You can also run your NLP experiments with distributed training on an AzureML compute cluster. This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
+You can also run your NLP experiments with distributed training on an Azure Machine Learning compute cluster. This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment set up. 
 
 ```python
 max_concurrent_iterations = number_of_vms

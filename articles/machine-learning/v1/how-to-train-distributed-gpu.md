@@ -42,14 +42,14 @@ Review these [basic concepts of distributed GPU training](../concept-distributed
 
 ## MPI
 
-AzureML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. You can adopt this approach to run distributed training using either per-process-launcher or per-node-launcher, depending on whether `process_count_per_node` is set to 1 (the default) for per-node-launcher, or equal to the number of devices/GPUs for per-process-launcher. AzureML constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
+Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. You can adopt this approach to run distributed training using either per-process-launcher or per-node-launcher, depending on whether `process_count_per_node` is set to 1 (the default) for per-node-launcher, or equal to the number of devices/GPUs for per-process-launcher. Azure Machine Learning constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
 
 > [!TIP]
-> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [AzureML GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. AzureML also provides [curated environments](../resource-curated-environments.md) for popular frameworks. 
+> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [Azure Machine Learning GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure Machine Learning also provides [curated environments](../resource-curated-environments.md) for popular frameworks. 
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an AzureML environment with the preferred deep learning framework and MPI. AzureML provides [curated environment](../resource-curated-environments.md) for popular frameworks.
+1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](../resource-curated-environments.md) for popular frameworks.
 1. Define `MpiConfiguration` with `process_count_per_node` and `node_count`. `process_count_per_node` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
 1. Pass the `MpiConfiguration` object to the `distributed_job_config` parameter of `ScriptRunConfig`.
 
@@ -79,8 +79,8 @@ Use the MPI job configuration when you use [Horovod](https://horovod.readthedocs
 
 Make sure your code follows these tips:
 
-* The training code is instrumented correctly with Horovod before adding the AzureML parts
-* Your AzureML environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come pre-configured with Horovod and its dependencies.
+* The training code is instrumented correctly with Horovod before adding the Azure Machine Learning parts
+* Your Azure Machine Learning environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come pre-configured with Horovod and its dependencies.
 * Create an `MpiConfiguration` with your desired distribution.
 
 ### Horovod example
@@ -93,7 +93,7 @@ Don't use DeepSpeed's custom launcher to run distributed training with the [Deep
 
 Make sure your code follows these tips:
 
-* Your AzureML environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
+* Your Azure Machine Learning environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
 * Create an `MpiConfiguration` with your distribution.
 
 ### DeepSpeed example
@@ -115,7 +115,7 @@ When running MPI jobs with Open MPI images, the following environment variables 
 
 ## PyTorch
 
-AzureML supports running distributed jobs using PyTorch's native distributed training capabilities (`torch.distributed`).
+Azure Machine Learning supports running distributed jobs using PyTorch's native distributed training capabilities (`torch.distributed`).
 
 > [!TIP]
 > For data parallelism, the [official PyTorch guidance](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html#comparison-between-dataparallel-and-distributeddataparallel) is to use DistributedDataParallel (DDP) over DataParallel for both single-node and multi-node distributed training. PyTorch also [recommends using DistributedDataParallel over the multiprocessing package](https://pytorch.org/docs/stable/notes/cuda.html#use-nn-parallel-distributeddataparallel-instead-of-multiprocessing-or-nn-dataparallel). Azure Machine Learning documentation and examples will therefore focus on DistributedDataParallel training.
@@ -145,25 +145,25 @@ Beyond these, many applications will also need the following environment variabl
 
 ### PyTorch launch options
 
-The AzureML PyTorch job supports two types of options for launching distributed training:
+The Azure Machine Learning PyTorch job supports two types of options for launching distributed training:
 
 - __Per-process-launcher__: The system will launch all distributed processes for you, with all the relevant information (such as environment variables) to set up the process group.
-- __Per-node-launcher__: You provide AzureML with the utility launcher that will get run on each node. The utility launcher will handle launching each of the processes on a given node. Locally within each node, `RANK` and `LOCAL_RANK` are set up by the launcher. The **torch.distributed.launch** utility and PyTorch Lightning both belong in this category.
+- __Per-node-launcher__: You provide Azure Machine Learning with the utility launcher that will get run on each node. The utility launcher will handle launching each of the processes on a given node. Locally within each node, `RANK` and `LOCAL_RANK` are set up by the launcher. The **torch.distributed.launch** utility and PyTorch Lightning both belong in this category.
 
 There are no fundamental differences between these launch options. The choice is largely up to your preference or the conventions of the frameworks/libraries built on top of vanilla PyTorch (such as Lightning or Hugging Face).
 
-The following sections go into more detail on how to configure AzureML PyTorch jobs for each of the launch options.
+The following sections go into more detail on how to configure Azure Machine Learning PyTorch jobs for each of the launch options.
 
 ### DistributedDataParallel (per-process-launch)
 
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
-1. Create a `PyTorchConfiguration` and specify the `process_count` and `node_count`. The `process_count` corresponds to the total number of processes you want to run for your job. `process_count` should typically equal `# GPUs per node x # nodes`. If `process_count` isn't specified, AzureML will by default launch one process per node.
+1. Create a `PyTorchConfiguration` and specify the `process_count` and `node_count`. The `process_count` corresponds to the total number of processes you want to run for your job. `process_count` should typically equal `# GPUs per node x # nodes`. If `process_count` isn't specified, Azure Machine Learning will by default launch one process per node.
 
-AzureML will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
+Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 
-To use this option for multi-process-per-node training, use AzureML Python SDK `>= 1.22.0`. Process_count was introduced in 1.22.0.
+To use this option for multi-process-per-node training, use Azure Machine Learning Python SDK `>= 1.22.0`. Process_count was introduced in 1.22.0.
 
 ```python
 from azureml.core import ScriptRunConfig, Environment, Experiment
@@ -209,7 +209,7 @@ python -m torch.distributed.launch --nproc_per_node <num processes per node> \
   <your training script> <your script arguments>
 ```
 
-1. Provide the `torch.distributed.launch` command to the `command` parameter of the `ScriptRunConfig` constructor. AzureML runs this command on each node of your training cluster. `--nproc_per_node` should be less than or equal to the number of GPUs available on each node. MASTER_ADDR, MASTER_PORT, and NODE_RANK are all set by AzureML, so you can just reference the environment variables in the command. AzureML sets MASTER_PORT to `6105`, but you can pass a different value to the `--master_port` argument of torch.distributed.launch command if you wish. (The launch utility will reset the environment variables.)
+1. Provide the `torch.distributed.launch` command to the `command` parameter of the `ScriptRunConfig` constructor. Azure Machine Learning runs this command on each node of your training cluster. `--nproc_per_node` should be less than or equal to the number of GPUs available on each node. MASTER_ADDR, MASTER_PORT, and NODE_RANK are all set by AzureML, so you can just reference the environment variables in the command. Azure Machine Learning sets MASTER_PORT to `6105`, but you can pass a different value to the `--master_port` argument of torch.distributed.launch command if you wish. (The launch utility will reset the environment variables.)
 2. Create a `PyTorchConfiguration` and specify the `node_count`.
 
 ```python
@@ -255,7 +255,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/) is a lightweight open-source library that provides a high-level interface for PyTorch. Lightning abstracts away many of the lower-level distributed training configurations required for vanilla PyTorch. Lightning allows you to run your training scripts in single GPU, single-node multi-GPU, and multi-node multi-GPU settings. Behind the scene, it launches multiple processes for you similar to `torch.distributed.launch`.
 
-For single-node training (including single-node multi-GPU), you can run your code on AzureML without needing to specify a `distributed_job_config`. 
+For single-node training (including single-node multi-GPU), you can run your code on Azure Machine Learning without needing to specify a `distributed_job_config`. 
 To run an experiment using multiple nodes with multiple GPUs, there are 2 options:
 
 - Using PyTorch configuration (recommended): Define `PyTorchConfiguration` and specify `communication_backend="Nccl"`, `node_count`, and `process_count` (note that this is the total number of processes, ie, `num_nodes * process_count_per_node`). In Lightning Trainer module, specify both `num_nodes` and `gpus` to be consistent with `PyTorchConfiguration`. For example, `num_nodes = node_count` and `gpus = process_count_per_node`.
@@ -350,11 +350,11 @@ run_config = ScriptRunConfig(
 )
 ```
 
-You can also use the [per-process-launch](#distributeddataparallel-per-process-launch) option to run distributed training without using `torch.distributed.launch`. One thing to keep in mind if using this method is that the transformers [TrainingArguments](https://huggingface.co/transformers/main_classes/trainer.html?highlight=launch#trainingarguments) expect the local rank to be passed in as an argument (`--local_rank`). `torch.distributed.launch` takes care of this when `--use_env=False`, but if you are using per-process-launch you'll need to explicitly pass the local rank in as an argument to the training script `--local_rank=$LOCAL_RANK` as AzureML only sets the `LOCAL_RANK` environment variable.
+You can also use the [per-process-launch](#distributeddataparallel-per-process-launch) option to run distributed training without using `torch.distributed.launch`. One thing to keep in mind if using this method is that the transformers [TrainingArguments](https://huggingface.co/transformers/main_classes/trainer.html?highlight=launch#trainingarguments) expect the local rank to be passed in as an argument (`--local_rank`). `torch.distributed.launch` takes care of this when `--use_env=False`, but if you are using per-process-launch you'll need to explicitly pass the local rank in as an argument to the training script `--local_rank=$LOCAL_RANK` as Azure Machine Learning only sets the `LOCAL_RANK` environment variable.
 
 ## TensorFlow
 
-If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via AzureML using the `TensorflowConfiguration`.
+If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via Azure Machine Learning using the `TensorflowConfiguration`.
 
 To do so, specify a `TensorflowConfiguration` object to the `distributed_job_config` parameter of the `ScriptRunConfig` constructor. If you're using `tf.distribute.experimental.MultiWorkerMirroredStrategy`, specify the `worker_count` in the `TensorflowConfiguration` corresponding to the number of nodes for your training job.
 
@@ -382,7 +382,7 @@ If your training script uses the parameter server strategy for distributed train
 
 ### TF_CONFIG
 
-In TensorFlow, the **TF_CONFIG** environment variable is required for training on multiple machines. For TensorFlow jobs, AzureML will configure and set the TF_CONFIG variable appropriately for each worker before executing your training script.
+In TensorFlow, the **TF_CONFIG** environment variable is required for training on multiple machines. For TensorFlow jobs, Azure Machine Learning will configure and set the TF_CONFIG variable appropriately for each worker before executing your training script.
 
 You can access TF_CONFIG from your training script if you need to: `os.environ['TF_CONFIG']`.
 

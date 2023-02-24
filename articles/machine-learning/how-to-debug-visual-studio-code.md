@@ -139,7 +139,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
                         default=300,
-                        help=f'Defines how much time the AzureML compute target '
+                        help=f'Defines how much time the Azure Machine Learning compute target '
                         f'will await a connection from a debugger client (VSCODE).')
     parser.add_argument('--remote_debug_client_ip', type=str,
                         help=f'Defines IP Address of VS Code client')
@@ -196,7 +196,7 @@ parser.add_argument("--output_train", type=str, help="output_train directory")
 parser.add_argument('--remote_debug', action='store_true')
 parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
-                    help=f'Defines how much time the AzureML compute target '
+                    help=f'Defines how much time the Azure Machine Learning compute target '
                     f'will await a connection from a debugger client (VSCODE).')
 parser.add_argument('--remote_debug_client_ip', type=str,
                     help=f'Defines IP Address of VS Code client')
@@ -284,7 +284,7 @@ ip_address: 10.3.0.5
 Save the `ip_address` value. It's used in the next section.
 
 > [!TIP]
-> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor AzureML experiment runs and metrics](how-to-log-view-metrics.md).
+> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure Machine Learning experiment runs and metrics](how-to-log-view-metrics.md).
 
 ### Configure development environment
 

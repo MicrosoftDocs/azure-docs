@@ -86,7 +86,7 @@ To create a virtual network, use the following steps:
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-    > While you can use a single subnet for all AzureML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    > While you can use a single subnet for all Azure Machine Learning resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 

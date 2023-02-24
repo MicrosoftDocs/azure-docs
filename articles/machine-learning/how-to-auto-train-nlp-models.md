@@ -256,7 +256,7 @@ text_classification_job.set_featurization(dataset_language='eng')
 
 ## Distributed training
 
-You can also run your NLP experiments with distributed training on an AzureML compute cluster. 
+You can also run your NLP experiments with distributed training on an Azure Machine Learning compute cluster. 
 
 # [Azure CLI](#tab/cli)
 

@@ -147,7 +147,7 @@ from azureml.core import Workspace, Datastore, Dataset
 from azureml.core.experiment import Experiment
 from azureml.train.automl import AutoMLConfig
 
-# retrieve data via AzureML datastore
+# retrieve data via Azure Machine Learning datastore
 datastore = Datastore.get(ws, adlsgen2_datastore)
 datastore_path = [(datastore, '/data/prepared-data.csv')]
         

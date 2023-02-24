@@ -86,7 +86,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [VS Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
-- [AzureML Python SDK (v2)](https://aka.ms/sdk-v2-install)
+- [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install)
 
 For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
@@ -225,7 +225,7 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - **Raised Exceptions** is **unchecked**
     - **Uncaught Exceptions** is **checked**
 
-    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure AzureML Debug Local Environment debug profile":::
+    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure Azure Machine Learning Debug Local Environment debug profile":::
 
 1. Select the play icon next to the Run and Debug dropdown to start your debugging session.
 

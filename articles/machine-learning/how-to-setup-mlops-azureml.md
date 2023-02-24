@@ -19,7 +19,7 @@ ms.custom: cli-v2, sdk-v2
 
 Azure Machine Learning allows you to integrate with [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the machine learning lifecycle. Some of the operations you can automate are:
 
-* Deployment of AzureML infrastructure
+* Deployment of Azure Machine Learning infrastructure
 * Data preparation (extract, transform, load operations)
 * Training machine learning models with on-demand scale-out and scale-up
 * Deployment of machine learning models as public or private web services

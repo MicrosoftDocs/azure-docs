@@ -42,7 +42,7 @@ In addition, refer to the following samples & tutorials:
 ## Defining the training environment
 While the various framework estimators have preconfigured environments that are backed by Docker images, the Dockerfiles for these images are private.  Therefore you do not have a lot of transparency into what these environments contain. In addition, the estimators take in environment-related configurations as individual parameters (such as `pip_packages`, `custom_docker_image`) on their respective constructors.
 
-When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, AzureML will use one of the AzureML base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
+When using ScriptRunConfig, all environment-related configurations are encapsulated in the `Environment` object that gets passed into the `environment` parameter of the ScriptRunConfig constructor. To configure a training job,  provide an environment that has all the dependencies required for your training script. If no environment is provided, Azure Machine Learning will use one of the Azure Machine Learning base images, specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`, as the default environment. There are a couple of ways to provide an environment:
 
 * [Use a curated environment](../how-to-use-environments.md#use-a-curated-environment) - curated environments are predefined environments available in your workspace by default. There is a corresponding curated environment for each of the preconfigured framework/version Docker images that backed each framework estimator.
 * [Define your own custom environment](how-to-use-environments.md)
@@ -70,14 +70,14 @@ If you want to specify **environment variables** that will get set on the proces
 myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
-For information on configuring and managing AzureML environments, see:
+For information on configuring and managing Azure Machine Learning environments, see:
 * [How to use environments](how-to-use-environments.md)
 * [Curated environments](../resource-curated-environments.md)
 * [Train with a custom Docker image](how-to-train-with-custom-image.md)
 
 ## Using data for training
 ### Datasets
-If you are using an AzureML dataset for training, pass the dataset as an argument to your script using the `arguments` parameter. By doing so, you will get the data path (mounting point or download path) in your training script via arguments.
+If you are using an Azure Machine Learning dataset for training, pass the dataset as an argument to your script using the `arguments` parameter. By doing so, you will get the data path (mounting point or download path) in your training script via arguments.
 
 The following example configures a training job where the FileDataset, `mnist_ds`, will get mounted on the remote compute.
 ```python
@@ -89,7 +89,7 @@ src = ScriptRunConfig(source_directory='.',
 ```
 
 ### DataReference (old)
-While we recommend using AzureML Datasets over the old DataReference way, if you are still using DataReferences for any reason, you must configure your job as follows:
+While we recommend using Azure Machine Learning Datasets over the old DataReference way, if you are still using DataReferences for any reason, you must configure your job as follows:
 ```python
 # if you want to pass a DataReference object, such as the below:
 datastore = ws.get_default_datastore()

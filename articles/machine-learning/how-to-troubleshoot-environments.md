@@ -34,7 +34,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, Azure Machine Learning materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
@@ -42,13 +42,13 @@ Note that environment isolation implies that Python dependencies installed in th
 
 ### Create and manage environments
 
-You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, VS code extension. 
+You can create and manage environments from clients like Azure Machine Learning Python SDK, Azure Machine Learning CLI, Azure Machine Learning Studio UI, VS code extension. 
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment without registering or referencing an already existing environment.
 They won't be listed but may be retrieved by version or label.
 
-AzureML builds environment definitions into Docker images.
-It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
+Azure Machine Learning builds environment definitions into Docker images.
+It also caches the environments in the Azure Container Registry associated with your Azure Machine Learning Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
 Multiple environments with the same definition may result the same image, so the cached image will be reused.
 Running a training script remotely requires the creation of a Docker image.
 
@@ -74,7 +74,7 @@ result. Mitigating vulnerabilities can disrupt reproducibility by changing depen
 AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace provisioned.
+**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every Azure Machine Learning workspace provisioned.
 
 Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
 These pre-created environments also allow for faster deployment time.
@@ -83,7 +83,7 @@ In **user-managed environments**, you're responsible for setting up your environ
 compute target and for model deployment. These types of environments are represented by two subtypes:
 
 - BYOC (bring your own container): the user provides a Docker image to AzureML
-- Docker build context: AzureML materializes the image from the user provided content
+- Docker build context: Azure Machine Learning materializes the image from the user provided content
 
 Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
 management becomes your responsibility.
@@ -424,7 +424,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 	* `arguments`
 	* `shared_volumes`
 	* `gpu_support`
-		* AzureML now automatically detects and uses NVIDIA Docker extension when available
+		* Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available
 	* `smh_size`
 
 **Affected areas (symptoms):**
@@ -484,7 +484,7 @@ Ensure that you include a path for your build context
 
 ### Missing Dockerfile path
 <!--issueDescription-->
-This issue can happen when AzureML fails to find your Dockerfile. As a default, AzureML will look for a Dockerfile named 'Dockerfile' at the root of your build context directory unless a Dockerfile path is specified.
+This issue can happen when Azure Machine Learning fails to find your Dockerfile. As a default, Azure Machine Learning will look for a Dockerfile named 'Dockerfile' at the root of your build context directory unless a Dockerfile path is specified.
 
 **Potential causes:**
 * Your Dockerfile isn't at the root of your build context directory and/or is named something other than 'Dockerfile,' and you didn't provide its path
@@ -589,7 +589,7 @@ For scenarios in which you're storing your Docker build context in a storage acc
 <!--issueDescription-->
 **Potential causes:**
 * You used a deprecated base image
-	* AzureML can't provide troubleshooting support for failed builds with deprecated images
+	* Azure Machine Learning can't provide troubleshooting support for failed builds with deprecated images
 	* These images aren't updated or maintained, so they're at risk of vulnerabilities
 
 The following base images are deprecated:
@@ -812,14 +812,14 @@ channels:
 
 *Applies to: Python SDK v1*
 
-If you don't want AzureML to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
+If you don't want Azure Machine Learning to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
 
 ```python
 env.python.user_managed_dependencies = True
 ```
 * You're responsible for ensuring that all necessary packages are available in the Python environment in which you choose to run the script
 
-If you want AzureML to create a Python environment for you based on a conda specification, `conda_dependencies` needs to be populated in your environment definition 
+If you want Azure Machine Learning to create a Python environment for you based on a conda specification, `conda_dependencies` needs to be populated in your environment definition 
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -1116,7 +1116,7 @@ channels:
 
 **Troubleshooting steps**
 
-The AzureML SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
+The Azure Machine Learning SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
 
 *Applies to: Python SDK v1*
 
@@ -1672,7 +1672,7 @@ This issue can happen when your image build fails during Python package installa
 
 **Potential causes:**
 * There are many issues that could cause this error
-* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+* This is a generic message that's surfaced when the error you're encountering isn't yet covered by Azure Machine Learning analysis
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -1683,7 +1683,7 @@ This issue can happen when your image build fails during Python package installa
 
 Review your Build log for more information on your image build failure 
 
-Leave feedback for the AzureML team to analyze the error you're experiencing
+Leave feedback for the Azure Machine Learning team to analyze the error you're experiencing
 * [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
@@ -1771,7 +1771,7 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 ### Build log unavailable
 <!--issueDescription-->
 **Potential causes:**
-* AzureML isn't authorized to store your build logs in your storage account
+* Azure Machine Learning isn't authorized to store your build logs in your storage account
 * A transient error occurred while saving your build logs
 * A system error occurred before an image build was triggered
 

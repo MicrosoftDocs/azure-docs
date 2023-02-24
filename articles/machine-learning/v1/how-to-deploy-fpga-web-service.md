@@ -308,7 +308,7 @@ The Docker image supports gRPC and the TensorFlow Serving "predict" API.
 You can also download a sample client for TensorFlow Serving.
 
 ```python
-# Using the grpc client in AzureML Accelerated Models SDK package
+# Using the grpc client in Azure Machine Learning Accelerated Models SDK package
 from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
@@ -316,7 +316,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure Machine Learning Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
