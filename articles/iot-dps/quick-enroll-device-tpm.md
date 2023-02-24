@@ -389,7 +389,7 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 :::zone-end
 
-To verify that the enrollment group has been created:
+To verify that the individual enrollment has been created:
 
 1. In the Azure portal, select your Device Provisioning Service.
 

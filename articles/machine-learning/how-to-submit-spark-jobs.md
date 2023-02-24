@@ -415,7 +415,7 @@ To submit a standalone Spark job using the Azure Machine Learning Studio UI:
     1. Select **Virtual machine size**.
     1. Select **Spark runtime version**.
 1. If you selected **Attached compute**:
-    1. Select an attached Synapse Spark pool from the **Select Azure ML attached compute** menu.
+    1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
 1. Select **Next**.
 1. On the **Environment** screen:
     1. Select one of the available environments from the list. Environment selection is optional.
