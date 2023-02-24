@@ -37,10 +37,10 @@ The first step is to get the following information from your [Microsoft Energy D
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| CLIENT_ID          | Application (client) ID  | 3dfxxxxxxxxxxxxxxxxxxxxxx  |
 | CLIENT_SECRET      | Client secrets           |  _fl******************                |
-| TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
-| SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| TENANT_ID          | Directory (tenant) ID    | 72fxxxxxxxxxxxx  |
+| SCOPE              | Application (client) ID  | 3dfxxxxxxxxxxxxxxxxxxxxxxx  |
 | HOSTNAME           | URI                      | `<instance>.energy.azure.com`           |
 | DATA_PARTITION_ID  | Data Partition(s)        | `<instance>-<data-partition-name>`                    |
 
@@ -107,7 +107,7 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 In order to ensure the user has the proper permissions to make the Petrel DDMS API calls, the user must be apart of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlements group. This call adds the user to the proper groups. 
 
-The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if I generate my token using a client ID of `8cd97786-0e29-4304-8c78-xxxxxxxxxxxx`, I must add `8cd97786-0e29-4304-8c78-xxxxxxxxxxxx` to the **users.datalake.admins** group.
+The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if I generate my token using a client ID of `8cdxxxxxxxxxxxx`, I must add `8cdxxxxxxxxxxxx` to the **users.datalake.admins** group.
 
 API: **Setup** > **Add User to DATALAKE Admins**
 
