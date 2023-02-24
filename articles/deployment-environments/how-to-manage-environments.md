@@ -102,7 +102,7 @@ You can delete your environment completely when you don't need it anymore.
  
 ## Manage an environment by using the Azure CLI
 
-The Azure CLI provides a command line interface for speed and efficiency when creating multiple similar environments, or for platforms where resources like memory are limited.
+The Azure CLI provides a command line interface for speed and efficiency when creating multiple similar environments, or for platforms where resources like memory are limited. You can use the following commands to create, list, deploy, or delete an environment.
 
 ### Create an environment
 
@@ -113,17 +113,17 @@ az devcenter dev environment create --dev-center-name <devcenter-name> \
     --parameters <deployment-parameters-json-string>
 ```
 
+### List environments in a project
+
+```azurecli
+az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
+```
+
 ### Deploy an environment
 
 ```azurecli
 az devcenter environment deploy-action --action-id "deploy" --dev-center <devcenter-name> \
     -g <resource-group-name> --project-name <project-name> -n <name> --parameters <parameters-json-string>
-```
-
-### List environments in a project
-
-```azurecli
-az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
 ```
 
 ### Delete an environment
