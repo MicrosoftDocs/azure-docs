@@ -122,9 +122,6 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-> [!NOTE]
-> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
-
 | Logical comparison function | Task |
 | --------------------------- | ---- |
 | [equals](#equals) | Check whether both values are equivalent. |
