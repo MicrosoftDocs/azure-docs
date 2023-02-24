@@ -13,7 +13,7 @@ ms.custom: subject-reliability, references_regions
 
 # Reliability in Azure Cognitive Search
 
-Across Azure, *reliability* means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
+Across Azure, [reliability](/azure/reliability/overview) means maintaining resiliency and availability if there's a service outage or degradation. In Cognitive Search, reliability is achieved when you:
 
 + Configure a service to use multiple replicas, paired with availability zone support.
 
