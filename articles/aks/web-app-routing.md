@@ -84,7 +84,7 @@ The Web Application Routing routing add-on can be enabled with the Azure CLI whe
 
 # [Without Open Service Mesh (OSM)](#tab/without-osm)
 
-The following additional add-on is required:
+The following extra add-on is required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
@@ -127,7 +127,7 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyv
 > [!WARNING]
 > Configuring ingresses by adding annotations on the Service object is retired. Please consider [configuring via an Ingress object](?tabs=without-osm).
 
-The following additional add-on is required:
+The following extra add-on is required:
 * **azure-keyvault-secrets-provider**: The Secret Store CSI provider for Azure Key Vault is required to retrieve the certificates from Azure Key Vault.
 
 > [!IMPORTANT]
