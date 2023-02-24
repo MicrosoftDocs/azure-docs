@@ -75,8 +75,8 @@ When you're done with the container, select **Overview** for the *helloworld* co
 In this tutorial, you created a confidential container on Azure Container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the confidential containers on Azure Container Instances - deploy with Azure Resource Manager template tutorial. 
 
 
-* [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-confidential-overview.md)
-* [Confidential computing enforcement policies overview](container-instances-cce-policy-concepts)
+* [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
+* [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
 * [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
