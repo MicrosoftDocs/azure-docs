@@ -337,15 +337,6 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-<<<<<<< HEAD
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
-        - name: H-series retirement
-          href: h-series-retirement.md
-=======
->>>>>>> 436527fb981aef57ff33f278db1b32ac89287434
       - name: HB-series
         href: hb-series.md
         items:
