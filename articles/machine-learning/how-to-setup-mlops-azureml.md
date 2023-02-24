@@ -329,7 +329,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [Install and set up Python CLI v2](how-to-configure-cli.md)
-* [AzureMLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
+* [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
 * Learn more about [Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md)
 * Learn more about [GitHub Actions with Azure Machine Learning](how-to-github-actions-machine-learning.md)
 * Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)
