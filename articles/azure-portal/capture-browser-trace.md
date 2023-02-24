@@ -76,35 +76,35 @@ The following steps show how to use the developer tools in Google Chrome. For mo
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
-    1. Select the **Network** tab, then select **Preserve log**.
+   1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
 
-          ![Screenshot that highlights the Preserve log option on the Network tab.](media/capture-browser-trace/chromium-network-preserve-log.png)
+      ![Screenshot that highlights the Preserve log option on the Console tab in Chrome.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-    1. Select the **Console** tab, select **Console settings**, then select **Preserve Log**.
+   1. Select the **Network** tab, then select **Preserve log**.
 
-          ![Screenshot that highlights the Preserve log option on the Console tab.](media/capture-browser-trace/chromium-console-preserve-log.png)
+      ![Screenshot that highlights the Preserve log option on the Network tab in Chrome.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-1. Select the **Network** tab, then select **Stop recording network log** and **Clear**.
+1. On the **Network** tab, select **Stop recording network log** and **Clear**.
 
-    ![Screenshot of "Stop recording network log" and "Clear" on the Network tab.](media/capture-browser-trace/chromium-stop-clear-session.png)
+   ![Screenshot of "Stop recording network log" and "Clear" on the Network tab in Chrome.](media/capture-browser-trace/chromium-stop-clear-session.png)
 
 1. Select **Record network log**, then reproduce the issue in the portal.
 
-    ![Screenshot that shows how to record the network log.](media/capture-browser-trace/chromium-start-session.png)
+   ![Screenshot that shows how to record the network log in Chrome.](media/capture-browser-trace/chromium-start-session.png)
 
-    You will see session output similar to the following image.
+    You'll see session output similar to the following image.
 
-    ![Screenshot that shows the session output.](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Screenshot that shows the session output in Chrome.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. After you have reproduced the unexpected portal behavior, select **Stop recording network log**, then select **Export HAR** and save the file.
 
-    ![Screenshot that shows how to Export HAR on the Network tab.](media/capture-browser-trace/chromium-network-export-har.png)
+   ![Screenshot that shows how to Export HAR on the Network tab in Chrome.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Stop the Steps Recorder and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
-    ![Screenshot that shows how to save the console output.](media/capture-browser-trace/chromium-console-select.png)
+    ![Screenshot that shows how to save the console output in Chrome.](media/capture-browser-trace/chromium-console-select.png)
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
@@ -130,23 +130,23 @@ The following steps show how to use the developer tools in Apple Safari on Mac. 
 
 1. Select **Develop**, then select **Show Web Inspector**.
 
-    ![Screenshot of the "Show Web Inspector" command.](media/capture-browser-trace/safari-show-web-inspector.png)
+   ![Screenshot of the "Show Web Inspector" command.](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
-    1. Select the **Network** tab, then select **Preserve Log**.
-
-          ![Screenshot that shows the Preserve Log option on the Network tab.](media/capture-browser-trace/safari-network-preserve-log.png)
-
     1. Select the **Console** tab, then select **Preserve Log**.
 
-          ![Screenshot that shows the Preserve Log on the Console tab.](media/capture-browser-trace/safari-console-preserve-log.png)
+       ![Screenshot that shows the Preserve Log on the Console tab.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Select the **Network** tab, then select **Clear Network Items**.
+    1. Select the **Network** tab, then select **Preserve Log**.
+
+       ![Screenshot that shows the Preserve Log option on the Network tab.](media/capture-browser-trace/safari-network-preserve-log.png)
+
+1. On the **Network** tab, select **Clear Network Items**.
 
     ![Screenshot of "Clear Network Items" on the Network tab.](media/capture-browser-trace/safari-clear-session.png)
 
-1. Reproduce the issue in the portal. You will see session output similar to the following image.
+1. Reproduce the issue in the portal. You'll see session output similar to the following image.
 
     ![Screenshot that shows the output after you've reproduced the issue.](media/capture-browser-trace/safari-browser-trace-results.png)
 
@@ -178,19 +178,19 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro steps require going to more than one page:
 
-    1. Select the **Network** tab, select the **Settings** icon, and then select **Persist Logs**.
-
-       :::image type="content" source="media/capture-browser-trace/firefox-network-persist-logs.png" alt-text="Screenshot of the Network setting for Persist Logs.":::
-
     1. Select the **Console** tab, select the **Settings** icon, and then select **Persist Logs**.
 
        :::image type="content" source="media/capture-browser-trace/firefox-console-persist-logs.png" alt-text="Screenshot of the Console setting for Persist Logs.":::
 
-1. Select the **Network** tab, then select **Clear**.
+    1. Select the **Network** tab, select the **Settings** icon, and then select **Persist Logs**.
+
+       :::image type="content" source="media/capture-browser-trace/firefox-network-persist-logs.png" alt-text="Screenshot of the Network setting for Persist Logs.":::
+
+1. On the **Network** tab, select **Clear**.
 
     ![Screenshot of the "Clear" option on the Network tab.](media/capture-browser-trace/firefox-clear-session.png)
 
-1. Reproduce the issue in the portal. You will see session output similar to the following image.
+1. Reproduce the issue in the portal. You'll see session output similar to the following image.
 
     ![Screenshot showing example browser trace results.](media/capture-browser-trace/firefox-browser-trace-results.png)
 
