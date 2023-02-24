@@ -62,7 +62,7 @@ Upgrade the Linux kernel to the following versions that have a fix for this prob
 ## Can't create symbolic links - ln: failed to create symbolic link 't': Operation not supported
 
 ### Cause
-By default, mounting Azure file shares on Linux by using CIFS doesn't enable support for symbolic links (symlinks). You might see an error like this:
+By default, mounting Azure file shares on Linux by using SMB doesn't enable support for symbolic links (symlinks). You might see an error like this:
 
 ```
 ln -s linked -n t
@@ -70,9 +70,9 @@ ln: failed to create symbolic link 't': Operation not supported
 ```
 
 ### Solution
-The Linux CIFS client doesn't support creating Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
+The Linux SMB client doesn't support creating Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
 
-To use symlinks, add the following to the end of your CIFS mount command:
+To use symlinks, add the following to the end of your SMB mount command:
 
 ```
 ,mfsymlinks
@@ -115,9 +115,11 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 
 File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client show repeated errors like:
 
+```
 Status code returned 0xc000006d STATUS_LOGON_FAILURE
 cifs_setup_session: 2 callbacks suppressed
 CIFS VFS: \\contoso.file.core.windows.net Send error in SessSetup = -13
+```
  
 You'll also see that the server FQDN now resolves to a different IP address than what it’s currently connected to.
 

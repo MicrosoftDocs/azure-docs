@@ -29,53 +29,201 @@ If you can't find an answer to your question, you can contact us through the fol
 ## General troubleshooting first steps
 If you encounter problems with Azure Files, start with these steps. You can also use the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), which can help with problems connecting, mapping, and mounting Azure file shares.
 
+### Check DNS resolution and connectivity to your Azure file share
+The most common problem encountered by Azure Files customers is that mounting or accessing the Azure file share fails because of an incorrect networking configuration. This can happen with any of the three file sharing protocols that Azure Files supports: SMB, NFS, and FileREST. 
+
+The following table provides the SMB, NFS, and FileREST requirements for which of the network endpoints of a storage account they can use, and which port that endpoint can be accessed over. To learn more about network endpoints, see [Azure Files networking considerations](storage-files-networking-overview.md).
+
+| Protocol name | Unrestricted public endpoint | Restricted public endpoint | Private endpoint | Required port |
+|-|:-:|:-:|:-:|-|
+| SMB | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | TCP 445 |
+| NFS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | TCP 2049 |
+| FileREST | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | <ul><li>TCP 443 (HTTPS)</li><li>TCP 80 (HTTP)</li></ul> |
+
+To mount or access a file share successfully, you client must:
+
+- Be able to resolve the fully qualified domain name of the storage account (ex. `mystorageaccount.file.core.windows.net`) to the correct IP address for the desired network endpoint of the storage account.
+
+- Establish a successful TCP connection to the correctly resolved IP address on the correct port for the desired protocol. 
+
+> [!Note]  
+> You must use the fully qualified domain name (FQDN) for your storage account when mounting/accessing the share. The following commands will let you see the current IP addresses of the network endpoints of your storage account, but you should not hardcode these IP addresses into any scripts, firewall configurations, or other locations. IP addresses aren't guaranteed to remain the same, and may change at any time.
+
+#### Check DNS name resolution
+The following command lets you test the DNS name resolution of your storage account.
+
+# [PowerShell](#tab/powershell)
+```PowerShell
+# If you have changed the DNS configuration in your environment, it may be helpful to clear
+# the DNS client cache to ensure you're getting the updated DNS name resolution.
+Clear-DnsClientCache
+
+# Replace this value with the fully qualified domain name for your storage account. 
+# Different storage accounts, especially in different Azure environments, 
+# may have different suffixes than file.core.windows.net, so be sure to use the correct
+# suffix for your storage account.
+$hostName = "mystorageaccount.file.core.windows.net"
+
+# Do the name resolution. Piping to Format-List is optional.
+Resolve-DnsName -Name $hostName | Format-List
+```
+
+The output returned by `Resolve-DnsName` may be different depending on your environment and desired networking configuration. For example, if you are trying to access the public endpoint of the storage account that does not have a private endpoint configured, you would see a result that looks like the following, where `x.x.x.x` is the IP address of the cluster `file.phx10prdstf01a.store.core.windows.net` of the Azure storage platform that serves your storage account:
+
+```Output
+Name       : mystorageaccount.file.core.windows.net
+Type       : CNAME
+TTL        : 27
+Section    : Answer
+NameHost   : file.phx10prdstf01a.store.core.windows.net
+
+Name       : file.phx10prdstf01a.store.core.windows.net
+QueryType  : A
+TTL        : 60
+Section    : Answer
+IP4Address : x.x.x.x
+```
+
+If you are trying to access the public endpoint of a storage account that has one or more private endpoints configured, you would expect to see a result that looked something like the following. Note that an additional CNAME record for `mystorageaccount.privatelink.file.core.windows.net` has been inserted in between the normal FQDN of the storage account and the name of storage cluster. This enables name resolution to the public endpoint's IP address when the user is accessing from the internet, and resolution to the private endpoint's IP address when the user is accessing from inside of an Azure virtual network (or peered network).
+
+```Output
+Name       : mystorageaccount.file.core.windows.net
+Type       : CNAME
+TTL        : 60
+Section    : Answer
+NameHost   : mystorageaccount.privatelink.file.core.windows.net
+
+Name       : mystorageaccount.privatelink.file.core.windows.net
+Type       : CNAME
+TTL        : 60
+Section    : Answer
+NameHost   : file.phx10prdstf01a.store.core.windows.net
+
+
+Name       : file.phx10prdstf01a.store.core.windows.net
+QueryType  : A
+TTL        : 60
+Section    : Answer
+IP4Address : x.x.x.x
+```
+
+If you are resolving to a private endpoint, you would normally expect an A record for `mystorageaccount.privatelink.file.core.windows.net` that maps to your private endpoint's IP address:
+
+```Output
+Name                   : mystorageaccount.file.core.windows.net
+Type                   : CNAME
+TTL                    : 53
+Section                : Answer
+NameHost               : mystorageaccount.privatelink.file.core.windows.net
+
+
+Name                   : mystorageaccount.privatelink.file.core.windows.net
+QueryType              : A
+TTL                    : 10
+Section                : Answer
+IP4Address             : 10.0.0.5
+```
+
+# [Bash](#tab/bash)
+```Bash
+# Replace this value with the fully qualified domain name for your storage account. 
+# Different storage accounts, especially in different Azure environments, 
+# may have different suffixes than file.core.windows.net, so be sure to use the correct
+# suffix for your storage account.
+hostName="mystorageaccount.file.core.windows.net"
+
+# Do the name resolution.
+nslookup $hostName
+```
+
+The output returned by `nslookup` may be different depending on your environment and desired networking configuration. For example, if you are trying to access the public endpoint of the storage account that does not have a private endpoint configured, you would see a result that looks like the following, where `x.x.x.x` is the IP address of the cluster `file.phx10prdstf01a.store.core.windows.net` of the Azure storage platform that serves your storage account:
+
+```Output
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+mystorageaccount.file.core.windows.net    canonical name = file.phx10prdstf01a.store.core.windows.net.
+Name:   file.phx10prdstf01a.store.core.windows.net
+Address: x.x.x.x
+```
+
+If you are trying to access the public endpoint of a storage account that has one or more private endpoints configured, you would expect to see a result that looked something like the following. Note that an additional CNAME record for `mystorageaccount.privatelink.file.core.windows.net` has been inserted in between the normal FQDN of the storage account and the name of storage cluster. This enables name resolution to the public endpoint's IP address when the user is accessing from the internet, and resolution to the private endpoint's IP address when the user is accessing from inside of an Azure virtual network (or peered network).
+
+```Output
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+mystorageaccount.file.core.windows.net    canonical name = mystorageaccount.privatelink.file.core.windows.net.
+mystorageaccount.privatelink.file.core.windows.net        canonical name = file.phx10prdstf01a.store.core.windows.net.
+Name:   file.phx10prdstf01a.store.core.windows.net
+Address: 20.60.39.8
+```
+
+If you are resolving to a private endpoint, you would normally expect an A record for `mystorageaccount.privatelink.file.core.windows.net` that maps to your private endpoint's IP address:
+
+```Output
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+mystorageaccount.file.core.windows.net    canonical name = mystorageaccount.privatelink.file.core.windows.net.
+Name:   mystorageaccount.privatelink.file.core.windows.net
+Address: 10.0.0.5
+```
+---
+
+#### Check TCP connectivity
+The following command lets you test your client's ability to make a TCP connection to the resolved IP address/port number.
+
+# [PowerShell](#tab/powershell)
+```PowerShell
+# Replace this value with the fully qualified domain name for your storage account. 
+# Different storage accounts, especially in different Azure environments, 
+# may have different suffixes than file.core.windows.net, so be sure to use the correct
+# suffix for your storage account.
+$hostName = "mystorageaccount.file.core.windows.net"
+
+# Do the TCP connection test - see the above protocol/port table to figure out which
+# port to use for your test. This test uses port 445, the port used by SMB.
+Test-NetConnection -ComputerName $hostName -Port 445
+```
+
+If the connection was successfully established, you should expect to see the following result:
+
+```Output
+ComputerName     : mystorageAccount.file.core.windows.net
+RemoteAddress    : x.x.x.x
+RemotePort       : 445
+InterfaceAlias   : Ethernet
+SourceAddress    : y.y.y.y
+TcpTestSucceeded : True
+```
+
+# [Bash](#tab/bash)
+```Bash
+# Replace this value with the fully qualified domain name for your storage account. 
+# Different storage accounts, especially in different Azure environments, 
+# may have different suffixes than file.core.windows.net, so be sure to use the correct
+# suffix for your storage account.
+hostName="mystorageaccount.file.core.windows.net"
+
+# Do the TCP connection test - see the above protocol/port table to figure out which
+# port to use for your test. This test uses port 445, the port used by SMB.
+nc -zvw3 $hostName 445
+```
+
+If the connection was successfully established, you should expect to see the following result:
+
+```Output
+Connection to mystorageaccount.file.core.windows.net (10.0.0.5) 445 port [tcp/microsoft-ds] succeeded!
+```
+---
+
 ### Run diagnostics
 
 Both [Windows clients](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) and [Linux clients](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) can use `AzFileDiagnostics` to ensure that the client environment has the correct prerequisites. `AzFileDiagnostics` automates symptom detection and helps set up your environment to get optimal performance.
-
-### Check if your firewall or ISP is blocking port 445
-
-System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. Many ISPs and companies block port 445. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
-
-To check if your firewall or ISP is blocking port 445, you can run the [`AzFileDiagnostics`](#run-diagnostics) tool or use the `Test-NetConnection` cmdlet.
-
-To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be installed. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the names for your storage account and resource group.
-
-```azurepowershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-
-# This command requires you to be logged into your Azure account and set the subscription your storage account is under, run:
-# Connect-AzAccount -SubscriptionId ‘xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx’
-# if you haven't already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-# The ComputerName, or host, is <your-storage-account-name>.file.core.windows.net for Azure Public Regions.
-# $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-# or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-```
-
-If the connection was successful, you should see the following output:
-
-
-```azurepowershell
-ComputerName     : <your-storage-account-name>
-RemoteAddress    : <storage-account-ip-address>
-RemotePort       : 445
-InterfaceAlias   : <your-network-interface>
-SourceAddress    : <your-ip-address>
-TcpTestSucceeded : True
-```
- 
-> [!Note]  
-> The above command returns the current IP address of the storage account. This IP address isn't guaranteed to remain the same, and may change at any time. Don't hardcode this IP address into any scripts, or into a firewall configuration.
-
-If you can't open port 445, you can set up a VPN or ExpressRoute connection from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints. This sends traffic through a secure tunnel as opposed to over the internet. See [Configure a Point-to-Site (P2S) VPN on Windows](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows clients or [Configure a Point-to-Site (P2S) VPN on Linux](storage-files-configure-p2s-vpn-linux.md) for Linux clients.
-
-### Confirm that DNS is working
-
-Run the `Resolve-DnsName` PowerShell cmdlet or use `nslookup` to perform a DNS query for your domain name.
 
 ## Common troubleshooting areas
 
