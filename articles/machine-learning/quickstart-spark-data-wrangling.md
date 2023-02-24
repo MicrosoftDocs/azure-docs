@@ -73,7 +73,7 @@ Once the user identity has the appropriate roles assigned, data in the Azure sto
 
 ## Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
 
-A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, start in the **Compute** selection menu, and select **AzureML Spark Compute** under **Azure Machine Learning Spark**.
+A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, start in the **Compute** selection menu, and select **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark**.
 
 :::image type="content" source="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" lightbox="media/quickstart-spark-data-wrangling/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option, located at the Compute selection menu.":::
 

@@ -72,4 +72,4 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
-- If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
+- If you experience any issues, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).
