@@ -43,10 +43,13 @@ To use a custom task extension in your workflow, first a custom task extension m
     :::image type="content" source="media/trigger-custom-task/create-custom-task-extension.png" alt-text="Screenshot for creating a custom task extension selection.":::
 1. On the basics page you, enter a unique display name and description for the custom task extension and select **Next**.
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-basics.png" alt-text="Screenshot of the basics section for creating a custom task extension.":::
-1. On the **Task behavior** page, you specify how the custom task extension will behave after executing the Azure Logic App and select **Next**.
+1. On the **Task behavior** page, you specify how the custom task extension will behave after executing the Azure Logic App. If you choose **Launch and continue** you can immediately select **Next: Details**.
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-behavior.png" alt-text="Screenshot for choose task behavior for custom task extension.":::
-    > [!NOTE]
-    > For more information about custom task extension behavior, see: [Lifecycle Workflow extensibility](lifecycle-workflow-extensibility.md)
+
+1. If you select **Launch and wait**, you are given an option of how long to wait for a response from the logic app before the task is considered a failure, and also options to set **Response authorization**. After choosing these options, you would be able to select **Next: Details**. 
+    :::image type="content" source="media/trigger-custom-task/custom-task-extension-launch-wait.png" alt-text="Screenshot of launch and wait option for custom task extension."::: 
+     > [!NOTE]
+     > For more information about custom task extension behavior, see: [Lifecycle Workflow extensibility](lifecycle-workflow-extensibility.md)
 1. On the **Logic App details** page, you select **Create new Logic App**, and specify the subscription and resource group where it will be located. You'll also give the new Azure Logic App a name.
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-new-logic-app.png" alt-text="screen showing to create new logic app for custom task extension.":::
 1. If deployed successfully, you'll get confirmation on the **Logic App details** page immediately, and then you can select **Next**. 
