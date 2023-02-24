@@ -13,23 +13,26 @@ ms.custom: "seodec18, mvc"
 # Confidential containers on Azure Container Instances (preview)
 This article introduces how confidential containers on Azure Container Instances can enable you to secure your workloads running in the cloud. This article provides background about the feature set, scenarios, limitations, and resources.
 
-Confidential containers on Azure Container Instances enable customers to run Linux containers within a hardware-based trusted execution environment (TEE). Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt any specialized programming models to achieve the benefits of confidentiality in a TEE. Confidential containers on ACI protect data-in-use and the code by encrypting the contents through hardware/CPU transparently. ACI extends this capability through verifiable execution policies, and verifiable hardware root of trust assurances through guest attestation.
+Confidential containers on Azure Container Instances enable customers to run Linux containers within a hardware-based trusted execution environment (TEE). Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt any specialized programming models to achieve the benefits of confidentiality in a TEE. Confidential containers on Azure Container Instances protect data-in-use and encrypts data being used in memory. Azure Container Instances extends this capability through verifiable execution policies, and verifiable hardware root of trust assurances through guest attestation.
 
    ![Screenshot of a confidential container group on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-tee.png)
 
 ## Features of confidential containers on Azure Container Instances
 
+### Lift and shift applications 
+Customers can lift and shift their containerize d Linux applications or build new confidential computing applications without needing to adopt specialized programming models to achieve the benefits of confidentiality in a TEE. 
+
 ### Hardware based trusted execution environment 
-Confidential containers on Azure Container Instances are deployed in a container group with a Hyper-V isolated TEE, which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory within the TEE is encrypted with this key to help provide protection against data replay, corruption, remapping- and aliasing-based attacks.  
+Confidential containers on Azure Container Instances are deployed in a container group with a Hyper-V isolated TEE, which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory is encrypted with this key to help provide protection against data replay, corruption, remapping- and aliasing-based attacks.  
 
 ### Verifiable execution policies
-Confidential containers on Azure Container Instances can run with verifiable execution policies that enable customers to have full control over what software and actions are allowed to run within the TEE. These execution policies help to protect against bad actors creating unexpected application modifications that could potentially leak sensitive data.  Execution policies are authored by the customer through provided [tooling](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) and are verified through cryptographic proof. 
+Confidential containers on Azure Container Instances can run with verifiable execution policies that enable customers to have control over what software and actions are allowed to run within the TEE. These execution policies help to protect against bad actors creating unexpected application modifications that could potentially leak sensitive data.  Execution policies are authored by the customer through provided [tooling](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) and are verified through cryptographic proof. 
 
 ### Remote guest attestation
 Confidential containers on ACI provide support for remote guest attestation which is used to verify the trust worthiness of your container group before creating a secure channel with a relying party. Container groups can generate an SNP hardware attestation report which is signed by the hardware and includes information about the hardware and software. This generated hardware attestation report can then be verified by the Microsoft Azure Attestation service via an [open-source sidecar application](https://github.com/microsoft/confidential-sidecar-containers) or by another attestation service before any sensitive data is released to the TEE. 
 
 ## Confidential computing enforcement policies 
-Confidential containers support container-level integrity and attestation via confidential computing enforcement policies, which prescribe the components that are permitted to run within the container group and is enforced by the container runtime. 
+Confidential containers support container-level integrity and attestation via confidential computing enforcement (CCE) policies. Confidential computing enforcement policies prescribe the components that are permitted to run within the container group and will be enforced by the container runtime. 
 
 ### Azure CLI confcom extension 
 The Azure CLI confcom extension enables customers to generate confidential computing enforcement policies using an ARM template as an input and providing a base 64 string policy as an output. This output is included in the definition of the container group to enforce which components are permitted to run. For more details on authoring confidential computing execution policies, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
@@ -39,11 +42,10 @@ The Azure CLI confcom extension enables customers to generate confidential compu
 Confidential containers on Azure Container Instances integrates with two open source sidecars to support confidential functionality within the container group.  You can find these sidecars and more information in the [confidential sidecar repository](https://github.com/microsoft/confidential-sidecar-containers).
 
 ### Secure key release sidecar 
-Confidential containers on Azure Container Instances provide a sidecar tool for attestation and secure key release. This tool instantiates a web server, which exposes a REST API so that other containers can retrieve a hardware attestation report or a Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
+Confidential containers on Azure Container Instances provide a sidecar open source container for attestation and secure key release. This sidecar instantiates a web server, which exposes a REST API so that other containers can retrieve a hardware attestation report or a Microsoft Azure Attestation token via the POST method. The sidecar integrates with Azure Key vault for releasing a key to the container group after validation has been completed.
 
 ### Encrypted file system sidecar 
 Confidential containers on Azure Container Instances provide a sidecar container to mount a remote encrypted filesystem previously uploaded to Azure Blob Storage. The sidecar container transparently retrieves the hardware attestation and the certificate chain endorsing the attestation’s signing key. It then requests Microsoft Azure Attestation to authorize an attestation token, which is required for securely releasing the filesystem’s encryption key from the managed HSM. The key is released to the sidecar container only if the attestation token is signed by the expected authority and the attestation claims match the key’s release policy. The sidecar container transparently uses the key to mount the remote encrypted filesystem; this process will preserve the confidentiality and integrity of the filesystem upon any operation from a container that is running within the container group.
-
 
 ## Scenarios 
 

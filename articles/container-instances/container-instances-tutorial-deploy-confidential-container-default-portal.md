@@ -35,7 +35,7 @@ Select **Containers** > **Container Instances**.
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
 
 * Resource group: **Create new** > `myresourcegroup`
-* Container name: `myconfidentialcontainer`
+* Container name: `helloworld`
 * Region: One of `West Europe`/`North Europe`/`East US`
 * SKU: `Confidential (default policy)`
 * Image source: **Quickstart images**
@@ -72,7 +72,7 @@ When you're done with the container, select **Overview** for the *helloworld* co
 
 ## Next steps
 
-In this tutorial, you created a Confidential container on Azure container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the confidential containers on Azure Container Instances Azure Resource Manager template tutorial. 
+In this tutorial, you created a confidential container on Azure Container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the confidential containers on Azure Container Instances - deploy with Azure Resource Manager template tutorial. 
 
 
 * [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-confidential-overview.md)
@@ -80,7 +80,3 @@ In this tutorial, you created a Confidential container on Azure container instan
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
 * [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
 
-<!-- LINKS - External -->
-[azure-free-account]: https://azure.microsoft.com/free/
-[confcom-extension]: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
-[helloworld-application]: https://github.com/Azure-Samples/aci-confidential-hello-world

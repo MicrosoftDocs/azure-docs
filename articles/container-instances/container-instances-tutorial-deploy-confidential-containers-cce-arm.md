@@ -32,10 +32,10 @@ In this tutorial, you deploy a hello world application that generates a hardware
 > [!NOTE] 
 > The ccePolicy parameter of the template is blank and needs to be updated based on the next step of this tutorial. 
 
-There are two properties added to the ACI resource definition to make the container group confidential: 
+There are two properties added to the Azure Container Instance resource definition to make the container group confidential: 
 
 1. **sku**: The SKU property enables you to select between confidential and standard container group deployments. If this property isn't added, the container group will be deployed as standard SKU. 
-2. **confidentialComputeProperties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for attestation of your container group. If this object isn't added to the resource there will be no validation of the software running within the container group.
+2. **confidentialComputeProperties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for attestation of your container group. If this object isn't added to the resource there will be no validation of the software components running within the container group.
 
 Use your preferred text editor to save this ARM template on your local machine as **template.json**.
 
@@ -228,13 +228,6 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
 
-
 * [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
 * [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
-
-
-<!-- LINKS - External -->
-[azure-free-account]: https://azure.microsoft.com/free/
-[confcom-extension]: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
-[helloworld-application]: https://github.com/Azure-Samples/aci-confidential-hello-world
