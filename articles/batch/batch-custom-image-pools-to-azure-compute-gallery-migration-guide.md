@@ -34,13 +34,13 @@ If you have either a VHD blob or a managed image, you can convert them directly 
 | Managed image | Select the **Source image** from the drop-down. The managed image must be in the same region that you chose in **Instance details.** |
 | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
-For more information about this process, see [creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md).
+For more information about this process, see [creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md#create-an-image).
 
 ## FAQs
 
 - How can I create an Azure Compute Gallery?
 
-  See the [guide](../virtual-machines/create-gallery.md#portal-2Cportaldirect-2Ccli2) for Compute Gallery creation.
+  See the [guide](../virtual-machines/create-gallery.md#create-a-private-gallery) for Compute Gallery creation.
 
 - How do I create a Pool with a Compute Gallery image?
 
