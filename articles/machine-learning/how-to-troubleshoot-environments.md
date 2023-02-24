@@ -36,9 +36,9 @@ In user-managed environments, you're responsible for setting up your environment
 Also be sure to include any dependencies needed for model deployment.
 These types of environments have two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
-When you want conda to manage the Python environment for you, use system-managed environments.
-AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, AzureML adds common properties to the derived image.
-Environment isolation implies that Python dependencies installed in the base image aren't available in the derived image.
+When you want conda to manage the Python environment for you, use a system-managed environment.
+AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, AzureML adds common features to the derived image.
+Any Python packages present in the base image are not available in the isolated conda environment.
 
 ### Create and manage environments
 
@@ -48,15 +48,15 @@ You can create and manage environments from clients like AzureML Python SDK, Azu
 They aren't listed but you can retrieve them by version or label.
 
 AzureML builds environment definitions into Docker images.
-It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so you can reuse them in subsequent training jobs and service endpoint deployments.
-Multiple environments with the same definition may result in the same image, so the cached image is reused.
+It also caches the images in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
+Additional environments with the same definition may result in the same cached image.
 Running a training script remotely requires the creation of a Docker image.
 
 ### Reproducibility and vulnerabilities
 
 #### *Vulnerabilities*
 
-You can address vulnerabilities by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
+You can address vulnerabilities by upgrading to a newer version of a dependency (base image, Python package, etc.) or migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
 of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
 
