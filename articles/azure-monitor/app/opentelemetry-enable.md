@@ -738,7 +738,7 @@ Depending on your language and signal type, there are different ways to collect 
  
 The following table represents the currently supported custom telemetry types:
 
-| Libraries                                 | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
+|                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
