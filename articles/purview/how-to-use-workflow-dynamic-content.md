@@ -1,24 +1,29 @@
 ---
 title: Workflow dynamic content
-description: This article describes how to use connectors in Purview dynamic content
+description: This article describes how to use dynamic content like built-in variables and expressions in Microsoft Purview workflows.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/23/2023
+ms.date: 02/24/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-#  Workflow dynamic content 
+# Workflow dynamic content
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 You can use dynamic content inside Microsoft Purview workflows to associate certain variables in the workflow or add expression functions to process values.
 
-## Current workflow dynamic content
+Currently available are:
 
-Currently, the following dynamic content options are available for a workflow connector in Microsoft Purview:
+* [Built-in variables](#built-in-variables) - variables that represent values coming to the workflow from the items that triggered it
+* [Expressions](#expressions) - an expression is a formula, built from functions and variables that can process values in-workflow.
+
+## Built-in variables
+
+Currently, the following variables are available for a workflow connector in Microsoft Purview:
 
 |Prerequisite connector  |Built-in dynamic content  |Functionality  |
 |---------|---------|---------|
@@ -52,27 +57,24 @@ Currently, the following dynamic content options are available for a workflow co
 | |Term.Parent.Name	|The name of parent term if exists |
 | |Term.Parent.Formal Name	|The formal name of parent term if exists  |
 | |Term.Created By	|The creator of the term |
-| |Term.Last Updated By	|The last updator of the term  |
+| |Term.Last Updated By	|The last updater of the term  |
 |When term import request is submitted	|Workflow.Requestor	|The requestor of the workflow |
 | |Import File.Name  |The name of the file to import  |
 
+## Expressions
 
-## Expression functions
-
-Workflow definitions in Microsoft Purview now allow you to use expression functions to process values in your workflows.
-
-For example:
-
-
+Workflow definitions in Microsoft Purview allow you to use expression functions to process values in your workflows.
 
 To find functions [based on their general purpose](#ordered-by-purpose), review the following tables. Or, for detailed information about each function, see the [alphabetical list](#alphabetical-list).
-
 
 When you're building a workflow and want to add an expression function to a value, follow these steps:
 
 1. Select the value you're going to edit.
 1. Select the **Add dynamic content** button that appears underneath the textbox.
 1. Select the **Expressions** tab in the dynamic content window and scroll to select your value.
+1. Update your expression and select **OK** to add it.
+
+:::image type="content" source="./media/how-to-use-workflow-dynamic-content/use-expressions.png" alt-text="Screenshot showing a workflow text field with Use dynamic content highlighted and the expressions tab shown.":::
 
 ## Considerations for using expression functions
 
