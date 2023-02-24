@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Create a secure n-tier web app'
-description: Learn how to securely deploy your n-tier web app to Azure App Service.
+title: 'Tutorial: Create a secure N-tier web app'
+description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/23/2023
+ms.date: 2/24/2023
 ms.author: jordanselig
 ---
 
@@ -11,7 +11,7 @@ ms.author: jordanselig
 
 Many applications have more than a single component. For example, you may have a front end that is publicly accessible and connects to a back-end database, storage account, key vault, another VM, or a combination of these resources. This architecture makes up an N-tier application. It's important that applications like this are architected to protect back-end resources to the greatest extent possible.
 
-In this tutorial, you'll learn how to deploy a secure N-tier application, with a front-end web app that connects to another network-isolated web app. All traffic is isolated within your Azure Virtual Network using [Virtual Network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more comprehensive guidance that includes other scenarios, see: 
+In this tutorial, you learn how to deploy a secure N-tier application, with a front-end web app that connects to another network-isolated web app. All traffic is isolated within your Azure Virtual Network using [Virtual Network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more comprehensive guidance that includes other scenarios, see: 
 
 - [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md)
 - [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md).
@@ -22,7 +22,7 @@ The following diagram shows the architecture you'll create during this tutorial.
 
 :::image type="content" source="./media/tutorial-secure-ntier-app/n-tier-app-service-architecture.png" alt-text="Architecture diagram of an n-tier App Service.":::
 
-- **Virtual network**  Contains two subnets, one is integrated with the front-end web app, and the other is has a private endpoint for the back-end web app. The virtual network blocks all inbound network traffic, except for the front-end app which is integrated with it.
+- **Virtual network**  Contains two subnets, one is integrated with the front-end web app, and the other has a private endpoint for the back-end web app. The virtual network blocks all inbound network traffic, except for the front-end app that's integrated with it.
 - **Front-end web app**  Integrated into the virtual network and accessible from the public internet. 
 - **Back-end web app**  Accessible only through the private endpoint in the virtual network.
 - **Private endpoint**  Integrates with the back-end web app and makes the web app accessible with a private IP address.
@@ -50,13 +50,13 @@ What you'll learn:
 
 ## Prerequisites
 
+The tutorial uses two sample Node.js apps that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 To complete this tutorial:
 
 [!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/articles/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
-
-The tutorial uses two sample Node.js apps that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
 
 ## 1. Create two instances of a web app
 
@@ -88,7 +88,7 @@ You need two instances of a web app, one for the frontend and one for the backen
 
 ## 2. Create network infrastructure
 
-You will create the following network resources:
+You'll create the following network resources:
 
 - A virtual network.
 - A subnet for the App Service virtual network integration.
@@ -171,7 +171,7 @@ Virtual network integration allows outbound traffic to flow directly into the vi
 
 Since your backend web app isn't publicly accessible, you must let your continuous deployment tool reach your app by [making the SCM site publicly accessible](app-service-ip-restrictions.md#restrict-access-to-an-scm-site). The main web app itself can continue to deny all traffic.
 
-1. Enable public access for the backend web app
+1. Enable public access for the back-end web app.
 
     ```azurecli-interactive
     az webapp update --resource-group $groupName --name <backend-app-name> --set publicNetworkAccess=Enabled
@@ -183,13 +183,15 @@ Since your backend web app isn't publicly accessible, you must let your continuo
     az resource update --resource-group $groupName --name <backend-app-name> --namespace Microsoft.Web --resource-type sites --set properties.siteConfig.ipSecurityRestrictionsDefaultAction=Deny
     ```
 
-1. Set the unmatched rule action for the SCM site to allow all traffic
+1. Set the unmatched rule action for the SCM site to allow all traffic.
 
     ```azurecli-interactive
     az resource update --resource-group $groupName --name <backend-app-name> --namespace Microsoft.Web --resource-type sites --set properties.siteConfig.scmIpSecurityRestrictionsDefaultAction=Allow
     ```
 
 ## 5. Lock down FTP and SCM access
+
+Now that the back-end SCM site is publicly accessible, you need to secure lock it down with better security.
 
 1. Disable FTP access for both the front-end and back-end web apps. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names.
 
@@ -207,15 +209,15 @@ Since your backend web app isn't publicly accessible, you must let your continuo
 
 [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory, which further secures your apps. For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
 
-## 6. Deploy source code using GitHub Actions
+## 6. Configure continuous deployment using GitHub Actions
 
 1. Navigate to the [Node.js backend sample app](https://github.com/seligj95/nodejs-backend). This app is a simple Hello World app.
 1. Select the **Fork** button in the upper right on the GitHub page.
 1. Select the **Owner** and leave the default Repository name.
 1. Select **Create** fork.
-1. Repeat the same process for the [Node.js frontend sample app](https://github.com/seligj95/nodejs-frontend). This app is a basic web scraping app.
+1. Repeat the same process for the [Node.js frontend sample app](https://github.com/seligj95/nodejs-frontend). This app is a basic web app that accesses a remote URL.
 
-1. Create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace `<subscription-id>`, `<frontend-app-name>`, and `<backend-app-name>` with your values. 
+1. Create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace `<subscription-id>`, `<frontend-app-name>`, and `<backend-app-name>` with your values.
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/$groupName/providers/Microsoft.Web/sites/<frontend-app-name> /subscriptions/<subscription-id>/resourceGroups/$groupName/providers/Microsoft.Web/sites/<backend-app-name> --sdk-auth
@@ -262,9 +264,12 @@ Since your backend web app isn't publicly accessible, you must let your continuo
     |Repository    |nodejs-backend               |
     |Branch        |main                         |
 
-    Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file in the next steps to use the service principal to authenticate for your deployments to App Service. For sample workflows, see [Deploy to App Service](deploy-github-actions.md?tabs=userlevel#deploy-to-app-service).
+## 7. Use a service principal for GitHub Actions deployment
+
+Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Deploy to App Service](deploy-github-actions.md?tabs=userlevel#deploy-to-app-service).
 
 1. Open one of your forked GitHub repositories and go to the `<repo-name>/.github/workflows/` directory.
+
 1. Select the auto-generated workflow file and then select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit triggers the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
 
     ```yml
@@ -343,13 +348,13 @@ The new GitHub commits trigger another deployment for each of your apps. This ti
 
 For detailed guidance on how to configure continuous deployment with providers such as GitHub Actions, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
-## 7. Validate connections and app access
+## 8. Validate connections and app access
 
-1. Browse to the front-end web app with it's URL: `https://<frontend-app-name>.azurewebsites.net`. 
+1. Browse to the front-end web app with its URL: `https://<frontend-app-name>.azurewebsites.net`. 
 
 1. In the textbox, input the URL for your backend web app: `https://<backend-app-name>.azurewebsites.net`. If you set up the connections properly, you should get the message "Hello from the backend web app!", which is the entire content of the backend web app. All *outbound* traffic from the front-end web app is routed through the virtual network. Your frontend web app is securely connecting to your backend web app through the private endpoint. If something is wrong with your connections, your frontend web app crashes.
 
-1. Try navigating directly to your backend web app with it's URL: `https://<backend-app-name>.azurewebsites.net`. You should see the message `Web App - Unavailable`. If you can reach the app, ensure you've configured the private endpoint and that the access restrictions for your app are set to deny all traffic for the main web app.
+1. Try navigating directly to your backend web app with its URL: `https://<backend-app-name>.azurewebsites.net`. You should see the message `Web App - Unavailable`. If you can reach the app, ensure you've configured the private endpoint and that the access restrictions for your app are set to deny all traffic for the main web app.
 
 1. To further validate that the frontend web app is reaching the backend web app over private link, SSH to one of your front end's instances. To SSH, run the following command, which establishes an SSH session to the web container of your app and opens a remote shell in your browser.
 
@@ -376,7 +381,7 @@ For detailed guidance on how to configure continuous deployment with providers s
 
     The `nslookup` returns the public IP for the back-end web app. Since public access to the back-end web app is disabled, if you try to reach the public IP, you get an access denied error. This error means this site isn't accessible from the public internet, which is the intended behavior. The `nslookup` doesn’t resolve to the private IP because that can only be resolved from within the virtual network through the private DNS zone. Only the front-end web app is within the virtual network. If you try to run `curl` on the back-end web app from the external terminal, the HTML that is returned contains `Web App - Unavailable`. This error displays the HTML for the error page you saw earlier when you tried navigating to the back-end web app in your browser.
 
-## Clean up resources
+## 9. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell.
 
