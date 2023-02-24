@@ -144,11 +144,11 @@ items:
     items:
       - name: Call Readiness Overview
         href: tutorials/call-readiness/call-readiness-overview.md
-      - name: Ensure user is on a supported browser
+      - name: 1. Ensure user is on a supported browser
         href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
-      - name: Request camera and microphone permissions
+      - name: 2. Request camera and microphone permissions
         href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
-      - name: Microphone and camera setup before a call
+      - name: 3. Microphone and camera setup before a call
         href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-and-microphone-setup.md
   - name: Enable Push Notifications in your chat app
     href: tutorials/add-chat-push-notifications.md
