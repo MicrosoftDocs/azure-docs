@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 02/22/2023
 ms.author: lajanuar
 recommendations: false
 ms.custom: references.regions
@@ -100,7 +100,9 @@ Form Recognizer v2.1 supports the following tools:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
-* Form Recognizer processes PDF and TIFF files up to 2000 pages and only the first two pages for free-tier subscribers.
+
+* Form Recognizer processes PDF and TIFF files up to 2000 pages or only the first two pages for free-tier subscribers.
+
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
@@ -163,7 +165,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select document type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
