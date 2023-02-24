@@ -1,6 +1,6 @@
 ---
 title: Location condition in Azure Active Directory Conditional Access
-description: Use the location condition to control access based on user physical or network location.
+description: Learn about creating location-based Conditional Access policies using Azure AD.
 
 services: active-directory
 ms.service: active-directory

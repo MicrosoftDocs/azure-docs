@@ -6,7 +6,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/24/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -17,7 +17,7 @@ In this article, you learn how to set up and manage a Direct peering.
 
 ## Create a Direct peering
 
-:::image type="content" source="./media/walkthrough-direct-all/direct-peering.png" alt-text="Diagram showing Direct peering workflow and connection states.":::
+:::image type="content" source="./media/walkthrough-direct-all/direct-peering.png" alt-text="Diagram showing Direct peering workflow and connection states." lightbox="./media/walkthrough-direct-all/direct-peering.png":::
 
 The following steps must be followed to provision a Direct peering:
 
@@ -34,7 +34,7 @@ The following steps must be followed to provision a Direct peering:
 1. Traffic will then be allowed through the new peering.
 
 > [!NOTE]
-> Connection states aren't to be confused with standard BGP session states.
+> Connection states are different from standard BGP session states.
 
 ## Convert a legacy Direct peering to Azure resource
 
