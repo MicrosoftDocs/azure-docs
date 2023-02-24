@@ -351,10 +351,6 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
       - name: HB-series
         href: hb-series.md
         items:
