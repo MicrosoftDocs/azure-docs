@@ -26,7 +26,7 @@ Version: `23.01.19`
 Main changes:
 
 - Added new conda environment `jupyter-env`
-- Moved jupyter service to new `jupyter-env` conda environment
+- Moved Jupyter service to new `jupyter-env` conda environment
 - `Azure Machine Learning SDK` to version `1.48.0`
  
 Main environment specific updates:
