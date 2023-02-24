@@ -332,7 +332,7 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
 
-    :::image type="content" source=".media/tutorial-create-secure-workspace/workspace-application-insights.png" alt-text="Screenshot of the Application Insights link.":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
 
 1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
 
