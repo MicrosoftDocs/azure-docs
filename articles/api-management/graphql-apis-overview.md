@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Overview of GraphQL APIs in Azure API Management
 
-You can use API Management to manage GraphQL APIs - APIs based on the GraphQL query language. GraphQL provides a complete and understandable description of the data in an API, giving clients the power to efficiently retrieve exactly the data they need. [Learn more about GraphQL]( https://graphql.org/learn/)
+You can use API Management to manage GraphQL APIs - APIs based on the GraphQL query language. GraphQL provides a complete and understandable description of the data in an API, giving clients the power to efficiently retrieve exactly the data they need. [Learn more about GraphQL](https://graphql.org/learn/)
 
 API Management helps you import, manage, protect, test, publish, and monitor GraphQL APIs. You can choose one of two API models:
 
@@ -89,6 +89,8 @@ For example, a resolver for the preceding `users` query might map to a `GET` ope
 	</http-request>
 </http-data-source>
 ```
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 ## Manage GraphQL APIs
 
