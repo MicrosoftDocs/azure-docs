@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 02/24/2023
 ---
 
 # Support matrix for VMware discovery 

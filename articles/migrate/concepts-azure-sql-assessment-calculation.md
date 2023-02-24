@@ -4,7 +4,7 @@ description: Learn about Azure SQL assessments in Azure Migrate Discovery and as
 author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 02/24/2023
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ An Azure SQL assessment provides one sizing criteria:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput and latency of IO operations.
+**Performance-based** | Assessments that make recommendations based on collected performance data | The Azure SQL configuration is based on performance data of SQL instances and databases, which includes CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations.
 
 ## How do I assess my on-premises SQL servers?
 
@@ -95,9 +95,9 @@ Azure SQL Database sizing | **Service Tier** | Choose the most appropriate servi
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
 Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
 Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
-High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](/azure/reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) of the Target Location. In the unlikely event that the chosen Target Location doesn't yet have such a pair, the specified Target Location itself is chosen as the default disaster recovery region.
+High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](/azure/reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) of the Target location. In an unlikely event when the chosen Target location doesn't yet have such a pair, the specified Target location itself is chosen as the default disaster recovery region.
 High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
-High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md?view=azuresql&tabs=powershell#cloud-witness) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
+High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound Internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md?view=azuresql&tabs=powershell#cloud-witness) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound Internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
 High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.  
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
@@ -141,7 +141,7 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 
 ### Instances to Azure SQL MI and Databases to Azure SQL DB configuration
 
-After the assessment determines the readiness and the recommended Azure SQL deployment type, it computes a specific service tier and Azure SQL configuration(SKU size) that can meet or exceed the on-premises SQL instance performance:
+After the assessment determines the readiness and the recommended Azure SQL deployment type, it computes a specific service tier and Azure SQL configuration (SKU size) that can meet or exceed the on-premises SQL instance performance:
 1. During the discovery process, Azure Migrate collects SQL instance configuration and performance that includes:
     - vCores (allocated) and CPU utilization (%)
         - CPU utilization for a SQL instance is the percentage of allocated CPU utilized by the instance on the SQL server
@@ -223,8 +223,8 @@ Here are a few reasons why an assessment could get a low confidence rating:
 - The Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that:
     - Servers are powered on for the duration of the assessment.
     - Outbound connections on ports 443 are allowed.
-    - If Azure Migrate connection status of the SQL agent in Azure Migrate is "Connected", check the last heartbeat.
-    - If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
+    - If Azure Migrate connection status of the SQL agent in Azure Migrate is *Connected*, check the last heartbeat.
+    - Azure Migrate connection status for all SQL instances is *Connected* in the discovered SQL instance section.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 - Some databases or instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some databases or instances were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low.
