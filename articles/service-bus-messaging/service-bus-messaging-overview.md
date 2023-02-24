@@ -116,7 +116,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 ### Duplicate detection
 
-If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [](duplicate-detection.md).
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
 ### Security
 Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
