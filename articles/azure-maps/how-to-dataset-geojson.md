@@ -28,8 +28,8 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services].
-> - In the URL examples in this article you will need to replace `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package
 
@@ -177,6 +177,5 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/
 [Data Upload API]: /rest/api/maps/data-v2/upload
 [Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
-[Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services
 [Creator for indoor maps]: creator-indoor-maps.md
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
