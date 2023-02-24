@@ -1,15 +1,12 @@
 - name: Cloud Foundry documentation
   href: index.yml
-- name: Tutorials
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Cloud Foundry site
-    href: https://docs.cloudfoundry.org/
-  - name: Installing CF on Azure
-    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
-  - name: Pivotal and Azure
-    href: https://pivotal.io/partners/microsoft
-  - name: Azure DevOps plugin for CF
+- name: Azure Roadmap
+  href: https://azure.microsoft.com/roadmap/
+- name: Cloud Foundry site
+  href: https://docs.cloudfoundry.org/
+- name: Installing CF on Azure
+  href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+- name: Pivotal and Azure
+  href: https://pivotal.io/partners/microsoft
+- name: Azure DevOps plugin for CF
     href: https://github.com/Microsoft/vsts-cloudfoundry
