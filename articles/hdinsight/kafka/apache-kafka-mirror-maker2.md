@@ -80,13 +80,9 @@ This architecture features two clusters in different resource groups and virtual
 
 1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
-1. Connect to PRIMARYCLUSTER
+1. Connect to PRIMARYCLUSTER `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
 
-   `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
-
-1. Execute the following command and get the entries of worker nodes IPs and FQDNs 
-   
-   `cat /etc/hosts` 
+1. Execute the following command and get the entries of worker nodes IPs and FQDNs  `cat /etc/hosts` 
    
 1. Copy those entries and connect to `SECONDARYCLUSTER` and run `ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net` 
 
@@ -111,41 +107,15 @@ This architecture features two clusters in different resource groups and virtual
    sudo su 
    vi /etc/kafka/conf/connect-mirror-maker.properties 
    ```
-1. Property file looks like this. Here source is your PRIMARYCLUSTER and destination is your SECONDARYCLUST`. 
-1. Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics that you want to replicate along with configs with regex. 
-
-`replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
-
-1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script replicates topics with the name as PRIMARYCLUSTER.TOPICNAME and same configs in secondary cluster.  
-
-1. Save the file and we're good with configs.
+1. Property file looks like this. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
+1. You can control the topics that you want to replicate along with configs with regex. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
+1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to [Enable Auto Topic Creation](./apache-kafka-auto-create-topics.md) functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster. Save the file and we're good with configs.
 
    ```
-   # specify any number of cluster aliases 
-   clusters = source, destination 
-   # connection information for each cluster 
-   # This is a comma separated host:port pairs for each cluster 
-   # for example. "A_host1:9092, A_host2:9092, A_host3:9092" and you can see the exact host name on Ambari > Hosts 
-   source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src-   kafka.bx.internal.cloudapp.net:9092 
-   destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092 
-   # enable and configure individual replication flows 
-   source->destination.enabled = true  
-   # regex which defines which topics gets replicated. For eg "foo-.*" 
-   source->destination.topics = .* 
-   groups=.* 
-   topics.blacklist="*.internal,__.*" 
-   # Setting replication factor of newly created remote topics 
-   Replication.factor=3 
-   checkpoints.topic.replication.factor=1 
-   heartbeats.topic.replication.factor=1 
-   offset-syncs.topic.replication.factor=1 
-   offset.storage.replication.factor=1 
-   status.storage.replication.factor=1 
-   config.storage.replication.factor=1 
+   # specify any number of cluster aliases clusters = source, destination # connection information for each cluster # This is a comma separated host:port pairs for each cluster # for example. "A_host1:9092, A_host2:9092, A_host3:9092" and you can see the exact host name on Ambari > Hosts source.bootstrap.servers = wn0-src-kafka.bx.internal.cloudapp.net:9092,wn1-src-kafka.bx.internal.cloudapp.net:9092,wn2-src- kafka.bx.internal.cloudapp.net:9092 destination.bootstrap.servers = wn0-dest-kafka.bx.internal.cloudapp.net:9092,wn1-dest-kafka.bx.internal.cloudapp.net:9092,wn2-dest-kafka.bx.internal.cloudapp.net:9092 # enable and configure individual replication flows source->destination.enabled = true # regex which defines which topics gets replicated. For eg "foo-.*" source->destination.topics = .* groups=.* topics.blacklist="*.internal,__.*" # Setting replication factor of newly created remote topics Replication.factor=3 checkpoints.topic.replication.factor=1 heartbeats.topic.replication.factor=1 offset-syncs.topic.replication.factor=1 offset.storage.replication.factor=1 status.storage.replication.factor=1 config.storage.replication.factor=1 
    ```
 
-1. Start Mirror Maker2 in SECONDARYCLUSTER at  
+1. Start Mirror Maker2 in `SECONDARYCLUSTER` at  
 
    ```
    /usr/hdp/current/kafka-broker 
@@ -162,7 +132,7 @@ This architecture features two clusters in different resource groups and virtual
    export KAFKAZKHOSTS='zk0-primar:2181' 
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME 
    ```
-1. Now start consumer in SECONDARY CLUSTER 
+1. Now start consumer in `SECONDARYCLUSTER` 
 
    ```
    export clusterName='secondary-kafka' 
