@@ -51,7 +51,7 @@ The following limitations apply to CORS rules:
 ## Next steps
 - CORS policy once set up during provisioning can be modified only through a Support request
 > [!div class="nextstepaction"]
-> [Create an Azure support request](how-to-create-azure-support-request.md)
+> [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
 - To learn more about CORS 
 > [!div class="nextstepaction"]
-> [CORS overview](https://learn.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)
+> [CORS overview](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)
