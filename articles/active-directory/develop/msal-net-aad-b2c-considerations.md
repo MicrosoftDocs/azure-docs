@@ -121,7 +121,7 @@ The ROPC flow is **not recommended** because asking a user for their password in
 By using username/password in an ROPC flow, you sacrifice several things:
 
 - Core tenets of modern identity: The password can be fished or replayed because the shared secret can be intercepted. By definition, ROPC is incompatible with passwordless flows.
-- Users who need to do multi-factor authentication (MFA). won't be able to sign in (as there's no interaction).
+- Users who use multi-factor authentication (MFA) won't be able to sign in as there's no interaction.
 - Users won't be able to use single sign-on (SSO).
 
 ### Configure the ROPC flow in Azure AD B2C
