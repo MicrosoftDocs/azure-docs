@@ -170,7 +170,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
-<sup>2<sup> East US is currently unavailable for new customers to fine-tune to due to high demand. Please use US South Central region for US based training.
+<sup>2</sup> East US is currently unavailable for new customers to fine-tune to due to high demand. Please use US South Central region for US based training.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
