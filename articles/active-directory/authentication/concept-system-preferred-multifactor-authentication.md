@@ -20,13 +20,17 @@ System-preferred multifactor authentication (MFA) prompts users to sign in by us
 
 For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method they registered. 
 
-System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the default state will only be disabled. If you want to turn it on for a tenant or group of tenants during preview, you need to explicitly change the Microsoft managed setting to enabled by using Microsoft Graph API. Sometime after GA, the Microsoft managed setting will change to be enabled. 
+System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the **default** state will only be disabled. If you want to turn it on for all users or a group of users during preview, you need to explicitly change the Microsoft managed state to **enabled** by using Microsoft Graph API. Sometime after general availability, the Microsoft managed state for system-preferred MFA will change to **enabled**. 
 
-- Let's say an end user doesn't use a certain method, and chooses to sign in another way.  
+After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system will always determine and present the most secure method they have registered. 
 
-## How does system-preferred multifactor authentication work?
+If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
 
-When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. This order of authentication methods is dynamic. The order is updated as the security landscape changes, and as better authentication methods emerge.
+For example, let's say an end user loses the FIDO2 security key. When they are prompted to connect their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, such as a time-based one-time passcode (TOTP). After sign-in, their Security info page will appear and they will need to remove the FIDO2 security key registration. 
+
+## Order of system-preferred multifactor authentication methods
+
+When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge.
 
 1. Temporary Access Pass
 1. Certificate-based authentication
@@ -53,7 +57,7 @@ To enable system-preferred MFA in advance, you'll need to choose a single target
 
 ### Authentication method feature configuration properties
 
-By default, system-preferred MFA is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After generally availability, the Microsoft managed setting default value will change to enable system-preferred MFA. 
+By default, system-preferred MFA is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After generally availability, the Microsoft managed state default value will change to enable system-preferred MFA. 
 
 | Property | Type | Description |
 |----------|------|-------------|
