@@ -63,7 +63,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
     1. Provide the name of the script you want to run. The path is relative to the directory opened in VS Code.
     1. Choose whether you want to use an Azure Machine Learning dataset or not. You can create [Azure Machine Learning datasets](how-to-manage-resources-vscode.md#create-dataset) using the extension.
     1. Debugpy is required in order to attach the debugger to the container running your experiment. To add debugpy as a dependency,select **Add Debugpy**. Otherwise, select **Skip**. Not adding debugpy as a dependency runs your experiment without attaching to the debugger.
-    1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
+    1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `AzureML: Submit experiment` command into the text box.
 1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your run configuration is created.
 
     When the Docker image build process begins, the contents of the `60_control_log.txt` file stream to the output console in VS Code.
@@ -139,7 +139,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
                         default=300,
-                        help=f'Defines how much time the AzureML compute target '
+                        help=f'Defines how much time the Azure Machine Learning compute target '
                         f'will await a connection from a debugger client (VSCODE).')
     parser.add_argument('--remote_debug_client_ip', type=str,
                         help=f'Defines IP Address of VS Code client')
@@ -196,7 +196,7 @@ parser.add_argument("--output_train", type=str, help="output_train directory")
 parser.add_argument('--remote_debug', action='store_true')
 parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
-                    help=f'Defines how much time the AzureML compute target '
+                    help=f'Defines how much time the Azure Machine Learning compute target '
                     f'will await a connection from a debugger client (VSCODE).')
 parser.add_argument('--remote_debug_client_ip', type=str,
                     help=f'Defines IP Address of VS Code client')
@@ -284,7 +284,7 @@ ip_address: 10.3.0.5
 Save the `ip_address` value. It's used in the next section.
 
 > [!TIP]
-> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
+> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure Machine Learning experiment runs and metrics](how-to-log-view-metrics.md).
 
 ### Configure development environment
 
