@@ -82,7 +82,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Virtual machine quota allocation for deployment
 
-For managed online endpoints, AzureML reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2*number of instances requested for deployment)* number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 2 cores) in a deployment, you should have a quota for 24 cores (`12 instances*2 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2*number of instances requested for deployment)* number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS2_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 2 cores) in a deployment, you should have a quota for 24 cores (`12 instances*2 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 <!-- In this tutorial, you'll request one instance of a Standard_DS2_v2 VM SKU (that comes with 2 cores) in your deployment; therefore, you should have a minimum quota for 4 cores (`2 instances*2 cores`) available.  -->
 ---
@@ -153,7 +153,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
-    # enter details of your AzureML workspace
+    # enter details of your Azure Machine Learning workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AZUREML_WORKSPACE_NAME>"
@@ -182,7 +182,7 @@ cd azureml-examples/cli/endpoints/online/model-1
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-<!-- Open a terminal in the AzureML studio:
+<!-- Open a terminal in the Azure Machine Learning studio:
 
 1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace, if it isn't already open.
@@ -244,7 +244,7 @@ cd azureml-examples
 To define an endpoint, you need to specify:
 
 * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-* Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A key doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+* Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 * Optionally, you can add a description and tags to your endpoint.
 
 # [Azure CLI](#tab/azure-cli)
@@ -269,7 +269,7 @@ The reference for the endpoint YAML format is described in the following table. 
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
 | `name`      | The name of the endpoint.                                               |
-| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for AzureML token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
+| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
 
 # [Python](#tab/python)
 
@@ -294,7 +294,7 @@ endpoint = ManagedOnlineEndpoint(
 )
 ```
 
-For the authentication mode, we've used `key` for key-based authentication. To use AzureML token-based authentication, use `aml_token`.
+For the authentication mode, we've used `key` for key-based authentication. To use Azure Machine Learning token-based authentication, use `aml_token`.
 
 # [Studio](#tab/azure-studio)
 
@@ -546,13 +546,13 @@ This example uses the [score.py file](https://github.com/Azure/azureml-examples/
 __score.py__
 :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
-The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. The `init` function is the place to write logic for global initialization operations like caching the model in memory (as we do in this example). 
+The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. The `init` function is the place to write logic for global initialization operations like caching the model in memory (as we do in this example).
 
 The `run()` function is called for every invocation of the endpoint, and it does the actual scoring and prediction. In this example, we'll extract data from a JSON input, call the scikit-learn model's `predict()` method, and then return the result.
 
 ## Deploy and debug locally by using local endpoints
 
-We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while AzureML studio and ARM template don't.
+We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while Azure Machine Learning studio and ARM template don't.
 
 To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed and running. Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
@@ -820,7 +820,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 
     > [!NOTE]
     > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-    > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A `key` doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+    > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A `key` doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
