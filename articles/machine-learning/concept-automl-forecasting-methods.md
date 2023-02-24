@@ -137,7 +137,7 @@ Lags of feature columns | Optional
 Rolling window aggregations (for example, rolling average) of target quantity | Optional
 Seasonal decomposition ([STL](https://otexts.com/fpp3/stl.html)) | Optional
 
-You can configure featurization from the AutoML SDK via the [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) class or from the [AzureML Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+You can configure featurization from the AutoML SDK via the [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) class or from the [Azure Machine Learning Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### Non-stationary time series detection and handling
 

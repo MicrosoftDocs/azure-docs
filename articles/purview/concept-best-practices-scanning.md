@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 02/23/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -143,6 +143,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
     - **Scan type and schedule**
         - The scan process can be configured to run full or incremental scans.
         - Run the scans during non-business or off-peak hours to avoid any processing overload on the source.
+        - **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
         - Initial scan is a full scan, and every subsequent scan is incremental. Subsequent scans can be scheduled as periodic incremental scans.
         - The frequency of scans should align with the change management schedule of the data source or business requirements. For example:
             - If the source structure could potentially change weekly, the scan frequency should be in sync. Changes include new assets or fields within an asset that are added, modified, or deleted.

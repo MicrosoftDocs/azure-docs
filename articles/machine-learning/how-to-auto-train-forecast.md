@@ -65,7 +65,7 @@ transformations:
         encoding: ascii
 ```
 
-You can now define an input data object, which is required to start a training job, using the AzureML Python SDK as follows: 
+You can now define an input data object, which is required to start a training job, using the Azure Machine Learning Python SDK as follows: 
 
 ```python
 from azure.ai.ml.constants import AssetTypes
@@ -82,7 +82,7 @@ You can specify [validation data](concept-automated-ml.md#training-validation-an
 Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Compute to run experiment
-AutoML uses AzureML Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
+AutoML uses Azure Machine Learning Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
@@ -447,7 +447,7 @@ Repeat the necessary steps to load this future data to a data frame and then run
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
-> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is forthcoming.
+> Many models and hierarchical time series are currently only supported in Azure Machine Learning v1. Support for Azure Machine Learning v2 is forthcoming.
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 

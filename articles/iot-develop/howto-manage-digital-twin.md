@@ -11,7 +11,7 @@ services: iot-develop
 
 # Manage IoT Plug and Play digital twins
 
-IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
+IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
 
 ## Update a digital twin
 
@@ -158,9 +158,9 @@ A name can be 1-64 characters long.
 
 **Property value**
 
-The value must be a valid [DTDL V2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property).
+The value must be a valid [DTDL V2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#property).
 
-All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL V2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL V2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#schema).
 
 Properties don't support array or any complex schema with an array.
 

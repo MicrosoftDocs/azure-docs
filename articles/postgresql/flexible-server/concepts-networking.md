@@ -213,6 +213,7 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
 
+To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f.
 
 
 ## Next steps
