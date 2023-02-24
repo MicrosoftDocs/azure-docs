@@ -246,7 +246,7 @@
   - name: Storage behind Firewall
     href: storage-behind-firewall.md
     displayName: single global Azure Video Indexer, Azure Video Indexer with storgae behind firewall
-   - name: Disaster recovery
+  - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
     displayName: two Azure Video Indexer accounts, secondary Azure Video Indexer account, Azure Video Indexer failover, business continuity disaster recovery, Azure paired regions, Azure free trial, regional datacenter outage, disaster recovery description, regional datacenter failure, activity log alerts, service health notifications, secondary account, two options, one account, Azure region, Azure subscription, instant failover, recovery time, regional pairs, service notifications, femila editor, ms.custom, optimal availability, availability policies, multiple tenants, Next steps, primary region, juliako manager, title, author, topic, article, date, environment, apps, BCDR, isolation, information, availability-zones, replication, Prerequisites, microsoft, redundancy, service-notifications, multiple-tenants
 - name: Troubleshooting
