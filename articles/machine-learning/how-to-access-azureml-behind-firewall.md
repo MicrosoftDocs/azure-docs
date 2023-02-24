@@ -79,7 +79,7 @@ __Outbound traffic__
 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
 | `MicrosoftContainerRegistry.<region>` | 443 | Access docker images provided by Microsoft. |
 | `Frontdoor.FirstParty` | 443 | Access docker images provided by Microsoft. |
-| `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. |
+| `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
   > If a compute instance or compute cluster is configured for no public IP, they can't access the public internet by default. However, they do need to communicate with the resources listed above. To enable outbound communication, you have two possible options:
@@ -425,7 +425,7 @@ For information on restricting access to models deployed to AKS, see [Restrict e
 
 __Monitoring, metrics, and diagnostics__
 
-To support logging of metrics and other monitoring information to Azure Monitor and Application Insights, allow outbound traffic to the following hosts:
+If you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace, you must allow outbound traffic to the following hosts:
 
 > [!NOTE]
 > The information logged to these hosts is also used by Microsoft Support to be able to diagnose any problems you run into with your workspace.

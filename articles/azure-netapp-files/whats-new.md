@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) (Preview)
 
-    Azure NetApp Files volumes provide flexible, large and scalable storage shares for applications and users. Storage capacity and consumption by users is only limited by the size of the volume. In some scenarios, you may want to limit this storage consumption of users and groups within the volume. With Azure NetApp Files volume and group quotas, you can now do so. User and/or group quotas enable you to restrict the storage space that a user or group can use within a specific Azure NetApp Files volume. You can choose to set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can set default (same for all users) or individual group quotas.
+    Azure NetApp Files volumes provide flexible, large and scalable storage shares for applications and users. Storage capacity and consumption by users is only limited by the size of the volume. In some scenarios, you may want to limit this storage consumption of users and groups within the volume. With Azure NetApp Files volume user and group quotas, you can now do so. User and/or group quotas enable you to restrict the storage space that a user or group can use within a specific Azure NetApp Files volume. You can choose to set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can set default (same for all users) or individual group quotas.
 
 * [Large volumes](large-volumes-requirements-considerations.md) (Preview)
 
