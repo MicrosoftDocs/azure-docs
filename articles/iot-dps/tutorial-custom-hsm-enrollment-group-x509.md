@@ -771,6 +771,19 @@ To add the root CA certificate to your DPS instance, follow these steps:
   
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/verify-root-certificate.png" alt-text="Screenshot that shows the verified root C A certificate in the list of certificates.":::
 
+## (Optional) Manual verification of root certificate
+If you didn't choose to automatically verify the certificate during upload, you manually prove possession:
+
+1. Select the new CA certificate.
+
+1. Select Generate Verification Code in the Certificate Details dialog.
+
+1. Create a certificate that contains the verification code. For example, if you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named `verification-code.cert.pem`, replacing `<verification code>` with the previously generated verification code. For more information, you can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/main/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate.
+ 
+1. Upload `verification-code.cert.pem` to your provisioning service in the Certificate Details dialog.
+
+1. Select Verify.
+
 ## Update the certificate store on Windows-based devices
 
 On non-Windows devices, you can pass the certificate chain from the code as the certificate store.
@@ -1014,7 +1027,7 @@ In the rest of this section, you'll use your Windows command prompt.
 4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
     ```
 
    The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
@@ -1044,7 +1057,7 @@ In the rest of this section, you'll use your Windows command prompt.
 5. To register your second device, rerun the sample using its full chain certificate.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end

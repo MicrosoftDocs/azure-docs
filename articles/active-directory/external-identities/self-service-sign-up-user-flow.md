@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/16/2023
 
 ms.author: mimart
 author: msmimart
@@ -52,7 +52,8 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 1. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
 1. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
-   ![Enable guest self-service sign-up](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
+   :::image type="content" source="media/self-service-sign-up-user-flow/enable-self-service-sign-up.png" alt-text="Screenshot of the enable guest self-service sign up toggle.":::
+
 5. Select **Save**.
 ## Create the user flow for self-service sign-up
 
@@ -63,17 +64,17 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select **New user flow**.
 
-   ![Add a new user flow button](media/self-service-sign-up-user-flow/new-user-flow.png)
+   :::image type="content" source="media/self-service-sign-up-user-flow/new-user-flow.png" alt-text="Screenshot of the new user flow button.":::
 
 5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
-6. On the **Create** page, enter a **Name** for the user flow. Note that the name is automatically prefixed with **B2X_1_**.
+6. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
 7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
-8. Under **User attributes**, choose the attributes you want to collect from the user. For additional attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+8. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
-   ![Create a new user flow page](media/self-service-sign-up-user-flow/create-user-flow.png)
+   :::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::
 
-> [!NOTE]
-> You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
+   > [!NOTE]
+   > You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
 
 8. Select **Create**.
 9. The new user flow appears in the **User flows** list. If necessary, refresh the page.
@@ -86,7 +87,7 @@ You can choose order in which the attributes are displayed on the sign-up page.
 2. Select **External Identities**, select **User flows**.
 3. Select the self-service sign-up user flow from the list.
 4. Under **Customize**, select **Page layouts**.
-5. The attributes you chose to collect are listed. To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
+5. The attributes you chose to collect are listed. To change the order of display, select an attribute, and then select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
 6. Select **Save**.
 
 ## Add applications to the self-service sign-up user flow
@@ -101,7 +102,7 @@ Now you'll associate applications with the user flow to enable sign-up for those
 6. In the left menu, under **Use**, select **Applications**.
 7. Select **Add application**.
 
-   ![Assign an application to the user flow](media/self-service-sign-up-user-flow/assign-app-to-user-flow.png)
+   :::image type="content" source="media/self-service-sign-up-user-flow/assign-app-to-user-flow.png" alt-text="Screenshot of adding an application to the user flow.":::
 
 8. Select the application from the list. Or use the search box to find the application, and then select it.
 9. Click **Select**.
@@ -112,4 +113,3 @@ Now you'll associate applications with the user flow to enable sign-up for those
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
 - [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)
-- [Learn more about initiating an OAuth 2.0 authorization code flow](../develop/v2-oauth2-auth-code-flow.md#request-an-authorization-code)

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 02/17/2023
 ms.author: anfdocs
 ---
 
@@ -30,7 +30,6 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files cross-region replication | Generally available (GA) | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
 | Standard network features | Generally available (GA) | No |
 
@@ -46,7 +45,7 @@ You can follow [Azure NetApp Files](./index.yml) documentation for details about
 
 ## Azure CLI access
 
-You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
+You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to sign in as you normally would with the `az login` command. After running the sign-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
 ```azurecli 
 

@@ -1,6 +1,6 @@
 ---
-title: Cost optimization and Azure Monitor
-description: Guidance and recommendations for reducing your cost for Azure Monitor.
+title: Optimize costs in Azure Monitor
+description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.date: 10/17/2022
 ms.reviewer: bwren
 ---
 
-# Cost optimization and Azure Monitor
+# Optimize costs in Azure Monitor
 You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 > [!NOTE]

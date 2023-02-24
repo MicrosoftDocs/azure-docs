@@ -31,6 +31,9 @@ The table in this section summarizes the locales and voices supported for Speech
 
 Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
 
+> [!TIP]
+> Try out the [Real-time Speech-to-text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
+
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
 ### Custom Speech
@@ -44,7 +47,7 @@ The tables in this section summarizes the locales and voices supported for Text-
 Additional remarks for Text-to-speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
 
 > [!TIP]
-> Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs. 
+> Check the the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
 
@@ -60,7 +63,7 @@ Use the following table to determine supported styles and roles for each neural 
 
 ### Prebuilt neural voices
 
-Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 01/18/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -27,6 +27,18 @@ There are three numbers in each version of Azure Virtual Desktop Insights. Here'
 For example, a release with a version number of 1.2.31 is on the first major release, the second minor release, and patch number 31.
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
+
+## Version 1.4.0
+
+This update was released in October 2022 and has the following changes:
+
+- Added Windows 7 end of life reporting for client operating system and a dynamic notification box as a reminder of the deprecation timeframe for Windows 7 support for Azure Virtual Desktop.
+
+## Version 1.3.0
+
+This update was released in September 2022 and has the following changes:
+
+- Introduced a public preview of *at scale* reporting for Azure Virtual Desktop Insights to allow the selection of multiple subscriptions, resource groups, and host pools.
 
 ## Version 1.2.2
 

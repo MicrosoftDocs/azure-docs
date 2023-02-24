@@ -10,12 +10,9 @@ ms.date: 11/03/2022
 ms.custom: template-concept 
 ---
 
-# Key concepts for new Azure Load Testing Preview users
+# Key concepts for new Azure Load Testing users
 
-Learn about the key concepts and components of Azure Load Testing Preview. This can help you to more effectively set up a load test to identify performance issues in your application.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn about the key concepts and components of Azure Load Testing. This can help you to more effectively set up a load test to identify performance issues in your application.
 
 ## General concepts of load testing
 
@@ -99,7 +96,7 @@ A test engine is computing infrastructure, managed by Microsoft that runs the Ap
 
 The test engines are hosted in the same location as your Azure Load Testing resource. You can configure the Azure region when you create the Azure load testing resource.
 
-While the test script runs, Azure Load Testing collects and aggregates the Apache JMeter worker logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-find-download-logs.md).
+While the test script runs, Azure Load Testing collects and aggregates the Apache JMeter worker logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-troubleshoot-failing-test.md).
 
 ### Test run
 

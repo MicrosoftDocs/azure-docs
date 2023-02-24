@@ -12,7 +12,7 @@ manager: femila
 This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Virtual Desktop Insights by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent. Until then, continue to use the Log Analytics Agent.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent. Until then, continue to use the Log Analytics Agent.
 
 ## Issues with configuration and setup
 
@@ -54,7 +54,7 @@ Learn more about data terms at the [Azure Virtual Desktop Insights glossary](ins
 
 If you want to monitor more Performance counters or Windows Event Logs, you can enable them to send diagnostics info to your Log Analytics workspace and monitor them in **Host Diagnostics: Host browser**. 
 
-- To add performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- To add performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configure-performance-counters)
 - To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!

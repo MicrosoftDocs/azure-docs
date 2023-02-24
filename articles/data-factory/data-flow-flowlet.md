@@ -17,7 +17,7 @@ ms.date: 08/04/2022
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Use the flowlet transformation to run a previously create mapping data flow flowlet. For an overview of flowlets see [Flowlets in mapping data flow | Microsoft Docs](concepts-data-flow-flowlet.md)
+Use the flowlet transformation to run a previously created mapping data flow flowlet. For an overview of flowlets see [Flowlets in mapping data flow | Microsoft Docs](concepts-data-flow-flowlet.md)
 
 > [!NOTE] 
 > The flowlet transformation in Azure Data Factory and Synapse Analytics pipelines is currently in public preview

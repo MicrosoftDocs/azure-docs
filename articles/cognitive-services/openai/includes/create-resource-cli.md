@@ -1,7 +1,7 @@
 ---
-title: 'How to use the Azure CLI to create an Azure OpenAI resource and manage deployments'
+title: 'How to use the Azure CLI to create an Azure OpenAI Service resource and manage deployments'
 titleSuffix: Azure OpenAI
-description: Step by step guide for using the Azure CLI to deploy an OpenAI Resource and manage deployments
+description: Step by step guide for using the Azure CLI to deploy an Azure OpenAI Resource and manage deployments
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,13 +9,12 @@ ms.subservice: openai
 ms.topic: include
 ms.date: 6/30/2022
 keywords: 
-
 ---
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - Azure CLI. [Installation guide](/cli/azure/install-azure-cli)

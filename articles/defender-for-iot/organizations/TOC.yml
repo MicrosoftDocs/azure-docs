@@ -34,6 +34,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Investigate an OT network alert
+    href: respond-ot-alert.md
 - name: Concepts
   items:
     - name: Subscription billing
@@ -70,7 +72,7 @@
         href: ot-pre-configured-appliances.md
       - name: OT monitoring with virtual appliances
         href: ot-virtual-appliances.md
-    - name: Supported OT protocols
+    - name: Supported protocols
       href: concept-supported-protocols.md
     - name: Defender for IoT alerts
       href: alerts.md
@@ -217,9 +219,6 @@
       items:
       - name: Connect OT sensors to Defender for IoT
         href: connect-sensors.md
-        displayName: proxy
-      - name: Connect OT sensors with a proxy (legacy)
-        href: how-to-connect-sensor-by-proxy.md
     - name: Activate and set up your on-premises management console
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
       displayName: sites, zones
@@ -238,6 +237,8 @@
       displayName: Enterprise IoT sensor
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Configure OT sensor settings from the Azure portal
+    href: configure-sensor-settings-portal.md
   - name: Create and manage users
     items:
     - name: Azure portal
@@ -300,6 +301,8 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: Data retention
+    href: references-data-retention.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -394,8 +397,6 @@
       href: faqs-ot.md
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
-  - name: Defender for IoT glossary
-    href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
   - name: OT network pre-deployment checklist

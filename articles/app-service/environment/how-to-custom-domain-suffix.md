@@ -3,7 +3,7 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 09/01/2022
+ms.date: 02/09/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -22,7 +22,9 @@ The custom domain suffix defines a root domain that can be used by the App Servi
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
 
-If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain.
+If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain. 
+
+Unlike earlier versions, the FTPS endpoints for your App Services on your App Service Environment v3 can only be reached using the default domain suffix.
 
 ## Prerequisites
 
@@ -59,7 +61,9 @@ The certificate for custom domain suffix must be stored in an Azure Key Vault. A
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
 
-Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+
+If you rotate your certificate in Azure Key Vault, the App Service Environment will pick up the change within 24 hours.
 
 ::: zone pivot="experience-azp"
 

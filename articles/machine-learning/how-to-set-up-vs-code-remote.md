@@ -33,7 +33,7 @@ To configure a remote compute instance for development, you'll need a few prereq
 * Azure Machine Learning compute instance. [Use the Azure Machine Learning Visual Studio Code extension to create a new compute instance](how-to-manage-resources-vscode.md#create-compute-instance) if you don't have one.
 
 > [!IMPORTANT]
-> To connect to a compute instance behind a firewall, see [use workspace behind a Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md#visual-studio-code-hosts).
+> To connect to a compute instance behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#scenario-visual-studio-code).
 
 To connect to your remote compute instance:
 

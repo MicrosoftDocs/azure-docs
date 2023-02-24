@@ -216,4 +216,4 @@ Data sources configured with a managed identity may still be able to access data
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [Support](./find-help-open-support-ticket.md)

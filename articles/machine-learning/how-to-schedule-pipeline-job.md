@@ -32,7 +32,7 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 # [Python SDK](#tab/python)
 
 - Create an Azure Machine Learning workspace if you don't have one.
-- The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+- The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
 
 # [studio UI](#tab/ui)
 

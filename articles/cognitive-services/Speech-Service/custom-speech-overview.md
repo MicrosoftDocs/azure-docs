@@ -21,6 +21,9 @@ Out of the box, speech to text utilizes a Universal Language Model as a base mod
 
 A custom model can be used to augment the base model to improve recognition of domain-specific vocabulary specific to the application by providing text data to train the model. It can also be used to improve recognition based for the specific audio conditions of the application by providing audio data with reference transcriptions.  
 
+> [!NOTE]
+> You pay to use Custom Speech models, but you are not charged for training a model. Usage includes hosting of your deployed custom endpoint in addition to using the endpoint for speech-to-text. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ## How does it work?
 
 With Custom Speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint.

@@ -1,11 +1,12 @@
 ---
 title: Configure kubenet networking in Azure Kubernetes Service (AKS)
+titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 10/26/2022
-
-ms.reviewer: nieberts, jomore
 ---
 
 # Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)

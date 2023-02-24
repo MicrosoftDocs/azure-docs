@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: juniem
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Get Azure Percept hardware support from ASUS

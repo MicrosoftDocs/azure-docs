@@ -21,8 +21,9 @@ Language detection is useful for content stores that collect arbitrary text, whe
 
 The Language Detection feature can detect a wide range of languages, variants, dialects, and some regional or cultural languages.
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
