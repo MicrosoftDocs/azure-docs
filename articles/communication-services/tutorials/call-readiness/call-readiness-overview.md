@@ -175,7 +175,7 @@ Let's test our setup by running:
 npm start
 ```
 
-Once the App is running visit <http://localhost:3000> in your browser to see your running App.
+Once the App is running visit `http://localhost:3000` in your browser to see your running App.
 You should see a green checkmark with a `Test Complete` message.
 
 ## Next steps
