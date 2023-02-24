@@ -46,7 +46,7 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 Use the following steps to provision a service instance.
 
-1. Select **Try It** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
+1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
 
    ```azurecli-interactive
    az account show
@@ -130,6 +130,148 @@ az spring app deploy \
     --service <service-instance-name> \
     --name hellospring \
     --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+```
+
+Deploying the application can take a few minutes.
+
+## [Consumption Plan](#tab/Consumption-Plan)
+
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the spring extension specifically designed for StandardGen2 Azure Spring Apps
+```
+az extension remove -n spring && \
+az extension add --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl
+```
+- Install the Azure Container Apps extension for the CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights` and `Microsoft.AppPlatform`
+```
+  az extension add --name containerapp --upgrade
+  az provider register --namespace Microsoft.App
+  az provider register --namespace Microsoft.OperationalInsights
+  az provider register --namespace Microsoft.AppPlatform
+```
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
+## Provision an instance of Azure Spring Apps
+
+Use the following steps to provision a service instance.
+
+1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
+
+   ```azurecli-interactive
+   az account show
+   ```
+
+1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+
+   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
+
+1. After you sign in successfully, use the following command to display a list of your subscriptions.
+
+   ```azurecli-interactive
+   az account list --output table
+   ```
+
+1. Use the following command to choose and link to your subscription.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+1. These are the pre-defined parameters used in this quickstart, you can also define your own based on needs:
+```azurecli-interactive
+LOCATION="eastus"
+RESOURCE_GROUP="my-resoure-group"
+MANAGED_ENVIRONMENT="my-managed-environment"
+SERVICE_NAME="my-service-name"
+APP_NAME="my-app-name-test"
+```
+
+1. Use the following command to create a resource group.
+
+   ```azurecli-interactive
+   az group create \
+       --resource-group $RESOURCE_GROUP \
+       --location $LOCATION
+   ```
+1. A **Managed Environment** creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. To create the environment, run the following command
+
+    ```azurecli-interactive
+    az containerapp env create \
+        --name $MANAGED_ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION
+    ```
+
+1. Set the environment varable:
+    ```azurecli-interactive
+    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+        --name $MANAGED_ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --query id -o tsv)
+    ```
+
+1. Use the following command to create an Azure Spring Apps service instance.The StandardGen2 Azure Spring Apps instance is built on top of the Container Environment: Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created
+
+   ```azurecli-interactive
+   az spring create \
+       --resource-group $RESOURCE_GROUP \
+       --name $SERVICE_NAME\
+       --managed-environment $MANAGED_ENV_RESOURCE_ID \
+       --sku standardGen2 \
+       --location $LOCATION
+   ```
+
+## Create an app in your Azure Spring Apps instance
+
+Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
+
+  ```azurecli-interactive
+  az spring app create \
+      --resource-group $RESOURCE_GROUP \
+      --service $SERVICE_NAME \
+      --name $APP_NAME \
+      --cpu 1 \
+      --memory 2Gi \
+      --instance-count 2 \
+      --assign-endpoint true
+  ```
+
+## Clone and build the Spring Boot sample project
+
+Use the following steps to clone the Spring Boot sample project.
+
+1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
+
+   ```azurecli-interactive
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
+   ```
+
+1. Use the following command to move to the project folder.
+
+   ```azurecli-interactive
+   cd gs-spring-boot/complete
+   ```
+
+1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
+
+   ```azurecli-interactive
+   mvn clean package -DskipTests
+   ```
+
+## Deploy the local app to Azure Spring Apps
+
+1. Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
+
+    ```azurecli-interactive
+    az spring app deploy \
+        --resource-group $RESOURCE_GROUP \
+        --service $SERVICE_NAME \
+        --name $APP_NAME \
+        --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar \
+        --env testEnvKey=testEnvValue \
+        --runtime-version Java_11 \
+        --jvm-options '-Xms1024m -Xmx2048m'
 ```
 
 Deploying the application can take a few minutes.
