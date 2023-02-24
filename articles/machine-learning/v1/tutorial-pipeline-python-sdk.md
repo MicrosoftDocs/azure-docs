@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Start an interactive Python session
 
-This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+This tutorial uses the Python SDK for AzureML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
 
 * This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
 
@@ -78,10 +78,10 @@ from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline
 
 # check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
+print("AzureML SDK Version: ", azureml.core.VERSION)
 ```
 
-The Azure ML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
+The AzureML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
 
 ## Configure workspace
 

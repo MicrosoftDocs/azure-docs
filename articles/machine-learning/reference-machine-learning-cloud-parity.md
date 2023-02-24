@@ -39,13 +39,13 @@ The information in the rest of this document provides information on what featur
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA                   | YES                | YES         |
 | **[Machine Learning pipelines](concept-ml-pipelines.md)** |   |  | | 
-| Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
-| Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
-| Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
+| Create, run, and publish pipelines using the AzureML SDK                   | GA                   | YES                | YES         |
+| Create pipeline endpoints using the AzureML SDK                           | GA                   | YES                | YES         |
+| Create, edit, and delete scheduled runs of pipelines using the AzureML SDK | GA                   | YES*               | YES*        |
 | View pipeline run details in studio                                        | GA                   | YES                | YES         |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | GA      | YES                | YES         |
+| Create, run, visualize, and publish pipelines in AzureML designer          | GA      | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
-| Create pipeline endpoints in Azure ML designer                             | GA      | YES                | YES         |
+| Create pipeline endpoints in AzureML designer                             | GA      | YES                | YES         |
 | **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure ML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [The AzureML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -153,13 +153,13 @@ The information in the rest of this document provides information on what featur
 | Azure Databricks Integration                                              | GA               | YES        | N/A        |
 | SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA               | YES       | N/A        |
 | **Machine Learning pipelines** |    | | |
-| Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
-| Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
-| Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
+| Create, run, and publish pipelines using the AzureML SDK                   | GA               | YES       | N/A        |
+| Create pipeline endpoints using the AzureML SDK                           | GA               | YES       | N/A        |
+| Create, edit, and delete scheduled runs of pipelines using the AzureML SDK | GA               | YES       | N/A        |
 | View pipeline run details in studio                                        | GA               | YES       | N/A        |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | GA  | YES       | N/A        |
+| Create, run, visualize, and publish pipelines in AzureML designer          | GA  | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | YES        | N/A        |
-| Create pipeline endpoints in Azure ML designer                             | GA   | YES       | N/A        |
+| Create pipeline endpoints in AzureML designer                             | GA   | YES       | N/A        |
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
@@ -189,7 +189,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Preview   | YES       | N/A        |
 | **Machine learning lifecycle** |    | | |
 | Model profiling                                                            | GA               | YES  | N/A        |
-| The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA               | YES       | N/A        |
+| The Azure DevOps extension for Machine Learning & the AzureML CLI         | GA               | YES       | N/A        |
 | FPGA-based Hardware Accelerated Models                                     | Deprecating               | Deprecating            | N/A        |
 | Visual Studio Code integration                                             | Preview   | NO        | N/A        |
 | Event Grid integration                                                     | Preview   | YES       | N/A        |

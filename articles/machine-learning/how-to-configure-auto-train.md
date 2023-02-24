@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Set up AutoML training with the Azure ML Python SDK v2
+# Set up AutoML training with the AzureML Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
@@ -35,12 +35,12 @@ For this article you need:
     To install the SDK you can either, 
     * Create a compute instance, which already has installed the latest AzureML Python SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
-    * Use the followings commands to install Azure ML Python SDK v2:
+    * Use the followings commands to install AzureML Python SDK v2:
        * Uninstall previous preview version:
        ```Python
        pip uninstall azure-ai-ml
        ```
-       * Install the Azure ML Python SDK v2:
+       * Install the AzureML Python SDK v2:
        ```Python
        pip install azure-ai-ml
        ```
@@ -128,7 +128,7 @@ If you don't explicitly specify a `validation_data` or `n_cross_validation` para
 ## Compute to run experiment
 
 
-Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure ML remote compute (cluster or compute instance).
+Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on AzureML remote compute (cluster or compute instance).
 
 [Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-model.md).
  

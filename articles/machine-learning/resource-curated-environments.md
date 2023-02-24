@@ -101,7 +101,7 @@ Other available Sklearn environments:
 
 ## Automated ML (AutoML)
 
-Azure ML pipeline training workflows that use AutoML automatically selects a curated environment based on the compute type and whether DNN is enabled. AutoML provides the following curated environments:
+AzureML pipeline training workflows that use AutoML automatically selects a curated environment based on the compute type and whether DNN is enabled. AutoML provides the following curated environments:
 
 | Name | Compute Type | DNN enabled |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ Azure ML pipeline training workflows that use AutoML automatically selects a cur
 | AzureML-AutoML-GPU | GPU | No |
 | AzureML-AutoML-DNN-GPU | GPU | Yes |
 
-For more information on AutoML and Azure ML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
+For more information on AutoML and AzureML pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
 Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

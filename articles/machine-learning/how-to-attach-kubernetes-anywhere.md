@@ -20,7 +20,7 @@ ms.date: 08/31/2022
 
 With AzureML CLI/Python SDK v2, AzureML introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubernetes compute target in AzureML, and use it to train or deploy models. 
 
-:::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure ML connects to Kubernetes." lightbox="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png":::
+:::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how AzureML connects to Kubernetes." lightbox="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png":::
  
 In this article, you learn about:
 > [!div class="checklist"]
@@ -39,10 +39,10 @@ With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kub
 
 1. Prepare an [Azure Kubernetes Service cluster](../aks/learn/quick-kubernetes-deploy-cli.md) or [Arc Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Deploy the AzureML extension](how-to-deploy-kubernetes-extension.md).
-1. [Attach Kubernetes cluster to your Azure ML workspace](how-to-attach-kubernetes-to-workspace.md).
+1. [Attach Kubernetes cluster to your AzureML workspace](how-to-attach-kubernetes-to-workspace.md).
 1. Use the Kubernetes compute target from CLI v2, SDK v2, and the Studio UI.
 
-**IT-operation team**. The IT-operation team is responsible for the first 3 steps above: prepare an AKS or Arc Kubernetes cluster, deploy Azure ML cluster extension, and attach Kubernetes cluster to Azure ML workspace. In addition to these essential compute setup steps, IT-operation team also uses familiar tools such as Azure CLI or kubectl to take care of the following tasks for the data-science team:
+**IT-operation team**. The IT-operation team is responsible for the first 3 steps above: prepare an AKS or Arc Kubernetes cluster, deploy AzureML cluster extension, and attach Kubernetes cluster to AzureML workspace. In addition to these essential compute setup steps, IT-operation team also uses familiar tools such as Azure CLI or kubectl to take care of the following tasks for the data-science team:
 
 - Network and security configurations, such as outbound proxy server connection or Azure firewall configuration, inference router (azureml-fe) setup, SSL/TLS termination, and VNET configuration.
 - Create and manage instance types for different ML workload scenarios and gain efficient compute resource utilization.
@@ -54,7 +54,7 @@ With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kub
 
 With Arc Kubernetes cluster, you can build, train, and deploy models in any infrastructure on-premises and across multicloud using Kubernetes. This opens some new use patterns previously not possible in cloud setting environment. The following table provides a summary of the new use patterns enabled by AzureML Kubernetes compute:
 
-| Usage pattern | Location of data | Motivation | Infra setup & Azure ML implementation |
+| Usage pattern | Location of data | Motivation | Infra setup & AzureML implementation |
 | ----- | ----- | ----- | ----- |
 Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compute. Either because of elastic compute needs or special hardware such as a GPU.<br/>Model must be deployed on-premises because of security, compliance, or latency requirements | 1. Azure managed compute in cloud.<br/>2. Customer managed Kubernetes on-premises.<br/>3. Fully automated MLOps in hybrid mode, including training and model deployment steps transitioning seamlessly from cloud to on-premises and vice versa.<br/>4. Repeatable, with all assets tracked properly. Model retrained when necessary, and model deployment updated automatically after retraining. |
 | Train model on-premises, deploy model in cloud | On-premises | Data must remain on-premises due to data-residency requirements.<br/>Deploy model in the cloud for global service access or for compute elasticity for scale and throughput. | 1. Azure managed compute in cloud.<br/>2. Customer managed Kubernetes on-premises.<br/>3. Fully automated MLOps in hybrid mode, including training and model deployment steps transitioning seamlessly from cloud to on-premises and vice versa.<br/>4. Repeatable, with all assets tracked properly. Model retrained when necessary, and model deployment updated automatically after retraining. |

@@ -151,7 +151,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Fixed a bug with the Forecast TCN model where validation data could be corrupted in some circumstances when the user provided the validation set. 
   + **azureml-core**
     + Allow setting a timeout_seconds parameter when downloading artifacts from a Run
-    + Warning message added - Azure ML CLI v1 is getting retired on 2025-09-. Users are recommended to adopt CLI v2.
+    + Warning message added - AzureML CLI v1 is getting retired on 2025-09-. Users are recommended to adopt CLI v2.
     + Fix submission to non-AmlComputes throwing exceptions.
     + Added docker context support for environments
   + **azureml-interpret**
@@ -747,7 +747,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning studio Notebooks Experience (February Update)
 + **New features**
   + [Native Terminal (GA)](../how-to-access-terminal.md). Users will now have access to an integrated terminal and Git operation via the integrated terminal.
-  + Notebook Snippets (preview). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
+  + Notebook Snippets (preview). Common AzureML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
   + [Keyboard Shortcuts](../how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
   + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
   + Terminal and Kernel session manager: Users are able to manage all kernels and terminal sessions running on their compute.
@@ -1685,11 +1685,11 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-core**
     + Enabled WASB -> Blob conversions in Azure Government and China clouds.
     + Fixes bug to allow Reader roles to use az ml run CLI commands to get run information
-    + Removed unnecessary logging during Azure ML Remote Runs with input Datasets.
+    + Removed unnecessary logging during AzureML Remote Runs with input Datasets.
     + RCranPackage now supports "version" parameter for the CRAN package version.
     + Bug fix: inform clients about partial failure during profiling
     + Added European-style float handling for azureml-core.
-    + Enabled workspace private link features in Azure ml sdk.
+    + Enabled workspace private link features in AzureML sdk.
     + When creating a TabularDataset using `from_delimited_files`, you can specify whether empty values should be loaded as None or as empty string by setting the boolean argument `empty_as_string`.
     + Added European-style float handling for datasets.
     + Improved error messages on dataset mount failures.
@@ -1745,7 +1745,7 @@ Access the following web-based authoring tools from the studio:
 	
 | Web-based tool  | 	Description  |
 |---|---|
-| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | 
+| AzureML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the AzureML Python SDK. | 
 
 ## 2020-04-27
 
@@ -1863,7 +1863,7 @@ Access the following web-based authoring tools from the studio:
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
-    + Starting with version 1.1 Azure ML Python SDK adopts [Semantic Versioning 2.0.0](https://semver.org/). All subsequent versions follow new numbering scheme and semantic versioning contract. 
+    + Starting with version 1.1 AzureML Python SDK adopts [Semantic Versioning 2.0.0](https://semver.org/). All subsequent versions follow new numbering scheme and semantic versioning contract. 
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
@@ -2026,7 +2026,7 @@ Access the following web-based authoring tools from the studio:
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
-    + Starting with version 1.1 Azure ML Python SDK adopts [Semantic Versioning 2.0.0](https://semver.org/). All subsequent versions follow new numbering scheme and semantic versioning contract. 
+    + Starting with version 1.1 AzureML Python SDK adopts [Semantic Versioning 2.0.0](https://semver.org/). All subsequent versions follow new numbering scheme and semantic versioning contract. 
   
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -2967,7 +2967,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Fixed the bug to allow y_query to be an object type containing None(s) at the beginning.
     + Fixed the issue in the Ensemble selection procedure that was unnecessarily growing the resulting ensemble even if the scores remained constant.
     + Fixed the issue with allow list_models and block list_models settings in AutoMLStep.
-    + Fixed the issue that prevented the usage of preprocessing when AutoML would have been used in the context of Azure ML Pipelines.
+    + Fixed the issue that prevented the usage of preprocessing when AutoML would have been used in the context of AzureML Pipelines.
   + **azureml-opendatasets**
     + Moved azureml-contrib-opendatasets to azureml-opendatasets.
     + Allowed open dataset classes to be registered to Azure Machine Learning workspace and use AML Dataset capabilities seamlessly.
@@ -3005,7 +3005,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 ### Azure Machine Learning SDK for Python v1.0.33 released.
 
-+ Azure ML Hardware Accelerated Models on [FPGAs](how-to-deploy-fpga-web-service.md) is generally available.
++ AzureML Hardware Accelerated Models on [FPGAs](how-to-deploy-fpga-web-service.md) is generally available.
   + You can now [use the azureml-accel-models package](how-to-deploy-fpga-web-service.md) to:
     + Train the weights of a supported deep neural network (ResNet 50, ResNet 152, DenseNet-121, VGG-16, and SSD-VGG)
     + Use transfer learning with the supported DNN
@@ -3042,15 +3042,15 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **Introduced InferenceConfig & Model.deploy()**<br/> Model deployment now supports specifying a source folder with an entry script, the same as a RunConfig.  Additionally, model deployment has been simplified to a single command.
 
-+ **Git reference tracking**<br/> Customers have been requesting basic Git integration capabilities for some time as it helps maintain a complete audit trail. We have implemented tracking across major entities in Azure ML for Git-related metadata (repo, commit, clean state). This information will be collected automatically by the SDK and CLI.
++ **Git reference tracking**<br/> Customers have been requesting basic Git integration capabilities for some time as it helps maintain a complete audit trail. We have implemented tracking across major entities in AzureML for Git-related metadata (repo, commit, clean state). This information will be collected automatically by the SDK and CLI.
 
 + **Model profiling & validation service**<br/> Customers frequently complain of the difficulty to properly size the compute associated with their inference service. With our model profiling service, the customer can provide sample inputs and we profile across 16 different CPU / memory configurations to determine optimal sizing for deployment.
 
 + **Bring your own base image for inference**<br/> Another common complaint was the difficulty in moving from experimentation to inference RE sharing dependencies. With our new base image sharing capability, you can now reuse your experimentation base images, dependencies and all, for inference. This should speed up deployments and reduce the gap from the inner to the outer loop.
 
-+ **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the Azure ML platform.
++ **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the AzureML platform.
 
-+ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](reference-azure-machine-learning-cli.md) has been updated.
++ **AzureML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](reference-azure-machine-learning-cli.md) has been updated.
 
 
 ## 2019-04-22

@@ -27,7 +27,7 @@ This is a guide for a basic "lift and shift" migration. If you want to optimize 
 
 Please work with your Cloud Solution Architect on the migration. 
 
-![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
+![AzureML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
 ## Recommended approach
 

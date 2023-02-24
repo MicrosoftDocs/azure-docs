@@ -105,7 +105,7 @@ With this capability you can:
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 
 * Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
-Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
+Authoring AutoML models for vision tasks is supported via the AzureML Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
 Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).
 

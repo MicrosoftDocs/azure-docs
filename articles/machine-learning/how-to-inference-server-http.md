@@ -278,14 +278,14 @@ Here we describe logs of the AzureML inference HTTP server. You can get the log 
 > The logging format has changed since version 0.8.0. If you find your log in different style, update the `azureml-inference-server-http` package to the latest version.
 
 > [!TIP]
-> If you are using online endpoints, the log from the inference server starts with `Azure ML Inferencing HTTP server <version>`.
+> If you are using online endpoints, the log from the inference server starts with `AzureML Inferencing HTTP server <version>`.
 
 ### Startup logs
 
 When the server is started, the server settings are first displayed by the logs as follows:
 
 ```
-Azure ML Inferencing HTTP server <version>
+AzureML Inferencing HTTP server <version>
 
 
 Server Settings
@@ -312,7 +312,7 @@ Score:          POST  127.0.0.1:<port>/score
 For example, when you launch the server followed the [end-to-end example](#end-to-end-example):
 
 ```
-Azure ML Inferencing HTTP server v0.8.0
+AzureML Inferencing HTTP server v0.8.0
 
 
 Server Settings

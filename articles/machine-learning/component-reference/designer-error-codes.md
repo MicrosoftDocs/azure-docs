@@ -1153,7 +1153,7 @@ See the following articles for help with Hive queries for machine learning:
 **Resolution:**
  Revisit the component and inspect the SQL query for mistakes.  
 
- Verify that the query works correctly outside of Azure ML by logging in to the database server directly and running the query.  
+ Verify that the query works correctly outside of AzureML by logging in to the database server directly and running the query.  
 
  If there is a SQL generated message reported by the component exception, take action based on the reported error. For example, the error messages sometimes include specific guidance on the likely error:
 + *No such column or missing database*, indicating that you might have typed a column name wrong. If you are sure the column name is correct, try using brackets or quotation marks to enclose the column identifier.

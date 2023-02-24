@@ -41,7 +41,7 @@ If you plan to have different compute targets for different projects/teams, you 
 
 #### Attach to workspace with user-assigned managed identity
 
-Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if the system assigned default setting is on. 
+Azure Machine Learning workspace defaults to having a system-assigned managed identity to access AzureML resources. The steps are completed if the system assigned default setting is on. 
 
 Otherwise, if a [user-assigned managed identity is specified in Azure Machine Learning workspace creation](../machine-learning/how-to-identity-based-service-authentication.md#user-assigned-managed-identity), the following role assignments need to be granted to the managed identity manually before attaching the compute.
 

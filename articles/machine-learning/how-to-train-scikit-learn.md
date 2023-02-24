@@ -209,7 +209,7 @@ You can then register this model.
 
 ## Deploy the model
 
-After you've registered your model, you can deploy it the same way as any other registered model in Azure ML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+After you've registered your model, you can deploy it the same way as any other registered model in AzureML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 
 ## Next steps

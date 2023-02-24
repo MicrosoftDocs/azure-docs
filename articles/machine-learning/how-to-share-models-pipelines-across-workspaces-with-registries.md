@@ -39,7 +39,7 @@ Before following the steps in this article, make sure you have the following pre
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
+    > The Azure region (location) where you create your workspace must be in the list of supported regions for AzureML registry
 
 - The Azure CLI and the `ml` extension __or__ the Azure Machine Learning Python SDK v2:
 

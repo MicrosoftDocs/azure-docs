@@ -38,7 +38,7 @@ Version: `22.11.25`
 
 Main changes:
 
-- `Azure ML SDK V2` samples included
+- `AzureML SDK V2` samples included
 - `Ray` to version `2.0.0`
 - Added `clock`, `recipes` `R` packages
 - `azureml-core` to version `1.47.0`
@@ -50,7 +50,7 @@ Version: `22.11.27`
 
 Main changes:
 
-- `Azure ML SDK V2` samples included
+- `AzureML SDK V2` samples included
 - `RScirpt` environment path alignment
 - `Ray` version `2.0.0` package added to `azureml_py38` and `azureml_py38_PT_TF` environments.
 - `azureml-core` to version `1.47.0`
@@ -394,7 +394,7 @@ Selected version updates are:
 - R 4.1.0
 - Julia 1.0.5
 - NodeJS 16.2.0
-- Visual Studio Code 1.56.2 incl. Azure ML extension
+- Visual Studio Code 1.56.2 incl. AzureML extension
 - PyCharm Community Edition 2021.1.1
 - Jupyter Lab 2.2.6
 - RStudio 1.4.1106

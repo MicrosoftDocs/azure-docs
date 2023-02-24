@@ -1,7 +1,7 @@
 ---
 title: Query & compare experiments and runs with MLflow
 titleSuffix: Azure Machine Learning
-description: Explains how to use MLflow for managing experiments and runs in Azure ML
+description: Explains how to use MLflow for managing experiments and runs in AzureML
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
@@ -18,7 +18,7 @@ ms.custom: how-to, devx-track-python, ignite-2022
 Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. 
 
 > [!NOTE]
-> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure ML.
+> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, we recommend to use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in AzureML.
 
 MLflow allows you to:
 
@@ -26,9 +26,9 @@ MLflow allows you to:
 * Start, stop, cancel and query runs for experiments.
 * Track and retrieve metrics, parameters, artifacts and models from runs.
 
-In this article, you'll learn how to manage experiments and runs in your workspace using Azure ML and MLflow SDK in Python.
+In this article, you'll learn how to manage experiments and runs in your workspace using AzureML and MLflow SDK in Python.
 
-## Using MLflow SDK in Azure ML
+## Using MLflow SDK in AzureML
 
 Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning. See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.
 
@@ -97,7 +97,7 @@ Another important point to notice is that get returning runs, all metrics are pa
 
 ### Ordering runs
 
-By default, experiments are ordered descending by `start_time`, which is the time the experiment was queue in Azure ML. However, you can change this default by using the parameter `order_by`.
+By default, experiments are ordered descending by `start_time`, which is the time the experiment was queue in AzureML. However, you can change this default by using the parameter `order_by`.
 
 ```python
 mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], order_by=["start_time DESC"])
@@ -131,9 +131,9 @@ mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ],
 
 You can also filter experiment by status. It becomes useful to find runs that are running, completed, canceled or failed. In MLflow, `status` is an `attribute`, so we can access this value using the expression `attributes.status`. The following table shows the possible values:
 
-| Azure ML Job status | MLFlow's `attributes.status` | Meaning |
+| AzureML Job status | MLFlow's `attributes.status` | Meaning |
 | :-: | :-: | :- |
-| Not started | `SCHEDULED` | The job/run was just registered in Azure ML but it has processed it yet. |
+| Not started | `SCHEDULED` | The job/run was just registered in AzureML but it has processed it yet. |
 | Queue | `SCHEDULED` | The job/run is scheduled for running, but it hasn't started yet. |
 | Preparing | `SCHEDULED` | The job/run has not started yet, but a compute has been allocated for the execution and it is on building state. |
 | Running | `RUNNING` | The job/run is currently under active execution. |
@@ -200,7 +200,7 @@ client = mlflow.tracking.MlflowClient()
 client.list_artifacts("1234-5678-90AB-CDEFG")
 ```
 
-The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (Azure ML storage). To download any of them, use the method `download_artifact`:
+The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (AzureML storage). To download any of them, use the method `download_artifact`:
 
 ```python
 file_path = mlflow.artifacts.download_artifacts(
@@ -258,17 +258,17 @@ To compare and evaluate the quality of your jobs and models in AzureML Studio, u
 :::image type="content" source="media/how-to-track-experiments-mlflow/compare.gif" alt-text="Screenshot of the preview panel showing how to compare jobs and models in AzureML studio.":::
 
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/using-mlflow) demonstrate and expand upon concepts presented in this article.
+The [MLflow with AzureML notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
   * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-and-log/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
-  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/runs-management/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
+  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/runs-management/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from AzureML using MLflow.
 
 
 ## Support matrix for querying runs and experiments
 
 The MLflow SDK exposes several methods to retrieve runs, including options to control what is returned and how. Use the following table to learn about which of those methods are currently supported in MLflow when connected to Azure Machine Learning:
 
-| Feature | Supported by MLflow | Supported by Azure ML |
+| Feature | Supported by MLflow | Supported by AzureML |
 | :- | :-: | :-: |
 | Ordering runs by run fields (like `start_time`, `end_time`, etc) | **&check;** | **&check;** |
 | Ordering runs by attributes | **&check;** | <sup>1</sup> |
@@ -289,7 +289,7 @@ The MLflow SDK exposes several methods to retrieve runs, including options to co
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
-> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure ML.
+> - <sup>1</sup> Check the section [Getting runs inside an experiment](#getting-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in AzureML.
 > - <sup>2</sup> `!=` for tags not supported.
 
 ## Next steps

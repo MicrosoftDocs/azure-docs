@@ -13,20 +13,20 @@ ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Create, run, and delete Azure ML resources using REST
+# Create, run, and delete AzureML resources using REST
 
 
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](https://aka.ms/sdk-v2-install). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your AzureML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](https://aka.ms/sdk-v2-install). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Retrieve an authorization token
 > * Create a properly-formatted REST request using service principal authentication
-> * Use GET requests to retrieve information about Azure ML's hierarchical resources
+> * Use GET requests to retrieve information about AzureML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
-> * Use PUT requests to create Azure ML workspaces
+> * Use PUT requests to create AzureML workspaces
 > * Use DELETE requests to clean up resources 
 
 ## Prerequisites
@@ -273,7 +273,7 @@ A successful request will get a `201 Created` response, but note that this respo
 
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every AzureML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 

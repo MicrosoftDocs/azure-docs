@@ -52,13 +52,13 @@ Finally, you can package everything including code, cmd, environment, input, out
 
 To learn more about how to build a component, see:
 
-- How to [build a component using Azure MLCLI v2](how-to-create-component-pipelines-cli.md).
-- How to [build a component using Azure ML SDK v2](how-to-create-component-pipeline-python.md).
+- How to [build a component using AzureMLCLI v2](how-to-create-component-pipelines-cli.md).
+- How to [build a component using AzureML SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Next steps
 
-- [Define component with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md).
-- [Define component with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md).
+- [Define component with the AzureML CLI v2](./how-to-create-component-pipelines-cli.md).
+- [Define component with the AzureML SDK v2](./how-to-create-component-pipeline-python.md).
 - [Define component with Designer](./how-to-create-component-pipelines-ui.md).
 - [Component CLI v2 YAML reference](./reference-yaml-component-command.md).
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md).

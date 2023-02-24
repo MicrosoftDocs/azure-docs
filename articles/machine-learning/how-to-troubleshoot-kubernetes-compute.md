@@ -235,12 +235,12 @@ You can check the following items to troubleshoot the issue:
 *  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
 *  Make sure the workspace has a system assigned managed identity.
 
-### Encountered an error when attempting to connect to the Azure ML token service
+### Encountered an error when attempting to connect to the AzureML token service
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure ML token service","Code":400}
+AzureML Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the AzureML token service","Code":400}
 ```
 You can follow [Private Link troubleshooting section](#private-link-issue) to check your network settings.
 

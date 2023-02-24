@@ -24,7 +24,7 @@ ms.date: 04/21/2022
 > [!IMPORTANT]
 > This article shows how to use the CLI and SDK v1 to create or attach an Azure Kubernetes Service cluster, which is considered as **legacy** feature now.  To attach Azure Kubernetes Service cluster using  the recommended approach for v2, see [Introduction to Kubernetes compute target in v2](../how-to-attach-kubernetes-anywhere.md).
 
-Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
+Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your AzureML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
 ## Prerequisites
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
@@ -33,7 +33,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
     [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
-- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
+- If you plan on using an Azure Virtual Network to secure communication between your AzureML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 
 ## Limitations
 
@@ -56,7 +56,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning. 
 
-- The compute name for the AKS cluster MUST be unique within your Azure ML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
+- The compute name for the AKS cluster MUST be unique within your AzureML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
  
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  

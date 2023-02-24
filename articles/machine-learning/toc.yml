@@ -75,7 +75,7 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Azure ML in a day
+    - name: AzureML in a day
       href: tutorial-azure-ml-in-a-day.md
     - name: Build models
       items: 
@@ -123,7 +123,7 @@
       href: concept-v2.md
     - name: Work with Data
       items:
-        - name: Data concepts in Azure ML
+        - name: Data concepts in AzureML
           href: concept-data.md
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
@@ -781,7 +781,7 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
-    - name: Use R with Azure ML
+    - name: Use R with AzureML
       items:
         - name: Bring R workloads
           href: how-to-r-overview-r-capabilities.md

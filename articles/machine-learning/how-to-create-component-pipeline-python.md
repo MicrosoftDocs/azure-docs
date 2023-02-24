@@ -52,7 +52,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Start an interactive Python session
 
-This article uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The article assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook.
+This article uses the Python SDK for AzureML to create and control an Azure Machine Learning pipeline. The article assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook.
 
 This article is based on the [image_classification_keras_minist_convnet.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb) notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository.
 
@@ -287,7 +287,7 @@ You can open the `Link to Azure Machine Learning studio`, which is the job detai
 
 :::image type="content" source="./media/how-to-create-component-pipeline-python/pipeline-ui.png" alt-text="Screenshot of the pipeline job detail page." lightbox ="./media/how-to-create-component-pipeline-python/pipeline-ui.png":::
 
-You can check the logs and outputs of each component by right clicking the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, see [How to use studio UI to build and debug Azure ML pipelines](how-to-use-pipeline-ui.md).
+You can check the logs and outputs of each component by right clicking the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, see [How to use studio UI to build and debug AzureML pipelines](how-to-use-pipeline-ui.md).
 
 ## (Optional) Register components to workspace
 

@@ -26,7 +26,7 @@ Azure Machine Learning provides multiple ways to submit ML training jobs. In thi
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Quickstart: Create Azure ML resources](quickstart-create-resources.md) article.
+* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Quickstart: Create AzureML resources](quickstart-create-resources.md) article.
 
 # [Python SDK](#tab/python)
 
@@ -55,7 +55,7 @@ To use the __REST API__ information, you need the following items:
 
 ### Clone the examples repository
 
-The code snippets in this article are based on examples in the [Azure ML examples GitHub repo](https://github.com/azure/azureml-examples). To clone the repository to your development environment, use the following command:
+The code snippets in this article are based on examples in the [AzureML examples GitHub repo](https://github.com/azure/azureml-examples). To clone the repository to your development environment, use the following command:
 
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -175,7 +175,7 @@ curl -X PUT \
 
 # [Python SDK](#tab/python)
 
-To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
+To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to AzureML. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 

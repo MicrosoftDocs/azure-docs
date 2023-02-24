@@ -21,7 +21,7 @@ In Azure Machine Learning, you can upload files and content from any source into
 
 ## Potential threats
 
-Development with Azure Machine Learning often involves web-based development environments (Notebooks & Azure ML studio). When using web-based development environments, the potential threats are:
+Development with Azure Machine Learning often involves web-based development environments (Notebooks & AzureML studio). When using web-based development environments, the potential threats are:
 
 * [Cross site scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 
@@ -30,7 +30,7 @@ Development with Azure Machine Learning often involves web-based development env
 
 * [Cross site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf): This attack may replace the URL of an image or link with the URL of a malicious script or API. When the image is loaded, or link clicked, a call is made to the URL.
 
-## Azure ML studio notebooks
+## AzureML studio notebooks
 
 Azure Machine Learning studio provides a hosted notebook experience in your browser. Cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
 
@@ -47,7 +47,7 @@ __Recommended actions__:
 * Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you're uploading trusted files.
 * When selecting a link to open an external application, you'll be prompted to trust the application.
 
-## Azure ML compute instance
+## AzureML compute instance
 
 Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ and __Posit Workbench (formerly RStudio Workbench)__ hosted on a compute instance.
 

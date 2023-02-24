@@ -88,7 +88,7 @@ The code snippets in this section cover how to:
 
 These snippets use `custom` and `mlflow`.
 
-- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure ML.
+- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by AzureML.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
 ### Connect to your workspace
@@ -278,7 +278,7 @@ To create a model in Machine Learning, from the UI, open the **Models** page. Se
 
 ## Manage models
 
-The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure ML model assets.
+The SDK and CLI (v2) also allow you to manage the lifecycle of your AzureML model assets.
 
 ### List
 
