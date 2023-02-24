@@ -167,7 +167,6 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
         --instance-count 2 \
         --runtime-version Java_17 \
         --assign-endpoint true \
-        --system-assigned true \
         --env SERVICE_BUS_NAME_SPACE=${SERVICE_BUS_NAME_SPACE}
     ```
 
