@@ -34,7 +34,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 > * In the URL examples in this article you will need to replace:
->    * `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>    * `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 >    * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial
 
 ## Query for feature collections
