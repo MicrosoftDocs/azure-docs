@@ -54,4 +54,4 @@ When a Direct peering is set for deprovision, you see the connection state as *P
 
 ## Next steps
 
-* Learn about [Prerequisites to set up peering with Microsoft](prerequisites.md).
+* Learn about the [Prerequisites to set up peering with Microsoft](prerequisites.md).
