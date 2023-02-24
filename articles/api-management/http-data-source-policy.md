@@ -41,7 +41,7 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | http-request | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
-| http-response |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
+| http-response |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | No |
 
 ### http-request elements
 
@@ -64,7 +64,7 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [xml-to-json](xml-to-json-policy.md   | Transforms the resolver's HTTP response from XML to JSON. | No  | 
+| [xml-to-json](xml-to-json-policy.md)   | Transforms the resolver's HTTP response from XML to JSON. | No  | 
 | [find-and-replace](find-and-replace-policy.md)   | Finds a substring in the resolver's HTTP response and replaces it with a different substring. | No  |
 | [set-body](set-body-policy.md)  |  Sets the body in the resolver's HTTP response. | No  |
 | [publish-event](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in the GraphQL API schema. | No |
@@ -77,118 +77,6 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 ### Usage notes
 
 * This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription. 
-
-## GraphQL context
-
-* The context for the HTTP request and HTTP response (if specified) differs from the context for the original gateway API request: 
-  * `context.ParentResult` is set to the parent object for the current resolver execution.
-  * The HTTP request context contains arguments that are passed in the GraphQL query as its body. 
-  * The HTTP response context is the response from the independent HTTP call made by the resolver, not the context for the complete response for the gateway request. 
-The `context` variable that is passed through the request and response pipeline is augmented with the GraphQL context when used with `<set-graphql-resolver>` policies.
-
-### ParentResult
-
-The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
-
-``` graphql
-type Comment {
-    id: ID!
-    owner: string!
-    content: string!
-}
-
-type Blog {
-    id: ID!
-    title: string!
-    content: string!
-    comments: [Comment]!
-    comment(id: ID!): Comment
-}
-
-type Query {
-    getBlog(): [Blog]!
-    getBlog(id: ID!): Blog
-}
-```
-
-Also, consider a GraphQL query for all the information for a specific blog:
-
-``` graphql
-query {
-    getBlog(id: 1) {
-        title
-        content
-        comments {
-            id
-            owner
-            content
-        }
-    }
-}
-```
-
-If you set a resolver for `parent-type="Blog" field="comments"`, you will want to understand which blog ID to use.  You can get the ID of the blog using `context.ParentResult.AsJObject()["id"].ToString()`.  The policy for configuring this resolver would resemble:
-
-``` xml
-<set-graphql-resolver parent-type="Blog" field="comments">
-    <http-data-source>
-        <http-request>
-            <set-method>GET</set-method>
-            <set-url>@{
-                var blogId = context.ParentResult.AsJObject()["id"].ToString();
-                return $"https://data.contoso.com/api/blog/{blogId}";
-            }</set-url>
-        </http-request>
-    </http-data-source>
-</set-graphql-resolver>
-```
-
-### Arguments
-
-The arguments for a parameterized GraphQL query are added to the body of the request.  For example, consider the following two queries:
-
-``` graphql
-query($id: Int) {
-    getComment(id: $id) {
-        content
-    }
-}
-
-query {
-    getComment(id: 2) {
-        content
-    }
-}
-```
-
-These queries are two ways of calling the `getComment` resolver.  GraphQL sends the following JSON payload:
-
-``` json
-{
-    "query": "query($id: Int) { getComment(id: $id) { content } }",
-    "variables": { "id": 2 }
-}
-
-{
-    "query": "query { getComment(id: 2) { content } }"
-}
-```
-
-When the resolver is executed, the `arguments` property is added to the body.  You can define the resolver as follows:
-
-``` xml
-<set-graphql-resolver parent-type="Blog" field="comments">
-    <http-data-source>
-        <http-request>
-            <set-method>GET</set-method>
-            <set-url>@{
-                var commentId = context.Request.Body.As<JObject>(true)["arguments"]["id"];
-                return $"https://data.contoso.com/api/comment/{commentId}";
-            }</set-url>
-        </http-request>
-    </http-data-source>
-</set-graphql-resolver>
-```
 
 ## Examples
 
@@ -308,6 +196,6 @@ type User {
 
 ## Related policies
 
-* [API Management policies for GraphQL resolvers](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
