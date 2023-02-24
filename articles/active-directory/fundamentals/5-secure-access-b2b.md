@@ -17,17 +17,14 @@ ms.collection: M365-identity-device-management
 
 # Transition to governed collaboration with Azure Active Directory B2B collaboration
 
-For context and needed information we recommend you read the first four articles in the series of ten articles. 
-
-* [Determine your security posture for external access](1-secure-access-posture.md)
-* [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
-* [Create a security plan for external access](3-secure-access-plan.md)
-* [Securing external access with groups](4-secure-access-groups.md)
-
 Understanding collaboration helps secure external access to your resources. Use the information in this article to move external collaboration into Azure Active Directory B2B (Azure AD B2B) collaboration. 
 
 * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
 * Learn about: [External Identities in Azure AD](../external-identities/external-identities-overview.md)
+
+## Before you begin
+
+This article is number 5 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Control collaboration 
 
@@ -240,13 +237,26 @@ For more information on governing applications, see:
 * [Governing connected apps](/defender-cloud-apps/governance-actions)
 * [Govern discovered apps](/defender-cloud-apps/governance-discovery)
 
-### Next steps
+## Next steps
 
-* [Determine your security posture for external access](1-secure-access-posture.md)
-* [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
-* [Create a security plan for external access](3-secure-access-plan.md)
-* [Securing external access with groups](4-secure-access-groups.md)
-* [Manage external access with Entitlement Management](6-secure-access-entitlement-managment.md)
-* [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
-* [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
-* [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
+
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
+
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) (You're here) 
+
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
+
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md)
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
