@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 02/23/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)
@@ -25,7 +25,7 @@ Features supported by database connections include:
 | **Supports SQL and NoSQL** | You can use relational and document databases as your application's database. |
 | **Serverless architecture** | Connections scale from 0 to 1 worker (during preview). |
 | **Database relationships** | Supported only via GraphQL the endpoint. |
-| **CLI support** | Develop locally with the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli). Use the `--data-api-location` option to processes requests to data APIs in development just as they are handled in the cloud. |
+| **CLI support** | Develop locally with the [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli). Use the `--data-api-location` option to processes requests to data APIs in development just as they're handled in the cloud. |
 
 ## Supported databases
 
@@ -33,7 +33,7 @@ The following table shows support for different relational and NoSQL databases.
 
 | Name | Type | Description | REST | GraphQL |
 |---|---|---|---|---|
-| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale. | | ✔ |
+| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale.<br><br>In addition to the [standard configuration](database-configuration.md), a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md). | | ✔ |
 | [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. | ✔ | ✔ |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition | ✔ | ✔ |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. | ✔ | ✔ |
@@ -60,7 +60,7 @@ The following table shows you how requests route to different parts of a static 
 | `example.com/data-api/*` | Database connection endpoints that support REST and GraphQL requests. |
 | `example.com/*` | Static content |
 
-When you configure database connections on your website, you have can configure the suffix of the `/data-api/*` route. The `/data-api` prefix is a convention of Static Web Apps and cannot be changed.
+When you configure database connections on your website, you can configure the suffix of the `/data-api/*` route. The `/data-api` prefix is a convention of Static Web Apps and can't be changed.
 
 ## Configuration
 
@@ -81,6 +81,47 @@ swa start ./src --data-api-location swa-db-connections
 ```
 
 This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
+
+## Role-based security
+
+When you define an entity in the *staticwebapp.database.config.json* file, you can specify a list of roles required to access an entity endpoint.
+
+The following the following [configuration](database-configuration.md) fragment requires the *admin* role to access the *orders* endpoint.
+
+```json
+...
+"entities": { 
+  "Orders": { 
+    "source": "dbo.Orders", 
+    "permissions": [ 
+      { 
+        "actions": ["*"], 
+        "role": "admin" 
+      }
+    ], 
+ }, 
+}
+...
+```
+
+When you make calls to an endpoint that requires a role, the following conditions are required:
+
+1. The current user must be authenticated.
+1. The current user must be a member of the required role.
+1. The REST or GraphQL request must include a header with the key of `X-MS-API-ROLE` and a value of the role name matching what's listed in the entity configuration rules.
+
+    For instance, the following snippet shows how to pass the *admin* role in a request header.
+
+    ```javascript
+    {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "X-MS-API-ROLE": "admin"
+      },
+      body: JSON.stringify(requestPayload)
+    }
+    ```
 
 ## Constraints
 

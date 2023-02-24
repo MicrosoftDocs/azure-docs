@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 02/16/2023
+ms.date: 02/23/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
 # Tutorial: Add a database connection in Azure Static Web Apps (preview)
 
-In this tutorial, you learn how to connect an Azure SQL database to your static web app. Once configured, you can make REST or GraphQL requests to the built-in `/data-api` endpoint to manipulate data without having to write additional backend code. 
+In this tutorial, you learn how to connect an Azure SQL database to your static web app. Once configured, you can make REST or GraphQL requests to the built-in `/data-api` endpoint to manipulate data without having to write backend code.
 
 For the sake of simplicity, this tutorial shows you how to use an Azure database for local development purposes, but you may also use a local database server for your local development needs.
 
@@ -36,7 +36,7 @@ Begin by configuring your database to work with the Azure Static Web Apps databa
 
 ## Configure database connectivity
 
-Azure Static Web Apps must have network access to your database for database connections to work. Additionally, to use an Azure database for local development purposes, you will need to configure your database to allow requests from your own IP address.
+Azure Static Web Apps must have network access to your database for database connections to work. Additionally, to use an Azure database for local development, you need to configure your database to allow requests from your own IP address.
 
 1. Go to your Azure SQL Server in the [Azure portal](https://portal.azure.com).
 
@@ -117,7 +117,7 @@ The rest this tutorial focuses on editing your static web app's source code to m
 
 Next, create the configuration file that your static web app uses to interface with the database.
 
-1. Open your terminal and create a new variable to hold your connection string. The specific syntax may vary depending on the shell type you are using.
+1. Open your terminal and create a new variable to hold your connection string. The specific syntax may vary depending on the shell type you're using.
 
     # [Bash](#tab/bash)
 
@@ -186,12 +186,8 @@ Next, create the configuration file that your static web app uses to interface w
             "permissions": [ 
               { 
                 "actions": ["*"], 
-                "role": "admin" 
-              }, 
-              { 
-                "actions": ["read"], 
                 "role": "anonymous" 
-              } 
+              }
             ], 
           }, 
         } 
@@ -212,7 +208,7 @@ With the static web app configured to connect to the database, you can now verif
 
 ### Update home page
 
-Replace the markup between the `body` tags with the following HTML.
+Replace the markup between the `body` tags in the *index.html* file with the following HTML.
 
 ```html
 <h1>Static Web Apps Database Connections</h1>
@@ -255,9 +251,15 @@ Now you can run your website and manipulate data in the database directly.
     swa start ./src --data-api-location swa-db-connections
     ```
 
-If everything is working correctly, you should see that the SWA CLI was able to connect to your database. Your database contents are now being served at endpoints as you've configured them in your configuration file. In this sample, the `http://localhost:4280/data-api/api/<Entity>` endpoint accepts GET, PUT, POST and DELETE requests to edit the contents of that entity's table. 
+Now that the CLI is started, you can access your database via the endpoints as defined in the *staticwebapp.database.config.json* file.
 
-Similarly, the `http://localhost:4280/data-api/graphql` endpoint accepts GraphQL queries and mutations. The contract for these GraphQL queries and mutations can be browsed at the introspection endpoint `http://localhost:4280/data-api/graphql` which provides a graphical interface to visualize your GraphQL schema.
+::: zone pivot="static-web-apps-rest"
+The `http://localhost:4280/data-api/api/<ENTITY_NAME>` endpoint accepts `GET`, `PUT`, `POST` and `DELETE` requests to manipulate data in the database.
+::: zone-end
+
+::: zone pivot="static-web-apps-graphql"
+The `http://localhost:4280/data-api/graphql` endpoint accepts GraphQL queries and mutations.
+::: zone-end
 
 ## Manipulate data
 
@@ -281,6 +283,11 @@ async function list() {
   console.table(data.value);
 }
 ```
+
+In this example:
+
+* The default request for the `fetch` API uses the verb `GET`.
+* Data in the response payload is found in the `value` property.
 
 ::: zone-end
 
@@ -310,6 +317,12 @@ async function list() {
 }
 ```
 
+In this example:
+
+* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The request passed to the server requires a payload where the `query` property holds the query definition.
+* Data in the response payload is found in the `data.people.items` property.
+
 ::: zone-end
 
 Refresh the page and select the **List** button.
@@ -334,12 +347,18 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function get() {
   const id = 1;
-  const endpoint = `http://localhost:4280/data-api/api/person/Id/${id}`;
-  const response = await fetch(endpoint);
+  const endpoint = `http://localhost:4280/data-api/api/person/Id`;
+  const response = await fetch(`${endpoint}/${id}`);
   const result = await response.json();
   console.table(result.value);
 }
 ```
+
+In this example:
+
+* The endpoint is suffixed with `/person/Id`.
+* The ID value is appended to the end of the endpoint location.
+* Data in the response payload is found in the `value` property.
 
 ::: zone-end
 
@@ -376,6 +395,12 @@ async function get() {
 }
 ```
 
+In this example:
+
+* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The request passed to the server requires a payload where the `query` property holds the query definition.
+* Data in the response payload is found in the `data.person_by_pk` property.
+
 ::: zone-end
 
 Refresh the page and select the **Get** button.
@@ -393,8 +418,6 @@ Add the following code between the `script` tags in *index.html*.
 ::: zone pivot="static-web-apps-rest"
 
 Static Web Apps support both the `PUT` and `PATCH` verbs. A `PUT` request updates the whole record, while `PATCH` does a partial update.
-
-This example uses a `PUT` request to do the update.
 
 ```javascript
 async function update() {
@@ -415,6 +438,13 @@ async function update() {
 }
 
 ```
+
+In this example:
+
+* The endpoint is suffixed with `/person/Id/`.
+* The ID value is appended to the end of the endpoint location.
+* The REST verb is `PUT` to update the database record.
+* Data in the response payload is found in the `value` property.
 
 ::: zone-end
 
@@ -456,6 +486,14 @@ async function update() {
 }
 ```
 
+In this example:
+
+* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The `query` object holds the GraphQL query in the `query` property.
+* The argument values to the GraphQL function are passed in via the `query.variables` property.
+* The request passed to the server requires a payload where the `query` property holds the query definition.
+* Data in the response payload is found in the `data.updatePerson` property.
+
 ::: zone-end
 
 Refresh the page and select the **Update** button.
@@ -489,6 +527,12 @@ async function create() {
   console.table(result.value);
 }
 ```
+
+In this example:
+
+* The endpoint is suffixed with `/person/`.
+* The REST verb is `POST` to add a database record.
+* Data in the response payload is found in the `value` property.
 
 ::: zone-end
 
@@ -528,6 +572,14 @@ async function create() {
 }
 ```
 
+In this example:
+
+* The GraphQL query selects the `Id` and `Name` fields from the database.
+* The `query` object holds the GraphQL query in the `query` property.
+* The argument values to the GraphQL function are passed in via the `query.variables` property.
+* The request passed to the server requires a payload where the `query` property holds the query definition.
+* Data in the response payload is found in the `data.updatePerson` property.
+
 ::: zone-end
 
 Refresh the page and select the **Create** button.
@@ -558,6 +610,13 @@ async function del() {
   }
 }
 ```
+
+In this example:
+
+* The endpoint is suffixed with `/person/Id/`.
+* The ID value is appended to the end of the endpoint location.
+* The REST verb is `DELETE` to remove the database record.
+* If the delete is successful the response payload `ok` property is `true`.
 
 ::: zone-end
 
@@ -593,6 +652,14 @@ async function del() {
   console.log(`Record deleted: ${ result.data.deletePerson.Id }`);
 }
 ```
+
+In this example:
+
+* The GraphQL query selects the `Id` field from the database.
+* The `query` object holds the GraphQL query in the `query` property.
+* The argument values to the GraphQL function are passed in via the `query.variables` property.
+* The request passed to the server requires a payload where the `query` property holds the query definition.
+* Data in the response payload is found in the `data.deletePerson` property.
 
 ::: zone-end
 
@@ -648,7 +715,7 @@ To deploy this site to production, you just need to commit the configuration fil
 
 1. Select the **List** button to list all items.
 
-    The output should resemble the what's shown in this screenshot.
+    The output should resemble what's shown in this screenshot.
 
     :::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
 

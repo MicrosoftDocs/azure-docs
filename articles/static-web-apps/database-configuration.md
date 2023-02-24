@@ -5,18 +5,14 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 02/23/2023
 ---
 
 # Database connection configuration in Azure Static Web Apps (preview)
 
 Azure Static Web apps database connections work with various Azure databases.
 
-<<<<<<< HEAD
-As you connect a database to your static web app, you need to configure your database's firewall to accept network access from the Static Web Apps workers. To do this, you must allow network access from Azure resources. Allowing specific Static Web Apps IP addresses is not supported.
-=======
-Before you connect a database to your static web app, you need to:
->>>>>>> 6fbe50d1326bcd399c2d18fa4db61a4607bc8b17
+As you connect a database to your static web app, you need to configure your database's firewall to accept network access from the Static Web Apps workers by allowing network access from Azure resources. Allowing specific Static Web Apps IP addresses isn't supported.
 
 If you're using the Managed Identity authentication type, then you need to configure your static web app's Managed Identity profile to access your database.
 
@@ -32,7 +28,7 @@ Use this table for details about firewall and Managed Identity configuration for
 
 ## Configuration
 
-The runtime behavior of the database connection is defined by the `staticwebapp.database.config.json` file found in your repository. Before you link a database to your static web app, you need to define create this file within your repository. By convention, this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
+You define the runtime behavior of the database connection in the `staticwebapp.database.config.json` file. Before you link a database to your static web app, you need to create this file within your repository. By convention, this file exists in the *swa-db-connections* folder at the root of your repository, but you can [relocate](#custom-configuration-folder) it if you wish.
 
 The purpose of the configuration file is to:
 
@@ -41,7 +37,7 @@ The purpose of the configuration file is to:
 - Define entity security rules
 - Control development configuration settings
 
-If you are using Azure Cosmos DB, then you also need to provide a *.gql* file.
+If you're using Azure Cosmos DB, then you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
 
 ## Sample configuration file
 
@@ -73,8 +69,8 @@ The following sample configuration file shows you how to connect to an Azure SQL
       } 
     }, 
     "entities": { 
-      "People": { 
-        "source": "dbo.MyTestPeopleTable", 
+      "Person": { 
+        "source": "dbo.MyTestPersonTable", 
         "permissions": [ 
           { 
             "actions": ["*"], 
@@ -93,7 +89,7 @@ The following sample configuration file shows you how to connect to an Azure SQL
 | Property | Description |
 |---|---|
 | `$schema` | The version of the [Database Application Builder](https://github.com/Azure/data-api-builder) used by Azure Static Web Apps to interpret the configuration file. |
-| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The entire data-source object is overwritten upon deployment when a database is connected to your Static Web Apps resource. When developing locally, the connection string defined here is used to connect to the database.  |
+| `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The entire data-source object is overwritten upon deployment when a database is connected to your Static Web Apps resource. During local development, the connection string defined in the configuration file is what is used to connect to the database.  |
 | `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your  localhost address and port. |
 | `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities. |
 
