@@ -29,7 +29,7 @@ A host pool can be one of two types:
 
 You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Azure Virtual Desktop sessions. You control the resources published to users through application groups.
 
-## App groups
+## Application groups
 
 An application group is a logical grouping of applications installed on session hosts in the host pool. An application group can be one of two types:
 

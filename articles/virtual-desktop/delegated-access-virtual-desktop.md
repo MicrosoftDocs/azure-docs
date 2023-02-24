@@ -26,7 +26,7 @@ Azure Virtual Desktop delegated access supports the following values for each el
     * Custom roles
 * Scope
     * Host pools
-    * App groups
+    * Application groups
     * Workspaces
 
 ## PowerShell cmdlets for role assignments

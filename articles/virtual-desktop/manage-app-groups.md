@@ -47,7 +47,7 @@ If you've already created a host pool and session host VMs using the Azure porta
 5. Select the **Host pool** that will be associated with the application group from the drop-down menu.
 
     >[!NOTE]
-    >You must select the host pool associated with the application group. App groups have apps or desktops that are served from a session host and session hosts are part of host pools. The application group needs to be associated with a host pool during creation.
+    >You must select the host pool associated with the application group. Application groups have apps or desktops that are served from a session host and session hosts are part of host pools. The application group needs to be associated with a host pool during creation.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Basics tab in the Azure portal.](media/basics-tab.png)

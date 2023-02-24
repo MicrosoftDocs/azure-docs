@@ -25,7 +25,7 @@ Azure Virtual Desktop delegated access supports the following values for each el
     * Tenant groups
     * Tenants
     * Host pools
-    * App groups
+    * Application groups
 
 ## Built-in roles
 

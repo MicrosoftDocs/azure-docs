@@ -34,7 +34,7 @@ The following table goes into more detail about the differences between each typ
 |Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
 |User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
 
-## App groups
+## Application groups
 
 An application group is a logical grouping of applications installed on session hosts in the host pool.
 
