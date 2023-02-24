@@ -76,6 +76,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
    > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
    > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
    > - Export is not supported by Blob storage accounts at this time.
+   > - Redis cache data export to Firewall enabled storage accounts fails? [Please refer to How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
    >
    > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
@@ -110,6 +111,7 @@ This section contains frequently asked questions about the Import/Export feature
 - [Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 - [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### What pricing tiers can use Import/Export?
 
@@ -169,6 +171,12 @@ To resolve this error, start the import or export operation before 15 minutes ha
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
 
 Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). If you're using an access key to authenticate a storage account, having firewall exceptions on the storage account tends to cause the import/export process to fail.
+
+### How to export if I have firewall enabled on my storage account?
+
+For firewall enabled storage accounts, we need to check “Allow Azure services on the trusted services list to access this storage account” then, use managed identity (System/User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
+
+More information here - [Managed identity for storage accounts - Azure Cache for Redis](cache-managed-identity.md)
 
 ## Next steps
 
