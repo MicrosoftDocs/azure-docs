@@ -24,7 +24,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ### AzAcSnap 7a (Build: 1AA8343)
 
-AzAcSnap 7a is being released with a following fixes:
+AzAcSnap 7a is being released with the following fixes:
 
 - Fixes for `-c restore` commands:
   - Enable mounting volumes on HLI (BareMetal) where the volumes have been reverted to a prior state when using `-c restore --restore revertvolume`.
@@ -162,9 +162,9 @@ AzAcSnap v5.0 (Build: 20210421.6349) has been made Generally Available and for t
 
 ## March-2021
 
-### AzAcSnap v5.0 Preview (Build:20210318.30771)
+### AzAcSnap v5.0 Preview (Build: 20210318.30771)
 
-AzAcSnap v5.0 Preview (Build:20210318.30771) has been released with the following fixes and improvements:
+AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the following fixes and improvements:
 
 - Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-database) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
