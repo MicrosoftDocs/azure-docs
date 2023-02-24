@@ -815,4 +815,4 @@
   - name: Partners
     href: single-server/partners-migration-mysql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/
+    href: /data-migration/
