@@ -20,7 +20,9 @@ System-preferred multifactor authentication (MFA) prompts users to sign in by us
 
 For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method they registered. 
 
-Administrators can enable system-preferred MFA by using Microsoft Graph API. 
+System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the default state will only be disabled. If you want to turn it on for a tenant or group of tenants during preview, you need to explicitly change the Microsoft managed setting to enabled by using Microsoft Graph API. Sometime after GA, the Microsoft managed setting will change to be enabled. 
+
+- Let's say an end user doesn't use a certain method, and chooses to sign in another way.  
 
 ## How does system-preferred multifactor authentication work?
 
@@ -47,9 +49,28 @@ When a user signs in, the authentication process checks which authentication met
 
 ## Enable system-preferred MFA
 
-By default, system-preferred MFA is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and set as disabled during preview. When system-preferred MFA becomes generally available, the Microsoft managed setting will change to be enabled. 
+To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. 
 
-To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. Then use the API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
+### Authentication method feature configuration properties
+
+By default, system-preferred MFA is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After generally availability, the Microsoft managed setting default value will change to enable system-preferred MFA. 
+
+| Property | Type | Description |
+|----------|------|-------------|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA. |
+| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA.|
+| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+
+### Feature target properties
+
+System-preferred MFA can be enabled only for a single group. 
+
+| Property | Type | Description |
+|----------|------|-------------|
+| id | String | ID of the entity targeted. |
+| targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
+
+Use the following API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
 
 ```
 https://graph.microsoft.com/beta/authenticationMethodsPolicy
