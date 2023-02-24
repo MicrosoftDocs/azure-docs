@@ -39,15 +39,6 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
-
-- [Git](https://git-scm.com/)
-- [Node.js (LTS)](https://nodejs.org/download/)
-- [Visual Studio Code](https://code.visualstudio.com/) to view and deploy the applications
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-## Authentication provided by Azure App Service
-
 The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
 
 :::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the front-end app to the back-end app.":::
@@ -59,84 +50,20 @@ This authentication from the frontend to the backend requires changes to the fro
 > [!TIP]
 > After completing this scenario, continue to the next procedure to learn how to connect to Azure services as an authenticated user. Common scenarios for this includes accessing Azure Storage or a database as the user. 
 
-## Create local app
+## Prerequisites
 
-In this step, use the Cloud Shell (Bash) available in the Azure portal to view and deploy the frontend and backend apps. The Cloud Shell, bash version, provides the Azure CLI and the zip CLI needed to  
+- [Node.js (LTS)](https://nodejs.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Clone the sample application 
 
-1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository.
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository. 
 
     ```bash
     git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
-    
-1. Optionally, view the local frontend app in Visual Studio Code.
 
-    ```bash
-    cd frontend && code .
-    ```
-
-    ```javascript
-    // Frontend - get access token from injected header
-    let accessToken = req.headers['x-ms-token-aad-access-token'];
-    console.log(`/get-profile:accessToken= ${accessToken}`);
-    if (!accessToken) {
-        return res.render(`${__dirname}/views/profile`, { error: 'Client: No access token found' });
-    }
-    ```
-
-1. Optionally, view the local backend app in Visual Studio Code.
-
-    ```bash
-    cd ../backend && code .
-    ```
-
-    ```javascript
-    // Backend - get remote profile
-    const bearerToken =
-    req.headers['Authorization'] || req.headers['authorization'];
-    console.log(`bearerToken: ${bearerToken}`);
-    
-    const accessToken = bearerToken.split(' ')[1];
-    console.log(`accessToken: ${accessToken}`);
-    
-    function validAccessToken(accessToken) {
-        // access token validation removed for brevity
-        return true;
-    }
-    
-    // headers, bearerToken, and env returned for debugging only
-    if (accessToken && validAccessToken(accessToken)) {
-        return res.status(200).json({
-            route: '/profile success',
-            profile: {
-                displayName: 'John Doe',
-            },
-            headers: req.headers, //
-            bearerToken,
-            env: process.env,
-            error: null,
-        });
-    } else {
-        return res.status(200).json({
-            route: '/profile failure - empty or invalid accessToken',
-            profile: null,
-            headers: req.headers, //
-            bearerToken,
-            env: process.env,
-            error: 'empty or invalid accessToken',
-        });
-    }
-    ```
-
-1. Return to the root of the sample repo.
-
-    ```bash
-    cd ..
-    ```
-
-## Create resource group and app plan
+## Create the resource group and app plan
 
 1. Create a resource group to manage related resources. 
 
@@ -331,8 +258,60 @@ az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-nam
 This step isn't related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 ## Call the backend
+    Use the App Service injected `x-ms-token-aad-access-token` header to programmatically access the user's accessToken.
 
-Shows how you use the token to call the backend.
+    ```javascript
+    // Frontend - get access token from injected header
+    let accessToken = req.headers['x-ms-token-aad-access-token'];
+    console.log(`/get-profile:accessToken= ${accessToken}`);
+    if (!accessToken) {
+        return res.render(`${__dirname}/views/profile`, { error: 'Client: No access token found' });
+    }
+    ```
+
+1. The local backend app in Visual Studio Code.
+
+    ```bash
+    cd ../backend && code .
+    ```
+
+    ```javascript
+    // Backend - get remote profile
+    const bearerToken =
+    req.headers['Authorization'] || req.headers['authorization'];
+    console.log(`bearerToken: ${bearerToken}`);
+    
+    const accessToken = bearerToken.split(' ')[1];
+    console.log(`accessToken: ${accessToken}`);
+    
+    function validAccessToken(accessToken) {
+        // access token validation removed for brevity
+        return true;
+    }
+    
+    // headers, bearerToken, and env returned for debugging only
+    if (accessToken && validAccessToken(accessToken)) {
+        return res.status(200).json({
+            route: '/profile success',
+            profile: {
+                displayName: 'John Doe',
+            },
+            headers: req.headers, //
+            bearerToken,
+            env: process.env,
+            error: null,
+        });
+    } else {
+        return res.status(200).json({
+            route: '/profile failure - empty or invalid accessToken',
+            profile: null,
+            headers: req.headers, //
+            bearerToken,
+            env: process.env,
+            error: 'empty or invalid accessToken',
+        });
+    }
+    ```
 
 ## Browse to the apps
 
@@ -350,6 +329,14 @@ Shows how you use the token to call the backend.
 ## When access tokens expire
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+
+## Frequently asked questions
+
+**How do I test this authentication on my local development machine?**
+
+The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
+
+
 
 ## Troubleshooting
 
