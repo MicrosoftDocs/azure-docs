@@ -107,4 +107,4 @@ To assign a role to a user or an app ID:
 
 ## Next steps
 
-- Review the [migration guidance for your scenario](https://datamigration.microsoft.com/).
+- Review the [migration guidance for your scenario](/data-migration/).
