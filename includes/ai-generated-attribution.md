@@ -7,4 +7,4 @@ ms.prod: azure
 ---
 
 > [!NOTE]
-> This article was at least partially generated using Azure OpenAI Service. Before publishing, an author reviewed and revised the content as needed. See Our principles for using AI-generated content in Microsoft Learn.
+> This article was partially generated using Azure OpenAI Service. Before publishing, an author reviewed and revised the content as needed. See Our principles for using AI-generated content in Microsoft Learn.
