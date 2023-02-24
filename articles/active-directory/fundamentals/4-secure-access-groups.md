@@ -167,7 +167,7 @@ Learn more:
   * Can invite guests to join the group
   * [Manage guest access in Microsoft 365 groups](/microsoft-365/admin/create-groups/manage-guest-access-in-groups)
 * **Guests**
-  * Are members from outside your organization. 
+  * Are members from outside your organization 
   * Have some limits to functionality in Teams
 
 ### Microsoft 365 Group settings
