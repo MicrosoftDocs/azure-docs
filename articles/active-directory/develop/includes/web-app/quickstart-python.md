@@ -25,8 +25,6 @@ This diagram shows how the sample app works:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 3.7+](https://www.python.org/downloads/)
-- Python packages: [Flask](https://flask.palletsprojects.com/), [Flask-Session2](https://pypi.org/project/flask-session2/), [requests](https://requests.readthedocs.io/en/latest/), [identity](https://pypi.org/project/identity/)
-
 
 ## Step 1: Register your application
 
@@ -80,7 +78,7 @@ keep them out of source control. The provided `.gitignore` file will prevent the
 
 1. Create a virtual environment for the app:
 
-    [!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](<../../../../app-service/includes/quickstart-python/virtual-environment-setup.md>)]
 
 1. Install the requirements using pip:
 
