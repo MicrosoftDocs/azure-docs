@@ -1221,11 +1221,11 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
   }
 ```
 
-The following request shows how to add the calculated value to the filter parameter of the request. At this moment only the filter=indexclaim eq format is supported.
+The following request shows how to add the calculated value to the filter parameter of the request. At this moment only the filter=indexclaimhash eq format is supported.
 
 ### HTTP request
 
-`GET /v1.0/verifiableCredentials/authorities/:authorityId/contracts/:contractId/credentials?filter=indexclaim eq {hashedsearchclaimvalue}`
+`GET /v1.0/verifiableCredentials/authorities/:authorityId/contracts/:contractId/credentials?filter=indexclaimhash eq {hashedsearchclaimvalue}`
 
 #### Request headers
 

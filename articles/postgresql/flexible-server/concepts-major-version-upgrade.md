@@ -61,7 +61,8 @@ During preview, if in-place major version upgrade pre-check operations fail then
 
 -	Servers configured with logical replication slots aren't supported. 
 
--	MVU is currently not supported for PgBouncer enabled servers.
+-	MVU is currently not supported for PgBouncer,AAD,CMK enabled servers. We are going to support this during GA.
+
 
 
 ## How to Perform in-place major version upgrade: 
@@ -138,10 +139,7 @@ ANALYZE VERBOSE
 
 ## Next steps
 
-- To learn how to create and populate Azure AD, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-- To learn how to manage Azure AD users for Flexible Server, see [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
+- Learn about [business continuity](./concepts-business-continuity.md).
+- Learn about [zone-redundant high availability](./concepts-high-availability.md).
+- Learn about [backup and recovery](./concepts-backup-restore.md).
 
-<!--Image references-->
-
-[1]: ./media/concepts-azure-ad-authentication/authentication-flow.png
-[2]: ./media/concepts-azure-ad-authentication/admin-structure.png

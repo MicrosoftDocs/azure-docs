@@ -228,7 +228,7 @@ There are two types of schema representation in the analytical store. These type
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
-* The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
+* The first document defines the base schema and properties must always have the same type across all documents. The only exceptions are:
   * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
   * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
@@ -271,6 +271,12 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Representation challenges workarounds
+
+It is possible that an old document, with an incorrect schema, was used to create your container's analytical store base schema. Based on all the rules presented above, you may be receiving `NULL` for certain properties when querying your analytical store using Azure Synapse Link. To delete or update the problematic documents won't help because base schema reset isn't currently supported. The possible solutions are:
+
+ * To migrate the data to a new container, making sure that all documents have the correct schema.
+ * To abandon the property with the wrong schema and add a new one, with another name, that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
 
 #### Full fidelity schema representation
 

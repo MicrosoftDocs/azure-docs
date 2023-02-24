@@ -70,6 +70,7 @@ All the linked service types are supported for parameterization.
 - Salesforce
 - Salesforce Service Cloud
 - SAP ODP
+- SAP Table
 - SFTP
 - SharePoint Online List
 - Snowflake

@@ -38,8 +38,6 @@ The following articles can help you get started exploring IoT Hub features in mo
 
   * [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
-
   * [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md).
 
   * [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
