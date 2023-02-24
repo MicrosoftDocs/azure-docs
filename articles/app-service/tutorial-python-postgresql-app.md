@@ -413,13 +413,9 @@ Azure App Service captures all messages output to the console to help you diagno
 
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
-For more robust logging, consider using Flask's [built-in logger](https://flask.palletsprojects.com/en/2.2.x/logging/).
-
 ### [Django](#tab/django)
 
 :::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
-
-For more robust logging, consider using Django's [built-in logger](https://docs.djangoproject.com/en/4.1/topics/logging/).
 
 -----
 
