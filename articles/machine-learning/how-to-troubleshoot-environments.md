@@ -27,9 +27,7 @@ Environments are managed and versioned assets within your Machine Learning works
 
 Environments fall under three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
-
-They contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is.
+Curated environments are pre-created environments managed by Azure Machine Learning (AzureML) and are available by default in every workspace. They contain collections of Python packages and settings to help you get started with various machine learning frameworks, and you're meant to use them as is.
 These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
@@ -38,7 +36,7 @@ These types of environments have two subtypes. For the first type, BYOC (bring y
 
 When you want conda to manage the Python environment for you, use a system-managed environment.
 AzureML creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. By default, AzureML adds common features to the derived image.
-Any Python packages present in the base image are not available in the isolated conda environment.
+Any Python packages present in the base image aren't available in the isolated conda environment.
 
 ### Create and manage environments
 
