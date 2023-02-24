@@ -62,9 +62,11 @@ Asia | South East Asia
 Australia | Australia East
 Canada | Canada Central
 Europe | North Europe </br> West Europe
+France | France Central
 Japan | Japan East
-United Kingdom | UK South
-United States | East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br>   
+Korea | Korea Central
+United Kingdom | UK South </br> UK West
+United States | East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
 ---
 

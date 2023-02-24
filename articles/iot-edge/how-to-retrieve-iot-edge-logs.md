@@ -133,7 +133,7 @@ In the Azure portal, invoke the method with the method name `GetModuleLogs` and 
     }
 ```
 
-![Invoke direct method 'GetModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png" alt-text="Screenshot of how to invoke direct method GetModuleLogs in the Azure portal.":::
 
 You can also pipe the CLI output to Linux utilities, like [gzip](https://en.wikipedia.org/wiki/Gzip), to process a compressed response. For example:
 
@@ -153,15 +153,10 @@ az iot hub invoke-module-method \
 
 Use the **UploadModuleLogs** direct method to send the requested logs to a specified Azure Blob Storage container.
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 > [!NOTE]
 > Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
 >
 > If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
-
-::: moniker-end
 
 This method accepts a JSON payload similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
 
@@ -277,19 +272,14 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
     }
 ```
 
-![Invoke direct method 'UploadModuleLogs' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-module-logs.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-upload-module-logs.png" alt-text="Screenshot of how to invoke direct method UploadModuleLogs in the Azure portal.":::
 
 ## Upload support bundle diagnostics
 
 Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 > [!NOTE]
 > If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
-
-::: moniker-end
 
 This method accepts a JSON payload with the following schema:
 
@@ -357,7 +347,7 @@ In the Azure portal, invoke the method with the method name `UploadSupportBundle
     }
 ```
 
-![Invoke direct method 'UploadSupportBundle' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-upload-support-bundle.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-upload-support-bundle.png" alt-text="Screenshot showing how to invoke direct method UploadSupportBundle in the Azure portal.":::
 
 ## Get upload request status
 
@@ -409,7 +399,7 @@ In the Azure portal, invoke the method with the method name `GetTaskStatus` and 
     }
 ```
 
-![Invoke direct method 'GetTaskStatus' in Azure portal](./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png)
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png" alt-text="Screenshot showing how to invoke direct method GetTaskStatus in Azure portal .":::
 
 ## Next steps
 

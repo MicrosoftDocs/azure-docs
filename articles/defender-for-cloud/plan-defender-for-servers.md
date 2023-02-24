@@ -36,7 +36,7 @@ Before you review the series of articles in the Defender for Servers planning gu
 
 The following diagram shows an overview of the Defender for Servers deployment process:
 
-:::image type="content" source="media/plan-defender-for-servers/deployment-overview.png" border="false" alt-text="Diagram that shows a summary overview of the deployment steps for Microsoft Defender for Servers.":::
+:::image type="content" source="media/plan-defender-for-servers/deployment-overview.png" border="false" alt-text="Diagram showing a summary overview of the deployment steps for Microsoft Defender for Servers.":::
 
 - Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.

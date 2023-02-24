@@ -2,15 +2,15 @@
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
 description: Set up a trust relationship between a user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/24/2022
-ms.author: ryanwi
+ms.date: 01/19/2023
+ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
@@ -137,7 +137,7 @@ For a workflow triggered by a pull request event, specify an **Entity type** of 
 
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
-- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/use-oidc-issuer.md) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which can't be changed later.
@@ -183,7 +183,7 @@ To delete a specific federated identity credential, select the **Delete** icon f
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure a federated identity credential on a user-assigned managed identity
 

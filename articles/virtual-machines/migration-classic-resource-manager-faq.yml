@@ -13,7 +13,7 @@ metadata:
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]
-  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
   
 
 sections:
@@ -42,7 +42,7 @@ sections:
       - question: |
           What is the definition of an existing customer on IaaS Virtual Machines (classic)?
         answer: |
-          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until September 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
 
       - question: |
           Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
@@ -52,14 +52,14 @@ sections:
       - question: |
           Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
         answer: |
-          Not until March 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On March 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated.
+          Not until September 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On September 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated.
           
           There will be no impact to other classic resources like Cloud Services (Classic), Storage Accounts (Classic), etc.
           
       - question: |
           What happens to my VMs if I don’t plan on migrating in the near future? 
         answer: |
-          On March 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recommend to start planning your migration today and complete it before March 1st, 2023. 
+          On September 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recommend to start planning your migration today and complete it before September 1st, 2023. 
           We are not deprecating the existing classic APIs, Cloud Services and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We recommend that you start planning to migrate these resources to Azure Resource Manager. 
           
       - question: |

@@ -3,14 +3,11 @@ title: Migrate VPN gateways from Classic to Resource Manager
 titleSuffix: Azure VPN Gateway
 description: Learn about migrating VPN Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: vpn-gateway
-author: amsriva
-manager: rossort
-
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/06/2020
-ms.author: amsriva
+ms.author: cherylmc
 
 ---
 # VPN Gateway classic to Resource Manager migration

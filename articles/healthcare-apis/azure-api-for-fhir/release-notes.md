@@ -2,18 +2,24 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: expekesheth
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: kesheth
+ms.author: kavitagaddam
 ---
 
 # Release notes: Azure API for FHIR
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## **November 2022**
+
+**Fixed the Error generated when resource is updated using if-match header and PATCH**
+
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
 
 ## May 2022
 

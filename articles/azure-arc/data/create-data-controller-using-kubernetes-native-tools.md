@@ -42,10 +42,10 @@ Save a copy of [bootstrapper-unified.yaml](https://raw.githubusercontent.com/mic
 
 > [!IMPORTANT]
 > The bootstrapper-unified.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR). If your environment can't directly access the Microsoft Container Registry, you can do the following:
-- Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
-- [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
-- Change the image URL for the bootstrapper image in the bootstrap.yaml file.
-- Replace `arc-private-registry` in the bootstrap.yaml file if a different name was used for the image pull secret.
+> - Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
+> - [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
+> - Change the image URL for the bootstrapper image in the bootstrap.yaml file.
+> - Replace `arc-private-registry` in the bootstrap.yaml file if a different name was used for the image pull secret.
 
 Run the following command to create the namespace and bootstrapper service with the edited file.
 

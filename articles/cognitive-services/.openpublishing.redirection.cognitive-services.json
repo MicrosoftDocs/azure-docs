@@ -2101,6 +2101,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/containers/container-image-tags.md",
+            "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-container-configuration.md",
             "redirect_url": "/azure/cognitive-services/form-recognizer/containers/form-recognizer-container-configuration",
             "redirect_document_id": false
@@ -4286,6 +4291,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-intent-recognition.yml",
+            "redirect_url": "/azure/cognitive-services/speech-service/intent-recognition",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/intent.md",
             "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
             "redirect_document_id": false
@@ -6033,6 +6043,16 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/managed-identity.md",
             "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/create-use-managed-identities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/disaster-recovery.md",
+            "redirect_url": "/azure/cognitive-services/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/how-to-create-translator-resource.md",
+            "redirect_url": "/azure/cognitive-services/Translator/create-translator-resource",
             "redirect_document_id": true
         }
     ]

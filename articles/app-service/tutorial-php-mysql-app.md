@@ -5,7 +5,7 @@ description: Learn how to get a PHP app working in Azure, with connection to a M
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 07/22/2022
+ms.date: 01/31/2023
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
 ---
 
@@ -187,10 +187,10 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to the app.
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

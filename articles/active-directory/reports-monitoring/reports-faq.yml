@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 10/04/2022
+  ms.date: 02/22/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
@@ -35,12 +35,7 @@ sections:
           Can I see last month's data after getting an Azure AD premium license?
         answer: |
           If you've recently switched to a Premium version (including a trial version), you can see data up to seven days initially. When data accumulates, you can see data for the past 30 days.
-
-      - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
-        answer: |
-          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
-          
+ 
       - question: |
           I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
         answer: |
@@ -52,17 +47,7 @@ sections:
           Do I need to be a Global Administrator to see the activity logs in the Azure portal or to get data through the API?
         answer: |
           No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator** for the tenant. You can also access the reporting data through the portal or through the API if you're a Global Administrator.
-
-      - question: |
-          What is the data retention for activity logs (Audit, Sign-ins, and Provisioning) in the Azure portal? 
-        answer: |
-          For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
-          
-      - question: |
-          How long does it take until I can see the activity data after I've completed my task?
-        answer: |
-          Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records. If you don’t see the logs even after two hours, [file a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we'll look into it.
-
+         
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
         answer: |
@@ -76,10 +61,10 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          You can download up to 250,000 records from the Azure portal. The records are sorted by *most recent* and by default. You can use [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
+          You can download up to 250,000 records from the Azure portal. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
 
       - question: |
-          How long does Azure AD store activity logs?
+          How long does Azure AD store activity logs? What is the data retention?
         answer: |
           Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
@@ -96,19 +81,9 @@ sections:
           Azure AD may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
 
       - question: |
-          I selected the **Load More** button in the Azure portal sign-in logs, but no more results appeared. Why is that happening?
-        answer: |
-          This is a known issue with a fix on the way from Azure AD engineering, where if during a 24-hour period in the results of your query has no sign-ins, no sign-ins will appear when you select **Load More**. If your tenant is impacted by this issue, select the **Load More** button multiple times. You can also work around this issue by increasing the scope of your query so that each 24-hour period in your response has sign-ins.
-
-      - question: |
           I see "PII Removed" in the Device Details of a user in my sign-in logs. Why is that happening?
         answer: |
           Azure AD redacts Personally Identifiable Information (PII) generated by devices that don't belong to your tenant to ensure customer data doesn't spread beyond tenant boundaries without user and data owner consent.
-
-      - question: |
-          I clicked the Load More button in the Azure portal Sign-in logs, but no more results appeared. Why is that happening?
-        answer: |
-          This is a known issue with a fix on the way from Azure AD engineering where if a 24h period in the results of your query has no sign-ins, no sign-ins will appear when you click Load More. If your tenant is impacted by this issue, you can load more results by clicking the Load More button multiple times. You can also work around this issue by increasing the scope of your query so that each 24h period in your response has sign-ins.
 
       - question: |
           I see duplicate sign-in entries / multiple sign-in events per requestID. Why is that happening?
@@ -173,3 +148,21 @@ sections:
           My sign-in was blocked due to a Conditional Access policy, but the sign-ins log shows that the sign-in succeeded. Why?
         answer: |
           Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a CA policy.
+
+  - name: Microsoft Graph APIs
+    questions:
+      - question: |
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+        answer: |
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+          
+      - question: |
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+        answer: |
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+
+      - question: |
+          I keep getting permissions errors when running queries. I thought I had the appropriate role.
+        answer: |
+          You may need to sign in to Microsoft Graph separately from the Azure portal. Select your profile icon on the upper-right corner and sign in to the right directory.
+          You may be trying to run a query that you don't have permissions for. Select **Modify Permissions** and select the **Consent** button. Follow the sign-in prompts.

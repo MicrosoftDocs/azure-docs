@@ -2,16 +2,16 @@
 title: Token cache serialization (MSAL.NET)
 description: Learn about serialization and custom serialization of the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2021
-ms.author: jmprieur
-ms.reviewer: mmacy
+ms.date: 01/26/2023
+ms.author: dmwendia
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about token cache serialization so I can have fine-grained control of the proxy.
 ---
@@ -24,7 +24,7 @@ After Microsoft Authentication Library (MSAL) [acquires a token](msal-acquire-ca
 
 The recommendation is:
 - When you're writing a desktop application, use the cross-platform token cache as explained in [Desktop apps](msal-net-token-cache-serialization.md?tabs=desktop).
-- Do nothing for [mobile and UWP apps](msal-net-token-cache-serialization.md?tabs=mobile). MSAL.NET provides secure storage for the cache.
+- Do nothing for [mobile and Universal Windows Platform (UWP) apps](msal-net-token-cache-serialization.md?tabs=mobile). MSAL.NET provides secure storage for the cache.
 - In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web APIs](scenario-web-api-call-api-overview.md), use [Microsoft.Identity.Web](microsoft-identity-web.md) as a higher-level API. You'll get token caches and much more. See [ASP.NET Core web apps and web APIs](msal-net-token-cache-serialization.md?tabs=aspnetcore).
 - In the other cases of [web apps](scenario-web-app-call-api-overview.md) and [web APIs](scenario-web-api-call-api-overview.md):
   -	If you request tokens for users in a production application, use a [distributed token cache](msal-net-token-cache-serialization.md?tabs=aspnet#distributed-caches) (Redis, SQL Server, Azure Cosmos DB, distributed memory). Use token cache serializers available from [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache/).
@@ -40,7 +40,7 @@ The recommendation is:
 
 The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library. 
 
-If you're using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see the [Non-ASP.NET Core web apps and web APIs](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
+If you're using the MSAL library directly in an ASP.NET Core app, consider moving to use [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web), which provides a simpler, higher-level API. Otherwise, see the [Non-ASP.NET Core web apps and web APIs](?tabs=aspnet#configuring-the-token-cache), which covers direct MSAL usage.
 
 
 | Extension method | Description  |
@@ -252,7 +252,7 @@ You can specify that you don't want to have any token cache serialization and in
 
 `WithCacheOptions(CacheOptions.EnableSharedCacheOptions)` makes the internal MSAL token cache shared between MSAL client application instances. Sharing a token cache is faster than using any token cache serialization, but the internal in-memory token cache doesn't have eviction policies. Existing tokens will be refreshed in place, but fetching tokens for different users, tenants, and resources makes the cache grow accordingly. 
 
-If you use this approach and have a large number of users or tenants, be sure to monitor the memory footprint. If the memory footprint becomes a problem, consider enabling token cache serialization, which might reduce the internal cache size. Also be aware that currently, you can't use shared cache and cache serialization together.
+If you use this approach and have a large number of users or tenants, be sure to monitor the memory footprint. If the memory footprint becomes a problem, consider enabling token cache serialization, which might reduce the internal cache size. Currently, you can't use shared cache and cache serialization together.
 
 #### In-memory token cache
 

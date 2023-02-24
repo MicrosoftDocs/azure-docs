@@ -43,6 +43,8 @@ Python v2 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
 
+Note that the Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
+
 Python v1 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
@@ -412,7 +414,7 @@ At this time, only specific triggers and bindings are supported by the Python v2
 | [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
 | [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
 | [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
 | [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
 For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
@@ -1265,7 +1267,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
 
 ### The Azure Functions Python library
 

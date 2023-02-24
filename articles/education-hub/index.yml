@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: About the Education Hub
             url: about-education-hub.md
+          - text: Allocate Credits to Educators
+            url: it-admin-allocate-credit.md
       - linkListType: quickstart
         links:
           - text: Use the Education Hub

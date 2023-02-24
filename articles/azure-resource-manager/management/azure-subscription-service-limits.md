@@ -105,6 +105,18 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
+## Azure Communications Gateway limits
+
+Some of the following default limits and quotas can be increased. To request a change, create a [change request](../../communications-gateway/request-changes.md) stating the limit you want to change.
+
+[!INCLUDE [communications-gateway-general-restrictions](../../communications-gateway/includes/communications-gateway-general-restrictions.md)]
+
+Azure Communications Gateway also has limits on the SIP signaling.
+
+[!INCLUDE [communications-gateway-sip-size-restrictions](../../communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
+
+[!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
+
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).

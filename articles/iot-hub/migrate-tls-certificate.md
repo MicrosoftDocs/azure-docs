@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 01/27/2023
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -18,6 +18,8 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 * Any device that doesn't have the DigiCert Global Root G2 in its certificate store won't be able to connect to Azure.
 * The IP address of the IoT hub will change.
+
+> [!VIDEO 8f4fe09a-3065-4941-9b4d-d9267e817aad]
 
 ## Timeline
 
@@ -34,9 +36,9 @@ This TLS certificate migration is critical for the security of our customers and
 
 To prepare for the migration, take the following steps before February 2023:
 
-1. Keep the Baltimore CyberTrust Root in your devices' trusted root store and add the DigiCert Global Root G2. You can download both certificates from the [DigiCert trusted root authority](https://www.digicert.com/kb/digicert-root-certificates.htm).
+1. Keep the Baltimore CyberTrust Root in your devices' trusted root store. Add the DigiCert Global Root G2 and the Microsoft RSA Root Certificate Authority 2017 certificates to your devices. You can download all of these certificates from the [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
-   It's important to have both certificates on your devices until the IoT Hub and DPS migrations are complete. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration.
+   It's important to have all three certificates on your devices until the IoT Hub and DPS migrations are complete. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration. The Microsoft RSA Root Certificate Authority 2017 helps prevent future disruptions in case the DigiCert Global Root G2 is retired unexpectedly.
 
 2. Make sure that you aren't pinning any intermediate or leaf certificates, and are using the public roots to perform TLS server validation.
 
@@ -171,7 +173,7 @@ If you're using the CLI commands to migrate to a new root certificate and receiv
 
 If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
 
-* [Connection and retry patterns with device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
+* [Connection and retry patterns with device SDKs](../iot-develop/how-to-use-reliability-features-in-sdks.md#connection-and-retry).
 * [Understand and resolve Azure IoT Hub error codes](troubleshoot-error-codes.md).
 
 If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect event, as demonstrated in the following screenshot:

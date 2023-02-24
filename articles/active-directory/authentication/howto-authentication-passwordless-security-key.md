@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -61,7 +61,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 ![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
 
 - **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
-- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](concept-authentication-passwordless.md#fido2-security-key-providers)
 
 **Key Restriction Policy**
 

@@ -2,7 +2,7 @@
 title: Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Apache Spark to wrangle data with Azure Machine Learning
-author: ynpandey
+author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
@@ -124,27 +124,11 @@ Data in the Azure storage account should become accessible once the user identit
 
 Azure Machine Learning offers Managed (Automatic) Spark compute, and [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md), for interactive data wrangling with Apache Spark, in Azure Machine Learning Notebooks. The Managed (Automatic) Spark compute does not require creation of resources in the Azure Synapse workspace. Instead, a fully managed automatic Spark compute becomes directly available in the Azure Machine Learning Notebooks. Using a Managed (Automatic) Spark compute is the easiest approach to access a Spark cluster in Azure Machine Learning.
 
-### Create and configure Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
+### Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
 
-We can create a Managed (Automatic) Spark compute from the Machine Learning Notebooks user interface. To create a notebook, a first-time user should select **Notebooks** from the left panel in Azure Machine Learning studio, and then select **Start with an empty notebook**. Azure Machine Learning studio offers additional options to upload existing notebooks, and to clone notebooks from a git repository.
+A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, select **AzureML Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu.
 
-:::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/start-with-an-empty-notebook.png" alt-text="Screenshot showing the Azure Notebooks tab.":::
-
-To create and configure a Managed (Automatic) Spark compute in an open notebook:
-
-1. Select the ellipses **(…)** next to the **Compute** selection menu.
-1. Select **+ Create Azure ML compute**. Sometimes, the ellipses may not appear. In this case, directly select the **+** icon next to the **Compute** selection menu.
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/create-azure-ml-compute-resource-in-a-notebook.png" alt-text="Screenshot highlighting the Create Azure ML compute option of a specific Azure Notebook tab.":::
-
-1. Select **Azure Machine Learning Spark**.
-1. Select **Create**.
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/add-azure-machine-learning-spark-compute-type.png" alt-text="Screenshot highlighting the Azure Machine Learning Spark option at the Add new compute type screen.":::
-
-1. Under **Azure Machine Learning Spark**, select **AzureML Spark Compute** from the **Compute** selection menu
-
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Add new compute type screen.":::
+:::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Compute selection menu.":::
 
 The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
 

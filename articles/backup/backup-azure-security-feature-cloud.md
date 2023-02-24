@@ -4,9 +4,9 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.topic: conceptual
 ms.date: 12/30/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Soft delete for Azure Backup
 
