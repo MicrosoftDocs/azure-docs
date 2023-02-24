@@ -9,7 +9,7 @@ ms.subservice: pstn
 ms.date: 02/20/2023
 ms.topic: include
 ms.custom: include file
-ms.author: bobazile
+ms.author: nikuklic
 ---
 
 ## Sample code
@@ -76,8 +76,8 @@ Azure Communication Services direct routing allows communication only with regis
 ``` csharp
 
 // Register your SBCs by providing their fully qualified domain names and port numbers.
-var usSbcFqdn = "sbc.us.mytestdomain.com";
-var euSbcFqdn = "sbc.eu.mytestdomain.com";
+var usSbcFqdn = "sbc.us.contoso.com";
+var euSbcFqdn = "sbc.eu.contoso.com";
 var sbcPort = 5061;
 
 var usTrunk = new SipTrunk(usSbcFqdn, sbcPort);
