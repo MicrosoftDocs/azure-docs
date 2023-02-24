@@ -31,7 +31,7 @@ Additionally, we are excited to offer Azure DSVM for PyTorch (preview), which is
 
 ## Comparison with Azure Machine Learning
 
-The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) (AzureML) is an end-to-end platform that encompasses:
+The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) is an end-to-end platform that encompasses:
 
 + Fully Managed Compute
   + Compute Instances

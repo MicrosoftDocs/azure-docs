@@ -22,7 +22,7 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
 > 
 
-In this tutorial, you'll use Azure Machine Learning (AzureML) to create a production ready machine learning (ML) project, using Azure Machine Learning Python SDK v2.
+In this tutorial, you'll use Azure Machine Learning to create a production ready machine learning (ML) project, using Azure Machine Learning Python SDK v2.
 
 You'll learn how to use the Azure Machine Learning Python SDK v2 to:
 
