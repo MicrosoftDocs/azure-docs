@@ -42,7 +42,7 @@ A model in MLflow is also an artifact. However, we make stronger assumptions abo
 In Azure Machine Learning, logging models has the following advantages:
 > [!div class="checklist"]
 > * You can deploy them on real-time or batch endpoints without providing an scoring script nor an environment.
-> * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure ML studio.
+> * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure Machine Learning studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the [Responsible AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
 
@@ -134,7 +134,7 @@ signature:
 ```
 
 > [!TIP]
-> Azure Machine Learning generates Swagger for model's deployment in MLflow format with a signature available. This makes easier to test deployed endpoints using the Azure ML studio.
+> Azure Machine Learning generates Swagger for model's deployment in MLflow format with a signature available. This makes easier to test deployed endpoints using the Azure Machine Learning studio.
 
 ### Model's environment
 
@@ -164,7 +164,7 @@ name: mlflow-env
 ```
 
 > [!NOTE]
-> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the latter operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure ML CLI v2](concept-v2.md) and deploy MLflow models using a specific Azure Machine Learning environments.
+> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the latter operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure Machine Learning CLI v2](concept-v2.md) and deploy MLflow models using a specific Azure Machine Learning environments.
 
 ### Model's predict function
 
