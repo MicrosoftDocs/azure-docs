@@ -12,13 +12,23 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 02/24/2023
 ms.author: phjensen
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
+
+## Feb-2023
+
+### AzAcSnap 7a (Build: 1AA8343)
+
+AzAcSnap 7a is being released with a following fixes:
+
+- Fixes for `-c restore` commands:
+  - Enable mounting volumes on HLI (BareMetal) where the volumes have been reverted to a prior state when using `-c restore --restore revertvolume`.
+  - Correctly set ThroughputMiBps on volume clones for Azure NetApp Files volumes which are part of an Auto QoS Capacity Pool when using `-c restore --restore snaptovol`.
 
 ## Dec-2022
 
