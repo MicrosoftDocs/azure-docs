@@ -38,10 +38,10 @@ The quickest way to create resources is using the extension's toolbar.
 Alternatively, you can create a resource by using the command palette:
 
 1. Open the command palette **View > Command Palette**
-1. Enter `> AzureML: Create <RESOURCE-TYPE>` into the text box. Replace `RESOURCE-TYPE` with the type of resource you want to create.
+1. Enter `> Azure ML: Create <RESOURCE-TYPE>` into the text box. Replace `RESOURCE-TYPE` with the type of resource you want to create.
 1. Configure the specification file.
 1. Open the command palette **View > Command Palette**
-1. Enter `> AzureML: Create Resource` into the text box.
+1. Enter `> Azure ML: Create Resource` into the text box.
 
 ## Version resources
 
@@ -65,7 +65,7 @@ For more information, see [workspaces](concept-workspace.md).
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Workspace` command in the command palette.
+Alternatively, use the `> Azure ML: Create Workspace` command in the command palette.
 
 ### Remove workspace
 
@@ -75,7 +75,7 @@ Alternatively, use the `> AzureML: Create Workspace` command in the command pale
     - *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
     - *With associated resources*: This option deletes the workspace **and** all resources associated with it.
 
-Alternatively, use the `> AzureML: Remove Workspace` command in the command palette.
+Alternatively, use the `> Azure ML: Remove Workspace` command in the command palette.
 
 ## Datastores
 
@@ -97,7 +97,7 @@ For more information, see [datastore](concept-data.md#datastore).
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Datastore` command in the command palette.
+Alternatively, use the `> Azure ML: Create Datastore` command in the command palette.
 
 ### Manage a datastore
 
@@ -108,7 +108,7 @@ Alternatively, use the `> AzureML: Create Datastore` command in the command pale
     - *Unregister Datastore*. Removes datastore from your workspace.
     - *View Datastore*. Display read-only datastore settings
 
-Alternatively, use the `> AzureML: Unregister Datastore` and `> AzureML: View Datastore` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: Unregister Datastore` and `> Azure ML: View Datastore` commands respectively in the command palette.
 
 ## Datasets
 
@@ -127,7 +127,7 @@ For more information, see [datasets](./v1/concept-data.md)
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Dataset` command in the command palette.
+Alternatively, use the `> Azure ML: Create Dataset` command in the command palette.
 
 ### Manage a dataset
 
@@ -139,7 +139,7 @@ Alternatively, use the `> AzureML: Create Dataset` command in the command palett
     - **Preview dataset**. View your dataset directly in the VS Code Data Viewer. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
-Alternatively, use the `> AzureML: View Dataset Properties` and `> AzureML: Unregister Dataset` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: View Dataset Properties` and `> Azure ML: Unregister Dataset` commands respectively in the command palette.
 
 ## Environments
 
@@ -153,7 +153,7 @@ For more information, see [environments](concept-environments.md).
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Environment` command in the command palette.
+Alternatively, use the `> Azure ML: Create Environment` command in the command palette.
 
 ### View environment configurations
 
@@ -164,7 +164,7 @@ To view the dependencies and configurations for a specific environment in the ex
 1. Expand the **Environments** node.
 1. Right-click the environment you want to view and select **View Environment**.
 
-Alternatively, use the `> AzureML: View Environment` command in the command palette.
+Alternatively, use the `> Azure ML: View Environment` command in the command palette.
 
 ## Experiments
 
@@ -183,7 +183,7 @@ Using the resource nodes in the Azure Machine Learning view:
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Job` command in the command palette.
+Alternatively, use the `> Azure ML: Create Job` command in the command palette.
 
 ### View job
 
@@ -194,7 +194,7 @@ To view your job in Azure Machine Learning studio:
 1. Right-click the experiment you want to view and select **View Experiment in Studio**.
 1. A prompt appears asking you to open the experiment URL in Azure Machine Learning studio. Select **Open**.
 
-Alternatively, use the `> AzureML: View Experiment in Studio` command respectively in the command palette.
+Alternatively, use the `> Azure ML: View Experiment in Studio` command respectively in the command palette.
 
 ### Track job progress
 
@@ -217,7 +217,7 @@ Once a job is complete, you may want to download the logs and assets such as the
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
 
-Alternatively, use the `> AzureML: Download Outputs` and `> AzureML: Download Logs` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: Download Outputs` and `> Azure ML: Download Logs` commands respectively in the command palette.
 
 ## Compute instances
 
@@ -232,7 +232,7 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Compute` command in the command palette.
+Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
 ### Connect to compute instance
 
@@ -245,7 +245,7 @@ To use a compute instance as a development environment or remote Jupyter server,
 1. Expand the **Compute instances** node inside your **Compute** node.
 1. Right-click the compute instance you want to stop or restart and select **Stop Compute instance** or **Restart Compute instance** respectively.
 
-Alternatively, use the `> AzureML: Stop Compute instance` and `Restart Compute instance` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: Stop Compute instance` and `Restart Compute instance` commands respectively in the command palette.
 
 ### View compute instance configuration
 
@@ -278,7 +278,7 @@ For more information, see [training compute targets](concept-compute-target.md#t
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Compute` command in the command palette.
+Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
 
 ### View compute configuration
 
@@ -287,7 +287,7 @@ Alternatively, use the `> AzureML: Create Compute` command in the command palett
 1. Expand the **Compute clusters** node inside your **Compute** node.
 1. Right-click the compute you want to view and select **View Compute Properties**.
 
-Alternatively, use the `> AzureML: View Compute Properties` command in the command palette.
+Alternatively, use the `> Azure ML: View Compute Properties` command in the command palette.
 
 ### Delete compute cluster
 
@@ -296,7 +296,7 @@ Alternatively, use the `> AzureML: View Compute Properties` command in the comma
 1. Expand the **Compute clusters** node inside your **Compute** node.
 1. Right-click the compute you want to delete and select **Remove Compute**.
 
-Alternatively, use the `> AzureML: Remove Compute` command in the command palette.
+Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
 
 ## Inference Clusters
 
@@ -311,7 +311,7 @@ For more information, see [compute targets for inference](concept-compute-target
     - **View Compute Properties**. Displays read-only configuration data about your attached compute.
     - **Detach compute**. Detaches the compute from your workspace.
 
-Alternatively, use the `> AzureML: View Compute Properties` and `> AzureML: Detach Compute` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: Detach Compute` commands respectively in the command palette.
 
 ### Delete inference clusters
 
@@ -320,7 +320,7 @@ Alternatively, use the `> AzureML: View Compute Properties` and `> AzureML: Deta
 1. Expand the **Attached computes** node inside your **Compute** node.
 1. Right-click the compute you want to delete and select **Remove Compute**.
 
-Alternatively, use the `> AzureML: Remove Compute` command in the command palette.
+Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
 
 ## Attached Compute
 
@@ -335,7 +335,7 @@ For more information, see [unmanaged compute](concept-compute-target.md#unmanage
     - **View Compute Properties**. Displays read-only configuration data about your attached compute.
     - **Detach compute**. Detaches the compute from your workspace.
 
-Alternatively, use the `> AzureML: View Compute Properties` and `> AzureML: Detach Compute` commands respectively in the command palette.
+Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: Detach Compute` commands respectively in the command palette.
 
 ## Models
 
@@ -349,7 +349,7 @@ For more information, see [models](v1/concept-azure-machine-learning-architectur
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Model` command in the command palette.
+Alternatively, use the `> Azure ML: Create Model` command in the command palette.
 
 ### View model properties
 
@@ -357,7 +357,7 @@ Alternatively, use the `> AzureML: Create Model` command in the command palette.
 1. Expand the **Models** node inside your workspace.
 1. Right-click the model whose properties you want to see and select **View Model Properties**. A file opens in the editor containing your model properties.
 
-Alternatively, use the `> AzureML: View Model Properties` command in the command palette.
+Alternatively, use the `> Azure ML: View Model Properties` command in the command palette.
 
 ### Download model
 
@@ -365,7 +365,7 @@ Alternatively, use the `> AzureML: View Model Properties` command in the command
 1. Expand the **Models** node inside your workspace.
 1. Right-click the model you want to download and select **Download Model File**.
 
-Alternatively, use the `> AzureML: Download Model File` command in the command palette.
+Alternatively, use the `> Azure ML: Download Model File` command in the command palette.
 
 ### Delete a model
 
@@ -374,7 +374,7 @@ Alternatively, use the `> AzureML: Download Model File` command in the command p
 1. Right-click the model you want to delete and select **Remove Model**.
 1. A prompt appears confirming you want to remove the model. Select **Ok**.
 
-Alternatively, use the `> AzureML: Remove Model` command in the command palette.
+Alternatively, use the `> Azure ML: Remove Model` command in the command palette.
 
 ## Endpoints
 
@@ -389,7 +389,7 @@ For more information, see [endpoints](v1/concept-azure-machine-learning-architec
 1. A specification file appears. Configure the specification file.
 1. Right-click the specification file and select **AzureML: Execute YAML**.
 
-Alternatively, use the `> AzureML: Create Endpoint` command in the command palette.
+Alternatively, use the `> Azure ML: Create Endpoint` command in the command palette.
 
 ### Delete endpoint
 
@@ -398,7 +398,7 @@ Alternatively, use the `> AzureML: Create Endpoint` command in the command palet
 1. Right-click the deployment you want to remove and select **Remove Service**.
 1. A prompt appears confirming you want to remove the service. Select **Ok**.
 
-Alternatively, use the `> AzureML: Remove Service` command in the command palette.
+Alternatively, use the `> Azure ML: Remove Service` command in the command palette.
 
 ### View service properties
 
@@ -409,7 +409,7 @@ In addition to creating and deleting deployments, you can view and edit settings
 1. Right-click the deployment you want to manage:
     - To view deployment configuration settings, select **View Service Properties**.
 
-Alternatively, use the `> AzureML: View Service Properties` command in the command palette.
+Alternatively, use the `> Azure ML: View Service Properties` command in the command palette.
 
 ## Next steps
 

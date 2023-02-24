@@ -67,7 +67,7 @@ If you don't have a workspace, create one. For more information, see [manage Azu
 
 To choose your default workspace, select the **Set Azure Machine Learning Workspace** button on the Visual Studio Code status bar and follow the prompts to set your workspace.
 
-Alternatively, use the `> AzureML: Set Default Workspace` command in the command palette and follow the prompts to set your workspace.
+Alternatively, use the `> Azure ML: Set Default Workspace` command in the command palette and follow the prompts to set your workspace.
 
 ## Next Steps
 
