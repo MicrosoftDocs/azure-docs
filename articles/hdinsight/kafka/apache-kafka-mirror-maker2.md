@@ -76,11 +76,11 @@ This architecture features two clusters in different resource groups and virtual
 
         :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows HDInsight Kafka add virtual network peering." border="true":::
 
-## Configure IP Address of `PRIMARYCLUSTER` Worker Nodes into client machine for DNS Resolution 
+## Configure IP Address of PRIMARYCLUSTER Worker Nodes into client machine for DNS Resolution 
 
-1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of `PRIMARYCLUSTER` in `/etc/hosts` file of `SECONDARYCLUSTER`. 
+1. Use head node of `SECONDARYCLUSTER` to run mirror maker script. Then we need IP address of worker nodes of PRIMARYCLUSTER in `/etc/hosts` file of `SECONDARYCLUSTER`. 
 
-1. Connect to `PRIMARYCLUSTER` 
+1. Connect to PRIMARYCLUSTER
 
    `ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net` 
 
@@ -95,13 +95,13 @@ This architecture features two clusters in different resource groups and virtual
 1. Save and close the file. 
 
 
-### Create Multiple Topics in `PRIMARYCLUSTER` 
+### Create Multiple Topics in PRIMARYCLUSTER
 1. Use this command to create topics and replace variables. 
 
    ```
    bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --create --topic $TOPICNAME --partitions $NUM_PARTITIONS --replication-factor $REPLICATION_FACTOR 
    ```
-### Configure Mirror Maker2 in `SECONDARYCLUSTER`
+### Configure Mirror Maker2 in SECONDARYCLUSTER
 
 1. Now change the configuration in MirrorMaker2 properties file. 
 
@@ -111,13 +111,13 @@ This architecture features two clusters in different resource groups and virtual
    sudo su 
    vi /etc/kafka/conf/connect-mirror-maker.properties 
    ```
-1. Property file looks like this. Here source is your `PRIMARYCLUSTER and destination is your SECONDARYCLUSTER`. 
+1. Property file looks like this. Here source is your PRIMARYCLUSTER and destination is your SECONDARYCLUST`. 
 1. Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
 1. You can control the topics that you want to replicate along with configs with regex. 
 
 `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
 
-1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script replicates topics with the name as `PRIMARYCLUSTER.TOPICNAME` and same configs in secondary cluster.  
+1. You can create topics in secondary cluster manually with same name by yourself. Otherwise, you need to Enable Auto Topic Creation functionality and then mirror maker script replicates topics with the name as PRIMARYCLUSTER.TOPICNAME and same configs in secondary cluster.  
 
 1. Save the file and we're good with configs.
 
