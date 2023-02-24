@@ -36,7 +36,7 @@
     items:
       - name: Identity and access overview
         href: identity-access-overview.md
-      - name: Access cluster from anywhere
+      - name: Cluster connect access
         displayName: connect
         href: conceptual-cluster-connect.md
       - name: Azure RBAC integration
