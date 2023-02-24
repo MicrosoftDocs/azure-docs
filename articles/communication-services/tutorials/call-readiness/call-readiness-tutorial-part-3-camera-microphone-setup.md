@@ -223,7 +223,7 @@ const useCallClientStateChange = (): CallClientState => {
 #### Creating dropdowns to choose devices
 
 To allow the user to choose their camera, microphone and speaker, we use the `Dropdown` component from Fluent UI React.
-We create new components that uses the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
+We create new components that use the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
 the chosen device when the user selects a different device from the dropdown.
 To house these new components, we create a file called `DeviceSelectionComponents.tsx` that export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
 
