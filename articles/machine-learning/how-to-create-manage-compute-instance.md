@@ -379,7 +379,7 @@ from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, 
 from azure.identity import DefaultAzureCredential
 from dateutil import tz
 import datetime
-# Enter details of your AML workspace
+# Enter details of your AzureML workspace
 subscription_id = "<guid>"
 resource_group = "sample-rg"
 workspace = "sample-ws"

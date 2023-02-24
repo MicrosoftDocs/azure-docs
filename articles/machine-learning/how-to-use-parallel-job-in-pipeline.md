@@ -53,7 +53,7 @@ Parallel job requires only one **major input data** to be split and processed wi
 
 The following table illustrates the relation between input data and partition setting:
 
-| Data format | AML input type | AML input mode | Partition method |
+| Data format | AzureML input type | AzureML input mode | Partition method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
 | File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) |
 | Tabular data | `mltable` | direct | By size (estimated physical size) |
