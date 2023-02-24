@@ -211,7 +211,7 @@ export RESOURCE_GROUP="Azure resource group that contains your workspace"
 export WORKSPACE="Azure Machine Learning workspace name"
 ```
 
-A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
+A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps query the workspace and store this information in environment variables used in the examples:
 
 1. Get an access token:
 
@@ -300,7 +300,7 @@ For the authentication mode, we've used `key` for key-based authentication. To u
 
 ### Configure an endpoint
 
-When deploying to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
+When you deploy to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
@@ -314,7 +314,7 @@ For Unix, run this command:
 
 ### Configure the endpoint
 
-To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
+To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json). To use the templates for defining an online endpoint and deployment, see the [Deploy to Azure](#deploy-to-azure) section.
 
 ---
 
@@ -394,13 +394,13 @@ blue_deployment = ManagedOnlineDeployment(
 
 ### Configure a deployment
 
-When deploying to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
+When you deploy to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
 ### Configure the deployment
 
-To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
+To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json). To use the templates for defining an online endpoint and deployment, see the [Deploy to Azure](#deploy-to-azure) section.
 
 ---
 
@@ -812,7 +812,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" lightbox="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
     
-    This opens up a window where you can specify details about your endpoint.
+    This action opens up a window where you can specify details about your endpoint.
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" lightbox="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
@@ -825,7 +825,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
 1. Select __Next__, until you get to the "Deployment" page. Here, check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
-1. Select __Next__ to go to the "Environment" page. Here, select the following:
+1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
     * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
@@ -841,7 +841,7 @@ Alternatively, you can create a managed online endpoint from the **Endpoints** p
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
-This opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-10, accepting defaults until you're prompted to __Create__  the deployment.
+This action opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-10, accepting defaults until you're prompted to __Create__  the deployment.
 
 # [ARM template](#tab/arm)
 
