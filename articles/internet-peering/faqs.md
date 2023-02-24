@@ -4,9 +4,10 @@ description: Internet peering frequently asked questions (FAQ)
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
-ms.topic: faq
+ms.topic: conceptual
 ms.date: 02/24/2023
 ms.author: halkazwini
+ms.custom: engagement-fy23, template-concept
 ---
 
 # Internet peering frequently asked questions (FAQ)
