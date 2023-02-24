@@ -39,8 +39,8 @@
     href: service-dependencies.md
   - name: Filter for applications
     href: concept-filter-for-applications.md
-  - name: Token binding
-    href: concept-token-binding.md
+  - name: Token protection
+    href: concept-token-protection.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
