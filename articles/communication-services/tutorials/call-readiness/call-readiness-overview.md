@@ -26,7 +26,7 @@ It may be impossible to predict every issue or combination of issues that may ar
 - Only expose an issue if it's going to negatively impact the experience
 - Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
-Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). Users can user the Network Testing Diagnostics Tool for further troubleshooting in customer support scenarios.
+Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). Users can use the Network Testing Diagnostics Tool for further troubleshooting in customer support scenarios.
 
 ## Tutorial Structure
 

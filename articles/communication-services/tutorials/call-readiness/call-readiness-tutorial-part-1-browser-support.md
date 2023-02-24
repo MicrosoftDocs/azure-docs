@@ -281,7 +281,7 @@ export const EnvironmentChecksComponent = (props: {
 
 We can then add the `EnvironmentChecksComponent` to the `App.tsx`. The App then move the user to the _Device Checks_ stage once the test is successful using the `onTestsSuccessful` callback:
 
-Now we will import the new component into our app in `App.tsx`
+Now we import the new component into our app in `App.tsx`
 
 ```ts
 import { EnvironmentChecksComponent } from './EnvironmentChecksComponent';

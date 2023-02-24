@@ -58,7 +58,7 @@ We can then add this DeviceSetup to our App.
 
 - When the PreCallChecksComponent completes, it forwards the user to the `deviceSetup` state.
 - When the user is in the `deviceSetup` state, we render the `DeviceSetup` component.
-- When the device setup is complete, we forward the user to the `finished` state. In a production App, this forward is typically when you would move the user to a call screen.
+- When the device setup is complete, the user is forwarded to the `finished` state. In a production App, this forward is typically when you would move the user to a call screen.
 
 First import the DeviceSetup component we created:
 
