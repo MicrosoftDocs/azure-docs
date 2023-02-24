@@ -148,8 +148,7 @@ The result of the previous query should be similar to those in the following scr
 
 :::image type="content" source="media/concept-token-protection/log-analytics-results.png" alt-text="Screenshot showing example results of a Log Analytics query looking for token protection policies" lightbox="media/concept-token-protection/log-analytics-results.png":::
 
-The following 
-Another query example looking in the non-interactive sign-in log for the last seven days, highlighting **Blocked** versus **Allowed** requests by **User**. 
+The following query example looks at the non-interactive sign-in log for the last seven days, highlighting **Blocked** versus **Allowed** requests by **User**. 
  
 ```kusto
 //Per users query 
