@@ -34,37 +34,37 @@ To query all collections in your dataset, create a new **HTTP GET Request**:
 
 Enter the following URL to [WFS API]. The request should look like the following URL:
 
-    ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
-    ```
+```http
+https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
+```
 
 The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API]. To learn more about any collection, you can select any of the URLs inside the `links` element.
 
-    ```json
+```json
+{
+"collections": [
     {
-    "collections": [
-        {
-            "name": "unit",
-            "description": "A physical and non-overlapping area which might be occupied and traversed by a navigating agent. Can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction (wall), unless the is_open_area attribute is equal to true, and one must add openings where the obstruction shouldn't be there. If is_open_area attribute is equal to true, all the sides are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a line_element or area_element with is_obstruction equal to true.",
-            "links": [
-                {
-                    "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/definition?api-version=1.0",
-                    "rel": "describedBy",
-                    "title": "Metadata catalogue for unit"
-                },
-                {
-                    "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?api-version=1.0",
-                    "rel": "data",
-                    "title": "unit"
-                }
-                {
-                    "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit?api-version=1.0",
-                    "rel": "self",
-                    "title": "Metadata catalogue for unit"
-                }
-            ]
-        },
-    ```
+        "name": "unit",
+        "description": "A physical and non-overlapping area which might be occupied and traversed by a navigating agent. Can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction (wall), unless the is_open_area attribute is equal to true, and one must add openings where the obstruction shouldn't be there. If is_open_area attribute is equal to true, all the sides are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a line_element or area_element with is_obstruction equal to true.",
+        "links": [
+            {
+                "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/definition?api-version=1.0",
+                "rel": "describedBy",
+                "title": "Metadata catalogue for unit"
+            },
+            {
+                "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?api-version=1.0",
+                "rel": "data",
+                "title": "unit"
+            }
+            {
+                "href": "https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit?api-version=1.0",
+                "rel": "self",
+                "title": "Metadata catalogue for unit"
+            }
+        ]
+    },
+```
 
 ## Query for unit feature collection
 
@@ -72,41 +72,41 @@ In this section, you'll query [WFS API] for the `unit` feature collection.
 
 To query the unit collection in your dataset, create a new **HTTP GET Request**:
 
-    ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
-    ```
+```http
+https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
+```
 
 After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". You'll use "UNIT26" as your feature `id` when you [Update a feature state].
 
-    ```json
-    {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": ["..."]
-                },
-                "properties": {
-                    "original_id": "b7410920-8cb0-490b-ab23-b489fd35aed0",
-                    "category_id": "CTG8",
-                    "is_open_area": true,
-                    "navigable_by": [
-                        "pedestrian"
-                    ],
-                    "route_through_behavior": "allowed",
-                    "level_id": "LVL14",
-                    "occupants": [],
-                    "address_id": "DIR1",
-                    "name": "157"
-                },
-                "id": "UNIT26",
-                "featureType": ""
-            }, {"..."}
-        ]
-    }
-    ```
+```json
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": ["..."]
+            },
+            "properties": {
+                "original_id": "b7410920-8cb0-490b-ab23-b489fd35aed0",
+                "category_id": "CTG8",
+                "is_open_area": true,
+                "navigable_by": [
+                    "pedestrian"
+                ],
+                "route_through_behavior": "allowed",
+                "level_id": "LVL14",
+                "occupants": [],
+                "address_id": "DIR1",
+                "name": "157"
+            },
+            "id": "UNIT26",
+            "featureType": ""
+        }, {"..."}
+    ]
+}
+```
 
 ## Next steps
 
