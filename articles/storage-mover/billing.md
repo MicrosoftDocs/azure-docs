@@ -5,18 +5,14 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 02/24/2023
 ---
 
 <!-- 
 !########################################################
-STATUS: IN REVIEW
 
-CONTENT: final
-
-REVIEW Stephen/Fabian: not reviewed
-REVIEW Engineering: not reviewed
-EDIT PASS: started
+STATUS: GA-ready
+REVIEW: n/a
 
 !########################################################
 -->
@@ -27,7 +23,7 @@ Azure Storage Mover facilitates the migration of unstructured data into Azure. T
 
 ## Billing components
 
-In a migration to Azure, there are several components involved that can affect on your bill:
+In a migration to Azure, there are several components involved that can affect your bill:
 
 1. Storage Mover service usage
 1. Target storage usage
@@ -35,7 +31,7 @@ In a migration to Azure, there are several components involved that can affect o
 
 ### 1. Storage Mover service usage
 
-All current features of the Azure Storage Mover service are provided free of charge during the public preview. However, service enhancements and other features may be included in future releases. It's possible that the use of these features may incur a charge.
+All current features of the Azure Storage Mover service are provided free of charge.
 
 ### 2. Target Azure storage usage
 
