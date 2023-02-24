@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40
 
 In this tutorial, you'll build a native Windows Desktop .NET (XAML) app that signs in users and gets an access token to call the Microsoft Graph API.
 
-When you've completed the guide, your application is able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). The application will also use work and school accounts from any company or organization that uses Azure Active Directory (Azure AD).
+When you've completed the guide, your application will able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). The application will also use work and school accounts from any company or organization that uses Azure Active Directory (Azure AD).
 
 In this tutorial:
 
