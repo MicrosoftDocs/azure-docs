@@ -85,6 +85,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
 
 ### Request
 
+The following example excludes a sample target group and includes all users. For more information, see [Update authenticationMethodsPolicy](/graph/api/authenticationmethodspolicy-update?view=graph-rest-beta).
+
 ```http
 PATCH https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
 Content-Type: application/json
