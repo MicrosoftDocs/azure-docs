@@ -21,10 +21,6 @@ After the scale set has been created, the back-end port can't be modified for a 
 
 When you use the virtual machine scale set in the back-end pool of the load balancer, the default inbound NAT rules are created automatically.
   
-## Inbound NAT pool
-
-Each virtual machine scale set must have at least one inbound NAT pool. An inbound NAT pool is a collection of inbound NAT rules. One inbound NAT pool can't support multiple virtual machine scale sets.
-
 ## Load-balancing rules
 
 When you use the virtual machine scale set in the back-end pool of the load balancer, the default load-balancing rule is created automatically.
