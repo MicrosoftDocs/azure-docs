@@ -13,13 +13,13 @@ keywords: ChatGPT
 
 # Learn how to work with the ChatGPT model (preview)
 
-The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
+The ChatGPT model (gpt-3.5-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
 The ChatGPT model uses the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
 ## Working with the ChatGPT model
 
-The following code snippet shows the most basic way to use the ChatGPT model. <!--TODO:We also have a UI driven experience that you can learn about in the [ChatGPT Quickstart](../chatgpt-quickstart.md).-->
+The following code snippet shows the most basic way to use the ChatGPT model. We also have a UI driven experience that you can learn about in the [ChatGPT Quickstart](../chatgpt-quickstart.md).
 
 > [!NOTE]  
 > OpenAI continues to improve the ChatGPT model and release new versions. During the preview of this model, we'll continue updating to the latest version of the model in place. This means that you may see small changes in the behavior of the model during the preview.
@@ -251,5 +251,5 @@ assert tokens == [100264, 882, 198, 9906, 100265, 100264, 78191]
 
 ## Next steps
 
-[Learn more about Azure OpenAI](../overview.md).
-<!--Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).-->
+* [Learn more about Azure OpenAI](../overview.md).
+* Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).

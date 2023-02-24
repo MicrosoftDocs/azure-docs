@@ -19,7 +19,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 
 | Model family | Description |
 |--|--|
-| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35) |
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo) |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -92,9 +92,9 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 **Use for**: Parsing text, simple classification, address correction, keywords
 
-### ChatGPT (GPT 3.5)
+### ChatGPT (gpt-3.5-turbo)
 
-The ChatGPT model (gpt-3.5) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
+The ChatGPT model (gpt-3.5-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
 The ChatGPT model uses the same completion API that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses. To learn more check out our [in-depth how-to](../how-to/chatgpt.md).
 
@@ -174,7 +174,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A |
 | text-davinci-003 | Yes | No | East US | N/A |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe |
-| gpt-3.5 (ChatGPT) | Yes | No | N/A | East US, South Central US |
+| gpt-3.5-turbo (ChatGPT) | Yes | No | N/A | East US, South Central US |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 
