@@ -73,7 +73,7 @@ Consider the following limitations when working on batch endpoints deployed rega
 
 - If you change the networking configuration of the workspace from public to private, or from private to public, such doesn't affect existing batch endpoints networking configuration. Batch endpoints rely on the configuration of the workspace at the time of creation. You can recreate your endpoints if you want them to reflect changes you made in the workspace.
 
-- When working on a private link-enabled workspace, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-job).
+- When working on a private link-enabled workspace, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Use the Azure Machine Learning CLI v2 instead for job creation. For more details about how to use it see [Run batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#run-endpoint-and-configure-inputs-and-outputs).
 
 ## Recommended read
 
