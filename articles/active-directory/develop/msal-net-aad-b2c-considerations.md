@@ -137,7 +137,7 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-This `AcquireTokenByUsernamePassword` method takes the following parameters:
+The `AcquireTokenByUsernamePassword` method takes the following parameters:
 
 - The _scopes_ for which to obtain an access token.
 - A _username_.
