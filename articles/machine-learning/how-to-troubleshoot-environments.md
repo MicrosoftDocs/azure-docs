@@ -47,7 +47,7 @@ They aren't listed but you can retrieve them by version or label.
 
 AzureML builds environment definitions into Docker images.
 It also caches the images in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
-Additional environments with the same definition may result in the same cached image.
+Multiple environments with the same definition may result in the same cached image.
 Running a training script remotely requires the creation of a Docker image.
 
 ### Reproducibility and vulnerabilities
