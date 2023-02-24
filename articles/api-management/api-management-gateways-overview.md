@@ -102,8 +102,8 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
-| [GraphQL APIs](api-management-policies.md#next-steps) |  ❌ | ❌ | ✔️ |
-| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
+| [GraphQL resolvers and GraphQL validation](api-management-policies.md#graphql-resolver-policies) |  ✔️ | ✔️ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>

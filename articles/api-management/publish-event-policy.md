@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 02/14/2023
+ms.date: 02/23/2023
 ms.author: danlep
 ---
 
 # Publish event to GraphQL subscription
 
-The `publish-event` policy publishes an event to one or more subscriptions specified in a GraphQL API schema. The event is added using a GraphQL resolver for a related field in the schema for another operation type such as a mutation. At runtime, the event is published to connected GraphQL clients. Learn more about [GraphQL APIs in API Management](graphql-apis-overview.md).
+The `publish-event` policy publishes an event to one or more subscriptions specified in a GraphQL API schema. The event is added using an [http-data-source](http-data-source-policy.md) GraphQL resolver for a related field in the schema for another operation type such as a mutation. At runtime, the event is published to connected GraphQL clients. Learn more about [GraphQL APIs in API Management](graphql-apis-overview.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -21,11 +21,19 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 ## Policy statement
 
 ```xml
-<publish-event>
-	<targets>
-		<graphql-subscription id="subscription field" />
-	</targets>
-</publish-event> 
+<http-data-source
+    <http-request>
+    ...
+    </http-request>
+    <http-response>
+        ...
+        <publish-event>
+    	    <targets>
+    		    <graphql-subscription id="subscription field" />
+    	    </targets>
+        </publish-event> 
+    </http-response>
+</http-data-source>
 ```
 
 ## Elements
@@ -38,7 +46,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) `http-response` element in `http-data-source` resolver
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) resolver only
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver only
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
 
 ### Usage notes
@@ -88,6 +96,6 @@ type Subscription {
 
 ## Related policies
 
-* [API Management policies for GraphQL APIs](api-management-policies.md#graphql-api-policies)
+* [API Management policies for GraphQL APIs](api-management-policies.md#graphql-resolver-policies)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

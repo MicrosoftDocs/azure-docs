@@ -12,17 +12,14 @@ ms.author: danlep
 
 # Overview of GraphQL APIs in Azure API Management
 
-You can use API Management to manage GraphQL APIs - APIs based on the GraphQL query language. GraphQL provides a complete and understandable description of the data in an API, giving clients the power to efficiently retrieve exactly the data they need. [Learn more about GraphQL](https://GraphQL.org)
+You can use API Management to manage GraphQL APIs - APIs based on the GraphQL query language. GraphQL provides a complete and understandable description of the data in an API, giving clients the power to efficiently retrieve exactly the data they need. [Learn more about GraphQL]( https://graphql.org/learn/)
 
 API Management helps you import, manage, protect, test, publish, and monitor GraphQL APIs. You can choose one of two API models:
 
 
 |Pass-through GraphQL   |Synthetic GraphQL  |
 |---------|---------|
-| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
-
-
-> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=modernize-your-api-stack-with-graphql-and-azure-api-management]
+| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers, for example, to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
 
 ## Availability
 
@@ -80,7 +77,7 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
 In API Management, you can create a *custom resolver* to map a field in an object type to a backend data source. You configure resolvers for fields in synthetic GraphQL API schemas, but you can also configure them to override the default field resolvers used by pass-through GraphQL APIs.
 
-API Management currently supports HTTP-based resolvers to return the data for fields in a GraphQL schema. A resolver is a policy definition inside an `http-data-source` element that transforms the API request (and optionally the response) into an HTTP request/response.
+API Management currently supports HTTP-based resolvers to return the data for fields in a GraphQL schema. To use an HTTP-based resolver, configure a [`http-data-source`](http-data-source-policy.md) policy that transforms the API request (and optionally the response) into an HTTP request/response.
 
 For example, a resolver for the preceding `users` query might map to a `GET` operation in a backend REST API:
 
@@ -92,8 +89,6 @@ For example, a resolver for the preceding `users` query might map to a `GET` ope
 	</http-request>
 </http-data-source>
 ```
-
-<!-- Add link to article showing how to configure resolvers -->
 
 ## Manage GraphQL APIs
 

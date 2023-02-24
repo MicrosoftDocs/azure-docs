@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy reference - set-graphql-resolver | Microsoft Docs
-description: Reference for the set-graphql-resolver policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+description: Reference for the set-graphql-resolver policy in Azure API Management. Provides policy usage, settings, and examples. This policy is retired.
 services: api-management
 author: dlepow
 
@@ -10,12 +10,12 @@ ms.date: 02/09/2023
 ms.author: danlep
 ---
 
-# Set GraphQL resolver (deprecated)
+# Set GraphQL resolver (retired)
 
 > [!IMPORTANT]
-> * The `set-graphql-resolver` policy is deprecated. Preview customers who used the `set-graphql-resolver` policy must migrate to the [managed resolvers](graphql-apis-overview.md#resolvers) for GraphQL APIs, which provide similar functionality. 
-> * After you configure a managed resolver for a GraphQL field, the gateway skips the `set-graphql-resolver` policy in any policy configurations. 
-<!-- Link to resolvers article -->
+> * The `set-graphql-resolver` policy is retired. Customers using the `set-graphql-resolver` policy must migrate to the [managed resolvers](graphql-apis-overview.md#resolvers) for GraphQL APIs, which provide enhanced functionality. 
+> * After you configure a managed resolver for a GraphQL field, the gateway skips the `set-graphql-resolver` policy in any policy definitions. You can't combine use of managed resolvers and the `set-graphql-resolver`policy in your API Management instance. 
+
 
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
