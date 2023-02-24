@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # System-preferred multifactor authentication  - Authentication methods policy
 
-System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method available. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
+System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
 
 For example, if a user has registered both SMS and Microsoft Authenticator push notifications as methods for MFA, system-preferred MFA prompts the user to sign in by using the more secure push notification method. The user can still choose to sign in by using another method, but they are first prompted to try the most secure method that's available to them. 
 
@@ -61,6 +61,10 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
 ### Request
 
 ```http
+PATCH https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
+Content-Type: application/json
+
+{
     "systemCredentialPreferences": {
         "state": "enabled",
         "excludeTargets": [
@@ -75,7 +79,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
                 "targetType": "group"
             }
         ]
-    },
+    }
+}
 ```
 
 ### Response 
@@ -83,7 +88,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
 
 ## Known issues
 
-- FIDO2 security key isn't supported on iOS mobile devices when system-preferred MFA is enabled. Until a fix is available, we recommend using FIDO2 security keys only only on desktop computers.  
+- FIDO2 security key isn't supported on iOS mobile devices. This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
 
 ## Common questions
 
