@@ -35,7 +35,6 @@ ms.custom: mode-api
 > * [Node.js](https://nodejs.org/en/download/)
 > * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 > 
-> 
 > ### Download and configure the sample app
 > 
 > #### Step 1: Configure the application in Azure portal
