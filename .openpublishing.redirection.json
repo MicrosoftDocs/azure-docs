@@ -13400,6 +13400,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/search-performance-optimization.md",
+            "redirect_url": "/azure/search/search-reliability",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
