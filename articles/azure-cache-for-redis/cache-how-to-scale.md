@@ -78,7 +78,9 @@ You can scale out/in with the following restrictions:
 - Scale in is only supported on the **Premium** tier.
 - On the **Premium** tier, clustering must be enbaled first before scaling in or out.
 
-## Scale a cache
+## How to scale a cache up or down
+
+### Scale using the Azure portal
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
@@ -88,11 +90,6 @@ You can scale out/in with the following restrictions:
     
     :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
 
-> [!NOTE]
-> Scaling is currently not available with Enterprise Tier.
->
-
-
 
 While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
@@ -100,19 +97,10 @@ While the cache is scaling to the new tier, a **Scaling Redis Cache** notificati
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
-## How to automate a scaling operation
-
-You can scale your cache instances in the Azure portal. And, you can scale using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML).
-
-When you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
-
 > [!NOTE]
-> When you scale a cache up or down programmatically, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+> When you scale a cache up or down using the portal, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
+>
 
-
-- [Scale using PowerShell](#scale-using-powershell)
-- [Scale using Azure CLI](#scale-using-azure-cli)
-- [Scale using MAML](#scale-using-maml)
 
 ### Scale using PowerShell
 
@@ -132,31 +120,10 @@ To scale your Azure Cache for Redis instances using Azure CLI, call the `azure r
 
 For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
 
-### Scale using MAML
+> [!NOTE]
+> When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+>
 
-To scale your Azure Cache for Redis instances using the [Microsoft Azure Management Libraries (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
-
-```csharp
-    static void Main(string[] args)
-    {
-        // For instructions on getting the access token, see
-        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
-        string token = GetAuthorizationHeader();
-
-        TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
-
-        RedisManagementClient client = new RedisManagementClient(creds);
-        var redisProperties = new RedisProperties();
-
-        // To scale, set a new size for the redisSKUCapacity parameter.
-        redisProperties.Sku = new Sku(redisSKUName,redisSKUFamily,redisSKUCapacity);
-        redisProperties.RedisVersion = redisVersion;
-        var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
-        client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
-    }
-```
-
-For more information, see the [Manage Azure Cache for Redis using MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample.
 
 ## Scaling FAQ
 
