@@ -195,7 +195,7 @@ There are two approaches to generating a key and using the key for the Key Less 
     --assignee TLSOffloadServicePrincipal@contoso.com  \
     --scope /keys
     ```
-3. Generate key with required label following the steps in [How to generate keys using the TLS Offload Library](#how-to-generate-keys-using-the-tls-offload-library).
+3. Generate key with required label following the steps in [How to generate keys using the TLS Offload Library](#generate-keys).
 4. Configure the TLS server to use the Managed HSM TLS Offload Library as the PKCS#11 interface library
 5. Configure the TLS server (for example, the nginx SSL configuration setting `ssl_certificate_key') with the key label and the TLS Offload service principal credentials
 
