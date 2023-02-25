@@ -26,8 +26,7 @@ This quickstart explains how to deploy a Spring Boot event driven application to
 ## Prerequisites
 
 - [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/). Version >= 17.
-- [Maven](https://maven.apache.org/).
+- [Java Development Kit (JDK)](/java/azure/jdk/). Version = 17.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Version >= 2.45.0.
 
