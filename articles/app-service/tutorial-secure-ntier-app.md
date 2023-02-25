@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secure N-tier web app'
 description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/24/2023
+ms.date: 2/25/2023
 ms.author: jordanselig
 ---
 
@@ -16,7 +16,7 @@ In this tutorial, you learn how to deploy a secure N-tier application, with a fr
 - [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md)
 - [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md).
 
-## Scenario Architecture
+## Scenario architecture
 
 The following diagram shows the architecture you'll create during this tutorial.
 
@@ -191,7 +191,7 @@ Since your backend web app isn't publicly accessible, you must let your continuo
 
 ## 5. Lock down FTP and SCM access
 
-Now that the back-end SCM site is publicly accessible, you need to secure lock it down with better security.
+Now that the back-end SCM site is publicly accessible, you need to lock it down with better security.
 
 1. Disable FTP access for both the front-end and back-end web apps. Replace `<frontend-app-name>` and `<backend-app-name>` with your app names.
 
@@ -242,7 +242,7 @@ Now that the back-end SCM site is publicly accessible, you need to secure lock i
 1. In the left pane, select **Deployment Center**. Then select **Settings**. 
 1. In the **Source** box, select "GitHub" from the CI/CD options.
 
-    :::image type="content" source="media/app-service-continuous-deployment/choose-source.png" alt-text="Screenshot that shows how to choose the deployment source":::
+    :::image type="content" source="media/app-service-continuous-deployment/choose-source.png" alt-text="Screenshot that shows how to choose the deployment source.":::
 
 1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
