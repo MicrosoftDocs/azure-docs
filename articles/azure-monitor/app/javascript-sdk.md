@@ -16,7 +16,7 @@ ms.reviewer: mmcc
 
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
-- An application that uses [JavaScript](https://learn.microsoft.com/visualstudio/javascript)
+- An application that uses [JavaScript](/visualstudio/javascript.yml)
 ## What is collected automatically?
 
 When you enable the App Insights JavaScript SDK, the following data classes are collected automatically:
@@ -160,7 +160,7 @@ These configuration fields are optional and default to false unless otherwise st
 | sessionExpirationMs | numeric | 86400000 | A session is logged if it has continued for this amount of time in milliseconds. Default is 24 hours |
 | maxBatchSizeInBytes | numberic | 10000 | Max size of telemetry batch. If a batch exceeds this limit, it is immediately sent and a new batch is started |
 | maxBatchInterval | numeric | 15000 | How long to batch telemetry for before sending (milliseconds) |
-| disableExceptionTracking | boolean || false | If true, exceptions are not autocollected. Default is false. |
+| disableExceptionTracking | boolean | false | If true, exceptions are not autocollected. Default is false. |
 | disableTelemetry | boolean | false | If true, telemetry is not collected or sent. Default is false. |
 | enableDebug | boolean | false | If true, **internal** debugging data is thrown as an exception **instead** of being logged, regardless of SDK logging settings. Default is false. <br>***Note:*** Enabling this setting will result in dropped telemetry whenever an internal error occurs. This can be useful for quickly identifying issues with your configuration or usage of the SDK. If you do not want to lose telemetry while debugging, consider using `loggingLevelConsole` or `loggingLevelTelemetry` instead of `enableDebug`. |
 | loggingLevelConsole | numeric | 0 | Logs **internal** Application Insights errors to console. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) |
@@ -202,7 +202,7 @@ These configuration fields are optional and default to false unless otherwise st
 | enableRequestHeaderTracking | boolean | false | If true, AJAX & Fetch request headers is tracked, default is false. If ignoreHeaders is not configured, Authorization and X-API-Key headers are not logged.
 | enableResponseHeaderTracking | boolean | false | If true, AJAX & Fetch request's response headers is tracked, default is false. If ignoreHeaders is not configured, WWW-Authenticate header is not logged.
 | ignoreHeaders | string[] | ["Authorization", "X-API-Key", "WWW-Authenticate"] | AJAX & Fetch request and response headers to be ignored in log data. To override or discard the default, add an array with all headers to be excluded or an empty array to the configuration.
-| enableAjaxErrorStatusText | boolean | false | Default false. If true, include response error data text | boolean in dependency event on failed AJAX requests.
+| enableAjaxErrorStatusText | boolean | false | Default false. If true, include response error data text boolean in dependency event on failed AJAX requests. |
 | enableAjaxPerfTracking | boolean | false | Default false. Flag to enable looking up and including additional browser window.performance timings in the reported ajax (XHR and fetch) reported metrics.
 | maxAjaxPerfLookupAttempts | numeric | 3 | Defaults to 3. The maximum number of times to look for the window.performance timings (if available), this is required as not all browsers populate the window.performance before reporting the end of the XHR request and for fetch requests this is added after its complete.
 | ajaxPerfLookupDelay | numeric | 25 | Defaults to 25ms. The amount of time to wait before re-attempting to find the windows.performance timings for an ajax request, time is in milliseconds and is passed directly to setTimeout().
