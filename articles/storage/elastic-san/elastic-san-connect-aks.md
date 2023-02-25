@@ -15,7 +15,7 @@ For AKS clusters connecting to Elastic SAN, use the [Kubernetes iSCSI CSI driver
 
 ## About the driver
 
-The iSCSI CSI driver is an open source project that allows you to connect to a Kubernetes cluster over iSCSI. Since this is an open source project, Microsoft won't provide support from any issues stemming from the driver, itself.
+The iSCSI CSI driver is an open source project that allows you to connect to a Kubernetes cluster over iSCSI. Since the driver is an open source project, Microsoft won't provide support from any issues stemming from the driver, itself.
 
 The Kubernetes iSCSI CSI driver is available on GitHub:
 
@@ -31,7 +31,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ### Driver installation
 
-First, install the Kubernetes iSCSI CSI driver on your cluster. You'll have to perform a local install since a few code changes are required for the driver to connect to Elastic SAN volumes.
+First, install the Kubernetes iSCSI CSI driver on your cluster. You have to perform a local install since a few code changes are required for the driver to connect to Elastic SAN volumes.
 
 First, clone the driver repo:
 
@@ -100,7 +100,7 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 ### Cluster configuration
 
-Once you've retrieved your volume's information, you'll need to create a few yml files for your new resources on your AKS cluster.
+Once you've retrieved your volume's information, you need to create a few yml files for your new resources on your AKS cluster.
 
 First, create a storageclass.yml file. This file defines your persistent volume's storageclass.
 
@@ -112,7 +112,7 @@ metadata:
 provisioner: manual
 ```
 
-Then, create a pv.yml file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a pv.yml file. If you need more than 1 gibibytes of storage and have it available, replace `1Gi` with the amount of storage you require.
+Then, create a pv.yml file. This file defines your [persistent volume](../../aks/concepts-storage.md#persistent-volumes). In the following example, replace `yourTargetPortal`, `yourTargetPortalPort`, and `yourIQN` with the values you collected earlier, then use the example to create a pv.yml file. If you need more than 1 gibibyte of storage and have it available, replace `1Gi` with the amount of storage you require.
 
 ```yml
 ---
@@ -141,7 +141,7 @@ spec:
       sessionCHAPAuth: "false"
 ```
 
-Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). Use the storage class we defined earlier, with the persistent volume we defined, to referenced to the pod onto the AKS cluster by the same persistent volume name. The following is an example of what your pvc.yml file might look like:
+Next, create a [persistent volume claim](../../aks/concepts-storage.md#persistent-volume-claims). Use the storage class we defined earlier with the persistent volume we defined. The following is an example of what your pvc.yml file might look like:
 
 ```yml
 apiVersion: v1
