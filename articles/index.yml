@@ -1574,7 +1574,7 @@ productDirectory:
     # Card
     - title: Azure Network Function Manager
       summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
-      imageSrc: ./media/index/azure-network-function-manager..svg
+      imageSrc: ./media/index/azure-network-function-manager.svg
       azureCategories:
        - networking
        - 5g-space
