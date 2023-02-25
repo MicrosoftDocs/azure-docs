@@ -191,7 +191,7 @@ You can use the following options to change folder organization and file format.
 
 |**Option**  |**Description**  |**Pattern or example usage**  |
 |---------|---------|:---------:|
-|`useSubManifest`|If `true`, causes the target entity to be included in the root manifest via a submanifest. The submanifest and the entity definition are written into an entity folder beneath the root. Default is `false`.|`"true"|"false"` |
+|`useSubManifest`|If `true`, causes the target entity to be included in the root manifest via a submanifest. The submanifest and the entity definition are written into an entity folder beneath the root. Default is `false`.|`"true"`\|`"false"` |
 |`format`|Defines the file format. Current supported file formats are CSV and Parquet. Default is `csv`.|`"csv"`\|`"parquet"` <br/> |
 |`delimiter`|CSV only. Defines the delimiter that you're using. Default is comma. | `"|"` |
 |`columnHeaders`| CSV only. If `true`, adds a first row to data files with column headers. Default is `true`.|`"true"`\|`"false"`|
