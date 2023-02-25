@@ -41,7 +41,7 @@ You can monitor the following metrics to help determine if you need to scale.
 - **Redis Server Load**
   - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because Redis server is a single threaded process, it is typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS. 
   - Scaling up can still be helpful in reducing server load because background tasks will take advantage of the additional vCPUs and free up the thread for the main Redis server process.
-  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is that the Redis server process can take advantage of multiple vCPUs. Because of that, scaling up and scaling out in these tiers can be helpful in reducing server load. See the [Enterprise tier best practices](cache-best-practices-enterprise.md) page for more detail.
+  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is that the Redis server process can take advantage of multiple vCPUs. Because of that, both scaling up and scaling out in these tiers can be helpful in reducing server load. See the [Enterprise tier best practices](cache-best-practices-enterprise.md) page for more detail.
   - For more information, see [Set up clustering](cache-how-to-premium-clustering.md#set-up-clustering).
 - **Memory Usage**
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. Either _scaling up_ or _scaling out_ is effective here.
@@ -77,10 +77,13 @@ You can scale out/in with the following restrictions:
 - Scale out is only supported on the **Premium**, **Enterprise**, and **Enterprise Flash** tiers.
 - Scale in is only supported on the **Premium** tier.
 - On the **Premium** tier, clustering must be enbaled first before scaling in or out.
+- Only the **Enterprise** and **Enterprise Flash** tiers can scale up and scale out simultaneously.
 
 ## How to scale a cache up or down
 
-### Scale using the Azure portal
+### [Scale up and down with the Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+
+#### Scale using the Azure portal
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
@@ -102,7 +105,7 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 >
 
 
-### Scale using PowerShell
+#### Scale using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -114,7 +117,7 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
 
 For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
-### Scale using Azure CLI
+#### Scale using Azure CLI
 
 To scale your Azure Cache for Redis instances using Azure CLI, call the `azure rediscache set` command and pass in the configuration changes you want that include a new size, sku, or cluster size, depending on the scaling operation you wish.
 
@@ -124,6 +127,43 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 >
 
+### [Scale up and down with the Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
+
+#### Scale using the Azure portal
+
+1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
+
+    :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
+
+1. Choose a pricing tier from the drop-down and then choose **Save**.
+    
+    :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
+
+
+While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
+
+:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
+
+When scaling is complete, the status changes from **Scaling** to **Running**.
+
+
+#### Scale using PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+You can scale your Azure Cache for Redis instances with PowerShell by using the [Update-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/update-azredisenterprisecache) cmdlet when the `Sku` property is modified. The following example shows how to scale a cache named `myCache` to an Enterprise E20 (25GB) instance.
+
+```powershell
+   Update-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name myCache -Sku Enterprise_E20
+```
+
+#### Scale using Azure CLI
+
+To scale your Azure Cache for Redis instances using Azure CLI, call the [az redisenterprise update](/cli/azure/redisenterprise.md#az-redisenterprise-update) command and pass in a new SKU value. The following example shows how to scale a cache named `myCache` to an Enterprise E20 (25GB) instance. 
+
+```azurecli
+az redisenterprise update --cluster-name "myCache" --resource-group "myGroup" --sku "Enterprise_E20"
+```
 
 ## Scaling FAQ
 
