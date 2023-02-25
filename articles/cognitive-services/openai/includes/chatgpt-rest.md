@@ -13,7 +13,7 @@ ms.date: 03/01/2023
 keywords: 
 ---
 
-[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) |
+[REST API Spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json?azure-portal=true) |
 
 ## Prerequisites
 
