@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/08/2023
+  ms.date: 02/24/2023
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -263,6 +263,9 @@ sections:
 
       - question: Does Application Gateway support IPv6?
         answer: Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack VNets. 
+
+      - question: Does Application Gateway support FIPS?
+        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode".  FIPS mode will call a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.  To ensure FIPS mode is enabled, the FIPSMode setting must be configured via PowerShell, ARM Template, or REST API once the subscription has been enrolled to enable configuration of FIPSmode.
 
       - question: How do I use Application Gateway V2 with only private frontend IP address?
         answer: |
