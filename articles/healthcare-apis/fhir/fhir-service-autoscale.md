@@ -14,7 +14,7 @@ ms.author: kesheth
 
 FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. 
 
-Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling gives great elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the process is automated.
+Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling provides elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the process is automated.
 
 The autoscale feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported.
 
@@ -38,9 +38,9 @@ Auto scaling policies defined for FHIR service consists of two parts
     
     Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met.
     There are three factors that determine when the service will be scaled:
-    1. Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
+    1. Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in. 
     1. Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
-    1. Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set ot 1 minute.
+    1. Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
 
 ## FAQ
 ### What is the cost of the FHIR service autoscale?  
