@@ -58,6 +58,26 @@ For more information on determining the cache pricing tier to use, see [Choosing
 > For tips on how to optimize the scaling process, see the [best practices for scaling guide](cache-best-practices-scale.md)
 >
 
+## Prerequisites/Limitations of Scaling Azure Cache for Redis
+
+You can scale up/down to a different pricing tier with the following restrictions:
+
+- You can't scale from a higher pricing tier to a lower pricing tier.
+  - You can't scale from an **Enterprise** or **Enterprise Flash** cache down to any other tier.
+  - You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+  - You can't scale from a **Standard** cache down to a **Basic** cache.
+- You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can later do a scaling operation to the wanted size.
+- You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in the next scaling operation.
+- You can't scale from a larger size down to the **C0 (250 MB)** size. However, you can scale down to any other size within the same pricing tier. For example, you can scale down from C5 Standard to C1 Standard.
+- You can't scale from a **Premium**, **Standard**, or **Basic** cache up to an **Enterprise** or **Enterprise Flash** cache.
+- You can't scale between **Enterprise** and **Enterprise Flash**.
+
+You can scale out/in with the following restrictions:
+
+- Scale out is only supported on the **Premium**, **Enterprise**, and **Enterprise Flash** tiers.
+- Scale in is only supported on the **Premium** tier.
+- On the **Premium** tier, clustering must be enbaled first before scaling in or out.
+
 ## Scale a cache
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
@@ -72,14 +92,7 @@ For more information on determining the cache pricing tier to use, see [Choosing
 > Scaling is currently not available with Enterprise Tier.
 >
 
-You can scale to a different pricing tier with the following restrictions:
 
-- You can't scale from a higher pricing tier to a lower pricing tier.
-  - You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
-  - You can't scale from a **Standard** cache down to a **Basic** cache.
-- You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can later do a scaling operation to the wanted size.
-- You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in the next scaling operation.
-- You can't scale from a larger size down to the **C0 (250 MB)** size. However, you can scale down to any other size within the same pricing tier. For example, you can scale down from C5 Standard to C1 Standard.
 
 While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
