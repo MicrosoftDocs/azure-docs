@@ -19,7 +19,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 
 | Model family | Description |
 |--|--|
-| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo) |
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
