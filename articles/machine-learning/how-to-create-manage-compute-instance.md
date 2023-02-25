@@ -178,7 +178,7 @@ To avoid getting charged for a compute instance that is switched on but inactive
 A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter Kernel sessions (which translates to no Notebooks usage via Jupyter, JupyterLab or Interactive notebooks)
 * No active Jupyter terminal sessions
-* No active AzureML runs or experiments
+* No active Azure Machine Learning runs or experiments
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
 
@@ -379,7 +379,7 @@ from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, 
 from azure.identity import DefaultAzureCredential
 from dateutil import tz
 import datetime
-# Enter details of your AML workspace
+# Enter details of your Azure Machine Learning workspace
 subscription_id = "<guid>"
 resource_group = "sample-rg"
 workspace = "sample-ws"
@@ -523,7 +523,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure ML Studio:
+You can create compute instance with managed identity from Azure Machine Learning Studio:
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.	Select **Next: Advanced Settings**.
@@ -540,7 +540,7 @@ az ml compute create --name myinstance --identity-type SystemAssigned --type Com
 You can also use V2 CLI with yaml file, for example to create a compute instance with user-assigned managed identity:
 
 ```azurecli
-azure ml compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
+Azure Machine Learning compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
 ```
 
 The identity definition is contained in compute.yaml file:

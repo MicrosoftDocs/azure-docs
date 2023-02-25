@@ -119,7 +119,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](../how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](../how-to-assign-roles.md)
     * [How to assign roles in the CLI](../../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -255,10 +255,7 @@ ws = Workspace(subscription_id="your-sub-id",
 ## Use Conditional Access
 
 As an administrator, you can enforce [Azure AD Conditional Access policies](../../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to Machine Learning Cloud app.
-
-> [!IMPORTANT]
-> Azure Machine Learning studio cannot be added in cloud apps in Azure AD Conditional Access, as the studio UI is a client application.
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps
 
