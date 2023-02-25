@@ -1963,6 +1963,7 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
+    href: ../azure-resource-manager/management/tag-resources.md
   - name: Monitor metadata
     items:
     - name: CLI
