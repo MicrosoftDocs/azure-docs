@@ -1,8 +1,8 @@
 ---
 title: Capture changed data with a change data capture resource
 description: This tutorial provides step-by-step instructions on how to capture changed data from ADLS Gen2 to Azure SQL DB using a Change data capture resource.
-author: n0elleli,KrishnakumarRukmangathan
-ms.author: noelleli,krirukm
+author: n0elleli
+ms.author: noelleli
 ms.reviewer: 
 ms.service: data-factory
 ms.subservice:
