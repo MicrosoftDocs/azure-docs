@@ -5,8 +5,9 @@
  author: mimckitt
  ms.service: virtual-machines
  ms.topic: how-to
- ms.date: 03/06/2020
+ ms.date: 02/24/2023
  ms.author: mimckitt
+ ms.reviewer: mattmcinnes
 ---
 
 # Custom data and cloud-init on Azure Virtual Machines
