@@ -115,26 +115,14 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
-  - name: Cloud Foundry
-    href: ../cloudfoundry/index.yml
   - name: OpenShift
     items:
     - name: OpenShift overview
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
-    - name: OpenShift Container Platform 3.11 prerequisites
-      href: ./linux/openshift-container-platform-3x-prerequisites.md
-    - name: OpenShift Container Platform 3.11
-      href: ./linux/openshift-container-platform-3x.md
-    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: ./linux/openshift-container-platform-3x-post-deployment.md
-    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
