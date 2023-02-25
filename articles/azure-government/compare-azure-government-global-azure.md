@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/13/2023
+ms.date: 02/23/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -211,12 +211,6 @@ The following Azure Database for PostgreSQL **features aren't currently availabl
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
-
-### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-
-The following Azure SQL Managed Instance **features aren't currently available** in Azure Government:
-
-- Long-term backup retention
 
 ## Developer tools
 

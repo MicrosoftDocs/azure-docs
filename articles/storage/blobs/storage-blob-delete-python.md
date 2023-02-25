@@ -81,7 +81,7 @@ The following code example gets the latest version of a deleted blob, and restor
 
 3. The following code deletes a directory, and then restores a soft-deleted directory.
 
-   The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
+   The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Authorize access and connect to data resources](data-lake-storage-directory-file-acl-python.md#authorize-access-and-connect-to-data-resources).
 
     ```python
     def restoreDirectory():
