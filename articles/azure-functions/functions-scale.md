@@ -70,7 +70,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | --- | --- | --- |
 | **[Consumption plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of incoming trigger events. | **Windows:** 200<br/>**Linux:** 100<sup>1</sup>  | 
 | **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
-| **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-20| 
+| **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30| 
 | **[ASE][Dedicated plan]**<sup>3</sup> | Manual/autoscale |100 | 
 | **[Kubernetes]**  | Event-driven autoscale for Kubernetes clusters using [KEDA](https://keda.sh). | Varies&nbsp;by&nbsp;cluster&nbsp;&nbsp;| 
 
