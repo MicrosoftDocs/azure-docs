@@ -290,12 +290,8 @@
             items:
             - name: Authorizations overview
               href: authorizations-overview.md
-            - name: Configure common authorization providers
-              href: authorizations-configure-common-providers.md
-            - name: Configure and use authorization - Azure AD
-              href: authorizations-how-to-azure-ad.md
-            - name: Configure and use authorization - GitHub
-              href: authorizations-how-to-github.md
+            - name: Configure and use authorization
+              href: authorizations-how-to.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
@@ -522,6 +518,8 @@
               href: xml-to-json-policy.md
             - name: xsl-transform
               href: xsl-transform-policy.md
+      - name: Authorizations - identity providers
+        href: authorizations-reference.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
