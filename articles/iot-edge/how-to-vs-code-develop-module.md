@@ -72,9 +72,9 @@ To build and deploy your module image, you need Docker to build the module image
 
 ::: zone pivot="iotedge-dev-cli"
 
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already, install [Python (3.6/3.7)](https://www.python.org/downloads/) and Pip3 and then install the IoT Edge Dev Tool (iotedgedev) with the following command in your terminal. 
+- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) with the following command in your terminal to set up your local development environment to debug, run, and test your IoT Edge solution. [Python (3.6/3.7)](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required.
 
-    ```cmd
+    ```bash
     pip3 install iotedgedev
     ```
     
@@ -114,7 +114,7 @@ Install prerequisites specific to the language you're developing in:
 - Install [Python Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to debug, run, and test your IoT Edge solution. You can alternatively install the Azure IoT Edge Dev Tool using the CLI:
    
-   ```cmd
+   ```bash
    pip3 install iotedgedev
    ```
 
@@ -137,13 +137,13 @@ The following steps show you how to create an IoT Edge module in your preferred 
 
 The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to simple commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that contains a default module and all the required configuration files.
 
-1. Create a directory for your solution. 
+1. Create a directory for your solution with the filepath of your choice. Change into your `iotedgesolution` directory.
 
     ```bash
     mkdir c:\dev\iotedgesolution
     ```
 
-1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
+1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub for your development language.
 
     # [C\#](#tab/csharp)
     
@@ -193,11 +193,12 @@ The *iotedgedev solution init* script prompts you to complete several steps incl
 * Choose or create an Azure IoT Hub
 * Choose or create an Azure IoT Edge device
 
-After solution creation, there are four items within the solution:
+After solution creation, these main files are in the solution:
 
-- A **.vscode** folder contains configuration file *launch.json*.
-- A **modules** folder has subfolders for each module. Within the subfolder for each module, the *module.json* file controls how modules are built and deployed.
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. For example,
+- A **modules** folder.
+- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost:5000* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal. The **CONTAINER_REGISTRY_SERVER** is the **Login server** of your registry.
+
+   For example:
 
     ```env
     CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
@@ -210,7 +211,7 @@ After solution creation, there are four items within the solution:
     > [!NOTE]
     > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
 
-- Two module deployment files named **deployment.template.json** and **deployment.debug.template** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and two sample modules:
+- Two module deployment files named **deployment.template.json** and **deployment.debug.template.json** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and two sample modules:
     - **filtermodule** is a sample module that implements a simple filter function.
     - **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information on how the simulated temperature module works, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
@@ -395,9 +396,17 @@ Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette
 # [Python](#tab/python)
 
 1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir pythonmodule` then `cd pythonmodule`.
-1. Download a ZIP of the contents of the [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/azure/cookiecutter-azure-iot-edge-module) from GitHub.
-1. Extract the contents of the `{{cookiecutter.module_name}}` folder in the ZIP file then copy the files into the new module directory.
-1. Update *module.json* file with correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`.
+1. Get the `cookiecutter-azure-iot-edge-module` from GitHub with one of these methods:
+   * From another Bash terminal instance, clone the repository to your desktop with the command:
+      ```URL
+      git clone https://github.com/Azure/cookiecutter-azure-iot-edge-module.git
+      ```
+   * Download a ZIP of the contents of the [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/azure/cookiecutter-azure-iot-edge-module).
+1. Extract (if a ZIP file) the contents of the `{{cookiecutter.module_name}}` folder then copy the files into your new module directory. In this tutorial, we call this new directory **pythonmodule**.
+
+   :::image type="content" source="media/how-to-vs-code-develop-module/modules-folder-structure.png" alt-text="Screenshot of the expected folder structure for your I o T Edge solution.":::
+
+1. Update the *module.json* file with the correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`, instead of `{{cookiecutter.image_repository}}`.
 
 ---
 
@@ -431,6 +440,8 @@ modules/*&lt;your module name&gt;*/**app.js**
 # [Python](#tab/python)
 modules/*&lt;your module name&gt;*/**main.py**
 
+:::image type="content" source="media/how-to-vs-code-develop-module/main-file-location.png" alt-text="Screenshot of the location of your main.py file.":::
+
 ---
 
 The sample modules allow you to build the solution, push to your container registry, and deploy to a device. This process lets you start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipes it to IoT Hub.
@@ -451,7 +462,7 @@ Debugging a module without a container isn't available when using *C* or *Python
 
 In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
 
-```cmd
+```bash
 dotnet build
 ```
 
@@ -480,7 +491,7 @@ Navigate to the Visual Studio Code Debug view by selecting the debug icon from t
 
 In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
 
-```cmd
+```bash
 npm install
 ```
 
