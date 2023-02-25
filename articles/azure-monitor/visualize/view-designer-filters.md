@@ -35,7 +35,7 @@ The following table describes the settings for a filter.
 | Setting | Description |
 |:---|:---|
 | Field Name | Name of the field used for filtering. This field must match the summarize field in **Query for Values**. |
-| Query for Values | Query to run to populate the **Filter** dropdown for the user. This query must use either [summarize](/azure/kusto/query/summarizeoperator) or [distinct](/azure/kusto/query/distinctoperator) to provide unique values for a particular field. It must match the **Field Name**. You can use [sort](/azure/kusto/query/sortoperator) to sort the values that are displayed to the user. |
+| Query for Values | Query to run to populate the **Filter** dropdown for the user. This query must use either [summarize](/azure/kusto/query/summarizeoperator) or [distinct](/azure/kusto/query/distinctoperator) to provide unique values for a particular field. It must match the **Field Name**. You can use [sort](/azure/data-explorer/kusto/query/sort-operator) to sort the values that are displayed to the user. |
 | Tag | Name for the field that's used in queries supporting the filter and is also displayed to the user. |
 
 ### Examples

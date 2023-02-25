@@ -94,7 +94,6 @@ To apply this grant control, the device must be registered in Azure AD, which re
 The following client apps support this setting, this list isn't exhaustive and is subject to change::
 
 - Microsoft Azure Information Protection
-- Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
 - Microsoft Edge
@@ -114,7 +113,6 @@ The following client apps support this setting, this list isn't exhaustive and i
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
-- Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
