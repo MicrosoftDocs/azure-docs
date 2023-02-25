@@ -4865,12 +4865,12 @@
             "redirect_document_id": false
         },
         {
-            "source_psource_path_from_rootath": "/articles/virtual-machines/tag-cli.md",
+            "source_path_from_root": "/articles/virtual-machines/tag-cli.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/tag-cli",
             "redirect_document_id": false
         },
         {
-            "source_psource_path_from_rootath": "/articles/virtual-machines/tag-portal.md",
+            "source_path_from_root": "/articles/virtual-machines/tag-portal.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/tag-portal",
             "redirect_document_id": false
         },
