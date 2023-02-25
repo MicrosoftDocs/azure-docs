@@ -213,7 +213,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-load-failure.md",
-            "redirect_url": "/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting",
             "redirect_document_id": false
         },
         {
