@@ -1566,11 +1566,11 @@ productDirectory:
       url: azure-fluid-relay/index.yml
     # Card
     - title: Azure Operator Nexus
-      summary: Need some blurb text here
-      imageSrc: ./media/index/web-pubsub.svg
+      summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - 5g-space
-      url: azure-operator-nexus/index.yml
+      url: operator-nexus/index.yml
     # Card
     - title: Azure Network Function Manager
       summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
