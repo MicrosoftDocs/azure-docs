@@ -86,7 +86,7 @@ To create a virtual network, use the following steps:
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-    > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    > While you can use a single subnet for all Azure Machine Learning resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
@@ -331,6 +331,9 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 > * [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
+
 1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/migrate-workspace-based.png" alt-text="Screenshot of the link to migrate to workspace-based.":::
