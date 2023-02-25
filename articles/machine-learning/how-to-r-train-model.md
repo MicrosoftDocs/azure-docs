@@ -15,7 +15,7 @@ ms.devlang: r
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the AzureML CLI V2.
+This article explains how to take the R script that you [adapted to run in production](how-to-r-modify-script-for-production.md) and set it up to run as an R job using the Azure Machine Learning CLI V2.
 
 > [!NOTE]
 > Although the title of this article refers to _training_ a model, you can actually run any kind of R script as long as it meets the requirements listed in the adapting article.
@@ -50,7 +50,7 @@ Create this folder structure for your project:
 
 ## Prepare the job YAML
 
-AzureML CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the **job.yml** file that is a part of this project.
+Azure Machine Learning CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the **job.yml** file that is a part of this project.
 
 You'll need to gather specific pieces of information to put into the YAML:
 
@@ -60,7 +60,7 @@ You'll need to gather specific pieces of information to put into the YAML:
 
 
 > [!TIP]
-> For AzureML artifacts that require versions (data assets, environments), you can use the shortcut URI `azureml:<AZUREML-ASSET>@latest` to get the latest version of that artifact if you don't need to set a specific version.
+> For Azure Machine Learning artifacts that require versions (data assets, environments), you can use the shortcut URI `azureml:<AZUREML-ASSET>@latest` to get the latest version of that artifact if you don't need to set a specific version.
 
 
 ### Sample YAML schema to submit a job
@@ -93,7 +93,7 @@ description: <DESCRIPTION>
 
 In the following commands in this section, you may need to know:
 
-- The AzureML workspace name
+- The Azure Machine Learning workspace name
 - The resource group name where the workspace is
 - The subscription where the workspace is
 
