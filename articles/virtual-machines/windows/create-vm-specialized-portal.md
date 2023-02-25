@@ -17,7 +17,7 @@ ms.author: cynthn
 
 
 > [!NOTE]
-> Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM are only supported through Azure Compute Gallery.  If you have an existing VHD or managed image, you can use it as a source and create an Azure Compute Gallery image.  For more information, see [Create an image definition and image version](../image-version.md).
+> Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM,are only supported through Azure Compute Gallery.  If you have an existing VHD or managed image, you can use it as a source and create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](../image-version.md).
 > 
 > Creating an image instead of just attaching a disk means you can create multiple VMs from the same sounrce disk.
 
@@ -68,7 +68,7 @@ Create a snapshot and then create a disk from the snapshot. This strategy allows
 
 After you have the managed disk VHD that you want to use, you can create the VM in the portal:
 
-2. In the search box, enter **disks** and then select **Disks** to display the list of available disks.
+1. In the search box, enter **disks** and then select **Disks** to display the list of available disks.
 3. Select the disk that you would like to use. The **Disk** page for that disk opens.
 4. In the **Essentials** section, ensure that **Disk state** is listed as **Unattached**. If it isn't, you might need to either detach the disk from the VM or delete the VM to free up the disk.
 4. In the menu at the top of the page, select **Create VM**.
