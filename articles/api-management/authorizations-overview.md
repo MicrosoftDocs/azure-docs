@@ -4,9 +4,8 @@ description: Learn about authorizations in Azure API Management, a feature that 
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 06/03/2022
 ms.author: danlep
-ms.custom: references_regions
 ---
 
 # Authorizations overview
@@ -49,7 +48,7 @@ For public preview the following limitations exist:
 
 - Authorizations feature only supports Service Principal and Managed Identity as access policies.
 - Authorizations feature only supports /.default app-only scopes while acquire token for https://.../authorizationmanager audience.
-- Authorizations feature is not supported in the following regions: australiacentral, australiacentral2, jioindiacentral.
+- Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral.
 - Authorizations feature is not supported in National Clouds.
 - Authorizations feature is not supported on self-hosted gateways.
 - Supported identity providers can be found in [this](https://github.com/Azure/APIManagement-Authorizations/blob/main/docs/identityproviders.md) GitHub repository.
