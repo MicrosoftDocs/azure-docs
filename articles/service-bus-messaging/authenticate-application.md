@@ -25,7 +25,7 @@ The authorization step requires that one or more Azure roles be assigned to the 
 Native applications and web applications that make requests to Service Bus can also authorize with Azure AD. This article shows you how to request an access token and use it to authorize requests for Service Bus resources. 
 
 
-## Built-in roles for Azure Service Bus
+## Azure built-in roles for Azure Service Bus
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities and you can also define custom roles for accessing the data.
 
