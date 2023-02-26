@@ -13,9 +13,9 @@ ms.reviewer: mmcc
 The Azure Application Insights JavaScript SDK provides advanced features for tracking, monitoring, and debugging your web applications.
 
 > [!div class="checklist"]
-> - Cookie configuration and management
-> - Source map un-minify support
-> - Tree shaking optimized code
+> - [Cookie configuration and management](#cookies)
+> - [Source map un-minify support](#source-map)
+> - [Tree shaking optimized code](#tree-shaking)
 
 ## Cookies
 
