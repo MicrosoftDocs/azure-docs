@@ -64,9 +64,9 @@ Core concepts for flow logs include:
 - A network security group contains *security rules* that allow or deny network traffic to or from the Azure resources that the network security group is connected to. A network security group can be associated with a subnet or a network interface of a virtual machine (VM). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - All traffic flows in your network are evaluated through the rules in the applicable network security group. The result of these evaluations is NSG flow logs. 
 - NSG Flow logs are collected through the Azure platform and don't require any change to your Azure resources.
-- There are two types of security rules: terminating and non-terminating. Each has different logging behaviors:
-  - *deny* rules are terminating. The network security group that's denying the traffic will log it in the flow logs. Processing in this case stops after any NSG denies traffic.
-  - *allow* rules are non-terminating. If the network security group allows the traffic, processing continues to the next network security group. The last network security group that allows traffic will log the traffic to the flow logs.
+- There are two types of network security group rules: terminating and non-terminating. Each has different logging behaviors:
+  - *Deny* rules are terminating. The network security group that's denying the traffic will log it in the flow logs. Processing in this case stops after any NSG denies traffic.
+  - *Allow* rules are non-terminating. If the network security group allows the traffic, processing continues to the next network security group. The last network security group that allows traffic will log the traffic to the flow logs.
 - NSG flow logs are written to storage accounts. You can export, process, analyze, and visualize NSG flow logs by using tools like Network Watcher traffic analytics, Splunk, Grafana, and Stealthwatch.
 
 ## Log format
