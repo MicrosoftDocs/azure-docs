@@ -84,7 +84,7 @@ sections:
         answer: No. There is no way to restore an Application Gateway resource or its public IP once deleted. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
-        answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name won't change over the lifetime of the application gateway. 
+        answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, IP addresses are static, so the IP address and DNS name won't change over the lifetime of the application gateway. 
 
       - question: Does Application Gateway support static IP?
         answer: Yes, the Application Gateway v2 SKU supports static public IP addresses and static internal IPs. The v1 SKU supports static internal IPs.
@@ -137,7 +137,7 @@ sections:
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
-        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters will be discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
+        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
@@ -265,7 +265,7 @@ sections:
         answer: Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack VNets. 
 
       - question: Does Application Gateway support FIPS?
-        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode".  FIPS mode will call a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.  To ensure FIPS mode is enabled, the FIPSMode setting must be configured via PowerShell, ARM Template, or REST API once the subscription has been enrolled to enable configuration of FIPSmode.
+        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode".  FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.  To ensure FIPS mode is enabled, the FIPSMode setting must be configured via PowerShell, ARM Template, or REST API once the subscription has been enrolled to enable configuration of FIPSmode.
 
       - question: How do I use Application Gateway V2 with only private frontend IP address?
         answer: |
@@ -407,19 +407,19 @@ sections:
           * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
           * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
           
-          As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
+          As per the industry's compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
           
-          To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+          To check if certificates utilized by your application have been revoked reference [DigiCert's Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates have been revoked, or will be revoked, you need to request new certificates from the CA vendor utilized in your applications. To avoid your application's availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
           
           For Application Gateway specific information, see below -
           
-          If you're using a certificate issued by one of the revoked ICAs, your application’s availability might be interrupted and depending on your application, you may receive various error messages including but not limited to: 
+          If you're using a certificate issued by one of the revoked ICAs, your application's availability might be interrupted and depending on your application, you may receive various error messages including but not limited to: 
           
           1. Invalid certificate/revoked certificate
           2. Connection timed out
           3. HTTP 502
           
-          To avoid any interruption to your application due to this issue, or to reissue a CA which has been revoked, you need to take the following actions: 
+          To avoid any interruption to your application due to this issue, or to reissue a CA that has been revoked, you need to take the following actions: 
           
           1. Contact your certificate provider on how to reissue your certificates.
           2. Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you're using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
@@ -428,17 +428,17 @@ sections:
           To update the certificate in your listener:
           
           1. In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource.
-          2. Open the listener settings that’s associated with your certificate.
-          3. Click “Renew or edit selected certificate.”
+          2. Open the listener settings that's associated with your certificate.
+          3. Click "Renew or edit selected certificate."
           4. Upload your new PFX certificate with the password and click Save.
           5. Access the website and verify if the site is working as expected.
           For more information, see [Renew Application Gateway certificates](./renew-certificates.md).
           
           If you're referencing certificates from Azure KeyVault in your Application Gateway listener, we recommend the following the steps for a quick change –
           
-          1. In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which are associated with the Application Gateway.
+          1. In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings that are associated with the Application Gateway.
           2. Add/import the reissued certificate in your store. See documentation [here](../key-vault/certificates/quick-create-portal.md) for more information on how-to.
-          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop-down and choose the recently added certificate
+          3. Once the certificate has been imported, navigate to your Application Gateway listener settings and under "Choose a certificate from Key Vault", click on the "Certificate" drop-down and choose the recently added certificate
           4. Click Save
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
           
@@ -447,12 +447,12 @@ sections:
           
           If you're using V1 SKU of the Application Gateway/WAF service, then you would have to upload the new certificate as your backend authentication certificate.
           1. In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource.
-          2. Open the HTTP settings that’s associated with your certificate.
-          3. Click on “Add certificate” and upload the reissued certificate and click save.
-          4. You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
+          2. Open the HTTP settings that's associated with your certificate.
+          3. Click on "Add certificate" and upload the reissued certificate and click save.
+          4. You can remove the old certificate later by clicking on the "..." options button next to the old certificate and select delete and click save.
           For more information, see [Configure end-to-end TLS by using Application Gateway with the portal](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers).
           
-          If you're using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.
+          If you're using the V2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings since V2 SKU uses "trusted root certificates", and no action needs to be taken here.
           
   - name: Configuration - ingress controller for AKS
     questions:
