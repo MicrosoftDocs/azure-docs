@@ -1,14 +1,44 @@
 {
     "redirections": [
-     {
-      "source_path": "articles/virtual-machines/h-series.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/h-series-retirement.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
-      "redirect_document_id": false
+        {
+            "source_path": "articles/cloudfoundry/index.yml",
+            "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-deploy-your-first-app.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-get-started.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/cloudfoundry-oms-nozzle.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/cloudfoundry-oms-nozzle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/create-cloud-foundry-on-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/create-cloud-foundry-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloudfoundry/how-cloud-foundry-integrates-with-azure.md",
+            "redirect_url": "/previous-versions/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/h-series-retirement.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
+            "redirect_document_id": false
     },
     {
       "source_path": "articles/security/develop/security-code-analysis-customize.md",
@@ -13400,6 +13430,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/search/search-performance-optimization.md",
+            "redirect_url": "/azure/search/search-reliability",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
@@ -21981,6 +22016,32 @@
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-post-deployment.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-post-deployment",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-prerequisites.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-troubleshooting",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/linux/openshift-container-platform-3x.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
+            "redirect_document_id": false
+          },
+      
         {
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
