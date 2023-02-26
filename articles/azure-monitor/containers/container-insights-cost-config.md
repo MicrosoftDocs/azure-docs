@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Enable cost optimization settings (preview)
 
-Cost optimization settings offer users the ability to customize and control the metrics data collected through the Container Insights agent. This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). This can be used for controlling the volume of ingestion and reduce the monitoring costs.
+Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
 
 >[!NOTE]
 >This feature is currently in public preview. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
@@ -16,19 +16,19 @@ Cost optimization settings offer users the ability to customize and control the 
 
 ## Data collection parameters
 
-The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable Container Insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
+The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable container insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
 
 The following table describes the supported data collection settings
 
 | **Data collection setting** | **Allowed Values** | **Description** |
 | -- | --- | -- |
-| **interval**  | \[1m, 30m] in 1m intervals | This value determines how often data is collected. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then default value is set to be _1m_ (i.e., 60 seconds). |
-| **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off will ignore any namespace selections and collect data on all namespaces.
-| **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting will collect only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent will collect data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces will be ignored. |
+| **interval**  | \[1m, 30m] in 1m intervals | This value determines how often the agent collects data. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then this value defaults to _1m_ (60 seconds). |
+| **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off ignores any namespace selections and collect data on all namespaces.
+| **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 
 ## Log Analytics data collection
 
-The table below outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
+This table outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
 
 >[!NOTE]
 >This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
@@ -43,7 +43,7 @@ The table below outlines the list of the container insights Log Analytics tables
 | KubeServices | Yes | Yes | |
 | KubeEvents | No | Yes | Data collection setting interval is not applicable for the Kubernetes Events |
 | Perf | Yes | Yes\* | \*Data collection setting namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
-| InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics which collected with following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
+| InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
 ## Custom Metrics
 
@@ -55,9 +55,9 @@ The table below outlines the list of the container insights Log Analytics tables
 | Insights.container/persistentvolumes | Yes | Yes | |
 
 ## Impact on existing alerts and visualizations
-If you are currently using the above tables for charts or alerts, then modifying your data collection settings may degrade those experiences if you are excluding namespaces or reducing data collection frequency. Please review your existing alerts, dashboards, and workbooks using this data.
+If you are currently using the above tables for charts or alerts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
-To scan for alerts that may be referencing these tables, please run the following Azure Resource Graph query:
+To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
 
 ```Kusto
 resources
@@ -71,12 +71,12 @@ resources
 | order by tolower(name) asc
 ```
 
-Please reference the [Limitations](./container-insights-cost-config.md#limitations) section below for information on migrating your Recommended alerts.
+Reference the [Limitations](./container-insights-cost-config.md#limitations) section for information on migrating your Recommended alerts.
 
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
-    - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
+    - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
 - Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
     - For AKS clusters, aks-preview version 0.5.125 or higher
@@ -89,7 +89,7 @@ Cost presets and collection settings are available for selection in the Azure Po
 | --- | --- | --- | --- |
 | Standard | 1m | None | Not enabled |
 | Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
-| Syslog | 1m | None | Enabled by default (but can be turned off) |
+| Syslog | 1m | None | Enabled by default |
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -107,7 +107,7 @@ The default schema for the config file follows this format:
 
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
-* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+* `namespaces`: An array of Kubernetes namespaces as strings for inclusion or exclusion
 
 Example input:
 
@@ -156,7 +156,7 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterR
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), select the "Use managed identity (preview)" checkbox
-5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit profile settings"
+5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit profile settings"
 6. Click the blue "Configure" button to finish
 
 
@@ -212,7 +212,7 @@ The collection settings can be modified through the input of the `dataCollection
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
-4. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
 5. Click the blue "Configure" button to finish
 
 
@@ -270,7 +270,7 @@ The collection settings can be modified through the input of the `dataCollection
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
-5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
 6. Click the blue "Configure" button to finish
 
 
@@ -318,5 +318,5 @@ To update your data collection Settings, modify the values in parameter files an
 
 ## Limitations
 
-- Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
-- There will be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
+- Recommended alerts will not work as intended if the Data collection interval is configured more than 1 minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
+- There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
