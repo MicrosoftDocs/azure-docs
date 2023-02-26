@@ -34,6 +34,20 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 ## February 2023
 
+### General Availability - Expanding Privileged Identity Management Role Activation across the Azure portal
+
+**Type:** New feature   
+**Service category:** Privileged Identity Management                    
+**Product capability:** Privileged Identity Management           
+
+Privileged Identity Management (PIM) role activation has been expanded to the Billing and AD extensions in the Azure portal. Shortcuts have been added to Subscriptions (billing) and Access Control (AD) to allow users to activate PIM roles directly from these blades. From the Subscriptions blade, select **View eligible subscriptions** in the horizontal command menu to check your eligible, active, and expired assignments. From there, you can activate an eligible assignment in the same pane. In Access control (IAM) for a resource, you can now select **View my access** to see your currently active and eligible role assignments and activate directly. By integrating PIM capabilities into different Azure portal blades, this new feature allows users to gain temporary access to view or edit subscriptions and resources more easily.
+
+
+For more information Microsoft cloud settings, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+
+
+---
+
 ### General Availability - Follow Azure AD best practices with recommendations
 
 **Type:** New feature   
