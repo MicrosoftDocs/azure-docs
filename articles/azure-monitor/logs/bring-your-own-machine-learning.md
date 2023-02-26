@@ -12,11 +12,13 @@ ms.date: 23/02/2023
 ---
 # AIOps and machine learning in Azure Monitor Logs 
 
-Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resources into Azure Monitor Logs. 
+Machine learning offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resources into Azure Monitor Logs. Use machine learning to enhance and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
-Machine learning capabilities help enhance and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
+Azure Monitor provides a range of features with built-in machine learning capabilities out-of-the-box for monitoring, querying, and alerting. These features let you take advantage of machine learning to boost your IT monitoring and operations without further investment.    
 
-This article describes Azure Monitor's built-in machine learning capabilities and how you can  create and run customized machine learning models. 
+You can also run data science processes on top of data in Azure Monitor Logs to introduce other machine learning algorithms and customize Azure Monitor's analysis and response capabilities to your needs.    
+
+This article describes Azure Monitor's built-in machine learning capabilities and provides some examples of how you can create and run customized machine learning models on top of data in Azure Monitor Logs. 
 
 ## Use built-in AIOps and machine learning capabilities of Azure Monitor Logs
 
