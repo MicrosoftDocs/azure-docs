@@ -1,11 +1,11 @@
 ---
-title: Zero Trust integration for Infrastructure overview
+title: Zero trust infrastructure and integrations
 description: Independent software vendors (ISVs) can integrate their solutions with Microsoft Defender for Cloud to help customers adopt a Zero Trust model and keep their organizations secure.
-ms.date: 02/22/2023
+ms.date: 02/26/2023
 ms.topic: conceptual
 ---
 
-# Infrastructure integrations
+# Zero trust infrastructure and integrations
 
 Infrastructure comprises the hardware, software, micro-services, networking infrastructure, and facilities required to support IT services for an organization. Zero Trust infrastructure solutions assess, monitor, and prevent security threats to these services.
 
@@ -34,8 +34,8 @@ There's a clear mapping from the goals we've described in the [infrastructure de
 |Zero Trust goal  | Defender for Cloud feature  |
 |---------|---------|
 |Assess compliance | In Defender for Cloud, every subscription automatically has the [Microsoft cloud security benchmark (MCSB) security initiative assigned](security-policy-concept.md).<br>Using the [secure score tools](secure-score-security-controls.md) and the [regulatory compliance dashboard](update-regulatory-compliance-packages.md) you can get a deep understanding of your customer's security posture. |
-|Harden configuration | Assign security initiatives to subscriptions, and reviewing the secure score, leads you to the [hardening recommendations](recommendations-reference.md) built into Defender for Cloud. Defender for Cloud periodically analyzes the compliance status of resources to identify potential security misconfigurations and weaknesses. It then provides recommendations on how to remediate those issues.    |
-|Employ hardening mechanisms | One-time fixes to security misconfigurations, Defender for Cloud offers tools to ensure continued hardening such as:<br>[Just-in-time (JIT) virtual machine (VM) access](just-in-time-access-overview.md)<br>[Adaptive network hardening](adaptive-network-hardening.md)<br>[Adaptive application controls](adaptive-application-controls.md). |
+| Harden configuration | [Review your security recommendations](review-security-recommendations.md) and [track your secure score improvement overtime](secure-score-access-and-track.md). You can also prioritize which recommendations to remediate based on potential attack paths, by leveraging the [attack path](how-to-manage-attack-path.md) feature. |
+|Employ hardening mechanisms | Least privilege access is one of the three principles of Zero Trust. Defender for Cloud can assist you to harden VMs and network using this principle by leveraging features such as:<br>[Just-in-time (JIT) virtual machine (VM) access](just-in-time-access-overview.md)<br>[Adaptive network hardening](adaptive-network-hardening.md)<br>[Adaptive application controls](adaptive-application-controls.md). |
 |Set up threat detection  | Defender for Cloud offers an integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud.<br>Microsoft Defender for Cloud provides advanced, intelligent, protection of Azure and hybrid resources and workloads.<br>One of the Microsoft Defender plans, Microsoft Defender for servers, includes a native integration with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/).<br>Learn more in [Introduction to Microsoft Defender for Cloud](/azure/security-center/azure-defender). |
 |Automatically block suspicious behavior | Many of the hardening recommendations in Defender for Cloud offer a *deny* option. This feature lets you prevent the creation of resources that don't satisfy defined hardening criteria. Learn more in [Prevent misconfigurations with Enforce/Deny recommendations](/azure/defender-for-cloud/prevent-misconfigurations).  |
 |Automatically flag suspicious behavior | Microsoft Defenders for Cloud's security alerts are triggered by advanced detections. Defender for Cloud prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Defender for Cloud also provides detailed steps to help you remediate attacks. For a full list of the available alerts, see [Security alerts - a reference guide](alerts-reference.md).|
