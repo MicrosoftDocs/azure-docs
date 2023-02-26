@@ -15,7 +15,7 @@
     displayName: Resource Manager
     href: create-lab-windows-vm-template.md
   - name: Create a lab - Terraform
-    href: create-lab-windows-vm-terraform.md
+    href: quickstarts/create-lab-windows-vm-terraform.md
   - name: Create a lab - PowerShell with REST API
     href: quickstarts/create-lab-rest.md
 - name: Tutorials

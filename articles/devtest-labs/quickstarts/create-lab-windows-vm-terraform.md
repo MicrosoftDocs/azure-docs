@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Create a virtual network within Azure DevTest Labs using [azurerm_dev_test_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_virtual_network)
 > * Create a Windows virtual machine within Azure DevTest Labs using [azurerm_dev_test_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_windows_virtual_machine)
 
-[!INCLUDE [](/includes/ai-generated-attribution.md)]
+[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 
@@ -86,4 +86,4 @@ terraform state show azurerm_dev_test_windows_virtual_machine.vm
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Work with lab VMs](tutorial-use-custom-lab.md)
+> [Tutorial: Work with lab VMs](../tutorial-use-custom-lab.md)
