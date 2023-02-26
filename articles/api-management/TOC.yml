@@ -267,6 +267,8 @@
                 - name: Manage secrets using named values
                   displayName: Azure CLI, az apim nv
                   href: api-management-howto-properties.md
+                - name: Configure a GraphQL resolver
+                  href: configure-graphql-resolver.md
       - name: Secure your APIs
         items:
           - name: Secure API access
