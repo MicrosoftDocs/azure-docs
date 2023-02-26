@@ -202,9 +202,9 @@ There are two approaches to generating a key and using the key for the Key Less 
 #### Granular approach
 
 1. Create an Admin User (for example, TLSOffloadAdminUser) with the following role:
-  - "Managed HSM Crypto Officer" role at the "/" scope
+    - "Managed HSM Crypto Officer" role at the "/" scope
 1. Create a Key Generation service principal (for example, TLSOffloadKeyGenServicePrincipal) for the TLS Offload Key generation and assign the following role:
-  - "Managed HSM Crypto User" role at the "/keys" scope.
+    - "Managed HSM Crypto User" role at the "/keys" scope.
 1. Create a service principal for the TLS Offloading (for example, TLSOffload   ServicePrincipal)
 1. The Admin User creates the following custom role definition:
     ```azurecli
@@ -218,11 +218,11 @@ There are two approaches to generating a key and using the key for the Key Less 
     }'
     ```
 1. Generate a key with required label following "How to generate keys using the TLS Offload Library". Use the Key Generation service principal (for example, TLSOffloadKeyGenServicePrincipal) while generating keys. Note down the Key Label and Key Name. For example:
-  - Key Label: tlsKey
-  - Key Name: p11-6a2155dc40c94367a0f97ab452dc216f  
+    - Key Label: tlsKey
+    - Key Name: p11-6a2155dc40c94367a0f97ab452dc216f  
 1. Admin User assigns the following roles to the TLS Offload service principal
-  - "TLS Library User Read Role" role at the "/keys" scope
-  - "Managed HSM Crypto User" role at the "/keys/{key name}" scope
+    - "TLS Library User Read Role" role at the "/keys" scope
+    - "Managed HSM Crypto User" role at the "/keys/{key name}" scope
     ```azurecli
     az keyvault role assignment create --hsm-name ContosoMHSM  \
     --role " TLS Library User Read Role"  \
