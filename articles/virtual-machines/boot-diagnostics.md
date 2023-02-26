@@ -6,7 +6,7 @@ ms.service: virtual-machines
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 02/25/2023
 ---
 
 # Azure boot diagnostics
