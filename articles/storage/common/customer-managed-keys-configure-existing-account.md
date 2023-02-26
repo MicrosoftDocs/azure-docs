@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 02/26/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -108,6 +108,8 @@ az role assignment create --assignee-object-id $principalId \
 ## Configure customer-managed keys for an existing account
 
 When you configure encryption with customer-managed keys for an existing storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+
+When the key version is changed, whether automatically or manually, the protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted. There is no additional action required on your part to ensure that your data is protected. Additionally, changing the key version doesn't impact performance or access to storage services in the account.
 
 You can use either a system-assigned or user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys for an existing storage account.
 
