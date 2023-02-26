@@ -98,7 +98,51 @@ az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  p
 For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](https://learn.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 ### [PowerShell](#tab/Powershell)
 
-Get from dev
+To apply a policy using the PowerShell, use the following commands:
+
+1. Set up your environment.
+Select your subscription and set your resource group
+```azurepowershell
+    Select-AzSubscription <subscriptionID>
+    $rg = Get-AzResourceGroup -Name <resource groups name>    
+```
+
+1. Get the policy defintiion and configure the parameters for the policy. In the example below we assign the policy to send keyVault logs to a Log Analytics workspace
+```azurepowershell
+  $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
+  $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
+ ```
+
+1. Assign the policy 
+```azurepowershell
+$policyAssignment=New-AzPolicyAssignment -Name <assignment name> -DisplayName "assignment display name" -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location <location>
+ 
+```
+
+1. Assign the required role or roles to the system assigned Managed Identity
+ ```azurepowershell
+    $principalID=$policyAssignment.Identity.PrincipalId
+    $roleDefinitionIds=$definition.Properties.policyRule.then.details.roleDefinitionIds
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+```
+
+ Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
+1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
+```azurepowershell
+    Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
+    Start-AzPolicyRemediation -Name $policyAssignment.Name -PolicyAssignmentId $policyAssignment.PolicyAssignmentId  -ResourceGroupName $rg.ResourceGroupName
+```
+
+1. Check compliance 
+```azurepowershell
+Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
+```
+
+
+$policyAssignment=Get-AzPolicyAssignment -Name 'VaultsLAWorkspace-04' -Scope '/subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourcegroups/ed-ps-policy'
 
 ---
 ## Assign initiatives
@@ -109,12 +153,6 @@ Initiatives are collections of policies. There are three initiatives for Azure M
 + [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
-
-
-
-
-
-
 
 1. From the policy **Definitions** page, select your scope.
 
