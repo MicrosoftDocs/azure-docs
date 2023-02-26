@@ -5,8 +5,9 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/17/2020
+ms.date: 02/25/2023
 ms.author: cynthn
+ms.reviewer: mattmcinnes
 ---
 
 # Use infrastructure automation tools with virtual machines in Azure
