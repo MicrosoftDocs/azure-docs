@@ -1448,7 +1448,7 @@ items:
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: AIOps
+  - name: AIOps and machine learning
     items:
       - name: Machine learning in Azure Monitor Logs
         href: bring-your-own-machine-learning.md
