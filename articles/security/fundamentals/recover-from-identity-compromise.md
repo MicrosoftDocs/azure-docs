@@ -87,7 +87,7 @@ Check for updates in the following Microsoft security products, and implement an
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
-- [Microsoft Defender for IoT](/defender-for-iot/organizations)
+- [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 
@@ -97,7 +97,7 @@ Therefore, we recommend also taking the following actions:
 
 - Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
 
-- Make sure that any extended detection and response tools, such as [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/how-to-work-with-threat-intelligence-packages), are using the most recent threat intelligence data.
+- Make sure that any extended detection and response tools, such as [Microsoft Defender for IoT](../../defender-for-iot/organizations/how-to-work-with-threat-intelligence-packages.md), are using the most recent threat intelligence data.
 
 For more information, see Microsoft's security documentation:
 
@@ -176,7 +176,7 @@ Use Microsoft Sentinel's content hub to install extended security solutions and 
 
 - [Visualize and analyze your environment](../../sentinel/get-visibility.md)
 - [Detect threats out of the box](../../sentinel/detect-threats-built-in.md)
-- [Discover and deploy out-of-the-box solutions](/azure/sentinel/sentinel-solutions-deploy)
+- [Discover and deploy out-of-the-box solutions](../../sentinel/sentinel-solutions-deploy.md)
 
 ### Monitoring with Microsoft Defender for IoT
 
@@ -184,7 +184,7 @@ If your environment also includes Operational Technology (OT) resources, you may
 
 Deploy Microsoft Defender for IoT to monitor and secure those devices, especially any that aren't protected by traditional security monitoring systems. Install Defender for IoT network sensors at specific points of interest in your environment to detect threats in ongoing network activity using agentless monitoring and dynamic threat intelligence.
 
-For more information, see [Get started with OT network security monitoring](/azure/defender-for-iot/organizations/getting-started).
+For more information, see [Get started with OT network security monitoring](../../defender-for-iot/organizations/getting-started.md).
 
 
 ### Monitoring with Microsoft 365 Defender
@@ -233,7 +233,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/).
+- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 

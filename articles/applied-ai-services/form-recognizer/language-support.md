@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 01/25/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 ---
 
@@ -223,17 +223,18 @@ Language| Locale code |
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Receipt supports all English receipts and the following locales:
-
 |Language| Locale code |
 |:-----|:----:|
 |English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
+|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | `fr` |
-| Spanish | `es` |
+|French (France) | `fr` |
+|French (Canada)| `fr-ca`|
+|German | `de`|
+|Italian| `it`|
+|Spanish | `es` |
 
 ## Business card model
 

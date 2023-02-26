@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/02/2023
+ms.date: 02/23/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -127,17 +127,16 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government:
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-  - Teams Channel
   - Direct Line Speech Channel
   - Telephony Channel (Preview)
   - Microsoft Search Channel (Preview)
   - Kik Channel (deprecated)
 
-For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
 ### [Azure Machine Learning](../machine-learning/index.yml)
 
@@ -204,18 +203,14 @@ The following Azure Database for MySQL **features aren't currently available** i
 
 ### [Azure Database for PostgreSQL](../postgresql/index.yml)
 
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Hyperscale (Citus) deployment option
-- The following features of the Single server deployment option
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
-
-### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-
-The following Azure SQL Managed Instance **features aren't currently available** in Azure Government:
-
-- Long-term retention
 
 ## Developer tools
 

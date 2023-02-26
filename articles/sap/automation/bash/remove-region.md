@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 12/10/2021
 ms.topic: reference
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 title: Remove_region.sh
 description: Removes the SAP Control Plane (Deployer, Library) using a shell script.
 ---

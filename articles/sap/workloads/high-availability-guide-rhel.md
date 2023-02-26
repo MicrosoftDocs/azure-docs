@@ -5,6 +5,7 @@ author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/06/2022

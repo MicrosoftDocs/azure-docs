@@ -1,21 +1,17 @@
 ---
-title: Using dynamic DNS to register hostnames in Azure | Microsoft Docs
+title: Using dynamic DNS to register hostnames in Azure
 description: Learn how to setup dynamic DNS to register hostnames in your own DNS servers.
 services: dns
-documentationcenter: na
 author: greg-lindsay
 manager: kumudD
-editor: ''
-
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: greglin
-
 ---
+
 # Use dynamic DNS to register hostnames in your own DNS server
 
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VM) and role instances. When your name resolution needs exceed the capabilities provided by Azure's default DNS, you can provide your own DNS servers. Using your own DNS servers gives you the ability to tailor your DNS solution to suit your own specific needs. For example, you may need to access on-premises resources via your Active Directory domain controller.

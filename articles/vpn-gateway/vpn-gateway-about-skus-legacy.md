@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Basic, Stand
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/07/2023
+ms.date: 02/13/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 

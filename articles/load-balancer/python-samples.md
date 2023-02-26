@@ -7,7 +7,7 @@ documentationcenter: load-balancer
 author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
-ms.topic: article
+ms.topic: sample
 ms.date: 08/20/2021
 ms.author: mbender
 
