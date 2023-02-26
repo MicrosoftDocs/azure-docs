@@ -755,6 +755,8 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+            - name: Use access tiers
+              href: storage-blob-use-access-tier-javascript.md
         - name: Python
           items:
           - name: Get started
