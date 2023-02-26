@@ -377,7 +377,7 @@ wWhen you delete a network security group, the associated flow log resource is d
 
 - **Location**: The storage account used must be in the same region as the network security group.
 - **Performance tier**: Currently, only standard-tier storage accounts are supported.
-- **Self-managed key rotation**: If you change or rotate the access keys to your storage account, NSG flow logs will stop working. To fix this problem, you must disable and then re-enable NSG flow logs.
+- **Self-managed key rotation**: If you change or rotate the access keys to your storage account, NSG flow logs stop working. To fix this problem, you must disable and then re-enable NSG flow logs.
 
 ### Cost
 
@@ -405,7 +405,7 @@ $virtualNetwork |  Set-AzVirtualNetwork
 
 Virtual machines (VMs) that don't have a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md). Azure assigns an IP address to those VMs to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports that are assigned for SNAT.
 
-Although Azure won't allow these flows to the VM, the attempt is logged and appears in the Network Watcher NSG flow log by design. We recommend that you explicitly block unwanted inbound internet traffic with a network security group.
+Although Azure doesn't allow these flows to the VM, the attempt is logged and appears in the Network Watcher NSG flow log by design. We recommend that you explicitly block unwanted inbound internet traffic with a network security group.
 
 ### Network security group on an ExpressRoute gateway subnet
 
@@ -434,12 +434,12 @@ Currently, these Azure services don't support NSG flow logs:
 
 - **Enable NSG flow logs on critical subnets**: Flow logs should be enabled on all critical subnets in your subscription as an auditing and security best practice.
 
-- **Enable NSG flow logs on all network security groups attached to a resource**: NSG flow logs are configured on network security groups. A flow will be associated with only one network security group rule. In scenarios where you use multiple network security groups, we recommend enabling NSG flow logs on all network security groups applied at the resource's subnet or network interface (NIC) to ensure that all traffic is recorded. For more information, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
+- **Enable NSG flow logs on all network security groups attached to a resource**: NSG flow logs are configured on network security groups. A flow is associated with only one network security group rule. In scenarios where you use multiple network security groups, we recommend enabling NSG flow logs on all network security groups applied at the resource's subnet and network interface (NIC) to ensure that all traffic is recorded. For more information, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
 
   Here are a few common scenarios:
 
   - **Multiple NICs at a virtual machine**: If multiple NICs are attached to a virtual machine, you must enable flow logs on all of them.
-  - **Network security group at both the NIC and subnet levels**: If a network security group is configured at the NIC level and the subnet level, you must enable flow logs at both network security groups. The exact sequence of rule processing by network security groups at NIC and subnet levels is platform dependent and varies from case to case. Traffic flows will be logged against the network security group that's processed last. The platform state changes the processing order. You have to check both of the flow logs.
+  - **Network security group at both the NIC and subnet levels**: If a network security group is configured at the NIC level and the subnet level, you must enable flow logs at both network security groups. The exact sequence of rule processing by network security groups at NIC and subnet levels is platform dependent and varies from case to case. Traffic flows are logged against the network security group that's processed last. The platform state changes the processing order. You have to check both of the flow logs.
   - **Azure Kubernetes Service (AKS) cluster subnet**: AKS adds a default network security group at the cluster subnet. You must enable NSG flow logs on this network security group.
 
 - **Storage provisioning**: Provision storage in tune with the expected volume of flow logs.
@@ -456,9 +456,9 @@ If you get an "AuthorizationFailed" or "GatewayAuthenticationFailed" error, you 
 
 This problem might be related to:
 
-- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file will appear. For more information, see [Download flow log](./network-watcher-nsg-flow-logging-portal.md#download-flow-log).
+- **Setup time**: NSG flow logs can take up to 5 minutes to appear in your storage account (if they're configured correctly). A *PT1H.json* file appears. For more information, see [Download flow log](./network-watcher-nsg-flow-logging-portal.md#download-flow-log).
 
-- **Lack of traffic on your network security groups**: Sometimes you won't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
+- **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
 
 ### I want to automate NSG flow logs
 
