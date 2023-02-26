@@ -42,6 +42,21 @@ When creating custom task extensions, the scenarios for how it will interact wit
 - **Launch and wait** - The Azure Logic App is started, and the following task's execution waits on the response from the Logic App. You enter a time duration for how long the custom task extension should wait for a response from the Azure Logic App. If no response is received within a customer defined duration window, the task will be considered failed.
  :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png" alt-text="Screenshot of custom task launch and wait task choice.":::
 
+## Response authorization
+
+When creating a custom task extension that waits for a response from the Logic App, you are able to define how the Logic App is authorized to respond.
+
+:::image type="content" source="media/lifecycle-workflow-extensibility/launch-wait-options.png" alt-text="Screenshot of custom task extension launch and wait options.":::
+
+Response authorization can be utilized in one of the following ways:
+
+
+- **System-assigned managed identity (Default)** - Enables and utilizes the Logic Apps system-assigned managed identity. For more information on this, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+- **No authorization** - Grants no authorization to the Logic App. You would be responsible for assigning an application permission, or role assignment.
+- **Existing application** - You can choose an existing application to respond.
+
+
+
 ## Custom task extension integration with Azure Logic Apps high-level steps
 
 The high-level steps for the Azure Logic Apps integration are as follows:
