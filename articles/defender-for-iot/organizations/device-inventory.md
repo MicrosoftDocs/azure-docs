@@ -44,22 +44,31 @@ For more information, see:
 > - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 >
 
-## Supported device categories
+## Supported device classes
 
-Defender for IoT's device inventories support the following categories of device types, across the Azure portal, OT network sensor, and on-premises management console.
+Defender for IoT's device inventory supports the following device classes:
 
-<!--what about EIoT?-->
+<!--danielle-->
+|Class  |Device type examples  |
+|---------|---------|
+|**Endpoint devices**     |  Workstations, servers, or mobile devices        |
+|**IoT devices**     |   Smart devices, printers, surveillance devices, communication devices, or audio/video devices      |
+|**Medical devices**     |   Glucose meters, monitors      |
+|**Network devices**     |  Switches, routers, controllers, or access points        |
+|**OT devices**     | Industrial and operational devices, such as PLCs, historian devices, HMIs, scales, pneumatic devices, or packaging systems        |
+
+<!--from excel sheet-->
 
 |Name  |Examples  |
 |---------|---------|
-|**Network devices**     |  Switches, routers, controllers, or access points       |
+|**Network devices**     |        |
 |**Endpoint devices**     |  Workstations, servers, or mobile devices       |
 |**OT/IoT devices**     |  |
 |Audio and video devices     |   Smart TVs, speakers, digital signage, or headsets      |
 |Communication devices     |   VoIP phones, intercoms, analog telephone adapters      |
 |Industrial devices     |  PLCs, historian devices, HMIs, robot controllers, slots, programmable boards       |
 |Media and surveillance devices     |    DVRs, cameras, or video encoders / decoders     |
-|Medical devices| Glucose meters, monitors |
+|Medical devices|  |
 |Miscellaneous devices     | Smart watches, ebook readers, Arduino devices, oscilloscopes     |
 |Operational equipment    | Industrial printers, scales, pneumatic devices, packaging systems        |
 |Printing devices         |   Scanners, all-in-one printers, or printer servers       |
