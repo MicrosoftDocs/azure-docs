@@ -17,9 +17,9 @@ To perform the procedures in this article, make sure that you have:
 
 - An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](how-to-activate-and-set-up-your-sensor.md), with network traffic ingested
 
-- To view devices across multiple sensors in a zone, an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](how-to-activate-and-set-up-your-on-premises-management-console.md), with multiple sensors connected and assigned to sites and zones.
-
 - Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+To view devices across multiple sensors in a zone, you'll also need an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](how-to-activate-and-set-up-your-on-premises-management-console.md), with multiple sensors connected and assigned to sites and zones.
 
 ## View devices on OT sensor device map
 
@@ -29,7 +29,11 @@ To perform the procedures in this article, make sure that you have:
 
     - Devices with currently active alerts are highlighted in red
     - Starred devices are those that had been marked as important
-    - Devices with no alerts are shown in black, or grey in the zoomed-in, connections view
+    - Devices with no alerts are shown in black, or grey in the zoomed-in connections view
+
+    For example: 
+
+    :::image type="content" source="media/how-to-work-with-maps/device-map-default.png" alt-text="Screenshot of a default view of an OT sensor's device map." lightbox="media/how-to-work-with-maps/device-map-default.png":::
 
 1. Zoom in and select a specific device to view the connections between it and other devices, highlighted in blue.
 
@@ -87,7 +91,7 @@ By default, IT devices are automatically aggregated by [subnet](how-to-control-w
 1. Select one or more expanded subnets and then select **Collapse All**.
 
 
-## Create a custom device group from an OT sensor device map
+## Create a custom device group
 
 In addition to OT sensor's [built-in device groups](#built-in-device-map-groups), create new custom groups as needed to use when highlighting or filtering devices on the map.
 
@@ -99,7 +103,7 @@ In addition to OT sensor's [built-in device groups](#built-in-device-map-groups)
     - From the **Copy from groups** menu, select any groups you want to copy devices from.
     - From the **Devices** menu, select any extra devices to add to your group.
 
-## Import / export device data from an OT sensor device map
+## Import / export device data
 
 Use one of the following options to import and export device data:
 
@@ -108,7 +112,7 @@ Use one of the following options to import and export device data:
 - **Export Device Summary**. Select to export a high level summary of all currently displayed devices to a .CSV file. 
 
 
-## Edit devices from the OT sensor device map
+## Edit devices
 
 1. Sign into an OT sensor and select **Device map**. 
 
@@ -124,7 +128,7 @@ Use one of the following options to import and export device data:
     | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group-from-an-ot-sensor-device-map) with the selected device.        |
     |  **Delete**   |Deletes the device from the inventory.     |
 
-## Merge devices from the OT sensor device map
+## Merge devices
 
 You may want to merge devices if the OT sensor detected multiple network entities associated with a unique device, such as a PLC with four network cards, or a single laptop with both WiFi and a physical network card.
 
@@ -147,7 +151,7 @@ You can only merge [authorized devices](device-inventory.md#unauthorized-devices
 It can take up to two minutes complete the merge. Merge events are listed in the OT sensor's event timeline.
 
 
-## Manage device notifications from an OT sensor device map
+## Manage device notifications
 
 As opposed to alerts, which provide details about changes in your traffic that might present a threat to your network, device notifications on an OT sensor device map provide details about network activity that might require your attention, but aren't threats. 
 
@@ -159,10 +163,14 @@ For example, you might receive a notification about an inactive device that need
 
 1. In the **Discovery Notifications** pane on the right, filter notifications as needed by time range, device, subnet, or operating systems.
 
-1. Do one of the following:
+    For example:
 
-    - Accept or dismiss each notification, one at a time.
-    - Select **Select All** to show which notifications can be handled together.Clear selections for specific notifications, and then accept or dismiss any remaining selected notifications together.
+    :::image type="content" source="media/how-to-work-with-maps/device-notifications.png" alt-text="Screenshot of device notifications on an OT sensor's Device map page." lightbox="media/how-to-work-with-maps/device-notifications.png":::
+
+1. Each notification may have different mitigation options. Do one of the following:
+
+    - Handle one notification at a time, selecting a specific mitigation action, or selecting **Dismiss** to close the notification with no activity.
+    - Select **Select All** to show which notifications can be handled together. Clear selections for specific notifications, and then select **Accept All** or **Dismiss All** to handle any remaining selected notifications together.
 
     When you handle multiple notifications together, you may still have remaining notifications that need to be handled manually, such as for new IP addresses or no subnets detected.
 
@@ -171,6 +179,8 @@ For example, you might receive a notification about an inactive device that need
 >
 > - IT upgraded the OS across multiple network servers and you want to learn all of the new server versions.
 > - A group of devices is no longer active, and you want to instruct the OT sensor to remove the devices from the OT sensor.
+
+### Device notification responses
 
 The following table lists available responses for each notification, and when we recommend using each one:
 
@@ -195,7 +205,7 @@ On the on-premises management console, zone maps show all network elements relat
 
 1. Sign into an on-premises management console and select **Site Management** > **View Zone Map** for the zone you want to view. For example: <!--fix image-->
 
-    :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Default region to default business unit.":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Default region to default business unit." lightbox="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png":::
 
 1. Use any of the following map tools to change your map display:
 
