@@ -170,7 +170,7 @@ description: A Helm chart for Kubernetes
 
 dependencies:
   - name: redis
-    version: 14.7.1
+    version: 17.3.17
     repository: https://charts.bitnami.com/bitnami
 
 ...

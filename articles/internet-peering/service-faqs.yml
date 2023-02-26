@@ -7,7 +7,7 @@ metadata:
   author: halkazwini
   ms.service: internet-peering
   ms.topic: faq
-  ms.date: 02/23/2023
+  ms.date: 02/24/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: Peering Service frequently asked questions (FAQ)
@@ -43,7 +43,7 @@ sections:
           Some carriers offer SLA and enterprise grade internet on their part of the network. In Peering Service, Microsoft offers SLA for traffic on Microsoft part of the network. By selecting Peering Service, you get end-to-end SLA. The ISP provides SLA for traffic traveling on its network from your site to Microsoft edge. Microsoft provides SLA for traffic traveling in Microsoft global network from Microsoft edge to end users application.
 
       - question: |
-          If a service provider already peers with Microsoft using Direct peering, then what kind of changes are required to support Peering Service?
+          If a service provider has Direct peering with Microsoft, what are the required changes to support Peering Service?
         answer: |
           * Software changes to identify a Peering Service user and its traffic. May require routing policy changes to exchange a user's traffic at the nearest Microsoft edge through Peering Service connection.
           * Ensure the connectivity has local-redundancy and geo-redundancy.

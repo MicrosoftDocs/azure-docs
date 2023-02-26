@@ -17,7 +17,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both batch inference using batch endpoints. Azure Machine Learning supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both batch inference using batch endpoints. Azure Machine Learning supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment.
 
 For no-code-deployment, Azure Machine Learning 
 
@@ -106,7 +106,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    )
    ```
    
-3. Before moving any forward, we need to make sure the batch deployments we are about to create can run on some infrastructure (compute). Batch deployments can run on any Azure ML compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an AzureML compute cluster called `cpu-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
+3. Before moving any forward, we need to make sure the batch deployments we are about to create can run on some infrastructure (compute). Batch deployments can run on any Azure Machine Learning compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an Azure Machine Learning compute cluster called `cpu-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
    
    # [Azure CLI](#tab/cli)
    
@@ -464,7 +464,7 @@ You will typically select this workflow when:
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
 > [!WARNING]
-> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio UI](https://ml.azure.com), please switch to the CLI or the SDK.
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure Machine Learning studio UI](https://ml.azure.com), please switch to the CLI or the SDK.
 
 
 ### Steps
@@ -517,14 +517,14 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see [The MLmodel format](concept-mlflow-models.md#the-mlmodel-format)). We are going then to build the environment using the conda dependencies from the file. However, __we need also to include__ the package `azureml-core` which is required for Batch Deployments.
 
    > [!TIP]
-   > If your model is already registered in the model registry, you can download/copy the `conda.yml` file associated with your model by going to [Azure ML studio](https://ml.azure.com) > Models > Select your model from the list > Artifacts. Open the root folder in the navigation and select the `conda.yml` file listed. Click on Download or copy its content. 
+   > If your model is already registered in the model registry, you can download/copy the `conda.yml` file associated with your model by going to [Azure Machine Learning studio](https://ml.azure.com) > Models > Select your model from the list > Artifacts. Open the root folder in the navigation and select the `conda.yml` file listed. Click on Download or copy its content. 
    
    > [!IMPORTANT]
    > This example uses a conda environment specified at `/heart-classifier-mlflow/environment/conda.yaml`. This file was created by combining the original MLflow conda dependencies file and adding the package `azureml-core`. __You can't use the `conda.yml` file from the model directly__.
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
    # [Python](#tab/sdk)
    
