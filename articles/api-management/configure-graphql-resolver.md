@@ -44,11 +44,11 @@ Configure a resolver to retrieve or set data for a GraphQL field in an object ty
     1. Optionally add an `http-response` element, and add child policies to transform the HTTP response of the resolver. If the `http-response` element isn't specified, the response is returned as a raw string.
     1. Select **Create**.
     
-        :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal.":::
+        :::image type="content" source="media/configure-graphql-resolver/configure-resolver-policy.png" alt-text="Screenshot of resolver policy editor in the portal." lightbox="media/configure-graphql-resolver/configure-resolver-policy.png":::
 
 1. The resolver is attached to the field. Go to the **Resolvers** tab to list and manage the resolvers configured for the API.
 
-    :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal.":::
+    :::image type="content" source="media/configure-graphql-resolver/list-resolvers.png" alt-text="Screenshot of the resolvers list for GraphQL API in the portal." lightbox="media/configure-graphql-resolver/list-resolvers.png":::
 
     > [!TIP]
     > The **Linked** column indicates whether or not the resolver is configured for a field that's currently in the GraphQL schema. If a resolver isn't linked, it can't be invoked.
