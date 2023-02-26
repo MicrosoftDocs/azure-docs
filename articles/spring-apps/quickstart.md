@@ -87,7 +87,10 @@ Use the following steps to provision a service instance.
 1. Choose **Y** to install the Azure Spring Apps extension and run it.
 
 ## Create an app in your Azure Spring Apps instance
-
+An [**App**](/azure/spring-apps/concept-understand-app-and-deployment)  is an abstraction of one business app. Apps run in an Azure Spring Apps Service Instance, or simply service instance, as shown next.
+</br>
+![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+</br>
 Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
 
 ```azurecli-interactive
@@ -227,6 +230,10 @@ Use the following steps to provision a service instance.
 
 ## Create an app in your Azure Spring Apps instance
 
+An [**App**](/azure/spring-apps/concept-understand-app-and-deployment) is an abstraction of one business app. Apps run in an Azure Spring Apps Service Instance, or simply service instance, as shown next.
+</br>
+![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+</br>
 Use the following command to specify the app name on Azure Spring Apps and allocate required resources.
 
     ```azurecli-interactive
