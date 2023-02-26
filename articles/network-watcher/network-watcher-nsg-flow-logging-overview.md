@@ -396,7 +396,7 @@ Flows that user-defined inbound rules affect become non-terminating. Additionall
 You can resolve this difference by setting the `FlowTimeoutInMinutes` property on the associated virtual networks to a non-null value. You can achieve default stateful behavior by setting `FlowTimeoutInMinutes` to 4 minutes. For long-running connections where you don't want flows to disconnect from a service or destination, you can set `FlowTimeoutInMinutes` to a value of up to 30 minutes. Use [Get-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to set `FlowTimeoutInMinutes` property:
 
 ```powershell
-$virtualNetwork = Get-AzVirtualNetwork -Name VnetName -ResourceGroupName RgName
+$virtualNetwork = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
 $virtualNetwork.FlowTimeoutInMinutes = 4
 $virtualNetwork |  Set-AzVirtualNetwork
 ```
