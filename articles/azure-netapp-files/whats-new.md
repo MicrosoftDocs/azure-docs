@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -21,6 +21,20 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2023
 
+* [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) (Preview)
+
+    Azure NetApp Files volumes provide flexible, large and scalable storage shares for applications and users. Storage capacity and consumption by users is only limited by the size of the volume. In some scenarios, you may want to limit this storage consumption of users and groups within the volume. With Azure NetApp Files volume user and group quotas, you can now do so. User and/or group quotas enable you to restrict the storage space that a user or group can use within a specific Azure NetApp Files volume. You can choose to set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can set default (same for all users) or individual group quotas.
+
+* [Large volumes](large-volumes-requirements-considerations.md) (Preview)
+
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 500 TiB in size. The large volumes capability enables a variety of use cases and workloads that require large volumes with a single directory namespace.
+  
+* [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
+
+    Azure NetApp Files volumes now support encryption with customer-managed keys and Azure Key Vault to enable an extra layer of security for data at rest.  
+    
+    Data encryption with customer-managed keys for Azure NetApp Files allows you to bring your own key for data encryption at rest. You can use this feature to implement separation of duties for managing keys and data. Additionally, you can centrally manage and organize keys using Azure Key Vault. With customer-managed encryption, you are in full control of, and responsible for, a key's lifecycle, key usage permissions, and auditing operations on keys. 
+ 
 * [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md) (Preview)
 
     Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.

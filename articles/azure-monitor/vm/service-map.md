@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Enable the Service Map solution from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview). Or use the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
 1. [Install the Dependency agent on Windows](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [install the Dependency agent on Linux](../vm/vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
-1. Access Service Map in the Azure portal from your Log Analytics workspace. Select the **Solutions** option from the left pane.
+1. Access Service Map in the Azure portal from your Log Analytics workspace. Select the **Legacy solutions** option from the left pane.
 
    ![Screenshot that shows selecting the Solutions option in the workspace.](./media/service-map/select-solution-from-workspace.png).
 1. From the list of solutions, select **ServiceMap(workspaceName)**. On the **Service Map** solution overview page, select the **Service Map** summary tile.

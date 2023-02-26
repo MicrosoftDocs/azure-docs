@@ -352,4 +352,4 @@ To learn more about planning a workspace for your organization's requirements, s
 
 
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

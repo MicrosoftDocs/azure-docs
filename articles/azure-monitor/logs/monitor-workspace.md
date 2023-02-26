@@ -108,7 +108,7 @@ In some situations, like moving a subscription to a different tenant, the Azure 
 
 Recommended actions:
 
-* If the subscription mentioned in the warning message no longer exists, go to the **Azure Activity log** pane under **Workspace Data Sources**. Select the relevant subscription, and then select the **Disconnect** button.
+* If the subscription mentioned in the warning message no longer exists, go to the **Legacy activity log connector** pane under **Classic**. Select the relevant subscription, and then select the **Disconnect** button.
 * If you no longer have access to the subscription mentioned in the warning message:
   * Follow the preceding step to disconnect the subscription.
   * To continue collecting logs from this subscription, contact the subscription owner to fix the permissions and re-enable activity log collection.
