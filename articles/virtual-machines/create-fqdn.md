@@ -6,9 +6,10 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/07/2021
+ms.date: 02/25/2023
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+ms.reviewer: mattmcinnes
 
 ---
 # Create a fully qualified domain name for a VM in the Azure portal
