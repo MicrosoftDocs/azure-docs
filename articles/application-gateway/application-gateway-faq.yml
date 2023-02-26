@@ -65,7 +65,7 @@ sections:
           
       - question: What are the settings for Keep-Alive timeout and TCP idle timeout?
         answer: |
-          *Keep-Alive timeout* governs how long the Application Gateway waits for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open if there is no activity. 
+          *Keep-Alive timeout* governs how long the Application Gateway waits for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open if there's no activity. 
           
           The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. Changing the value of the private IP address isn't supported. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
@@ -78,10 +78,10 @@ sections:
           For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
  
       - question: Can I rename my Application Gateway resource?
-        answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
+        answer: No. There's no way to rename an Application Gateway resource. You must create a new resource with a different name. 
         
       - question: Is there a way to restore an Application Gateway and its public IP if it has been deleted?
-        answer: No. There is no way to restore an Application Gateway resource or its public IP once deleted. You must create a new resource.
+        answer: No. There's no way to restore an Application Gateway resource or its public IP once deleted. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
         answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, IP addresses are static, so the IP address and DNS name won't change over the lifetime of the application gateway. 
@@ -131,7 +131,7 @@ sections:
           
       - question: Is Application Gateway v1 SKU supported?
         answer: |
-          Yes. The Application Gateway v1 SKU continues to be supported. However, it is strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
+          Yes. The Application Gateway v1 SKU continues to be supported. However, it's strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
       - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
@@ -192,7 +192,7 @@ sections:
         
       - question: Can I change the virtual network or subnet for an existing Application Gateway?
         answer: |
-          You can move an Application Gateway across subnets within the same virtual network only. It is supported with V1 with public and private frontend, and V2 with public frontend only. It is also important to note that the Application Gateway should be in a *Stopped* state to perform this action. Keep in mind that stopping/starting V1 changes the public IP. This operation can only be done using Azure PowerShell and Azure CLI by running the following commands:
+          You can move an Application Gateway across subnets within the same virtual network only. It's supported with V1 with public and private frontend, and V2 with public frontend only. It's also important to note that the Application Gateway should be in a *Stopped* state to perform this action. Keep in mind that stopping/starting V1 changes the public IP. This operation can only be done using Azure PowerShell and Azure CLI by running the following commands:
           
           **Azure PowerShell**
 
