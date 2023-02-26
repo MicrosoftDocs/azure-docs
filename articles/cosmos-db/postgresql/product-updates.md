@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/25/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
