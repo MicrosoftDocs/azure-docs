@@ -117,6 +117,9 @@ Select your subscription and set your resource group
 ```azurepowershell
 $policyAssignment=New-AzPolicyAssignment -Name <assignment name> -DisplayName "assignment display name" -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location <location>
  
+#To get your assignemnt use:
+$policyAssignment=Get-AzPolicyAssignment -Name '<assignment name>' -Scope '/subscriptions/<subscriptionID>/resourcegroups/<resource group name>'
+
 ```
 
 1. Assign the required role or roles to the system assigned Managed Identity
@@ -142,7 +145,6 @@ Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupNa
 ```
 
 
-$policyAssignment=Get-AzPolicyAssignment -Name 'VaultsLAWorkspace-04' -Scope '/subscriptions/d0567c0b-5849-4a5d-a2eb-5267eae1bbc7/resourcegroups/ed-ps-policy'
 
 ---
 ## Assign initiatives
