@@ -11,7 +11,7 @@ ms.date: 02/26/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Configure customer-managed keys in an Azure key vault for an existing storage account
