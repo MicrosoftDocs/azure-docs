@@ -23,7 +23,7 @@ The first step in this method is to [enable inventory reports](blob-inventory.md
 When you have an inventory report to analyze, grant yourself read access to the container where the report CSV file resides by assigning yourself the **Storage Blob Data Reader** role. Be sure to use the email address of the account you're using to run the report. To learn how to assign an Azure role to a user with Azure role-based access control (Azure RBAC), follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> To calculate the blob size from the inventory report, be sure to include **Content-Length** in the Custom Schema fields that has the actual size of the individual blob.
+> To calculate the blob size from the inventory report, make sure to include the **Content-Length** schema field in your rule definition.
 
 ## Create an Azure Synapse workspace
 
