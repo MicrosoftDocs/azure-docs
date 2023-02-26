@@ -21,8 +21,9 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 ## Use the built-in AIOps and machine learning capabilities of Azure Monitor
 
 - [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) - Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
-- [Application Map Intelligent view](../app/app-map.md) - Automatically maps dependencies between services and identifies potential root causes of application performance issues.
+- [Application Map Intelligent view](../app/app-map.md) and [Smart detection](../alerts/proactive-diagnostics.md) - Automatically maps dependencies between services and identifies potential root causes of application performance issues.
 - [Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md) - Learn metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.
+- [Predictive autoscale](../autoscale/autoscale-predictive.md) - Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.
 
 > [!NOTE]
 > These options use native KQL functions that run inside Azure Monitor. In other words, you don't need to copy data into memory objects or export it outside of Azure Monitor. 
