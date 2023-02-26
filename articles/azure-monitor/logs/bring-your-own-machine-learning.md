@@ -10,21 +10,23 @@ ms.date: 23/02/2023
 #customer-intent: As a data scientist, I want to understand how to use machine learning to improve my ability to predict IT needs and identify and respond to anomalous patterns in log data.
 
 ---
-# AIOps and machine learning in Azure Monitor Logs 
+# AIOps and machine learning in Azure Monitor 
 
-[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing, analyzing, and acting on data you collect from applications, services, and IT resources into Azure Monitor Logs using machine learning. Azure Monitor provides a number of features with built-in machine learning capabilities out-of-the-box enhance and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to boost your IT monitoring and operations without further investment.    
+[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor Logs using machine learning. Azure Monitor provides a number of features with built-in machine learning capabilities that provide insights on and automate data-driven tasks, such as security threat detection, predicting device failures and capacity usage, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations without further investment.    
 
-You can also run data science processes on top of data in Azure Monitor Logs to introduce other machine learning algorithms and customize Azure Monitor's analysis and response capabilities to your needs.    
+You can also run data science processes on top of data in Azure Monitor Logs to introduce other machine learning algorithms and customize Azure Monitor's analysis and response capabilities to address your business goals.    
 
 This article describes Azure Monitor's built-in AIOps capabilities and provides some examples of how you can create and apply customized machine learning models on top of data in Azure Monitor Logs. 
 
-## Use built-in AIOps and machine learning capabilities of Azure Monitor Logs
+## Use the built-in AIOps and machine learning capabilities of Azure Monitor
 
 - [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) - Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
-- Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
+- [Application Map Intelligent view](../app/app-map.md) - Automatically maps dependencies between services and identifies potential root causes of application performance issues.
+- [Smart maps, smart detection for Application Insights](../app/app-map.md) - Automatically identify potential root causes of issues in application performance.
+- [Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md) - Learn metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.
 
 > [!NOTE]
-> Both options above use native KQL functions that run inside Azure Monitor. In other words, you don't need to copy data into memory objects or export it outside of Azure Monitor. 
+> These options use native KQL functions that run inside Azure Monitor. In other words, you don't need to copy data into memory objects or export it outside of Azure Monitor. 
 
 ### When to Use
 - To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
@@ -45,6 +47,9 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 You can write your own machine learning by: 
 - Running built-in Kusto Query Language (KQL) plugins and functions (detect anomalies, identify outliers, detect patterns, and time series forecasting)
 - Implementing custom machine learning models 
+
+- Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
+
 
 ### Custom ML Models 
 
