@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 02/08/2023
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks

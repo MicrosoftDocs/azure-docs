@@ -92,7 +92,7 @@ Vertically split load by functionally sharding the database - moving separate ap
 ## Data import configurations
 
 - You can temporarily scale your instance to higher SKU size before starting a data import operation and then scale it down when the import is successful.
-- You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](https://datamigration.microsoft.com/) for online or offline migrations.
+- You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md) for online or offline migrations.
 
 ## Azure Database for MySQL memory recommendations
 

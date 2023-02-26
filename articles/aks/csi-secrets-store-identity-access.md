@@ -3,7 +3,6 @@ title: Provide an access identity to the Azure Key Vault Provider for Secrets St
 description: Learn about the various methods that you can use to allow the Azure Key Vault Provider for Secrets Store CSI Driver to integrate with your Azure key vault.
 author: nickomang 
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 01/31/2023
 ms.custom: devx-track-azurecli
