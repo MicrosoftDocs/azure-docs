@@ -22,7 +22,7 @@ The following table describes the supported data collection settings
 
 | **Data collection setting** | **Allowed Values** | **Description** |
 | -- | --- | -- |
-| **interval**  | \[1m, 30m] in 1m intervals | This value determines how often the agent collects data. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then this value defaults to _1m_ (60 seconds). |
+| **interval**  | \[1m, 30m] in 1m intervals | This value determines how often the agent collects data. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then this value defaults to _1 m_ (60 seconds). |
 | **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off ignores any namespace selections and collect data on all namespaces.
 | **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 
@@ -37,12 +37,12 @@ This table outlines the list of the container insights Log Analytics tables for 
 | --- | --- | --- | --- |
 | ContainerInventory | Yes | Yes | |
 | ContainerNodeInventory | Yes | No | Data collection setting for namespaces is not applicable since Kubernetes Node is not a namespace scoped resource |
-| KubeNodeInventory | Yes | No | Data collection setting namespaces is not applicable Kubernetes Node is not a namespace scoped resource |
+| KubeNodeInventory | Yes | No | Data collection setting for namespaces is not applicable Kubernetes Node is not a namespace scoped resource |
 | KubePodInventory | Yes | Yes ||
 | KubePVInventory | Yes | Yes | |
 | KubeServices | Yes | Yes | |
-| KubeEvents | No | Yes | Data collection setting interval is not applicable for the Kubernetes Events |
-| Perf | Yes | Yes\* | \*Data collection setting namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
+| KubeEvents | No | Yes | Data collection setting for interval is not applicable for the Kubernetes Events |
+| Perf | Yes | Yes\* | \*Data collection setting for namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
 | InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
 ## Custom Metrics
@@ -83,13 +83,13 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
     - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
 ## Cost presets and collection settings
-Cost presets and collection settings are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
+Cost presets and collection settings are available for selection in the Azure portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
 
 | Cost preset | Collection frequency | Namespace filters | Syslog collection |
 | --- | --- | --- | --- |
-| Standard | 1m | None | Not enabled |
-| Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
-| Syslog | 1m | None | Enabled by default |
+| Standard | 1 m | None | Not enabled |
+| Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
+| Syslog | 1 m | None | Enabled by default |
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -178,7 +178,7 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-paramet
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the AKS cluster
-- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
@@ -235,7 +235,7 @@ curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the AKS hybrid cluster
-- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
@@ -251,7 +251,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ---
 
 
-## Onboarding to an existing Azure Arc K8s Clusters
+## Onboarding to an existing Azure Arc K8s Cluster
 
 ## [Azure CLI](#tab/create-CLI)
 
@@ -292,7 +292,7 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the Arc cluster
-- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
@@ -309,7 +309,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 
 ## Data Collection Settings Updates
 
-To update your data collection Settings, modify the values in parameter files and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster. Or select your new options through the Monitoring Settings in the portal.
+To update your data collection Settings, modify the values in parameter files and redeploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster. Or select your new options through the Monitoring Settings in the portal.
 
 ## Troubleshooting
 
@@ -318,5 +318,5 @@ To update your data collection Settings, modify the values in parameter files an
 
 ## Limitations
 
-- Recommended alerts will not work as intended if the Data collection interval is configured more than 1 minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
+- Recommended alerts will not work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
