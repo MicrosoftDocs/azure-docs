@@ -1,6 +1,7 @@
 ---
 title: Set up an Azure Migrate scale-out appliance for agentless VMware migration
 description: Learn how to set up an Azure Migrate scale-out appliance to migrate Hyper-V VMs.
+author: ajaypartha95
 ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.topic: how-to
