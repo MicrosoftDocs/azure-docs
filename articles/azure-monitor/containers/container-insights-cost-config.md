@@ -236,7 +236,7 @@ curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the AKS hybrid cluster
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
-- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
+- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namespaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
 3. Deploy the ARM template
@@ -293,7 +293,7 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the Arc cluster
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
-- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
+- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namespaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
 3. Deploy the ARM template
