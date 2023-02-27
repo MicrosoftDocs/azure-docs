@@ -1,7 +1,6 @@
 ---
 title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
 description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
-services: container-service
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.custom: references_regions, devx-track-azurecli

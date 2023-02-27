@@ -2,7 +2,6 @@
 title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 10/11/2022
 ms.custom: devx-track-azurecli, event-tier1-build-2022

@@ -665,10 +665,8 @@ items:
           href: app/javascript-feature-extensions.md
         - name: Upgrade
           href: app/javascript-sdk-upgrade.md
-        - name: Troubleshoot
-          items:
-          - name: SDK load failure
-            href: app/javascript-sdk-load-failure.md
+        - name: Troubleshooting
+          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
       - name: Application Insights API summary
         displayName: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md

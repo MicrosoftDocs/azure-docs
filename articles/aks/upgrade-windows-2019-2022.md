@@ -1,7 +1,6 @@
 ---
 title: Upgrade Kubernetes workloads from Windows Server 2019 to 2022
 description: Learn how to upgrade the OS version for Windows workloads on AKS
-services: container-service
 ms.topic: article
 ms.date: 8/18/2022
 ms.author: viniap
