@@ -27,9 +27,9 @@ With Power BI Desktop you can visually explore your data through a free-form dra
       2. Right-click **Trusted Root Certification Authorities** and select **Import**. 
       3. Follow the prompts in the wizard to import the root certificate (for example, DigiCertGlobalRootCA.crt.pem) and click OK.
     
-## Get MySQL server information
+## Connect with Power BI desktop from Azure portal 
 
-Get the connection information needed to connect to the Azure Database for MySQL Flexible Server. You need the fully qualified server name and sign in credentials.
+You can open your database in Power BI desktop from Azure portal with a few clicks. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
@@ -48,8 +48,18 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 ## Connect to MySQL database from Power Query Desktop manually
 
-You can connect to Azure database for MySQL Flexible server with Power BI desktop directly. To make the connection, take the following steps:
- 
+You can connect to Azure database for MySQL Flexible server with Power BI desktop directly. To make the connection, follow the steps below.
+
+### Get the MySQL connection information 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Select the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports adding a connection to a single database and hence providing a database name is required for importing data. 
+
+### Connect with MySQL connector in Power BI desktop
+
 1. Select the **MySQL database** option in the connector selection.
 
 :::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="Screenshot of adding a mysql connection in power BI.":::
