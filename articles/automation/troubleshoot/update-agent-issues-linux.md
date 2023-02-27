@@ -103,7 +103,7 @@ As they are the directories of workspaces, the number of directories equals the 
 To fix the issue, run the following command: 
 
 ```
-sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/ PerformRequiredConfigurationChecks.py
+sudo su omsagent -c python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py
 ```
 
 This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
@@ -206,7 +206,7 @@ Curl on provided OMS endpoint
 
 ### Software repositories
 
-Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui).
+Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../../virtual-machines/workloads/redhat/redhat-rhui.md#troubleshoot-connection-problems-to-azure-rhui).
 
 Post making Network changes you can either rerun the Troubleshooter or
 

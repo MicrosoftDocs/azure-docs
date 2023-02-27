@@ -36,6 +36,10 @@ items:
     href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat-policy.md
+  - name: Deploy firewall with DDoS protection
+    href: tutorial-protect-firewall.md
+  - name: Integrate NAT gateway with Azure Firewall
+    href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
 
 - name: Samples
   items:
@@ -63,10 +67,16 @@ items:
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Structured Firewall Logs
+      href: firewall-structured-logs.md
+    - name: Network rule name logging
+      href: firewall-network-rule-logging.md
     - name: Threat intelligence
       href: threat-intel.md
     - name: Policy rule sets
       href: policy-rule-sets.md
+    - name: Policy Analytics
+      href: policy-analytics.md
     - name: Rule processing logic
       href: rule-processing.md
     - name: Service tags
@@ -93,6 +103,8 @@ items:
       href: firewall-performance.md
     - name: Long running TCP sessions
       href: long-running-sessions.md
+    - name: Easy upgrade/downgrade
+      href: easy-upgrade.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic

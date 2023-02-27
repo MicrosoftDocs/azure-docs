@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 11/24/2022
 ms.custom: engagement-fy23
 ---
 
@@ -39,7 +39,9 @@ Number of disks | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk
 Disk size list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)
 Network adapters list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
 CPU utilization | cpu.usage.average
-Memory utilization |mem.usage.average
+Memory utilization | mem.usage.average
+Processor model/name | vm.Config.Hardware.CpuModel 
+Number of Sockets in a Processor | vm.Config.Hardware.NumCpuPkgs
 **Per disk details** |
 Disk key value | disk.Key
 Dikunit number | disk.UnitNumber

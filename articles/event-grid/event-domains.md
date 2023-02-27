@@ -26,7 +26,7 @@ Event Grid has two built-in role definitions to make Azure RBAC easier for worki
 
 ## Subscribing to topics
 
-Subscribing to events for a topic within an event domain is the same as [creating an Event Subscription on a custom topic](./custom-event-quickstart.md) or subscribing to an event from an Azure service.
+Subscribing to events for a topic within an event domain is the same as [creating an event subscription on a custom topic](./custom-event-quickstart.md) or subscribing to an event from an Azure service.
 
 > [!IMPORTANT]
 > Domain topic is considered an **auto-managed** resource in Event Grid. You can create an event subscription at the [domain scope](#domain-scope-subscriptions) without creating the domain topic. In this case, Event Grid automatically creates the domain topic on your behalf. Of course, you can still choose to create the domain topic manually. This behavior allows you to worry about one less resource when dealing with a huge number of domain topics. When the last subscription to a domain topic is deleted, the domain topic is also deleted irrespective of whether the domain topic was manually created or auto-created. 

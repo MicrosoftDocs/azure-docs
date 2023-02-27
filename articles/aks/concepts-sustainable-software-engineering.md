@@ -1,7 +1,6 @@
 ---
 title: Concepts - Sustainable software engineering in Azure Kubernetes Services (AKS)
 description: Learn about sustainable software engineering in Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: conceptual
 ms.date: 10/25/2022
 ---
@@ -15,7 +14,7 @@ Sustainable software engineering is a shift in priorities and focus. In many cas
 * Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network traversal.
 * Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads.
 
-The guidance found in this article is focused on Azure Kubernetes Services you're building or operating on Azure and includes design and configuration checklists, recommended design, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
+The guidance found in this article is focused on Azure Kubernetes Services you are building or operating on Azure and includes design and configuration checklists, recommended design practices, and configuration options. Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ The guidance found in this article is focused on Azure Kubernetes Services you'r
 
 ## Understanding the shared responsibility model
 
-Sustainability – just like security – is a shared responsibility between the cloud provider and the customer or partner designing and deploying AKS clusters on the platform. Deploying AKS does not automatically make it sustainable, even if the [data centers are optimized for sustainability](https://infrastructuremap.microsoft.com/fact-sheets). Applications that aren't optimized may still emit more carbon than necessary.
+Sustainability – just like security – is a shared responsibility between the cloud provider and the customer or partner designing and deploying AKS clusters on the platform. Deploying AKS does not automatically make it sustainable, even if the [data centers are optimized for sustainability](https://infrastructuremap.microsoft.com/fact-sheets). Applications that are not properly optimized may still emit more carbon than necessary.
 
 Learn more about the [shared responsibility model for sustainability](/azure/architecture/framework/sustainability/sustainability-design-methodology#a-shared-responsibility).
 
@@ -210,7 +209,7 @@ Transport Layer Security (TLS) ensures that all data passed between the web serv
 
 ### Use cloud native network security tools and controls
 
-Azure Font Door and Application Gateway help manage traffic from web applications while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots. Using these capabilities helps remove unnecessary data transmission and reduces the burden on the cloud infrastructure, with lower bandwidth and less infrastructure requirements.
+Azure Font Door and Application Gateway help manage traffic from web applications while Azure Web Application Firewall provides protection against OWASP top 10 attacks and load shedding bad bots at the network edge. Using these capabilities helps remove unnecessary data transmission and reduces the burden on the cloud infrastructure, with lower bandwidth and less infrastructure requirements.
 
 * Use [Application Gateway Ingress Controller (AGIC) in AKS](/azure/architecture/example-scenario/aks-agic/aks-agic) to filter and offload traffic at the network edge from reaching your origin to reduce energy consumption and carbon emissions.
 

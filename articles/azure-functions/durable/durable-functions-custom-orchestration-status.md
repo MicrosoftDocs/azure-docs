@@ -2,7 +2,7 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python
 ---
@@ -137,17 +137,15 @@ param($name)
 ```java
 @FunctionName("HelloCities")
 public String helloCitiesOrchestrator(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        String result = "";
-        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
-        ctx.setCustomStatus("Tokyo");
-        result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
-        ctx.setCustomStatus("London");
-        result += ctx.callActivity("SayHello", "Seattle", String.class).await();
-        ctx.setCustomStatus("Seattle");
-        return result;
-    });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String result = "";
+    result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+    ctx.setCustomStatus("Tokyo");
+    result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
+    ctx.setCustomStatus("London");
+    result += ctx.callActivity("SayHello", "Seattle", String.class).await();
+    ctx.setCustomStatus("Seattle");
+    return result;
 }
 
 @FunctionName("SayHello")
@@ -266,7 +264,13 @@ public HttpResponseMessage startHelloCities(
     String instanceId = client.scheduleNewOrchestrationInstance("HelloCities");
     context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
 
-    OrchestrationMetadata metadata = client.waitForInstanceStart(instanceId, Duration.ofMinutes(5), true);
+    OrchestrationMetadata metadata;
+    try {
+        metadata = client.waitForInstanceStart(instanceId, Duration.ofMinutes(5), true);
+    } catch (TimeoutException ex) {
+        return req.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
     while (metadata.readCustomStatusAs(String.class) != "London") {
         Thread.sleep(200);
         metadata = client.getInstanceMetadata(instanceId, true);
@@ -423,30 +427,28 @@ if ($userChoice -eq 3) {
 
 ```java
 @FunctionName("CityRecommender")
-public String cityRecommender(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            int userChoice = ctx.getInput(int.class);
-            switch (userChoice) {
-                case 1:
-                    ctx.setCustomStatus(new Recommendation(
-                            new String[]{ "Tokyo", "Seattle" },
-                            new String[]{ "Spring", "Summer" }));
-                    break;
-                case 2:
-                    ctx.setCustomStatus(new Recommendation(
-                            new String[]{ "Seattle", "London" },
-                            new String[]{ "Summer" }));
-                    break;
-                case 3:
-                    ctx.setCustomStatus(new Recommendation(
-                            new String[]{ "Tokyo", "London" },
-                            new String[]{ "Spring", "Summer" }));
-                    break;
-            }
+public void cityRecommender(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    int userChoice = ctx.getInput(int.class);
+    switch (userChoice) {
+        case 1:
+            ctx.setCustomStatus(new Recommendation(
+                    new String[]{ "Tokyo", "Seattle" },
+                    new String[]{ "Spring", "Summer" }));
+            break;
+        case 2:
+            ctx.setCustomStatus(new Recommendation(
+                    new String[]{ "Seattle", "London" },
+                    new String[]{ "Summer" }));
+            break;
+        case 3:
+            ctx.setCustomStatus(new Recommendation(
+                    new String[]{ "Tokyo", "London" },
+                    new String[]{ "Spring", "Summer" }));
+            break;
+    }
 
-            // Wait for user selection with an external event handler
-        });
+    // Wait for user selection with an external event
 }
 
 class Recommendation {
@@ -578,22 +580,20 @@ return $isBookingConfirmed
 
 ```java
 @FunctionName("ReserveTicket")
-public String reserveTicket(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            String userID = ctx.getInput(String.class);
-            int discount = ctx.callActivity("CalculateDiscount", userID, int.class).await();
-            ctx.setCustomStatus(new DiscountInfo(discount, 60, "https://www.myawesomebookingweb.com"));
+public boolean reserveTicket(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String userID = ctx.getInput(String.class);
+    int discount = ctx.callActivity("CalculateDiscount", userID, int.class).await();
+    ctx.setCustomStatus(new DiscountInfo(discount, 60, "https://www.myawesomebookingweb.com"));
 
-            boolean isConfirmed = ctx.waitForExternalEvent("BookingConfirmed", boolean.class).await();
-            if (isConfirmed) {
-                ctx.setCustomStatus("Thank you for confirming your booking.");
-            } else {
-                ctx.setCustomStatus("There was a problem confirming your booking. Please try again.");
-            }
+    boolean isConfirmed = ctx.waitForExternalEvent("BookingConfirmed", boolean.class).await();
+    if (isConfirmed) {
+        ctx.setCustomStatus("Thank you for confirming your booking.");
+    } else {
+        ctx.setCustomStatus("There was a problem confirming your booking. Please try again.");
+    }
 
-            return isConfirmed;
-        });
+    return isConfirmed;
 }
 
 class DiscountInfo {
@@ -681,19 +681,17 @@ Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C');
 
 ```java
 @FunctionName("MyCustomStatusOrchestrator")
-public String myCustomStatusOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            // ... do work ...
+public void myCustomStatusOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // ... do work ...
 
-            // update the status of the orchestration with some arbitrary data
-            CustomStatusPayload payload = new CustomStatusPayload();
-            payload.nextActions = new String[] { "A", "B", "C" };
-            payload.foo = 2;
-            ctx.setCustomStatus(payload);
+    // update the status of the orchestration with some arbitrary data
+    CustomStatusPayload payload = new CustomStatusPayload();
+    payload.nextActions = new String[] { "A", "B", "C" };
+    payload.foo = 2;
+    ctx.setCustomStatus(payload);
 
-            // ... do more work ...
-        });
+    // ... do more work ...
 }
 
 class CustomStatusPayload {

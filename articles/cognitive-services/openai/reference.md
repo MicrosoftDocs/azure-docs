@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI REST API reference
+title: Azure OpenAI Service REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use the Azure OpenAI REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
+description: Learn how to use Azure OpenAI's REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -14,22 +14,22 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI REST API reference
+# Azure OpenAI Service REST API reference
 
-This article provides details on the REST API endpoints for the Azure OpenAI Service, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
+This article provides details on the REST API endpoints for Azure OpenAI, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
 
 * **Management APIs**: The Azure Resource Manager (ARM) provides the management layer in Azure that allows you to create, update and delete resource in Azure. All services use a common structure for these operations. [Learn More](../../azure-resource-manager/management/overview.md)
-* **Service APIs**: The Azure OpenAI service provides you with a set of REST APIs for interacting with the resources & models you deploy via the Management APIs.
+* **Service APIs**: Azure OpenAI provides you with a set of REST APIs for interacting with the resources & models you deploy via the Management APIs.
 
 ## Management APIs
 
-The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. All Cognitive Services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
+Azure OpenAI is deployed as a part of the Azure Cognitive Services. All Cognitive Services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
 
 [**Management APIs reference documentation**](/rest/api/cognitiveservices/)
 
 ## Authentication
 
-The Azure OpenAI service provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
+Azure OpenAI provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
 
 - **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides a tutorial for how to make calls with this type of authentication
 
@@ -37,13 +37,13 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 
 ### REST API versioning
 
-The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
+The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure. For example:
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01
 ```
 
-We currently have the following versions available: ```2022-06-01-preview```
+We currently have the following versions available: ```2022-12-01```
 
 ## Completions
 With the Completions operation, the model will generate one or more predicted completions based on a provided prompt. The service can also return the probabilities of alternative tokens at each position.
@@ -60,11 +60,11 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
 
 **Supported versions**
 
-- `2022-06-01-preview`
+- `2022-12-01`
 
 **Request body**
 
@@ -87,7 +87,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{
@@ -130,11 +130,11 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
 
 **Supported versions**
 
-- `2022-06-01-preview`
+- `2022-12-01`
 
 **Request body**
 
@@ -146,7 +146,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{\"input\": \"The food was delicious and the waiter...\"}"
@@ -175,5 +175,5 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Next steps
 
-Learn about [managing deployments, models, and finetuning with the REST API](/rest/api/cognitiveservices/azureopenai/deployments/create).
+Learn about [managing deployments, models, and finetuning with the REST API](/rest/api/cognitiveservices/azureopenaistable/deployments/create).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

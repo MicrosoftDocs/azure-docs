@@ -7,6 +7,8 @@ ms.author: shaas
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/03/2022
+ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage block blobs with PowerShell

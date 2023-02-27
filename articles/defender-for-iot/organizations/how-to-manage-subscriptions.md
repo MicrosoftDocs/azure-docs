@@ -20,7 +20,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
-- A [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user role for the Azure subscription that you'll be using for the integration
+- A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
 
 ## Calculate committed devices for OT monitoring
 
@@ -47,85 +47,84 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 **To onboard a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. Select **Add plan**.
 
-1. In the **Purchase** pane, define the plan:
+1. In the **Plan settings** pane, define the plan:
 
-     - **Purchase method**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial).
+    - **Subscription**. Select the subscription where you would like to add a plan.
+
+        You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
+
+        > [!TIP]
+        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
+
+     - **Price plan**. Select a monthly or annual commitment, or a [trial](billing.md#free-trial).
 
         Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
 
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-    - **Subscription**. Select the subscription where you would like to add a plan.
+    - **Committed sites**. Relevant for annual commitments only. Enter the number of committed sites.
 
-        You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
-
-        > [!TIP]
-        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
-
-    - **Number of sites**: Relevant for annual commitments only. Enter the number of committed sites.
-
-    - **Committed devices**. If you selected a monthly or annual commitment, enter the number of assets you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 100 devices.
+    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of [committed devices](#calculate-committed-devices-for-ot-monitoring) you'll want to monitor. If you select a trial, there is a default of 1000 devices.
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan-2.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png":::
 
-1. Select the **I accept the terms** option, and then select **Save**.
+1. Select **Next**.
+
+1. Review your plan, select the **I accept the terms** option, and then select **Purchase**.
 
 Your new plan is listed under the relevant subscription in the **Plans** grid.
 
-
 ## Edit a plan for OT networks
 
-Edit your Defender for IoT plans for OT networks if you need change your commitment tier or update the number of committed devices or committed sites.
+Edit your Defender for IoT plans for OT networks if you need change your plan commitment or update the number of committed devices or sites.
 
 For example, you may have more devices that require monitoring if you're increasing existing site coverage, have discovered more devices than expected, or there are network changes such as adding switches.
 
-If the actual number of devices exceeds the number of committed devices on your plan, you'll see a warning on the **Pricing** page, and will need to adjust the number of committed devices on your plan accordingly.
-
 **To edit a plan:**
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
 
 1. Make any of the following changes as needed:
 
-   - Change your purchase method
+   - Change your price plan from a trial to a monthly or annual commitment
    - Update the number of committed devices
    - Update the number of sites (annual commitments only)
 
-1. Select the **I accept the terms** option, and then select **Save**.
+1. Select the **I accept the terms** option, and then select **Purchase**.
 
-Changes to your plan will take effect one hour after confirming the change.  This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
+1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
 
-> [!NOTE]
-> **For an on-premises management console:** After any changes are made, you'll need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+
+Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
 
 ## Cancel a Defender for IoT plan
 
 You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a new payment entity, or if you no longer need the service.
 
 > [!IMPORTANT]
-> Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT services. If you have an Enterprise IoT plan on your subscription, do this with care.
+> Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IoT services. If you have an Enterprise IoT plan on your subscription, do this with care.
 >
 > To cancel only an Enterprise IoT plan, do so from Microsoft 365. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 >
 
 **Prerequisites**: Before canceling your plan, make sure to delete any sensors that are associated with the subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-
 **To cancel a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right and select **Cancel plan**.
 
-1. In the plan cancellation dialog, confirm that you've removed all associated sensors, and then select **Confirm cancellation**.
+1. In the cancellation dialog, select **I agree** to cancel the Defender for IoT plan from the subscription.
 
 Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you'll only be charged for the time that the subscription was active.
 
@@ -145,7 +144,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use.
 
-1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-ot-sensors).
+1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-an-ot-sensor).
 
     - Replicate site and sensor hierarchy as is.
 

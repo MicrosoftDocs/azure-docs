@@ -2,6 +2,7 @@
 title: Hyper-V VM disaster recovery using Azure Site Recovery and PowerShell
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
 author: ankitaduttaMSFT
+ms.service: site-recovery
 manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020

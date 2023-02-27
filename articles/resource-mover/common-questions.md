@@ -1,13 +1,13 @@
 ---
 title: Common questions about Azure Resource Mover?
 description: Get answers to common questions about  Azure Resource Mover
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: evansma
-ms.service: resource-move
-ms.custom: ignite-2022
+ms.service: resource-mover
+ms.custom: ignite-2022, engagement-fy23
 ms.topic: conceptual
-ms.date: 02/21/2021
-ms.author: raynew
+ms.date: 12/23/2022
+ms.author: ankitadutta
 ---
 
 # Common questions
@@ -35,11 +35,11 @@ Azure Resource Mover is currently available as follows:
 
 Using Resource Mover, you can currently move the following resources across regions:
 
-- Azure VMs and associated disks
+- Azure VMs and associated disks (Azure Spot VMs are not currently supported)
 - NICs
 - Availability sets 
 - Azure virtual networks 
-- Public IP addresses
+- Public IP addresses (Public IP will not be retained across Azure region)
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools

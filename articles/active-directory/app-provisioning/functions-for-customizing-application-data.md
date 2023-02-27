@@ -294,7 +294,7 @@ The **interval** string must have one of the following values:
 | Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
 | Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
 | Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
-| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 2 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
 ---
 ### DateDiff

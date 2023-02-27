@@ -1,8 +1,8 @@
 ---
 title: Azure Maps Drawing Conversion errors and warnings
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps

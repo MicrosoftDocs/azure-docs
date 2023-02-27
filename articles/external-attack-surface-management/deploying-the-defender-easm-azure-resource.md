@@ -49,6 +49,7 @@ Before you create a Defender EASM resource group, we recommend that you are fami
       -  swedencentral
       -  eastasia
       -  japaneast
+      -  westeurope
 
     ![Screenshot of create resource group basics tab](media/QuickStart-3.png)
 
@@ -80,7 +81,8 @@ After you create a resource group, you can create EASM resources within the grou
     - **Region**: Select an Azure location. The following regions are supported: 
     
       -  southcentralus
-      -  eastus, australiaeast
+      -  eastus
+      -  australiaeast
       -  westus3 
       -  swedencentral
       -  eastasia

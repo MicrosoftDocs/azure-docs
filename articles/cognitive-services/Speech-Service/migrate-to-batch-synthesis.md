@@ -43,7 +43,7 @@ The Long Audio API is limited to the following regions:
 
 ## Voices list
 
-Batch synthesis API supports all [text-to-speech voices and styles](language-support.md?tabs=stt-tts).
+Batch synthesis API supports all [text-to-speech voices and styles](language-support.md?tabs=tts).
 
 The Long Audio API is limited to the set of voices returned by a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
@@ -55,7 +55,7 @@ Long Audio API text inputs are uploaded from a file that meets the following req
 * One plain text (.txt) or SSML text (.txt) file encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom). Don't use compressed files such as ZIP. If you have more than one input file, you must submit multiple requests.
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs. For plain text, each paragraph is separated by a new line. For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs.
 
-With Batch synthesis API, you can use any of the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements), including the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The `audio`, `mstts:backgroundaudio`, and `lexicon` elements aren't supported by Long Audio API.
+With Batch synthesis API, you can use any of the [supported SSML elements](speech-synthesis-markup.md), including the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The `audio`, `mstts:backgroundaudio`, and `lexicon` elements aren't supported by Long Audio API.
 
 ## Audio output formats
 

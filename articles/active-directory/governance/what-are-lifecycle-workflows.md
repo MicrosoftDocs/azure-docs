@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/26/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -68,7 +68,19 @@ You can use Lifecycle workflows to address any of the following conditions.
 - **Automate user account management**: Making sure users who are leaving have their access to resources revoked is a key part of the identity lifecycle process. Lifecycle Workflows allow you to automate the disabling and removal of user accounts.
 - **Integrate with Logic Apps**: Ability to apply logic apps to extend workflows for more complex scenarios using your existing Logic apps.
 
+## License requirements
 
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+
+
+### How many licenses must you have?
+
+To utilize the Lifecycle Workflows feature, you must have at least one Azure AD Premium P2 license in your tenant. With one license, you're able to:
+
+- Create, manage, and delete workflows for any, or all, users in your tenant up to the total limit of 50 workflows.
+- Trigger on-demand and scheduled workflow execution.
+- Manage and configure existing tasks to create workflows that are specific to your needs.
+- Create up to 100 custom task extensions to be used in your workflows.
 
 
 ## Next steps

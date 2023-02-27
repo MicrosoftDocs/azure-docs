@@ -81,7 +81,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 The Microsoft Sentinel output plugin is available in the Logstash collection.
 
-- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)** plugin.   
+- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-sentinel-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)** plugin.   
 - If your Logstash system does not have Internet access, follow the instructions in the Logstash [Offline Plugin Management](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) document to prepare and use an offline plugin pack. (This will require you to build another Logstash system with Internet access.)
  
 ### Create a sample file
@@ -213,12 +213,12 @@ In this section, you create resources to use for your DCR, in one of these scena
 To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal.md)):  
 
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
-1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-application).
-1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint).
-1. [Add custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-custom-log-table). 
+1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#configure-the-application).
+1. [Create a data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-a-data-collection-endpoint).
+1. [Add a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#add-a-custom-log-table). 
 1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
-1. [Collect information from DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
-1. [Assign permissions to DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-dcr).
+1. [Collect information from the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
+1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-the-dcr).
 
     Skip the Send sample data step.
 
@@ -390,12 +390,13 @@ After you retrieve the required values:
 
 #### Optional configuration
 
-|Field  |How to retrieve  |Default value |
+|Field  |Description  |Default value |
 |---------|---------|---------|
 |`key_names` |An array of strings. Provide this field if you want to send a subset of the columns to Log Analytics. |None (field is empty) |
 |`plugin_flush_interval` |Defines the maximal time difference (in seconds) between sending two messages to Log Analytics.  |`5` |
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
 |`compress_data` |When this field is `True`, the event data is compressed before using the API. Recommended for high throughput pipelines. |`False` |
+|`proxy` |Specify which proxy URL to use for all API calls. |None (field is empty) |
 
 #### Example: Output plugin configuration section
 
@@ -410,6 +411,7 @@ output {
       dcr_stream_name => "<enter your stream name here> "
       create_sample_file=> false
       sample_file_path => "c:\\temp"
+      proxy => "http://proxy.example.com"
     }
 }
 ```

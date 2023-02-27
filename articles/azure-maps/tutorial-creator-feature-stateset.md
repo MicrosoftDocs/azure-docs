@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a feature stateset'
 titleSuffix: Microsoft Azure Maps
 description: The third tutorial on Microsoft Azure Maps Creator. How to create a feature stateset.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -30,7 +30,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 > * In the URL examples in this article you will need to replace:
->    * `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>    * `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 >    * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial
 
 ## Create a feature stateset
@@ -44,7 +44,7 @@ To create a stateset:
 3. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 4. Select the **Headers** tab.
@@ -95,7 +95,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 3. Enter the following URL to the [Feature Statesets API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset)):
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 4. Select the **Headers** tab.

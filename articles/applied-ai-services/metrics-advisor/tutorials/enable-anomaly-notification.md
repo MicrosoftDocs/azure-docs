@@ -3,7 +3,8 @@ title: Metrics Advisor anomaly notification e-mails with Azure Logic Apps
 description: Learn how to automate sending e-mail alerts in response to Metric Advisor anomalies
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
+ms.service: applied-ai-services
+ms.subservice: metrics-advisor
 ms.topic: tutorial 
 ms.date: 05/20/2021
 ---

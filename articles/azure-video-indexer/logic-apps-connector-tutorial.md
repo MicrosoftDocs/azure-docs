@@ -8,11 +8,9 @@ ms.date: 09/21/2020
 
 # Use Azure Video Indexer with Logic App and Power Automate
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 Azure Video Indexer [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Azure Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
 
-To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
+To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://make.powerautomate.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
 
 To help you get started quickly with the Azure Video Indexer connectors, we will do a walkthrough of an example Logic App and Power Automate solution you can set up. This tutorial shows how to set up flows using Logic Apps. However, the editors and capabilities are almost identical in both solutions, thus the diagrams and explanations are applicable to both Logic Apps and Power Automate.
 

@@ -3,8 +3,11 @@ title: Defender for Cloud Planning multicloud security defining adoption strateg
 description: Learn about defining broad requirements for business needs and ownership in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022
+author: bmansheim
+ms.author: benmansheim
 ms.date: 10/03/2022
 ---
+
 # Define an adoption strategy
 
 This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection platform (CWPP) solution across multicloud resources with Microsoft Defender for Cloud.

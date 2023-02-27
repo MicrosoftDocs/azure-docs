@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 02/16/2023
 ms.author: helohr
 manager: femila
 ---
@@ -24,6 +24,35 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
+>[!IMPORTANT]
+>There's currently a bug in version 1.2.3918 of the Remote Desktop client for Windows that causes a client regression when you use Private Link. In order to use Private Link in your deployment, you must use [version 1.2.3667](whats-new-client-windows.md#updates-for-version-123667) until we can resolve the bug.
+>
+>- [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvS)
+>- [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5axvR)
+>- [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5aCCE)
+>
+>This only applies to version 1.2.3918. As later releases of the Remote Desktop come out, you must use those instead. Using an earlier version of the Remote Desktop client can potentially cause security issues. We strongly recommend against using this version of the client for environments or VMs that you aren't using to preview Private Link.
+
+### Re-register your resource provider
+
+In the public preview version of Private Link, after you create your resources, you'll need to re-register them to your resource provider before you can start using Private Link. Re-registering allows the service to download and assign the new roles that will let you use this feature. 
+
+To re-register your resource provider:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Subscriptions**.
+
+1. Select the name of your subscription.
+
+1. Select **Resource providers**.
+
+1. Search for **Microsoft.DesktopVirtualization**.
+
+1. Select **Microsoft.DesktopVirtualization**, then select **Re-register**.
+
+1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
+
 ## Enable preview content on your Azure subscription
 
 In order to use Private Link, you'll need to enable preview features on your Azure subscription first. To enable preview features:
@@ -32,9 +61,9 @@ In order to use Private Link, you'll need to enable preview features on your Azu
 
 1. In the search box under **Preview features**, search for **Private**.
 
-2. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
+1. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
 
-3. In the bottom-right corner of the screen, select **Register**.
+1. In the bottom-right corner of the screen, select **Register**.
 
 Once you select **Register**, you'll be able to use Private Link.
 
@@ -65,7 +94,7 @@ To configure Private Link in the Azure portal:
 
 1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
 
-1. Select **Add a private endpoint**.
+1. Select **New private endpoint**.
 
 1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
 
@@ -85,7 +114,7 @@ To configure Private Link in the Azure portal:
 
 1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
 
-1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. <!--What's the difference between these two and why should I choose each?-->
+1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. 
     
     - If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member.
 
@@ -95,7 +124,7 @@ To configure Private Link in the Azure portal:
 
 1. When you're finished, select **Next: DNS >**.
 
-1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. The private DNS zone name is `privatelink.wvd.microsoft.com`. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 1. When you're done, select **Next: Tags >**.
 
@@ -145,6 +174,11 @@ To control public traffic:
 Follow the directions in [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md) to set up a network security group (NSG). You can use this NSG to block the **WindowsVirtualDesktop** service tag. If you block this service tag, all service traffic will use private routes only.
 
 When you set up your NSG, you must configure it to allow both the URLs in the [required URL list](safe-url-list.md) and your private endpoints. Make sure to include the URLs for Azure Monitor.
+
+> [!NOTE]
+> If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource.
+>
+> If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
 ## Validate your Private Link deployment
 

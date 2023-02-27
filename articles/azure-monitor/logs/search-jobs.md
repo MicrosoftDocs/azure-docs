@@ -12,7 +12,9 @@ ms.custom: references_regions
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently not supported in workspaces with [customer-managed keys](customer-managed-keys.md) and in the China East 2 region.
+> The search job feature is currently not supported for the following cases:
+> - Workspaces with [customer-managed keys](customer-managed-keys.md). 
+> - Workspaces in the China East 2 region.
 
 ## When to use search jobs
 
@@ -39,7 +41,7 @@ The search results table schema is based on the source table schema and the spec
 | _OriginalType          | *Type* value from source table. |
 | _OriginalItemId        | *_ItemID* value from source table. |
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
-| TimeGenerated          | Time at which the search job retrieved the record from the original table. |
+| TimeGenerated          | Time at which the search job ran. |
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 

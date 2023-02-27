@@ -133,6 +133,20 @@ When you're successfully connected and synced:
 > [!NOTE]
 > ServiceNow has a rate limit for requests per hour. To configure the limit, define **Inbound REST API rate limiting** in the ServiceNow instance.
 
+## Payload structure
+
+The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
+
+The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+
+For Log Search Alerts, the structure is:
+
+- Alert  (alert rule name) : \<value>
+- Search Query : \<value>
+- Search Start Time(UTC) : \<value>
+- Search End Time(UTC) : \<value>
+- AffectedConfigurationItems : [\<list of impacted configuration items>]
+
 ## Next steps
 
 * [ITSM Connector overview](itsmc-overview.md)

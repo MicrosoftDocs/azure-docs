@@ -53,7 +53,7 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 The format of a revision name is:
 
 ```text
-<container app name>--<revision suffix>
+<CONTAINER_APP_NAME>--<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.

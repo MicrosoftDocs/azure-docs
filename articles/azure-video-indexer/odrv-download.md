@@ -40,7 +40,8 @@ For a list of file formats that you can use with Azure Video Indexer, see [Stand
 
    `https://onedrive.live.com/download?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
 
-1. Now enter this URL in the Azure Video Indexer portal in the URL field.
+1. Now enter this URL in the Azure Video Indexer website in the URL field.
+
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-url.png" alt-text="Screenshot that shows the onedrive url field.":::
 
@@ -61,7 +62,7 @@ This section describes some of the optional parameters and when to set them. For
 
 #### externalID
 
-Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer portal can be searched via the specified external ID.
+Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer website can be searched via the specified external ID.
 
 #### callbackUrl
 

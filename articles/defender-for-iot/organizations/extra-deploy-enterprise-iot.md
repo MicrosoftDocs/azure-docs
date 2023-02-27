@@ -1,7 +1,7 @@
 ---
 title: Extra deployment steps and samples for Enterprise IoT deployment - Microsoft Defender for IoT
 description: Describes extra deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ms.date: 08/08/2022
 ---
 
@@ -95,7 +95,7 @@ sudo apt purge -y microsoft-eiot-sensor
 > [!IMPORTANT]
 > If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 >
-> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Plans and pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
 >
 
 ## Next steps

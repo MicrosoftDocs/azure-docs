@@ -5,7 +5,7 @@ author: karlerickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java
 description: This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps.
 ---
 
@@ -112,7 +112,7 @@ The following list describes the infrastructure requirements for public applicat
 * A subnet must only have one instance of Azure Spring Apps.
 * Adherence to at least one Security Benchmark should be enforced.
 * Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
-* Azure DDoS Protection standard should be enabled.
+* Azure DDoS Protection should be enabled.
 * Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.

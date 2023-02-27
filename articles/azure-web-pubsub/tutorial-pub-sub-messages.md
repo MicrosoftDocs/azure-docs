@@ -5,70 +5,81 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 01/17/2023
 ---
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages and using the service SDK.
+The Azure Web PubSub service helps you to easily build real-time web messaging applications. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages using the Web PubSub service SDK.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Web PubSub service instance
 > * Generate the full URL to establish the WebSocket connection
-> * Subscribe messages using standard WebSocket protocol
-> * Publish messages using service SDK
+> * Create a Web PubSub subscriber client to receive messages using standard WebSocket protocol
+> * Create a Web PubSub publisher client to publish messages using Web PubSub service SDK
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [azure-web-pubsub-tutorial-prerequisites](includes/cli-awps-prerequisites.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
-- This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+# [C#](#tab/csharp)
 
-## Create an Azure Web PubSub instance
+[.NET Core](https://dotnet.microsoft.com/download)
+
+# [JavaScript](#tab/javascript)
+
+[Node.js](https://nodejs.org)
+
+# [Python](#tab/python)
+
+[Python](https://www.python.org/)
+
+# [Java](#tab/java)
+
+* [Java Development Kit (JDK)](/java/openjdk/install/).
+* [Apache Maven](https://maven.apache.org/download.cgi)
+
+---
+
+## Setup 
+
+# [Local Azure CLI](#tab/LocalBash)
+
+[!INCLUDE [azure-web-pubsub-az-cli-setup](includes/cli-awps-setup.md)]
+
+# [Azure Cloud Shell ](#tab/Cloud)
+
+[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+---
 
 ### Create a resource group
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
+---
+
+## 1. Create an Azure Web PubSub instance
+
+
 ### Create a Web PubSub instance
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
-### Get the ConnectionString for future use
+### Get the connection string
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
-Copy the fetched **ConnectionString** and it will be used later in this tutorial as the value of `<connection_string>`.
+## Create a subscriber client
 
-## Set up the project
-### Prerequisites
-
-# [C#](#tab/csharp)
-
-* [.NET Core 2.1 or above](https://dotnet.microsoft.com/download)
-
-# [JavaScript](#tab/javascript)
-
-* [Node.js 12.x or above](https://nodejs.org)
-
-# [Python](#tab/python)
-* [Python](https://www.python.org/)
-
-# [Java](#tab/java)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
-- [Apache Maven](https://maven.apache.org/download.cgi)
-
----
-
-## Set up the subscriber
-
-Clients connect to the Azure Web PubSub service through the standard WebSocket protocol using [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The service SDK provides helper methods to generate the token. In this tutorial, the subscriber directly generates the token from *ConnectionString*. In real applications, we usually use a server-side application to handle the authentication/authorization workflow. Try the [Build a chat app](./tutorial-build-chat.md) tutorial to better understand the workflow.
+Clients connect to the Azure Web PubSub service through the standard WebSocket protocol using [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The service SDK provides helper methods to generate the token. In this tutorial, the subscriber directly generates the token from *ConnectionString*. In real applications, a server-side application usually handles the authentication/authorization workflow. To better understand the workflow, see the tutorial [Build a chat app](./tutorial-build-chat.md).
 
 # [C#](#tab/csharp)
 
-1. First let's create a new folder `subscriber` for this project and install required dependencies:
+1. First, create a project directory named `subscriber` for this project and install required dependencies:
+
     * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connection. You can use any API/library that supports WebSocket to do so.
     * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
 
@@ -80,7 +91,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     dotnet add package Azure.Messaging.WebPubSub --version 1.0.0
     ```
 
-2. Update the `Program.cs` file to connect to the service:
+1. Replace the code in the `Program.cs` with the following code that will connect to the service:
 
     ```csharp
     using System;
@@ -123,21 +134,21 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     
     ```
 
-    The code above creates a WebSocket connection to connect to a hub in Azure Web PubSub. Hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
-    
-    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `WebPubSubServiceClient.GetClientAccessUri()` in Web PubSub SDK to generate a url to the service that contains the full URL with a valid access token.
-    
-    After the connection is established, you'll receive messages through the WebSocket connection. So we use `client.MessageReceived.Subscribe(msg => ...));` to listen to incoming messages.
+    The code creates a WebSocket connection that is connected to a hub in Web PubSub. A hub is a logical unit in Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Web PubSub.
 
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+    The Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The sample code uses `WebPubSubServiceClient.GetClientAccessUri()` in Web PubSub SDK to generate a URL to the service that contains the full URL with a valid access token.
+
+     After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
+
+1. Run the following command:
 
     ```bash
-    dotnet run "<connection_string>" "myHub1"
+    dotnet run $connection_string "myHub1"
     ```
 
 # [JavaScript](#tab/javascript)
 
-1. First let's create a new folder `subscriber` for this project and install required dependencies:
+1. First, create a project directory named `subscriber` and install required dependencies:
 
     ```bash
     mkdir subscriber
@@ -147,7 +158,8 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     npm install --save @azure/web-pubsub
 
     ```
-2. Then use WebSocket API to connect to service. Create a `subscribe.js` file with the below code:
+
+1. Use the WebSocket API to connect to the Web PubSub service. Create a `subscribe.js` file with the following code:
 
     ```javascript
     const WebSocket = require('ws');
@@ -164,23 +176,23 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     main();
     ```
-    
-    The code above creates a WebSocket connection to connect to a hub in Azure Web PubSub. Hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
-    
-    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `WebPubSubServiceClient.getClientAccessToken()` in Web PubSub SDK to generate a url to the service that contains the full URL with a valid access token.
-    
-    After connection is established, you'll receive messages through the WebSocket connection. So we use `WebSocket.on('message', ...)` to listen to incoming messages.
-    
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+
+    The code creates a WebSocket connection that is connected to a hub in Web PubSub. A hub is a logical unit in Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Web PubSub.
+
+    The Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The sample code uses `WebPubSubServiceClient.GetClientAccessUri()` in Web PubSub SDK to generate a URL to the service that contains the full URL with a valid access token.
+
+     After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
+
+1. Run the following command:
 
     ```bash
-    export WebPubSubConnectionString="<connection-string>"
+    export WebPubSubConnectionString=$connection_string
     node subscribe
     ```
 
 # [Python](#tab/python)
 
-1. First let's create a new folder `subscriber` for this project and install required dependencies:
+1. First, create a project directory named `subscriber` and install required dependencies:
 
     ```bash
     mkdir subscriber
@@ -195,7 +207,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     ```
 
-2. Then use WebSocket API to connect to service. Create a `subscribe.py` file with the below code:
+1. Use the WebSocket API to connect to the Web PubSub service. Create a `subscribe.py` file with the following code:
 
     ```python
     import asyncio
@@ -230,33 +242,35 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     
     ```
 
-    The code above creates a WebSocket connection to connect to a hub in Azure Web PubSub. Hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
-    
-    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `service.get_client_access_token()` provided by the SDK to generate a url to the service that contains the full URL with a valid access token.
-    
-    After connection is established, you'll receive messages through the WebSocket connection. So we use `await ws.recv()` to listen to incoming messages.
+    The code creates a WebSocket connection that is connected to a hub in Web PubSub. A hub is a logical unit in Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Web PubSub.
 
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+    The Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The sample code uses `WebPubSubServiceClient.GetClientAccessUri()` in Web PubSub SDK to generate a URL to the service that contains the full URL with a valid access token.
+
+    After the connection is established, your client will receive messages through the WebSocket connection. Use `await ws.recv()` to listen for incoming messages.
+
+1. Run the following command:
 
     ```bash
-    python subscribe.py "<connection_string>" "myHub1"
+    python subscribe.py $connection_string "myHub1"
     ```
 
 # [Java](#tab/java)
-1. First let's create a new folder `pubsub` for this tutorial
+
+1. First, create a project directory named `pubsub` for this tutorial.
+
     ```cmd
     mkdir pubsub
     cd pubsub
     ```
 
-1. Then inside this `pubsub` folder let's use Maven to create a new console app `webpubsub-quickstart-subscriber` and switch into the *webpubsub-quickstart-subscriber* folder:
+1. Inside the `pubsub` directory, use Maven to create a new console app called `webpubsub-quickstart-subscriber`, then go to the *webpubsub-quickstart-subscriber* directory:
 
     ```console
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-subscriber --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-subscriber
     ```
 
-2. Let's add WebSocket and Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
+1. Add WebSocket and Azure Web PubSub SDK to the `dependencies` node in `pom.xml`:
 
     * `azure-messaging-webpubsub`: Web PubSub service SDK for Java
     * `Java-WebSocket`: WebSocket client SDK for Java
@@ -276,7 +290,10 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     ```
 
-3. In Azure Web PubSub, you can connect to the service and subscribe to messages through WebSocket connections. WebSocket is a full-duplex communication channel so service can push messages to your client in real time. You can use any API/library that supports WebSocket to do so. For this sample, we use package [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket). Let's navigate to the */src/main/java/com/webpubsub/quickstart* directory, open the *App.java* file in your editor, and replace code with the below:
+    In Web PubSub, you can connect to the service and subscribe to messages through WebSocket connections. WebSocket is a full-duplex communication channel allowing the service to push messages to your client in real time. You can use any API or library that supports WebSocket. For this sample, we use package [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket). 
+
+1. Go to the */src/main/java/com/webpubsub/quickstart* directory.
+1. Edit replace the contents of the *App.java* file with the following code:
 
     ```java
     package com.webpubsub.quickstart;
@@ -293,7 +310,6 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     
     /**
     * Connect to Azure Web PubSub service using WebSocket protocol
-    *
     */
     public class App 
     {
@@ -341,27 +357,27 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
     ```
 
-    The code above creates a WebSocket connection to connect to a hub in Azure Web PubSub. Hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
-    
-    Azure Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication, so in the code sample we use `WebPubSubServiceClient.getClientAccessToken(new GetClientAccessTokenOptions())` in Web PubSub SDK to generate a url to the service that contains the full URL with a valid access token.
-    
-    After connection is established, you'll receive messages through the WebSocket connection. So we use `onMessage(String message)` to listen to incoming messages.
+    This code creates a WebSocket connection that is connected to a hub in Azure Web PubSub. A hub is a logical unit in Azure Web PubSub where you can publish messages to a group of clients. [Key concepts](./key-concepts.md) contains the detailed explanation about the terms used in Azure Web PubSub.
 
-4. Navigate to the directory containing the *pom.xml* file and run the app with below code, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+    The Web PubSub service uses [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The sample code uses `WebPubSubServiceClient.GetClientAccessUri()` in Web PubSub SDK to generate a URL to the service that contains the full URL with a valid access token.
+
+    After connection is established, your client will receive messages through the WebSocket connection. Use `onMessage(String message)` to listen for incoming messages.
+
+1. Navigate to the *webpubsub-quickstart-subscriber* directory and run the app with following command:
 
     ```console
-    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>' 'myHub1'"
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1'"
     ```
 
 ---
 
-## Publish messages using service SDK
+## 2. Publish messages using service SDK
 
-Now let's use Azure Web PubSub SDK to publish a message to the connected client.
+Create a publisher using the Azure Web PubSub SDK to publish a message to the connected client.  For this project, you'll need to open another command shell.
 
 # [C#](#tab/csharp)
 
-1. First let's create a new folder `publisher` for this project and install required dependencies:
+1. First, create a project directory named `publisher` and install required dependencies:
 
     ```bash
     mkdir publisher
@@ -370,7 +386,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     dotnet add package Azure.Messaging.WebPubSub
     ```
 
-2. Now let's update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.
+1. Update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.
 
     ```csharp
     using System;
@@ -402,21 +418,21 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     The `SendToAllAsync()` call simply sends a message to all connected clients in the hub.
 
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+1. Send a message by running the command:
 
     ```bash
-    dotnet run "<connection_string>" "myHub1" "Hello World"
+    dotnet run $connection_string "myHub1" "Hello World"
     ```
 
-4. You can see that the previous subscriber received the below message:
-   
-    ```
+1. Check the command shell of the previous subscriber to see that it received the message:
+
+    ```text
     Message received: Hello World
     ```
 
 # [JavaScript](#tab/javascript)
 
-1. First let's create a new folder `publisher` for this project and install required dependencies:
+1. First, create a project directory named `publisher` and install required dependencies:
 
     ```bash
     mkdir publisher
@@ -425,7 +441,8 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     npm install --save @azure/web-pubsub
 
     ```
-2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
+
+1. Use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
 
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
@@ -439,22 +456,23 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+1. Send a message by running the command:
 
     ```bash
-    export WebPubSubConnectionString="<connection-string>"
+    export WebPubSubConnectionString=$connection_string 
     node publish "Hello World"
     ```
 
-4. You can see that the previous subscriber received the below message:
-   
-    ```
+1. You can see that the previous subscriber received the message:
+
+    ```text
     Message received: Hello World
     ```
 
 # [Python](#tab/python)
 
-1. First let's create a new folder `publisher` for this project and install required dependencies:
+1. First, create a project directory named `publisher` and install required dependencies:
+
     ```bash
     mkdir publisher
     cd publisher
@@ -466,7 +484,8 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     pip install azure-messaging-webpubsubservice
 
     ```
-2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:
+
+1. Use the Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:
 
     ```python
     import sys
@@ -489,27 +508,28 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     The `send_to_all()` send the message to all connected clients in a hub.
 
-3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+1. Run the following command:
 
     ```bash
-    python publish.py "<connection_string>" "myHub1" "Hello World"
+    python publish.py $connection_string "myHub1" "Hello World"
     ```
 
-4. You can see that the previous subscriber received the below message:
-   
-    ```
+1. Check the previous command shell to that the subscriber received the message:
+
+    ```text
     Received message: Hello World
     ```
 
 # [Java](#tab/java)
 
-1.  Let's use another terminal and go back to the `pubsub` folder to create a publisher console app `webpubsub-quickstart-publisher` and switch into the *webpubsub-quickstart-publisher* folder:
+1. Go to the `pubsub` directory.  Use Maven to create a publisher console app `webpubsub-quickstart-publisher` and go to the *webpubsub-quickstart-publisher* directory:
+
     ```console
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-publisher --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-publisher
     ```
 
-2. Let's add Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
+1. Add the Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
 
     ```xml
     <dependency>
@@ -519,7 +539,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     </dependency>
     ```
 
-3. Now let's use Azure Web PubSub SDK to publish a message to the service. Let's navigate to the */src/main/java/com/webpubsub/quickstart* directory, open the *App.java* file in your editor, and replace code with the below:
+1. Use the Azure Web PubSub SDK to publish a message to the service. Go to the */src/main/java/com/webpubsub/quickstart* directory, open the *App.java* file in your editor, and replace the contents with the following code:
 
     ```java
 
@@ -551,27 +571,46 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     ```
 
-    The `sendToAll()` call simply sends a message to all connected clients in a hub.
+    The `sendToAll()` call sends a message to all connected clients in a hub.
 
-4. Navigate to the directory containing the *pom.xml* file and run the project using the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+1. Go to the *webpubsub-quickstart-publisher* directory and run the project using the following command:
 
     ```console
-    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>' 'myHub1' 'Hello World'"
+    mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1' 'Hello World'"
     ```
 
-5. You can see that the previous subscriber received the below message:
-   
-    ```
+1. You can see that the previous subscriber received the message:
+
+    ```text
     Message received: Hello World
     ```
 
 ---
 
+## Cleanup
+
+You can delete the resources that you created in this quickstart by deleting the resource group that contains them.
+
+```azurecli
+az group delete --name myResourceGroup --yes
+```
+
+If you aren't planning to continue using Azure Cloud Shell, you can avoid accumulating costs by deleting the resource group that contains the associated the storage account. The resource group is named `cloud-shell-storage-<your-region>`.  Run the following command, replacing `<CloudShellResourceGroup>` with the Cloud Shell group name.
+
+
+```azurecli
+az group delete --name <CloudShellResourceGroup> --yes
+
+```
+
+>[!CAUTION]
+> Deleting resource groups will delete all resources, including resources created outside the scope of this tutorial.
+
 ## Next steps
 
-This tutorial provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients.
+This tutorial provides you a basic idea of how to connect to the Web PubSub service and publish messages to the connected clients.
 
-Check other tutorials to further dive into how to use the service.
+Check other tutorials to dive further into how to use the service.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a chatroom with Azure Web PubSub](./tutorial-build-chat.md)

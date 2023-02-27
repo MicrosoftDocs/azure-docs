@@ -99,7 +99,7 @@ Some HDInsight Hive metastore best practices are as follows:
 
 ## Best practices for different workloads
 
-- Consider using LLAP cluster for interactive Hive queries with improved response time [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Consider using LLAP cluster for interactive Hive queries with improved response time [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new feature in Hive 2.0 that allows in-memory caching of queries.
 - Consider using Spark jobs in place of Hive jobs.
 - Consider replacing impala-based queries with LLAP queries.
 - Consider replacing MapReduce jobs with Spark jobs.

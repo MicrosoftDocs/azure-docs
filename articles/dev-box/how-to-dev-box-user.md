@@ -14,6 +14,8 @@ ms.topic: how-to
 
 Team members must have access to a specific Microsoft Dev Box Preview project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory Users or Groups at the project level. 
 
+[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
+
 A DevCenter Dev Box User can:
 
 - View pools within a project.

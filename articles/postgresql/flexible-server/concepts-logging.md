@@ -48,16 +48,15 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 | Resource | Name of the server |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Logging level, example: LOG, ERROR, NOTICE |
+| errorLevel_s | Logging level, example: LOG, ERROR, NOTICE |
+| processId_d | Process id of the PostgreSQL backend |
+| sqlerrcode_s | PostgreSQL Error code that follows the SQL standard's conventions for SQLSTATE codes |
 | Message | Primary log message | 
-| Domain | Server version, example: postgres-10 |
 | Detail | Secondary log message (if applicable) |
 | ColumnName | Name of the column (if applicable) |
 | SchemaName | Name of the schema (if applicable) |
 | DatatypeName | Name of the datatype (if applicable) |
-| LogicalServerName | Name of the server | 
 | _ResourceId | Resource URI |
-| Prefix | Log line's prefix |
 
 
 ## Next steps

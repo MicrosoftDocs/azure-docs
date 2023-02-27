@@ -17,7 +17,7 @@ ms.custom: devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!WARNING]
-> Azure Machine Learning reinforcement learning via the [`azureml.contrib.train.rl`](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl) package will no longer be supported after June 2022. We recommend customers use the [Ray on Azure Machine Learning library](https://github.com/microsoft/ray-on-aml) for reinforcement learning experiments with Azure Machine Learning. For an example, see the notebook [Reinforcement Learning in Azure Machine Learning - Pong problem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb).
+> This article uses the [`azureml.contrib.train.rl`](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl) package, which will no longer be supported after June 2022. We recommend customers instead use the [Ray on Azure Machine Learning library](https://github.com/microsoft/ray-on-aml) for reinforcement learning experiments with Azure Machine Learning. For an example, see the notebook [Reinforcement Learning in Azure Machine Learning - Pong problem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb).
 
 In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://docs.ray.io/en/master/rllib/) with Azure Machine Learning to manage the complexity of distributed RL.
 
@@ -77,7 +77,7 @@ Set up the local RL environment by:
 Import the necessary Python packages to run the rest of this example.
 
 ```python
-# Azure ML Core imports
+# Azure Machine Learning Core imports
 import azureml.core
 from azureml.core import Workspace
 from azureml.core import Experiment
@@ -87,7 +87,7 @@ from azureml.core.runconfig import EnvironmentDefinition
 from azureml.widgets import RunDetails
 from azureml.tensorboard import Tensorboard
 
-# Azure ML Reinforcement Learning imports
+# Azure Machine Learning Reinforcement Learning imports
 from azureml.contrib.train.rl import ReinforcementLearningEstimator, Ray
 from azureml.contrib.train.rl import WorkerConfiguration
 ```
@@ -225,7 +225,7 @@ pip_packages=["ray[rllib]==0.8.3"] # Latest version of Ray has fixes for isses r
 # Specify the Ray worker configuration
 worker_conf = WorkerConfiguration(
     
-    # Azure ML compute cluster to run Ray workers
+    # Azure Machine Learning compute cluster to run Ray workers
     compute_target=worker_compute_target, 
     
     # Number of worker nodes
@@ -293,7 +293,7 @@ rl_estimator = ReinforcementLearningEstimator(
     # Defined above.
     script_params=script_params,
     
-    # The Azure ML compute target set up for Ray head nodes
+    # The Azure Machine Learning compute target set up for Ray head nodes
     compute_target=head_compute_target,
     
     # Pip packages

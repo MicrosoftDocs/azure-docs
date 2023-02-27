@@ -1,13 +1,12 @@
 ---
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
-services: container-service
 ms.topic: overview
 ms.date: 11/18/2022
 ms.custom: mvc, ignite-2022
 ---
 
-# Azure Kubernetes Service
+# What is Azure Kubernetes Service?
 
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided at no cost as a managed Azure resource abstracted from the user. You only pay for and manage the nodes attached to the AKS cluster.
 
@@ -172,8 +171,8 @@ Learn more about deploying and managing AKS.
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-devops]: ../devops-project/overview.md
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
+[azure-disk]: ./azure-disk-csi.md
+[azure-files]: ./azure-files-csi.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
@@ -186,5 +185,5 @@ Learn more about deploying and managing AKS.
 [aks-monitor]: monitor-aks.md
 [azure-monitor]: ../azure-monitor/containers/containers.md
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
-[helm]: /quickstart-helm.md
-[aks-best-practices]: /best-practices.md
+[helm]: quickstart-helm.md
+[aks-best-practices]: best-practices.md

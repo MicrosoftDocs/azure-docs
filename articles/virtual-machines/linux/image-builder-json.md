@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, references_regions
 
 # Create an Azure Image Builder Bicep or ARM JSON template
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -683,8 +683,8 @@ customize: [
     type: 'WindowsUpdate'
     searchCriteria: 'IsInstalled=0'
     filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
+     'exclude:$_.Title -like \'*Preview*\''
+     'include:$true'
     ]
     updateLimit: 20
   }
@@ -974,7 +974,7 @@ az resource show \
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images are not supported at this time.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 

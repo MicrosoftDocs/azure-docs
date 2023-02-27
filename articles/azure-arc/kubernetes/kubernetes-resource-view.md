@@ -1,7 +1,5 @@
 ---
 title: Access Kubernetes resources from Azure portal
-services: azure-arc
-ms.service: azure-arc
 ms.date: 07/22/2022
 ms.topic: how-to
 description: Learn how to interact with Kubernetes resources to manage an Azure Arc-enabled Kubernetes cluster from the Azure portal.

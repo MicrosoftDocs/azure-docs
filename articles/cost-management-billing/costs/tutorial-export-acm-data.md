@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2022
+ms.date: 11/22/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -35,13 +35,14 @@ Data export is available for various Azure account types, including [Enterprise 
 - Owner - Can create, modify, or delete scheduled exports for a subscription.
 - Contributor - Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
 - Reader - Can schedule exports that they have permission to.
-
-**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**.
+    - **For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**.
 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 - The storage account must not have a firewall configured.
+- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing the From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -61,7 +62,7 @@ To create or view a data export or to schedule an export, choose a scope in the 
 1. Select **Add** and type a name for the export.
 1. For the **Metric**, make a selection:
     - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
-    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
+    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
 1. For **Export type**, make a selection:
     - **Daily export of month-to-date costs** - Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
     - **Weekly export of cost for the last seven days** - Creates a weekly export of your costs for the past seven days from the selected start date of your export.
@@ -85,7 +86,7 @@ When you create an export programmatically, you must manually register the `Micr
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/costmanagement/export#az-costmanagement-export-list) command:
 

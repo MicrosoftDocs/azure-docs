@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/29/2022
+ms.date: 01/05/2023
 ms.author: jianleishen
 ms.custom: synapse, ignite-2022
 ---
@@ -246,6 +246,14 @@ The errors below are general to the copy activity and could occur with any conne
 - **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
 
 - **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
+
+### Error code: FailToResolveParametersInExploratoryController 
+
+- **Message**: `The parameters and expression cannot be resolved for schema operations. …The template function 'linkedService' is not defined or not valid.`
+ 
+- **Cause**: The service has limitation to support the linked service which references another linked service with parameters for test connection or preview data. For example, passing a parameter from a Key Vault to a linked service may occur the issue. 
+
+- **Recommendation**: Remove the parameters in the referred linked service to eliminate the error. Otherwise, run the pipeline without testing connection or previewing data. 
 
 ## Next steps
 

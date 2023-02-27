@@ -143,7 +143,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies. These policies grant the permissions for the account to change any VNET, firewall configuration.
 
-* Azure Cosmos DB for SQL or MongoDB accounts that create unique index after the container is created aren't supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb/custom-commands.md).
+* Azure Cosmos DB for MongoDB accounts with continuous backup do not support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; this is done using the create collection [extension commands](mongodb/custom-commands.md).
 
 * The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
 

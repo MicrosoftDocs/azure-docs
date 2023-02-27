@@ -2,12 +2,12 @@
 author: joflore
 ms.service: active-directory
 ms.topic: include
-ms.date: 09/27/2022
+ms.date: 11/29/2022
 ms.author: joflore
 ---
 ## User exclusions
 
-Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policy:
+Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policies:
 
 - **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps to recover access.
    - More information can be found in the article, [Manage emergency access accounts in Azure AD](../articles/active-directory/roles/security-emergency-access.md).

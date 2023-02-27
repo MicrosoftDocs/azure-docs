@@ -1,11 +1,11 @@
 ---
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
-services: container-service
-ms.topic: article
-ms.author: jpalma
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.author: allensu
 ms.date: 07/26/2022
-author: palma21
+author: asudbring
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
@@ -126,7 +126,7 @@ The following FQDN / application rules are optional but recommended for AKS clus
 |--------------------------------------------------------------------------------|---------------|----------|
 | **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | This address lets the Linux cluster nodes download the required security patches and updates. |
 
-If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md).
+If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md). Keep in mind that Node Image Upgrades also come with updated packages including security fixes.
 
 ## GPU enabled AKS clusters
 
@@ -150,6 +150,9 @@ The following FQDN / application rules are required for using Windows Server bas
 |----------------------------------------------------------------------------|-----------|----------|
 | **`onegetcdn.azureedge.net, go.microsoft.com`**                            | **`HTTPS:443`** | To install windows-related binaries |
 | **`*.mp.microsoft.com, www.msftconnecttest.com, ctldl.windowsupdate.com`** | **`HTTP:80`**   | To install windows-related binaries |
+
+If you choose to block/not allow these FQDNs, the nodes will only receive OS updates when you do a [node image upgrade](node-image-upgrade.md) or [cluster upgrade](upgrade-cluster.md). Keep in mind that Node Image Upgrades also come with updated packages including security fixes.
+
 
 ## AKS addons and integrations
 

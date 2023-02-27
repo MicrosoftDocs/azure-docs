@@ -9,6 +9,7 @@ ms.date: 10/06/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp, powershell, azurecli
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 

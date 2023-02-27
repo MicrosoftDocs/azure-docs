@@ -1,10 +1,12 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 11/14/2019
+ms.date: 12/28/2022
 ms.topic: conceptual
+ms.service: site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 # Common questions about VMware to Azure replication
 
@@ -114,7 +116,7 @@ You will typically see an increase in the transactions cost incurred on GPv2 sto
 
 The installers are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder on the configuration server.
 
-## How do I install the Mobility service?
+### How do I install the Mobility service?
 
 On each VM that you want to replicate, install the service by one of several methods:
 
@@ -212,6 +214,18 @@ No, Site Recovery doesn't support replication to Azure Storage on virtual networ
 ### What is the frequency of generation of crash-consistent recovery points?
 
 Site Recovery generates crash-consistent recovery points every 5 minutes.
+
+### Can I change an already replicating machine from one to another another Recovery Services vault?
+
+Switching Recovery Services vaults, when the replication is already ongoing, is not supported. To do so, replication will need to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, will need to be unconfigured so that it can be configured to a new vault. Use the below commands to perform the unregistration - 
+
+For Windows machines - 
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe /Unconfigure true`
+
+For Linux machines - 
+
+`/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -q -U true -c CSPrime`
 
 ## Component upgrade
 

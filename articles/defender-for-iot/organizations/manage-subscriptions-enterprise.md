@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
 
-For each monthly or annual price plan, you'll be asked to define the number of [committed devices](billing.md#defender-for-iot-committed-devices). Committed devices are the approximate number of devices that will be monitored in your enterprise.
+For each monthly price plan, you'll be asked to define the number of [committed devices](billing.md#defender-for-iot-committed-devices). Committed devices are the approximate number of devices that will be monitored in your enterprise.
 
 For information about OT networks, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
@@ -23,13 +23,13 @@ Before performing the procedures in this article, make sure that you have:
 
 - The following user roles:
 
-    - **In Azure Active Directory**: [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant
+    - **In Azure Active Directory**: [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant
 
-    - **In Azure RBAC**:  [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration
+    - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
 
 ## Calculate committed devices for Enterprise IoT monitoring
 
-If you're adding an Enterprise IoT plan with a monthly or annual commitment, you'll be asked to enter the number of committed devices.
+If you're adding an Enterprise IoT plan with a monthly commitment, you'll be asked to enter the number of committed devices.
 
 We recommend that you make an initial estimate of your committed devices when onboarding your plan. You can skip this procedure if you're adding a [trial plan](billing.md#free-trial).
 
@@ -68,16 +68,16 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
 1. Select the following options for your plan:
 
-    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
         > [!TIP]
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
 
-    - **Price plan**: Select a trial, monthly, or annual commitment.
+    - **Price plan**: Select a trial or monthly commitment.
 
-        Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+        Microsoft Defender for IoT provides a 30-day free trial for evaluation purposes, with an unlimited number of devices. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-        Both monthly and annual commitments require that you enter the number of committed devices that you'd calculated earlier.
+        Monthly commitments require that you enter the number of committed devices that you'd calculated earlier.
 
 1. Select the **I accept the terms and conditions** option and then select **Save**.
 
@@ -85,9 +85,9 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-After you've onboarded your plan, you'll see it listed in Defender for IoT in the Azure portal. Go to the Defender for IoT **Pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
+After you've onboarded your plan, you'll see it listed in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
 
-:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Pricing page.":::
+:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Plans and pricing page.":::
 
 ## Edit your Enterprise IoT plan
 

@@ -1,5 +1,5 @@
 ---
-title: Securing workload identities with Azure AD Identity Protection (Preview)
+title: Securing workload identities with Azure AD Identity Protection
 description: Workload identity risk in Azure Active Directory Identity Protection
 
 services: active-directory
@@ -15,9 +15,10 @@ ms.reviewer: etbasser
 
 ms.collection: M365-identity-device-management
 ---
-# Securing workload identities with Identity Protection Preview
 
-Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications, service principals, and Managed Identities.
+# Securing workload identities with Identity Protection
+
+Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
@@ -28,13 +29,16 @@ A [workload identity](../develop/workload-identities-overview.md) is an identity
 These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
-> In public preview, you can secure workload identities with Identity Protection and Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
+> Detections are visible only to [Workload Identities Premium](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz) customers. Customers without Workload Identities Premium licenses still receive all detections but the reporting of details is limited. 
+
+> [!NOTE]
+> Identity Protection detects risk on single tenant, third party SaaS, and multi-tenant apps. Managed Identities are not currently in scope. 
 
 ## Prerequisites
 
-To make use of workload identity risk, including the new **Risky workload identities (preview)** blade and the **Workload identity detections** tab in the **Risk detections** blade, in the Azure portal you must have the following.
+To make use of workload identity risk, including the new **Risky workload identities** blade and the **Workload identity detections** tab in the **Risk detections** blade in the portal, you must have the following.
 
-- Azure AD Premium P2 licensing
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
 - One of the following administrator roles assigned
    - Global Administrator
    - Security Administrator
@@ -62,15 +66,15 @@ We detect risk on workload identities across sign-in behavior and offline indica
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities (preview)**.
+1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
 1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
-   1. Select the **Workload identity detections** tab.
-
+   1. Select the **Workload identity detections** tab.'
+   
 :::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
-### Graph APIs
+### Microsoft Graph APIs
 
-You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root?view=graph-rest-beta&preserve-view=true) 
+You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
 - riskyServicePrincipals
 - servicePrincipalRiskDetections
@@ -96,7 +100,7 @@ Some of the key questions to answer during your investigation include:
 
 The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
 
-Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities (preview) report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
+Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
 :::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
@@ -116,3 +120,4 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
+

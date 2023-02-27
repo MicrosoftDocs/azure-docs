@@ -546,6 +546,11 @@ Configuration and management of Azure Cache for Redis instances is managed by Mi
 - SLAVEOF
 - SYNC
 
+For cache instances using active geo-replication, the following commands are also blocked to prevent accidental data loss:
+
+- FLUSHALL
+- FLUSHDB
+
 > [!IMPORTANT]
 > Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, some commands are disabled. The commands are listed above. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
 

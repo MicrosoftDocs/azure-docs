@@ -19,7 +19,7 @@ The machine learning operations don't support seasonality trends or multi-variat
 
 The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
 
-> [!VIDEO /Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=internet-of-things-show&ep=real-time-ml-based-anomaly-detection-in-azure-stream-analytics]
 
 ## Model behavior
 

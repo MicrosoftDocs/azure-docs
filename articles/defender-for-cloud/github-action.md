@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 09/11/2022
+ms.date: 02/15/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -23,6 +23,8 @@ Security DevOps uses the following Open Source tools:
 
 ## Prerequisites
 
+- An Azure subscription If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
 - Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
@@ -35,7 +37,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Select a repository on which you want to configure the GitHub action.
+1. Select a repository you want to configure the GitHub action to.
 
 1. Select **Actions**.
 
@@ -55,41 +57,41 @@ Security DevOps uses the following Open Source tools:
 
     ```yml
     name: MSDO windows-latest
-    on:
-      push:
-        branches: [ main ]
-      pull_request:
-        branches: [ main ]
-      workflow_dispatch:
-
-    jobs:
-      sample:
-
-        # MSDO runs on windows-latest and ubuntu-latest.
-        # macos-latest supporting coming soon
-        runs-on: windows-latest
-
-        steps:
-        - uses: actions/checkout@v2
-
-        - uses: actions/setup-dotnet@v1
-          with:
-            dotnet-version: |
-              5.0.x
-              6.0.x
-
-        # Run analyzers
-        - name: Run Microsoft Security DevOps Analysis
-          uses: microsoft/security-devops-action@preview
-          id: msdo
-
-        # Upload alerts to the Security tab
-        - name: Upload alerts to Security tab
-          uses: github/codeql-action/upload-sarif@v1
-          with:
-            sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+        on:
+          push:
+            branches: [ main ]
+          pull_request:
+            branches: [ main ]
+          workflow_dispatch:
+    
+        jobs:
+          sample:
+    
+            # MSDO runs on windows-latest and ubuntu-latest.
+            # macos-latest supporting coming soon
+            runs-on: windows-latest
+    
+            steps:
+            - uses: actions/checkout@v3
+    
+            - uses: actions/setup-dotnet@v3
+              with:
+                dotnet-version: |
+                  5.0.x
+                  6.0.x
+    
+            # Run analyzers
+            - name: Run Microsoft Security DevOps Analysis
+              uses: microsoft/security-devops-action@preview
+              id: msdo
+    
+            # Upload alerts to the Security tab
+            - name: Upload alerts to Security tab
+              uses: github/codeql-action/upload-sarif@v2
+              with:
+                sarif_file: ${{ steps.msdo.outputs.sarifFile }}
     ```
-        
+ 
     For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                
 
 1.  Select **Start commit**

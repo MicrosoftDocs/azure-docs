@@ -149,7 +149,7 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
 
-Supported via Azure ML Kubernetes and Azure ML compute clusters:
+Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compute clusters:
 
 * PyTorch
 * TensorFlow
@@ -174,7 +174,7 @@ To bring a model into production, it's deployed. Azure Machine Learning's manage
 *Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
 
 See:
- * [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
+ * [Deploy a model with a real-time managed endpoint](how-to-deploy-online-endpoints.md)
  * [Use batch endpoints for scoring](batch-inference/how-to-use-batch-endpoint.md) 
 
 

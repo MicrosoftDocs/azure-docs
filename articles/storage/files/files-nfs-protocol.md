@@ -16,14 +16,14 @@ Azure Files offers two industry-standard file system protocols for mounting Azur
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
-> NFS Azure file shares are not supported for Windows clients. Before using NFS Azure file shares for production, see the [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+> NFS Azure file shares aren't supported for Windows clients. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
 
 - Backing storage for Linux/UNIX-based applications, such as line-of-business applications written using Linux or POSIX file system APIs (even if they don't require POSIX-compliance).
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions (UID/GID).
-- New application and service development, particularly if that application or service has a requirement for random IO and hierarchical storage. 
+- New application and service development, particularly if that application or service has a requirement for random I/O and hierarchical storage. 
 
 ## Features
 - Fully POSIX-compliant file system.
@@ -62,6 +62,7 @@ The status of items that appear in this table may change over time as support co
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#limitations-for-changing-replication-types)|	⛔ |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
@@ -90,7 +91,7 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 
 ## Workloads
 > [!IMPORTANT]
-> Before using NFS Azure file shares for production, see [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) for a list of known issues.
+> Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 

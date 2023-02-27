@@ -2,7 +2,7 @@
 title: OT monitoring with virtual appliances - Microsoft Defender for IoT
 description: Learn about system requirements for virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 05/03/2022
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ---
 
 # OT monitoring with virtual appliances
@@ -41,7 +41,7 @@ This section outlines considerations for virtual appliance components, for both 
 
 ## OT network sensor VM requirements
 
-The following tables list system requirements for OT network sensors on virtual appliances.
+The following tables list system requirements for OT network sensors on virtual appliances, and performance measured in our qualification labs.
 
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
@@ -53,7 +53,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**E500**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 500 GB (300 IOPS)        |
 |**L500**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
 |**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
-|**L64**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
+|**L60**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
 
 ## On-premises management console VM requirements

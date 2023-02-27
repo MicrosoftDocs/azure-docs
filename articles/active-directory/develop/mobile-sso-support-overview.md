@@ -2,14 +2,15 @@
 title: Support single sign-on and app protection policies in mobile apps you develop
 description: Explanation and overview of building mobile applications that support single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory. 
 services: active-directory
-manager: martinco
+manager: henrymbuguakiarie
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 author: janicericketts
-ms.author: jricketts
+ms.author: henrymbugua
+ms.reviewer: janicericketts
 ms.custom: has-adal-ref
 
 #Customer intent: As an app developer, I want to know how to implement an app that supports single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory.
@@ -42,7 +43,7 @@ The best choice for implementing single sign-on in your application is to use [t
 > [!NOTE]
 > It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (that is, the system web browser) to ensure that SSO will work.
 
-If you're currently using the [ADAL library](../azuread-dev/active-directory-authentication-libraries.md) in your application, then we highly recommend that you [migrate it to MSAL](msal-migration.md), as [ADAL is being deprecated](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363).
+If you're currently using the ADAL library in your application, you need to [migrate it to MSAL](msal-migration.md), as [ADAL is being deprecated](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363).
 
 For iOS applications, we have a [quickstart](quickstart-v2-ios.md) that shows you how to set up sign-ins using MSAL, as well as [guidance for configuring MSAL for various SSO scenarios](single-sign-on-macos-ios.md).
 

@@ -49,7 +49,7 @@ Search for all Postgres logs for a particular server in the last day
 
 ```kusto
 AzureDiagnostics
-| where LogicalServerName_s == "myservername"
+| where Resource == "myservername"
 | where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```

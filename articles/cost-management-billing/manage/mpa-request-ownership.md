@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 11/29/2022
 ms.author: banders
 ---
 
@@ -212,9 +212,9 @@ Some of the customer transition requests may require an additional review proces
 
 ### Azure subscription directory
 
-The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship.
+The Azure AD directory (tenant) of the Azure subscriptions that are transferred must be the same Azure AD directory of the customer that was selected while establishing the CSP relationship.
 
-If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories aren't the same, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 ### EA subscription in the non-organization directory
 

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/05/2022
+ms.date: 02/06/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,72 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## January 2023
+
+Here's what changed in January 2023:
+
+### Watermarking for Azure Virtual Desktop now in public preview
+
+Watermarking for Azure Virtual Desktop is now in public preview for the Windows Desktop client. This feature protects sensitive information from being captured on client endpoints by adding watermarks to remote desktops. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-for-watermarking-on-azure-virtual/ba-p/3730264) or [Watermarking in Azure Virtual Desktop](watermarking.md).
+	
+### Give or Take Control for macOS Teams on Azure Virtual Desktop now generally available
+
+Version 1.31.2211.15001 of the WebRTC Redirector service includes support for Give or Take Control for macOS users. This version includes performance improvements for Give or Take Control on Windows. For more information, see [Updates for version 1.31.2211.15001](whats-new-webrtc.md#updates-for-version-131221115001).
+
+### Microsoft Teams application window sharing on Azure Virtual Desktop now generally available
+
+Previously, users could only share their full desktop windows or a Microsoft PowerPoint Live presentation during Teams calls. With application window sharing, users can now choose a specific window to share from their desktop screen and help reduce the risk of displaying sensitive content during meetings or calls. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-application-window-sharing-is-now-generally/ba-p/3719595).
+
+### Windows 7 End of Support
+
+Starting January 10, 2023, Azure Virtual Desktop no longer supports Windows 7 as a client or host. We recommend upgrading to a supported Windows release. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/avd-support-for-windows-7-ended-on-january-10th-2023/m-p/3715785).
+
+## December 2022
+
+Here's what changed in December 2022:
+
+### FSLogix 2210 now generally available
+
+FSLogix version 2210 is now generally available. This version introduces new features like VHD Disk Compaction, a new process that improves user experience with AppX applications like built-in Windows apps (inbox apps) and Recycle Bin roaming. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-fslogix-2210/ba-p/3695166) or [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2210-29836152326).
+	
+### India metadata service now generally available
+
+The Azure Virtual Desktop region in India is now generally available. Customers can now store their Azure Virtual Desktop objects and metadata within a database located in the India geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-metadata-database-is-now-available-in/ba-p/3670768).
+
+### Confidential Virtual Machine support for Azure Virtual Desktop now in public preview
+
+Azure Confidential Virtual Machine (VM) support is now in public preview. Azure Confidential VMs increase data privacy and security by protecting data in use. The public preview update also adds support for Windows 11 22H2 to Confidential VMs. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350).
+
+## November 2022
+
+Here's what changed in November 2022:
+
+### RDP Shortpath for public networks now generally available
+
+Remote Desktop Protocol (RDP) Shortpath for public networks is now generally available. RDP Shortpath improves the transport reliability of Azure Virtual Desktop connections by establishing a direct User Datagram Protocol (UDP) data flow between the Remote Desktop client and session hosts. This feature will be enabled by default for all customers. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-rdp-shortpath/ba-p/3691026).
+
+### Azure Virtual Desktop Insights at Scale in public preview
+
+The ability to review performance and diagnostic information across multiple host pools in one view with Azure Virtual Desktop Insights at Scale is now in public preview. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-avd-insights-at-scale/ba-p/3685387) or [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+	
+### Intune user configuration for Windows 11 Enterprise multi-session VMs now generally available
+
+Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 11 is now generally available. With this feature, you’ll be able to:
+
+- Configure user scope policies using the Settings catalog and assign them to groups of users. 
+- Configure user certificates and assign them to users.
+- Configure PowerShell scripts to install in the user context and assign them to users.
+
+For more information, see [Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) or [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-intune-user-scope-configuration-for-azure-virtual/ba-p/3667410).
+
+### Azure Active Directory Join VMs with FSLogix profiles on Azure Files now generally available
+
+FSLogix profiles with Azure Active Directory (AD)-joined Windows 10, 11, and Windows Server 2022 VMs for hybrid users in Azure Virtual Desktop are now generally available. These FSLogix profiles let you seamlessly access file shares from Azure AD-joined VMs and use them to store your FSLogix profile containers. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-fslogix-profiles-for-azure-ad/ba-p/3671310).
+
+### Private Link for Azure Virtual Desktop now in public preview
+
+Private endpoints from Azure Private Link for Azure Virtual Desktop are now in public preview. Private Link can enable traffic between session hosts, clients, and the Azure Virtual Desktop service to flow through a private endpoint within your virtual network instead of the public internet. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-private-link-for-azure-virtual/m-p/3671226), read our overview at [Use Azure Private Link with Azure Virtual Desktop (preview)](private-link-overview.md), or get started at [Set up Private Link for Azure Virtual Desktop (preview)](private-link-setup.md).
 
 ## October 2022
 
@@ -112,7 +178,7 @@ Scheduled agent updates on Azure Virtual Desktop are now generally available. Th
 
 ### FSLogix 2201 hotfix 2 
 
-The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, Cloud Cache meta tracking files, and registry cleanup operations. This update doesn't include new fatures. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2201-hotfix-2-29822850276) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-2-2-9-8228-50276-has-been/m-p/3579409). 
+The FSLogix 2201 hotfix 2 update includes fixes to multi-session VHD mounting, Cloud Cache meta tracking files, and registry cleanup operations. This update doesn't include new features. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2201-hotfix-2-29822850276) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-2-2-9-8228-50276-has-been/m-p/3579409). 
 
 ### Japan and Australia metadata service now generally available
 
@@ -198,7 +264,7 @@ Accessibility has always been important to us, so we're pleased to announce that
 
 ### Multimedia redirection enhancements now in public preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
 
 ### FSLogix version 2201 is now generally available
 

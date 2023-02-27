@@ -55,6 +55,8 @@
   items:
   - name: High availability & disaster recovery
     href: deployment-scenarios.md
+  - name: Solution design
+    href: solution-design.md
 
 - name: Support
   items:

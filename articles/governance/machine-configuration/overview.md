@@ -1,8 +1,8 @@
 ---
-title: Understand the machine configuration feature of Azure Policy
+title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 11/16/2022
+ms.date: 01/03/2023
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -81,7 +81,7 @@ servers because it's included in the Arc Connected Machine agent.
 > manage Azure virtual machines.
 
 To deploy the extension at scale across many machines, assign the policy initiative
-`Deploy prerequisites to enable machine configuration policies on virtual machines`
+`Deploy prerequisites to enable guest configuration policies on virtual machines`
 to a management group, subscription, or resource group containing the machines
 that you plan to manage.
 
@@ -249,30 +249,34 @@ Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
 
-### Azure Arc-enabled servers
+### Communicate over public endpoints outside of Azure
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the machine configuration service. Details about network and proxy requirements
-provided in the
-[Azure Arc documentation](../../azure-arc/servers/overview.md).
+Servers located on-premises or in other clouds can be managed with machine configuration
+by connecting them to [Azure Arc](../../azure-arc/servers/overview.md).
 
-For Arc-enabled servers in private datacenters, allow traffic using the
-following patterns:
+For Azure Arc-enabled servers, allow traffic using the following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
 - Global URL: `*.guestconfiguration.azure.com`
+
+See the [Azure Arc-enabled servers network requirements](../../azure-arc/servers/network-requirements.md) for a full list
+of all network endpoints required by the Azure Connected Machine Agent for core Azure Arc and machine configuration scenarios.
+
+### Communicate over Private Link outside of Azure
+
+When using [private link with Arc-enabled servers](../../azure-arc/servers/private-link-security.md), built-in policy packages will automatically be downloaded over the private link.
+You do not need to set any tags on the Arc-enabled server to enable this feature.
 
 ## Assigning policies to machines outside of Azure
 
 The Audit policy definitions available for machine configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../azure-arc/servers/overview.md) that are in the
+[Azure Arc-enabled servers](../../azure-arc/servers/overview.md) that are in the
 scope of the policy assignment are automatically included.
 
 ## Managed identity requirements
 
-Policy definitions in the initiative _Deploy prerequisites to enable guest
-configuration policies on virtual machines_ enable a system-assigned managed
+Policy definitions in the initiative `Deploy prerequisites to enable guest configuration policies on virtual machines` enable a system-assigned managed
 identity, if one doesn't exist. There are two policy definitions in the
 initiative that manage identity creation. The IF conditions in the policy
 definitions ensure the correct behavior based on the current state of the
@@ -331,10 +335,8 @@ parameters.
 
 ### Assignments to Azure Management Groups
 
-Azure Policy definitions in the category 'Guest Configuration' can be assigned
-to Management Groups only when the effect is 'AuditIfNotExists'. Policy
-definitions with effect 'DeployIfNotExists' aren't supported as assignments to
-Management Groups.
+Azure Policy definitions in the category `Guest Configuration` can be assigned
+to management groups when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
 
 ### Client log files
 

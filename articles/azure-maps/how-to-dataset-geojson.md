@@ -1,8 +1,8 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -29,7 +29,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 >[!IMPORTANT]
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
-> - In the URL examples in this article you will need to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package
 
@@ -46,7 +46,7 @@ To upload the GeoJSON package:
 1. Execute the following HTTP POST request that uses the [Data Upload API](/rest/api/maps/data-v2/upload):
 
     ```http
-    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
     1. Set `Content-Type` in the **Header** to `application/zip`.
@@ -60,7 +60,7 @@ To check the status of the GeoJSON package and retrieve its unique identifier (`
 1. Execute the following HTTP GET request that uses the status URL you copied as the last step in the previous section of this article. The request should look like the following URL:
 
 ```http
-https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 1. Copy the value of the `Resource-Location` key in the response header, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the GeoJSON package resource.
@@ -79,7 +79,7 @@ To create a dataset:
 <!--1. Enter the following URL to the [Dataset service][Dataset Create 2022-09-01-preview]. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status](#check-the-geojson-package-upload-status) section):-->
 
   ```http
-  https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+  https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Subscription-key}
   ```
 
 1. Copy the value of the `Operation-Location` key in the response header. The `Operation-Location` key is also known as the `status URL` and is required to check the status of the dataset creation process and to get the `datasetId`, which is required to create a tileset.
@@ -91,7 +91,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 1. Enter the status URL you copied in [Create a dataset](#create-a-dataset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. In the Header of the HTTP response, copy the value of the unique identifier contained in the `Resource-Location` key.
@@ -179,4 +179,5 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
 [dataset-concept]: creator-indoor-maps.md#datasets
 [Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
+[Dataset Create]: /rest/api/maps/v2/dataset/create
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/

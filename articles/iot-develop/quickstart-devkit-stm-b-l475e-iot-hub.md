@@ -340,10 +340,10 @@ To view device properties using Azure IoT Explorer:
  
 To use Azure CLI to view device properties:
 
-1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show) command.
+1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
     ```azurecli
-    az iot hub device-identity show --device-id mydevice --hub-name {YourIoTHubName}
+    az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
     ```
 
 1. Inspect the properties for your device in the console output.

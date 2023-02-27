@@ -100,7 +100,7 @@ az role assignment create --assignee $PI --role "Azure Service Bus Data Sender" 
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $SBNS.servicebus.windows.net"
-echo "Queue: $CN"
+echo "Queue: $SBQ"
 ```
 
 To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).

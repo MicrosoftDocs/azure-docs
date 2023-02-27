@@ -267,8 +267,8 @@ Azure AD B2C identity provider settings are stored in the *appsettings.json* fil
 
 The required information is described in the [Configure authentication in a sample web app](configure-authentication-sample-web-app.md) article. Use the following settings:
 
-* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
-* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
+* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
+* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
 * **Client ID**: Replace `<web-app-application-id>` with the Application ID from [Step 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
 * **Policy name**: Replace `<your-sign-up-in-policy>` with the user flows you created in [Step 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
 

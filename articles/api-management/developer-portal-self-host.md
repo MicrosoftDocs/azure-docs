@@ -19,6 +19,9 @@ This tutorial describes how to self-host the [API Management developer portal](a
 > * Maintaining and managing hosting infrastructure
 > * Manual updates, including for security patches, which may require you to resolve code conflicts when upgrading the codebase
 
+> [!NOTE]
+> The self-hosted portal does not support visibility and access controls that are available in the managed developer portal.
+
 If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]

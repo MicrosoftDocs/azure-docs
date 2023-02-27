@@ -9,13 +9,12 @@ metadata:
   description: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
   imageSrc: ../high-performance-computing/media/hpc-logo.png
   subject: high-performance-computing
-  ms.service: virtual-machines-workloads
-  ms.subservice: hpc
+  ms.service: hpc-fundamentals
   ms.topic: hub-page
   author: padmalathas
   ms.author: padmalathas
   ms.reviewer: mattmcinnes
-  ms.date: 11/11/2022
+  ms.date: 12/12/2022
 
 # Main Items (Icons)
 # Maximum of 8 items
@@ -125,17 +124,20 @@ conceptualContent:
               itemType: tutorial
               text: Accelerating storage with HPC Cache
         # Card
-        - title: Workloads
+        - title: Scenarios & Frameworks 
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
-              text: 3d Video Rendering
+              text: 3D Video Rendering
             - url: /azure/architecture/example-scenario/apps/hpc-saas
               itemType: overview
               text: Computer-aided Engineering
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
               itemType: overview
               text: Digital image-based modeling on Azure
+            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+              itemType: overview
+              text: Cloud Adoption Framework
 
 # Super Computing Announcement included
 
