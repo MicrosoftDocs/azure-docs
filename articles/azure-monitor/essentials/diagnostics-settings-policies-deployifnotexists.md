@@ -143,10 +143,31 @@ $policyAssignment=Get-AzPolicyAssignment -Name '<assignment name>' -Scope '/subs
 ```azurepowershell
 Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
 ```
-
-
-
 ---
+## Remediation tasks
+
+Policies are applied to new resources when they're created. To apply a policy to existing resources, create a remediation task. Remediation tasks bring resources into compliance with a policy.
+
+Remediation tasks act for specific policies. For initiatives that contain multiple policies, create a remediation task for each policy in the initiative where you have resources that you want to bring into compliance.
+
+ Define remediation tasks when you first assign the policy, or at any stage after assignment. 
+
+To create a remediation task for policies during the policy assignment, select the **Remediation** tab on **Assign policy** page and select the **Create remediation task** checkbox.
+
+To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
+ 
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+
+Select **Remediate**.
+Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
+
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
+
+
+
+
+For more information on remediation tasks, see [Remediate non-compliant resources](../../governance/policy/how-to/remediate-resources.md)
+
 ## Assign initiatives
 
 Initiatives are collections of policies. There are three initiatives for Azure Monitor Diagnostics settings:
@@ -226,8 +247,6 @@ Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinit
     ```azurepowershell
     Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName;
     ```
-
-
 1. Get a list of resources to remediate and the required parameters by calling `Get-AzPolicyState`
     ```azurepowershell
     $assignmentState=Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName;   
@@ -242,39 +261,16 @@ Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinit
         }
     ```
 1. Check the compliance state when the remediation tasks have completed. 
-  ```azurepowershell
+    ```azurepowershell
     Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
-  ```
+    ```
 
 You can get your policy assignment details using the following command:
   ```azurepowershell
     $policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
   ```
 
-
-## Remediation tasks
-
-Policies are applied to new resources when they're created. To apply a policy to existing resources, create a remediation task. Remediation tasks bring resources into compliance with a policy.
-
-Remediation tasks act for specific policies. For initiatives that contain multiple policies, create a remediation task for each policy in the initiative where you have resources that you want to bring into compliance.
-
- Define remediation tasks when you first assign the policy, or at any stage after assignment. 
-
-To create a remediation task for policies during the policy assignment, select the **Remediation** tab on **Assign policy** page and select the **Create remediation task** checkbox.
-
-To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
- 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
-
-Select **Remediate**.
-Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
-
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
-
-
-
-
-For more information on remediation tasks, see [Remediate non-compliant resources](../../governance/policy/how-to/remediate-resources.md)
+---
 
 
 
