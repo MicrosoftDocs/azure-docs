@@ -14,25 +14,53 @@ Learn how to use Python with [Azure Resource Manager](overview.md) to manage you
 
 ## Prerequisites
 
-Python 3.7 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
+* Python 3.7 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
 
-The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
-* azure-identity
-* azure-mgmt-resource
-* azure-mgmt-storage
+* The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
+  * azure-identity
+  * azure-mgmt-resource
+  * azure-mgmt-storage
 
-An environment variable with your Azure subscription ID. To get your Azure subscription ID, use:
+* The examples in this article use CLI-based authentication (`AzureCliCredential`). Depending on your environment, you may need to run `az login` first to authenticate.
 
-```azurecli-interactive
-az account show --name 'your subscription name' --query id -o tsv
-```
+* An environment variable with your Azure subscription ID. To get your Azure subscription ID, use:
 
-You can set the value with:
+  ```azurecli-interactive
+  az account show --name 'your subscription name' --query id -o tsv
+  ```
 
-```python
-import os
-os.environ["AZURE_SUBSCRIPTION_ID"] = "11111111-1111-1111-1111-111111111111"
-```
+  To set the value, use the option for your environment.
+
+  #### [Windows](#tab/windows)
+
+  ```console
+  setx AZURE_SUBSCRIPTION_ID your-subscription-id
+  ```
+
+  > [!NOTE]
+  > If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
+
+  After you add the environment variables, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+
+  #### [Linux](#tab/linux)
+
+  ```bash
+  export AZURE_SUBSCRIPTION_ID=your-subscription-id
+  ```
+
+  After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
+
+  #### [macOS](#tab/macos)
+
+  ##### Bash
+
+  Edit your .bash_profile, and add the environment variables:
+
+  ```bash
+  export AZURE_SUBSCRIPTION_ID=your-subscription-id
+  ```
+
+  After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
 
 ## What is a resource group?
 
@@ -296,4 +324,4 @@ To assist with creating ARM templates, you can export a template from existing r
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
+- For more information about authentication options, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview).
