@@ -43,7 +43,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 ## Supported regions 
 
-Azure VMware Solution are currently supported in the following regions:  
+Azure VMware Solution is currently supported in the following regions:  
 
 * Australia East
 * Australia Southeast
