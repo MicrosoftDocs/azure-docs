@@ -12,7 +12,7 @@ ms.custom: seodec18, mvc, devx-track-js
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
 
-Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) which can protect data in use and provides in-memory encryption via Secure Nested Paging. 
+Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based and attested trusted execution environment (TEE), which can protect data in use and provides in-memory encryption via Secure Nested Paging. 
 
 In this article, you'll:
 
