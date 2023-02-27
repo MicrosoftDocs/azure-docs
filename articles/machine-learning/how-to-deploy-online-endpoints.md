@@ -553,7 +553,7 @@ ml_client.online_endpoints.invoke(
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run the following code. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
 
 ```python
-endpoint = ml_client.online_endpoints.get(endpoint_name)
+endpoint = ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
 scoring_uri = endpoint.scoring_uri
 ```
 
