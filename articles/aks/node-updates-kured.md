@@ -2,7 +2,6 @@
 title: Handle Linux node reboots with kured
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update Linux nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 

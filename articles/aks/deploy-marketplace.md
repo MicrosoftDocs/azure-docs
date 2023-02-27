@@ -3,7 +3,6 @@ title: Deploy an Azure container offer from Azure Marketplace
 description: Learn how to deploy Azure container offers from Azure Marketplace on an Azure Kubernetes Service (AKS) cluster.
 author: nickomang
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.custom: devx-track-azurecli, ignite-fall-2022, references_regions
