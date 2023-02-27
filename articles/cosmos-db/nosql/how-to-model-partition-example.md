@@ -20,7 +20,10 @@ This article builds on several Azure Cosmos DB concepts like [data modeling](../
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
-[Download or view a community-generated source code](https://github.com/jwidmer/AzureCosmosDbBlogExample) that illustrates the concepts from this article. This code sample was contributed by a community contributor and Azure Cosmos DB team doesn't support its maintenance.
+[Download or view a community-generated source code](https://github.com/jwidmer/AzureCosmosDbBlogExample) that illustrates the concepts from this article.
+
+> [!IMPORTANT]
+> A community contributor contributed this code sample and the Azure Cosmos DB team doesn't support its maintenance.
 
 ## The scenario
 
@@ -41,9 +44,9 @@ Adding more requirements to our specification:
 
 To start, we give some structure to our initial specification by identifying our solution's access patterns. When designing a data model for Azure Cosmos DB, it's important to understand which requests our model has to serve to make sure that the model serves those requests efficiently.
 
-To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) where commands are write requests (that is, intents to update the system) and queries are read-only requests.
+To make the overall process easier to follow, we categorize those different requests as either commands or queries, borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation). In CQRTS, commands are write requests (that is, intents to update the system) and queries are read-only requests.
 
-Here's the list of requests that our platform have to expose:
+Here's the list of requests that our platform exposes:
 
 - **[C1]** Create/edit a user
 - **[Q1]** Retrieve a user
@@ -56,7 +59,7 @@ Here's the list of requests that our platform have to expose:
 - **[Q5]** List a post's likes
 - **[Q6]** List the *x* most recent posts created in short form (feed)
 
-At this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities translate in terms of tables, columns, foreign keys etc. It's much less of a concern with a document database that doesn't enforce any schema at write.
+At this stage, we haven't thought about the details of what each entity (user, post etc.) contains. This step is usually among the first ones to be tackled when designing against a relational store. We start with this step first because we have to figure out how those entities translate in terms of tables, columns, foreign keys etc. It's much less of a concern with a document database that doesn't enforce any schema at write.
 
 The main reason why it's important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we go through each of the requests and check its performance and scalability. We calculate the request units consumed in each model and optimize them. All these models use the default indexing policy and you can override it by indexing specific properties, which can further improve the RU consumption and latency.
 
@@ -75,7 +78,7 @@ This container only stores user items:
 }
 ```
 
-We partition this container by `id`, which means that each logical partition within that container will only contain one item.
+We partition this container by `id`, which means that each logical partition within that container only contains one item.
 
 ### Posts container
 
@@ -127,7 +130,7 @@ It's now time to assess the performance and scalability of our first version. Fo
 
 ### [C1] Create/edit a user
 
-This request is straightforward to implement as we just create or update an item in the `users` container. The requests will nicely spread across all partitions thanks to the `id` partition key.
+This request is straightforward to implement as we just create or update an item in the `users` container. The requests nicely spread across all partitions thanks to the `id` partition key.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C1.png" alt-text="Diagram of writing a single item to the users' container." border="false":::
 
@@ -157,7 +160,7 @@ Similarly to **[C1]**, we just have to write to the `posts` container.
 
 ### [Q2] Retrieve a post
 
-We start by retrieving the corresponding document from the `posts` container. But that's not enough, as per our specification we also have to aggregate the username of the post's author and the counts of how many comments and how many like entities this post has, which requires 3 more SQL queries to be issued.
+We start by retrieving the corresponding document from the `posts` container. But that's not enough, as per our specification we also have to aggregate the username of the post's author, counts of comments, and counts of likes for the post. The aggregations listed require 3 more SQL queries to be issued.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Diagram of retrieving a post and aggregating additional data." border="false":::
 
@@ -247,7 +250,7 @@ Let's resolve each of those problems, starting with the first one.
 
 ## V2: Introducing denormalization to optimize read queries
 
-The reason why we have to issue more requests in some cases is because the results of the initial request don't contain all the data we need to return. When working with a non-relational data store like Azure Cosmos DB, this kind of issue is commonly solved by denormalizing data across our data set.
+The reason why we have to issue more requests in some cases is because the results of the initial request don't contain all the data we need to return. Denormalizing data solves this kind of issue across our data set when working with a non-relational data store like Azure Cosmos DB.
 
 In our example, we modify post items to add the username of the post's author, the count of comments and the count of likes:
 
@@ -291,9 +294,9 @@ We also modify comment and like items to add the username of the user who has cr
 
 ### Denormalizing comment and like counts
 
-What we want to achieve is that every time we add a comment or a like, we also increment the `commentCount` or the `likeCount` in the corresponding post. As our `posts` container is partitioned by `postId`, the new item (comment or like) and its corresponding post sit in the same logical partition. As a result, we can use a [stored procedure](stored-procedures-triggers-udfs.md) to perform that operation.
+What we want to achieve is that every time we add a comment or a like, we also increment the `commentCount` or the `likeCount` in the corresponding post. As `postId` partitions our `posts` container, the new item (comment or like), and its corresponding post sit in the same logical partition. As a result, we can use a [stored procedure](stored-procedures-triggers-udfs.md) to perform that operation.
 
-Now when creating a comment (**[C3]**), instead of just adding a new item in the `posts` container we call the following stored procedure on that container:
+When you create a comment (**[C3]**), instead of just adding a new item in the `posts` container we call the following stored procedure on that container:
 
 ```javascript
 function createComment(postId, comment) {
@@ -329,7 +332,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments always stays in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
@@ -409,7 +412,7 @@ Exact same situation when listing the likes.
 
 ## V3: Making sure all requests are scalable
 
-Looking at our overall performance improvements, there are still two requests that we haven't fully optimized: **[Q3]** and **[Q6]**. They're the requests involving queries that don't filter on the partition key of the containers they target.
+There are still two requests that we haven't fully optimized when looking at our overall performance improvements. These requests are **[Q3]** and **[Q6]**. They're the requests involving queries that don't filter on the partition key of the containers they target.
 
 ### [Q3] List a user's posts in short form
 
@@ -421,9 +424,9 @@ But the remaining query is still not filtering on the partition key of the `post
 
 The way to think about this situation is simple:
 
-1. This request *has* to filter on the `userId` because we want to fetch all posts for a particular user
-1. It doesn't perform well because it's executed against the `posts` container, which isn't partitioned by `userId`
-1. Stating the obvious, we would solve our performance problem by executing this request against a container that *is* partitioned by `userId`
+1. This request *has* to filter on the `userId` because we want to fetch all posts for a particular user.
+1. It doesn't perform well because it's executed against the `posts` container, which doesn't have `userId` partitioning it.
+1. Stating the obvious, we would solve our performance problem by executing this request against a container partitioned with `userId`.
 1. It turns out that we already have such a container: the `users` container!
 
 So we introduce a second level of denormalization by duplicating entire posts to the `users` container. By doing that, we effectively get a copy of our posts, only partitioned along a different dimension, making them way more efficient to retrieve by their `userId`.
@@ -452,10 +455,10 @@ The `users` container now contains two kinds of items:
 }
 ```
 
-Note that:
+In this example:
 
-- we've introduced a `type` field in the user item to distinguish users from posts,
-- we've also added a `userId` field in the user item, which is redundant with the `id` field but is required as the `users` container is now partitioned by `userId` (and not `id` as previously)
+- We've introduced a `type` field in the user item to distinguish users from posts,
+- We've also added a `userId` field in the user item, which is redundant with the `id` field but is required as the `users` container is now partitioned with `userId` (and not `id` as previously)
 
 To achieve that denormalization, we once again use the change feed. This time, we react on the change feed of the `posts` container to dispatch any new or updated post to the `users` container. And because listing posts doesn't require to return their full content, we can truncate them in the process.
 
@@ -475,7 +478,7 @@ We have to deal with a similar situation here: even after sparing the more queri
 
 :::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagram that shows the query to list the x most recent posts created in short form." border="false":::
 
-Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
+Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. Only hitting a single partition is conceivable because we only have to return a limited number of items. In order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
 
 So to optimize this last request, we introduce a third container to our design, entirely dedicated to serving this request. We denormalize our posts to that new `feed` container:
 
@@ -494,9 +497,9 @@ So to optimize this last request, we introduce a third container to our design, 
 }
 ```
 
-This container is partitioned by `type`, which will always be `post` in our items. Doing that ensures that all the items in this container will sit in the same partition.
+The `type` field partitions this container, which is always `post` in our items. Doing that ensures that all the items in this container will sit in the same partition.
 
-To achieve the denormalization, we just have to hook on the change feed pipeline we have previously introduced to dispatch the posts to that new container. One important thing to bear in mind is that we need to make sure that we only store the 100 most recent posts; otherwise, the content of the container may grow beyond the maximum size of a partition. This is done by calling a [post-trigger](stored-procedures-triggers-udfs.md#triggers) every time a document is added in the container:
+To achieve the denormalization, we just have to hook on the change feed pipeline we have previously introduced to dispatch the posts to that new container. One important thing to bear in mind is that we need to make sure that we only store the 100 most recent posts; otherwise, the content of the container may grow beyond the maximum size of a partition. This limitation can be implemented by calling a [post-trigger](stored-procedures-triggers-udfs.md#triggers) every time a document is added in the container:
 
 :::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Diagram of denormalizing posts into the feed container." border="false":::
 
@@ -561,30 +564,30 @@ Let's have a look at the overall performance and scalability improvements we've 
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
-| **[C1]** | 7 ms / 5.71 RU | 7 ms / 5.71 RU | 7 ms / 5.71 RU |
-| **[Q1]** | 2 ms / 1 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[C2]** | 9 ms / 8.76 RU | 9 ms / 8.76 RU | 9 ms / 8.76 RU |
-| **[Q2]** | 9 ms / 19.54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[Q3]** | 130 ms / 619.41 RU | 28 ms / 201.54 RU | 4 ms / 6.46 RU |
-| **[C3]** | 7 ms / 8.57 RU | 7 ms / 15.27 RU | 7 ms / 15.27 RU |
-| **[Q4]** | 23 ms / 27.72 RU | 4 ms / 7.72 RU | 4 ms / 7.72 RU |
-| **[C4]** | 6 ms / 7.05 RU | 7 ms / 14.67 RU | 7 ms / 14.67 RU |
-| **[Q5]** | 59 ms / 58.92 RU | 4 ms / 8.92 RU | 4 ms / 8.92 RU |
-| **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532.33 RU | 9 ms / 16.97 RU |
+| **[C1]** | `7` ms / `5.71` RU | `7` ms / `5.71` RU | `7` ms / `5.71` RU |
+| **[Q1]** | `2` ms / `1` RU | `2` ms / `1` RU | `2` ms / `1` RU |
+| **[C2]** | `9` ms / `8.76` RU | `9` ms / `8.76` RU | `9` ms / `8.76` RU |
+| **[Q2]** | `9` ms / `19.54` RU | `2` ms / `1` RU | `2` ms / `1` RU |
+| **[Q3]** | `130` ms / `619.41` RU | `28` ms / `201.54` RU | `4` ms / `6.46` RU |
+| **[C3]** | `7` ms / `8.57` RU | `7` ms / `15.27` RU | `7` ms / `15.27` RU |
+| **[Q4]** | `23` ms / `27.72` RU | `4` ms / `7.72` RU | `4` ms / `7.72` RU |
+| **[C4]** | `6` ms / `7.05` RU | `7` ms / `14.67` RU | `7` ms / `14.67` RU |
+| **[Q5]** | `59` ms / `58.92` RU | `4` ms / `8.92` RU | `4` ms / `8.92` RU |
+| **[Q6]** | `306` ms / `2063.54` RU | `83` ms / `532.33` RU | `9` ms / `16.97` RU |
 
 ### We've optimized a read-heavy scenario
 
 You may have noticed that we've concentrated our efforts towards improving the performance of read requests (queries) at the expense of write requests (commands). In many cases, write operations now trigger subsequent denormalization through change feeds, which makes them more computationally expensive and longer to materialize.
 
-This is justified by the fact that a blogging platform (like most social apps) is read-heavy, which means that the amount of read requests it has to serve is usually orders of magnitude higher than the number of write requests. So it makes sense to make write requests more expensive to execute in order to let read requests be cheaper and better performing.
+We justify this focus on read performance by the fact that a blogging platform (like most social apps) is read-heavy. A read-heavy workload indicates that the amount of read requests it has to serve is usually orders of magnitude higher than the number of write requests. So it makes sense to make write requests more expensive to execute in order to let read requests be cheaper and better performing.
 
 If we look at the most extreme optimization we've done, **[Q6]** went from 2000+ RUs to just 17 RUs; we've achieved that by denormalizing posts at a cost of around 10 RUs per item. As we would serve a lot more feed requests than creation or updates of posts, the cost of this denormalization is negligible considering the overall savings.
 
 ### Denormalization can be applied incrementally
 
-The scalability improvements we've explored in this article involve denormalization and duplication of data across the data set. It should be noted that these optimizations don't have to be put in place at day 1. Queries that filter on partition keys perform better at scale, but cross-partition queries can be acceptable if they're called rarely or against a limited data set. If you're just building a prototype, or launching a product with a small and controlled user base, you can probably spare those improvements for later; what's important then is to [monitor](../use-metrics.md) your model's performance so you can decide if and when it's time to bring them in.
+The scalability improvements we've explored in this article involve denormalization and duplication of data across the data set. It should be noted that these optimizations don't have to be put in place at day 1. Queries that filter on partition keys perform better at scale, but cross-partition queries can be acceptable if they're called rarely or against a limited data set. If you're just building a prototype, or launching a product with a small and controlled user base, you can probably spare those improvements for later. What's important then is to [monitor](../use-metrics.md) your model's performance so you can decide if and when it's time to bring them in.
 
-The change feed that we use to distribute updates to other containers store all those updates persistently. This makes it possible to request all updates since the creation of the container and bootstrap denormalized views as a one-time catch-up operation even if your system already has many data.
+The change feed that we use to distribute updates to other containers store all those updates persistently. This persistence makes it possible to request all updates since the creation of the container and bootstrap denormalized views as a one-time catch-up operation even if your system already has many data.
 
 ## Next steps
 
