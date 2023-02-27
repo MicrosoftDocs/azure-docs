@@ -9,15 +9,13 @@ ms.date: 02/03/2023
 
 # Automatically upgrade Azure Kubernetes Service cluster node operating system images (preview)
 
-AKS supports upgrading the images on a node so your cluster is up to date with the newest operating system (OS) and runtime updates. AKS regularly provides new node OS images with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest AKS features and to maintain security. Before learning about auto-upgrade, make sure you understand upgrade fundamentals by reading [Upgrade an AKS cluster][upgrade-aks-cluster].
-
-The latest AKS node image information can be found by visiting the [AKS release tracker][release-tracker].
+AKS now supports an exclusive channel, dedicated to control the Node level OS security updates. This channel referred to as NodeOSupgrade channel works in tandem with the existing [Autoupgrade][Autoupgrade] channel which is used for Kubernetes version upgrades. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Why use node OS auto-upgrade
 
-Node OS auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS.
+This channel is exclusively meant to control Node OS security updates. You can use this channel to disable [unattended upgrades][unattended-upgrades] and can now put a maintenance schedule without worrying about [Kured][kured] for security patches, provided you choose two of the below options - SecurityPatch or NodeImage . You can now run Node image upgrades in tandem with major Kubernetes auto upgrade channels like Stable, Rapid etc using this channel.  
 
 ## Prerequisites
 
@@ -49,7 +47,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default.
+If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default. You can not change nodeosupgradechannel value if your autoupgrade channel is node-image. In order to be able to change the nodeosupgradechannel values , please ensure the [autoupgrade channel][Autoupgrade] is not node-image. 
 
 ## Using node OS auto-upgrade
 
@@ -96,3 +94,5 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [upgrade-aks-cluster]: upgrade-cluster.md
 [unattended-upgrades]: https://help.ubuntu.com/community/AutomaticSecurityUpdates
+[Autoupgrade]: auto-upgrade-cluster.md
+[kured]: https://learn.microsoft.com/en-us/azure/aks/node-updates-kured
