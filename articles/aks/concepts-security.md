@@ -42,7 +42,7 @@ You can control access to the API server using Kubernetes role-based access cont
 ## Node security
 
 AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
-* Linux nodes run optimized versions of Ubuntu or CBL-Mariner.
+* Linux nodes run optimized versions of Ubuntu or Mariner.
 * Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
