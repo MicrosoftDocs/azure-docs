@@ -256,7 +256,7 @@ GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
   --output tsv)
 ```
 
-Once a new geo-replication is added, a private endpoint connection is set to be pending. To approve a private endpoint connection run [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command.
+Once a new geo-replication is added, a private endpoint connection is set to be pending. To approve a private endpoint connection configured manually run [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command.
 
 ### Create DNS records in the private zone
 
