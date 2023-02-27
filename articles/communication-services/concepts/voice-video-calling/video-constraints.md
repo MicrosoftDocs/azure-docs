@@ -21,7 +21,7 @@ The Video Constraints API is a powerful tool that enables developers to control 
 
 Another benefit of the Video Constraints API is that it enables developers to optimize the video call for different devices. For example, if a user is using an older device with limited processing power, developers can set constraints on the video resolution to ensure that the video call runs smoothly on that device
 
-Currently ACS supports setting the maximum video resolution that a client will send. The maximum resolution is set at the start of the call and is static throughout the entirity of the call. The sender max video resolution constraint is supported on Desktop browsers (Chrome, Edge) and when using iOS Safari mobile browser.
+Currently ACS supports setting the maximum video resolution that a client will send. The maximum resolution is set at the start of the call and is static throughout the entirity of the call. The sender max video resolution constraint is supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser.
 
 > [!NOTE]
 > Video Constraints is currently supported only for our JavaScript / Web SDK, and is available starting in version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1) of the Calling SDK.
