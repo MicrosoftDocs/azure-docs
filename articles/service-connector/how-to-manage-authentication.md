@@ -18,6 +18,11 @@ In this guide, learn about the different authentication options available in Ser
 - An Azure App Service, Azure Container Apps or Azure Spring Apps instance.
 - This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service,](quickstart-portal-app-service-connection.md), [Container Apps](quickstart-portal-container-apps.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
 
+## Start creating a new connection
+
+1. Within your App Service, Container Apps or Azure Spring Apps instance, open Service Connector and fill out the form in the **Basics** tab with the required information about your compute and target services.
+1. Select **Next : Authentication**. 
+
 ## Select an authentication option
 
 Select one of the four different authentication options offered by Service Connector to connect your Azure services together:
@@ -34,15 +39,15 @@ Different authentication options are available for different services:
 | Postgres single server    | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
 | Postgres, flexible server | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
 | MySQL single server       | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
-| MySQL flexible            | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
-| SQL                       | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      | 
-| Redis                     |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Redis Enterprise          |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
-| Cosmos Cassandra          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | 
-| Cosmos Gremlin            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Cosmos Mongo              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Cosmos Table              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Cosmos SQL                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| MySQL flexible server           | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Azure SQL                       | ![yes icon](./media/green-check.png) |                                      | ![yes icon](./media/green-check.png) |                                      | 
+| Azure Cache for Redis                     |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Azure Cache for Redis Enterprise          |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Azure Cosmos DB - Cassandra          | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | 
+| Azure Cosmos - Gremlin            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos DB for MongoDB              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos Table              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Azure Cosmos - SQL                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Blob storage              | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Storage Queue             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Storage File              |                                      | ![yes icon](./media/green-check.png) |                                      |                                      |
@@ -55,6 +60,13 @@ Different authentication options are available for different services:
 | SignalR                   | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | WebPub Sub                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Confluent Cloud           |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+
+## System assigned managed identity
+
+
+1. In the Authentication tab, select **Advanced**
+1. 
+:::image type="content" source="./media/manage-authentication/managed-identity-advanced.png" alt-text="Screenshot of the Azure portal, selecting Advanced in the Authentication tab.":::
 
 ## Next steps
 
