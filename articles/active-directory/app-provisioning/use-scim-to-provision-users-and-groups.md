@@ -182,7 +182,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|Section [3.4.2.2](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2)|
 |Support listing users and paginating|[Section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user shouldn't be returned is when it's hard deleted from the application.|
-|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover more attributes.|
+|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint is used to discover more attributes.|
 |Accept a single bearer token for authentication and authorization of Azure AD to your application.||
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
