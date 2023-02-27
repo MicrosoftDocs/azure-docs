@@ -44,7 +44,7 @@ For information about how to use the gateway with these services, see these arti
 
   * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic app workflows can then use these gateway resources in triggers and actions that can access on-premises data sources.
 
-* Local computer requirements: For operating system and hardware requirements, see the [main guide for how to install the on-premises data gateway](/data-integration/gateway/service-gateway-install).
+* For local computer operating system and hardware requirements, see the [main guide for how to install the on-premises data gateway](/data-integration/gateway/service-gateway-install).
 
 * Related considerations:
 
