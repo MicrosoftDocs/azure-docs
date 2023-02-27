@@ -71,11 +71,25 @@ In this article, you learn how to:
 
 ## Verify the results
 
-Use [terraform state show](https://developer.hashicorp.com/terraform/cli/commands/state/show) to display the current state of the specified resource.
+#### [Azure CLI](#tab/azure-cli)
 
-```console
-terraform state show azurerm_dev_test_windows_virtual_machine.vm
-```
+1. Get the Azure resource name in which the lab was created.
+
+    ```azurecli
+    echo "$(terraform output resource_group_name)"
+    ```
+
+1. Get the lab name.
+
+    ```azurecli
+    echo "$(terraform output lab_name)"
+    ```
+
+1. Run [az lab vm list](https://learn.microsoft.com/en-us/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
+
+    ```azurecli
+    az lab vm list --resource-group <resource_group_name> --lab-name <lab_name>
+    ```
 
 ## Clean up resources
 
