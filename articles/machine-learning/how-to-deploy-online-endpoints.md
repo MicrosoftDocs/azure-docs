@@ -27,9 +27,6 @@ Managed online endpoints help to deploy your ML models in a turnkey manner. Mana
 
 The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document that are inline with the managed online endpoint discussion. 
 
-> [!TIP]
-> To create managed online endpoints in the Azure Machine Learning studio, see [Use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md).
-
 ## Prerequisites
 
 # [Azure CLI](#tab/azure-cli)
