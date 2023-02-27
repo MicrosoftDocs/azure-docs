@@ -151,7 +151,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/open-data-history.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, highlighting the icon to open the data history explorer." lightbox="media/how-to-use-azure-digital-twins-explorer/open-data-history.png":::
 
-1. Select the twin name from the left to bring up a modal for choosing which historical properties of the twin to view. The **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
+1. Select the twin name from the left to bring up the options for choosing which historical properties of the twin to view. The **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::    
 
@@ -163,7 +163,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
 This will load the chart view of the historized values for the chosen property. You can use the tabs above the chart to toggle between the [chart view](#view-history-in-chart) and [table view](#view-history-in-table).
 
-To add more properties to the visualization by using the **Add time series** button on the left.
+To add more properties to the visualization, use the **Add time series** button on the left.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png" alt-text="Screenshot of the Data history explorer highlighting the option to add another time series." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-add-time-series.png":::
 

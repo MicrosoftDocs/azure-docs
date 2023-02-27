@@ -111,7 +111,7 @@ You can switch to **View** mode to enable filtering on specific elements and vis
 
 You can view **All properties** of an element from here, as well as their values over time if [data history](concepts-data-history.md) is enabled on your instance. To view property history, select the **Open data history explorer** icon.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the viewer." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view-data-history.png" alt-text="Screenshot of 3D Scenes Studio, showing the icon to open the data history explorer." lightbox="media/how-to-use-3d-scenes-studio/scene-view-data-history.png":::
 
 This will open the **Data history explorer** for the property. For more information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
 
