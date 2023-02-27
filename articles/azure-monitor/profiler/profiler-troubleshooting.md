@@ -97,7 +97,7 @@ For Profiler to work properly, make sure:
 
       :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot of the Continuous WebJob Details pane.":::
 
-If Profiler still isn't working for you, you can download the log and [send it to our team](mailto:serviceprofilerhelp@microsoft.com).
+If Profiler still isn't working for you, you can download the log and [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
 #### Check the Diagnostic Services site extension' status page
 
