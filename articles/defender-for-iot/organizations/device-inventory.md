@@ -143,7 +143,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **VLAN** / **VLAN Ids** * | The device's VLAN.  |
 |**Zone** | The device's zone.  |
 
-<!-->
+<!--
 
 The following additional columns are available on OT sensors only:
 
