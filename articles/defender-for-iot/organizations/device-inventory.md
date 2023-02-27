@@ -128,7 +128,7 @@ The following columns are available on OT sensors only:
 
 - The device's **DHCP Address**
 - The device's **FQDN** address and **FQDN Last Lookup Time**
-- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group-from-an-ot-sensor-device-map)
+- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group)
 - The device's **Module address**
 - The device's **Rack** and **Slot**
 - The number of **Unacknowledged Alerts** alerts associated with the device
