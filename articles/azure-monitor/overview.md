@@ -55,7 +55,7 @@ The diagram depicts the Azure Monitor system components:
 
 ## Data sources
 
-Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. 
+Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. Click on the picture to see a larger version of the diagram in context. 
 
 :::image type="content" source="media/overview/overview-data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/overview-data-sources-large.png":::
 
@@ -93,7 +93,7 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/overview-data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/overview-data-collection-large.png":::
+:::image type="content" source="media/overview/overview-data-collection-large-all.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/overview-data-collection-large.png":::
 
 |Collection method|Description  |
 |---------|---------|
@@ -118,7 +118,7 @@ All areas in the *consumption* section of the diagram have a user interface that
 
 The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments in the portal. The *Monitor* section of the Azure portal provides a visual interface that gives you access to the data collected for Azure resources and an easy way to access the tools, insights, and visualizations in Azure Monitor.
 
-:::image type="content" source="media/overview/azure-portal.png" alt-text="Screenshot that shows the Monitor section of the Azure portal.":::
+:::image type="content" source="media/overview/azure-portal.png" alt-text="Screenshot that shows the Monitor section of the Azure portal." lightbox="media/overview/azure-portal.png"::::::
 
 ### Insights
 
