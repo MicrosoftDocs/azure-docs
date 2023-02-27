@@ -93,7 +93,7 @@ In this tutorial, you follow these steps:
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-42.png" alt-text="Updated screenshot of the source to target mapping in the change data capture studio.":::
 
-15.	With default schema-less, once you’ve selected your tables, you should see that the columns are **Auto Mapped**. If you don't want to change any column mappings, proceed to **Step 20** directly. 
+15.	Once you have selected your tables, the column mappings are schema-less by default. You should see the columns marked as **Auto Mapped**. Schema-less allows all incoming columns from your source to flow to sink and automatically maps the columns by name in the Sink. If you would want to retain this behavior and not change any column mappings, proceed to **Step 20** directly.
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-43.png" alt-text="Screenshot of default Auto mapped.":::
 
