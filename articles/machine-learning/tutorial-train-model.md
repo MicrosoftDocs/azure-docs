@@ -40,7 +40,7 @@ The steps are:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
 

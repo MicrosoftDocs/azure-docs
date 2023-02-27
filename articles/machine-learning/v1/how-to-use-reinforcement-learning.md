@@ -37,7 +37,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Quickstart: Run Jupyter notebooks in studio](../quickstart-run-notebooks.md).
+     - Learn how to clone sample notebooks in [Run Jupyter notebooks in your workspace](../how-to-run-jupyter-notebooks.md).
          - Clone the **SDK v1 > how-to-use-azureml** folder instead of **SDK v2 > tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
@@ -77,7 +77,7 @@ Set up the local RL environment by:
 Import the necessary Python packages to run the rest of this example.
 
 ```python
-# Azure ML Core imports
+# Azure Machine Learning Core imports
 import azureml.core
 from azureml.core import Workspace
 from azureml.core import Experiment
@@ -87,7 +87,7 @@ from azureml.core.runconfig import EnvironmentDefinition
 from azureml.widgets import RunDetails
 from azureml.tensorboard import Tensorboard
 
-# Azure ML Reinforcement Learning imports
+# Azure Machine Learning Reinforcement Learning imports
 from azureml.contrib.train.rl import ReinforcementLearningEstimator, Ray
 from azureml.contrib.train.rl import WorkerConfiguration
 ```
@@ -225,7 +225,7 @@ pip_packages=["ray[rllib]==0.8.3"] # Latest version of Ray has fixes for isses r
 # Specify the Ray worker configuration
 worker_conf = WorkerConfiguration(
     
-    # Azure ML compute cluster to run Ray workers
+    # Azure Machine Learning compute cluster to run Ray workers
     compute_target=worker_compute_target, 
     
     # Number of worker nodes
@@ -293,7 +293,7 @@ rl_estimator = ReinforcementLearningEstimator(
     # Defined above.
     script_params=script_params,
     
-    # The Azure ML compute target set up for Ray head nodes
+    # The Azure Machine Learning compute target set up for Ray head nodes
     compute_target=head_compute_target,
     
     # Pip packages

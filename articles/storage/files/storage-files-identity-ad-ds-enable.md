@@ -34,7 +34,8 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 ### Download AzFilesHybrid module
 
 - If you don't have [.NET Framework 4.7.2 or higher](https://dotnet.microsoft.com/download/dotnet-framework/) installed, install it now. It's required for the module to import successfully.
-- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+- Make sure you have Azure PowerShell (Az module) 2.8.0+ and Az.Storage 4.3.0+ installed.
+- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [troubleshoot Azure Files authentication](files-troubleshoot-smb-authentication.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Install and execute the module on a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a computer account or service logon account in the target AD (such as domain admin).
 
 ### Run Join-AzStorageAccount
@@ -119,7 +120,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ## Option two: Manually perform the enablement actions
 
-Most customers should choose [Option one](#option-one-recommended-use-azfileshybrid-powershell-module) above and use the AzFilesHybrid PowerShell module to enable AD DS authentication with Azure Files. However, if you prefer to execute the steps manually using Active Directory PowerShell, the steps are outlined below.
+Most customers should choose [Option one](#option-one-recommended-use-azfileshybrid-powershell-module) above and use the AzFilesHybrid PowerShell module to enable AD DS authentication with Azure Files. However, if you prefer to execute the steps manually using Active Directory PowerShell, the steps are outlined here.
 
 > [!IMPORTANT]
 > If you've already executed the `Join-AzStorageAccount` script above successfully, go directly to the [Confirm the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
@@ -209,7 +210,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 ### Debugging
 
-If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials).
+If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
