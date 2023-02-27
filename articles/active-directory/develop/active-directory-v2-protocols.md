@@ -89,7 +89,7 @@ Next, learn about the OAuth 2.0 authentication flows used by each application ty
 * [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 * [Microsoft Authentication Library (MSAL)](msal-overview.md)
 
-**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft authentication library](reference-v2-libraries.md) is safer and much easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
+**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft Authentication Library](reference-v2-libraries.md) is safer and much easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
 
 * [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
 * [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons
