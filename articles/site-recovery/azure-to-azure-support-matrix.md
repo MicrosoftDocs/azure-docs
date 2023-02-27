@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 02/27/2023
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -161,7 +161,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 20.04 LTS |[9.50](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 5.4.0-1080-azure </br> 5.4.0-1083-azure </br> 5.4.0-1085-azure </br> 5.4.0-1086-azure </br> 5.4.0-1089-azure </br> 5.4.0-1090-azure </br> 5.4.0-113-generic </br> 5.4.0-117-generic </br> 5.4.0-120-generic </br> 5.4.0-121-generic </br> 5.4.0-122-generic </br> 5.4.0-124-generic </br> 5.4.0-125-generic |
 20.04 LTS |[9.49](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | No new 20.04 LTS kernels supported in this release. |
 |||
-22.04 LTS | [9.53](https://support.microsoft.com/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 5.15.0-1003-azure <br> 5.15.0-1005-azure <br> 5.15.0-1007-azure <br> 5.15.0-1008-azure <br> 5.15.0-1010-azure <br> 5.15.0-1012-azure" <br> 5.15.0-1013-azure <br> 5.15.0-1014-azure <br> 5.15.0-1017-azure <br> 5.15.0-1019-azure <br> 5.15.0-1020-azure <br> 5.15.0-1021-azure <br> 5.15.0-1022-azure <br> 5.15.0-1023-azure <br> 5.15.0-1024-azure <br> 5.15.0-1029-azure <br> 5.15.0-1030-azure <br> 5.15.0-1031-azure <br> 5.15.0-25-generic <br> 5.15.0-27-generic <br> 5.15.0-30-generic <br> 5.15.0-33-generic <br> 5.15.0-35-generic <br> 5.15.0-37-generic <br> 5.15.0-39-generic <br> 5.15.0-40-generic <br> 5.15.0-41-generic <br> 5.15.0-43-generic <br> 5.15.0-46-generic <br> 5.15.0-47-generic <br> 5.15.0-48-generic <br> 5.15.0-50-generic <br> 5.15.0-52-generic <br> 5.15.0-53-generic <br> 5.15.0-56-generic <br> 5.15.0-57-generic <br> 5.15.0-58-generic |
+22.04 LTS | [9.53](https://support.microsoft.com/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 5.15.0-1003-azure <br> 5.15.0-1005-azure <br> 5.15.0-1007-azure <br> 5.15.0-1008-azure <br> 5.15.0-1010-azure <br> 5.15.0-1012-azure <br> 5.15.0-1013-azure <br> 5.15.0-1014-azure <br> 5.15.0-1017-azure <br> 5.15.0-1019-azure <br> 5.15.0-1020-azure <br> 5.15.0-1021-azure <br> 5.15.0-1022-azure <br> 5.15.0-1023-azure <br> 5.15.0-1024-azure <br> 5.15.0-1029-azure <br> 5.15.0-1030-azure <br> 5.15.0-1031-azure <br> 5.15.0-25-generic <br> 5.15.0-27-generic <br> 5.15.0-30-generic <br> 5.15.0-33-generic <br> 5.15.0-35-generic <br> 5.15.0-37-generic <br> 5.15.0-39-generic <br> 5.15.0-40-generic <br> 5.15.0-41-generic <br> 5.15.0-43-generic <br> 5.15.0-46-generic <br> 5.15.0-47-generic <br> 5.15.0-48-generic <br> 5.15.0-50-generic <br> 5.15.0-52-generic <br> 5.15.0-53-generic <br> 5.15.0-56-generic <br> 5.15.0-57-generic <br> 5.15.0-58-generic |
 
 > [!NOTE]
 > To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch) follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
