@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 02/06/2023
+ms.date: 03/1/2023
 ms.custom: template-how-to 
 #customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
