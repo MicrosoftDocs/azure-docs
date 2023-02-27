@@ -135,10 +135,6 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
         --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl \
         --yes
     ```
-    Input `y` when a prompt ask you to confirm like this:
-    ```text
-    Are you sure you want to install this extension? (y/n): y
-    ```
 2. Register the Microsoft.AppPlatform provider for the Azure Spring Apps.
     ```azurecli-interactive
     az provider register --namespace Microsoft.AppPlatform
