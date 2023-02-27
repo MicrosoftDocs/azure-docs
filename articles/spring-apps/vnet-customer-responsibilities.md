@@ -5,13 +5,14 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 27/02/2023
+ms.date: 02/27/2023
 ms.custom: devx-track-java, event-tier1-build-2022
+zone_pivot_groups: spring-apps-tiers
 ---
 
 # Customer responsibilities for running Azure Spring Apps in a virtual network
 
-#### [Standard/Enterprise Tier](#tab/Standard-Enterprise-Tier)
+::: zone pivot="tier-standard-enterprise"
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
@@ -73,7 +74,11 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                                                                                                                                                            |
 | <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges).                                              |
 
-#### [StandardGen2 Tier](#tab/StandardGen2-Tier)
+::: zone-end
+
+::: zone pivot="tier-standardGen2"
+
+**This article applies to:** ✔️ Standard tier 
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
@@ -135,6 +140,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 - If you are running HTTP servers, you might need to add ports `80` and `443`.
 - Adding deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.
 
+::: zone-end
 
 ## Next steps
 

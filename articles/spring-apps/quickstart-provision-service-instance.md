@@ -5,15 +5,17 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 7/28/2022
+ms.date: 02/27/2023
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
-zone_pivot_groups: programming-languages-spring-apps
+zone_pivot_groups: programming-languages-spring-apps, spring-apps-tiers
 ---
 
 # Quickstart: Provision an Azure Spring Apps service instance
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+::: zone pivot="tier-standard"
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
@@ -168,6 +170,135 @@ The following procedure uses the Azure CLI extension to provision an instance of
    ```
 
 ---
+::: zone-end
+
+::: zone-end
+
+::: zone pivot="tier-standardGen2"
+
+The following example shows you how to create a StandardGen2 Azure Spring Apps on top of a Managed Environment.
+
+### [Azure portal](#tab/portal)
+TODO
+### [Azure cli](#tab/azure-cli)
+
+## Prerequisites
+
+- Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
+
+## Step 1: Create a Managed Environment
+
+A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+
+Please create the Managed Environment in one of two options:
+
+#### Option 1: Create a Managed Environment with system assigned virtual network
+
+1. To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process
+  ```azurecli
+    az login
+  ```
+
+2. Next, install the Azure Container Apps extension for the CLI
+
+```azurecli
+  az extension add --name containerapp --upgrade
+```
+
+3. Now that the current extension or module is installed, register the `Microsoft.App` namespace
+
+```azurecli
+  az provider register --namespace Microsoft.App
+```
+
+4. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before
+
+```azurecli
+  az provider register --namespace Microsoft.OperationalInsights
+```
+
+5. Next, set the following environment variables
+
+> [!NOTE]
+> You can customize the values of all the environment variables
+
+```bash
+    RESOURCE_GROUP="my-spring-apps"
+    LOCATION="eastus"
+    MANAGED_ENVIRONMENT="my-environment"
+```
+
+### Create an environment
+
+A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+
+To create the environment, run the following command
+```azurecli
+    az containerapp env create \
+    --name $MANAGED_ENVIRONMENT \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION
+```
+
+
+#### Option 2: Please refer [Create a Managed Environment with your own virtual network](./managed-env-with-vnet.md)
+
+
+---
+
+## Step 2: Deploy an Azure Spring Apps instance
+
+1. Install the latest `spring` extension for Azure Spring Apps
+
+```azurecli
+    az extension remove -n spring && \
+    az extension add -n spring
+```
+
+2. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps
+
+```azurecli
+    az provider register --namespace Microsoft.AppPlatform
+```
+
+3. Set the following environment variables
+
+```bash
+    RESOURCE_GROUP="my-spring-apps"
+    SPRING_APPS_NAME="my-spring-apps-instance"
+    MANAGED_ENVIRONMENT="my-environment"
+    LOCATION="eastus"
+```
+```azurecli
+    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+        --name $MANAGED_ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --query id -o tsv)
+```
+
+4. To deploy a StandardGen2 Azure Spring Apps instance on top of the Container Environment: 
+Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created
+
+```azurecli
+    az spring create \
+        --resource-group $RESOURCE_GROUP \
+        --name $SPRING_APPS_NAME \
+        --managed-environment $MANAGED_ENV_RESOURCE_ID \
+        --sku standardGen2 \
+        --location $LOCATION
+```
+
+5. After the deployment, one additional infra resource group will be created in your subscription to host the underlying resources for the StandardGen2 Azure Spring Apps instance. 
+The resource group will be named as {MANAGED_ENVIRONMENT}\_SpringApps\_{SPRING_APPS_SERVICE_ID}
+
+```azurecli
+    SERVICE_ID=$(az spring show \
+        --resource-group $RESOURCE_GROUP \
+        --name $SPRING_APPS_NAME --query properties.serviceId -o tsv)
+    INFRA_RESOURCE_GROUP=${MANAGED_ENVIRONMENT}_SpringApps_${SERVICE_ID}
+    echo ${INFRA_RESOURCE_GROUP}
+```
+
 ::: zone-end
 
 ## Clean up resources
