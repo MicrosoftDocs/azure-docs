@@ -62,6 +62,9 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 
 For full interconnectivity to your private cloud, you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
+> [!IMPORTANT]
+> Customers should not advertise bogon routes over ExpressRoute from on-premises or their Azure VNET.  Examples of bogon routes include 0.0.0.0/5 or 192.0.0.0/3.
+
 ## Limitations
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 

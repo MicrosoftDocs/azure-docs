@@ -2,7 +2,6 @@
 title: Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access
 description: Learn how to use the Trusted Access feature to enable Azure resources to access Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
-services: container-service
 ms.topic: article
 ms.date: 02/23/2023
 ms.author: schaffererin
