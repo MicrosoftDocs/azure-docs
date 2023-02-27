@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/16/2023
+ms.date: 02/16/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -17,8 +17,8 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Obtain the [NuGet](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1) package.
-- Create and connect Azure Cognitive Services to your Azure Communication Services resource.
+- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Create a new C# application
