@@ -68,10 +68,11 @@ The application that you'll create displays a button that'll call the Microsoft 
 > [!NOTE]
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
 
-To create your application, follow these steps:
+Create the application using the following steps:
 
-1. In Visual Studio, select **File** > **New** > **Project**.
-1. In the **Create a new project** window, choose **C#** from the Language list, choose **Windows** from the Platform list and choose **All Project types** from the Project types list.
+1. Open Visual Studio
+1. On the start window, select **Create a new project**.
+1. In the **All language** dropdown, select **C#**.
 1. Search for and choose the **WPF App (.NET Framework)** template, and then select Next.
 1. In the **Project name** box, enter a name like _Win-App-calling-MsGraph_. 
 1. Choose a **Location** for the project or accept the default option.
