@@ -49,7 +49,7 @@ sections:
           answer: >
             Standard Azure data transfer rates would apply. This is free to customers during the Preview period. 
            
-        - question: Will I be charged for Axure Data Maanger for Energy separately from the applications used on top of the platform?
+        - question: Will I be charged for Azure Data Maanger for Energy separately from the applications used on top of the platform?
           answer: >
             Pricing for Azure Data Manager for Energy will be separate from other applications built or utilized on the platform.  
                   
