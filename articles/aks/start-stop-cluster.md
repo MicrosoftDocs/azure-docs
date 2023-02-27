@@ -1,7 +1,6 @@
 ---
 title: Start and Stop an Azure Kubernetes Service (AKS)
 description: Learn how to stop or start an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
 ms.date: 08/09/2021
 author: palma21

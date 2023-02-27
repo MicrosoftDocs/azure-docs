@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
-services: container-service
 ms.topic: tutorial
 ms.date: 12/20/2021
 
