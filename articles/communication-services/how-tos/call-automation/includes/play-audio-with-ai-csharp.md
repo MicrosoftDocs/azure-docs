@@ -41,14 +41,14 @@ You can test creating your own audio file using our [Speech synthesis with Audio
 
 ## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
-If you would like to use Text-To-Speech Capabilities then it is required for you to connect your Azure Cognitive Service to your Azure Communication Service.
+If you would like to use Text-To-Speech capabilities, then it's required for you to connect your Azure Cognitive Service to your Azure Communication Service.
 ``` code
 az communication bind-cognitive-service --name “{Azure Communication resource name}” --resource-group “{Azure Communication resource group}” --resource-id “{Cognitive service resource id}” --subscription{subscription Name of Cognitive service} –identity{Cognitive Services Identity}
 
 ```
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ``` csharp
 AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
@@ -60,11 +60,11 @@ Response<AnswerCallResult> answerCallResult = callAutomationClient
 
 ## Play Audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ### Play source - Audio file
 
-To play audio to participants using audio files you will need to make sure the audio file is a WAV file, mono and 16KHz. To play audio files you will need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. 
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. 
 
 ``` csharp
 FileSource playSource = new FileSource (new Uri(<audioUri>));
@@ -72,7 +72,7 @@ FileSource playSource = new FileSource (new Uri(<audioUri>));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure Cognitive Services you will need to provide the text you wish to play as well either the SourceLocale and VoiceGender or the VoiceName you wish to use.
+To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use.
 
 ```csharp
 String textToPlay = "Welcome to Contoso";
@@ -86,7 +86,7 @@ TextSource playSource = new TextSource(textToPlay);
 
 ## Play audio to a specific participant
 
-In this scenario audio will be played to a specific participant. 
+In this scenario audio is played to a specific participant. 
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
@@ -95,9 +95,9 @@ var playResponse = await callMedia.PlayAsync(playSource, new PhoneNumberIdentifi
 Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 ```
 
-## Play audio to a specific participant
+## Play audio to all participants
 
-In this scenario audio will be played to all participants on the call.
+In this scenario audio is played to all participants on the call.
 
 ``` csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
@@ -121,7 +121,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Enhance play with audio file caching
 
-If you'll be playing the same audio file multiple times using a FileSource, your application can provide us the sourceID for the audio file. ACS will cache this audio file for 1 hour.
+If your application is playing the same audio file multiple times using a FileSource, your application can provide us with the sourceID for the audio file. ACS caches this audio file for 1 hour.
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);
@@ -135,7 +135,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Handle play action event updates 
 
-Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
+Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. An example of a successful play event update.
 
 ```json 
 [{
@@ -164,7 +164,7 @@ To learn more about other supported events, visit the [Call Automation overview 
 
 ## Cancel play action
 
-Cancel all media operations, all pending media operations will be canceled. This action will also cancel other queued play actions.
+Cancel all media operations, all pending media operations are canceled. This action also cancels other queued play actions.
 
 ```csharp
 var callMedia = callAutomationClient.GetCallConnection(<callConnectionId>).GetCallMedia();
