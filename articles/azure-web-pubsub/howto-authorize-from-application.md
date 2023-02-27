@@ -78,7 +78,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 
 1. Click **Add > Add role assignment**.
 
-1. On the **Roles** tab, select `Web PubSub App Server`.
+1. On the **Roles** tab, select `Web PubSub Service Owner`.
 
 1. Click **Next**.
 
