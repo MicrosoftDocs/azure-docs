@@ -43,17 +43,23 @@ Follow these steps to register your application in the Azure portal:
 1. Under **Redirect URIs**, select **Web** for the platform.
 1. Enter a redirect URI of `http://localhost:5000/getAToken`. This can be changed later.
 1. Select **Register**.
+
+## Step 2: Add a client secret
+
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select the **Certificates & secrets** and from the **Client secrets** section, select **New client secret**.
 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
 1. Save the **Value** of the **Client Secret** in a safe location. You will need it to configure the code, and you can't retrieve it later.
+
+## Step 3: Add a scope
+
 1. Under **Manage**, select **API permissions** > **Add a permission**.
 1. Ensure that the **Microsoft APIs** tab is selected.
 1. From the *Commonly used Microsoft APIs* section, select **Microsoft Graph**.
 1. From the **Delegated permissions** section, ensure that **User.ReadBasic.All** is selected. Use the search box if necessary.
 1. Select **Add permissions**.
 
-## Step 2: Download the project
+## Step 4: Download the sample app
 
 [Download the Python code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip) or clone the repository:
 
@@ -61,28 +67,27 @@ Follow these steps to register your application in the Azure portal:
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
 ```
 
-
 You can also use an integrated development environment to open the folder.
 
-## Step 3: Configure the project
+## Step 5: Configure the sample app
 
 1. Go to the application folder.
 
-Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
+1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
 
-```python
-CLIENT_ID=<client id>
-CLIENT_SECRET=<client secret>
-TENANT_ID=<tenant id>
-```
+    ```python
+    CLIENT_ID=<client id>
+    CLIENT_SECRET=<client secret>
+    TENANT_ID=<tenant id>
+    ```
 
-* Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
-* Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
-* Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
+    * Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
+    * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
+    * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
 
 The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
-## Step 4: Run the code sample
+## Step 6: Run the sample app
 
 1. Create a virtual environment for the app:
 
