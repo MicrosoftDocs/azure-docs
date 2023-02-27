@@ -93,7 +93,7 @@ In this tutorial, you follow these steps:
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-42.png" alt-text="Updated screenshot of the source to target mapping in the change data capture studio.":::
 
-15.	With default schema-less, once you’ve selected your tables, you should see that their columns **Auto Mapped**. If you don't want to change any existing column mappings, proceed to **Step 20** directly. 
+15.	With default schema-less, once you’ve selected your tables, you should see that the columns are **Auto Mapped**. If you don't want to change any column mappings, proceed to **Step 20** directly. 
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-43.png" alt-text="Screenshot of default Auto mapped.":::
 
