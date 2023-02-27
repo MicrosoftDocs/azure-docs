@@ -10,9 +10,8 @@ ms.author: kesheth
 ---
 
 # Autoscaling
-## Overview
 
-FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. 
+FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint.
 
 Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling provides elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the process is automated.
 
@@ -28,7 +27,7 @@ The autoscale feature adjusts computing resources automatically to optimize the 
 
 When transaction workloads are high, the autoscale feature increases computing resources automatically. When transaction workloads are low, it decreases computing resources accordingly. Whether you're performing read requests that include simple queries like getting patient information using a patient ID, and advanced queries like getting all DiagnosticReport resources for patients whose name is "Sarah", or you're creating or updating FHIR resources, the autoscale feature manages the dynamics and complexity of resource allocation to ensure high scalability.
 
-Auto scaling policies defined for FHIR service consists of two parts
+Auto scaling policies defined for FHIR service consists of two parts:
 
 * Scaling Trigger
     
@@ -38,9 +37,9 @@ Auto scaling policies defined for FHIR service consists of two parts
     
     Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met.
     There are three factors that determine when the service will be scaled:
-    1. Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in. 
-    1. Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
-    1. Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
+    * Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in. 
+    * Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
+    * Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
 
 ## FAQ
 ### What is the cost of the FHIR service autoscale?  
