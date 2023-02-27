@@ -191,7 +191,7 @@ You can split a metric by dimension to visualize how different segments of the m
 
 1. If you like to segment by multiple segments select multiple dimensions from the values dropdown. The legends will show a comma-separated list of dimension values for each segment
 
-   ![Screenshot that shows multiple segments selected, and the corresponding chart below.](./media/metrics-charts/segments-dimension-multiple.png)
+   ![Screenshot that shows multiple segments selected, and the corresponding chart below.](./media/metrics-charts/segment-dimension-multiple.png)
    
 3. Click away from the grouping selector to close it.
 
