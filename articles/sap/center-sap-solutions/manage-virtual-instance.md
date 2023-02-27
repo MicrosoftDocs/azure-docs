@@ -56,6 +56,31 @@ In the sidebar menu, look under the section **SAP resources**:
 
 :::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of VIS resource in Azure portal, showing SAP resources pages in the sidebar menu for ASCS, App server, and Database instances.":::
 
+## Default Instance Numbers
+
+If you've deployed an SAP system using Azure Center for SAP solutions, below shows the default values of instance numbers configured during deployment :
+
+- Distributed Systems [HA and non-HA systems]
+1. ASCS Instance Number - 00
+2. ERS Instance Number - 01
+3. DB Instance Number - 00
+4. APP Instance Number - 00
+
+
+- Single Server Systems 
+1. ASCS Instance Number - 01
+3. DB Instance Number - 00
+4. APP Instance Number - 02
+
+
+## Connect to SAP Application
+
+To connect to and manage SAP Application, you can use following credentials :
+
+1. User : DDIC or RFC_USER or SAP*
+2. Client ID : 000
+
+
 ## Connect to HANA database
 
 If you've deployed an SAP system using Azure Center for SAP solutions, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
