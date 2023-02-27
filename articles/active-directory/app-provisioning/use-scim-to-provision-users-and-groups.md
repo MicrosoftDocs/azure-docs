@@ -61,9 +61,9 @@ To design your schema, follow these steps:
 
 1. List the attributes your application requires, then categorize as attributes needed for authentication (for example, loginName and email). Attributes are needed to manage the user lifecycle (for example, status / active), and all other attributes needed for the application to work (for example, manager, tag).
 
-1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example below for an extension to the user to allow provisioning a user `tag`.
+1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example for an extension to the user to allow provisioning a user `tag`.
 
-1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown below for the `tags` property.
+1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown in the example for the `tags` property.
 
 The following table lists an example of required attributes:
 
@@ -246,7 +246,7 @@ The following diagram shows the group deprovisioning sequence:
 This article provides example SCIM requests emitted by the Azure Active Directory (Azure AD) Provisioning Service and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Azure AD user provisioning service emits the operations described in the example, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
 
@@ -899,7 +899,7 @@ All services must use X.509 certificates generated using cryptographic keys of s
 
 **Cipher Suites**
 
-All services must be configured to use the following cipher suites, in the exact order specified below. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
+All services must be configured to use the following cipher suites, in the exact order specified in the example. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
 
 TLS 1.2 Cipher Suites minimum bar:
 
@@ -1360,7 +1360,7 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
-> * Support the OAuth authorization code grant or a long lived token as described below (Required)
+> * Support the OAuth authorization code grant or a long lived token as described in the example (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
 > * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
