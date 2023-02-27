@@ -34,7 +34,7 @@ Only users with **Policy Admin** privilege can delete self-service data access p
 
 The Microsoft Purview governance portal can be launched as shown below from the Azure portal or by using the [url directly](https://web.purview.azure.com/resource/).
 
-    :::image type="content" source="./media/how-to-delete-self-service-data-access-policy/Purview-Studio-launch-pic-1.png" alt-text="Screenshot showing a Microsoft Purview account open in the Azure portal, with the Microsoft Purview governance portal button highlighted.":::
+:::image type="content" source="./media/how-to-delete-self-service-data-access-policy/Purview-Studio-launch-pic-1.png" alt-text="Screenshot showing a Microsoft Purview account open in the Azure portal, with the Microsoft Purview governance portal button highlighted.":::
 
 1. Select the policy management tab to launch the self-service access policies.
 
