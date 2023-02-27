@@ -88,7 +88,7 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```
 
 ### 3. Create Service Bus instance
-1. Run the following command to create a Service Bus messaging namespace.
+1. Run the following command to create a Service Bus namespace.
     ```azurecli-interactive
     az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
     ```
