@@ -157,7 +157,7 @@ Use the following steps to configure provisioning:
  2.  On the left, select **Azure AD Connect**.
  3.  On the left, select **Cloud sync**.
  
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX cloud sync screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
  
  4. Select **New configuration**.
  :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
