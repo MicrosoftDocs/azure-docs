@@ -27,7 +27,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
 - The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations. Some examples of actions include reading an item, writing an item, or executing a query.
 - Azure Cosmos DB users create **[role definitions](#role-definitions)** containing a list of allowed actions.
-- Role definitions get assigned to specific Azure AD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; currently, three scopes are currently:
+- Role definitions get assigned to specific Azure AD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to, three scopes are currently:
     - An Azure Cosmos DB account,
     - An Azure Cosmos DB database,
     - An Azure Cosmos DB container.
@@ -204,8 +204,8 @@ Create a role named *MyReadOnlyRole* that only contains read actions in a file n
 ```
 
 ```azurecli
-resourceGroupName='<myResourceGroup>'
-accountName='<myCosmosAccount>'
+resourceGroupName = '<myResourceGroup>'
+accountName = '<myCosmosAccount>'
 az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
 ```
 
@@ -333,8 +333,8 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 Assign a role to an identity:
 
 ```azurecli
-resourceGroupName='<myResourceGroup>'
-accountName='<myCosmosAccount>'
+resourceGroupName = '<myResourceGroup>'
+accountName = '<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
 # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 principalId = '<aadPrincipalId>'
