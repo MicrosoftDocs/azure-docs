@@ -1,7 +1,7 @@
 ---
 title: Track network and sensor activity with the event timeline in Microsoft Defender for IoT
 description: Track network and sensor activity in the event timeline.
-ms.date: 01/31/2023
+ms.date: 02/27/2023
 ms.topic: how-to
 ---
 
@@ -38,7 +38,7 @@ The **User Operations** filter is on by default, you can select to hide or show 
 
     For example:
 
-    :::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline.":::
+    :::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
 
 You can also view the event timeline of a specific device from the **Device inventory**.
 
@@ -52,11 +52,11 @@ You can also view the event timeline of a specific device from the **Device inve
 
     For example:
 
-    :::image type="content" source="media/track-sensor-activity/device-properties-page-event-timeline.png" alt-text="Screenshot of event timeline tab in device properties page.":::
+    :::image type="content" source="media/track-sensor-activity/device-properties-page-event-timeline.png" alt-text="Screenshot of event timeline tab in device properties page." lightbox="media/track-sensor-activity/device-properties-page-event-timeline.png":::
 
 ## Filter events on the timeline
 
-1. Select **Add filter** to specify the events shown.
+1. On the event timeline page, select **Add filter** to specify the events shown.
 
 1. Select the filter **Type**. Use any of the following options to filter the devices shown:
 
@@ -66,10 +66,10 @@ You can also view the event timeline of a specific device from the **Device inve
     |**Date**|Search for events in a specific date range.|
     |**Device group**|Filter specific devices by group as defined in the device map.|
     |**Event severity**|Show **Alerts Only**, **Alerts and Notices**, or **All Events**.|
-    |**Exclude devices**|Search for devices you want to exclude.|
-    |**Include devices**|Search for devices you want to include.|
-    |**Exclude Event Types**|Search for specific event types to exclude.|
-    |**Include Event Types**|Search for specific event types to include.|
+    |**Exclude devices**|Search for and filter devices you want to exclude.|
+    |**Include devices**|Search for and filter devices you want to include.|
+    |**Exclude Event Types**|Search for and filter specific event types to exclude.|
+    |**Include Event Types**|Search for and filter  specific event types to include.|
     |**Keywords**|Filter events by specific keywords.|
 
 1. Select **Apply** to set the filter.
@@ -86,7 +86,7 @@ On the **Event timeline** page, select **Export** from the top menu to export th
 
 In addition to viewing the events that the sensor has detected, you can manually add events to the timeline. This process is useful if an external system event impacts your network, and you want to record it on the timeline.
 
-1. Select **Create Event**.
+1. On the **Event timeline** page, select **Create Event**.
 
 1. In the **Create Event** dialog, add the following event details:
     
@@ -102,7 +102,7 @@ In addition to viewing the events that the sensor has detected, you can manually
 
 For example:
 
-:::image type="content" source="media/track-sensor-activity/create-new-event.png" alt-text="Screenshot of creating a new event in the timeline.":::
+:::image type="content" source="media/track-sensor-activity/create-new-event.png" alt-text="Screenshot of creating a new event in the timeline." lightbox="media/track-sensor-activity/create-new-event.png":::
 
 ## Event timeline capacity
 
