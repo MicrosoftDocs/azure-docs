@@ -156,6 +156,9 @@
                 - name: Forecasting methods
                   displayName: auto ML, time series, forecasting, methods
                   href: concept-automl-forecasting-methods.md
+                - name: Deep learning models
+                  displayName: auto ML, time series, forecasting, deep learning, TCN
+                  href: concept-automl-forecasting-deep-learning.md
                 - name: Model sweeping and selection
                   displayName: auto ML, time series, forecasting, model selection, sweeping
                   href: concept-automl-forecasting-sweeping.md
