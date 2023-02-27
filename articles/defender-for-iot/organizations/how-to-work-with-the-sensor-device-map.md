@@ -45,7 +45,7 @@ To view devices across multiple sensors in a zone, you'll also need an on-premis
     - The number of devices grouped in a subnet in an IT network, if relevant. This number of devices is shown in a black circle.
     - Whether the device is newly detected or unauthorized.
 
-1. Right-click a specific device and select **View properties** to drill down further to a [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory). <!--validate this step-->
+1. Right-click a specific device and select **View properties** to drill down further to the **Map View** tab on the device's [device details page](how-to-investigate-sensor-detections-in-a-device-inventory.md#view-the-device-inventory). 
 
 ### Modify the OT sensor map display
 
@@ -53,7 +53,7 @@ Use any of the following map tools to modify the data shown and how it's display
 
 |Name  |Description  |
 |---------|---------|
-|**Refresh map**     | Select to refresh the map with updated data. <!--how often does this refresh automatically?-->        |
+|**Refresh map**     | Select to refresh the map with updated data.        |
 | **Notifications** | Select to view [device notifications](#manage-device-notifications). |
 |**Search by IP / MAC**     | Filter the map to display only devices connected to a specific IP or MAC address.       |
 |**Multicast/broadcast**     | Select to edit the filter that shows or hides multicast and broadcast devices.    By default, multicast and broadcast traffic is hidden.      |
@@ -75,15 +75,19 @@ To see device details, select a device and expand the device details pane on the
 
 
 ### View IT subnets from an OT sensor device map
-<!--cant' validate this procedure-->
 
 By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#configure-subnets), so that the map focuses on OT and ICS networks.
 
 **To expand an IT subnet**:
 
 1. Sign into your OT sensor and select **Device map**.
-1. Right-click the icon on the map that represents a specific IT network and select **Expand Network**. 
-1. In the confirmation box that appears, select **OK**.
+1. Locate your subnet on the map. You might need to zoom in on the map to view a subnet icon, which looks like several machines inside a box. For example: 
+
+    :::image type="content" source="media/how-to-work-with-maps/expand-collapse-subnets.png" alt-text="Screenshot of a subnet device on the device map.":::
+
+1. Right-click the subnet device on the map and **Expand Network**. 
+
+1. In the confirmation message that appears above the map, select **OK**.
 
 **To collapse an IT subnet:**
 
@@ -108,7 +112,7 @@ In addition to OT sensor's [built-in device groups](#built-in-device-map-groups)
 Use one of the following options to import and export device data:
 
 - **Import Devices**. Select to import devices from a pre-configured .CSV file.
-- **Export Devices**. Select to export all currently displayed devices, with full details, to a .CSV file.<!--is this correct?-->
+- **Export Devices**. Select to export all currently displayed devices, with full details, to a .CSV file.
 - **Export Device Summary**. Select to export a high level summary of all currently displayed devices to a .CSV file. 
 
 
@@ -203,7 +207,7 @@ On the on-premises management console, zone maps show all network elements relat
 
 **To view a zone map**:
 
-1. Sign into an on-premises management console and select **Site Management** > **View Zone Map** for the zone you want to view. For example: <!--fix image-->
+1. Sign into an on-premises management console and select **Site Management** > **View Zone Map** for the zone you want to view. For example:
 
     :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Default region to default business unit." lightbox="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png":::
 
