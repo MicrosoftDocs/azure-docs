@@ -241,7 +241,7 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Blocking
 
-**Fix**: Ensure that your device messages are in JSON format. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and fix any validation errors that are shown when editing and saving the device mapping.
+**Fix**: On the Azure portal, go to the **Device mapping** blade of your MedTech service, and fix any validation errors that are shown when editing and saving the device mapping.
 
 ### PatientDeviceMismatchException
 
