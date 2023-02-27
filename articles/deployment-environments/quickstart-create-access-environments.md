@@ -61,6 +61,7 @@ You can access and manage your environments in the Microsoft Developer portal.
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
 1. You'll be able to view all of your existing environments. To access the specific resources created as part of an Environment, select the **Environment Resources** link.
+
    :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted."::: 
 
 1. You'll be able to view the resources in your environment listed in the Azure portal.

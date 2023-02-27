@@ -9,7 +9,7 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 02/22/2023
 ---
 
 # Make outbound connections through a private endpoint
@@ -54,6 +54,8 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
++ You should have a minimum of Contributor permissions on both Azure Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
+
 <a name="group-ids"></a>
 
 ### Supported resource types
@@ -96,13 +98,17 @@ These Private Link tutorials provide steps for creating a private endpoint for A
 
 ## 1 - Create a shared private link
 
-Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link. Remember to use the preview API version, either `2020-08-01-preview` or `2021-04-01-preview`, if you're using a group ID that's in preview. The following resource types are in preview and require a preview API: `managedInstance`, `mySqlServer`, `sites`.
+Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link.
 
-It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint, but it won't work unless the [resource has a private endpoint](#private-endpoint-verification).
+Here are a few tips:
 
-Recall that you can't use the portal or the Azure CLI `az search` command to create a shared private link to an Azure SQL Managed Instance. See [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for that resource type.
++ Give the private link a meaningful name. In the Azure PaaS resource, a shared private link appears alongside other private endpoints. A name like "shared-private-link-for-search" can remind you how it's used.
 
-When you complete these steps, you have a shared private link that's provisioned in a pending state. The resource owner needs to approve the request before it's operational.
++ Don't skip the [private link verification](#private-endpoint-verification) step. It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint. The link won't work if the resource isn't registered.
+
++ SQL managed instance has extra requirements for creating a private link. Currently, you can't use the portal or the Azure CLI `az search` command because neither one formulates a valid URI. Instead, follow the instructions in [Create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) in this article for a workaround.
+
+When you complete these steps, you have a shared private link that's provisioned in a pending state. **It takes several minutes to create the link**. Once it's created, the resource owner needs to approve the request before it's operational.
 
 ### [**Azure portal**](#tab/portal-create)
 
@@ -132,33 +138,74 @@ When you complete these steps, you have a shared private link that's provisioned
 
 ### [**REST API**](#tab/rest-create)
 
-See [Manage with REST](search-manage-rest.md) for instructions on setting up a REST client for issuing Management REST API requests.
+> [!NOTE]
+> Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
+> For `managedInstance`, see [create a shared private link for SQL Managed Instance](#create-a-shared-private-link-for-a-sql-managed-instance) for help formulating a fully qualified domain name.
 
-First, use [Get](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/get) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client like Postman needs to provide a bearer token that allows your request to go through. 
 
-```http
-GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
-```
+Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For more durable approaches, see [Manage with REST](search-manage-rest.md).
 
-Use [Create or Update](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) for the next step, providing the name of the link name on the URI, and the target Azure resource in the body of the request. The following example is for blob storage.
+1. Open a command line and run `az login` for Azure sign-in.
 
-```http
-PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
-{
-    "properties":
-     {
-        "groupID": "blob",
-        "privateLinkResourceId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Storage/storageAccounts/{{storage-account-name}}",
-        "provisioningState": "",
-        "requestMessage": "Please approve this request.",
-        "resourceRegion": "",
-        "status": ""
-     }
-}
+1. Show the active account and subscription. Verify that this subscription is the same one that has the Azure PaaS resource for which you're creating the shared private link.
 
-```
+   ```azurecli
+   az account show
+   ```
 
-Rerun the first request to monitor the provisioning state as it transitions from updating to succeeded.
+   Change the subscription if it's not the right one:
+
+   ```azurecli
+   az account set --subscription {{Azure PaaS subscription ID}}
+   ```
+
+1. Create a bearer token, and then copy the entire token (everything between the quotation marks).
+
+   ```azurecli
+   az account get-access-token
+   ```
+
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+
+    ```http
+    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
+    ```
+
+1. On the **Authorization** tab, select **Bearer Token** and then paste in the token.
+
+1. Set the content type to JSON.
+
+1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and sub-resource combination.
+
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+
+    ```http
+    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
+    {
+        "properties":
+         {
+            "groupID": "blob",
+            "privateLinkResourceId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Storage/storageAccounts/{{storage-account-name}}",
+            "provisioningState": "",
+            "requestMessage": "Please approve this request.",
+            "resourceRegion": "",
+            "status": ""
+         }
+    }
+    ```
+
+1. As before, provide the bearer token and make sure the content type is JSON. 
+
+   If the Azure PaaS resource is in a different subscription, use the Azure CLI to change the subscription, and then get a bearer token that is valid for that subscription:
+
+   ```azurecli
+   az account set --subscription {{Azure PaaS subscription ID}}
+
+   az account get-access-token
+   ```
+
+1. Send the request. To check the status, rerun the first GET Shared Private Link request to monitor the provisioning state as it transitions from updating to succeeded.
 
 ### [**PowerShell**](#tab/ps-create)
 
