@@ -9,7 +9,7 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: larryfrare configured
 ms.custom: devplatv2
 ---
 
@@ -17,28 +17,25 @@ ms.custom: devplatv2
 
 When deploying a machine learning model to a batch endpoint, you can secure their communication using private networks. This article explains the requirements to use batch endpoint in an environment secured by private networks.
 
-## Prerequisites
+## Securing batch endpoints
 
-* A secure Azure Machine Learning workspace. For more details about how to achieve it read [Create a secure workspace](tutorial-create-secure-workspace.md).
-* For Azure Container Registry in private networks, please note that there are [some prerequisites about their configuration](how-to-secure-workspace-vnet.md#prerequisites).
+Batch endpoints inherent the networking configuration from the workspace where they are deployed. All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. In order to have fully operational batch endpoints working with private networking, follow the following steps:
+
+1. You have configured your Azure Machine Learning workspace for private networking. For more details about how to achieve it read [Create a secure workspace](tutorial-create-secure-workspace.md).
+
+2. For Azure Container Registry in private networks, there are [some prerequisites about their configuration](how-to-secure-workspace-vnet.md#prerequisites).
 
     > [!WARNING]
     > Azure Container Registries with Quarantine feature enabled are not supported by the moment.
 
-* Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Batch deployments require all the 4 to properly work.
+3. Ensure blob, file, queue, and table private endpoints are configured for the storage accounts as explained at [Secure Azure storage accounts](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Batch deployments require all the 4 to properly work.
 
-## Securing batch endpoints
-
-All the batch endpoints created inside of secure workspace are deployed as private batch endpoints by default. No further configuration is required.
-
-> [!IMPORTANT]
-> When working on a private link-enabled workspaces, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Please use the Azure ML CLI v2 instead for job creation. For more details about how to use it see [Invoke the batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-to-start-a-batch-job).
+4. Create the batch endpoint as regularly done. 
 
 The following diagram shows how the networking looks like for batch endpoints when deployed in a private workspace:
 
 :::image type="content" source="./media/how-to-secure-batch-endpoint/batch-vnet-peering.png" alt-text="Diagram that shows the high level architecture of a secure Azure Machine Learning workspace deployment.":::
 
-In order to enable the jump host VM (or self-hosted agent VMs if using [Azure Bastion](../bastion/bastion-overview.md)) access to the resources in Azure Machine Learning VNET, the previous architecture uses virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft's private network only.
 
 ## Securing batch deployment jobs
 
@@ -67,9 +64,16 @@ The following diagram shows the high level design:
 
 Have the following considerations when using such architecture:
 
-* Put the second set of private endpoints in a different resource group and hence in different private DNS zones. This prevents a name resolution conflict between the set of IPs used for the workspace and the ones used by the client VNets. Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Please note that the DNS resolution against a private DNS zone works only from virtual networks that are linked to it. For more details see [recommended zone names for Azure services](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
+* Put the second set of private endpoints in a different resource group and hence in different private DNS zones. It prevents a name resolution conflict between the set of IPs used for the workspace and the ones used by the client VNets. Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Note that the DNS resolution against a private DNS zone works only from virtual networks that are linked to it. For more details, see [recommended zone names for Azure services](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
 * For your storage accounts, add 4 private endpoints in each VNet for blob, file, queue, and table as explained at [Secure Azure storage accounts](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
+## Limitations
+
+Consider the following limitations when working on batch endpoints deployed regarding networking:
+
+- If you change the networking configuration of the workspace from public to private, or from private to public, such doesn't affect existing batch endpoints networking configuration. Batch endpoints rely on the configuration of the workspace at the time of creation. You can recreate your endpoints if you want them to reflect changes you made in the workspace.
+
+- When working on a private link-enabled workspace, batch endpoints can be created and managed using Azure Machine Learning studio. However, they can't be invoked from the UI in studio. Use the Azure Machine Learning CLI v2 instead for job creation. For more details about how to use it see [Run batch endpoint to start a batch scoring job](how-to-use-batch-endpoint.md#run-endpoint-and-configure-inputs-and-outputs).
 
 ## Recommended read
 
