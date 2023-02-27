@@ -276,7 +276,7 @@ Eventually, the `AcquireTokenSilent` method may fail. Reasons for failure might 
 
 - The code in the sample then handles the exception by calling `AcquireTokenInteractive`, which results in prompting the user to sign in.
 
-- It can instead present a visual indication to users that an interactive sign-in is required, so that they can select the right time to sign in. Or the application can retry `AcquireTokenSilent` later. This pattern is frequently used when users can use other application functionality without disruption--for example, when offline content is available in the application. In this case, users can decide when they want to sign in to either access the protected resource or refresh the outdated information. Alternatively, the application can decide to retry `AcquireTokenSilent` when the network is restored after having been temporarily unavailable.
+- It can instead present a visual indication to users that an interactive sign-in is required, so that they can select the right time to sign in. Or the application can retry `AcquireTokenSilent` later. This pattern is frequently used when users can use other application functionality without disruption. For example, when offline content is available in the application. In this case, users can decide when they want to sign in to either access the protected resource or refresh the outdated information. Alternatively, the application can decide to retry `AcquireTokenSilent` when the network is restored after having been temporarily unavailable.
 
 ## Call the Microsoft Graph API by using the token you just obtained
 
