@@ -2,7 +2,6 @@
 title: Handle AKS node upgrades with GitHub Actions
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
-services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 
@@ -26,6 +25,8 @@ When you use the `az aks upgrade` command, Azure CLI creates a surge of new node
 This process is better than updating Linux-based kernels manually because Linux requires a reboot when a new kernel update is installed. If you update the OS manually, you also need to reboot the VM, manually cordoning and draining all the apps.
 
 This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
+
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
 
 ## Before you begin
 
@@ -225,3 +226,4 @@ jobs:
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[auto-upgrade-node-image]: auto-upgrade-node-image.md
