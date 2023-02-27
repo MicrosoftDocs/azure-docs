@@ -42,16 +42,16 @@ You can open your database in Power BI desktop from Azure portal with a few clic
    
 7. Open the file in Power BI desktop.
 8. Switch to **Database** tab to provide the username and password for your database server. **Note Windows authentication is not supported for Azure database for MySQL Flexible Server.**
-
-  :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database."::: 
+   
+   :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database."::: 
   
 9. In **Navigator**, select the data you require, then either load or transform the data.
 
    :::image type="content" source="./media/connect-with-powerbi-desktop/navigator.png" alt-text="Screenshot of navigator to view MySQL tables."::: 
 
-## Connect to MySQL database from Power Query Desktop manually
+## Connect to MySQL database from Power BI Desktop
 
-You can connect to Azure database for MySQL Flexible server with Power BI desktop directly. 
+You can connect to Azure database for MySQL Flexible server with Power BI desktop directly without the use of Azure portal. 
 
 ### Get the MySQL connection information 
 
@@ -61,19 +61,19 @@ You can connect to Azure database for MySQL Flexible server with Power BI deskto
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
 5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports adding a connection to a single database and hence providing a database name is required for importing data. 
 
-### Connect with MySQL connector in Power BI desktop
+### Add MySQL connection in Power BI desktop
 
 1. Select the **MySQL database** option in the connector selection.
 
-:::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="Screenshot of adding a mysql connection in Power BI.":::
+   :::image type="content" source="./media/connect-with-powerbi-desktop/add-mysql-connection.png" alt-text="Screenshot of adding a mysql connection in Power BI.":::
 
 3. In the **MySQL database** dialog, provide the name of the server and database. 
 
-  :::image type="content" source="./media/connect-with-powerbi-desktop/signin.png" alt-text="Screeshot of Signing in to Power BI.":::
+   :::image type="content" source="./media/connect-with-powerbi-desktop/signin.png" alt-text="Screeshot of Signing in to Power BI.":::
 
 3. Select the **Database** authentication type and input your MySQL credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
 
-  :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database."::: 
+   :::image type="content" source="./media/connect-with-powerbi-desktop/enter-credentials.png" alt-text="Screenshot of entering credentials to connect with MySQL database."::: 
 
 4. Once you're done, select **OK**.
 
