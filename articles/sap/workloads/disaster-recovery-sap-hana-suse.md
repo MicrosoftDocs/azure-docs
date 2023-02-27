@@ -1,5 +1,5 @@
 ---
-title: Add HSR 3-rd site to HANA Pacemaker cluster
+title: Add HSR third site to HANA Pacemaker cluster on SUSE
 description: Extending highly available SAP HANA solution with third site on SUSE systems.
 author: msftrobiro
 ms.author: robiro
@@ -11,7 +11,7 @@ ms.date: 02/21/2023
 ms.custom: template-how-to-pattern 
 ---
 
-# Add HSR 3-rd site to HANA Pacemaker cluster
+# Add HSR third site to HANA Pacemaker cluster on SUSE
 
 This article describes requirements and setup of a third HANA replication site complement an existing SUSE Linux Enterprise Server (SLES) Pacemaker cluster.
 
@@ -19,12 +19,12 @@ This article describes requirements and setup of a third HANA replication site c
 
 SAP HANA supports system replication (HSR) with more than two sites connected. You can add a third site to an existing HSR pair, which is managed by Pacemaker in a highly available setup. You can deploy the third site in a second Azure region for disaster recovery (DR) purposes.  
 
-Pacemaker and HANA cluster resource agent manages the first two sites. Any third, DR site, isn't controlled by the cluster.
+Pacemaker and HANA cluster resource agent manages the first two sites. Pacemaker cluster does not control any third, DR site.
 
 SAP HANA supports a third system replication site in two modes. 
 - [Multi-target](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/ba457510958241889a459e606bbcf3d3.html) replicates data changes from primary to more than one target system. Third site connected to primary, star form replication.
 - [Multi-tier](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/f730f308fede4040bcb5ccea6751e74d.html) is a two-tier system replication. A cascading, or sometimes referred to as chained setup, of three different HANA tiers.  Third site connected to secondary.  
-See [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions) for more conceptual details about HANA HSR within one region and across Azure regions.  
+For more information, see [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions) for more conceptual details about HANA HSR within one region and across Azure regions.  
 
 ## Prerequisites
 
@@ -40,14 +40,11 @@ Requirements for a third HSR site are different between HANA scale-up and HANA s
 - HANA scale-out only: OS package SAPHanaSR-ScaleOut version 0.180 or higher
 - HANA scale-out only: SAP HANA HA provider SAPHanaSrMultiTarget in use. HANA HA provider SAPHanaSR isn't multi-target aware for scale-out.
 
-## HANA scale-up: Set-up HANA multi-target system replication for DR purposes
-
-<details>
-  <summary>SAP HANA scale-up - expand section</summary>
+## HANA scale-up: Add HANA multi-target system replication for DR purposes
 
 With SAP HANA HA provider [SAPHanaSR](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv), you can configure a third node for disaster recovery (DR) purposes. The Pacemaker environment is aware of a HANA multi-target DR setup.
 
-Failure of the third node will not trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
+Failure of the third node won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
 Example of a multi-target system replication system. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
 ![Example of a HANA scale-up multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-up-hsr-multi-target.png)
@@ -101,14 +98,11 @@ Example of a multi-target system replication system. For more information, see [
 
 </details>
 
-## HANA scale-out: Set-up HANA multi-target system replication for DR purposes
-
-<details>
-  <summary>SAP HANA scale-out - expand section</summary>
+## HANA scale-out: Add HANA multi-target system replication for DR purposes
 
 With SAP HANA HA provider [SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-ha-hooks-saphanasrmultitarget-and-suschksrv), you can add a third HANA scale-out site. This third site is often used for disaster recovery (DR) in another Azure region. The Pacemaker environment is aware of a HANA multi-target DR setup.
 
-Failure of the third node will not trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
+Failure of the third node won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
 Example of a multi-target system replication system. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
 ![Example of a HANA scale-out multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-multi-target.png)
@@ -165,7 +159,7 @@ Example of a multi-target system replication system. For more information, see [
 
 ## Auto-registering third site
 
-During planned or unplanned takeover event between the two Pacemaker cluster sites, HSR to third site will be also interrupted. Pacemaker doesn'tmodify HANA replication to third site.
+During planned or unplanned takeover event between the two Pacemaker cluster sites, HSR to third site will be also interrupted. Pacemaker doesn't modify HANA replication to third site.
 
 SAP provides since HANA 2 SPS 04 parameter `register_secondaries_on_takeover`. With the parameter set to value `true`, after HSR takeover between cluster sites 1 and 2, HANA will register the third site on the new primary automatically to keep an HSR multi-target setup. Configure HANA parameter `register_secondaries_on_takeover = true` configured in `[system_replication]` block of global.ini on both SAP HANA sites in the Linux cluster. Both SITE1 and SITE2 need the parameter in the respective HANA global.ini configuration file.
 
