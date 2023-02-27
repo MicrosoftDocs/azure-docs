@@ -16,8 +16,8 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Obtain the [NuGet](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1) package.
-- Create and connect Azure Cognitive Services to your Azure Communication Services resource.
+- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Technical specifications
@@ -54,7 +54,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-The NuGet package can be obtained by configuring your package manager to use feed from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1).
+During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 
 ## Establish a call
 
