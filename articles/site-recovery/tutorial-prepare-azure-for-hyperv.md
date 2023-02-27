@@ -71,7 +71,7 @@ Images of replicated machines are held in an Azure storage account. Azure VMs ar
 1. Select **Create**.
 
 > [!NOTE]
-> If you want to create a legacy storage account type, select the related link in the **Instance details** section. The link redirects you to the **Create a storage account** pane to a create legacy storage account.
+> If you want to create a legacy storage account type, select the related link in the **Instance details** section. The link redirects you to the **Create a storage account** pane to create a legacy storage account.
 >
 > :::image type="content" source="media/tutorial-prepare-azure/create-legacy-storage-account.png" alt-text="Screenshot that shows the Create a legacy storage account link.":::
 
