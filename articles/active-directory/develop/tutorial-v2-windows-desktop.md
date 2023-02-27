@@ -63,7 +63,7 @@ This guide uses the following NuGet packages:
 
 In this section you'll create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with _Sign-In with Microsoft_ so that the application can query web APIs that require a token.
 
-The application that you create with this guide displays a button that's used to call Microsoft Graph API, an area to show the results on the screen, and a sign-out button.
+The application that you'll create displays a button that'll call the Microsoft Graph API, an area to display the results, and a sign-out button.
 
 > [!NOTE]
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
