@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 02/27/2023
 
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
 ---
@@ -110,6 +110,22 @@ spec:
   - port: 80
   selector:
     app: azure-load-balancer
+```
+
+To see the DNS label for your load balancer, run the following command:
+
+```console
+kubectl describe service azure-load-balancer
+```
+
+The DNS label will be listed under the `Annotations`, as shown in the following condensed example output:
+
+```console
+Name:                    azure-load-balancer
+Namespace:               default
+Labels:                  <none>
+Annotations:             service.beta.kuberenetes.io/azure-dns-label-name: myserviceuniquelabel
+...
 ```
 
 > [!NOTE]
