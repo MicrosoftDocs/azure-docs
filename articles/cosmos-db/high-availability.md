@@ -100,7 +100,8 @@ You can configure Azure Cosmos DB to accept writes in multiple regions. This con
 
 When you configure an Azure Cosmos DB account for multiple write regions, strong consistency isn't supported and write conflicts might arise. For more information on how to resolve these conflicts, see [Conflict types and resolution policies when using multiple write regions](./conflict-resolution-policies.md).
 
-Because of the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is a single write region with service-managed failover.
+> [!IMPORTANT]
+> Because of the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is a single write region with service-managed failover.
 
 #### Conflict-resolution region
 
