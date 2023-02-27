@@ -214,6 +214,6 @@ az group delete --name ${RESOURCE_GROUP}
 ```
 
 ## Next steps
-1. [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
-2. [Spring on Azure](/azure/developer/java/spring/)
-3. [Spring Cloud Azure](/azure/developer/java/spring-framework/)
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Spring on Azure](/azure/developer/java/spring/)
+- [Spring Cloud Azure](/azure/developer/java/spring-framework/)
