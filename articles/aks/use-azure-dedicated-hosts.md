@@ -1,7 +1,6 @@
 ---
 title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 12/01/2022
 ---
