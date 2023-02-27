@@ -49,8 +49,8 @@ The MedTech service buffers FHIR Observation resources created during the transf
 |Potential issue|Fix|
 |---------------|---|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device mapping hasn't been configured.|Configure and save conforming and valid [device mapping](how-to-configure-device-mappings.md).|
-|FHIR destination mapping hasn't been configured.|Configure and save conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md).|
+|Device mapping hasn't been configured.|Configure and save a conforming and valid [device mapping](how-to-configure-device-mappings.md).|
+|FHIR destination mapping hasn't been configured.|Configure and save a conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md).|
 |The device message doesn't contain an expected expression defined in the [device mapping](how-to-configure-device-mappings.md).|Verify the [JsonPath](https://goessner.net/articles/JsonPath/) or [JMESPath](https://jmespath.org/specification.html) expressions defined in the device mapping match tokens defined in the device message.|
 |A Device resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Device resource](https://www.hl7.org/fhir/device.html) in the FHIR service. Ensure the Device resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Patient resource](https://www.hl7.org/fhir/patient.html) in the FHIR service.|
@@ -60,7 +60,7 @@ The MedTech service buffers FHIR Observation resources created during the transf
 
 ## Does the MedTech service perform backups of device messages?
 
-No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to ninety days (Event hubs can be deployed in [3 different service tiers](/azure/event-hubs/event-hubs-quotas?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier dependent: Basic 1 day, Standard 1-7 days, Premium 90 days.). If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
+No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days (Event hubs can be deployed in [three different service tiers](/azure/event-hubs/event-hubs-quotas?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier dependent: Basic one day, Standard 1-7 days, Premium 90 days.). If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
 
 To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) 
 
@@ -97,4 +97,4 @@ To learn about methods for deploying the MedTech service, see
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
