@@ -2,7 +2,7 @@
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
 ms.date: 01/30/2023
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols
