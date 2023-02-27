@@ -37,27 +37,22 @@ Your application will access a SignalR Service instance.  Use the following step
 
 1. Select on the **Create a resource** (**+**) button for creating a new Azure resource.
 
-1. Search for **SignalR Service** and select it. 
+1. Search for **SignalR Service** and select it.
 1. Select **Create**.
 
 1. Enter the following information.
 
     | Name | Value |
     |---|---|
-    | Resource name | A unique name for the SignalR Service instance |
-    | Resource group | Create a new resource group with a unique name |
-    | Location | Select a location close to you |
-    | Pricing Tier | Free |
+    | **Resource group** | Create a new resource group with a unique name |
+    | **Resource name** | A unique name for the SignalR Service instance |
+    | **Region** | Select a region close to you |
+    | **Pricing Tier** | Free |
+    | **Service mode** | Serverless |
 
 1. Select **Review + Create".
 1. Select **Create**.
 
-1. After the deployment finishes, select **Go to resource**
-1. Select **Settings** from the menu.
-1. Select the **Serverless** to change the **Service mode** setting.
-1. Select **Save**.
-
-    ![SignalR Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -65,17 +60,17 @@ Your application will access a SignalR Service instance.  Use the following step
 
 1. From the home page in the Azure portal, select on the **Create a resource** (**+**).
 
-1. Search for **Function App** and select it. 
+1. Search for **Function App** and select it.
 1. Select **Create**.
 
 1. Enter the following information.
 
     | Name | Value |
     |---|---|
-    | Function App name | A unique name for the SignalR Service instance |
-    | Resource group | Create a new resource group with a unique name |
-    | Location | Select a location close to you |
-    | Runtime stack | Node.js |
+    | **Resource group** | Use the same resource group with your SignalR Service instance |
+    | **Function App name** | A unique name for the Function app instance |
+    | **Runtime stack** | Node.js |
+    | **Region** | Select a region close to you |
 
 1. By default, a new Azure Storage account will also be created in the same resource group together with your function app. If you want to use another storage account in the function app, switch to **Hosting** tab to choose an account.
 
@@ -84,11 +79,13 @@ Your application will access a SignalR Service instance.  Use the following step
 ## Create an Azure Functions project locally
 ### Initialize a function app
 
-1. Create a new folder locally and execute the following command in your terminal to create a new JavaScript Functions project.
+1. From a command line,  create a root folder for your project and change to the folder.
+
+1. Execute the following command in your terminal to create a new JavaScript Functions project.
 ```
 func init --worker-runtime node --language javascript --name my-app
 ```
-The generated project by default has an extension bundle in the `host.json` file, which contains SignalR extensions, and you don't need to install it yourself. For more information about extension bundle, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles) .
+By default, the generated project includes a *host.json* file containing the extension bundles which include the SignalR extension. For more information about extension bundles, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles).
 
 ### Configure application settings
 
@@ -107,10 +104,13 @@ When running and debugging the Azure Functions runtime locally, application sett
     }
     ```
 
-   * Enter the Azure SignalR Service connection string into the' AzureSignalRConnectionString' setting. 
-   
-      Copy the value from the **Keys** page of the Azure SignalR Service resource in the Azure portal.  You can use either the primary or secondary connection string.
-      
+   * Enter the Azure SignalR Service connection string into the' AzureSignalRConnectionString' setting.
+
+      Navigate to your SignalR Service in the Azure portal. In the **Settings** section, locate the **Keys** setting. Select the **Copy** button to the right of the connection string to copy it to your clipboard. You can use either the primary or secondary connection string.
+
+   * Enter the storage account connection string into the' AzureWebJobsStorage' setting.
+
+     Navigate to your storage account in the Azure portal. In the **Security + networking** section, locate the **Access keys** setting. Select the **Copy** button to the right of the connection string to copy it to your clipboard. You can use either the primary or secondary connection string.
 
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
@@ -127,8 +127,8 @@ When the chat app first opens in the browser, it requires valid connection crede
     func new --template "SignalR negotiate HTTP trigger" --name negotiate
     ```
 
-1. Open *negotiate/function.json* to view the function binding configuration. 
-   
+1. Open *negotiate/function.json* to view the function binding configuration.
+
    The function contains an HTTP trigger binding to receive requests from SignalR clients and a SignalR input binding to generate valid credentials for a client to connect to an Azure SignalR Service hub named `default`.
 
     ```json
@@ -160,11 +160,11 @@ When the chat app first opens in the browser, it requires valid connection crede
     ```
 
     There's no `userId` property in the `signalRConnectionInfo` binding for local development, but you'll add it later to set the user name of a SignalR connection when you deploy the function app to Azure.
-    
+
 1.   Close the *negotiate/function.json* file.
-    
-    
-   
+
+
+
 
 1. Open **negotiate/index.js** to view the body of the function.
 
@@ -214,7 +214,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
         ]
     }
     ```
-    We make two changes to the original function:
+    Two changes are made to the original file:
     * Changes the route to `messages` and restricts the HTTP trigger to the **POST** HTTP method.
     * Adds a SignalR Service output binding that sends a message returned by the function to all clients connected to a SignalR Service hub named `default`.
 
@@ -251,7 +251,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
 
 The chat application's UI is a simple single-page application (SPA) created with the Vue JavaScript framework using [ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client). For simplicity, the function app hosts the web page. In a production environment, you can use [Static Web Apps](https://azure.microsoft.com/products/app-service/static) to host the web page.
 
-1. Create a new folder named *content* in the root directory of your function project. 
+1. Create a new folder named *content* in the root directory of your function project.
 1. In the *content* folder, create a new file named *index.html*.
 
 1. Copy and paste the content of **[index.html](https://github.com/aspnet/AzureSignalR-samples/blob/da0aca70f490f3d8f4c220d0c88466b6048ebf65/samples/ServerlessChatWithAuth/content/index.html)** to your file. Save the file.
@@ -308,10 +308,10 @@ The chat application's UI is a simple single-page application (SPA) created with
 
     ![Local chat client web user interface](./media/signalr-tutorial-authenticate-azure-functions/local-chat-client-ui.png)
 
-1. Enter a message in the chat box and press enter. 
+1. Enter a message in the chat box and press enter.
 
    The message is displayed on the web page. Because the user name of the SignalR client isn't set, we send all messages as "anonymous".
-   
+
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
@@ -354,13 +354,13 @@ The *--publish-local-settings* option publishes your local settings from the *lo
 
 Azure Functions supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. You will use  **Microsoft** as the identity provider for this tutorial.
 
-1. Go to the resource page of your function app on Azure portal. 
+1. Go to the resource page of your function app on Azure portal.
 1. Select **Settings** -> **Authentication**.
 1. Select  **Add identity provider**.
     ![Screenshot of the Function App Authentication page.](./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png)
 
 1. Select **Microsoft** from the **Identity provider** list.
-    ![The screenshot of "Add an identity provider blade"](media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png)
+    ![Screenshot of "Add an identity provider" page.](media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png)
 
     Azure Functions supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google.  For more information about the supported identity providers, see the following articles:
 
@@ -392,6 +392,9 @@ Congratulations! You've deployed a real-time, serverless chat app!
 
 To clean up the resources created in this tutorial, delete the resource group using the Azure portal.
 
+[!CAUTION]
+Deleting the resource group deletes all resources contained within it. If the resource group contains resources outside the scope of this tutorial, they will also be deleted.
+
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Next steps
@@ -399,6 +402,6 @@ To clean up the resources created in this tutorial, delete the resource group us
 In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)
+> [Real-time apps with Azure SignalR Service and Azure Functions](signalr-concept-azure-functions.md)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
