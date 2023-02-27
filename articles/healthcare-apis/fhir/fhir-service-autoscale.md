@@ -11,21 +11,15 @@ ms.author: kesheth
 
 # Autoscaling
 
-FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint.
+Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. The autoscaling feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time.
 
-Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. Auto scaling provides elasticity and enables provisioning of additional instances for your FHIR service on demand. FHIR service in Azure Health data services provides the built-in autoscale capability and the process is automated.
+Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for your FHIR service on demand. 
 
-The autoscale feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported.
-
+The autoscale feature adjusts computing resources automatically to optimize service scalability. There is no action required from customers. 
+The autoscale feature for FHIR service is available in all regions where the FHIR service is supported.
 
 > [!NOTE]
 >  Autoscale feature is subject to the resources availablitity in Azure regions.   
-
-## Description
-
-The autoscale feature adjusts computing resources automatically to optimize the overall service scalability. It requires no action from customers. 
-
-When transaction workloads are high, the autoscale feature increases computing resources automatically. When transaction workloads are low, it decreases computing resources accordingly. Whether you're performing read requests that include simple queries like getting patient information using a patient ID, and advanced queries like getting all DiagnosticReport resources for patients whose name is "Sarah", or you're creating or updating FHIR resources, the autoscale feature manages the dynamics and complexity of resource allocation to ensure high scalability.
 
 Auto scaling policies defined for FHIR service consists of two parts:
 
