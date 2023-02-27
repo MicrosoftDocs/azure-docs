@@ -33,11 +33,11 @@ Start exploring OpenAI capabilities with a no-code approach through the Azure Op
 
 :::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the ChatGPT playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
-### Chatbot setup
+### Assistant setup
 
-You can use the Chatbot setup dropdown to select a few pre-loaded **System message** examples to get started.
+You can use the **Assistant setup** dropdown to select a few pre-loaded **System message** examples to get started.
 
-**System messages** give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the chatbot’s personality, tell it what it should and shouldn’t answer, and tell it how to format responses.
+**System messages** give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses.
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
@@ -57,16 +57,16 @@ Select the **Clear chat** button to delete the current conversation history.
 | Temperature         | Controls randomness. Lowering the temperature means that the model produces more repetitive and deterministic responses. Increasing the temperature results in more unexpected or creative responses. Try adjusting temperature or Top P but not both. |
 | Max length (tokens) | Set a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly four characters for typical English text.|
 | Top probabilities   | Similar to temperature, this controls randomness but uses a different method. Lowering Top P narrows the model’s token selection to likelier tokens. Increasing Top P lets the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.|
-| Chat history        | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
+| Multi-turn conversations | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
 | Stop sequences      | Stop sequence make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
 ### Panel configuration
 
-By default there are three panels: chatbot setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
+By default there are three panels: assistant setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
 
 ## Start a chat session
 
-1. From the chatbot setup drop-down, select **Xbox customer support agent**
+1. From the assistant setup drop-down, select **Xbox customer support agent**
 2. You'll be prompted asking if you want to update the system message, select **Continue**.
 3. In the chat session pane, enter the following question: "I'm interested in buying a new Xbox", and select **Send**.
 4. You'll receive a response similar to:
@@ -77,7 +77,7 @@ By default there are three panels: chatbot setup, chat session, and parameters. 
 
     :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
 
-6. Now that you have a basic conversation select **View code** from under Chatbot setup and you'll have a replay of the code behind the entire conversation so far:
+6. Now that you have a basic conversation select **View code** from under **Assistant setup** and you'll have a replay of the code behind the entire conversation so far:
 
 ```python
 #Note: The openai-python library support for Azure OpenAI is in preview.
