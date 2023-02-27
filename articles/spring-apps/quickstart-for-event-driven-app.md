@@ -109,11 +109,11 @@ Azure Spring Apps Consumption plan will be used to host the spring event driven 
 #### 4.1. Create a Managed Environment
 A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-1. Install the Azure Container Apps extension for the CLI
+1. Install the Azure Container Apps extension for the CLI.
     ```azurecli-interactive
     az extension add --name containerapp --upgrade
     ```
-2. Register the Microsoft.App namespace
+2. Register the Microsoft.App namespace.
     ```azurecli-interactive
     az provider register --namespace Microsoft.App
     ```
@@ -148,7 +148,7 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
         --name ${MANAGED_ENVIRONMENT} \
         --query id -o tsv)
     ```
-4. Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created
+4. Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created.
     ```azurecli-interactive
     az spring create \
         --name ${AZURE_SPRING_APPS_NAME} \
