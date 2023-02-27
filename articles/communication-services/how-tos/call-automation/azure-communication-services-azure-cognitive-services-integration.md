@@ -35,7 +35,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 2. Select the Identity tab (highlighted 1 in the screenshot below)
 3. Enable system assigned identity (highlighted 2 in the screenshot below).  This will begin the creation of the identity; A pop-up notification will appear notifying you that the request is being processed.
 
-[Add screenshot of managed identity]()
+![Enable managed identiy](./media/enable-system-identity.png)
 
 ### Option 1: Add role from Azure Cognitive Services in the Azure Portal
 1. Navigate to your Azure Cognitive Service resource.
@@ -43,19 +43,19 @@ You can also configure and bind your Communication Services and Cognitive Servic
 3. Click the "+ Add" button.
 4. Select "Add role assignments" from the menu
 
-[Screenshot]()
+![Add role from IAM](./media/add-role.png)
 
 5. Choose the "Cognitive Services User" role to assign, then click "Next".
+
+![Cognitive Services user](./media/cognitive-services-user.png)
+
 6. For the field "Assign access to" choose the "User, group or service principal".
 7. Press "+ Select members" an a side tab will open.
-8. Choose your subscription from the "Subscriptions" drop down menu.
-9. Select “System-assigned managed identity.” This should cause the list of your system assigned identities to appear below in a list.
-10. Select the identity from the list and press the “select” button at the bottom of the flyout. This will add the selected identity to the list of members on the “Add role assignment” page.
+8. Choose your Azure Communication Services subscription from the "Subscriptions" drop down menu and click "Select".
 
-[Screenshot]()
+![Select ACS resource](./media/select-acs-resource.png)
 
-12. Click “Review + assign” when you have selected all the identities you wish to add the role to. 
-13. Click “Assign” on the following page. This will assign the role to the managed identity. 
+9. Click “Review + assign”, this will assign the role to the managed identity.
 
 ### Option 2: Add role through ACS Identity tab
 
