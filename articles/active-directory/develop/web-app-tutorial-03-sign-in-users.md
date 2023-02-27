@@ -57,7 +57,7 @@ Identity related **NuGet packages** must be installed in the project for authent
 
 ## Implement authentication and acquire tokens
 
-1. Open *Program.cs* and replace the entire file contents with the following snippet:
+1. Open *Program.cs* and replace the file contents with the following snippet:
 
     ```csharp
     // Imports packages
