@@ -20,6 +20,8 @@ You declare these bindings in the *function.json* file in your function folder. 
 
 ::: zone pivot="programming-language-python"
 
+The way you declare binding attributes depends on your Python programming model.
+
 # [v1](#tab/v1)
 
 You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:
