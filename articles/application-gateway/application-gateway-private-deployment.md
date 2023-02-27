@@ -219,6 +219,12 @@ Virtual Network NAT offers control over what IP address or prefix should be used
 
 If a virtual appliance is required for internet egress, see the [route table control](#route-table-control) section in this document for more information.
 
+Common scenarios where public IP usage is required:
+-	Communication to key vault without use of private endpoints or service endpoints
+    - Outbound communication is not required for pfx files uploaded to Application Gateway directly
+-	Communication to backend targets via internet
+-	Communication to internet facing CRL or OCSP endpoints
+
 ## Network Security Group Control
 
 Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
