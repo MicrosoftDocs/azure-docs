@@ -18,7 +18,7 @@ You can also run data science processes on top of data in Azure Monitor Logs to 
 
 This article describes Azure Monitor's built-in AIOps capabilities and provides some examples of how you can create and apply customized machine learning models on top of data in Azure Monitor Logs. 
 
-## Use built-in Azure Monitor AIOps capabilities 
+## Built-in Azure Monitor AIOps capabilities 
 
 |Monitoring scenario|AIOps capability|Description| 
 |-|-|-|
