@@ -862,7 +862,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
     ha_dr_saphanasrmultitarget = info
     ```
 
-   Default location of the HA hooks as deliveredy SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+   Default location of the HA hooks as dalivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1 with correct lowercase SID.  
 

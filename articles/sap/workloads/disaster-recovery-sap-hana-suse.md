@@ -47,7 +47,7 @@ With SAP HANA HA provider [SAPHanaSR](./sap-hana-high-availability.md#implement-
 Failure of the third node won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
 Example of a multi-target system replication system. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
-![Example of a HANA scale-up multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-up-hsr-multi-target.png)
+![Diagram showing an example of an HANA scale-up multi-target system replication system.](./media/sap-hana-high-availability/sap-hana-high-availability-scale-up-hsr-multi-target.png)
 
 1. Deploy Azure resources for the third node. Depending on your requirements, you can use a different Azure region for disaster recovery purposes.  
    Steps required for the HANA scale-out on third site are mirroring steps to deploy the [HANA scale-up cluster](./sap-hana-high-availability.md#deploy-for-linux). Deploy the third node following the Azure infrastructure, operating system and HANA installation steps for first node of the Pacemaker cluster, with the following exceptions:
@@ -105,7 +105,7 @@ With SAP HANA HA provider [SAPHanaSrMultiTarget](./sap-hana-high-availability-sc
 Failure of the third node won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
 Example of a multi-target system replication system. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
-![Example of a HANA scale-out multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-multi-target.png)
+![Diagram showing an example of an HANA scale-out multi-target system replication system.](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-multi-target.png)
 
 1. Deploy Azure resources for the third site. Depending on your requirements, you can use a different Azure region for disaster recovery purposes.  
    Steps required for the HANA scale-out on third site are mirroring steps to deploy the [HANA scale-out cluster](./sap-hana-high-availability-scale-out-hsr-suse.md#set-up-the-infrastructure). Deploy the third site following the Azure infrastructure, operating system and HANA installation steps for SITE1 of the scale-out cluster, with the following exceptions:
@@ -165,7 +165,7 @@ SAP provides since HANA 2 SPS 04 parameter `register_secondaries_on_takeover`. W
 
 For HSR [multi-tier](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/f730f308fede4040bcb5ccea6751e74d.html), no automatic SAP HANA registration of the third site exists. You need to manually register the third site to the current secondary, to keep HSR replication chain for multi-tier.
 
-![Example flow of HANA auto-registration third site](./media/sap-hana-high-availability/sap-hana-high-availability-hsr-third-site-auto-register.png)
+![Diagram flow how HANA auto-registartion works with a third site during a takeover.](./media/sap-hana-high-availability/sap-hana-high-availability-hsr-third-site-auto-register.png)
 
 ## Next steps
 
