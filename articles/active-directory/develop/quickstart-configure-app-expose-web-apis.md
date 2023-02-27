@@ -32,7 +32,7 @@ To provide scoped access to the resources in your web API, you first need to reg
 1. Skip the **Add a redirect URI** and **Configure platform settings** sections. You don't need to configure a redirect URI for a web API since no user is logged in interactively.
 1. Skip the **Add credentials** section for now. Only if your API accesses a downstream API would it need its own credentials, a scenario not covered in this article.
 
-With the web API registered, you're ready to add scopes to the API's code so it can provide granular permission to consumers.
+With the web API registered, you can add scopes to the API's code so it can provide granular permission to consumers.
 
 ## Add a scope
 
