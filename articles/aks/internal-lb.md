@@ -73,6 +73,8 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
 
+You can use the [`az network vnet subnet list`](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list) Azure CLI command or the [`Get-AzVirtualNetworkSubnetConfig`](https://learn.microsoft.com/powershell/module/az.network/get-azvirtualnetworksubnetconfig?view=azps-9.4.0) PowerShell cmdlet to get the subnets in your virtual network.
+
 For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
 If you want to use a specific IP address with the load balancer, there are two ways:

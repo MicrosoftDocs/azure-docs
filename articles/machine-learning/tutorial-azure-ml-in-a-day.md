@@ -18,7 +18,7 @@ ms.custom: sdkv2, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure ML and their most common usage.
+Learn how a data scientist uses Azure Machine Learning to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
 
 You'll learn how to submit a *command job* to run your *training script* on a specified *compute cluster*, configured with the *job environment* necessary to run the script.
 
@@ -55,7 +55,7 @@ The *training script* handles the data preparation, then trains and registers a 
 
 ## Connect to the workspace
 
-Before you dive in the code, you need to connect to your Azure ML workspace. 
+Before you dive in the code, you need to connect to your Azure Machine Learning workspace. 
 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
@@ -139,11 +139,11 @@ except Exception:
 
 ## What is a command job?
 
-You'll create an Azure ML *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
+You'll create an Azure Machine Learning *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
 
 The *training script* handles the data preparation, training and registering of the trained model. In this tutorial, you'll create a Python training script.
 
-Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure ML Python SDK v2 to create and run the command job.
+Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure Machine Learning Python SDK v2 to create and run the command job.
 
 After running the training job, you'll deploy the model, then use it to produce a prediction.
 
@@ -283,7 +283,7 @@ Now that you have a script that can perform the desired tasks, you'll use the ge
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute created earlier to run this command.
-* Use an *environment* that defines software and runtime libraries needed for the training script. AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
+* Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
 * Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure ML studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
@@ -316,7 +316,7 @@ job = command(
 
 ## Submit the job 
 
-It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
+It's now time to submit the job to run in Azure Machine Learning. This time you'll use `create_or_update`  on `ml_client.jobs`.
 
 
 ```python
@@ -325,9 +325,9 @@ ml_client.create_or_update(job)
 
 ## View job output and wait for job completion
 
-View the job in Azure ML studio by selecting the link in the output of the previous cell. 
+View the job in Azure Machine Learning studio by selecting the link in the output of the previous cell.
 
-The output of this job will look like this in Azure ML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
+The output of this job will look like this in the Azure Machine Learning studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/view-job.gif" alt-text="Screenshot shows the overview page for the job.":::
 
@@ -401,7 +401,7 @@ print(
 
 Once the endpoint is created, deploy the model with the entry script. Each endpoint can have multiple deployments. Direct traffic to these deployments can be specified using rules. Here you'll create a single deployment that handles 100% of the incoming traffic. We have chosen a color name for the deployment, for example, *blue*, *green*, *red* deployments, which is arbitrary.
 
-You can check the **Models** page on Azure ML studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page on the Azure Machine Learning studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
 ```python
