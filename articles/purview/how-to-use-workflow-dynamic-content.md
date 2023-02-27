@@ -1,12 +1,12 @@
 ---
 title: Workflow dynamic content
-description: This article describes how to use dynamic content like built-in variables and expressions in Microsoft Purview workflows.
+description: This article describes how to use dynamic content to create expressions with built-in variables and functions in Microsoft Purview workflows.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/24/2023
+ms.date: 02/27/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -14,12 +14,14 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-You can use dynamic content inside Microsoft Purview workflows to associate certain variables in the workflow or add expression functions to process values.
+You can use dynamic content inside Microsoft Purview workflows to associate certain variables in the workflow or add other expressions to process these values.
 
-Currently available are:
+When you add dynamic content to your workflows, you're building expressions from provided building blocks that reference and process information in your workflow so you can get the values you need in real-time.
+
+In the dynamic content menu, the currently available options are:
 
 * [Built-in variables](#built-in-variables) - variables that represent values coming to the workflow from the items that triggered it
-* [Expressions](#expressions) - an expression is a formula, built from functions and variables that can process values in-workflow.
+* [Expressions](#expressions) - formulas built from functions and variables that can process values in-workflow.
 
 ## Built-in variables
 
@@ -63,11 +65,11 @@ Currently, the following variables are available for a workflow connector in Mic
 
 ## Expressions
 
-Workflow definitions in Microsoft Purview allow you to use expression functions to process values in your workflows.
+Workflow definitions in Microsoft Purview allow you to use functions in your expressions to process values in your workflows.
 
 To find functions [based on their general purpose](#ordered-by-purpose), review the following tables. Or, for detailed information about each function, see the [alphabetical list](#alphabetical-list).
 
-When you're building a workflow and want to add an expression function to a value, follow these steps:
+When you're building a workflow and want to add a function to your expressions, follow these steps:
 
 1. Select the value you're going to edit.
 1. Select the **Add dynamic content** button that appears underneath the textbox.
@@ -76,11 +78,11 @@ When you're building a workflow and want to add an expression function to a valu
 
 :::image type="content" source="./media/how-to-use-workflow-dynamic-content/use-expressions.png" alt-text="Screenshot showing a workflow text field with Use dynamic content highlighted and the expressions tab shown.":::
 
-## Considerations for using expression functions
+### Considerations
 
 * Function parameters are evaluated from left to right.
 
-* Function expressions that appear inline with plain text require enclosing curly braces ({}) to use the expression's interpolated format instead. This format helps avoid parsing problems. If your function expression doesn't appear inline with plain text, no curly braces are necessary.
+* Functions that appear inline with plain text require enclosing curly braces ({}) to use the expression's interpolated format instead. This format helps avoid parsing problems. If your function expression doesn't appear inline with plain text, no curly braces are necessary.
 
   The following example shows the correct and incorrect syntax:
 
@@ -90,7 +92,7 @@ When you're building a workflow and want to add an expression function to a valu
 
   **OK**: `"@<function-name>('<parameter-name>')"`
 
-The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
+The following sections organize functions based on their [general purpose](#ordered-by-purpose), or you can browse these functions in [alphabetical order](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
