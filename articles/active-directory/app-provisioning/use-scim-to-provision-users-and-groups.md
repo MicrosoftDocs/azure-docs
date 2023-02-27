@@ -178,7 +178,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Create users, and optionally also groups|[Section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
 |Modify users or groups with PATCH requests|[Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
 |Retrieve a known resource for a user or group created earlier|[Section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
-|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
+|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved with their `id` and queried with their `username` and `externalId`, and groups are queried with `displayName`.|
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|Section [3.4.2.2](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2)|
 |Support listing users and paginating|[Section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user shouldn't be returned is when it's hard deleted from the application.|
