@@ -1,13 +1,13 @@
 ---
 title: Analyze programming details and changes on an OT sensor - Microsoft Defender for IoT
 description: Discover suspicious programming activity by investigating programming events occurring on your network devices.
-ms.date: 01/31/2023
+ms.date: 02/27/2023
 ms.topic: how-to
 ---
 
 # Analyze programming details and changes
 
-Watch for programming events occurring on your network devices and analyze any code changes using the OT sensor. Watching for programming events helps you investigate suspicious programming activity, such as:
+Enhance forensics by displaying programming events occurring on your network devices and analyzing any code changes using the OT sensor. Watching for programming events helps you investigate suspicious programming activity, such as:
 
   - **Human error**: An engineer programming the wrong device.
   - **Corrupted programming automation**: Programming errors due to automation failures.
@@ -18,13 +18,13 @@ Use the **Programming Timeline** tab on your OT network sensor to review program
 Programming activity shown on OT sensors include both *authorized* and *unauthorized* events. Authorized events are performed by devices that are either learned or manually defined as programming devices. Unauthorized events are performed by devices that haven't been learned or manually defined as programming devices.
 
 > [!NOTE]
-> Programming data is available on OT sensors only for the DeltaV protocol.
+> Programming data is available on OT sensors with text based programming protocols such as DeltaV.
 
 ## Prerequisites
 
 To perform the procedures in this article, make sure that you have:
 
-- An OT sensor installed and configured with DeltaV traffic being ingested.
+- An OT sensor installed and configured, with text based programming protocol traffic.
 
 - Access to the sensor as a **Viewer**, **Security analyst** or **Admin** user.
 
@@ -50,7 +50,7 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Sign into the OT sensor console and select **Device map**.
 
-1. In the **Groups** area to the left of the map, select **Filter** > **OT Protocols** > **DeltaV** to show only DeltaV traffic.
+1. In the **Groups** area to the left of the map, select **Filter** > **OT Protocols** > choose a text based programming protocol, such as DeltaV.
 
 1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
 
@@ -62,7 +62,7 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Sign into the OT sensor console and select **Device inventory**.
 
-1. Filter the device inventory to show only devices with DeltaV traffic.
+1. Filter the device inventory to show devices with a text based programming protocol, such as DeltaV.
 
 1. Select the device you want to analyze, and then select **View full details** to open the device details page.
 
@@ -78,7 +78,7 @@ Use the event timeline to display a timeline of events in which programming chan
 
 1. Sign into the OT sensor console and select **Event timeline**.
 
-1. Filter the event timeline using the **DeltaV** keyword.
+1. Filter the event timeline using keywords for a text based programming protocol, such as **DeltaV**.
 
 1. Select the event you want to analyze to open the event details pane on the right, and then select **View programming**.
 
