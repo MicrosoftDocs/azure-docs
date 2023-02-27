@@ -422,6 +422,14 @@ While in public preview, the following limitations are known.
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
+### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
+
+If a subnet shares Application Gateway v2 deployments that were created prior and post enablement of the enhanced network control functionality, Network Security Group (NSG) and Route Table functionality will be limited to prior gateway deployment. Application gateways provisioned prior to enablement of the new functionality should either reprovision the existing gateways or provision newly created gateways to a new subnet to take advantage of the enahanced network security group and route table features.
+
+If a gateway deployed prior to enablement of the new functionality exists in the subnet, you may see errors such as "For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'." when adding route table entries or "Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group <NSG-Name> blocks outgoing internet traffic on subnet <AppGWSubnetId>, associated with Application Gateway <AppGWResourceId>. This is not permitted for Application Gateways that have fast update enabled or have V2 Sku." when adding network security group rules to the subnet.
+
+[Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
+
 ### Private Endpoint Network Policy is unsupported
 
 [Private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints may be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
