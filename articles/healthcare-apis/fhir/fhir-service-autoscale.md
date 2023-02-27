@@ -15,7 +15,7 @@ Azure Health Data Services provides a managed service for persisting FHIR-compli
 
 Autoscaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for customers FHIR service on demand.
 
-The autoscaling feature adjusts computing resources automatically to optimize service scalability. There is no action required from customers.
+The autoscaling feature adjusts computing resources automatically to optimize service scalability. There's no action required from customers.
 
 The autoscaling feature for FHIR service is available in all regions where the FHIR service is supported.
 > [!NOTE]
@@ -31,7 +31,7 @@ Autoscaling policies defined for FHIR service consists of two parts:
     
 * Scaling mechanism
 
-    Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met.
+    Scaling Mechanism describes how scaling will be performed when it's triggered. Mechanism is only applied when the conditions from the trigger are met.
     There are three factors that determine when the service will be scaled:
 
   * Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
@@ -41,7 +41,7 @@ Autoscaling policies defined for FHIR service consists of two parts:
 * Scaling interval
     
     Scaling Interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If 
-    scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is 
+    scaling isn't needed, then no action will be taken. In both cases, trigger won't be checked again before scaling interval expires again. Scaling interval is 
     set to 1 minute.
 
 ## FAQ
