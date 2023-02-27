@@ -84,7 +84,7 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```
 5. Set the new created resource group as default resource group.
     ```azurecli-interactive
-    az configure --defaults group=${RESOURCE_GROUP}5
+    az configure --defaults group=${RESOURCE_GROUP}
     ```
 
 ### 3. Create Service Bus instance
