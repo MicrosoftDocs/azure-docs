@@ -37,7 +37,7 @@ This quickstart explains how to deploy a Spring Boot event driven application to
     ```
 2. Build the sample project.
     ```shell
-    cd ASA-Samples-Web-Application
+    cd ASA-Samples-Event-Driven-Application
     ./mvnw clean package -DskipTests
     ```
 
