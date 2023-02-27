@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/04/2023
+ms.date: 02/27/2023
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -25,7 +25,7 @@ Three aspects of the redundancy configuration of a storage account determine how
 
 - **Zone redundancy** - whether data is replicated between different zones within the primary region (LRS vs. ZRS)
 - **Geo-redundancy** - replication within a single "local" region or between different regions (LRS vs. GRS)
-- **Read access (RA)** - read access to the secondary region in the event of a failover when geo-redundancy is used (GRS vs. RA-GRS)
+- **Read access (RA)** - read access to the secondary region when geo-redundancy is used (GRS vs. RA-GRS)
 
 For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -46,9 +46,9 @@ The following table provides an overview of how to switch from each type of repl
 > [!NOTE]
 > Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types). That option has been omitted from the table below to simplify it.
 
-| Switching | …to LRS | …to GRS/RA-GRS <sup>2,6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>2,6</sup> |
+| Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>2,6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,4,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GZRS/RA-GZRS <sup>3,4,5</sup> |
+| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1,2</sup> | [Perform a conversion](#perform-a-conversion)<sup>2,3,4,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GZRS/RA-GZRS <sup>3,4,5</sup> |
 | **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then [perform a conversion](#perform-a-conversion) to ZRS <sup>3,5</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,5</sup> |
 | **…from ZRS** | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1</sup>, then [perform a conversion](#perform-a-conversion) to GRS/RA-GRS<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) <sup>1</sup> |
 | **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then [perform a conversion](#perform-a-conversion) to LRS <sup>3</sup> | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
@@ -68,7 +68,7 @@ Depending on your scenario from the table above, use one of the methods below to
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are initiating a zone redundancy conversion, you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
 
-Changing how your storage account is replicated in the portal does not result in down time for your applications. This includes changes that require a conversion.
+Changing how your storage account is replicated in the Azure portal does not result in down time for your applications. This includes changes that require a conversion.
 
 # [Portal](#tab/portal)
 
@@ -171,26 +171,26 @@ Follow these steps to request a conversion from Microsoft:
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab.":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
 
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page.":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
 
 1. Take the appropriate action if the results indicate your storage account is not eligible for conversion. If it is eligible, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, on the **Details** tab, specify the name for each account, separated by a semicolon.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab.":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab." lightbox="media/redundancy-migration/request-live-migration-details-portal.png":::
 
 1. Fill out the additional required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 ### Manual migration
 
-A manual migration provides more flexibility and control than a conversion. You can use this option if you need the migration to complete by a certain date, or if conversion is [not supported for your scenario](#limitations-for-changing-replication-types). Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
+A manual migration provides more flexibility and control than a conversion. You can use this option if you need your data moved by a certain date, or if conversion is [not supported for your scenario](#limitations-for-changing-replication-types). Manual migration is also useful when moving a storage account to another region. See [Move an Azure Storage account to another region](storage-account-move.md) for more details.
 
 You must perform a manual migration if:
 
@@ -307,7 +307,7 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 ### Access tier
 
-Make sure your target redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
+Make sure the desired redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
 
 To switch an LRS storage account that contains blobs in the archive tier to GRS or RA-GRS, you must first rehydrate all archived blobs to the Hot or Cool tier or perform a [manual migration](#manual-migration).
 
@@ -322,13 +322,13 @@ Converting your storage account to zone-redundancy (ZRS, GZRS or RA-GZRS) is not
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary).
 
-If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't perform a conversion to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
+If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't perform a conversion to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
 
 ## Downtime requirements
 
 During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
-If you initiate a conversion from the Azure portal, the migration process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
+If you initiate a conversion from the Azure portal, the conversion process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
 
 If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
 
