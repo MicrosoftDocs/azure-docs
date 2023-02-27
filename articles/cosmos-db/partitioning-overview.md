@@ -17,12 +17,11 @@ Azure Cosmos DB uses partitioning to scale individual containers in a database t
 
 For example, a container holds items. Each item has a unique value for the `UserID` property. If `UserID` serves as the partition key for the items in the container and there are 1,000 unique `UserID` values, 1,000 logical partitions are created for the container.
 
-In addition to a partition key that determines the item's logical partition, each item in a container has an *item ID* (unique within a logical partition). Combining the partition key and the *item ID* creates the item's *index*, which uniquely identifies the item. [Choosing a partition key](#choose-partitionkey) is an important decision that will affect your application's performance.
+In addition to a partition key that determines the item's logical partition, each item in a container has an *item ID* (unique within a logical partition). Combining the partition key and the *item ID* creates the item's *index*, which uniquely identifies the item. [Choosing a partition key](#choose-partitionkey) is an important decision that affects your application's performance.
 
->
-> [!VIDEO https://aka.ms/docs.partitioning-overview]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXbMV]
 
-This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we have covered them so you have clarity on how Azure Cosmos DB works.
+This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we've covered them so you have clarity on how Azure Cosmos DB works.
 
 
 ## Logical partitions
@@ -31,13 +30,13 @@ A logical partition consists of a set of items that have the same partition key.
 
 A logical partition also defines the scope of database transactions. You can update items within a logical partition by using a [transaction with snapshot isolation](database-transactions-optimistic-concurrency.md). When new items are added to a container, new logical partitions are transparently created by the system. You don't have to worry about deleting a logical partition when the underlying data is deleted.
 
-There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup` property, the data within the `Beef Products` logical partition can grow up to 20 GB. [Selecting a partition key](#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale. 
+There's no limit to the number of logical partitions in your container. Each logical partition can store up to 20 GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup` property, the data within the `Beef Products` logical partition can grow up to 20 GB. [Selecting a partition key](#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale. 
 
 You can use Azure Monitor Alerts to [monitor if a logical partition's size is approaching 20 GB](how-to-alert-on-logical-partition-key-storage-size.md).
 
 ## Physical partitions
 
-A container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Typically smaller containers have many logical partitions but they only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB.
+A container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Typically smaller containers have many logical partitions but they only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system and they're entirely managed by Azure Cosmos DB.
 
 The number of physical partitions in your container depends on the following:
 
@@ -48,7 +47,7 @@ The number of physical partitions in your container depends on the following:
 > [!NOTE]
 > Physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB. When developing your solutions, don't focus on physical partitions because you can't control them. Instead, focus on your partition keys. If you choose a partition key that evenly distributes throughput consumption across logical partitions, you will ensure that throughput consumption across physical partitions is balanced.
 
-There is no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones. Physical partition splits do not impact your application's availability. After the physical partition split, all data within a single logical partition will still be stored on the same physical partition. A physical partition split simply creates a new mapping of logical partitions to physical partitions.
+There's no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones. Physical partition splits do not impact your application's availability. After the physical partition split, all data within a single logical partition will still be stored on the same physical partition. A physical partition split simply creates a new mapping of logical partitions to physical partitions.
 
 Throughput provisioned for a container is divided evenly among physical partitions. A partition key design that doesn't distribute requests evenly might result in too many requests directed to a small subset of partitions that become "hot." Hot partitions lead to inefficient use of provisioned throughput, which might result in rate-limiting and higher costs.
 
@@ -94,11 +93,13 @@ For **all** containers, your partition key should:
 
 * Be a property that has a value which does not change. If a property is your partition key, you can't update that property's value.
 
-* Should only contain `String` values - or numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
+* Should only contain `String` values - or numbers should ideally be converted into a `String`, if there's any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it's immutable and requires data migration  to change it later.  
 
 * Have a high cardinality. In other words, the property should have a wide range of possible values.
 
 * Spread request unit (RU) consumption and data storage evenly across all logical partitions. This ensures even RU consumption and storage distribution across your physical partitions.
+
+* Have values that are no larger than 2048 bytes typically, or 101 bytes if large partition keys are not enabled. For more information, see [large partition keys](large-partition-keys.md)
 
 If you need [multi-item ACID transactions](database-transactions-optimistic-concurrency.md#multi-item-transactions) in Azure Cosmos DB, you will need to use [stored procedures or triggers](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). All JavaScript-based stored procedures and triggers are scoped to a single logical partition.
 
@@ -121,14 +122,14 @@ If your container could grow to more than a few physical partitions, then you sh
 
 ## Use item ID as the partition key
 
-If your container has a property that has a wide range of possible values, it is likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
+If your container has a property that has a wide range of possible values, it's likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
 
 The system property *item ID* exists in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these are also great partition key choices for the same reasons as the *item ID*.
 
 The *item ID* is a great partition key choice for the following reasons:
 
 * There are a wide range of possible values (one unique *item ID* per item).
-* Because there is a unique *item ID* per item, the *item ID* does a great job at evenly balancing RU consumption and data storage.
+* Because there's a unique *item ID* per item, the *item ID* does a great job at evenly balancing RU consumption and data storage.
 * You can easily do efficient point reads since you'll always know an item's partition key if you know its *item ID*.
 
 Some things to consider when selecting the *item ID* as the partition key include:

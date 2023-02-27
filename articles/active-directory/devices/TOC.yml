@@ -84,6 +84,8 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
+  - name: Troubleshooting SSO on Apple devices
+    href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
   - name: Hybrid Azure AD join reference
@@ -95,7 +97,7 @@
       href: howto-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
-  - name: Graph APIs
+  - name: Microsoft Graph APIs
     href: /graph/api/resources/device
 - name: Resources
   items:

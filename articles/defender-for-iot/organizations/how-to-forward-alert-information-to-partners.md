@@ -1,7 +1,7 @@
 ---
 title: Forward on-premises OT alert information to partners - Microsoft Defender for IoT
 description: Learn how to forward OT alert details from an OT sensor or on-premises management console to partner services.
-ms.date: 12/08/2022
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
@@ -29,14 +29,13 @@ This article describes how to configure your OT sensor or on-premises management
 > [!NOTE]
 > Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
-
 ## Prerequisites
 
 - Depending on where you want to create your forwarding alert rules, you'll need to have either an [OT network sensor or on-premises management console installed](how-to-install-software.md), with access as an **Admin** user.
 
     For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- You'll also need to define SMTP settings on the OT sensor or on-premises management console. 
+- You'll also need to define SMTP settings on the OT sensor or on-premises management console.
 
     For more information, see [Configure SMTP settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-settings) and [Configure SMTP settings on an on-premises management console](how-to-manage-the-on-premises-management-console.md#mail-server-settings).
 
@@ -93,7 +92,6 @@ To edit or delete an existing rule:
 
 1. When you're done configuring the rule, select **SAVE**. The rule is listed on the **Forwarding** page.
 
-
 1. Test the rule you've created:
 
     1. On the row for your rule, select the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/run-button.png" border="false"::: **test this forwarding rule** button. A success notification is shown if the message sent successfully.
@@ -113,7 +111,7 @@ To edit or delete an existing rule:
 
 ## Configure alert forwarding rule actions
 
-This section describes how to configure settings for supported forwarding rule actions.
+This section describes how to configure settings for supported forwarding rule actions, on either an OT sensor or the on-premises management console.
 
 ### Email address action
 
@@ -126,7 +124,6 @@ In the **Actions** area, enter the following details:
 |**Server**     | Select **Email**.        |
 |**Email**     | Enter the email address you want to forward the alerts to. Each rule supports a single email address.        |
 |**Timezone**    |  Select the time zone you want to use for the alert detection in the target system.  |
-
 
 ### Syslog server actions
 
@@ -305,29 +302,26 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 - **Certificate validation**. Forwarding rules for [Syslog CEF](#syslog-server-actions), [Microsoft Sentinel](integrate-overview.md#microsoft-sentinel), and [QRadar](tutorial-qradar.md) support encryption and certificate validation.
 
-    If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#about-certificate-validation) and the certificate can't be verified, the alerts aren't forwarded.
+    If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#verify-crl-server-access) and the certificate can't be verified, the alerts aren't forwarded.
 
     In these cases, the sensor or on-premises management console is the session's client and initiator. Certificates are typically received from the server or use asymmetric encryption, where a specific certificate is provided to set up the integration.
 
 - **Alert exclusion rules**. If you have exclusion rules configured on your on-premises management console, your sensors might be ignoring the alerts you're trying to forward. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+> [Microsoft Defender for IoT alerts](alerts.md)
 
 > [!div class="nextstepaction"]
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 
 > [!div class="nextstepaction"]
 > [OT monitoring alert types and descriptions](alert-engine-messages.md)
 
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)

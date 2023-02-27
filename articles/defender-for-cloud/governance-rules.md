@@ -2,12 +2,11 @@
 title: Driving your organization to remediate security issues with recommendation governance in Microsoft Defender for Cloud
 description: Learn how to assign owners and due dates to security recommendations and create rules to automatically assign owners and due dates
 services: defender-for-cloud
-author: bmansheim
-ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 11/13/2022
+ms.date: 01/23/2023
 ---
+
 # Drive your organization to remediate security recommendations with governance
 
 Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#building-an-automated-process-for-improving-security-with-governance-rules) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
@@ -40,9 +39,9 @@ You can then review the progress of the tasks by subscription, recommendation, o
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
-Governance rules can identify resources that require remediation according to specific recommendations or severities, and the rule assigns an owner and due date to make sure the recommendations are handled. Many governance rules can apply to the same recommendations, so the rule with lower priority value is the one that assigns the owner and due date.
+Governance rules can identify resources that require remediation according to specific recommendations or severities. The rule assigns an owner and due date to ensure the recommendations are handled. Many governance rules can apply to the same recommendations, so the rule with lower priority value is the one that assigns the owner and due date.
 
-The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule. For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date. You can apply a grace period so that the resources that are given a due date don't impact your secure score until they're overdue.
+The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule. For example, if the rule identifies the resource on March 1 and the remediation timeframe is 14 days, March 15 is the due date. You can apply a grace period so that the resources that 's given a due date don't affect your secure score until they're overdue.
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
@@ -72,7 +71,7 @@ To define a governance rule that assigns an owner and due date:
     - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
 1. Set the **remediation timeframe**, which is the time between when the resources are identified to require remediation and the time that the remediation is due.
-1. If you don't want the resources to impact your secure score until they're overdue, select **Apply grace period**.
+1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
 
@@ -90,9 +89,13 @@ If there are existing recommendations that match the definition of the governanc
 > -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
 > -	Check effective rules on selected scope using the scope filter.
 
+To view the effect of rules on a specific scope, use the Scope filter to select a specific scope.
+
+Conflicting rules are applied in priority order. For example, rules on a management scope (Azure management groups, AWS accounts and GCP organizations), take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects). 
+
 ## Manually assigning owners and due dates for recommendation remediation
 
-For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they're expected to do it by. You can also apply a grace period so that the resources that are given a due date don't impact your secure score unless they become overdue.
+For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they're expected to do it by. You can also apply a grace period so that the resources that 's given a due date don't affect your secure score unless they become overdue.
 
 To manually assign owners and due dates to recommendations:
 
@@ -108,7 +111,7 @@ To manually assign owners and due dates to recommendations:
 1. For any resource that doesn't have an owner or due date, select the resources and select **Assign owner**.
 1. Enter the email address of the owner that needs to make the changes that remediate the recommendation for those resources.
 1. Select the date by which to remediate the recommendation for the resources.
-1. You can select **Apply grace period** to keep the resource from impacting the secure score until it's overdue.
+1. You can select **Apply grace period** to keep the resource from affecting the secure score until it's overdue.
 1. Select **Save**.
 
 The recommendation is now shown as assigned and on time.

@@ -8,13 +8,13 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 02/24/2023
 ms.author: banders
 ---
 
 # Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for a Microsoft Online Services Program account also called pay-as-you-go account).
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website, Azure.com (for a Microsoft Online Services Program (MOSP) account also called pay-as-you-go account).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -22,9 +22,24 @@ There are two ways to pay for your bill for Azure. You can pay with the default 
 
 If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *check or wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
 
+[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
+
 If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
+
+> [!NOTE]
+> Regardless of the payment method selected to complete your payment, you must specify the invoice number in the payment details.
+
+Here's a table summarizing payment methods for different agreement types
+
+|Agreement type| Credit card | Wire transfer¹ |
+| --- | ---- | --- | 
+| Microsoft Customer Agreement<br>purchased through a Microsoft representative | ✔ (with a $50,000.00 USD limit) | ✔ |
+| Enterprise Agreement | ✘ | ✔ |
+| MOSP | ✔ | ✔ if approved to pay by invoice |
+
+¹ If supported by your bank, an ACH credit transaction can be made automatically.
 
 ## Reserve Bank of India 
 
@@ -88,6 +103,9 @@ There are a few countries that don't allow the use of debit cards, however in ge
 If the default payment method of your billing profile is check or wire transfer, follow the payment instructions shown on your invoice PDF file.
 
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
+
+> [!NOTE]
+> When multiple invoices are remitted in a single check or wire transfer, you must specify the invoice numbers for all of the invoices.
 
 #### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>

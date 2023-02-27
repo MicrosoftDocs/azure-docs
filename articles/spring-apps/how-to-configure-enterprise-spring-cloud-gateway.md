@@ -3,7 +3,7 @@ title: How to configure VMware Spring Cloud Gateway with Azure Spring Apps Enter
 description: Shows you how to configure VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -121,6 +121,38 @@ You can also view or edit those properties in the Azure portal, as shown in the 
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 >
 > After configuring SSO, remember to set `ssoEnabled: true` for the Spring Cloud Gateway routes.
+
+## Configure single sign-on (SSO) logout
+
+VMware Spring Cloud Gateway service instances provide a default API endpoint to log out of the current SSO session. The path to this endpoint is `/scg-logout`. You can accomplish one of the following two outcomes depending on how you call the logout endpoint:
+
+- Logout of session and redirect to IdP logout.
+- Just logout the service instance session.
+
+### Logout of IdP and SSO session
+
+If you send a GET request to the `/scg-logout` endpoint, then the endpoint will send a 302 redirect response to the IdP logout URL. To get the endpoint to return the user back to a path on the gateway service instance, add a redirect parameter to the GET `/scg-logout` request. For example, `${serverUrl}/scg-logout?redirect=/home`.
+
+The following steps describe an example of how to implement the function in your microservices.
+
+1. You need [a route config](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/azure/api-route-config.json#L32) to route the logout request to your application.
+
+1. In that application, you can add whatever logout logic you need. At the end, you need to [send a get request](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) to the gateway's `/scg-logout` endpoint.
+
+> [!NOTE]
+> The value of the redirect parameter is a valid path on the gateway service instance. You can't redirect to an external URL.
+
+### Log out just the SSO session
+
+If you send the GET request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the 302 redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen in this case is that if the user attempts to log in again, they are automatically sent back to the gateway as authenticated from IdP.
+
+You need to have a route configuration to route the logout request to your application, as shown in the following example. This code will make a gateway-only logout SSO session.
+
+```java
+const req = new XMLHttpRequest();
+req.open("GET", "/scg-logout);
+req.send();
+```
 
 ## Configure cross-origin resource sharing (CORS)
 

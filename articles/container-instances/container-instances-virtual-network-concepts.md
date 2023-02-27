@@ -16,7 +16,7 @@ ms.date: 06/17/2022
 This article provides background about virtual network scenarios, limitations, and resources. For deployment examples using the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-region-availability.md).
+> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-region-availability.md). 
 
 ## Scenarios
 
@@ -38,7 +38,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 ## Other limitations
 
-* Currently, only Linux containers are supported in a container group deployed to a virtual network.
 * To deploy container groups to a subnet, the subnet can't contain other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * To deploy container groups to a subnet, the subnet and the container group must be on the same Azure subscription.
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.

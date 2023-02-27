@@ -106,6 +106,10 @@ items:
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
+      - name: Subscribe to HDInsight release notes GitHub repo
+        href: ./subscribe-to-hdi-release-notes-repo.md
+      - name: View the image version of Azure HDInsight cluster
+        href: ./view-hindsight-cluster-image-version.md  
       - name: Cluster creation errors
         href: ./create-cluster-error-dictionary.md
         title: 
@@ -657,6 +661,8 @@ items:
       href: ./kafka/apache-kafka-streams-api.md
     - name: Use Apache Spark structured streaming
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Connect Kafka cluster with VM in different VNet
+      href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
     - name: Migrate Kafka workloads to 4.0
@@ -697,8 +703,10 @@ items:
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
       - name: Secure Spark and Kafka streaming integration scenario
         href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
-      - name: SSL Encryption and Authentication
+      - name: SSL Encryption and Authentication for Non ESP Kafka cluster
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+      - name: SSL Encryption and Authentication for ESP Kafka cluster
+        href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
         href: ./kafka/kafka-mirrormaker-2-0-guide.md  
     - name: Troubleshoot

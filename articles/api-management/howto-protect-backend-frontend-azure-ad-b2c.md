@@ -286,7 +286,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
    > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API!
 
    > [!TIP]
-   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](./api-management-access-restriction-policies.md#LimitCallRate).  
+   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](rate-limit-policy.md).  
    > As this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls. The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by the backend Azure Function.
 
 ## Upload the JavaScript SPA sample to static storage

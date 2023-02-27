@@ -2,7 +2,6 @@
 title: Best practices for scheduler features
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for using advanced scheduler features such as taints and tolerations, node selectors and affinity, or inter-pod affinity and anti-affinity in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 11/11/2022
  
@@ -247,4 +246,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
-[use-gpus-aks]: /aks/gpu-cluster.md
+[use-gpus-aks]: gpu-cluster.md

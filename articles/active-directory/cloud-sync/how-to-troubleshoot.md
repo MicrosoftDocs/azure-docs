@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot problems that might aris
 author: billmath
 ms.author: billmath
 manager: amycolannino
-ms.date: 10/13/2021
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
@@ -222,7 +222,7 @@ If you need to repair the cloud sync service account, you can use the `Repair-AA
       Connect-AADCloudSyncTools
       ```
 
-   1. Enter your Azure AD global admin credentials.
+   1. Enter your Azure AD Global Administrator credentials.
 
    1. Type, or copy and paste, the following:
 

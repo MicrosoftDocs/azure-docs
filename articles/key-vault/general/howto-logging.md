@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/01/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -25,17 +25,17 @@ What is logged:
 * Operations on keys and secrets in the key vault, including:
   * Creating, modifying, or deleting these keys or secrets.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
-* Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
+* Unauthenticated requests that result in a 401 response. Examples are requests that lack a bearer token, are malformed or expired, or have an invalid token.  
 * Azure Event Grid notification events for the following conditions: expired, near expiration, and changed vault access policy (the new version event isn't logged). Events are logged even if there's an event subscription created on the key vault. For more information, see [Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md).
 
 ## Prerequisites
 
-To complete this tutorial, you will need an Azure key vault. You can create a new key vault using one of these methods:
+To complete this tutorial, you'll need an Azure key vault. You can create a new key vault using one of these methods:
   - [Create a key vault using the Azure CLI](quick-create-cli.md)
   - [Create a key vault using Azure PowerShell](quick-create-powershell.md)
   - [Create a key vault using the Azure portal](quick-create-portal.md)
 
-You will also need a destination for your logs.  This can be an existing or new Azure storage account and/or Log Analytics workspace.
+You'll also need a destination for your logs.  The destination can be an existing or new Azure storage account and/or Log Analytics workspace.
 
 > [!IMPORTANT]
 > If you use an existing Azure storage account or Log Analytics workspace, it must be in the same subscription as your key vault. It must also use the Azure Resource Manager deployment model, rather than the classic deployment model.
@@ -54,7 +54,7 @@ You can create a new Log Analytics workspace using one of these methods:
 
 ## Connect to your Key Vault subscription
 
-The first step in setting up key logging is connecting to the subscription containing your key vault. This is especially important if you have multiple subscriptions associated with your account.
+The first step in setting up key logging is connecting to the subscription containing your key vault, if you have multiple subscriptions associated with your account.
 
 With the Azure CLI, you can view all your subscriptions by using the [az account list](/cli/azure/account#az-account-list) command. Then you connect to one by using the [az account set](/cli/azure/account#az-account-set) command:
 
@@ -74,7 +74,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 ## Obtain resource IDs
 
-To enable logging on a key vault, you will need the resource ID of the key vault, as well as the destination (Azure Storage or Log Analytics account).
+To enable logging on a key vault, you'll need the resource ID of the key vault and the destination (Azure Storage or Log Analytics account).
 
 If you can't remember the name of your key vault, you can use the Azure CLI [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command, or the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet, to find it.
 
@@ -144,7 +144,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
     :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Screenshot of diagnostic settings options.":::
 
 
-1. When you have selected your desired options, select **Save**.
+1. When you've selected your desired options, select **Save**.
 
     :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Screenshot that shows how to save the options you selected.":::
 

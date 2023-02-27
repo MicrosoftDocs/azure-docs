@@ -26,6 +26,8 @@ landingContent:
             url: overview.md
           - text: Key concepts in Service Connector
             url: concept-service-connector-internals.md
+          - text: Frequently asked questions
+            url: faq.yml
 
   # Card
   - title: Get started

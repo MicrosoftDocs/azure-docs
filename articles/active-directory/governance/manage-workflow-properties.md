@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 02/15/2022
+ms.date: 01/31/2022
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -22,6 +22,7 @@ You can update the following basic information without creating a new workflow.
    - display name
    - description
    - whether or not it is enabled.
+   - Whether or not workflow schedule is enabled.
 
 If you change any other parameters, a new version is required to be created as outlined in the [Managing workflow versions](manage-workflow-tasks.md) article. 
 

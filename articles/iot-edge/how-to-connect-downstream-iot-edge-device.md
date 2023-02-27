@@ -4,12 +4,11 @@ description: Step by step adaptable manual instructions on how to create a hiera
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/05/2023
+ms.date: 01/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
@@ -140,26 +139,99 @@ To configure your parent device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge parent device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the preferred directory `/var/aziot` for the certificates and keys.
+01. Check your certificates meet the [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
-01. Install the **root CA certificate** on the parent IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
+01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. 
 
-    **Debian or Ubuntu:**
+01. Copy the certificates and keys to the correct directories. The preferred directories for device certificates are `/var/aziot/certs` for the certificates and `/var/aziot/secrets` for keys.
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+    ### Copy device certificate ###
 
-    sudo update-ca-certificates
+    # If the device certificate and keys directories don't exist, create, set ownership, and set permissions
+    sudo mkdir -p /var/aziot/certs
+    sudo chown aziotcs:aziotcs /var/aziot/certs
+    sudo chmod 755 /var/aziot/certs
+
+    sudo mkdir -p /var/aziot/secrets
+    sudo chown aziotks:aziotks /var/aziot/secrets
+    sudo chmod 700 /var/aziot/secrets
+
+    # Copy full-chain device certificate and private key into the correct directory
+    sudo cp iot-edge-device-ca-gateway-full-chain.cert.pem /var/aziot/certs
+    sudo cp iot-edge-device-ca-gateway.key.pem /var/aziot/secrets
+
+    ### Root certificate ###
+
+    # Copy root certificate into the /certs directory
+    sudo cp azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
+
+    # Copy root certificate into the CA certificate directory and add .crt extension.
+    # The root certificate must be in the CA certificate directory to install it in the certificate store.
+    # Use the appropriate copy command for your device OS or if using EFLOW.
+
+    # For Ubuntu and Debian, use /usr/local/share/ca-certificates/
+    sudo cp azure-iot-test-only.root.ca.cert.pem /usr/local/share/azure-iot-test-only.root.ca.cert.pem.crt
+    # For EFLOW, use /etc/pki/ca-trust/source/anchors/
+    sudo cp azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.pem.crt
     ```
 
-    **IoT Edge for Linux on Windows (EFLOW):**
+01. Change the ownership and permissions of the certificates and keys.
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+    # Give aziotcs ownership to certificates
+    # Read and write for aziotcs, read-only for others
+    sudo chown -R aziotcs:aziotcs /var/aziot/certs
+    sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
 
+    # Give aziotks ownership to private keys
+    # Read and write for aziotks, no permission for others
+    sudo chown -R aziotks:aziotks /var/aziot/secrets
+    sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
+
+    # Verify permissions of directories and files
+    sudo ls -Rla /var/aziot
+    ```
+
+    The output of list with correct ownership and permission is similar to the following:
+
+    ```Output
+    azureUser@vm:/var/aziot$ sudo ls -Rla /var/aziot
+    /var/aziot:
+    total 16
+    drwxr-xr-x  4 root    root    4096 Dec 14 00:16 .
+    drwxr-xr-x 15 root    root    4096 Dec 14 00:15 ..
+    drwxr-xr-x  2 aziotcs aziotcs 4096 Jan 14 00:31 certs
+    drwx------  2 aziotks aziotks 4096 Jan 23 17:23 secrets
+
+    /var/aziot/certs:
+    total 20
+    drwxr-xr-x 2 aziotcs aziotcs 4096 Jan 14 00:31 .
+    drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+    -rw-r--r-- 1 aziotcs aziotcs 1984 Jan 14 00:24 azure-iot-test-only.root.ca.cert.pem
+    -rw-r--r-- 1 aziotcs aziotcs 5887 Jan 14 00:27 iot-edge-device-ca-gateway-full-chain.cert.pem
+
+    /var/aziot/secrets:
+    total 16
+    drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
+    drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+    -rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
+    -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-gateway.key.pem
+    ```
+    
+
+01. Install the **root CA certificate** on the parent IoT Edge device by updating the certificate store on the device using the platform-specific command.
+
+    ```bash
+    # Update the certificate store
+
+    # For Ubuntu and Debian, use update-ca-certificates command
+    sudo update-ca-certificates
+    # For EFLOW, use update-ca-trust
     sudo update-ca-trust
     ```
-    For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+    For more information about using `update-ca-trust` in EFLOW, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
 
 The command reports one certificate was added to `/etc/ssl/certs`.
 
@@ -219,11 +291,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the full-chain certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -241,7 +313,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -319,26 +391,69 @@ To configure your downstream device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge downstream device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the downstream device. The examples in this article use the directory `/var/aziot` for the certificates and keys directory.
+01. Check your certificates meet the [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
-01. Install the **root CA certificate** on the downstream IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
+01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the downstream device. 
 
-    **Debian or Ubuntu:**
+01. Copy the certificates and keys to the correct directories. The preferred directories for device certificates are `/var/aziot/certs` for the certificates and `/var/aziot/secrets` for keys.
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+    ### Copy device certificate ###
 
-    sudo update-ca-certificates
+    # If the device certificate and keys directories don't exist, create, set ownership, and set permissions
+    sudo mkdir -p /var/aziot/certs
+    sudo chown aziotcs:aziotcs /var/aziot/certs
+    sudo chmod 755 /var/aziot/certs
+
+    sudo mkdir -p /var/aziot/secrets
+    sudo chown aziotks:aziotks /var/aziot/secrets
+    sudo chmod 700 /var/aziot/secrets
+
+    # Copy device full-chain certificate and private key into the correct directory
+    sudo cp iot-device-downstream-full-chain.cert.pem /var/aziot/certs
+    sudo cp iot-device-downstream.key.pem /var/aziot/secrets
+
+    ### Root certificate ###
+
+    # Copy root certificate into the /certs directory
+    sudo cp azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
+
+    # Copy root certificate into the CA certificate directory and add .crt extension.
+    # The root certificate must be in the CA certificate directory to install it in the certificate store.
+    # Use the appropriate copy command for your device OS or if using EFLOW.
+
+    # For Ubuntu and Debian, use /usr/local/share/ca-certificates/
+    sudo cp azure-iot-test-only.root.ca.cert.pem /usr/local/share/azure-iot-test-only.root.ca.cert.pem.crt
+    # For EFLOW, use /etc/pki/ca-trust/source/anchors/
+    sudo cp azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.pem.crt
     ```
 
-    **IoT Edge for Linux on Windows (EFLOW):**
+01. Change the ownership and permissions of the certificates and keys.
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+    # Give aziotcs ownership to certificates
+    # Read and write for aziotcs, read-only for others
+    sudo chown -R aziotcs:aziotcs /var/aziot/certs
+    sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
 
+    # Give aziotks ownership to private keys
+    # Read and write for aziotks, no permission for others
+    sudo chown -R aziotks:aziotks /var/aziot/secrets
+    sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
+    ```
+
+01. Install the **root CA certificate** on the downstream IoT Edge device by updating the certificate store on the device using the platform-specific command.
+
+    ```bash
+    # Update the certificate store
+
+    # For Ubuntu and Debian, use update-ca-certificates command
+    sudo update-ca-certificates
+    # For EFLOW, use update-ca-trust
     sudo update-ca-trust
     ```
-    For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
+
+    For more information about using `update-ca-trust` in EFLOW, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).
 
 The command reports one certificate was added to `/etc/ssl/certs`.
 
@@ -386,12 +501,12 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge downstream device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the full-chain certificate and key files on the IoT Edge downstream device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
-    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-device-downstream-full-chain.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
@@ -408,8 +523,8 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
-    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-device-downstream-full-chain.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
 01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
@@ -448,46 +563,45 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the downstream device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
 
     ```bash
-    echo | openssl s_client -connect <parent hostname>:8883 2>/dev/null | openssl x509 -text
+    openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
     ```
 
-    The command should return the certificate chain similar to the following example.
+    The command should assert successful validation of the parent certificate chain similar to the following example:
 
     ```Output
-    azureUser@child-vm:~$ echo | openssl s_client -connect 10.0.0.4:8883 2>/dev/null | openssl x509 -text
+    azureUser@child-vm:~$ openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
+    Can't use SSL_get_servername
+    depth=3 CN = Azure_IoT_Hub_CA_Cert_Test_Only
+    verify return:1
+    depth=2 CN = Azure_IoT_Hub_Intermediate_Cert_Test_Only
+    verify return:1
+    depth=1 CN = gateway.ca
+    verify return:1
+    depth=0 CN = <parent hostname>
+    verify return:1
+    DONE
+    ```
 
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number: 0 (0x0)
-            Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN = gateway.ca
-            Validity
-                Not Before: Apr 27 16:25:44 2022 GMT
-                Not After : May 26 14:43:24 2022 GMT
-            Subject: CN = 10.0.0.4
-            Subject Public Key Info:
-                Public Key Algorithm: rsaEncryption
-                    RSA Public-Key: (2048 bit)
-                    Modulus:
-                        00:b2:a6:df:d9:91:43:4e:77:d8:2c:2a:f7:01:b1:
-                        ...
-                        33:bd:c8:f0:de:07:36:2c:0d:06:9e:89:22:95:5e:
-                        3b:43
-                    Exponent: 65537 (0x10001)
-            X509v3 extensions:
-                X509v3 Extended Key Usage:
-                    TLS Web Server Authentication
-                X509v3 Subject Alternative Name:
-                    DNS:edgehub, IP Address:10.0.0.4
-        Signature Algorithm: sha256WithRSAEncryption
-             76:d4:5b:4a:d5:c4:80:7d:32:bc:c0:a8:ce:4f:69:5d:4d:ee:
-             ...
-        ```
+    The "Can't use SSL_get_servername" message can be ignored.
 
-        The `Subject: CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+    The `depth=0 CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
 
-        If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+    If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+
+    > [!WARNING]
+    > Not using a full-chain certificate in the gateway's `[edge_ca]` section results in certificate validation errors from the downstream device. For example, the `openssl s_client ...` command above will produce:
+    >
+    > ```
+    > Can't use SSL_get_servername
+    > depth=1 CN = gateway.ca
+    > verify error:num=20:unable to get local issuer certificate
+    > verify return:1
+    > depth=0 CN = <parent hostname>
+    > verify return:1
+    > DONE
+    > ```
+    >
+    > The same issue occurs for TLS-enabled devices that connect to the downstream IoT Edge device if the full-chain device certificate isn't used and configured on the downstream device.
 
 ## Network isolate downstream devices
 

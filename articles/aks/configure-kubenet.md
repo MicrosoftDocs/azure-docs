@@ -1,11 +1,12 @@
 ---
 title: Configure kubenet networking in Azure Kubernetes Service (AKS)
+titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 10/26/2022
-
-ms.reviewer: nieberts, jomore
 ---
 
 # Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)
@@ -20,7 +21,7 @@ This article shows you how to use *kubenet* networking to create and use a virtu
 
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * Don't create more than one AKS cluster in the same subnet.
-* AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range or cluster virtual network address range.
+* AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range. This range can't be updated after you create your cluster.
 * The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. CLI helps do the role assignment automatically. If you are using ARM template or other clients, the role assignment needs to be done manually. You must also have the appropriate permissions, such as the subscription owner, to create a cluster identity and assign it permissions. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -138,10 +139,23 @@ You can create an AKS cluster using a system-assigned managed identity by runnin
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 3 \
     --network-plugin kubenet \
-    --vnet-subnet-id $SUBNET_ID 
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID    
 ```
+* The *--service-cidr* is optional. This address is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+
+* The *--dns-service-ip* is optional. The address should be the *.10* address of your service IP address range.
+
+* The *--pod-cidr*  is optional. This address should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+    * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
+    * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
+    * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
+
+* The *--docker-bridge-address* is optional. The address lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
 
 > [!Note]
 > If you wish to enable an AKS cluster to include a [Calico network policy][calico-network-policies] you can use the following command.

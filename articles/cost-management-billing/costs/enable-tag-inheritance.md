@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/08/2022
+ms.date: 02/21/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,11 @@ Azure tags are widely used to group costs to align with different business units
 
 This article explains how to use the tag inheritance setting in Cost Management. When enabled, tag inheritance applies resource group and subscription tags to child resource usage records. You don't have to tag every resource or rely on resources that emit usage to have their own tags.
 
-Tag inheritance is available for customers with an Enterprise Account (EA) or a Microsoft Customer Agreement (MCA) account.
+Tag inheritance is available for the following billing account types:
+
+- Enterprise Agreement (EA)
+- Microsoft Customer Agreement (MCA)
+- Microsoft Partner Agreement (MPA) with Azure plan subscriptions
 
 ## Required permissions
 
@@ -37,7 +41,7 @@ You can enable the tag inheritance setting in the Azure portal. You apply the se
 
 To enable tag inheritance in the Azure portal:
 
-1. In the Azure portal, navigate to Cost Management.
+1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
 2. Select a scope.
 3. In the left menu under **Settings**, select either **Manage billing account** or **Manage subscription**, depending on your scope.
 4. Under **Tag inheritance**, select **Edit**.  
@@ -61,7 +65,9 @@ Let's look at an example of how a resource tag gets applied. In the following di
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-02.svg" alt-text="Example diagram showing how a resource tag gets applied." border="false" lightbox="./media/enable-tag-inheritance/tag-example-02.svg":::
 
-Let's look at another example where a resource tag gets overridden. In the following diagram, resource 4 and resource group 2 have the same tag: **App**. Because the user chose to use the resource group or subscription tag, usage record 4 is updated with the resource group tag value, which is *backend*.
+Let's look at another example where a resource tag gets overridden. In the following diagram, resource 4 and resource group 2 have the same tag: **App**. Because the user chose to use the resource group or subscription tag, usage record 4 is updated with the resource group tag value, which is *backend*¹.
+
+¹ When the subscription and resource group tags are the same as the resource tag and you’ve selected the **Use the subscription or resource group tag** option, the subscription tag is used.
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-03.svg" alt-text="Example diagram showing how a resource tag gets overridden." border="false" lightbox="./media/enable-tag-inheritance/tag-example-03.svg":::
 

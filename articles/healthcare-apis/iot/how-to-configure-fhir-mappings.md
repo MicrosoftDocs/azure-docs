@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -24,6 +24,19 @@ configuration controls.
 
 > [!NOTE]
 > Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
+
+## FHIR destination mappings validations
+
+The validation process validates the FHIR destination mappings before allowing them to be saved for use. These elements are required in the FHIR destination mappings templates.
+
+**FHIR destination mappings**
+
+|Element|Required|
+|:------|:-------|
+|TypeName|True|
+
+> [!NOTE]
+> This is the only required FHIR destination mapping element validated at this time.
 
 ### CodeValueFhirTemplate
 
@@ -262,7 +275,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot the MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing common MedTech service errors.
 
 ## Next steps
 

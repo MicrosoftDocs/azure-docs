@@ -2,10 +2,10 @@
 title: 'Quickstart: Add a guest user and send an invitation - Azure AD'
 description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
 services: active-directory
-author: msmimart
-ms.author: mimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
-ms.date: 05/10/2022
+ms.date: 02/16/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account.
 
-In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
+In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -93,4 +93,7 @@ When no longer needed, delete the test guest user.
 
 ## Next steps
 
-In this quickstart, you created a guest user in the Azure portal and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective and verified that the guest user was able to access their My Apps page. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+In this quickstart, you created a guest user in the Azure portal and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective, and verified that the guest user was able to access their My Apps page. 
+To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+To learn more about adding guest users with PowerShell, see [Add and invite guests with PowerShell](b2b-quickstart-invite-powershell.md).
+You can also bulk invite guest users [via the portal](tutorial-bulk-invite.md) or [via PowerShell](bulk-invite-powershell.md). 

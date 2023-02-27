@@ -4,8 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 12/08/2022
-ms.custom: ignite-fall-2021
+ms.date: 02/24/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -14,7 +13,79 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
+See these [important announcements](#announcements) about recent changes to features and services.
+
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## February 2023
+
+- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) (in [Announcements](#announcements) section below)
+- [New CloudWatch data type for the AWS S3 connector (Preview)](#new-cloudwatch-data-type-for-the-aws-s3-connector)
+- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
+- [Microsoft 365 Defender data connector is now generally available](#microsoft-365-defender-data-connector-is-now-generally-available)
+- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
+
+### New CloudWatch data type for the AWS S3 connector
+
+The Microsoft Sentinel AWS S3 connector now supports [CloudWatch logs](connect-aws.md) in addition to the supported CloudTrail, VPC Flow, and Guard Duty logs. Logs from AWS CloudWatch provide operational information from different AWS sources, which enables Microsoft Sentinel customers with AWS footprints to better understand and operate their AWS systems and applications.  
+
+The CloudWatch data type has the ability to perform the same data transformation functions as the other data types within the AWS S3 connector. Learn how to [transform your data for CloudWatch](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+
+### Audit and monitor the health of your analytics rules (Preview)
+
+Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+
+Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+- Explore the new [Analytics Health & Audit workbook](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook).
+
+### Microsoft 365 Defender data connector is now generally available
+
+Microsoft 365 Defender incidents, alerts, and raw event data can be ingested into Microsoft Sentinel using this connector. It also enables the bi-directional synchronization of incidents between Microsoft 365 Defender and Microsoft Sentinel. This integration allows you to manage all of your incidents in Microsoft Sentinel, while taking advantage of Microsoft 365 Defender's specialized tools and capabilities to investigate those incidents that originated in Microsoft 365.
+
+- Learn more about [Microsoft 365 Defender integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [connect Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md).
+
+### Advanced scheduling for analytics rules (Preview)
+
+To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
+
+[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
+
+
+## January 2023
+
+- [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
+- [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
+
+### New incident investigation experience (Preview)
+
+SOC analysts need to understand the full scope of an attack as fast as possible to respond effectively. 
+
+While triaging, investigating, and responding to a security incident, analysts require quick and seamless access to many pieces of information, actions, and tools. This access should optimally be within the incident investigation environment, with an absolute minimum of pivoting to other pages, products, or services&mdash;for example, to find Azure AD info or the geo-location of an IP, edit a bookmark, or add an entity to threat intelligence.
+
+**Microsoft Sentinel now offers a new incident investigation experience**. The new incident page design, along with many new features for investigation, response, and incident management, offers the analyst the information and tools necessary to understand the incident and the scope of breach, while making navigation easy and context switching less frequent. New features include, among others, top insights, a new activity log for incident audits and a Log Analytics query window to investigate logs.
+
+Learn more about the new investigation experience:
+- [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
+- [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Monitor SAP system health and role (Preview)
+
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
+
+### Microsoft Purview Information Protection connector (Preview)
+
+With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
+
+> [!IMPORTANT]
+> This connector replaces the Azure Information Protection (AIP) data connector, aligned with the retirement of the AIP analytics and audit logs public preview as of **March 31, 2023**.
+
+The new connector streams audit logs into the standardized 
+`MicrosoftPurviewInformationProtection` table, which has been adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
 
 ## December 2022
 
@@ -57,7 +128,6 @@ SOC managers, automation engineers, and senior analysts can use Microsoft Sentin
 - Learn how analysts can [use tasks to handle incident workflow](work-with-tasks.md).
 - Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
 
-
 ### Common Event Format (CEF) via AMA (Preview)
 
 The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA).
@@ -84,12 +154,92 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 - Can forward logs from external data sources into both custom tables and standard tables. 
 - Provides performance improvements, compression, and better telemetry and error handling.
 
-## October 2022
+## Announcements
 
-- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
+- [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
-- [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
-- [IoT device entity page (Preview)](#iot-device-entity-page-preview)
+- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
+- [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### Out-of-the-box content centralization changes
+A new banner is appearing in Microsoft Sentinel gallery pages! This informational banner is rolling out to all tenants to explain upcoming changes regarding out-of-the-box (OOTB) content. In short, the **Content hub** will be the central source whether you're looking for standalone content or packaged solutions. Expect banners to appear in the templates section of **Workbooks**, **Hunting**, **Automation**, **Analytics** and **Data connectors** galleries. Here's an example of the banner in the **Workbooks** gallery. 
+
+:::image type="complex" source="media/whats-new/example-content-central-change-banner.png" alt-text="Screenshot shows an example informational banner in the **Workbooks** gallery.":::
+The banner reads, 'All Workbook templates, and additional out-of-the-box (OOTB) content are now centrally available in Content hub. Starting Q2 2023, only Workbook templates installed from the content hub will be available in this gallery. Learn more about the OOTB content centralization changes.'
+:::image-end:::
+
+For all the details on what these upcoming changes will mean for you, see [Microsoft Sentinel out-of-the-box content centralization changes](sentinel-content-centralize.md).
+
+### New behavior for alert grouping in analytics rules
+
+Starting **February 6, 2023** and continuing through the end of February, Microsoft Sentinel is rolling out a change in the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules. This change is being made in order to produce incidents with more complete information and to simplify automation triggered by the creating and updating of incidents.
+
+The affected analytics rules are those with both of the following two settings:
+- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row" or "alert per result").
+- **Alert grouping** is enabled, in any one of the [three possible configurations](detect-threats-custom.md#alert-grouping).
+
+#### The problem
+
+Rules with these two settings generate unique alerts for each event (result) returned by the query. These alerts are then all grouped together into a single incident (or a small number of incidents, depending on the alert grouping configuration choice).
+
+The problem is that the incident is created as soon as the first alert is generated, so at that point the incident contains only the first alert. The remaining alerts are joined to the incident, one after the other, as they are generated. So you end up with a *single running of an analytics rule* resulting in:
+- One incident creation event *and*
+- Up to 149 incident update events
+
+These circumstances result in unpredictable behavior when evaluating the conditions defined in automation rules or populating the incident schema in playbooks:
+
+- **Incorrect evaluation of an incident's conditions by automation rules:**
+
+    Automation rules on this incident will run immediately on its creation, even with just the one alert included. So the automation rule will only consider the incident's status as containing the first alert, even though other alerts are being created nearly simultaneously (by the same running of the analytics rule) and will continue being added while the automation rule is running. So you end up with a situation where the automation rule's evaluation of the incident is incomplete and likely incorrect.
+
+    If there are automation rules defined to run when the incident is *updated*, they will run again and again as each subsequent alert is added to the incident (even though the alerts were all generated by the same running of the analytics rule). So you'll have alerts being added and automation rules running, each time possibly incorrectly evaluating the conditions of the incident.
+
+    Automation rules' conditions might ignore entities that only later become part of the incident but weren't included in the first alert/creation of the incident.
+
+    In these cases, incorrect evaluation of an incident's condition may cause automation rules to run when they shouldn't, or not to run when they should. The result of this would be that the wrong actions would be taken on an incident, or that the right actions would not be taken.
+
+- **Information in later alerts being unavailable to playbooks run on the incident:**
+
+    When an automation rule calls a playbook, it passes the incident's detailed information to the playbook. Because of the behavior mentioned above, a playbook might only receive the details (entities, custom details, and so on) of the first alert in an incident, but not those from subsequent alerts. This means that the playbook's actions would not have access to all the information in the incident.
+
+#### The solution
+
+Going forward, instead of creating the incident as soon as the first alert is generated, Microsoft Sentinel will wait until a single running of an analytics rule has generated all of its alerts, and then create the incident, adding all the alerts to it at once. So instead of an incident creation event and a whole bunch of incident update events, you have only the incident creation event.
+
+Now, automation rules that run on the creation of an incident can evaluate the complete incident with all of its alerts (as well as entities and custom details) and its most updated properties, and any playbooks that run will similarly have the complete details of the incident.
+
+
+
+The following table describes the change in the incident creation and automation behaviors:
+
+| When incident created/updated with multiple alerts | Before the change | After the change |
+| -- | -- | -- |
+| **Automation rule** conditions are evaluated based on... | The first alert generated by the current running of the analytics rule. | All alerts and entities resulting from the current running of the analytics rule. |
+| **Playbook input** includes... | - Alerts list containing only the first alert of the incident.<br>- Entities list containing only entities from the first alert of the incident. | - Alerts list containing all the alerts triggered by this rule execution and grouped to this incident.<br>- Entities list containing the entities from all the alerts triggered by this rule execution and grouped to this incident. |
+| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
+
+### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
+
+As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) integrates [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between three levels of integration:
+
+- **Show high-impact alerts only (Default)** includes only alerts about known malicious or highly suspicious activities that might require attention. These alerts are  chosen by Microsoft security researchers and are mostly of Medium and High severities.
+- **Show all alerts** includes all AADIP alerts, including activity that might not be unwanted or malicious.
+- **Turn off all alerts** disables any AADIP alerts from appearing in your Microsoft 365 Defender incidents.
+
+Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled now automatically receive AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
+
+- If you already have your AADIP connector enabled in Microsoft Sentinel, and you've enabled incident creation, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
+
+    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
+    | - | - | - |
+    | **1** | Keep the default AADIP integration of **Show high-impact alerts only**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **2** | Choose the **Show all alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose the **Turn off all alerts** option for AADIP integration. | Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+
+- If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
+
+- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection was made automatically behind the scenes. You won't need to do anything else.
 
 ### Account enrichment fields removed from Azure AD Identity Protection connector
 
@@ -132,73 +282,18 @@ In the meantime, or if you've built any custom queries or rules directly referen
     | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
     ```
 
-For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table) for a sample query.
+For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table) for a sample query.
 
-### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
+### Name fields removed from UEBA UserPeerAnalytics table
 
-As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) will be integrating [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between three levels of integration:
-
-- **Show high-impact alerts only (Default)** includes only alerts about known malicious or highly suspicious activities that might require attention. These alerts are  chosen by Microsoft security researchers and are mostly of Medium and High severities.
-- **Show all alerts** includes all AADIP alerts, including activity that might not be unwanted or malicious.
-- **Turn off all alerts** disables any AADIP alerts from appearing in your Microsoft 365 Defender incidents.
-
-Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
-
-- If you already have your AADIP connector enabled in Microsoft Sentinel, and you've enabled incident creation, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
-
-    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
-    | - | - | - |
-    | **1** | Keep the default AADIP integration of **Show high-impact alerts only**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **2** | Choose the **Show all alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose the **Turn off all alerts** option for AADIP integration. | Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
-
-- If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
-
-- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made automatically behind the scenes. You won't need to do anything else.
-
-### Out of the box anomaly detection on the SAP audit log (Preview)
-
-The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
-
-Learn how to [use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection).
-
-### IoT device entity page (Preview)
-
-The new [IoT device entity page](entity-pages.md) is designed to help the SOC investigate incidents that involve IoT/OT devices in their environment, by providing the full OT/IoT context through Microsoft Defender for IoT to Sentinel. This enables SOC teams to detect and respond more quickly across all domains to the entire attack timeline.
-
-Learn more about [investigating IoT device entities in Microsoft Sentinel](iot-advanced-threat-monitoring.md).
-
-## September 2022
-
-- [Create automation rule conditions based on custom details (Preview)](#create-automation-rule-conditions-based-on-custom-details-preview)
-- [Add advanced "Or" conditions to automation rules (Preview)](#add-advanced-or-conditions-to-automation-rules-preview)
-- [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table)
-- [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
-- [Create and delete incidents manually (Preview)](#create-and-delete-incidents-manually-preview)
-- [Add entities to threat intelligence (Preview)](#add-entities-to-threat-intelligence-preview)
-
-### Create automation rule conditions based on custom details (Preview)
-
-You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
-
-Learn how to [add a condition based on a custom detail](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview).
-
-### Add advanced "Or" conditions to automation rules (Preview)
-
-You can now add OR conditions to automation rules. Also known as condition groups, these allow you to combine several rules with identical actions into a single rule, greatly increasing your SOC's efficiency.
-
-For more information, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
-
-### Heads up: Name fields being removed from UEBA UserPeerAnalytics table
-
-As of **September 30, 2022**, the UEBA engine will no longer perform automatic lookups of user IDs and resolve them into names. This change will result in the removal of four name fields from the *UserPeerAnalytics* table: 
+As of **September 30, 2022**, the UEBA engine no longer performs automatic lookups of user IDs and resolves them into names. This change resulted in the removal of four name fields from the *UserPeerAnalytics* table: 
 
 - UserName
 - UserPrincipalName
 - PeerUserName
 - PeerUserPrincipalName 
 
-The corresponding ID fields remain part of the table, and any built-in queries and other operations will execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
+The corresponding ID fields remain part of the table, and any built-in queries and other operations execute the appropriate name lookups in other ways (using the IdentityInfo table), so you shouldn’t be affected by this change in nearly all circumstances. 
 
 The only exception to this is if you’ve built custom queries or rules directly referencing any of these name fields. In this scenario, you can incorporate the following lookup queries into your own, so you can access the values that would have been in these name fields. 
 
@@ -226,32 +321,7 @@ UserPeerAnalytics
     | project AccountTenantId, AccountObjectId, PeerUserPrincipalNameIdentityInfo, PeerUserNameIdentityInfo 
 ) on $left.AADTenantId == $right.AccountTenantId, $left.PeerUserId == $right.AccountObjectId 
 ```
-If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query. 
-
-### Windows DNS Events via AMA connector (Preview)
-
-You can now use the new [Windows DNS Events via AMA connector](connect-dns-ama.md) to stream and filter events from your Windows Domain Name System (DNS) server logs to the `ASimDnsActivityLog` normalized schema table. You can then dive into your data to protect your DNS servers from threats and attacks.
-
-### Create and delete incidents manually (Preview)
-
-Microsoft Sentinel **incidents** have two main sources: 
-
-- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
-
-- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
-
-There can, however, be data from sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify launching an investigation. For this reason, Microsoft Sentinel now allows security analysts to manually create incidents from scratch for any type of event, regardless of its source or associated data, in order to manage and document the investigation.
-
-Since this capability raises the possibility that you'll create an incident in error, Microsoft Sentinel also allows you to delete incidents right from the portal as well.
-
-- [Learn more about creating incidents manually](create-incident-manually.md).
-- [Learn more about deleting incidents](delete-incident.md).
-
-### Add entities to threat intelligence (Preview)
-
-Microsoft Sentinel now allows you to flag entities as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
-
-Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
+If your original query referenced the user or peer names (not just their IDs), substitute this query in its entirety for the table name (“UserPeerAnalytics”) in your original query.
 
 ## Next steps
 

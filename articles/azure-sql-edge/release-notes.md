@@ -14,6 +14,14 @@ services: sql-edge
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 
+## Azure SQL Edge 1.0.7
+
+SQL engine build 15.0.2000.1574
+
+### What's new?
+
+- Security bug fixes
+
 ## Azure SQL Edge 1.0.6
 
 SQL engine build 15.0.2000.1565

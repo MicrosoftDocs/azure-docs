@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-
+ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/30/2022
@@ -27,7 +27,7 @@ This is a guide for a basic "lift and shift" migration. If you want to optimize 
 
 Please work with your Cloud Solution Architect on the migration. 
 
-![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
+![Azure Machine Learning adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
 ## Recommended approach
 
@@ -75,7 +75,7 @@ After you've defined a strategy, migrate your first model.
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Above guidance are built on top of AzureML v1 concepts and features. AzureML has CLI v2 and Python SDK v2. We suggest to rebuild your ML Studio(classic) models using v2 instead of v1. Start with AzureML v2 [here](./concept-v2.md)  
+    > Above guidance are built on top of Azure Machine Learning v1 concepts and features. Azure Machine Learning has CLI v2 and Python SDK v2. We suggest to rebuild your ML Studio(classic) models using v2 instead of v1. Start with Azure Machine Learning v2 [here](./concept-v2.md)  
 
 ## Step 4: Integrate client apps
 

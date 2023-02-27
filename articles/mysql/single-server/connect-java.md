@@ -99,7 +99,7 @@ The first thing you'll create is a managed MySQL server.
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
@@ -213,7 +213,7 @@ Next, create a non-admin user and grant all permissions to the database.
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -278,7 +278,7 @@ rm create_user.sql
 
 Using your favorite IDE, create a new Java project using Java 8 or above. Create a *pom.xml* file in its root directory and add the following contents:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -304,8 +304,8 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
-            <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-            <version>1.0.0-beta.1</version>
+            <artifactId>azure-identity-extensions</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
@@ -347,26 +347,26 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```bash
 mkdir -p src/main/resources && touch src/main/resources/database.properties
 
 cat << EOF > src/main/resources/database.properties
-url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
 
 
 > [!NOTE]
-> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin" in the url.
+> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
 
 ```bash
 mkdir -p src/main/resources && touch src/main/resources/database.properties
 
 cat << EOF > src/main/resources/database.properties
-url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```

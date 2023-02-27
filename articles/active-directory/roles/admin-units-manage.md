@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 01/25/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -64,6 +64,20 @@ Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azuread
 
 ```powershell
 New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+```
+
+### Microsoft Graph PowerShell
+
+Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit) command to create a new administrative unit.
+
+```powershell
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+$params = @{
+	DisplayName = "Seattle District Technical Schools"
+	Description = "Seattle district technical schools administration"
+	Visibility = "HiddenMembership"
+}
+New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
 ### Microsoft Graph API

@@ -17,7 +17,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Status** | Supported |
 
 > [!IMPORTANT]
-> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using version 22.1.7.
+> Versions 22.2.x of the sensor are incompatible with Hyper-V. Until the issue has been resolved, we recommend using either version 22.3.x or 22.1.7.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter a name for the virtual machine.
 
-1. Select **Specify Generation** > **Generation 1**.
+1. Select **Specify Generation** > **Generation 1** or **Generation 2**.
 
 1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dynamic Memory**.
 

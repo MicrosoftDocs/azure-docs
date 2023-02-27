@@ -2,7 +2,7 @@
 title: Stream Microsoft Defender for IoT cloud alerts to a partner SIEM - Microsoft Defender for IoT
 description: Learn how to send Microsoft Defender for IoT data on the cloud to a partner SIEM via Microsoft Sentinel and Azure Event Hubs, using Splunk as an example.
 ms.date: 12/26/2022
-ms.topic: how-to
+ms.topic: integration
 ---
 
 # Stream Defender for IoT cloud alerts to a partner SIEM
@@ -11,7 +11,7 @@ As more businesses convert OT systems to digital IT infrastructures, security op
 
 We recommend using Microsoft Defender for IoT's out-of-the-box [data connector](../iot-solution.md) and [solution](../iot-advanced-threat-monitoring.md) to integrate with Microsoft Sentinel and bridge the gap between the IT and OT security challenge.
 
-However, if you have other security information and event management (SIEM) systems, you can also use Microsoft Sentinel to forward Defender for IoT cloud alerts on to that partner SIEM, via [Microsoft Sentinel](/azure/sentinel/) and [Azure Event Hubs](/azure/event-hubs/).
+However, if you have other security information and event management (SIEM) systems, you can also use Microsoft Sentinel to forward Defender for IoT cloud alerts on to that partner SIEM, via [Microsoft Sentinel](../../../sentinel/index.yml) and [Azure Event Hubs](../../../event-hubs/index.yml).
 
 While this article uses Splunk as an example, you can use the process described below with any SIEM that supports Event Hub ingestion, such as IBM QRadar.
 
@@ -30,9 +30,9 @@ You'll need Azure Active Directory (Azure AD) defined as a service principal for
 
 **To register an Azure AD application and define permissions**:
 
-1. In [Azure AD](/azure/active-directory/), register a new application. On the **Certificates & secrets** page, add a new client secret for the service principal.
+1. In [Azure AD](../../../active-directory/index.yml), register a new application. On the **Certificates & secrets** page, add a new client secret for the service principal.
 
-    For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app)
+    For more information, see [Register an application with the Microsoft identity platform](../../../active-directory/develop/quickstart-register-app.md)
 
 1. In your app's **API permissions** page, grant API permissions to read data from your app.
 
@@ -40,7 +40,7 @@ You'll need Azure Active Directory (Azure AD) defined as a service principal for
 
     1. Make sure that admin consent is required for your permission.
 
-    For more information, see [Configure a client application to access a web API](/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-your-web-api)
+    For more information, see [Configure a client application to access a web API](../../../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 
 1. From your app's **Overview** page, note the following values for your app:
 
@@ -61,13 +61,13 @@ Create an Azure event hub to use as a bridge between Microsoft Sentinel and your
 
     In your event hub, make sure to define the **Partition Count** and **Message Retention** settings.
 
-    For more information, see [Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
+    For more information, see [Create an event hub using the Azure portal](../../../event-hubs/event-hubs-create.md).
 
 1. In your event hub namespace, select the **Access control (IAM)** page and add a new role assignment.
 
     Select to use the **Azure Event Hubs Data Receiver** role, and add the Azure AD service principle app that you'd created [earlier](#register-an-application-in-azure-active-directory) as a member.
 
-    For more information, see: [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+    For more information, see: [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
 
 1. In your event hub namespace's **Overview** page, make a note of the namespace's **Host name** value.
 
@@ -82,7 +82,7 @@ In your rule, make sure to define the following settings:
 - Configure the **Source** as **SecurityIncident**
 - Configure the **Destination** as **Event Type**, using the event hub namespace and event hub name you'd recorded earlier.
 
-For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal#create-or-update-a-data-export-rule).
+For more information, see [Log Analytics workspace data export in Azure Monitor](../../../azure-monitor/logs/logs-data-export.md?tabs=portal#create-or-update-a-data-export-rule).
 
 ## Configure Splunk to consume Microsoft Sentinel incidents
 

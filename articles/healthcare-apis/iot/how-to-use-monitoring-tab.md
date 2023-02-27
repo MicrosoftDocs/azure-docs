@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 02/09/2023
 ms.author: jasteppe
 ---
 
@@ -42,7 +42,7 @@ In this article, you'll learn how to use the MedTech service monitoring tab in t
    :::image type="content" source="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png":::
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)
 
 ## Available metrics for the MedTech service
 
@@ -52,17 +52,17 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|**Total Error Count**|The total number of errors.|
-|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](data-flow.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](data-flow.md#persist) by the MedTech service.|
-|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
-|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](data-flow.md#transform) of the MedTech service.|
+|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](understand-service.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](understand-service.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](understand-service.md#persist) by the MedTech service.|
+|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](understand-service.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](understand-service.md#transform) of the MedTech service.|
 |Traffic|**Number of Message Groups**|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|**Number of Normalized Messages**|The number of normalized messages.|
 
 ## Next steps
 
-In this article, you learned about how to use the MedTech service monitoring tab.
+In this article, you learned how to use the MedTech service monitoring tab.
 
 To learn how to configure the MedTech service metrics, see
 

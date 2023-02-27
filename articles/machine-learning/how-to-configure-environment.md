@@ -54,11 +54,14 @@ To use this file from your code, use the [`MLClient.from_config`](/python/api/az
 
 Create a workspace configuration file in one of the following methods:
 
-* Azure portal
+* Azure Machine Learning studio
 
-    **Download the file**: In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: 
+    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
+    1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
+    1. Select the **Download config file** link.
 
-    ![Azure portal](./media/how-to-configure-environment/configure.png)
+    :::image type="content" source="media/how-to-configure-environment/configure.png" alt-text="Screenshot shows how to download your config file." lightbox="media/how-to-configure-environment/configure.png":::
 
 * Azure Machine Learning Python SDK
 
@@ -71,7 +74,7 @@ Create a workspace configuration file in one of the following methods:
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
-        #Enter details of your AzureML workspace
+        #Enter details of your Azure Machine Learning workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
         workspace = '<AZUREML_WORKSPACE_NAME>'

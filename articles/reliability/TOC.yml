@@ -32,6 +32,8 @@
         href: migrate-search-service.md
       - name: Azure Container instances
         href: migrate-container-instances.md
+      - name: Azure Database for MySQL - Flexible Server
+        href: migrate-database-mysql-flex.md
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
@@ -137,12 +139,14 @@
     href: ../backup/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Reliability Guidance
   items:
+    - name: Overview
+      href: reliability-guidance-overview.md
     - name: Reliability in Microsoft Azure Well-Architected Framework
       href: /azure/architecture/framework/resiliency?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Reliability by service
       items:
       - name: Azure API Management
-        href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure App Configuration
         href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
       - name: Azure App Service
@@ -156,7 +160,7 @@
       - name: Azure Cache for Redis
         href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Cognitive Search
-        href: ../search/search-performance-optimization.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Container Instances
         href: reliability-containers.md
       - name: Azure Container Registry
@@ -195,6 +199,8 @@
         href: ../hdinsight/hdinsight-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Image Builder
+        href: ../virtual-machines/image-builder-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Key Vault
         href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Kubernetes Service (AKS)
@@ -232,7 +238,7 @@
       - name: Azure Virtual Machine Scale Sets
         href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual Machines
-        href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../virtual-machines/virtual-machines-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
@@ -253,5 +259,8 @@
   items:
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
+  - name: Reliability in Microsoft Azure Well-Architected Framework
+    href: /azure/architecture/framework/resiliency/
   - name: Reliability terminology
     href: glossary.md
+  

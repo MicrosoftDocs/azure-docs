@@ -8,6 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
+ms.reviewer: lagayhar
 ms.date: 05/10/2022
 ms.custom: devx-track-python, event-tier1-build-2022
 ---
@@ -46,7 +47,7 @@ Once the teams get familiar with pipelines and want to do more machine learning 
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team’s overall productivity will be improved significantly.  
 
-Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure ML SDK v1](v1/how-to-create-machine-learning-pipelines.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v1](v1/how-to-create-machine-learning-pipelines.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
 
 <a name="compare"></a>
 ## Which Azure pipeline technology should I use?
@@ -63,8 +64,8 @@ The Azure cloud provides several types of pipeline, each with a different purpos
 
 Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages.
 
-+ [Define pipelines with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md)
-+ [Define pipelines with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md)
++ [Define pipelines with the Azure Machine Learning CLI v2](./how-to-create-component-pipelines-cli.md)
++ [Define pipelines with the Azure Machine Learning SDK v2](./how-to-create-component-pipeline-python.md)
 + [Define pipelines with Designer](./how-to-create-component-pipelines-ui.md)
 + Try out [CLI v2 pipeline example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
 + Try out [Python SDK v2 pipeline example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines)

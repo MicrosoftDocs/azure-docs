@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux and review
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 01/10/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -29,7 +29,7 @@ uname -r
 ```
 
 > [!Note]  
-> SMB 2.1 support was added to Linux kernel version 3.7. If you are using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+> SMB 2.1 support was added to Linux kernel version 3.7. If you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -184,7 +184,7 @@ mntRoot="/mount"
 sudo mkdir -p $mntRoot
 ```
 
-To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
+To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
@@ -233,7 +233,7 @@ sudo mkdir -p $mntPath
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
 > [!Tip]
-> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the CIFS mount options to avoid sending byte range lock requests to the server.
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -302,9 +302,33 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
+## Mount a file share snapshot
+
+If you want to mount a specific snapshot of an SMB Azure file share, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
+
+After you've created the file share snapshot, following these instructions to mount it.
+
+1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
+2. Select **Data storage > File shares** and select the file share.
+3. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name will be a GMT timestamp, such as in the screenshot below.
+   
+   :::image type="content" source="media/storage-how-to-use-files-linux/mount-snapshot.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
+   
+4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
+5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
+   
+   ```bash
+   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
+   ```
+   
+6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
+
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md).
+
 ## Next steps
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
-- [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Troubleshoot general NFS issues on Linux](files-troubleshoot-linux-nfs.md)

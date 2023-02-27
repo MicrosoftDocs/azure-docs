@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 09/04/2019
+ms.date: 01/04/2023
 ms.author: mbaldwin
 ---
 
@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 Azure Key Vault certificate support provides for management of your X.509 certificates and the following behaviors:  
 
-- Allows a certificate owner to create a certificate through a key vault creation process or through the import of an existing certificate. This includes both self-signed certificates and certificates that are generated from a certificate authority (CA).
+- Allows a certificate owner to create a certificate through a key vault creation process or through the import of an existing certificate. Imported certificates include both self-signed certificates and certificates that are generated from a certificate authority (CA).
 - Allows a Key Vault certificate owner to implement secure storage and management of X.509 certificates without interacting with private key material.  
 - Allows a certificate owner to create a policy that directs Key Vault to manage the lifecycle of a certificate.  
 - Allows a certificate owner to provide contact information for notifications about the lifecycle events of expiration and renewal.  
@@ -66,7 +66,7 @@ A Key Vault certificate has the following attribute:
 
 - `enabled`: This Boolean attribute is optional. Default is `true`. It can be specified to indicate if the certificate data can be retrieved as a secret or operable as a key. 
 
-  This attribute is also used in conjunction with `nbf` and `exp` when an operation occurs between `nbf` and `exp`, but only if `enabled` is set to `true`. Operations outside the `nbf` and `exp` window are automatically disallowed.  
+  This attribute is also used with `nbf` and `exp` when an operation occurs between `nbf` and `exp`, but only if `enabled` is set to `true`. Operations outside the `nbf` and `exp` window are automatically disallowed.  
 
 A response includes these additional read-only attributes:
 
@@ -96,13 +96,13 @@ At a high level, a certificate policy contains the following information:
 - X.509 certificate properties, which include subject name, subject alternate names, and other properties that are used to create an X.509 certificate request.  
 - Key properties, which include key type, key length, exportable, and `ReuseKeyOnRenewal` fields. These fields instruct Key Vault on how to generate a key. 
     
-  [Supported key types](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype) are RSA, RSA-HSM, EC, EC-HSM, and oct. 
+  [Supported key types](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype) are RSA, RSA-HSM, EC, EC-HSM, and oct.
 - Secret properties, such as the content type of an addressable secret to generate the secret value, for retrieving a certificate as a secret.  
 - Lifetime actions for the Key Vault certificate. Each lifetime action contains:  
 
   - Trigger: Specified as days before expiration or lifetime span percentage.  
   - Action: `emailContacts` or `autoRenew`.  
-
+- Certificates validation type: organization validated (OV-SSL) and extended validation (EV-SSL) for DigiCert and GlobalSign issuers.
 - Parameters about the certificate issuer to use for issuing X.509 certificates.  
 - Attributes associated with the policy. 
 

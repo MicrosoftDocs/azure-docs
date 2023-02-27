@@ -2,7 +2,7 @@
 title: What is Microsoft Defender for IoT for device builders?
 description: Learn about how Microsoft Defender for IoT helps device builders to embed security into new IoT/OT devices.
 ms.topic: overview
-ms.date: 12/19/2021
+ms.date: 01/12/2023
 #Customer intent: As a device builder, I want to understand how Defender for IoT can help secure my new IoT/OT initiatives.
 ---
 

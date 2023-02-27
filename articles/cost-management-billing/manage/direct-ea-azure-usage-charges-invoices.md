@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2023
+ms.date: 02/10/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -93,7 +93,7 @@ You receive an Azure invoice when any of the following events occur during your 
   - Visual Studio Professional (Annual)
 - **Marketplace charges** - Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
-Your invoice displays Azure usage charges with costs associated to them first, followed by any Marketplace charges. If you have a credit balance, it's applied to Azure usage. Your invoice will display Azure usage and Marketplace usage without any cost last.
+Your invoice displays Azure usage charges with costs associated to them first, followed by any Marketplace charges. If you have a credit balance, it's applied to Azure usage. Your invoice shows Azure usage and Marketplace usage without any cost last.
 
 ### Download your Azure invoices (.pdf)
 
@@ -131,7 +131,7 @@ Azure is enhancing its invoicing experience. The enhanced experience includes an
 
 There are no changes to invoices generated before November 18, 2022.
 
-The invoice notification email address is changing from `msftinv@microsoft.com` to `no-reply@microsoft.com` for customers and partners under the enhanced invoicing experience.
+The invoice notification email address is changing from `msftinv@microsoft.com` to `microsoft-noreply@microsoft.com` for customers and partners under the enhanced invoicing experience.
 
 We recommend that you add the new email address to your address book or safe sender list to ensure that you receive the emails.
 
@@ -139,7 +139,7 @@ For more information about invoice documents, see [Direct EA billing invoice doc
 
 ## Update a PO number for an upcoming overage invoice
 
-In the Azure portal, an Enterprise Administrator for a direct EA enrollment can update the purchase order (PO) for the upcoming invoices. The PO number can get updated anytime before the invoice is created during the current billing period.
+In the Azure portal, an Enterprise Administrator for a direct EA enrollment can update the purchase order (PO) for the upcoming Azure Overage/Marketplace invoices. The PO number can get updated anytime before the invoice is created during the current billing period.
 
 For a new enrollment, the default PO number is the enrollment number.
 
@@ -148,6 +148,9 @@ If you don’t change the PO number, then the same PO number is used for all upc
 The EA admin receives an invoice notification email after the end of billing period to update PO number. You can update the PO number up to seven days after receiving email notification.
 
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
+
+> [!NOTE]
+>PO number update is only used for Overage/Marketplace invoices. To update a PO number for other invoices such as the invoice for a prepayment purchase, contact your Software Advisor (direct customer) or your partner (indirect customer). They in-turn, can contact the Regional Operation Center to update a PO number using the Call Logging tool at the Explore.ms site.
 
 Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
 >[!VIDEO https://www.youtube.com/embed/26aanfQfjaY]
@@ -190,7 +193,7 @@ The following table lists the terms and descriptions shown on the Credits tab.
 | Credit applied toward charges | Total amount of the invoice or credit generated |
 | Ending credit | Credit end balance |
 
-Below are the Accounting codes and description for the adjustments. 
+The following items are the Accounting codes and description for the adjustments. 
 
 | **Accounting Code** | **Description** |
 | --- | --- |
@@ -279,7 +282,7 @@ However, you *should* see:
 
 The formatting issue occurs because of default settings in Excel's import functionality. Excel imports all fields as *General* text and assumes that a number is separated in the mathematical standard. For example: *1,000.00*.
 
-If your currency uses a period (**.**) for the thousandth place separator and a comma (**,**) for the decimal place separator, it will display incorrectly. For example: *1.000,00*. The import results may vary depending on your regional language setting.
+If your currency uses a period (**.**) for the thousandth place separator and a comma (**,**) for the decimal place separator, it's displayed incorrectly. For example: *1.000,00*. The import results may vary depending on your regional language setting.
 
 To import the CSV file without formatting issues:
 
@@ -290,7 +293,7 @@ To import the CSV file without formatting issues:
 1. Select **Next**.
 1. Scroll over to the **ResourceRate** and **ExtendedCost** columns.
 1. Select the **ResourceRate** column. It appears highlighted in black.
-1. Under the **Column Data Format** section, select **Text** instead of **General**. The column header will change from **General** to **Text**.
+1. Under the **Column Data Format** section, select **Text** instead of **General**. The column header changes from **General** to **Text**.
 1. Repeat steps 8 and 9 for the **Extended Cost** column, and then select **Finish**.
 
 > [!TIP]
@@ -298,4 +301,4 @@ To import the CSV file without formatting issues:
 
 ## Next steps
 
-- To learn about common tasks that an enterprise administrator accomplishes in the Azure portal, see [EA Billing administration on the Azure Portal](direct-ea-administration.md).
+- To learn about common tasks that an enterprise administrator accomplishes in the Azure portal, see [EA Billing administration on the Azure portal](direct-ea-administration.md).

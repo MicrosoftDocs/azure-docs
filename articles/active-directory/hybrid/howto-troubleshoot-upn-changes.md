@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -49,9 +49,9 @@ In Active Directory, the default UPN suffix is the domain DNS name where you cre
 
 For example, if you add labs.contoso.com and change the user UPNs and email to reflect that, the result is: username@labs.contoso.com.
 
->[!IMPORTANT]
-> If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
-> [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md)
+   >[!IMPORTANT]
+   > If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
+   > [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -61,8 +61,8 @@ Users sign in to Azure AD with their userPrincipalName attribute value.
 
 When you use Azure AD with on-premises Active Directory, user accounts are synchronized by using the Azure AD Connect service. The Azure AD Connect wizard uses the userPrincipalName attribute from the on-premises Active Directory as the UPN in Azure AD. You can change it to a different attribute in a custom installation.
 
->[!NOTE]
-> Define a process for when you update a User Principal Name (UPN) of a user, or for your organization. 
+   >[!NOTE]
+   > Define a process for when you update a User Principal Name (UPN) of a user, or for your organization. 
 
 When you synchronize user accounts from Active Directory to Azure AD, ensure the UPNs in Active Directory map to verified domains in Azure AD.
 
@@ -82,7 +82,7 @@ Read the following sections for known issues and workarounds during UPN change.
 
 ## Apps known issues and workarounds
 
-Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UNP changes use just-in-time (JIT) provisioning to create a user profile when users initially sign in to the app.
+Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UPN changes use just-in-time (JIT) provisioning to create a user profile when users initially sign in to the app.
 
 Learn more:
 
@@ -195,7 +195,7 @@ Learn more: [How it works: Azure AD Multi-Factor Authentication](../authenticati
 
 When you change user UPN, the old UPN appears on the user account and notification might not be received. Use verification codes.
 
-Learn more: [Common questions about the Microsoft Authenticator app](/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd)
+Learn more: [Common questions about the Microsoft Authenticator app](https://prod.support.services.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd)
 
 **Workaround**
 
@@ -271,9 +271,7 @@ Learn more: [How UPN changes affect the OneDrive URL and OneDrive features](/sha
 
 ## Teams Meeting Notes known issues and workarounds 
 
-Use Teams Meeting Notes to take and share notes. 
-
-Learn more: [Take meeting notes in Teams](/office/take-meeting-notes-in-teams-3eadf032-0ef8-4d60-9e21-0691d317d103).  
+Use Teams Meeting Notes to take and share notes.  
 
 ### Known issues
 

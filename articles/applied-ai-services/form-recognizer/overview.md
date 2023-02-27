@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/28/2022
+ms.date: 01/30/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -31,6 +31,12 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 |**Document analysis models**| &#9679; [**Read OCR model**](concept-read.md)</br> &#9679; [**General document model**](concept-general-document.md)</br> &#9679; [**Layout analysis model**](concept-layout.md) </br>  |
 | **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) </br>&#9679; [**Invoice model**](concept-invoice.md)</br>&#9679; [**Receipt model**](concept-receipt.md) </br>&#9679; [**Identity (ID) document model**](concept-id-document.md) </br>&#9679; [**Business card model**](concept-business-card.md) </br>
 | **Custom models** | &#9679; [**Custom model**](concept-custom.md) </br>&#9679; [**Composed model**](concept-model-overview.md)|
+
+## Video: Form Recognizer models
+
+The following video introduces Form Recognizer models and their associated output to help you choose the best model to address your document scenario needs.</br></br>
+
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
 ## Which Form Recognizer model should I use?
 

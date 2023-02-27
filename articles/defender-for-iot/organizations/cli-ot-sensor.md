@@ -9,6 +9,8 @@ ms.topic: reference
 
 This article lists the CLI commands available from Defender for IoT OT network sensors.
 
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
 ## Prerequisites
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
@@ -111,7 +113,7 @@ Version: 22.2.5.9-r-2121448
 
 #### Update sensor software from CLI
 
-For more information, see [Update your sensors](update-ot-software.md#update-your-sensors).
+For more information, see [Update your sensors](update-ot-software.md#update-ot-sensors).
 
 ### Date, time, and NTP
 #### Show current system date/time

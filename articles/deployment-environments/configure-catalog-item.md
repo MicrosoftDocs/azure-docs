@@ -19,7 +19,7 @@ In Azure Deployment Environments Preview, you can use a [catalog](concept-enviro
 A catalog item is combined of least two files:
 
 - An [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) in JSON file format. For example, *azuredeploy.json*.
-- A manifest YAML file (*manifest.yml*).
+- A manifest YAML file (*manifest.yaml*).
 
 >[!NOTE]
 > Azure Deployment Environments Preview currently supports only ARM templates.

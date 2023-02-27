@@ -94,7 +94,7 @@ The following values are set in the previous example:
 
 - **token_lifetime_secs** -  Access token lifetimes (seconds). The default is 3,600 (1 hour). The minimum is 300 (5 minutes). The maximum is 86,400 (24 hours). 
 - **id_token_lifetime_secs** -  ID token lifetimes (seconds). The default is 3,600 (1 hour). The minimum  is 300 (5 minutes). The maximum is 86,400 (24 hours). 
-- **refresh_token_lifetime_secs** Refresh token lifetimes (seconds). The default is 120,9600 (14 days). The minimum is 86,400 (24 hours). The maximum  is 7,776,000 (90 days). 
+- **refresh_token_lifetime_secs** Refresh token lifetimes (seconds). The default is 1,209,600 (14 days). The minimum is 86,400 (24 hours). The maximum  is 7,776,000 (90 days). 
 - **rolling_refresh_token_lifetime_secs** - Refresh token sliding window lifetime (seconds). The default is 7,776,000 (90 days). The minimum is 86,400 (24 hours). The maximum  is 31,536,000  (365 days). If you don't want to enforce a sliding window lifetime, set the value of `allow_infinite_rolling_refresh_token` to `true`. 
 - **allow_infinite_rolling_refresh_token** - Refresh token sliding window lifetime never expires. 
 

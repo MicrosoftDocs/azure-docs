@@ -75,7 +75,7 @@ $VnetName = 'my-custom-vnet'
 Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container app instance.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/21` or larger is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -119,7 +119,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 ---
 
 > [!NOTE]
-> Network subnet address prefix requires a CIDR range of `/21`.
+> Network subnet address prefix requires a minimum CIDR range of `/23`.
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 

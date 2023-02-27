@@ -6,9 +6,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 08/30/2022
-ms.author: mimart
-author: msmimart
+ms.date: 02/14/2023
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -43,7 +43,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
-- Use [Microsoft cloud settings (preview)](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure China 21Vianet](/azure/china).
+- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure China 21Vianet](/azure/china).
 
 ## Easily invite guest users from the Azure AD portal
 

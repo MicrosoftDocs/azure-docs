@@ -88,7 +88,9 @@ You can access publicly available files placed on Azure storage accounts that [a
 ---
 
 #### Cross-tenant scenarios
-In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported. 
+In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported.
+> [!NOTE]
+> In case when Azure Storage is protected with a firewall **Service Principal** will not be supported.
 
 ### Supported authorization types for databases users
 

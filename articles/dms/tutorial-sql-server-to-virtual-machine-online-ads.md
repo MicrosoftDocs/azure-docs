@@ -1,20 +1,20 @@
 ---
 title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Complete an online migration from SQL Server to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service.
+description: Learn how to migrate on-premises SQL Server to SQL Server on Azure Virtual Machines online by using Azure Data Studio and Azure Database Migration Service.
 services: dms
-author: kbarlett001
-ms.author: kebarlet
+author: croblesm
+ms.author: roblescarlos
 manager: 
 ms.reviewer: cawrites
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 01/26/2023
 ---
 
-# Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS
+# Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machines online in Azure Data Studio
 
 Use the Azure SQL migration extension in Azure Data Studio to migrate the databases from a SQL Server instance to a [SQL Server on Azure Virtual Machine (SQL Server 2016 and above)](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to SQL Server on Azure Virtual Machine](/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview).
 
@@ -189,8 +189,16 @@ To complete the cutover:
 
 During the cutover process, the migration status changes from *in progress* to *completing*. The migration status changes to *succeeded* when the cutover process is completed. The database migration is successful and that the migrated database is ready for use.
 
+## Limitations
+
+Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+
 ## Next steps
 
 * How to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
 * For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview).
 * For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql).
+* To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

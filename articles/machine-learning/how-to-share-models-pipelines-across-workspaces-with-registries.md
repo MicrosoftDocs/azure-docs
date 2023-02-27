@@ -39,7 +39,7 @@ Before following the steps in this article, make sure you have the following pre
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
+    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure Machine Learning registry
 
 - The Azure CLI and the `ml` extension __or__ the Azure Machine Learning Python SDK v2:
 
@@ -102,7 +102,7 @@ For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [
 > [!TIP]
 > This step is only needed when using the Python SDK.
 
-Create a client connection to both the AzureML workspace and registry:
+Create a client connection to both the Azure Machine Learning workspace and registry:
 
 ```python
 ml_client_workspace = MLClient( credential=credential,
@@ -193,14 +193,14 @@ You can also use `ml_client_registry.environments.list()` to list all environmen
 
 ---
 
-You can browse all environments in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all environments in the Azure Machine Learning studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" alt-text="Screenshot of environments in the registry.":::
 
  
 ## Create a component in registry
 
-Components are reusable building blocks of Machine Learning pipelines in AzureML. You can package the code, command, environment, input interface and output interface of an individual pipeline step into a component. Then you can reuse the component across multiple pipelines without having to worry about porting dependencies and code each time you write a different pipeline.
+Components are reusable building blocks of Machine Learning pipelines in Azure Machine Learning. You can package the code, command, environment, input interface and output interface of an individual pipeline step into a component. Then you can reuse the component across multiple pipelines without having to worry about porting dependencies and code each time you write a different pipeline.
 
 Creating a component in a workspace allows you to use the component in any pipeline job within that workspace. Creating a component in a registry allows you to use the component in any pipeline in any workspace within your organization. Creating components in a registry is a great way to build modular reusable utilities or shared training tasks that can be used for experimentation by different teams within your organization.
 
@@ -293,11 +293,11 @@ ml_client_registry.components.create_or_update(train_model)
 
 Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
-You can browse all components in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all components in the Azure Machine Learning studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" alt-text="Screenshot of components in the registry.":::
 
@@ -408,13 +408,13 @@ Since the component used in the training job is shared through a registry, you c
 
 ---
 
-In AzureML studio, select the endpoint link in the job output to view the job. Here you can analyze training metrics, verify that the job is using the component and environment from registry, and review the trained model. Note down the `name` of the job from the output or find the same information from the job overview in AzureML studio. You'll need this information to download the trained model in the next section on creating models in registry.
+In Azure Machine Learning studio, select the endpoint link in the job output to view the job. Here you can analyze training metrics, verify that the job is using the component and environment from registry, and review the trained model. Note down the `name` of the job from the output or find the same information from the job overview in Azure Machine Learning studio. You'll need this information to download the trained model in the next section on creating models in registry.
 
-:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in AzureML studio.":::
+:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in Azure Machine Learning studio.":::
 
 ## Create a model in registry
 
-You'll learn how to create models in a registry in this section. Review [manage models](./how-to-manage-models.md) to learn more about model management in AzureML. We'll look at two different ways to create a model in a registry. First is from local files. Second, is to copy a model registered in the workspace to a registry. 
+You'll learn how to create models in a registry in this section. Review [manage models](./how-to-manage-models.md) to learn more about model management in Azure Machine Learning. We'll look at two different ways to create a model in a registry. First is from local files. Second, is to copy a model registered in the workspace to a registry. 
 
 In both the options, you'll create model with the [MLflow format](./how-to-manage-models-mlflow.md), which will help you to [deploy this model for inference without writing any inference code](./how-to-deploy-mlflow-models-online-endpoints.md). 
 
@@ -518,7 +518,7 @@ Note down the `name` and `version` of the model from the output of the `az ml mo
 az ml model show --name <model_name> --version <model_version> --registry-name <registry-name>
 ```
 
-You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 # [Python SDK](#tab/python)
 
@@ -575,11 +575,11 @@ Note down the `name` and `version` of the model from the output and use them wit
 mlflow_model_from_registry = ml_client_registry.models.get(name="nyc-taxi-model", version=str(1))
 print(mlflow_model_from_registry)
 ```
-You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
-The following screenshot shows a model in a registry in AzureML studio. If you created a model from the job output and then copied the model from the workspace to registry, you'll see that the model has a link to the job that trained the model. You can use that link to navigate to the training job to review the code, environment and data used to train the model.
+The following screenshot shows a model in a registry in Azure Machine Learning studio. If you created a model from the job output and then copied the model from the workspace to registry, you'll see that the model has a link to the job that trained the model. You can use that link to navigate to the training job to review the code, environment and data used to train the model.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/model-in-registry.png" alt-text="Screenshot of the models in the registry.":::
 

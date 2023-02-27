@@ -35,7 +35,7 @@ To see all compute targets for your workspace, use the following steps:
 
 1. Select tabs at the top to show each type of compute target.
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
+    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
 
 ## Compute instance and clusters
 
@@ -46,9 +46,9 @@ You can create compute instances and compute clusters in your workspace, using t
 
 In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
 
-## Kubernetes cluster
+## Kubernetes clusters
 
-For information on configuring and attaching a Kubrnetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
+For information on configuring and attaching a Kubernetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
 
 ## Other compute targets
 
@@ -58,7 +58,8 @@ To use VMs created outside the Azure Machine Learning workspace, you must first 
  
 1. Under __Manage__, select __Compute__.
 
-1. In the tabs at the top, select **Attached compute** to attach a compute target for **training**.  Or select **Inference clusters** to attach an AKS cluster for **inferencing**.
+1. In the tabs at the top, select **Attached compute** to attach a compute target for **training**.  
+
 1. Select +New, then select the type of compute to attach. Not all compute types can be attached from Azure Machine Learning studio.
 
 1. Fill out the form and provide values for the required properties.
@@ -71,10 +72,6 @@ To use VMs created outside the Azure Machine Learning workspace, you must first 
 
 1. Select __Attach__.
 
-[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
-
-> [!IMPORTANT]
-> To attach an Azure Kubernetes Services (AKS) or Azure Arc-enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 

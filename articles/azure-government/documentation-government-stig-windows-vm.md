@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment
 recommendations: false
-ms.date: 08/25/2022
+ms.date: 01/20/2023
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -141,6 +141,14 @@ Contact Azure support to get assistance with issues related to STIG solution tem
 Azure -> Virtual Machine running Windows -> Cannot create a VM -> Troubleshoot my ARM template error
 
 :::image type="content" source="./media/stig-windows-support.png" alt-text="New support request for Windows STIG solution template":::
+
+## Frequently asked questions
+
+**When will STIG-compliant VMs reach general availability (GA)?** </br>
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+
+**Can Azure Update Management be used with STIG images?** </br>
+Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
 
 ## Next steps
 

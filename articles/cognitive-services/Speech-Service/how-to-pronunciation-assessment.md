@@ -32,7 +32,7 @@ You can get pronunciation assessment scores for:
 > [!NOTE]
 > The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
 > 
-> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> Usage of pronunciation assessment costs the same as standard Speech to Text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). Pronunciation assessment doesn't yet support commitment tier pricing.
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
@@ -44,8 +44,8 @@ This table lists some of the key configuration parameters for pronunciation asse
 | Parameter | Description | 
 |-----------|-------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
-| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
-| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text.| 
+| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
+| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. |
 | `ScenarioId` | A GUID indicating a customized point system. |
 
@@ -678,10 +678,53 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 }
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+## Pronunciation assessment in streaming mode
+
+Pronunciation assessment supports uninterrupted streaming mode. The recording time can be unlimited through the Speech SDK. As long as you don't stop recording, the evaluation process doesn't finish and you can pause and resume evaluation conveniently. In streaming mode, the `AccuracyScore`, `FluencyScore` , and `CompletenessScore`  will vary over time throughout the recording and evaluation process.
+
+::: zone pivot="programming-language-csharp"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#:~:text=PronunciationAssessmentWithStream).
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#:~:text=PronunciationAssessmentWithStream).
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For how to use Pronunciation Assessment in streaming mode in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
 
 ## Next steps
 
+- Learn our quality [benchmark](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/speech-service-update-hierarchical-transformer-for-pronunciation/ba-p/3740866)
 - Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)
-- Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
+- Check out easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.

@@ -2,7 +2,7 @@
 title: Preconfigured appliances for OT network monitoring
 description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
 ms.date: 07/11/2022
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ---
 
 # Pre-configured physical appliances for OT monitoring
@@ -51,7 +51,7 @@ You can purchase any of the following appliances for your OT on-premises managem
 |---------|---------|---------|---------|
 |**E1800**    | [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) (4SFF) <br><br> [Dell PowerEdge R350](appliance-catalog/dell-poweredge-r350-e1800.md)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 
-For information about previously supported legacy appliances, see the [appliance catalog](/azure/defender-for-iot/organizations/appliance-catalog/).
+For information about previously supported legacy appliances, see the [appliance catalog](./appliance-catalog/index.yml).
 
 ## Next steps
 
