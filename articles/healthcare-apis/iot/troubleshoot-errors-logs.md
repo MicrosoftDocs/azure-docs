@@ -215,7 +215,7 @@ The template’s type and line with the error are specified in the error message
 
 ### ManagedIdentityCredentialNotFound
 
-**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist. **Note**: The system-assigned managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
+**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or a user-assigned managed identity is not configured. **Note**: The system-assigned managed identity may be disabled or doesn't exist if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
 
 **Severity**: Blocking
 
