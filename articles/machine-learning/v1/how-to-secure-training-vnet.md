@@ -72,7 +72,7 @@ In this article you learn how to secure the following training compute resources
     - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This permission isn't needed for Azure Resource Manager (ARM) template deployments.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles.md#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
 
 ## Limitations
 
@@ -80,7 +80,7 @@ In this article you learn how to secure the following training compute resources
 
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
-    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
+    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
     * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
     Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
@@ -107,7 +107,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
 > If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
 > * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
@@ -145,7 +145,7 @@ The following configurations are in addition to those listed in the [Prerequisit
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).
-    - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
+    - [Azure's outbound connectivity methods](../../load-balancer/load-balancer-outbound-connections.md#scenarios).
 
 Use the following information to create a compute instance or cluster with no public IP address:
 
@@ -176,7 +176,7 @@ The following configurations are in addition to those listed in the [Prerequisit
         > 
         > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
         >
-        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](../../virtual-network/network-security-group-how-it-works.md).
 
     * One load balancer
 
@@ -185,7 +185,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     For a compute instance, these resources are kept until the instance is deleted. Stopping the instance doesn't remove the resources. 
 
     > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
+    > These resources are limited by the subscription's [resource quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
 + In your VNet, allow **inbound** TCP traffic on port **44224** from the `AzureMachineLearning` service tag.
     > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Percept documentation
-summary: Update November 9, 2022 A firmware update that enables the Vision SoM and Audio SOM to retain their functionality with the DK beyond the retirement date, will be made available before the retirement date. The Azure Percept public preview will be evolving to support new edge device platforms and developer experiences. As part of this evolution the Azure Percept DK and Audio Accessory and associated supporting Azure services for the Percept DK will be retired March 30, 2023. Please see the Retirement of Azure Percept DK article for information about how these changes will affect you.  # < 600 chars
+summary: Update 22 February 2023 - A firmware update for the Percept DK Vision and Audio accessory components (also known as Vision and Audio SOM) is now available [here](https://aka.ms/audio_vision_som_update), and will enable the accessory components to continue functioning beyond the retirement date.  # < 300 chars
 
 
 metadata:
@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page 
   author: yvonne-deq
   ms.author: v-mdequadros
-  ms.date: 10/07/2022 
+  ms.date: 02/22/2023
+  ROBOTS: NOINDEX 
 
 landingContent:
 

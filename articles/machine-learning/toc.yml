@@ -64,6 +64,8 @@
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: "Quickstart: Interactive Data Wrangling with Apache Spark (preview)"
+      href: quickstart-spark-data-wrangling.md
     - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
       href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
@@ -73,10 +75,10 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Azure ML in a day
+    - name: Azure Machine Learning in a day
       href: tutorial-azure-ml-in-a-day.md
     - name: Build models
-      items: 
+      items:
         - name: Create production ML pipelines
           href: tutorial-pipeline-python-sdk.md
         - name: Automated ML
@@ -99,7 +101,7 @@
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
     - name: Visual Studio Code
-      items: 
+      items:
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Samples
@@ -121,15 +123,15 @@
       href: concept-v2.md
     - name: Work with Data
       items:
-        - name: Data concepts in Azure ML
+        - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
         - name: Compliance
           items:
-          - name: Export and delete data
-            displayName: GDPR
-            href: how-to-export-delete-data.md
+            - name: Export and delete data
+              displayName: GDPR
+              href: how-to-export-delete-data.md
     - name: Train models
       items:
         - name: Model training
@@ -151,18 +153,21 @@
               href: concept-automated-ml.md
             - name: Time series forecasting
               items:
-              - name: Forecasting methods
-                displayName: auto ML, time series, forecasting, methods
-                href: concept-automl-forecasting-methods.md
-              - name: Model sweeping and selection
-                displayName: auto ML, time series, forecasting, model selection, sweeping
-                href: concept-automl-forecasting-sweeping.md
-              - name: Calendar features
-                displayName: auto ML, time series, calendar features, holiday features
-                href: concept-automl-forecasting-calendar-features.md
-              - name: Lag features
-                displayName: auto ML, time series, lags
-                href: concept-automl-forecasting-lags.md
+                - name: Forecasting methods
+                  displayName: auto ML, time series, forecasting, methods
+                  href: concept-automl-forecasting-methods.md
+                - name: Deep learning models
+                  displayName: auto ML, time series, forecasting, deep learning, TCN
+                  href: concept-automl-forecasting-deep-learning.md
+                - name: Model sweeping and selection
+                  displayName: auto ML, time series, forecasting, model selection, sweeping
+                  href: concept-automl-forecasting-sweeping.md
+                - name: Calendar features
+                  displayName: auto ML, time series, calendar features, holiday features
+                  href: concept-automl-forecasting-calendar-features.md
+                - name: Lag features
+                  displayName: auto ML, time series, lags
+                  href: concept-automl-forecasting-lags.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
@@ -282,6 +287,8 @@
           href: how-to-assign-roles.md
     - name: Network security
       items:
+        - name: Plan for network isolation
+          href: how-to-network-isolation-planning.md
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
@@ -359,7 +366,7 @@
         - name: What is Kubernetes compute target
           displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
           href: how-to-attach-kubernetes-anywhere.md
-        - name: Step 1 - Deploy AzureML extension
+        - name: Step 1 - Deploy Azure Machine Learning extension
           displayName: AKS, Arc Kubernetes, inference router
           href: how-to-deploy-kubernetes-extension.md
         - name: Step 2 - Attach cluster to workspace
@@ -368,7 +375,7 @@
         - name: Create and manage instance types
           displayName: compute target, instance types, AKS, Arc Kubernetes
           href: how-to-manage-kubernetes-instance-types.md
-        - name: Manage AzureML inference router
+        - name: Manage Azure Machine Learning inference router
           displayName: AKS, Arc Kubernetes, inference, compute target
           href: how-to-kubernetes-inference-routing-azureml-fe.md
         - name: Secure inferencing environment
@@ -377,8 +384,8 @@
         - name: Secure Kubernetes online endpoint
           displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
-        - name: Troubleshoot AzureML extension
-          displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
+        - name: Troubleshoot Azure Machine Learning extension
+          displayName: AKS, Arc Kubernetes, Azure Machine Learning extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
         - name: Troubleshoot Kubernetes compute
           displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
@@ -397,7 +404,7 @@
       displayName: policy
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
-  items: 
+  items:
     - name: Share components, environments, and models
       displayName: collaborate share
       href: how-to-share-models-pipelines-across-workspaces-with-registries.md
@@ -511,7 +518,7 @@
             - name: Keras
               href: how-to-train-keras.md
             - name: PyTorch
-              href: how-to-train-pytorch.md   
+              href: how-to-train-pytorch.md
             - name: Use Key Vault when training
               displayName: secrets keyvault job
               href: how-to-use-secrets-in-runs.md
@@ -554,12 +561,12 @@
               href: how-to-auto-train-nlp-models.md
             - name: Time series forecasting
               items:
-              - name: Auto-train a forecasting model (Python)
-                displayName: forecasting, time series, auto ML, automl, SDK 
-                href: how-to-auto-train-forecast.md
-              - name: Frequently asked questions
-                displayName: auto ML, time series, forecasting, FAQ
-                href: how-to-automl-forecasting-faq.md
+                - name: Auto-train a forecasting model (Python)
+                  displayName: forecasting, time series, auto ML, automl, SDK
+                  href: how-to-auto-train-forecast.md
+                - name: Frequently asked questions
+                  displayName: auto ML, time series, forecasting, FAQ
+                  href: how-to-automl-forecasting-faq.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
             - name: Use ONNX model in .NET application
@@ -580,7 +587,7 @@
                 - name: Deploy a MLflow model with an online endpoint
                   displayName: ncd, no code deploy, no-code deployment
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Deploy a custom container with an online endpoint
+                - name: Use a custom container to deploy a model to an online endpoint
                   href: how-to-deploy-custom-container.md
                 - name: Use online endpoints in studio
                   href: how-to-use-managed-online-endpoint-studio.md
@@ -609,6 +616,8 @@
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+            - name: Debug scoring script with inference HTTP server
+              href: how-to-inference-server-http.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
@@ -649,9 +658,6 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: Inference HTTP server
-          displayName: local debug
-          href: how-to-inference-server-http.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -695,7 +701,7 @@
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
                 - name: Progressive rollout of MLflow models to Online Endpoints
-                  href: how-to-deploy-mlflow-models-online-progressive.md 
+                  href: how-to-deploy-mlflow-models-online-progressive.md
             - name: Batch inference
               items:
                 - name: Deploy MLflow models to Batch Endpoints
@@ -762,6 +768,7 @@
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
+
       items:
         - name: Generate Responsible AI insights
           items:
@@ -777,6 +784,18 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Use R with Azure Machine Learning
+      items:
+        - name: Bring R workloads
+          href: how-to-r-overview-r-capabilities.md
+        - name: Interactive R development
+          href: how-to-r-interactive-development.md
+        - name: Adapt R scripts for production
+          href: how-to-r-modify-script-for-production.md
+        - name: Train R model
+          href: how-to-r-train-model.md
+        - name: Deploy R model
+          href: how-to-r-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
@@ -850,11 +869,11 @@
             - name: AutoML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
             - name: AutoML NLP Text Classification
-              href: reference-automl-nlp-cli-text-classification.md  
+              href: reference-automl-nlp-cli-text-classification.md
             - name: AutoML NLP Multilabel Classification
               href: reference-automl-nlp-cli-multilabel-classification.md
             - name: AutoML NLP NER
-              href: reference-automl-nlp-cli-ner.md              
+              href: reference-automl-nlp-cli-ner.md
         - name: Datastore
           items:
             - name: Azure Blob

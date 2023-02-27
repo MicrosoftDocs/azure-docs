@@ -66,6 +66,10 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
+    - name: Multi-region app
+      href: tutorial-multi-region-app.md
+    - name: N-tier app
+      href: tutorial-secure-ntier-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
     - name: Connect to Azure resource as app
@@ -470,6 +474,8 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Routine maintenance
+      href: routine-maintenance.md
     - name: Language support policy
       href: language-support-policy.md
     - name: Kudu service

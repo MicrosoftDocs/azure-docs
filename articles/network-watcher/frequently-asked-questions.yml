@@ -1,15 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Frequently asked questions (FAQ) about Azure Network Watcher | Microsoft Docs"
+  title: "Frequently asked questions (FAQ) about Azure Network Watcher"
   description: "This article answers frequently asked questions about the Azure Network Watcher service."
   services: network-watcher
-  documentationcenter: na
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.tgt_pltfrm: na
   ms.custom: ignite-2022
-  ms.workload:  infrastructure-services
+  ms.workload: infrastructure-services
   ms.date: 10/13/2022
   ms.author: halkazwini
 title: "Frequently asked questions (FAQ) about Azure Network Watcher"
