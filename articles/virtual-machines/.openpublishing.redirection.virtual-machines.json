@@ -4856,7 +4856,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-disaster-recovery-guidance.md",
-            "redirect_url": "/azure/virtual-machines/overview.md#service-distruptions",
+            "redirect_url": "/azure/virtual-machines/overview.md#service-disruptions",
             "redirect_document_id": false
         },
         {
