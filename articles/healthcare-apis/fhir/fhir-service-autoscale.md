@@ -36,7 +36,8 @@ Auto scaling policies defined for FHIR service consists of two parts:
 
   * Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
   * Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
-  * Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
+  
+* Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
 
 ## FAQ
 
