@@ -217,6 +217,16 @@ The following operating systems support using Windows Defender Application Contr
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
 
+## Windows Update
+
+Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
+
+### Updates for clients
+
+Each client is updated 
+
+how the software update supply chain is secured for RD Client and is delivered securely to clients in various OS platforms” and “all follow the security provided by respective app stores and are delivered directly by them
+
 ## Next steps
 
 To learn how to enable multi-factor authentication, see [Set up multi-factor authentication](set-up-mfa.md).
