@@ -175,13 +175,13 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-   ![Recent alerts.](./media/adaptive-application/recent-alerts.png)
+    :::image type="content" source="media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing recent alerts.":::
 
 1. For further details, and the list of affected machines, select an alert.
 
     The security alerts page shows more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
 
-    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the time that adaptive application controls created the alert.":::
+    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="Screenshot of the start time of adaptive application controls alerts showing that the time is when adaptive application controls created the alert.":::
 
     > [!NOTE]
     > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the security alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.

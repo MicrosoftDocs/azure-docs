@@ -102,8 +102,8 @@ sections:
         answer: |
           Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
 
-          :::image type="content" source="media/faq-general/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event.":::
+          :::image type="content" source="media/faq-general/logged-change-to-pricing.png" alt-text="Screenshot of Azure Activity log showing a pricing change event.":::
 
           If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
-          :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer.":::
+          :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::

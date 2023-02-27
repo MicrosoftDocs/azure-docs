@@ -61,7 +61,7 @@ When you enable [Microsoft Defender for Servers](defender-for-servers-introducti
 | Deallocating | This state is transitional. When completed, the VM will show as Deallocated.                                                                             | Not billed            |
 | Deallocated  | The VM has been stopped successfully and removed from the host.                                                                                  | Not billed            |
 
-:::image type="content" source="media/plan-defender-for-servers/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
+:::image type="content" source="media/plan-defender-for-servers/deallocated-virtual-machines.png" alt-text="Screenshot of Azure Virtual Machines showing a deallocated machine.":::
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Defender for Servers?
 
