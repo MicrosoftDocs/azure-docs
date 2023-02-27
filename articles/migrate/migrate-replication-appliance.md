@@ -1,9 +1,9 @@
 ---
 title: Azure Migrate replication appliance 
 description: Learn about the Azure Migrate replication appliance for agent-based VMware migration.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft 
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
 ms.date: 10/28/2022
 ms.custom: engagement-fy23
