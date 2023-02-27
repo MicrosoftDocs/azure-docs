@@ -15,7 +15,8 @@ This article provides a reference of Defender for IoT actions available for each
 
 ## Roles and permissions reference
 
-Roles for management actions are applied to user roles across an entire Azure subscription.
+Permissions are applied to user roles across an entire Azure subscription, or in some cases, across individual Defender for IoT sites. For more information, see [Zero Trust and your OT networks](concept-zero-trust.md) and [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview).
+
 
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|

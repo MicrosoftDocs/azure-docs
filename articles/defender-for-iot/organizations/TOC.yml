@@ -36,6 +36,8 @@
       href: iot-advanced-threat-monitoring.md
   - name: Investigate an OT network alert
     href: respond-ot-alert.md
+  - name: Monitor with Zero Trust
+    href: monitor-zero-trust.md
 - name: Concepts
   items:
     - name: Subscription billing
@@ -64,6 +66,8 @@
         href: best-practices/plan-network-monitoring.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
+      - name: Zero Trust and your OT/IoT networks
+        href: concept-zero-trust.md
     - name: OT monitoring appliance catalog
       items:
       - name: Which appliances do I need?
@@ -222,6 +226,8 @@
     - name: Activate and set up your on-premises management console
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
       displayName: sites, zones
+    - name: Configure on-premises sites and zones
+      href: ot-deploy/sites-and-zones-on-premises.md
     - name: Add support for proprietary protocols
       href: resources-manage-proprietary-protocols.md
   - name: Set up Enterprise IoT network monitoring
