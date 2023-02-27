@@ -18,7 +18,7 @@ ms.author: kpunjabi
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
+- Create a [custom subdomain](../../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Technical specifications
 
@@ -28,9 +28,9 @@ The following parameters are available to customize the Recognize function:
 | ------- |--| ------------------------ | --------- | ------------------ |
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
-| InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
+| InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
 | RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf and choices. | Required |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |

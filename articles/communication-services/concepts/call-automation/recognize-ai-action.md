@@ -1,16 +1,16 @@
 ---
 title: Recognize Action
 titleSuffix: An Azure Communication Services concept document
-description: Conceptual information about playing audio in a call using Call Automation and Azure Cognitive Services
+description: Conceptual information gathering user voice input using Call Automation and Azure Cognitive Services
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 02/15/23
+ms.date: 02/15/2023
 ms.author: kpunjabi
 ms.custom: private_preview
 ---
 
-# Gathering user input
+# Gathering user input with Recognize action
 
 
 

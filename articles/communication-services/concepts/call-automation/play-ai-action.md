@@ -4,13 +4,14 @@ titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about playing audio in a call using Call Automation and Azure Cognitive Services
 author: Kunaal
 ms.service: azure-communication-services
+ms.subservice: call-automation
 ms.topic: include
-ms.date: 02/15/23
+ms.date: 02/15/2023
 ms.author: kpunjabi
 ms.custom: private_preview
 ---
 
-# Playing audio in call 
+# Playing audio in calls
 
 The play action provided through the call automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
 - Providing ACS access to pre-recorded audio files of WAV format, that ACS can access with support for authentication
