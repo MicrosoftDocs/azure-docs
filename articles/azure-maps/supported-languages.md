@@ -1,8 +1,8 @@
 ---
 title: Localization support with Microsoft Azure Maps
 description: See which regions Azure Maps supports with services such as maps, search, routing, weather, and traffic incidents. Learn how to set up the View parameter.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: azure-maps
