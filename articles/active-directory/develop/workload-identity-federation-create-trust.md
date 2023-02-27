@@ -431,7 +431,7 @@ The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs t
 Run the following method to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials) on your app (specified by the object ID of the app).  The *issuer* identifies GitHub as the external token issuer.  *subject* identifies the GitHub organization, repo, and environment for your GitHub Actions workflow.  When the GitHub Actions workflow requests Microsoft identity platform to exchange a GitHub token for an access token, the values in the federated identity credential are checked against the provided GitHub token.
 
 ```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Testing","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+az rest --method POST --uri 'https://graph.microsoft.com/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Testing","issuer":"https://token.actions.githubusercontent.com","subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
 And you get the response:
@@ -443,7 +443,7 @@ And you get the response:
   ],
   "description": "Testing",
   "id": "1aa3e6a7-464c-4cd2-88d3-90db98132755",
-  "issuer": "https://token.actions.githubusercontent.com/",
+  "issuer": "https://token.actions.githubusercontent.com",
   "name": "Testing",
   "subject": "repo:octo-org/octo-repo:environment:Production"
 }
@@ -451,7 +451,7 @@ And you get the response:
 
 *name*: The name of your Azure application.
 
-*issuer*: The path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com/`. This issuer will become trusted by your Azure application.
+*issuer*: The path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com`. This issuer will become trusted by your Azure application.
 
 *subject*: Before Azure will grant an access token, the request must match the conditions defined here.
 - For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`

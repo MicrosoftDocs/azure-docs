@@ -45,7 +45,7 @@ The following settings allow you to configure your automated ML experiment.
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
 |**Supports computer vision tasks: image classification, object detection & instance segmentation**| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
-|**Supports Azure ML compute as compute target** | ✓|✓
+|**Supports Azure Machine Learning compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
 |**Set exit criteria** |✓|✓ 
 |**Set concurrent iterations**| ✓|✓
@@ -136,7 +136,7 @@ With this capability you can:
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 
 * Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines (v1)](../concept-ml-pipelines.md) capabilities. 
 
-Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
+Authoring AutoML models for vision tasks is supported via the Azure Machine Learning Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
 Learn how to [set up AutoML training for computer vision models](../how-to-auto-train-image-models.md).
 
@@ -239,8 +239,8 @@ More features are available when you use the remote compute, as shown in the tab
 | Multiple jobs/iterations in parallel                       | ✓      |       |
 | Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
 | Feature engineering customization in studio web experience UI| ✓      |       |
-| Azure ML hyperparameter tuning                             | ✓      |       |
-| Azure ML Pipeline workflow support                         | ✓      |       |
+| Azure Machine Learning hyperparameter tuning                             | ✓      |       |
+| Azure Machine Learning Pipeline workflow support                         | ✓      |       |
 | Continue a job                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
 | Create and run experiments in notebooks                    | ✓      | ✓     |
