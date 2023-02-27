@@ -135,7 +135,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 ### FhirResourceNotFoundException
 
-**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error occurs when the MedTech service’s resolution type is set to **Lookup**.
+**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Lookup**.
 
 **Severity**: Non-blocking
 
