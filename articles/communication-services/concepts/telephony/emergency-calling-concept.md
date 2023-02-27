@@ -18,11 +18,11 @@ ms.subservice: pstn
 
 You can use the Azure Communication Services Calling SDK to add Enhanced Emergency dialing and Public Safety Answering Point (PSAP) callback support to your applications in the United States (US), Puerto Rico (PR), the United Kingdom (GB), and Canada (CA). The capability to dial 911 (in US, PR, and CA) and 999 or 112 (in GB) and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
 
-Azure Communication Services routes calls to an emergency number over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when a user places an emergency call from US, PR, GB, or CA. Microsoft temporarily maintains a mapping of the phone number to the caller's identity.
+Calls to an emergency number are routed over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when a user places an emergency call from US, PR, GB, or CA. Microsoft temporarily maintains a mapping of the phone number to the caller's identity.
 
-If there's a callback from the PSAP, Azure Communication Services routes the call directly to the originating caller. The caller can accept the incoming PSAP call even if inbound calling is disabled.
+If there's a callback from the PSAP, Microsoft routes the call directly to the originating caller. The caller can accept the incoming PSAP call even if inbound calling is disabled.
 
-The service is available for Microsoft phone numbers. It requires the Azure resource that the emergency call originates from to have a Microsoft-issued phone number enabled with outbound dialing (also known as *make calls*).  
+The service is available for Microsoft phone numbers. It requires the Azure resource that the emergency call originates from to have a Microsoft-issued phone number enabled with outbound dialing (also known as *make calls*).
 
 Azure Communication Services direct routing is currently in public preview and not intended for production workloads. Emergency calling is out of scope for Azure Communication Services direct routing.
 
@@ -31,7 +31,7 @@ Azure Communication Services direct routing is currently in public preview and n
 1. An Azure Communication Services user identity dials an emergency number by using the Calling SDK from US or PR.
 1. Microsoft validates that the Azure resource has a Microsoft phone number enabled for outbound dialing.
 1. The Microsoft Azure Communication Services emergency service replaces the user's phone number (the `alternateCallerId` value) with a temporary unique phone number. This number allocation remains in place for at least 60 minutes from the time that the emergency number is dialed.
-1. Microsoft maintains a temporary record (for about 60 minutes) of the user's identity to the unique phone number.
+1. Microsoft maintains a temporary record (for about 60 minutes) that maps the unique phone number to the user identity.
 1. In US, PR, and CA, the emergency call is first routed to a call center where an agent requests the caller's address. The call center then routes the call to the appropriate PSAP in the correct country or region.
 1. If the emergency call is unexpectedly dropped, the PSAP makes a callback to the user.
 1. On receiving the callback within 60 minutes, Microsoft routes the inbound call directly to the user identity that initiated the emergency call.
@@ -48,17 +48,17 @@ Emergency calling is automatically enabled for all users of the Azure Communicat
 
     - Microsoft supports US, PR, GB, and CA country/region codes for emergency number dialing.
 
-    - If you don't provide the country/region code to the SDK, Azure Communication Services uses the IP address to determine the country or region of the caller.
+    - If you don't provide the country/region code to the SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
-      If the IP address can't provide reliable geo-location (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](emergency-calling.md).
+      If the IP address can't provide reliable geo-location (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](/azure/communication-services/quickstarts/telephony/emergency-calling).
 
     - If the caller is dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
 
     1. If the caller is outside the supported countries or regions, the call to 911 won't be permitted.
 
-1. When you test your application in US, dial 933 instead of 911.
+1. When you test your application in the United States, dial 933 instead of 911. The 933 number is enabled for testing purposes. 
 
-   The 933 number is enabled for testing purposes. The recorded message confirms the phone number that the emergency call originates from. You should hear a temporary number assigned by Microsoft, which isn't the `alternateCallerId` value that the application provides.
+   The recorded message confirms the phone number that the emergency call originates from. You should hear a temporary number that Microsoft has assigned. This number isn't the `alternateCallerId` value that the application provides.
 
 1. Ensure that your application supports [receiving an incoming call](../../how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call) so that callbacks from the PSAP are appropriately routed to the originator of the emergency call. To test that inbound calling is working correctly, place inbound Voice over IP (VoIP) calls to the user of the Calling SDK.
 
@@ -68,7 +68,7 @@ For information about billing for the emergency service in Azure Communication S
 
 From the perspective of direct routing, an emergency call is a regular call. If you want to implement emergency calling with Azure Communication Services direct routing, make sure that there's a routing rule for your emergency number (for example, 911 or 112). Also make sure that your carrier processes emergency calls properly.
 
-There's also an option to use purchased number as a caller ID for direct routing calls. In such a case, if there's no voice routing rule for an emergency number, the call falls back to the Microsoft network, and Microsoft treats it as a regular emergency call. [Learn more about voice routing fallback](./direct-routing-provisioning.md#outbound-voice-routing-considerations).
+There's also an option to use a purchased number as a caller ID for direct routing calls. In such a case, if there's no voice routing rule for an emergency number, the call falls back to the Microsoft network, and Microsoft treats it as a regular emergency call. [Learn more about voice routing fallback](./direct-routing-provisioning.md#outbound-voice-routing-considerations).
 
 ## Next steps
 
