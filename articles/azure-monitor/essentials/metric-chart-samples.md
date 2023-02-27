@@ -49,7 +49,7 @@ In the metric picker, select your storage account and the **Transactions** metri
 
 You want to identify which collection in which database of your CosmosDB instance is having maximum requests to adjust your costs for CosmosDB.
 
-![Bar graph of API transactions](./media/metrics-charts/multiple-split-example.png)
+![Segmented line chart of Total Requests](./media/metrics-charts/multiple-split-example.png)
 
 ### How to configure this chart?
 
