@@ -1,7 +1,7 @@
 ---
 title: Integrate ArcSight with Microsoft Defender for IoT
 description: Learn how to send Microsoft Defender for IoT alerts to ArcSight.
-ms.topic: how-to
+ms.topic: integration
 ms.date: 08/02/2022
 ---
 
