@@ -30,6 +30,9 @@ Microsoft Energy Data Services will begin billing February 15, 2023. Prices will
 - No upfront costs or termination fees—pay only for what you use.
 - No charges for storage, data transfers or compute overage during preview.
 
+### OSDU™ Milestone Upgrade
+
+Azure Data Manager for Energy Preview is now compliant with the M14 OSDU™ milestone release. This means that our product is fully aligned with the M14 industry standards and requirements, ensuring that users can take advantage of some of the latest features and capabilities in OSDU. Learn more about what is included in the community [M14 Release Notes](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M14-Release-Notes).
 
 ## January 2023
 
