@@ -22,7 +22,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 
 |Monitoring scenario|AIOps capability|Description| 
 |-|-|-|
-|Log data | [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) | KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. This lets you process and analyze your log data directly inside Azure Monitor Logs. 
+|Log data | [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) | Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. 
 |Application monitoring|[Application Map Intelligent view](../app/app-map.md) and [Smart detection](../alerts/proactive-diagnostics.md)| Automatically maps dependencies between services and identifies potential root causes of application performance issues.|
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.|
 | Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
@@ -37,7 +37,7 @@ Using the native machine learning capabilities of KQL to process and analyze log
 - Multiple configurable parameters for flexibility and tweaking. 
 - Savings on the costs and overhead of using tools and services outside of Azure Monitor. In other words, you don't need to copy data into memory objects or export data outside of Azure Monitor.
 
-### Limitations
+### Limitations of KQL machine learning capabilities
 
 - Limited set of algorithms, function customization, and tweak settings. 
 - Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
