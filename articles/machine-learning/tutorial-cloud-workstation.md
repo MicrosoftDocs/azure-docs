@@ -27,7 +27,7 @@ Learn how prototype in a notebook to develop a training script on an Azure Machi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
-- Download this conda environment file, [*workstation_env.yml*](), which you'll use to create a new environment for running a notebook.
+- Download this conda environment file, [*workstation_env.yml*](https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/workstation_env.yml), which you'll use to create a new environment for running a notebook.
 
 ## Start with notebooks
 
