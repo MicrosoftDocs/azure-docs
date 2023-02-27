@@ -18,7 +18,7 @@ The cluster manager is deployed in the operator's Azure subscription to manage t
 You'll need:
 
 - **Azure Subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network Fabric Controller).
-- **Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network fFbric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in the same resource group.
+- **Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in the same resource group.
 - **Log Analytics Workspace ID** - The resource ID of the Log Analytics workspace used for the logs collection.
 - **Azure Region** - The Cluster Manager should be created in the same region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
