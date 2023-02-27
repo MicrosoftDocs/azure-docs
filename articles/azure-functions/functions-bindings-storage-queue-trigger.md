@@ -2,7 +2,7 @@
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 02/27/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -12,12 +12,21 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The queue storage trigger runs a function as messages are added to Azure Queue storage.
 
-::: zone pivot="programming-language-python"  
-> [!IMPORTANT]  
-> Azure Functions now lets you define your functions directly in Python code. This new v2 Python programming model allows you to define triggers and bindings using decorators instead of using a separate configuration file. This article supports both programming models. 
->  
-> The new Python v2 programming model is currently in preview.  
-   
+::: zone pivot="programming-language-python" 
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview. 
+
+# [v2](#tab/python-v2)
+The v2 Python programming model allows you to define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The v1 Python programming model requires you to define bindings in a separate function.json file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models. 
 ::: zone-end  
 
 ## Example
@@ -364,6 +373,8 @@ public class QueueTriggerDemo {
 ::: zone pivot="programming-language-python"  
 ## Decorators
 
+_Applies only to the Python v2 programming model_
+
 For Python v2 functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
 
 | Property    | Description |
@@ -376,6 +387,10 @@ For Python functions defined by using function.json, see the Configuration secti
 ::: zone-end                   
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model_
+::: zone-end
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
