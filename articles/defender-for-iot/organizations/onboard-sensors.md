@@ -1,8 +1,8 @@
 ---
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
-ms.date: 02/15/2023
-ms.topic: how-to
+ms.date: 06/02/2022
+ms.topic: install-set-up-deploy
 ---
 
 # Onboard OT sensors to Defender for IoT
