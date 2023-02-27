@@ -15,7 +15,7 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access authentication strength (preview)
+# Conditional Access authentication strength 
 
 Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. 
 
@@ -135,7 +135,12 @@ There are two policies that determine which authentication methods can be used t
 
 Users may register for authentications for which they are enabled, and in other cases, an administrator can configure a user's device with a method, such as certificate-based authentication.
 
+### How an authentication strength policy is evaluated during sign-in 
+
 The authentication strength Conditional Access policy defines which methods can be used. Azure AD checks the policy during sign-in to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy. To be used, a method must be allowed, registered by the user (either before or as part of the access request), and satisfy the authentication strength. 
+
+### How mult
+
 
 ## User experience
 
@@ -196,14 +201,6 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **If MFA trust is enabled**, Azure AD checks the user's authentication session for a claim indicating that MFA has been fulfilled in the user's home tenant. See the preceding table for authentication methods that are acceptable for MFA when completed in an external user's home tenant. If the session contains a claim indicating that MFA policies have already been met in the user's home tenant, and the methods satisfy the authentication strength requirements, the user is allowed access. Otherwise, Azure AD presents the user with a challenge to complete MFA in the home tenant using an acceptable authentication method.
 - **If MFA trust is disabled**, Azure AD presents the user with a challenge to complete MFA in the resource tenant using an acceptable authentication method. (See the table above for authentication methods that are acceptable for MFA by an external user.)
-
-## Known issues
-
-- **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
-
-- **Using 'Require one of the selected controls' with 'require authentication strength' control** - After you select authentication strengths grant control and additional controls, all the selected controls must be satisfied in order to gain access to the resource. Using **Require one of the selected controls** isn't applicable, and will default to requiring all the controls in the policy.
-
-- **Authentication loop** -  When the user is required to use Microsoft Authenticator (Phone Sign-in) but the user is not registered for this method, they will be given instructions on how to set up the Microsoft Authenticator, that does not include how to enable Passwordless sign-in. As a result, the user can get into an authentication loop. To avoid this issue, make sure the user is registered for the method before the Conditional Access policy is enforced. Phone Sign-in can be registered using the steps outlined here: [Add your work or school account to the Microsoft Authenticator app ("Sign in with your credentials")](https://support.microsoft.com/en-us/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)
 
 
 ## Limitations
