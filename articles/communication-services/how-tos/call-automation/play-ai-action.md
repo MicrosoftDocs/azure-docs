@@ -1,9 +1,10 @@
 ---
-title: Customize voice prompts to users with Play action
+title: Customize voice prompts to users with Play action using Text-to-Speech
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a quick start for playing audio to participants as part of a call.
+description: Provides a how-to guide for playing audio to participants as part of a call.
 author: kunaal
 ms.service: azure-communication-services
+ms.subservice: call-automation
 ms.topic: include
 ms.date: 02/15/2023
 ms.author: kpunjabi
@@ -12,7 +13,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Customize voice prompts to users with Play action
+# Customize voice prompts to users with Play action using Text-to-Speech
 
 >[!IMPORTANT]
 >Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
