@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 01/27/2020
+ms.date: 02/27/2023
 
 #Customer intent: As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs.
 ---
@@ -36,9 +36,15 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 
 ![Diagram showing relationships among the Azure services](./media/stream-analytics-with-azure-functions/image1.png)
 
-## Create a Stream Analytics job with Event Hubs as input
 
-Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create a Stream Analytics job. Skip the steps to create the query and the output. Instead, see the following sections to set up an Azure Functions output.
+## Prerequisites
+
+Before you start, make sure you've completed the following steps:
+
+* If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/).
+* Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
+
+[!INCLUDE [event-generator-app](./includes/event-generator-app.md)]
 
 ## Create an Azure Cache for Redis instance
 
