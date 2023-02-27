@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 # Deploy a Service Fabric managed cluster across availability zones
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
 
-Service Fabric managed cluster supports deployments that span across multiple Availability Zones to provide zone resiliency. This configuration will ensure high-availability of the critical system services and your applications to protect from single-points-of-failure. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](../availability-zones/az-overview.md).
+Service Fabric managed cluster supports deployments that span across multiple Availability Zones to provide zone resiliency. This configuration ensures high-availability of the critical system services and your applications to protect from single-points-of-failure. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](../availability-zones/az-overview.md).
 
 >[!NOTE]
 >Availability Zone spanning is only available on Standard SKU clusters.
@@ -46,13 +46,13 @@ Sample node list depicting FD/UD formats in a virtual machine scale set spanning
  ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sfmc-multi-az-nodes]
 
 **Distribution of Service replicas across zones**:
-When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
+When a service is deployed on the node types that are spanning zones, the replicas are placed to ensure they land up in separate zones. This separation is ensured as the fault domain’s on the nodes present in each of these node types are configured with the zone information (i.e FD = fd:/zone1/1 etc.). For example: for five replicas or instances of a service, the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
 
 **User Service Replica Configuration**:
-Stateful user services deployed on the cross-availability zone node types should be configured with this configuration: replica count with target = 9, min = 5. This configuration will help the service to be working even when one zone goes down since 6 replicas will be still up in the other two zones. An application upgrade in such a scenario will also go through.
+Stateful user services deployed on the cross-availability zone node types should be configured with this configuration: replica count with target = 9, min = 5. This configuration helps the service to be working even when one zone goes down since 6 replicas will be still up in the other two zones. An application upgrade in such a scenario will also go through.
 
 **Zone down scenario**:
-When a zone goes down, all the nodes in that zone will appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not met and the VM count is still more than the defined min target replica size. As a result, Service Fabric load balancer will bring up replicas in the working zones to match the configured target replica count. At this point, the services will appear healthy. When the zone which was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
+When a zone goes down, all the nodes in that zone appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not met and the VM count is still more than the defined min target replica size. As a result, Service Fabric load balancer brings up replicas in the working zones to match the configured target replica count. At this point, the services should appear healthy. When the zone that was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
 
 ## Networking Configuration
 For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md)
