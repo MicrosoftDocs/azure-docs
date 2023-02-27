@@ -32,8 +32,8 @@ Make sure that the logs from your selected AWS service use the format accepted b
 
 - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
 - **Amazon GuardDuty**: json-line and GZIP formats.
-- **AWS CloudTrail**: .json file in GZIP format.
-- **CloudWatch**: gzipped file in CSV format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+- **AWS CloudTrail**: .json file in a GZIP format.
+- **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
 
 ## Connect the S3 connector
 
