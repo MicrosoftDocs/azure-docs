@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/27/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -66,7 +66,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Start another instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
-1. Sign in to the source tenant.
+1. Sign in to the target tenant.
 
 1. Consent to the following required permissions:
 
