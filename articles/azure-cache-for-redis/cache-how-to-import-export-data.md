@@ -113,7 +113,7 @@ This section contains frequently asked questions about the Import/Export feature
 
 ### What pricing tiers can use Import/Export?
 
-Import/Export is available only in the premium pricing tier.
+Import/Export is available in the premium and enterprise pricing tiers.
 
 ### Can I import data from any Redis server?
 
