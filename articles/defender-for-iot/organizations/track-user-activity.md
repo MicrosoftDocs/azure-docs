@@ -2,7 +2,7 @@
 title: Audit Microsoft Defender for IoT user activity
 description: Learn how to track and audit user activity across Microsoft Defender for IoT.
 ms.date: 01/26/2022
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Audit user activity
@@ -31,13 +31,15 @@ Audit and track user activity on a sensor's **Event timeline**. The **Event time
     - Any **Admin** user
     - The *cyberx*, *support*, or *cyberx_host* user
 
-1. On the sensor, **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
+1. On the sensor, select **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
 
     For example:
 
     :::image type="content" source="media/manage-users-sensor/track-user-activity.png" alt-text="Screenshot of the Event Timeline on the sensor showing user activity.":::
 
 1. Use additional filters or search using **CTRL+F** to find the information of interest to you.
+
+    For more information on the event timeline, see [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
 
 ## Audit user activity on an on-premises management console
 

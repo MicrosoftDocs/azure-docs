@@ -30,33 +30,21 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 *Webhook payload example of ChangePlan:*
 
-```json
-{
-  "id": "<guid>",
-  "activityId": "<guid>",
-  "operationRequestSource": "Azure",
-  "subscriptionId": "<guid>",
-  "timeStamp": "2021-06-23T05:05:29.9799053Z",
-  "action": "ChangePlan"
-}
-```
-
-*Webhook payload example of ChangeQuantity event:*
 
 ```json
 {
-  "id": "<guid>",
-  "activityId": "<guid>",
-  "publisherId": "XXX",
-  "offerId": "YYY",
-  "planId": "plan1",
-  "quantity": 100,
-  "subscriptionId": "<guid>",
-  "timeStamp": "2022-02-14T20:26:05.1419317Z",
-  "action": "ChangeQuantity",
-  "status": "InProgress",
-  "operationRequestSource": "Partner",
-  "subscription":
+    "id": "<guid>",
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan2",
+    "quantity": 10,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-10T18:48:58.4449937Z",
+    "action": "ChangePlan",
+    "status": "InProgress",
+    "operationRequestSource": "Azure",
+    "subscription":
     {
       "id": "<guid>",
       "name": "Test",
@@ -66,14 +54,197 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
       "quantity": 10,
       "beneficiary":
         {
-          "emailId": "XX@gmail.com",
+          "emailId": XX@outlook.com,
           "objectId": "<guid>",
           "tenantId": "<guid>",
           "puid": "1234567890",
         },
       "purchaser":
         {
-          "emailId": "XX@gmail.com",
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "allowedCustomerOperations": ["Delete", "Update", "Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Subscribed",
+      "term":
+        {
+          "startDate": "2022-02-10T00:00:00Z",
+          "endDate": "2022-03-12T00:00:00Z",
+          "termUnit": "P1M",
+          "chargeDuration": null,
+        },
+      "autoRenew": true,
+      "created": "2022-01-10T23:15:03.365988Z",
+      "lastModified": "2022-02-14T20:26:04.5632549Z",
+    },
+    "purchaseToken": null
+}
+```
+
+*Webhook payload example of ChangeQuantity event:*
+
+
+```json
+
+{
+    "id": "<guid>",
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan1",
+    "quantity": 20,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-10T18:54:00.6158973Z",
+    "action": "ChangeQuantity",
+    "status": "InProgress",
+    "operationRequestSource": "Azure",
+    "subscription": {
+        "id": "<guid>",
+        "name": "Test",
+        "publisherId": "XXX",
+        "offerId": "YYY",
+        "planId": "plan1",
+        "quantity": 10,
+        "beneficiary":
+            {
+            "emailId": XX@outlook.com,
+            "objectId": "<guid>",
+            "tenantId": "<guid>",
+            "puid": "1234567890",
+            },
+        "purchaser":
+            {
+            "emailId": XX@outlook.com,
+            "objectId": "<guid>",
+            "tenantId": "<guid>",
+            "puid": "1234567890",
+            },
+        "allowedCustomerOperations": ["Delete", "Update", "Read"],
+        "sessionMode": "None",
+        "isFreeTrial": false,
+        "isTest": false,
+        "sandboxType": "None",
+        "saasSubscriptionStatus": "Subscribed",
+        "term":
+            {
+            "startDate": "2022-02-10T00:00:00Z",
+            "endDate": "2022-03-12T00:00:00Z",
+            "termUnit": "P1M",
+            "chargeDuration": null,
+            },
+        "autoRenew": true,
+        "created": "2022-01-10T23:15:03.365988Z",
+        "lastModified": "2022-02-14T20:26:04.5632549Z",
+    },
+    "purchaseToken": null
+}
+```
+
+*Webhook payload example of a subscription reinstate event:*
+
+
+```json
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+
+
+{
+    "id": "<guid>",
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan1",
+    "quantity": 100,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-11T11:38:10.3508619Z",
+    "action": "Reinstate",
+    "status": "InProgress",
+    "operationRequestSource": "Azure",
+    "subscription":
+    {
+      "id": "<guid>",
+      "name": "Test",
+      "publisherId": "XXX",
+      "offerId": "YYY",
+      "planId": "plan1",
+      "quantity": 100,
+      "beneficiary":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "purchaser":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "allowedCustomerOperations": ["Delete", "Update", "Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Suspended",
+      "term":
+        {
+          "startDate": "2022-02-10T00:00:00Z",
+          "endDate": "2022-03-12T00:00:00Z",
+          "termUnit": "P1M",
+          "chargeDuration": null,
+        },
+      "autoRenew": true,
+      "created": "2022-01-10T23:15:03.365988Z",
+      "lastModified": "2022-02-14T20:26:04.5632549Z",
+    },
+    "purchaseToken": null
+}
+ 
+```
+
+*Webhook payload example of a Renew event:*
+
+
+```json
+// end user's subscription renewal
+ 
+{
+    "id": "<guid>",
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan1",
+    "quantity": 100,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-10T08:49:01.8613208Z",
+    "action": "Renew",
+    "status": "Succeeded",
+    "operationRequestSource": "Azure",
+    "subscription":
+    {
+      "id": "<guid>",
+      "name": "Test",
+      "publisherId": "XXX",
+      "offerId": "YYY",
+      "planId": "plan1",
+      "quantity": 100,
+      "beneficiary":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "purchaser":
+        {
+          "emailId": XX@outlook.com,
           "objectId": "<guid>",
           "tenantId": "<guid>",
           "puid": "1234567890",
@@ -99,134 +270,63 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 }
 ```
 
-*Webhook payload example of a subscription reinstatement event:*
-
-```json
-// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
-{
-  "id": "<guid>",
-  "activityId": "<guid>",
-  "subscriptionId": "<guid>",
-  "publisherId": "contoso",
-  "offerId": "offer2 ",
-  "planId": "gold",
-  "quantity": 20,
-  "timeStamp": "2019-04-15T20:17:31.7350641Z",
-  "action": "Reinstate",
-  "status": "InProgress"
-}
-```
-
-*Webhook payload example of a Renew event:*
-
-```json
-// end user's subscription renewal
- {
-    "id": "<guid>",
-    "activityId": "<guid>",
-    "publisherId": "contoso",
-    "offerId": "offer1",
-    "planId": "plan1",
-    "quantity": 1,
-    "subscriptionId": "<guid>",
-    "timeStamp": "2021-12-04T19:48:06.7054737Z",
-    "action": "Renew",
-    "status": "Succeeded",
-    "operationRequestSource": "Azure",
-    "subscription": {
-        "id": "<guid>",
-        "name": "name",
-        "publisherId": "contoso",
-        "offerId": "offerId",
-        "planId": "planId",
-        "quantity": null,
-        "beneficiary": {
-            "emailId": "XXX@gmail.com",
-            "objectId": "<guid>",
-            "tenantId": "<guid>",
-            "puid": null
-        },
-        "purchaser": {
-            "emailId": "XXX@gmail.com",
-            "objectId": "<guid>",
-            "tenantId": "<guid>",
-            "puid": null
-        },
-        "allowedCustomerOperations": [
-            "Delete",
-            "Update",
-            "Read"
-        ],
-        "sessionMode": "None",
-        "isFreeTrial": false,
-        "isTest": false,
-        "sandboxType": "None",
-        "saasSubscriptionStatus": "Subscribed",
-        "term": {
-            "startDate": "2021-12-04T00:00:00Z",
-            "endDate": "2022-01-03T00:00:00Z",
-            "termUnit": "P1M",
-            "chargeDuration": null
-        },
-        "autoRenew": true,
-        "created": "2021-09-10T07:03:17.5098444Z",
-        "lastModified": "2021-12-04T19:48:06.0754649Z"
-    },
-    "purchaseToken": null
-}
-```
-
 *Webhook payload example of a Suspend event:*
 
+
 ```json
+
 {
-  "id": "<guid>",
-  "activityId": "<guid>",
-  "publisherId": "testpublisher",
-  "offerId": "testoffer",
-  "planId": "starter",
-  "quantity": 1,
-  "subscriptionId": "<guid>",
-  "timeStamp": "2022-03-10T16:34:41.137017Z",
-  "action": "Suspend",
-  "status": "Succeeded",
-  "operationRequestSource": "Azure",
-  "subscription": {
     "id": "<guid>",
-    "name": "testcms",
-    "publisherId": "testpublisher",
-    "offerId": "cmstestoffer",
-    "planId": "starter",
-    "quantity": null,
-    "beneficiary": {
-      "emailId": "XXX",
-      "objectId": "<guid>",
-      "tenantId": "<guid>",
-      "puid": "XXX"
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan1",
+    "quantity": 100,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-10T08:49:01.8613208Z",
+    "action": "Suspend",
+    "status": "Succeeded",
+    "operationRequestSource": "Azure",
+    "subscription":
+    {
+      "id": "<guid>",
+      "name": "Test",
+      "publisherId": "XXX",
+      "offerId": "YYY",
+      "planId": "plan1",
+      "quantity": 100,
+      "beneficiary":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "purchaser":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "allowedCustomerOperations": ["Delete", "Update", "Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Suspended",
+      "term":
+        {
+          "startDate": "2022-02-10T00:00:00Z",
+          "endDate": "2022-03-12T00:00:00Z",
+          "termUnit": "P1M",
+          "chargeDuration": null,
+        },
+      "autoRenew": true,
+      "created": "2022-01-10T23:15:03.365988Z",
+      "lastModified": "2022-02-14T20:26:04.5632549Z",
     },
-    "purchaser": {
-      "emailId": "XXX",
-      "objectId": "<guid>",
-      "tenantId": "<guid>",
-      "puid": "XXX"
-    },
-    "allowedCustomerOperations": [ "Delete", "Update", "Read" ],
-    "sessionMode": "None",
-    "isFreeTrial": false,
-    "isTest": false,
-    "sandboxType": "None",
-    "saasSubscriptionStatus": "Subscribed",
-    "term": {
-      "startDate": "2022-03-09T00:00:00Z",
-      "endDate": "2022-04-08T00:00:00Z",
-      "termUnit": "P1M",
-      "chargeDuration": null
-    },
-    "autoRenew": true,
-    "created": "2022-03-09T18:45:49.0735944Z",
-    "lastModified": "2022-03-09T22:49:25.4181451Z"
-  },
-  "purchaseToken": null
+  "purchaseToken": null,
 }
 ```
 
@@ -234,55 +334,61 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 This is a notify only event. There is no send to ACK for this event.
 
+
 ```json
+
 {
-  "id": "<guid>",
-  "activityId": "<guid>",
-  "publisherId": "testpublisher",
-  "offerId": "saasteam4-preview",
-  "planId": "standard",
-  "quantity": 1,
-  "subscriptionId": "<guid>",
-  "timeStamp": "2022-03-12T01:53:14.5038009Z",
-  "action": "Unsubscribe",
-  "status": "Succeeded",
-  "operationRequestSource": "Azure",
-  "subscription": {
     "id": "<guid>",
-    "name": "Sub-test-ng",
-    "publisherId": "testpublisher",
-    "offerId": "saasteam4-preview",
-    "planId": "standard",
-    "quantity": null,
-    "beneficiary": {
-      "emailId": "*******************************",
-      "objectId": "<guid>",
-      "tenantId": "<guid>",
-      "puid": "****************"
+    "activityId": "<guid>",
+    "publisherId": "XXX",
+    "offerId": "YYY",
+    "planId": "plan1",
+    "quantity": 100,
+    "subscriptionId": "<guid>",
+    "timeStamp": "2023-02-10T08:49:01.8613208Z",
+    "action": "Unsubscribe",
+    "status": "Succeeded",
+    "operationRequestSource": "Azure",
+    "subscription":
+    {
+      "id": "<guid>",
+      "name": "Test",
+      "publisherId": "XXX",
+      "offerId": "YYY",
+      "planId": "plan1",
+      "quantity": 100,
+      "beneficiary":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "purchaser":
+        {
+          "emailId": XX@outlook.com,
+          "objectId": "<guid>",
+          "tenantId": "<guid>",
+          "puid": "1234567890",
+        },
+      "allowedCustomerOperations": ["Delete", "Update", "Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Unsubscribed",
+      "term":
+        {
+          "startDate": "2022-02-10T00:00:00Z",
+          "endDate": "2022-03-12T00:00:00Z",
+          "termUnit": "P1M",
+          "chargeDuration": null,
+        },
+      "autoRenew": true,
+      "created": "2022-01-10T23:15:03.365988Z",
+      "lastModified": "2022-02-14T20:26:04.5632549Z",
     },
-    "purchaser": {
-      "emailId": "*******************************",
-      "objectId": "<guid>",
-      "tenantId": "<guid>",
-      "puid": "****************"
-    },
-    "allowedCustomerOperations": [ "Delete", "Update", "Read" ],
-    "sessionMode": "None",
-    "isFreeTrial": false,
-    "isTest": false,
-    "sandboxType": "None",
-    "saasSubscriptionStatus": "Unsubscribed",
-    "term": {
-      "startDate": "2022-03-07T00:00:00Z",
-      "endDate": "2022-04-06T00:00:00Z",
-      "termUnit": "P1M",
-      "chargeDuration": null
-    },
-    "autoRenew": true,
-    "created": "2021-12-07T12:47:12.7474496Z",
-    "lastModified": "2022-03-11T22:32:06.720473Z"
-  },
-  "purchaseToken": null
+  "purchaseToken": null,
 }
 ```
 
@@ -316,3 +422,4 @@ Review and use the [clients for different programming languages and samples](htt
 - [SaaS Webhook Overview](https://go.microsoft.com/fwlink/?linkid=2196258)
 - [Implementing a Simple SaaS Webhook in .NET](https://go.microsoft.com/fwlink/?linkid=2196159)
 - [Azure AD Application Registrations](https://go.microsoft.com/fwlink/?linkid=2196262)
+
