@@ -73,10 +73,11 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```azurecli-interactive
     az account list --output table
     ```
-    Then choose one subscription and set it as default subscription. Replace `<SubscriptionId>` with your chosen subscription id before run this command:
+    In the listed subscriptions, choose one subscription. Replace `<SubscriptionId>` with the chosen subscription id in this command:
     ```azurecli-interactive
     az account set --subscription <SubscriptionId>
     ```
+    Then run the command to set default subscription.
 4. Create a resource group.
     ```azurecli-interactive
     az group create --resource-group ${RESOURCE_GROUP}
