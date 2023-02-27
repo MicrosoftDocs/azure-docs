@@ -71,6 +71,9 @@ The table below lists all the actions exposed by the permission model.
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Execute a [stored procedure](stored-procedures-triggers-udfs.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Manage [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, list and delete items from the conflict feed). |
 
+> [!NOTE]
+> When executing queries through the SDKs, both `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` and `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` permissions are required if there are no filters in the query.
+
 Wildcards are supported at both *containers* and *items* levels:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
