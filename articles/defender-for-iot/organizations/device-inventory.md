@@ -57,8 +57,7 @@ Defender for IoT's device inventory supports the following device classes:
 |**Network devices**     |  Switches, routers, controllers, or access points        |
 |**OT devices**     | Industrial and operational devices, such as PLCs, historian devices, HMIs, scales, pneumatic devices, or packaging systems        |
 
-<!--from excel sheet-->
-
+<!--from excel sheet
 |Name  |Examples  |
 |---------|---------|
 |**Network devices**     |        |
@@ -74,7 +73,7 @@ Defender for IoT's device inventory supports the following device classes:
 |Printing devices         |   Scanners, all-in-one printers, or printer servers       |
 |Smart appliance devices     |  Smart lights, smart switches, clocks, barcode scanners        |
 |Smart facility devices     |  Doors, fire alarms, elevators, turnstiles, HVAC systems       |
-
+-->
 *Unclassified* devices are devices that don't have an out-of-the-box category defined.
 
 ## Unauthorized devices
@@ -144,7 +143,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **VLAN** / **VLAN Ids** * | The device's VLAN.  |
 |**Zone** | The device's zone.  |
 
-<!-->
+<!--
 
 The following additional columns are available on OT sensors only:
 
