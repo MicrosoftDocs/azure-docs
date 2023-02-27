@@ -85,7 +85,7 @@ In this article, you learn how to:
     echo "$(terraform output lab_name)"
     ```
 
-1. Run [az lab vm list](https://learn.microsoft.com/cli/azure/lab/vm#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
+1. Run [az lab vm list](/cli/azure/lab/vm#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
 
     ```azurecli
     az lab vm list --resource-group <resource_group_name> --lab-name <lab_name>
