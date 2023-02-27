@@ -11,8 +11,6 @@ ms.date: 02/24/2023
 
 # Manage your environment
 
-Deployment environments allow developers to quickly and efficiently deploy applications. Deployment environments provide a platform to manage and deploy code, as well as to test applications in a safe, secure, and consistent manner. With a deployment environment, you can easily deploy applications to web, mobile, desktop, or other platforms. 
-
 In Azure Deployment Environments Preview, a dev infrastructure manager gives developers access to projects and the environment types associated with them. Once a developer has access, they can create deployments environments based on the pre-configured environment types. The dev infrastructure manager can also give management permissions to the creator of the environment, like Owner or Contributor.
 
 As a developer, you can create and manage your environments from the developer portal or from the Azure CLI.  
