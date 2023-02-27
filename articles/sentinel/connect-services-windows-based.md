@@ -20,7 +20,7 @@ The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also us
 ## Azure Monitor Agent
 
 Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
+
 The Azure Monitor Agent is currently supported only for Windows Security Events and Windows Forwarded Events.
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
