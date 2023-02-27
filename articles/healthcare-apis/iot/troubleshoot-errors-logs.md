@@ -245,7 +245,7 @@ The template’s type and line with the error are specified in the error message
 
 ### PatientDeviceMismatchException
 
-**Description**: A Device FHIR resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
+**Description**: A FHIR Device resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
 **Severity**: Non-blocking
 
