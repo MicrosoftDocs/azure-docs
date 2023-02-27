@@ -143,7 +143,7 @@ To verify the security posture of a specific device, run an **Attack vector** re
 
 1. Expand the new simulation and select any of the detected items to view more details on the right. For example:
 
-    :::image type="content" source="media/monitor-zero-trust/attack-vector.png" alt-text="Screenshot of a sample attack vector simulation.":::
+    :::image type="content" source="media/monitor-zero-trust/attack-vector.png" alt-text="Screenshot of a sample attack vector simulation." lightbox="media/monitor-zero-trust/attack-vector.png":::
 
 1. Look especially for any of the following vulnerabilities:
     

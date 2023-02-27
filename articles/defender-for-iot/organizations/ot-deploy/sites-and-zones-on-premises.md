@@ -48,7 +48,7 @@ Defender for IoT business units represent the business units in your organizatio
 
 1. In the **Manage Business Units** dialog, enter the name of a new business unit and then select **Add**. For example:
 
-    :::image type="content" source="../media/sites-and-zones/manage-business-units.png" alt-text="Screenshot of the Manage Business Units dialog.":::
+    :::image type="content" source="../media/sites-and-zones/manage-business-units.png" alt-text="Screenshot of the Manage Business Units dialog." lightbox="../media/sites-and-zones/manage-business-units.png":::
 
     Repeat this step for any extra business units you want to create.
 
@@ -64,7 +64,7 @@ Defender for IoT regions represent the global regions where your organization ha
 
 1. In the **Manage Regions** dialog, enter the name of a new region then select **Add**. For example, if your company has offices all around the world, you might create a region to represent each global region.
 
-    :::image type="content" source="../media/sites-and-zones/manage-regions.png" alt-text="Screenshot of the Manage Regions dialog.":::
+    :::image type="content" source="../media/sites-and-zones/manage-regions.png" alt-text="Screenshot of the Manage Regions dialog."  lightbox="../media/sites-and-zones/manage-regions.png":::
 
     Repeat this step for any extra sites you want to create.
 
@@ -89,11 +89,11 @@ For example, if you have multiple offices in the same city, you'd create a separ
 
     For example:
 
-    :::image type="content" source="../media/sites-and-zones/new-site.png" alt-text="Screenshot of the Create New Site dialog.":::
+    :::image type="content" source="../media/sites-and-zones/new-site.png" alt-text="Screenshot of the Create New Site dialog." lightbox="../media/sites-and-zones/new-site.png":::
 
 1. Repeat this step for each of the sites you want to create, populating the map to cover your entire network. For example:
 
-    :::image type="content" source="../media/sites-and-zones/enterprise-map-sample.png" alt-text="Screenshot of a populated Enterprise View map.":::
+    :::image type="content" source="../media/sites-and-zones/enterprise-map-sample.png" alt-text="Screenshot of a populated Enterprise View map." lightbox="../media/sites-and-zones/enterprise-map-sample.png":::
 
 ## Create zones
 
@@ -105,7 +105,7 @@ Each Defender for IoT zone represents a logical entity in a specific site. For e
 
 1. For each site, select **+ Add zone** in the upper-right corner. For example:
 
-    :::image type="content" source="../media/sites-and-zones/add-zone-button.png" alt-text="Screenshot of the Add zone button on the Site Management page.":::
+    :::image type="content" source="../media/sites-and-zones/add-zone-button.png" alt-text="Screenshot of the Add zone button on the Site Management page." lightbox="../media/sites-and-zones/add-zone-button.png":::
 
 1. In the **Create New Zone** dialog, enter a meaningful name and description for your zone and select **Save**.
 
@@ -117,7 +117,7 @@ After you've connected your OT sensors to your on-premises management console, y
 
 For example:
 
-:::image type="content" source="../media/sites-and-zones/unassigned-sensors.png" alt-text="Screenshot of unassigned sensors listed at the top of the Site Management page.":::
+:::image type="content" source="../media/sites-and-zones/unassigned-sensors.png" alt-text="Screenshot of unassigned sensors listed at the top of the Site Management page." lightbox="../media/sites-and-zones/unassigned-sensors.png":::
 
 If you've also configured sites and zones on your on-premises management, assign your sensors to a site and zone in order to [monitor detected data segmented separately](../monitor-zero-trust.md).
 
@@ -154,7 +154,7 @@ After you've created sites and zones, you can view, edit, or delete them from bo
 
 For each site or zone, select the options menu on the right to make changes, or to delete a site or zone. For example:
 
-:::image type="content" source="../media/sites-and-zones/edit-delete-site-zone.png" alt-text="Screenshot of the options menu for editing or deleting a site or zone.":::
+:::image type="content" source="../media/sites-and-zones/edit-delete-site-zone.png" alt-text="Screenshot of the options menu for editing or deleting a site or zone." lightbox="../media/sites-and-zones/edit-delete-site-zone.png":::
 
 ## Next steps
 
