@@ -209,6 +209,16 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 > [!TIP]
 > The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
+## Outbound internet connectivity
+
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) will not be able to egress traffic destined to the internet. This will affect communication to a backend targets that are publicly accessible via the internet.
+
+To enable outbound connectivity from your Application Gateway to an internet facing backend target, you may utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the internet.
+
+Virtual Network NAT offers control over what IP address or prefix should be used as well as configurable idle-timeout. To configure, create a new NAT Gateway with a public IP address or public prefix and associate it with the subnet containing Application Gateway.
+
+If a virtual appliance is required for internet egress, see the [route table control](#route-table-control) section in this document for more information.
+
 ## Network Security Group Control
 
 Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
