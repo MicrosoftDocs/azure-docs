@@ -149,11 +149,11 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
 1. From the **Twin Graph** viewer, select a twin that has historized properties to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. 
 
-    A modal will appear for selecting which historical properties to view.
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/open-data-history.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, highlighting the icon to open the data history explorer." lightbox="media/how-to-use-azure-digital-twins-explorer/open-data-history.png":::
 
-    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::
+1. A modal will appear for selecting which historical properties to view. The **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
 
-1. In the modal, the **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values. 
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::    
 
 1. In the **Property** field, select the property whose historized data you'd like to view. If the property is not numeric, but it consists of numeric values, use the **Cast property value to number** option to attempt to cast this data to numbers so it can be visualized on the chart.
 
