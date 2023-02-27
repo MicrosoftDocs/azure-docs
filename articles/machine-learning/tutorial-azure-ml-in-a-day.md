@@ -329,7 +329,7 @@ ml_client.create_or_update(job)
 
 View the job in Azure ML studio by selecting the link in the output of the previous cell. 
 
-The output of this job will look like this in Azure ML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
+The output of this job looks like this in Azure ML studio. Explore the tabs for various details like metrics, outputs etc. Once the model completes, this training script registers a model in your workspace.
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/view-job.gif" alt-text="Screenshot shows the overview page for the job.":::
 
