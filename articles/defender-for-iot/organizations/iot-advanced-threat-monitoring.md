@@ -77,7 +77,7 @@ The **Microsoft Defender for IoT** solution includes a more detailed set of out-
 
 ## Investigate Defender for IoT incidents
 
-After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel [as you would other incidents](/sentinel/investigate-cases).
+After you’ve [configured your Defender for IoT data to trigger new incidents in Microsoft Sentinel](#detect-threats-out-of-the-box-with-defender-for-iot-data), start investigating those incidents in Microsoft Sentinel [as you would other incidents](../../sentinel/investigate-cases.md).
 
 **To investigate Microsoft Defender for IoT incidents**:
 

@@ -117,7 +117,7 @@ The following Python code demonstrates how to create a datastore that connects t
 
 ```python
 ws = Workspace.from_config()
-adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in AzureML
+adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in Azure Machine Learning
 
 subscription_id=os.getenv("ADL_SUBSCRIPTION", "<ADLS account subscription ID>") # subscription id of ADLS account
 resource_group=os.getenv("ADL_RESOURCE_GROUP", "<ADLS account resource group>") # resource group of ADLS account
@@ -147,7 +147,7 @@ from azureml.core import Workspace, Datastore, Dataset
 from azureml.core.experiment import Experiment
 from azureml.train.automl import AutoMLConfig
 
-# retrieve data via AzureML datastore
+# retrieve data via Azure Machine Learning datastore
 datastore = Datastore.get(ws, adlsgen2_datastore)
 datastore_path = [(datastore, '/data/prepared-data.csv')]
         

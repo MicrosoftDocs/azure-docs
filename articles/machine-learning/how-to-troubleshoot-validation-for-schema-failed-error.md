@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Validation For Schema Failed Error
 titleSuffix: Azure Machine Learning
-description: Troubleshooting steps when you get the "Validation for schema failed" error message in AzureML v2 CLI 
+description: Troubleshooting steps when you get the "Validation for schema failed" error message in Azure Machine Learning v2 CLI 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 01/06/2023
 
 # Troubleshoot Validation For Schema Failed Error
 
-This article helps fix all categories of Validation for Schema Failed errors that a user may encounter after submitting a **create** or **update** command for a YAML file while using AzureML v2 CLI. The list of commands that can generate this error include:
+This article helps fix all categories of Validation for Schema Failed errors that a user may encounter after submitting a **create** or **update** command for a YAML file while using Azure Machine Learning v2 CLI. The list of commands that can generate this error include:
 
 Create
 * `az ml job create`
@@ -44,7 +44,7 @@ Update
 
 ## Symptoms
 
-When the user submits a YAML file via a **create** or **update** command using AzureML v2 CLI to complete a particular task (for example, create a data asset, submit a training job, or update an online deployment), they can encounter a “Validation for Schema Failed” error. 
+When the user submits a YAML file via a **create** or **update** command using Azure Machine Learning v2 CLI to complete a particular task (for example, create a data asset, submit a training job, or update an online deployment), they can encounter a “Validation for Schema Failed” error. 
 
 ## Cause
 
@@ -58,7 +58,7 @@ The submitted YAML file contains one or more parameters whose value is of the in
 
 ### Solution - Invalid Value
 
-If the type of value provided for a parameter is invalid, check the prescribed schema and change the value to the correct type (note: this refers to the data type of the value provided for the parameter, not to be confused with the “type” parameter in many schemas). If the value itself is invalid, select a value from the expected range of values (you'll find that in the error message). Save the YAML file and resubmit the command. [Here's a list of schemas](reference-yaml-overview.md) for all different asset types in AzureML v2.
+If the type of value provided for a parameter is invalid, check the prescribed schema and change the value to the correct type (note: this refers to the data type of the value provided for the parameter, not to be confused with the “type” parameter in many schemas). If the value itself is invalid, select a value from the expected range of values (you'll find that in the error message). Save the YAML file and resubmit the command. [Here's a list of schemas](reference-yaml-overview.md) for all different asset types in Azure Machine Learning v2.
 
 ## Error - Unknown Field
 
@@ -82,7 +82,7 @@ The submitted YAML file is missing a required parameter. For example – for ml 
 
 ### Solution - Missing Field
 
-Check the prescribed schema for the asset type you're trying to create or update – check what parameters are required and what their correct value types are. [Here's a list of schemas](reference-yaml-overview.md) for different asset types in AzureML v2. Ensure that the submitted YAML file has all the required parameters needed. Also ensure that the values provided for those parameters are of the correct type, or in the accepted range of values. Save the YAML file and resubmit the command.
+Check the prescribed schema for the asset type you're trying to create or update – check what parameters are required and what their correct value types are. [Here's a list of schemas](reference-yaml-overview.md) for different asset types in Azure Machine Learning v2. Ensure that the submitted YAML file has all the required parameters needed. Also ensure that the values provided for those parameters are of the correct type, or in the accepted range of values. Save the YAML file and resubmit the command.
 
 ## Error - Cannot Parse
 
