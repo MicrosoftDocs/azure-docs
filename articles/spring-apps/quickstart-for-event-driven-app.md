@@ -65,7 +65,7 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```azurecli-interactive
     az login
     ```
-2. Set Default location.
+2. Set default location.
     ```azurecli-interactive
     az configure --defaults location=${LOCATION}
     ```
