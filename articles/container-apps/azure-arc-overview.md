@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 02/27/2023
 ms.author: cshoe
 ---
 
@@ -116,6 +116,16 @@ ARM64 based clusters aren't supported at this time.
 ### Container Apps extension v1.0.46 (December 2022)
 
 - Initial public preview release of Container apps extension
+
+### Container Apps extension v1.0.47 (January 2023)
+
+- Upgrade of Envoy to 1.0.24
+
+### Container Apps extension v1.0.48 (February 2023)
+
+- Add probes to EasyAuth container(s)
+- Increased memory limit for dapr-operator
+- Added prevention of platform header overwriting
 
 ## Next steps
 
