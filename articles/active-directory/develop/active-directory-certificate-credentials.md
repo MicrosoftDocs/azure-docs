@@ -91,7 +91,7 @@ You can associate the certificate credential with the client application in the 
 
 ### Uploading the certificate file
 
-In the app registration for the client application:
+In the **App registrations** tab for the client application:
 1. Select **Certificates & secrets** > **Certificates**.
 2. Click on **Upload certificate** and select the certificate file to upload.
 3. Click **Add**.
