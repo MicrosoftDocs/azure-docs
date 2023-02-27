@@ -26,7 +26,7 @@ After system-preferred MFA is enabled, the authentication system does all the wo
 
 If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
 
-For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time passcode (TOTP). After sign-in, their Security info page will appear and they will need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
+For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page will appear and they will need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
 
 ## Enable system-preferred MFA
 
