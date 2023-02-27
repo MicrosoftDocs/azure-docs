@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, FY23 content-maintenance
 
 # Tutorial: Create a secured hub and spoke network
 
-In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, You configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
+In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, you configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is now in General Availability for Virtual Network Manager and hub and spoke connectivity configurations. 
