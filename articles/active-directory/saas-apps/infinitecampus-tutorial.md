@@ -57,7 +57,6 @@ To configure and test Azure AD SSO with Infinite Campus, perform the following s
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Infinite Campus SSO](#configure-infinite-campus-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Infinite Campus test user](#create-infinite-campus-test-user)** - to have a counterpart of B.Simon in Infinite Campus that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -133,7 +132,7 @@ See Infinite Campus' [documentation](https://kb.infinitecampus.com/help/sso-serv
 The SAML certificate this integration relies on will eventually need to be renewed so users can continue logging into Infinite Campus through single sign-on. For districts with proper Campus Messenger Email Settings established, Infinite Campus will send warning emails as the certificate expiration approaches. (Subject: "Action required: Your certificate is expiring.") 
 
 These are the steps to take to replace an expiring SAML certificate: 
-1. Have your district's Microsoft Azure Active Directory admin sign in to the Azure portal [aad.portal.azure.com](aad.portal.azure.com)
+1. Have your district's Microsoft Azure Active Directory admin sign in to the Azure portal
 1.	On the left navigation pane, select the Azure Active Directory service.
 1.	Navigate to Enterprise Applications and select your Infinite Campus application set up previously. (If you have multiple Infinite Campus environments like a sandbox or staging site, you will have multiple Infinite Campus applications set up here. You will need to complete this process in each respective Infinite Campus environment for any with an expiring certificate.)
 1.	Select Single Sign-On
@@ -147,7 +146,7 @@ These are the steps to take to replace an expiring SAML certificate:
 1.	Select the three dots next to the old certificate. Select Delete Certificate.
 1.	Return to Infinite Campus and hit the Sync button next to the Metadata URL again. It will say "IDP Synchronization successful" again. Hit OK and Save again.
 
-This completes the process of replacing an expiring certificate. For additional details see Infinite Campus' [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#certificate-expiration-warnings).
+This completes the process of replacing an expiring certificate. For additional details see Infinite Campus' [documentation](https://kb.infinitecampus.com/help/sso-service-provider-configuration#SSOServiceProviderConfiguration-CertificateExpirationWarnings).
 
 
 ## Next steps
