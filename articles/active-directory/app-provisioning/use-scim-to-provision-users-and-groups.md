@@ -34,7 +34,7 @@ To automate provisioning to an application, it requires building and integrating
 1. [Build a SCIM endpoint](#build-a-scim-endpoint) - An endpoint must be SCIM 2.0-compatible to integrate with the Azure AD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
 
-1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. Azure AD supports several third-party applications that implment SCIM 2.0. If you use one of these apps, then you can quickly automate both provisioning and deprovisioning of users and groups.
+1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. Azure AD supports several third-party applications that implement SCIM 2.0. If you use one of these apps, then you can quickly automate both provisioning and deprovisioning of users and groups.
 
 
 1. [Optional] [Publish your application to the Azure AD application gallery](#publish-your-application-to-the-azure-ad-application-gallery) - Make it easy for customers to discover your application and easily configure provisioning. 
