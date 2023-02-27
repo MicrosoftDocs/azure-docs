@@ -86,7 +86,7 @@ Container Insights data primarily consists of metric counters (Perf, Inventory, 
 
 By navigating to the By Table section of the Data Usage workbook, you can see the breakdown of table sizes for Container Insights.
 
-[![Screenshot that shows the By Table breakdown in Data Usage workbook](media/container-insights-cost/data-usage-workbook-by-table.png)](media/container-insights-cost/data-usage-workbook-by-table.png#lightbox)
+[![Screenshot that shows the By Table breakdown in Data Usage workbook.](media/container-insights-cost/data-usage-workbook-by-table.png)](media/container-insights-cost/data-usage-workbook-by-table.png#lightbox)
 
 If the majority of your data comes from one of these following tables:
 - Perf
