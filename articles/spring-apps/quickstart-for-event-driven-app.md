@@ -168,7 +168,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### 5: Bind Service Bus to app
+### 5. Bind Service Bus to Azure Spring Apps
 Now both Service Bus and app in Azure Spring Apps have been created. But the app can not connect to Service Bus. This section will give steps about how to make the app can connect to Service Bus.
 
 #### 5.1. Get connection string
