@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a lab in Azure DevTest Labs using Terraform'
 description: 'In this article, you create a Windows virtual machine in a lab within Azure DevTest Labs using Terraform'
 ms.topic: quickstart
-ms.date: 2/26/2023
+ms.date: 2/27/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -10,9 +10,11 @@ ms.author: tarcher
 
 # Quickstart: Create a lab in Azure DevTest Labs using Terraform
 
-[!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+This article shows how to use Terraform to create a Windows Server 2019 Datacenter virtual machine in a lab within [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) using [Terraform](/azure/developer/terraform).
 
-This article shows how to use Terraform to create a Windows virtual machine in a lab within [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) using [Terraform](/azure/developer/terraform).
+
+This quickstart uses Bicep to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
+
 
 In this article, you learn how to:
 
