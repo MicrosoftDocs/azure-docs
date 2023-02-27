@@ -22,7 +22,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | GPT-3 base series <br>**New ChatGPT (gpt-3.5-turbo)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Models available | GPT-3 base series <br>**New ChatGPT (gpt-35-turbo)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable.|
 | Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable. \*\*East US Fine-tuning is currently unavailable to new customers. Please use US South Central for US based training|

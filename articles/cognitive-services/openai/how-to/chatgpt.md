@@ -13,7 +13,7 @@ keywords: ChatGPT
 
 # Learn how to work with the ChatGPT model (preview)
 
-The ChatGPT model (gpt-3.5-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
+The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
 The ChatGPT model uses the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
@@ -33,7 +33,7 @@ openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="gpt-3.5-turbo",
+  engine="gpt-35-turbo",
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=800,
@@ -201,7 +201,7 @@ system_message = f"<|im_start|>system\n{'--your system message--'}\n<|im_end|>"
 messages = [{"sender": "user", "text": user_input}]
 
 response = openai.Completion.create(
-    engine="gpt-3.5-turbo",
+    engine="gpt-35-turbo",
     prompt=create_prompt(system_message, messages),
     temperature=1,
     max_tokens=250,
@@ -229,7 +229,7 @@ import tiktoken
 cl100k_base = tiktoken.get_encoding("cl100k_base") 
 
 enc = tiktoken.Encoding( 
-    name="gpt-3.5-turbo",  
+    name="gpt-35-turbo",  
     pat_str=cl100k_base._pat_str, 
     mergeable_ranks=cl100k_base._mergeable_ranks, 
     special_tokens={ 
