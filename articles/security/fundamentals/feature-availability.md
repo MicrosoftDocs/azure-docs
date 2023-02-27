@@ -249,7 +249,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Fusion detection for ransomware](../../sentinel/fusion.md#fusion-for-ransomware) | Public Preview | Not Available |
 | - [Fusion for emerging threats](../../sentinel/fusion.md#fusion-for-emerging-threats) | Public Preview |Not Available |
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
-| - [Anomalous RDP Login Detection](../../sentinel/configure-connector-rdp-login-detection.md)<br>Built-in ML detection | Public Preview | Not Available |
+| - [Anomalous RDP Login Detection](../../sentinel/configure-connector-login-detection.md)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | **Domain solution content** | | |
 | - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
