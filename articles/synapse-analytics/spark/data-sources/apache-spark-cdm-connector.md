@@ -67,7 +67,7 @@ When the connector reads CSV data, it uses the Spark `failfast` option by defaul
 Alternatively, as of 0.19, the connector supports permissive mode (only for CSV files). With permissive mode, when a CSV row has a lower number of columns than the entity schema, the connector assigns null values for the missing columns. When a CSV row has more columns than the entity schema, the columns greater than the entity schema column count are truncated to the schema column count. Usage is as follows:
 
 ```scala
-.option("entity", "permissive") or .option("mode", "failfast")
+.option("mode", "permissive") or .option("mode", "failfast")
 ```
 
 ## Writing data
