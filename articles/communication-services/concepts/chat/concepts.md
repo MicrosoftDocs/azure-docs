@@ -2,7 +2,7 @@
 title: Chat concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Chat concepts.
-author: kaperla
+author: kperla97
 manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
