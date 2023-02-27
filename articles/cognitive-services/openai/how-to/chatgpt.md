@@ -189,13 +189,13 @@ openai.api_key = os.getenv('api_key')
 def create_prompt(system_message, messages):
     prompt = system_message
     for message in messages:
-        prompt += "\n<|im_start|>{}\n{}\n<|im_end|>".format(message['sender'], message['text'])
+        prompt += f"\n<|im_start|>{message['sender']}\n{message['text']}\n<|im_end|>"
     prompt += "\n<|im_start|>assistant\n"
     return prompt
 
 # defining the user input and the system message
 user_input = "--the user's message--" # allow user input
-system_message = "<|im_start|>system\n{}\n<|im_end|>".format("--your system message--")
+system_message = f"<|im_start|>system\n{'--your system message--'}\n<|im_end|>"
 
 # creating a list of messages to track the conversation
 messages = [{"sender": "user", "text": user_input}]
