@@ -50,7 +50,7 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 These changes are visible immediately on the YARN Scheduler UI.
 
-### Additional reading
+### Further reading
 
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
@@ -58,7 +58,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### Resolution steps
 
-1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Additional reading](#additional-reading-2).
+1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Further reading](#further-reading-2).
 
 1. To list all the application IDs of the YARN applications that are currently running, run the following command:
 
@@ -146,7 +146,7 @@ Service RMActiveServices failed in state STARTED; cause: org.apache.hadoop.servi
 ```
 2. If the error exists, check to see if some files are under replication or if there are missing blocks in the HDFS. You can run `hdfs fsck hdfs://mycluster/`
 
-3. Run `hdfs fsck hdfs://mycluster/ -delete` to forcefully clean up the HDFS and to get rid of the standby RM issue. Alternatively, run [PatchYarnNodeLabel](https://hdiconfigactions.blob.core.windows.net/hadoopcorepatchingscripts/PatchYarnNodeLabel.sh) on one of headnodes to patch the cluster.
+3. Run `hdfs fsck hdfs://mycluster/ -delete` to forcefully clean-up the HDFS and to get rid of the standby RM issue. Alternatively, run [PatchYarnNodeLabel](https://hdiconfigactions.blob.core.windows.net/hadoopcorepatchingscripts/PatchYarnNodeLabel.sh) on one of headnodes to patch the cluster.
 
 ## Next steps
 
