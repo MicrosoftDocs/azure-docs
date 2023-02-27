@@ -256,7 +256,7 @@ The following example code shows what a simple `SayHello` activity function migh
 # [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
-[FunctionName("SayHello")]
+[Function("SayHello")]
 public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
