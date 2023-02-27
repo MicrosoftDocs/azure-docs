@@ -126,7 +126,7 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
     az containerapp env create --name ${MANAGED_ENVIRONMENT}
     ```
 
-#### 4.2. Create Azure Spring Apps Consumption plan instance
+#### 4.2. Create Azure Spring Apps instance
 
 1. Install the spring extension specifically designed for StandardGen2 Azure Spring Apps.
     ```azurecli-interactive
