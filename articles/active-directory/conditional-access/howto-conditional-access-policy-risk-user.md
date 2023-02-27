@@ -39,7 +39,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
    1. Under **Configure user risk levels needed for policy to be enforced**, select **High**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**, **Require multifactor authentication** and **Require password change**.
+   1. Select **Grant access** and **Require password change** (Require authentication strength (Preview) with the option Multifactor authentication will be automatically selected).
    1. Select **Select**.
 1. Under **Session**.
    1. Select **Sign-in frequency**.
