@@ -15,9 +15,17 @@ The FHIR specification defines a set of search parameters that apply to all reso
 > [!NOTE]
 > Each time you create, update, or delete a search parameter, you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter for live production. Below we will outline how you can test search parameters before reindexing the entire FHIR service database.
 
-## Create new search parameter
+## Create new search parameter 
 
-To create a new search parameter, you need to `POST` a `SearchParameter` resource to the FHIR service database. The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
+To create a new search parameter, you need to `POST` a `SearchParameter` resource to the FHIR service database. 
+
+The code examples below show how to add new custom search parameter -
+* Per Definition in extension
+* For Attributes with Reference type
+
+### Create new search parameter per definiton in extension
+
+The code example below shows how to add the [US Core Race search parameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) to the `Patient` resource type in your FHIR service database.
 
 ```rest
 POST {{FHIR_URL}}/SearchParameter
@@ -62,7 +70,26 @@ POST {{FHIR_URL}}/SearchParameter
 }
 
 ``` 
+### Create new search parameter for attributes with Reference type
 
+The code example shows how to create custom search parameter to search for MedicationDispense resources based on location, where they were dispensed. This is an example of adding custom search paramter for Reference type. 
+
+```rest
+{
+ "resourceType": "SearchParameter",
+  "id": "a3c28d46-fd06-49ca-aea7-5f9314ef0497",
+  "url": "http://keshethfrb7eghdsws-fhirtrn.fhir.azurehealthcareapis.com/fhir/SearchParameter/medicationdispense-location-search-parameter",
+  "version": "1.0",
+  "name": "MedicationDispenseLocationSearchParameter",
+  "status": "active",
+  "description": "Search parameter for MedicationDispense by location",
+  "code": "location",
+  "base": ["MedicationDispense"],
+  "target": ["Location"],
+  "type": "reference",
+  "expression": "MedicationDispense.location"
+}
+```
 > [!NOTE]
 > The new search parameter will appear in the capability statement of the FHIR service after you `POST` the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way to tell if a search parameter is supported in your FHIR service. If you cannot find the `SearchParameter` in the capability statement, then you still need to reindex your database to activate the search parameter. You can `POST` multiple search parameters before triggering a reindex operation.
 
@@ -70,9 +97,11 @@ Important elements of a `SearchParameter` resource:
 
 * `url`: A unique key to describe the search parameter. Organizations such as HL7 use a standard URL format for the search parameters that they define, as shown above in the US Core Race search parameter.
 
-* `code`: The value stored in the **code** element is the name used for the search parameter when it is included in an API call. For the example above, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` where `<code>` is in the value set from the specified coding system. This call would retrieve all patients of a certain race. 
+* `code`: The value stored in the **code** element is the name used for the search parameter when it is included in an API call. For the example above with extension, you would search with `GET {{FHIR_URL}}/Patient?race=<code>` where `<code>` is in the value set from the specified coding system. This call would retrieve all patients of a certain race. 
 
 * `base`: Describes which resource type(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resource types.
+
+* `target`: Describes which resource type(s) the search parameter matches to. 
  
 * `type`: Describes the data type for the search parameter. Type is limited by the support for data types in the FHIR service. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
 
@@ -85,7 +114,7 @@ While you can’t use the new search parameters in production until you run a re
 First, you can test a new search parameter to see what values will be returned. By running the command below against a specific resource instance (by supplying the resource ID), you'll get back a list of value pairs with the search parameter name and the value stored in the corresponding element. This will include all of the search parameters for the resource. You can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR service. 
 
 ```rest
-GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
+GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 
 ```
 For example, to find all search parameters for a patient:
@@ -135,13 +164,18 @@ Continuing with our example above, you could index one patient to enable the US 
 POST {{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
 ```
 
-And then do a test search for the patient by race:
+And then do a test search
+1. For the patient by race:
 
 ```rest
 GET {{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
-
+1. For Location (reference type):
+```rest
+{{fhirurl}}/MedicationDispense?location=<locationid referenced in MedicationDispense Resource>
+x-ms-use-partial-indices: true
+```
 After you have tested your new search parameter and confirmed that it is working as expected, run or schedule your reindex job so the new search parameter(s) can be used in live production.
 
 See [Running a reindex job](../fhir/how-to-run-a-reindex.md) for information on how to re-index your FHIR service database.
@@ -202,6 +236,8 @@ The result of the above request will be an updated `SearchParameter` resource.
 > [!Warning]
 > Be careful when updating search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
 
+
+
 ## Delete a search parameter
 
 If you need to delete a search parameter, use the following:
@@ -212,6 +248,8 @@ DELETE {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 > [!Warning]
 > Be careful when deleting search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
+
+
 
 ## Next steps
 
