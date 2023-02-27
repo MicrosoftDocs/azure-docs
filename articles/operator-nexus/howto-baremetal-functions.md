@@ -51,7 +51,7 @@ Operator Nexus workloads are not scheduled on the BMM when cordon is set; any at
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `false` value.
 On executing the `cordon` command, with the value `true` for the `evacuate`
-parameter, the workloads that are running on the BMM will be `stopped` and the BMM will be set to `pending` state.
+parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
 
 ```azurecli
   az networkcloud baremetalmachine cordon \
@@ -64,8 +64,8 @@ The `evacuate "True"` removes wokrloads from that node while `evacuate "FALSE"` 
 
 ## Make a BMM schedulable (uncordon)
 
-You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All workloads in `pending`
-state on the BMM will be `re-started` when the BMM is `uncordoned`.
+You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All workloads in a `pending`
+state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ```azurecli
   az networkcloud baremetalmachine uncordon \
