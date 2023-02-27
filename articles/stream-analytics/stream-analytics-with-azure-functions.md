@@ -52,7 +52,7 @@ Before you start, make sure you've completed the following steps:
 
 2. After you create the cache, under **Settings**, select **Access Keys**. Make a note of the **Primary connection string**.
 
-   ![Screenshot of Azure Cache for Redis connection string](./media/stream-analytics-with-azure-functions/image2.png)
+    :::image type="content" source="./media/stream-analytics-with-azure-functions/redis-cache-connection-string.png" alt-text="Screenshot showing the selection of the Access Key menu item.":::
 
 ## Create a function in Azure Functions that can write data to Azure Cache for Redis
 
@@ -171,7 +171,10 @@ Before you start, make sure you've completed the following steps:
 
 3. Provide a name for the output alias. In this tutorial, it's named **saop1**, but you can use any name of your choice. Fill in other details.
 
-4. Open your Stream Analytics job, and update the query to the following. If you didn't name your output sink **saop1**, remember to change it in the query.
+4. Open your Stream Analytics job, and update the query to the following. 
+
+    > [!IMPORTANT]
+    > If you didn't name your output sink **saop1**, remember to change it in the query.
 
    ```sql
     SELECT
