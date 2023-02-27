@@ -11,16 +11,12 @@ ms.custom: template-how-to
 
 # Manage lifecycle of Bare Metal Machines
 
-This article describes how to perform lifecycle management operations on Bare Metal Machines (BMM). The commands to manage the lifecycle of the BMM include:
+This article describes how to perform lifecycle management operations on Bare Metal Machines (BMM). These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions. The commands to manage the lifecycle of the BMM include:
 
-- power-off
-- start the BMM
-- make the BMM unschedulable or schedulable
-- reinstall the BMM image
-
-When you want to reinstall or  update the image, or replace the BMM, make the BMM unschedulable.  In these cases, you need to evacuate existing workloads. You may have a need for no new workloads to be scheduled on a BMM, in which case make it unschedulable but without evacuating the workloads.
-
-Make your BMM schedulable for it to be used.
+- Power-off
+- Start the BMM
+- Make the BMM unschedulable or schedulable
+- Reinstall the BMM image
 
 ## Prerequisites
 
@@ -51,11 +47,11 @@ This command will `start` the specified `bareMetalMachineName`.
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On execution of the `cordon` command,
-Kubernetes won't schedule any new pods on the BMM; any attempt to create a pod on a `cordoned`
-BMM results in the pod being set to `pending` state. Existing pods continue to run.
+Operator Nexus won't schedule any new workloads on the BMM; any attempt to create a workload on a `cordoned`
+BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `false` value.
 On executing the `cordon` command, with the value `true` for the `evacuate`
-parameter, the pods currently running on the BMM will be `stopped` and the BMM will be set to `pending` state.
+parameter, the workloads currently running on the BMM will be `stopped` and the BMM will be set to `pending` state.
 
 ```azurecli
   az networkcloud baremetalmachine cordon \
@@ -64,11 +60,11 @@ parameter, the pods currently running on the BMM will be `stopped` and the BMM w
     --resource-group "resourceGroupName"
 ```
 
-The `evacuate "True"` removes pods from that node while `evacuate "FALSE"` only prevents the scheduling of new pods.
+The `evacuate "True"` removes wokrloads from that node while `evacuate "FALSE"` only prevents the scheduling of new workloads.
 
 ## Make a BMM schedulable (uncordon)
 
-You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All pods in `pending`
+You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All workloads in `pending`
 state on the BMM will be `re-started` when the BMM is `uncordoned`.
 
 ```azurecli

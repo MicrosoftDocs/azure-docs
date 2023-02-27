@@ -43,7 +43,7 @@ Select the subscription for which you want to create a Network fabric Controller
 az account set --subscription "<subscription ID>"
 ```
 
-## Register providers for managed network fabric
+## Register providers for Managed Network Fabric
 
 You can skip this step if your subscription is already registered with the Microsoft.ManagedNetworkFabric Resource Provider. Otherwise, proceed with the following steps:
 
