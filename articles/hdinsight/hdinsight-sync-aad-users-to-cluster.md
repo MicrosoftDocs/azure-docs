@@ -4,7 +4,7 @@ description: Synchronize authenticated users from Azure Active Directory to an H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
+ms.date: 02/27/2023
 ---
 
 # Synchronize Azure Active Directory users to an HDInsight cluster
