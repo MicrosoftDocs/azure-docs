@@ -20,17 +20,16 @@ In this quickstart, you will use Azure App Configuration in an app running in Az
 ## Prerequisites
 
 - An application using an App Configuration store. If you don't have one, create an instance using the [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
+- An Azure Container Apps instance. If you don't have one, create an instance using the [Azure portal](/azure/container-apps/quickstart-portal) or [the CLI](/azure/container-apps/get-started).
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - The [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure Container Apps instance. If you don't have one, create an instance using the [Azure portal](/azure/container-apps/quickstart-portal) or [the CLI](/azure/container-apps/get-started).
-
 ---
 
-## Connect the container app to Azure App Configuration
+## Connect Azure App Configuration to the container app
 
 The first step of this guide is to connect your container app to your configuration store. To do this, add the connection string of your App Configuration store to the secret of your Container App, and add an environment variable to your container to reference the secret. Use [Service Connector](../service-connector/overview.md) to do this in a few steps without managing the connection information yourself.
 
-In the Azure portal, connect the container app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md). While following the steps of the quickstart:
+In the Azure portal, navigate to your Container App instance. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection with your App Configuration store using the settings below.
 
 - In the **Basics** tab:
   - select **App Configuration** for **Service type**
@@ -128,7 +127,7 @@ Push the Docker image to the ACR created earlier.
 
 ## Add your container image to Azure Container Apps
 
-Update the existing container app by importing the docker image you created and pushed to ACR earlier.
+Update your Container App to load the container image from your ACR.
 
 #### [Portal](#tab/azure-portal)
 
