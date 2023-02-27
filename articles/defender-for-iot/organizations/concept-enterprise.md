@@ -1,7 +1,7 @@
 ---
 title: Securing IoT devices in the enterprise with Microsoft Defender for Endpoint
 description: Learn how integrating Microsoft Defender for Endpoint and Microsoft Defender for IoT's security content and network sensors enhances your IoT network security.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/19/2022
 ---
 

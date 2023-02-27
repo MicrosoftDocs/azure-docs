@@ -90,7 +90,7 @@ This version of the snippet detects and reports failures when the SDK is loaded 
 - Missing telemetry on how your users are using your site.
 - Missing JavaScript errors that could potentially be blocking your users from successfully using your site.
 
-For information on this exception, see the [SDK load failure](javascript-sdk-load-failure.md) troubleshooting page.
+For information on this exception, see the [SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting) troubleshooting page.
 
 Reporting of this failure as an exception to the portal doesn't use the configuration option ```disableExceptionTracking``` from the Application Insights configuration. For this reason, if this failure occurs, it will always be reported by the snippet, even when `window.onerror` support is disabled.
 
@@ -533,4 +533,4 @@ If the SDK reports correlation recursively, enable the configuration setting of 
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-* [Troubleshoot SDK load failure](javascript-sdk-load-failure.md)
+* [Troubleshoot SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting)
