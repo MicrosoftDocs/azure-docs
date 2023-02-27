@@ -132,7 +132,7 @@ Client assertions can be used anywhere a client secret would be used. For exampl
 | Parameter | Value | Description|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| This is a fixed value, indicating that you are using a certificate credential. |
-|`client_assertion`| JWT |This is the JWT created above. |
+|`client_assertion`| `JWT` |This is the JWT created above. |
 
 ## Next steps
 
