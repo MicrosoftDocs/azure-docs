@@ -41,7 +41,7 @@ You can use the **Assistant setup** dropdown to select a few pre-loaded **System
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and parameter selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
+At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
@@ -49,7 +49,7 @@ Selecting the **Send** button sends the entered text to the completions API and 
 
 Select the **Clear chat** button to delete the current conversation history.
 
-### Parameters
+### Settings
 
 | **Name**            | **Description**   |
 |:--------------------|:-------------------------------------------------------------------------------|
@@ -60,9 +60,9 @@ Select the **Clear chat** button to delete the current conversation history.
 | Multi-turn conversations | Select the number of past messages to include in each new API request. This helps give the model context for new user queries. Setting this number to 10 results in five user queries and five system responses.|
 | Stop sequences      | Stop sequence make the model end its response at a desired point. The model response ends before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.|
 
-### Panel configuration
+### Show panels
 
-By default there are three panels: assistant setup, chat session, and parameters. Panel configuration allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use panel configuration to restore the lost panel.
+By default there are three panels: assistant setup, chat session, and settings. **Show panels** allows you to add, remove, and rearrange the panels. If you ever close a panel and need to get it back, use **Show panels** to restore the lost panel.
 
 ## Start a chat session
 
@@ -104,7 +104,7 @@ response = openai.Completion.create(
 
 If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
 
-The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response.
+The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response. You can also use the **Show raw syntax** toggle button to display these tokens within the chat session panel.
 
 The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
 
