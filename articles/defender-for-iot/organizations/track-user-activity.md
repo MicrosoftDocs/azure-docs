@@ -2,7 +2,7 @@
 title: Audit Microsoft Defender for IoT user activity
 description: Learn how to track and audit user activity across Microsoft Defender for IoT.
 ms.date: 01/26/2022
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Audit user activity
