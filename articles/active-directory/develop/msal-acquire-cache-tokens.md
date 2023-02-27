@@ -95,7 +95,7 @@ In public client applications like desktop and mobile apps, you can:
 
 ### Confidential client applications
 
-For confidential client applications (web app, web API, or a daemon application like a Windows service), you can:
+For confidential client applications (web app, web API, or a daemon application like a Windows service), you can;
 
 - Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#client-credentials). This technique can be used for syncing tools, or tools that process users in general and not a specific user.
 - Use the [on-behalf-of (OBO) flow](msal-authentication-flows.md#on-behalf-of-obo) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML, for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.
