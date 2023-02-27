@@ -29,7 +29,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 
 ## Use KQL or bring your own machine learning for analysis and AIOps in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to generate time series data, detect anomalies, forecast, and perform root cause analysis inside your Log Analytics workspace. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
 Using the native machine learning capabilities of KQL to process and analyze log data in Azure Monitor Logs gives lets you benefit from:
  
