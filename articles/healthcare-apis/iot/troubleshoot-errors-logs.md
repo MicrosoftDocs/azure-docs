@@ -253,7 +253,7 @@ The template’s type and line with the error are specified in the error message
 
 ### ResourceIdentityNotDefinedException
 
-**Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mapping. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error occurs when the MedTech service’s resolution type is set to **Create**.
+**Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mapping. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Create**.
 
 **Severity**: Non-blocking
 
