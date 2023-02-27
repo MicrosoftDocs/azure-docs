@@ -46,12 +46,12 @@ This command will `start` the specified `bareMetalMachineName`.
 ## Make a BMM unschedulable (cordon)
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
-On execution of the `cordon` command,
-Operator Nexus won't schedule any new workloads on the BMM; any attempt to create a workload on a `cordoned`
+On the execution of the `cordon` command,
+Operator Nexus will not schedule any new workloads on the BMM; any attempt to create a workload on a `cordoned`
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `false` value.
 On executing the `cordon` command, with the value `true` for the `evacuate`
-parameter, the workloads currently running on the BMM will be `stopped` and the BMM will be set to `pending` state.
+parameter, the workloads that are running on the BMM will be `stopped` and the BMM will be set to `pending` state.
 
 ```azurecli
   az networkcloud baremetalmachine cordon \
@@ -75,7 +75,7 @@ state on the BMM will be `re-started` when the BMM is `uncordoned`.
 
 ## Reimage a BMM (reinstall a BMM image)
 
-The existing BMM image can be **reinstalled** using the `reimage` command but won't install a new image.
+The existing BMM image can be **reinstalled** using the `reimage` command but will not install a new image.
 Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "TRUE"`, prior to executing the `reimage` command.
 
