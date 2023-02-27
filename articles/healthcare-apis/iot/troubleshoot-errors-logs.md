@@ -62,7 +62,7 @@ The health checks' names are listed in the following table, and the fixes for an
 
 ### CredentialStore:IsCustomerFacingMiCredentialBundlePresent
 
-**Description**: Checks if a MedTech service’s system-assigned managed identity exists and is enabled.
+**Description**: Checks if a MedTech service’s system-assigned managed identity has been enabled or if a user-assigned managed identity is configured.
 
 **Severity**: Blocking
 
@@ -135,7 +135,7 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 ### FhirResourceNotFoundException
 
-**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error occurs when the MedTech service’s resolution type is set to **Lookup**.
+**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Lookup**.
 
 **Severity**: Non-blocking
 
@@ -241,11 +241,11 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Blocking
 
-**Fix**: Ensure that your device messages are in JSON format. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and fix any validation errors that are shown when editing and saving the device mapping.
+**Fix**: On the Azure portal, go to the **Device mapping** blade of your MedTech service, and fix any validation errors that are shown when editing and saving the device mapping.
 
 ### PatientDeviceMismatchException
 
-**Description**: A Device FHIR resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
+**Description**: A FHIR Device resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
 **Severity**: Non-blocking
 
@@ -253,7 +253,7 @@ The template’s type and line with the error are specified in the error message
 
 ### ResourceIdentityNotDefinedException
 
-**Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mapping. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error occurs when the MedTech service’s resolution type is set to **Create**.
+**Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mapping. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Create**.
 
 **Severity**: Non-blocking
 
