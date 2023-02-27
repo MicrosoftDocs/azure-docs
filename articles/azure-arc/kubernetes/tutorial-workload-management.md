@@ -360,8 +360,7 @@ The PR merging event starts a GitHub workflow `checkpromote` in the `control pla
 
 Once the `checkpromote` is successful, it starts the `cd` workflow that promotes the change (application registration) to the `Stage` environment. For better visibility, it also updates the git commit status in the `control plane` repository:
 
-![Git commit status deploying to dev](media/tutorial-workload-management/dev-git-commit-status.png)
- :::image type="content" source="media/tutorial-workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
+:::image type="content" source="media/tutorial-workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
 
 > [!NOTE]
 > If the `drone` cluster fails to reconcile the assignment manifests for any reason, the promotion flow will fail. The commit status will be marked as failed, and the application registration will not be promoted to the `Stage` environment.
