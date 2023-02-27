@@ -197,43 +197,59 @@ TBD
 
 
 1. Set up your environemnt variables
-```azurepowershell
-# Set up  your environment variables.
-$subscriptionId = <your subscription ID>;
-$rg = Get-AzResourceGroup -Name <your resource group name>;
-Select-AzSubscription $subscriptionId;
-$logAnlayticsWorskspaceId=</subscriptions/$subscriptionId/resourcegroups/$rg.ResourceGroupName/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>>;
+    ```azurepowershell
+    # Set up  your environment variables.
+    $subscriptionId = <your subscription ID>;
+    $rg = Get-AzResourceGroup -Name <your resource group name>;
+    Select-AzSubscription $subscriptionId;
+    $logAnlayticsWorskspaceId=</subscriptions/$subscriptionId/resourcegroups/$rg.ResourceGroupName/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>>;
+    ```    
+1. Get the initiative defintion. In this example we'll use Initiative *Enable audit category group resource logging for supported resources to `
+Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5"
+    ```azurepowershell
+    $definition = Get-AzPolicySetDefinition |Where-Object ResourceID -eq /providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5;
+    ```
+1. Set an assignment name and configure parameters. For this initiative, the parameters include the Log Analytics workspace id.
+    ```azurepowershell
+    $assignmentName=<your assignment name>;
+    $params =  @{"logAnalytics"="/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>"}  
+    ```
+1. Assign the initiative using the parameters
+    ```azurepowershell
+    $policyAssignment=New-AzPolicyAssignment -Name $assignmentName  -Scope $rg.ResourceId -PolicySetDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location eastus;
+    ```
+1.  Assign the `Contributor` role to the system assigned Managed Identity. For other initiatives, check which roles are required.
+    ```azurepowershell
+     New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionName Contributor;
+    ```
+1. Scan for policy compliance. The `Start-AzPolicyComplianceScan` command takes a few minutes to return
+    ```azurepowershell
+    Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName;
+    ```
 
-# Get the initiative defintion. In this example we'll use Initiative *Enable audit category group resource logging for supported resources to Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5"
-$definition = Get-AzPolicySetDefinition |Where-Object ResourceID -eq /providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5;
 
-#Set an assignment name and configure parameters. For this initiative, the parameters include the Log Analytics workspace id.
-$assignmentName=<your assignment name>;
-$params =  @{"logAnalytics"="/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>"}  
-# Assign the initiative using the parameters
-$policyAssignment=New-AzPolicyAssignment -Name $assignmentName  -Scope $rg.ResourceId -PolicySetDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location eastus;
+1. Get a list of resources to remediate and the required parameters by calling `Get-AzPolicyState`
+    ```azurepowershell
+    $assignmentState=Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName;   
+    $policyAssignmentId=$assignmentState.PolicyAssignmentId[0];
+    $policyDefinitionReferenceIds=$assignmentState.PolicyDefinitionReferenceId;
+    ```
+1. For each resource type with non-compliant resources, start a remediation task.
+    ```azurepowershell
+        $policyDefinitionReferenceIds | ForEach-Object {
+              $referenceId = $_
+              Start-AzPolicyRemediation -ResourceGroupName $rg.ResourceGroupName  -PolicyAssignmentId $policyAssignmentId   -PolicyDefinitionReferenceId $referenceId -Name "$($rg.ResourceGroupName) remediation $referenceId";
+        }
+    ```
+1. Check the compliance state when the remediation tasks have completed. 
+  ```azurepowershell
+    Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
+  ```
 
-# Assign the `Contributor` role to the system assigned Managed Identity. For other initiatives, check which roles are required.
-New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionName Contributor;
-
-#Scan for policy compliance. The `Start-AzPolicyComplianceScan` command takes a few minutes to return
-Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName;
-#$policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
-
-#Get a list of resources to remediate and the required parameters by calling `Get-AzPolicyState`
-$assignmentState=Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName;   
-$policyAssignmentId=$assignmentState.PolicyAssignmentId[0];
-$policyDefinitionReferenceIds=$assignmentState.PolicyDefinitionReferenceId;
-
-#For each resource type with non-compliant resources, start a remediation task.
-$policyDefinitionReferenceIds | ForEach-Object {
-  $referenceId = $_
-  Start-AzPolicyRemediation -ResourceGroupName $rg.ResourceGroupName  -PolicyAssignmentId $policyAssignmentId   -PolicyDefinitionReferenceId $referenceId -Name "$($rg.ResourceGroupName) remediation $referenceId";
-}
-
-#Check the compliance state when the remediation tasks have completed. 
-Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
-```
+You can get your policy assignment details using the following command:
+  ```azurepowershell
+    $policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
+  ```
 
 
 ## Remediation tasks
