@@ -80,7 +80,15 @@ Create an Azure Container Registry (ACR). ACR enables you to build, store, and m
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Create an ACR instance following the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-azure-cli).
+1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-azure-cli).
+
+    ```azurecli
+   az acr create 
+    --resource-group AppConfigTestResources \
+    --name myregistry \
+    --admin-enabled true \
+    --sku Basic
+   ```
 1. In the command output, take note of the ACR login server value listed after `loginServer`.
 1. Retrieve the ACR username and password by running `az acr credential show --name myregistry`. You'll need these values later.
 
@@ -129,9 +137,7 @@ Push the Docker image to the ACR created earlier.
 
 Update your Container App to load the container image from your ACR.
 
-#### [Portal](#tab/azure-portal)
-
-1. Open your Azure Container Apps instance.
+1. In the Azure portal, open your Azure Container Apps instance.
 1. In the left menu, under **Application**, select **Containers**.
 1. Select **Edit and deploy**.
 1. Under **Container image**, click on the name of the existing container image.
@@ -146,27 +152,6 @@ Update your Container App to load the container image from your ACR.
     | Image tag      | *v1*                       | Select your image tag from the list.                                             |
 
 1. Select **Save** and then **Create** to deploy the update to Azure Container App.
-
-#### [Azure CLI](#tab/azure-cli)
-
-When running the [az containerapp update](/cli/azure/containerapp#az-containerapp-update) command, refer to the following example:
-
-```azurecli
-az containerapp update \
-    --name mycontainerapp \   
-    --image myregistry.azurecr.io/aspnetapp:v1 \
-    --resource-group AppConfigTestResources \
-    --container-name mycontainer
-```
-
-| Parameter          | Suggested value                      | Description                                                           |
-|--------------------|--------------------------------------|-----------------------------------------------------------------------|
-| `--name`           | `mycontainerapp`                     | Enter the name of the Azure Container Apps instance.                  |
-| `--image`          | `myregistry.azurecr.io/aspnetapp:v1` | Point to the container image in the format publisher/image-name:tag.  |
-| `--resource-group` | `myresourcegroup`             | Enter the name of the resource group that contains the container app. |
-| `--container-name` | `mycontainer`                        | Enter the name of the container.                                      |
-
----
 
 ## Browse to the URL of the Azure Container App
 
@@ -184,12 +169,11 @@ The web page looks like this:
 
 In this quickstart, you:
 
-- Created a basic Azure Container Apps instance
-- Connected Azure Container Apps to Azure App Configuration
+- Connected Azure App Configuration to Azure Container Apps 
 - Used Docker to build a container image from an ASP.NET Core app with App Configuration settings
 - Created an Azure Container Registry instance
 - Pushed the image to the Azure Container Registry instance
-- Updated the Azure Container Apps instance with the image
+- Added the container image to Azure Container Apps
 - Browsed to the URL of the Azure Container Apps instance updated with the settings you configured in your App Configuration store.
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
