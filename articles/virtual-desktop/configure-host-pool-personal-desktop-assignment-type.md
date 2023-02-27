@@ -125,21 +125,21 @@ To reassign a personal desktop in the Azure portal:
 
 ## Give session hosts within a personal host pools a friendly name
 
-You can give personal host pools you create *friendly names* to help users distinguish them in their feeds.
+You can give personal desktops you create *friendly names* to help users distinguish them in their feeds.
 
 To give a host pool a friendly name, run the following command:
 
 ```powershell
-$body = @{
-    'properties.friendlyName' = 'friendlyName'
-} | ConvertTo-Json
+$body = '{ "properties": {
+"friendlyName": "friendlyName"
+} }'
 
 $subscriptionId = '11111111-1111-1111-1111-111111111111'
 $resourceGroupName = 'MyResourceGroupName'
 $hostPoolName = 'MyHostPoolName'
 
 $parameters = @{
-    Method = 'Post'
+    Method = 'Patch'
     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName?api-version=2022-02-10-preview"
     Payload = $body
 }
