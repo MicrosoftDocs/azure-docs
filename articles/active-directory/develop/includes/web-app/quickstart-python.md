@@ -55,7 +55,7 @@ Follow these steps to register your application in the Azure portal:
 
 ## Step 2: Download the project
 
-[Download the Python code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip) or clone the repository;
+[Download the Python code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip) or clone the repository:
 
 ```shell
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
@@ -80,7 +80,7 @@ TENANT_ID=<tenant id>
 * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
 * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
 
-The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevent the *.env* file from being checked in.
+The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
 ## Step 4: Run the code sample
 
