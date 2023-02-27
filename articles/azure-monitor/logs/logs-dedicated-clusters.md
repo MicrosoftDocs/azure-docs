@@ -19,10 +19,11 @@ Capabilities that require dedicated clusters:
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineer access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protect against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the extra layer of encryption continues to protect your data.
 - **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
-- **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that aren't eligible for commitment tier discount.
+- **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that 
+eligible for commitment tier discount.
 - **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resilience automatically. Azure Monitor creates dedicated clusters as availability-zone-enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. You can't alter this setting after creating the cluster. 
 
-    Availability zones aren't currently available in all regions. Clusters created in supported regions have availability zones enabled by default, but you can change this configuration.
+    Availability zones aren't currently available in all regions. New clusters you create in supported regions have availability zones enabled by default.
 
 ## Cluster pricing model
 Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
