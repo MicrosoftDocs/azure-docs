@@ -279,7 +279,7 @@ public static string SayHello([ActivityTrigger] string name)
 In the .NET-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
 
 ```csharp
-[FunctionName("SayHello")]
+[Function("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
