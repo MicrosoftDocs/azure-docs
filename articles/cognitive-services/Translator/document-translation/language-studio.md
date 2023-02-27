@@ -18,7 +18,7 @@ recommendations: false
 
 ## Prerequisites
 
-If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity** and enabled and a **Storage Blob Data Contributor** role assignment and an Azure Blob storage account, you can skip this section and [**Get started**](#get-started) right away.
+If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, created an Azure Blob storage account, you can skip this section to[**Get started**](#get-started) right away.
 
 > [!NOTE]
 >
@@ -69,7 +69,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 Your source and target files can be located in your local environment or your Azure Blob storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Follow the steps to select where to retrieve your source and store your target files:
 
-### Choose source file location
+### Choose a source file location
 
 #### [**Local**](#tab/local-env)
 
@@ -89,7 +89,7 @@ Your source and target files can be located in your local environment or your Az
 
 ---
 
-### Choose target file destination
+### Choose a target file destination
 
 #### [**Local**](#tab/local-env)
 
@@ -116,10 +116,10 @@ While still in the **files and destination** section, select **Download translat
 
 1. The **Job history** page contains the **Translation job id** and job status.
 
-  > [!NOTE]
-  > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
-
-  :::image type="content" source="media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
+    > [!NOTE]
+    > The list of translation jobs on the job history page includes all the jobs that were submitted through the chosen translator resource. If your colleague used the same translator resource to submit a job, you will see the status of that job on the job history page.
+  
+   :::image type="content" source="media/language-studio/job-history.png" alt-text="Screenshot of the job history page.":::
 
 That's it! You now know how to translate documents using Azure Cognitive Services Language Studio.
 
