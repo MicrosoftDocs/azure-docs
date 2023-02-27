@@ -96,9 +96,9 @@ For each site you're deploying, do the following.
 
 ### Configure ports for local access
 
-The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
+The following tables contain the ports you need to open for Azure Private 5G Core local access. This includes local management access, control plane signaling, and specifics of the ports covered in [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
 
-You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
+#### Azure Private 5G Core
 
 | Port | ASE interface | Description|
 |--|--|--|
@@ -108,6 +108,30 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
+#### Port requirements for Azure Stack Edge Pro
+
+|Port No.|In/Out|Port Scope|Required|Notes|
+|--|--|--|--|--|
+|UDP 123 (NTP)|Out|WAN|In some cases|This port is only required if you are using a local NTP server or internet-based server for ASE.|
+|UDP 53 (DNS)|Out|WAN|In some cases|Check Configure Domain Name System (DNS) servers section in Prepare to deploy a private mobile network - Azure Private 5G Core | Microsoft Learn.|
+|TCP 5985 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment. Commission an AKS cluster - Azure Private 5G Core | Microsoft Learn|
+|TCP 5986 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment. Commission an AKS cluster - Azure Private 5G Core | Microsoft Learn|
+|UDP 67 (DHCP)|Out|LAN|Yes|
+|TCP 445 (SMB)|In|LAN|No|ASE for AP5GC does not require a local file server.|
+|TCP 2049 (NFS)|In|LAN|No|ASE for AP5GC does not require a local file server.|
+
+#### Port requirements for IoT Edge
+
+|Port No.|In/Out|Port Scope|Required|Notes|
+|--|--|--|--|--|
+|TCP 443 (HTTPS)|Out|WAN|No|This configuration is only required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
+
+#### Port requirements for Kubernetes on Azure Stack Edge
+
+|Port No.|In/Out|Port Scope|Required|Notes|
+|--|--|--|--|--|
+|TCP 31000 (HTTPS)|In|LAN|Yes|Required for Kubernetes dashboard to monitor your device.|
+|TCP 6443 (HTTPS)|In|LAN|Yes|Required for kubectl access|
 
 ## Register resource providers and features
 
@@ -170,7 +194,7 @@ Do the following for each site you want to add to your private mobile network. D
 | 2. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal) |
 | 3. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data networks</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-install.md) |
 | 4. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md) |
-| 5. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. </br></br>**Do not** configure Advanced Networks. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md) |
+| 5. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. </br></br>**Do not** configure Advanced Networks. </br> </br> **Note:** When an ASE is used in an Azure Private 5G Core service, Port 2 is used for management rather than data. The tutorial linked assumes a generic ASE that uses Port 2 for data.| [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)|
 | 6. | Configure a name, DNS name, and (optionally) time settings. </br></br>**Do not** configure an update. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md) |
 | 7. | Configure certificates for your Azure Stack Edge Pro device. After changing the certificates, you may have to reopen the local UI in a new browser window to prevent the old cached certificates from causing problems.| [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md) |
 | 8. | Activate your Azure Stack Edge Pro device. </br></br>**Do not** follow the section to *Deploy Workloads*. | [Tutorial: Activate Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-activate.md) |
