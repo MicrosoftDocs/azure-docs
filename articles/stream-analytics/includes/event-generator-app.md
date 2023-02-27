@@ -22,27 +22,29 @@ Before Stream Analytics can analyze the fraudulent calls data stream, the data n
 Use the following steps to create an event hub and send call data to that event hub:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource** > **Internet of Things** > **Event Hubs**. 
+2. Select **Create a resource** > **Internet of Things** > **Event Hubs**. On the **Event Hubs** page, select **Create**. 
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/find-event-hub-resource.png" alt-text="Screenshot showing the Event Hubs creation page.":::
-3. Fill out the **Create Namespace** pane with the following values:
+    :::image type="content" source="media/event-generator-app/find-event-hub-resource.png" lightbox="media/event-generator-app/find-event-hub-resource.png" alt-text="Screenshot showing the Event Hubs creation page.":::
 
-   |**Setting**  |**Suggested value** |**Description**  |
-   |---------|---------|---------|
-   |Subscription     |   \<Your subscription\>      |   Select an Azure subscription where you want to create the event hub.      |
-   |Resource group     |   MyASADemoRG      |  Select **Create New** and enter a new resource-group name for your account.       |
-   |Namespace name     | asaTutorialEventHubNS        |  A unique name to identify the event hub namespace.       |
-   |Location     |   West US2      |    Location where the event hub namespace can be deployed.     |
-4. Use default options on the remaining settings and select **Review + create**. Then select **Create** to start the deployment.
+    If you don't see **Event Hubs** on the **Internet of Things** page, type **Event Hubs** in the search box and select it from the results. Then, select **Event Hubs** on the **Marketplace** page. 
+3. On the **Create Namespace** page, follow these steps:
+    1. Select an **Azure subscription** where you want to create the event hub. 
+    1. For **Resource group**, select **Create new** and enter a name for the resource group. The Event Hubs namespace is created in this resource group.
+    1. For **Namespace name**, enter a unique name for the Event Hubs namespace. 
+    1. For **Location**, select the region in which you want to create the namespace. 
+    1. For **Pricing tier**, select **Standard**.
+    1. Select **Review + create** at the bottom of the page. 
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-namespace.png" alt-text="Screenshot showing the Create Namespace page.":::
+        :::image type="content" source="media/event-generator-app/create-event-hub-namespace.png" alt-text="Screenshot showing the Create Namespace page.":::
+    1. On the **Review + create** page of the namespace creation wizard, select **Create** at the bottom of the page after reviewing all settings. 
 5. After the namespace is deployed successfully, select **Go to resource** to navigate to the **Event Hubs Namespace** page.
 6. On the **Event Hubs Namespace** page, select **+Event Hub** on the command bar.
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/add-event-hub-button.png" alt-text="Screenshot showing the Add event hub button on the Event Hubs Namespace page.":::    
-1. On the **Create Event Hub** page, enter a **Name** for the event hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
+    :::image type="content" source="media/event-generator-app/add-event-hub-button.png" alt-text="Screenshot showing the Add event hub button on the Event Hubs Namespace page.":::    
+1. On the **Create Event Hub** page, enter a **Name** for the event hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Review + create**. 
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png" alt-text="Screenshot showing the Create event hub page.":::    
+    :::image type="content" source="media/event-generator-app/create-event-hub-portal.png" alt-text="Screenshot showing the Create event hub page.":::    
+1. On the **Review + create** page, select **Create** at the bottom of the page. Then wait for the deployment to succeed.
 
 ### Grant access to the event hub and get a connection string
 
@@ -50,15 +52,14 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 1. On the **Event Hubs Namespace**, select **Event Hubs** under **Entities** on the left menu, and then select the event hub you created.
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/select-event-hub.png" alt-text="Screenshot showing the selection of an event hub on the Event Hubs page."::: 
+    :::image type="content" source="media/event-generator-app/select-event-hub.png" alt-text="Screenshot showing the selection of an event hub on the Event Hubs page."::: 
 1. On the **Event Hubs instance** page, select **Shared access policies** under **Settings** on the left menu, and then select **+ Add** on the command bar. 
-2. Name the policy **MyPolicy**, ensure **Manage** is checked, and then select **Create**.
+2. Name the policy **MyPolicy**, select **Manage**, and then select **Create**.
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-event-hub-access-policy.png" alt-text="Screenshot showing Shared access policies page for an event hub."::: 
+    :::image type="content" source="media/event-generator-app/create-event-hub-access-policy.png" alt-text="Screenshot showing Shared access policies page for an event hub."::: 
 3. Once the policy is created, select the policy name to open the policy. Find the **Connection string–primary key**. Select the **copy** button next to the connection string.
 
-   ![Save the shared access policy connection string](media/stream-analytics-real-time-fraud-detection/save-connection-string.png)
-
+    :::image type="content" source="media/event-generator-app/save-connection-string.png" alt-text="Screenshot showing the primary connection string of the Event Hubs namespace you created.":::
 4. Paste the connection string into a text editor. You need this connection string in the next section.
 
    The connection string looks as follows:
@@ -107,54 +108,36 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 1. To create a Stream Analytics job, navigate to the [Azure portal](https://portal.azure.com/).
 2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select **Create**.
-3. Fill out the **New Stream Analytics job** form with the following values:
-
-   |**Setting**  |**Suggested value**  |**Description**  |
-   |---------|---------|---------|
-   |Subscription    |  \<Your subscription\>   |   Select an Azure subscription where you want to create the job.       |
-   |Resource group   |   MyASADemoRG      |   Select **Use existing** and enter a new resource-group name for your account.      |
-   |Job name     |  ASATutorial       |   A unique name to identify the event hub namespace.      |
-   |Location   |    West US2     |   	Location where the job can be deployed. It's recommended to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.      |
-   |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.    |
-   |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](../stream-analytics-streaming-unit-consumption.md) article.      |
-4. Use default options on the remaining settings, select **Create**, and wait for the deployment to succeed.
-
-   ![Create an Azure Stream Analytics job](media/stream-analytics-real-time-fraud-detection/create-stream-analytics-job.png)
+1. On the **New Stream Analytics job** page, follow these steps:
+    1. For **Subscription**, select the subscription that contains the Event Hubs namespace.
+    1. For **Resource group**, select the resource group you created earlier.
+    1. In the **Instance details** section, For **Name**, enter a unique name for the Stream Analytics job.         
+    1. For **Region**, select the region in which you want to create the Stream Analytics job. We recommend that you place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
+    1. For **Hosting environment**< select **Cloud** if it's not already selected. Stream Analytics jobs can be deployed to cloud or edge. **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.
+    1. For **Streaming units**, select **1**. Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](../stream-analytics-streaming-unit-consumption.md) article.
+    1. Select **Review + create** at the bottom of the page. 
+    
+       ![Create an Azure Stream Analytics job](media/event-generator-app/create-stream-analytics-job.png)
+1. On the **Review + create** page, review settings, and then select  **Create** to create the Stream Analytics job. 
 5. After the job is deployed, select **Go to resource** to navigate to the **Stream Analytics job** page. 
 
 ## Configure job input
 
 The next step is to define an input source for the job to read data using the event hub you created in the previous section.
 
-2. On the **Stream Analytics job** page, in the **Job Topology** section on the left menu, select **Inputs**.
-3. On the **Inputs** page, select **+ Add stream input** and **Event hub**. 
+1. On the **Stream Analytics job** page, in the **Job Topology** section on the left menu, select **Inputs**.
+2. On the **Inputs** page, select **+ Add stream input** and **Event hub**. 
 
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/add-input-event-hub-menu.png" lightbox="media/stream-analytics-real-time-fraud-detection/add-input-event-hub-menu.png" alt-text="Screenshot showing the Input page for a Stream Analytics job."::: 
-4. Fill out the input form with the following values:
+    :::image type="content" source="media/event-generator-app/add-input-event-hub-menu.png" lightbox="media/event-generator-app/add-input-event-hub-menu.png" alt-text="Screenshot showing the Input page for a Stream Analytics job."::: 
+3. On the **Event hub** page, follow these steps: 
+    1. For **Input alias**, enter **CallStream**. Input alias is a friendly name to identify your input. Input alias can contain alphanumeric characters, hyphens, and underscores only and must be 3-63 characters long.
+    1. For **Subscription**, select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.
+    1. For **Event Hubs namespace**, select the Event Hubs namespace you created in the previous section. All the namespaces available in your current subscription are listed in the dropdown.
+    1. For **Event hub name**, select the event hub you created in the previous section. All the event hubs available in the selected namespace are listed in the dropdown.
+    1. For **Event hub consumer group**, keep the **Create new** option selected so taht a new consumer group is created on the event hub. We recommend that you use a distinct consumer group for each Stream Analytics job. If no consumer group is specified, the Stream Analytics job uses the `$Default` consumer group. When a job contains a self-join or has multiple inputs, some inputs later might be read by more than one reader. This situation affects the number of readers in a single consumer group.
+    1. For **Authentication mode**, select **Connection string**. It's easier to test the tutorial with this option.  
+    1. For **Event hub policy name**, select **Use existing**, and then select the policy you created earlier. 
+    1. Select **Save** at the bottom of the page. 
 
-   |**Setting**  |**Suggested value**  |**Description**  |
-   |---------|---------|---------|
-   |Input alias     |  CallStream       |  Provide a friendly name to identify your input. Input alias can contain alphanumeric characters, hyphens, and underscores only and must be 3-63 characters long.       |
-   |Subscription    |   \<Your subscription\>      |   Select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.       |
-   |Event hub namespace    |  asaTutorialEventHub       |  Select the event hub namespace you created in the previous section. All the event hub namespaces available in your current subscription are listed in the dropdown.       |
-   |Event hub name    |   MyEventHub      |  Select the event hub you created in the previous section. All the event hubs available in your current subscription are listed in the dropdown.       |
-   | Authentication mode  |   Connection string      |  In this tutorial, you'll use the connection string to connect to the event hub.   |
-   |Event hub policy name   |  MyPolicy       |  Select **Use existing**, and then select the policy you created earlier in this tutorial.  |
+        :::image type="content" source="media/event-generator-app/configure-stream-analytics-input.png" alt-text="Screenshot showing the Event Hubs configuration page for an input."::: 
 
-4. Use default options on the remaining settings and select **Save**.
-
-    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-input.png" alt-text="Screenshot showing the Event Hubs configuration page for an input."::: 
-
-## Create a consumer group
-
-We recommend that you use a distinct consumer group for each Stream Analytics job. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. When a job contains a self-join or has multiple inputs, some inputs later might be read by more than one reader. This situation affects the number of readers in a single consumer group.
-
-To add a new consumer group:
-
-1. In the Azure portal, go to your Event Hubs instance.
-1. In the left menu, under **Entities**, select **Consumer groups**.
-1. Select **+ Consumer group** on the command bar.
-
-   :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-consumer-group.png" alt-text="Screenshot that shows creating a new consumer group.":::
-1. In **Name**, enter a name for your new consumer group. For example, *MyConsumerGroup*.
-1. Select **Create**.
