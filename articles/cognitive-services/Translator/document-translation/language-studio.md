@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2023
+ms.date: 02/27/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -18,6 +18,8 @@ recommendations: false
 
 ## Prerequisites
 
+If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity** and enabled and a **Storage Blob Data Contributor** role assignment and an Azure Blob storage account, you can skip this section and [**Get started**](#get-started) right away.
+
 > [!NOTE]
 >
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
@@ -25,7 +27,7 @@ recommendations: false
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
-To get started, you need:
+Document Translation in Language Studio requires the following resources:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
@@ -36,11 +38,11 @@ To get started, you need:
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). An active Azure blob storage account is required to use Document Translation in the Language Studio.
 
-* A **source document**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
-
 Now that you've completed the prerequisites, let's start translating documents!
 
 ## Get started
+
+1. At least one **source document** is required. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx).
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
@@ -57,19 +59,54 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. If you're using the Document Translation feature for the first time, start with the **Initial Configuration** to select your **Azure Translator resource** and **Document storage** account:
 
-    :::image type="content" source="media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
+   :::image type="content" source="media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
 1. In the **Basic information** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next**:
 
-    :::image type="content" source="media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
+   :::image type="content" source="media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
 
-1. In the **files and destination** section, select the files for translation. You can either upload the provided source document, upload your own document, or select files from your Azure Blob storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container):
+## File location and destination
 
-    :::image type="content" source="media/language-studio/files-destination-page.png" alt-text="Screenshot of the select files for translation page.":::
+Your source and target files can be located in your local environment or your Azure Blob storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Follow the steps to select where to retrieve your source and store your target files:
 
-1. While still in the **files and destination** section, select the destination for translated files. You can choose to download the translated files or upload to your Azure blob storage [container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Once you have made your choice, select **Next**:
+### Choose source file location
 
-    :::image type="content" source="media/language-studio/target-file-destination.png" alt-text="Screenshot of the select destination for target files page.":::
+#### [**Local**](#tab/local-env)
+
+ 1. In the **files and destination** section, choose the files for translation by selecting the **Upload local files** button.
+
+ 1. Next, select **&#x2795; Add file(s)**, choose the file(s) for translation, then select **Next**:
+
+   :::image type="content" source="media/language-studio/upload-file.png" alt-text="Screenshot of the select files for translation page.":::
+
+#### [**Azure blob storage**](#tab/blob-storage)
+
+1. In the **files and destination** section, choose the files for translation by selecting the **Select for Blob storage** button.
+
+1. Next, choose your *source* **Blob container**, find and select the file(s) for translation, then select **Next**:
+
+   :::image type="content" source="media/language-studio/select-blob-container.png" alt-text="Screenshot of select files from your blob container.":::
+
+---
+
+### Choose target file destination
+
+#### [**Local**](#tab/local-env)
+
+While still in the **files and destination** section, select **Download translated file(s)**. Once you have made your choice, select **Next**:
+
+   :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="Screenshot of the select destination for target files page.":::
+
+#### [**Azure blob storage**](#tab/blob-storage)
+
+1. While still in the **files and destination** section, select **Upload to Azure blob storage**.
+1. Next, choose your *target* **Blob container** and select **Next**:
+
+   :::image type="content" source="media/language-studio/target-file-blob.png" alt-text="{alt-text}":::
+
+---
+
+### Optional selections and review
 
 1. (Optional) You can add **additional options** for custom translation and/or a glossary file. If you don't require these options, just select **Next**.
 
