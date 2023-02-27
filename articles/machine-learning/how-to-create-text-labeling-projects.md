@@ -27,13 +27,13 @@ Azure Machine Learning data labeling serves as a tool to create, manage, and mon
 - Start and stop the project, and control the labeling progress.
 - Review and export the labeled data as an Azure Machine Learning dataset.
 
-> [!Important]
-> Text data must be available in an Azure blob datastore. (If you do not have an existing datastore, you can upload files during project creation.)
+> [!IMPORTANT]
+> Text data must be available in an Azure Blob Storage datastore. If you don't have an existing datastore, you can upload files when you create a project.
 
-Data formats available for text data:
+These data formats are available for text data:
 
-* **.txt**: each file represents one item to be labeled.
-* **.csv** or **.tsv**: each row represents one item presented to the labeler. You decide which columns the labeler can see, in order to label the row.
+* .txt: Each file represents one item to be labeled.
+* .csv or .tsv: Each row represents one item that's presented to the labeler. To label the row, you decide which columns the labeler can see.
 
 ## Prerequisites
 
@@ -43,15 +43,15 @@ Data formats available for text data:
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-1. To create a project, select **Add project**. Give the project an appropriate name. You can't reuse the project name, even if the project is deleted in future.
+1. To create a project, select **Add project**. Enter a name for the project. You can't reuse the project name, even if the project is deleted in the future.
 
-1. Select **Text** to create a text labeling project.
+1. To create a text labeling project, select **Text**.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
-    * Choose **Text Classification Multi-class** for those projects that involve the application of only a *single label*, from a set of labels, to each piece of text.
-    * Choose **Text Classification Multi-label** for projects that involve the application of *one or more* labels, from a set of labels, to each piece of text.
-    * Choose **Text Named Entity Recognition** for projects that involve the application of labels to individual text words, or multiple text words, in each entry.
+    * For projects that involve the application of only a *single label* from a set of labels to each piece of text, select **Text Classification Multi-class**.
+    * For projects that involve the application of *one or more* labels from a set of labels to each piece of text, select **Text Classification Multi-label**.
+    * For projects that involve the application of labels to individual text words or multiple text words in each entry, select **Text Named Entity Recognition**.
 
 1. Select **Next** to continue.
 
@@ -61,28 +61,28 @@ Data formats available for text data:
 
 ## Select or create a dataset
 
-If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. You can also select **Create a dataset** to use an existing Azure datastore, or to upload local files.
+If you already created a dataset that contains your data, select it in the **Select an existing dataset** dropdown. You can also select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
 > [!NOTE]
-> A project cannot contain more than 500,000 files. If your dataset exceeds this file count, only the first 500,000 files will be loaded.
+> A project can't contain more than 500,000 files. If your dataset exceeds this file count, only the first 500,000 files are loaded.
 
 ### Create a dataset from an Azure datastore
 
 In many cases, you can upload local files. However, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) provides a faster and more robust way to transfer a large amount of data. We recommend Storage Explorer as the default way to move files.
 
-To create a dataset from data that you've already stored in Azure Blob storage:
+To create a dataset from data that you've already stored in Azure Blob Storage:
 
-1. Select **+ Create** .
-1. Assign a **Name** to your dataset, and optionally a description.
+1. Select **Create** .
+1. For **Name**, enter a name for your dataset. Optionally, enter a description.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
-    * Select **File** if you're using separate .txt files for each response.
+    * If you're using a *.csv* or *.tsv* file and each row contains a response, select **Tabular**.
+    * If you're using separate *.txt* files for each response, select **File**.
 1. Select **Next**.
-1. Select **From Azure storage**, then **Next**.
-1. Select the datastore, then select **Next**.
-1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
-    * Append "/**" to the path, to include all the files in the subfolders of the selected path.
-    * Append "**/*.*" to include all the data in the current container and its subfolders.
+1. Select **From Azure storage**, and then select **Next**.
+1. Select the datastore, and then select **Next**.
+1. If your data is in a subfolder within Blob Storage, choose **Browse** to select the path.
+    * To include all the files in the subfolders of the selected path, append `/**` to the path.
+    * To include all the data in the current container and its subfolders, append `**/*.*` to the path.
 1. Select **Create**.
 1. Select the data asset you created.
 
@@ -90,21 +90,21 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 
 To directly upload your data:
 
-1. Select **+ Create**.
-1. Assign a **Name** to your dataset, and optionally a description.
+1. Select **Create** .
+1. For **Name**, enter a name for your dataset. Optionally, enter a description.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you use a .csv or .tsv file, where each row contains a response.
-    * Select **File** if you use separate .txt files for each response.
+    * If you're using a *.csv* or *.tsv* file and each row contains a response, select **Tabular**.
+    * If you're using separate *.txt* files for each response, select **File**.
 1. Select **Next**.
-1. Select **From local files**, then select **Next**.
-1. (Optional) Select a datastore; the default uploads to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **From local files**, and then select **Next**.
+1. (Optional) Select a datastore. The default uploads to the default blob store (*workspaceblobstore*) of your Machine Learning workspace.
 1. Select **Next**.
-1. Select **Upload > Upload files** or **Upload > Upload folder** to select the local files or folder(s) to upload.
-1. Find your files or folder in the browser window, then select **Open**.
-1. Continue to use **Upload** until you specify all of your files/folders.
-1. Check the **Overwrite if already exists** box if you want. Verify the list of files/folders.
+1. Select **Upload** > **Upload files** or **Upload** > **Upload folder** to select the local files or folders to upload.
+1. Find your files or folder in the browser window, and then select **Open**.
+1. Continue to select **Upload** until you specify all of your files and folders.
+1. Optionally select the **Overwrite if already exists** check box. Verify the list of files and folders.
 1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings, or **Create** to create the dataset.
+1. Confirm the details. Select **Back** to modify the settings, or select **Create** to create the dataset.
 1. Finally, select the data asset you created.
 
 ## Configure incremental refresh
@@ -112,7 +112,7 @@ To directly upload your data:
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
-> Projects that use tabular (.csv or .tsv) dataset input have incremental refresh available to them. However, this adds only new tabular files. The refresh will not recognize changes to existing tabular files.
+> Projects that use tabular (*.csv* or *.tsv*) dataset input have incremental refresh available to them. However, this only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
 
 
 ## Specify label categories
@@ -123,8 +123,8 @@ To directly upload your data:
 
 [!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
 
->[!NOTE]
-> Labelers can select the first 9 labels with number keys 1-9.
+> [!NOTE]
+> Labelers can select the first nine labels by using number keys 1 through 9.
 
 ## Quality control (preview)
 
@@ -132,27 +132,28 @@ To directly upload your data:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, the **ML-assisted labeling** page can trigger automatic machine learning models. ML-assisted labeling can handle both file (.txt) and tabular (.csv) text data inputs.
-To use **ML-assisted labeling**:
+To accelerate labeling tasks, the **ML-assisted labeling** page can trigger automatic machine learning models. ML-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
 
-* Select **Enable ML assisted labeling**.
-* Select the **Dataset language** for the project. This list shows all languages that the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) supports.
-* Specify a compute target to use. If you don't have a compute target in your workspace, this creates a compute cluster, and adds that compute cluster to your workspace. The cluster is created with a minimum of zero nodes, and it costs nothing when not in use.
+To use ML-assisted labeling:
 
-### ML-assisted labeling - more information
+1. Select **Enable ML assisted labeling**.
+1. Select the **Dataset language** for the project. This list shows all languages that the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) supports.
+1. Specify a compute target to use. If you don't have a compute target in your workspace, this step creates a compute cluster and adds it to your workspace. The cluster is created with a minimum of zero nodes, and it costs nothing when not in use.
 
-At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model lands in that class.
+### More information
 
-To train the text DNN model that ML-assist uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before applying this limit. This practical limit allows for the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit only pertains to what the model internally uses during the training process.
+At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80 percent of your items are of a single class, approximately 80 percent of the data that's used to train the model lands in that class.
 
-The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. The variance depends on many factors, including the number of label classes, and the label distribution.
+To train the text DNN model that ML-assist uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
+
+The number of labeled items that's required to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. The variance depends on many factors, including the number of label classes and the label distribution.
 
 When you use consensus labeling, the consensus label is used for training.
 
-Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+Because the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> ML assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
+> ML-assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
 
 ### Pre-labeling
 
