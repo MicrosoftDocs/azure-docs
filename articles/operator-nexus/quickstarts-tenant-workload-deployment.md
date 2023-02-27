@@ -19,6 +19,10 @@ These examples don't specify all required parameters and, thus, shouldn't be use
 
 You should complete the prerequisites specified [here](./quickstarts-tenant-workload-prerequisites.md).
 
+**Capacity Note:**
+
+Say, each server has two CPU chipsets and each CPU chip has 28 cores. Then with hyperthreading enabled (default), the CPU chip supports 56 vCPUs. 10 vCPUs are reserved for infrastructure (OS, agents, emulator thread, etc.) with the remaining 46 vCPUs available for your workloads (maximum VM size).
+
 ## Section V: how to create VMs for deploying VNF workloads
 
 Step-V1: [Create isolation-domains for VMs](#step-v1-create-isolation-domain-for-vm-workloads)
@@ -234,9 +238,6 @@ It will take a few minutes for the VM to be created and then Arc connected, so s
 ```azurecli
 az ssh vm -n _VMNAME_ -g _RESOURCE_GROUP_ --subscription _SUBSCRIPTION_ --private-key _SSH_PRIVATE_KEY_ --local-user _ADMINUSER_
 ```
-
-**Capacity Note:**
-In the BOM 1.5 Dell servers, each server has two CPU chipsets. Each CPU chip has 28 cores and, thus, with hyperthreading enabled (default), the CPU chip supports 56 vCPUs. 8 vCPUs are reserved for infrastructure (OS, agents) and the remaining 48 are available for tenant workloads.
 
 Here's some information you'll need.
 
