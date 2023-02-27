@@ -91,6 +91,11 @@ sections:
           
           ![Customer unsubscribes in Microsoft's online store](media/saas-metering-service-integration-flow-e.png)
 
+      - question: |
+          Can I reuse the App Registration information across all SaaS offers in different publisher accounts?
+        answer: |
+          In mulitple publisher account scenario - AppId cannot be shared across different publisher accounts, which means an App registration information [AppId] used in SaaS offers within one publisher account cannot be re-used within SaaS Offers in different/other publisher accounts.
+
 additionalContent: |
 
   ## Next steps
