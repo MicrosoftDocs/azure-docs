@@ -1,7 +1,7 @@
 ---
 title: Set up text labeling project
 titleSuffix: Azure Machine Learning
-description: Create a project to label text using the data labeling tool. Specify either a single label or multiple labels to apply to each piece of text.
+description: Create a project to label text by using the data labeling tool. Specify either a single label or multiple labels to apply to each piece of text.
 author: kvijaykannan 
 ms.author: vkann 
 ms.reviewer: sgilley
@@ -14,13 +14,13 @@ ms.custom: data4ml, ignite-fall-2021
 
 # Create a text labeling project and export labels
 
-In Azure Machine Learning, learn how to create and run data labeling projects to label text data. Specify either a single label or multiple labels, to apply to each text item.
+In Azure Machine Learning, learn how to create and run data labeling projects to label text data. Specify either a single label or multiple labels to apply to each text item.
 
 You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
 
 ## Text labeling capabilities
 
-Azure Machine Learning data labeling serves as a tool to create, manage, and monitor data labeling projects:
+Azure Machine Learning data labeling serves as a tool to create, manage, and monitor data labeling projects. You can:
 
 - Coordinate data, labels, and team members to efficiently manage labeling tasks.
 - Track progress and maintain the queue of incomplete labeling tasks.
@@ -32,8 +32,8 @@ Azure Machine Learning data labeling serves as a tool to create, manage, and mon
 
 These data formats are available for text data:
 
-* .txt: Each file represents one item to be labeled.
-* .csv or .tsv: Each row represents one item that's presented to the labeler. To label the row, you decide which columns the labeler can see.
+* *.txt*: Each file represents one item to be labeled.
+* *.csv* or *.tsv*: Each row represents one item that's presented to the labeler. To label the row, you decide which columns the labeler can see.
 
 ## Prerequisites
 
@@ -114,7 +114,6 @@ To directly upload your data:
 > [!NOTE]
 > Projects that use tabular (*.csv* or *.tsv*) dataset input have incremental refresh available to them. However, this only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
 
-
 ## Specify label categories
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
@@ -132,7 +131,7 @@ To directly upload your data:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, the **ML-assisted labeling** page can trigger automatic machine learning models. ML-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
+To accelerate labeling tasks, the **ML-assisted labeling** page can trigger automatic machine learning models. Machine language (ML)-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
 
 To use ML-assisted labeling:
 
@@ -142,7 +141,7 @@ To use ML-assisted labeling:
 
 ### More information
 
-At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80 percent of your items are of a single class, approximately 80 percent of the data that's used to train the model lands in that class.
+At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data that's used to train the model lands in that class.
 
 To train the text DNN model that ML-assist uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
 
@@ -153,13 +152,13 @@ When you use consensus labeling, the consensus label is used for training.
 Because the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> ML-assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
+> ML-assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML-assisted data labelling. The non-default storage account can be secured behind the virtual network.
 
 ### Pre-labeling
 
-After submission of enough labels for training, the trained model is used to predict tags. The labeler now sees pages that show predicted labels already present on each item. The task then involves review of these predictions, and correction of any mis-labeled items, before page submission. 
+After you submit enough labels for training, the trained model is used to predict tags. The labeler now sees pages that show predicted labels already present on each item. The task then involves reviewing these predictions and correcting any mislabeled items before page submission. 
 
-Once you train the machine learning model on your manually labeled data, the model is evaluated on a test set of manually labeled items, to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold, past which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Pre-labeling uses items with predictions at a higher confidence level compared to this threshold.
+After you train the machine learning model on your manually labeled data, the model is evaluated on a test set of manually labeled items. The evaluation helps determine the model's accuracy at different confidence thresholds. The evaluation process sets a confidence threshold beyond which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions that are more confident than the threshold are used for pre-labeling.
 
 ## Initialize the text labeling project
 
@@ -173,50 +172,55 @@ Once you train the machine learning model on your manually labeled data, the mod
 
 The **Dashboard** tab shows the labeling task progress.
 
-:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
+:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Screenshot that shows the text labeling dashboard.":::
 
-The progress chart shows how many items have been labeled, skipped, need review, or not yet done. Hover over the chart to see the number of items in each section.
+The progress charts show how many items have been labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
 
-Under the chart is a distribution of the labels for completed tasks. In some project types, an item can have multiple labels. Therefore, the total number of labels can exceed the total number items.
+A distribution of the labels for completed tasks is shown below the chart. In some project types, an item can have multiple labels. The total number of labels can exceed the total number items.
 
-You also see a distribution of labelers, and how many items they've labeled.
+A distribution of labelers and how many items they've labeled also are shown.
 
-Finally, the middle section shows a table with a queue of unassigned tasks. When ML assisted labeling is off, this section shows the number of manual tasks awaiting assignment.
+The middle section shows a table that has a queue of unassigned tasks. When ML-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
 
-Additionally, when ML assisted labeling is enabled, scroll down to see the ML assisted labeling status. The Jobs sections give links for each of the machine learning runs.
+When ML-assisted labeling is on, this section also shows:
+
+* Tasks that contain clustered items in the queue.
+* Tasks that contain pre-labeled items in the queue.
+
+Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
 
 ### Data
 
-On the **Data** tab, you can see your dataset and the labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, to remove the labels and return the data to the unlabeled queue.
+On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
 
-If your project uses consensus labeling, you should focus on those images that have no consensus:
+If your project uses consensus labeling, you should review items that have no consensus:
 
 1. Select the **Data** tab.
-1. On the left, select **Review labels**.
-1. On the top right, select **All filters**.
+1. On the left menu, select  **Review labels**.
+1. On the top-right corner, select **All filters**.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to focus on consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
-1. Under **Labeled datapoints**, select **Consensus labels to review**, to show only those images where the labelers didn't come to a consensus.
+1. Under **Labeled datapoints**, select **Consensus labels in need of review** to show only items for which the labelers didn't come to a consensus.
 
-    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels that need review.":::
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
 
-1. For each item that needs review, select the **Consensus label** dropdown, to view the conflicting labels.
+1. For each item to review, select the **Consensus label** dropdown to view the conflicting labels.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
 
-1. Although you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
+1. Although you can see an item's labels when you select the item, to update or reject the labels, you must use the **Consensus label (preview)** option.
 
 ### Details tab
 
-View and change details of your project. In this tab you can:
+View and change details of your project. On this tab, you can:
 
-* View project details and input datasets
-* Enable or disable **incremental refresh at regular intervals**, or request an immediate refresh.
-* View details of the storage container used to store labeled outputs in your project
-* Add labels to your project
-* Edit instructions you give to your labels
-* Change settings for ML assisted labeling, and kick off a labeling task
+* View project details and input datasets.
+* Set or clear the **Enable incremental refresh at regular intervals** option, or request an immediate refresh.
+* View details of the storage container that's used to store labeled outputs in your project.
+* Add labels to your project.
+* Edit instructions you give to your labels.
+* Change settings for ML-assisted labeling and kick off a labeling task.
 
 ### Access for labelers
 
@@ -226,28 +230,29 @@ View and change details of your project. In this tab you can:
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
-## Start an ML assisted labeling task
+## Start an ML-assisted labeling task
 
 [!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
 
-Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time.
+To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-For all project types except **Text Named Entity Recognition**, you can export:
-* A CSV file. The Azure Machine Learning workspace creates the CSV file, in a folder inside *Labeling/export/csv*.
+For all project types except **Text Named Entity Recognition**, you can export label data as:
+
+* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 
+For **Text Named Entity Recognition** projects, you can export label data as:
 
-For **Text Named Entity Recognition** projects, you can export:
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top right appears. Select that notification to see a link to the file.
+* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top-right corner appears. Select that notification to see a link to the file.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
+Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
 
-![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+:::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
 ## Troubleshooting
 

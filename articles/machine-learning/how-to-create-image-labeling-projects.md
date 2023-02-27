@@ -1,7 +1,7 @@
 ---
 title: Set up an image labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create a project to label images by using the data labeling tool. Enable machine learning-assisted labeling or human-in-the-loop labeling to aid with the task.
+description: Learn how to create a project to label images by using the data labeling tool. Enable machine learning-assisted labeling or human-in-the-loop labeling to help with the task.
 author: kvijaykannan 
 ms.author: vkann 
 ms.reviewer: sgilley
@@ -14,7 +14,7 @@ ms.custom: data4ml, ignite-fall-2021, ignite-2022
 
 # Create an image labeling project and export labels
 
-Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
+Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine learning (ML)-assisted data labeling or human-in-the-loop labeling to help with the task.
 
 Set up labels for classification, object detection (bounding box), or instance segmentation (polygon).
 
@@ -34,16 +34,16 @@ Azure Machine Learning data labeling is a tool you can use to create, manage, an
 
 Image data can be any file that has one of these file extensions:
 
-- .jpg
-- .jpeg
-- .png
-- .jpe
-- .jfif
-- .bmp
-- .tif
-- .tiff
-- .dcm
-- .dicom
+- *.jpg*
+- *.jpeg*
+- *.png*
+- *.jpe*
+- *.jfif*
+- *.bmp*
+- *.tif*
+- *.tiff*
+- *.dcm*
+- *.dicom*
 
 Each file is an item to be labeled.
 
@@ -61,8 +61,8 @@ Each file is an item to be labeled.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Screenshot that shows creating a labeling project to manage labeling.":::
 
-    * For projects that involve the application of only a *single label* to an image from a set of labels, select **Image Classification Multi-class**.
-    * For projects that involve the application of *one or more* labels to an image from a set of labels, select **Image Classification Multi-label**. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
+    * For projects that involve the application of only a *single label* from a set of labels to an image, select **Image Classification Multi-class**.
+    * For projects that involve the application of *one or more* labels from a set of labels to an image, select **Image Classification Multi-label**. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
     * For projects that involve the assignment of a label to each object within an image and a bounding box, select **Object Identification (Bounding Box)**.
     * For projects that involve both the assignment of a label to each object within an image and a drawn polygon around each object, select **Instance Segmentation (Polygon)**.
 
@@ -111,7 +111,7 @@ To directly upload your data:
 1. Select **Upload** > **Upload files** or **Upload** > **Upload folder** to select the local files or folders to upload.
 1. In the browser window, find your files or folders and then select **Open**.
 1. Continue to select **Upload** until you specify all your files and folders.
-1. You can choose to select the **Overwrite if already exists** check box. Verify the list of files and folders.
+1. Optionally, you can choose to select the **Overwrite if already exists** check box. Verify the list of files and folders.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or select **Create** to create the dataset.
 1. Finally, select the data asset you created.
@@ -149,20 +149,20 @@ For bounding boxes, important questions include:
 > [!NOTE]
 > **Instance Segmentation** projects can't use consensus labeling.
 
-## Use ML assisted data labeling
+## Use ML-assisted data labeling
 
-To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.
+To accelerate labeling tasks, on the **ML-assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases that are present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data used to train the model lands in that class.
 
 To enable assisted labeling, select **Enable ML assisted labeling**, and specify a GPU. If you don't have a GPU in your workspace, a GPU cluster is created for you and added to your workspace. The cluster is created with a minimum of zero nodes, which means it costs nothing when not in use.
 
-ML assisted labeling consists of two phases:
+ML-assisted labeling consists of two phases:
 
 * Clustering
 * Pre-labeling
 
-The labeled data item count that's required to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. For some projects, it's sometimes possible to see pre-label or cluster tasks after 300 items have been manually labeled. ML assisted labeling uses a technique called *transfer learning*. Transfer learning uses a pre-trained model to jump-start the training process. If the classes of your dataset resemble the classes in the pre-trained model, pre-labels might become available after only a few hundred manually labeled items. If your dataset significantly differs from the data used to pre-train the model, the process might take more time.
+The labeled data item count that's required to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. For some projects, it's sometimes possible to see pre-label or cluster tasks after 300 items have been manually labeled. ML-assisted labeling uses a technique called *transfer learning*. Transfer learning uses a pre-trained model to jump-start the training process. If the classes of your dataset resemble the classes in the pre-trained model, pre-labels might become available after only a few hundred manually labeled items. If your dataset significantly differs from the data used to pre-train the model, the process might take more time.
 
 When you use consensus labeling, the consensus label is used for training.
 
@@ -181,7 +181,7 @@ The clustering phase doesn't appear for object detection models or text classifi
 
 ### Pre-labeling
 
-After you submit enough labels, either a classification model predicts tags, or an object detection model predicts bounding boxes. The labeler now sees pages that contain predicted labels already present on each item. For object detection, predicted boxes are also shown. The task involves reviewing these predictions and correcting any incorrectly labeled images before page submission.
+After you submit enough labels for training, either a classification model predicts tags or an object detection model predicts bounding boxes. The labeler now sees pages that contain predicted labels already present on each item. For object detection, predicted boxes are also shown. The task involves reviewing these predictions and correcting any incorrectly labeled images before page submission.
 
 After a machine learning model is trained on your manually labeled data, the model is evaluated on a test set of manually labeled items. The evaluation helps determine the model's accuracy at different confidence thresholds. The evaluation process sets a confidence threshold beyond which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions that are more confident than the threshold are used for pre-labeling.
 
@@ -197,7 +197,7 @@ After a machine learning model is trained on your manually labeled data, the mod
 
 The **Dashboard** tab shows the progress of the labeling task.
 
-:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
+:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Screenshot that shows the data labeling dashboard.":::
 
 The progress charts show how many items have been labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
 
@@ -205,9 +205,9 @@ A distribution of the labels for completed tasks is shown below the chart. In so
 
 A distribution of labelers and how many items they've labeled also are shown.
 
-The middle section shows a table that has a queue of unassigned tasks. When ML assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
+The middle section shows a table that has a queue of unassigned tasks. When ML-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
 
-When ML assisted labeling is on, this section also shows:
+When ML-assisted labeling is on, this section also shows:
 
 * Tasks that contain clustered items in the queue.
 * Tasks that contain pre-labeled items in the queue.
@@ -218,7 +218,6 @@ Additionally, when ML assisted labeling is enabled, you can scroll down to see t
 * **Validation**: Determines whether item pre-labeling uses the prediction of this model.
 * **Inference**: Prediction run for new items.
 * **Featurization**: Clusters items (only for image classification projects).
-
 
 ### Data tab
 
@@ -251,7 +250,7 @@ View and change details of your project. On this tab, you can:
 * View details of the storage container that's used to store labeled outputs in your project.
 * Add labels to your project.
 * Edit instructions you give to your labels.
-* Change settings for ML assisted labeling and kick off a labeling task.
+* Change settings for ML-assisted labeling and kick off a labeling task.
 
 ### Access for labelers
 
@@ -261,7 +260,7 @@ View and change details of your project. On this tab, you can:
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
-## Start an ML assisted labeling task
+## Start an ML-assisted labeling task
 
 [!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
 
@@ -271,8 +270,8 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 You can export an image label as:
 
-- A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
-- An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+* A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
+* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 
 Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
 
