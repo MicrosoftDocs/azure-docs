@@ -13,17 +13,17 @@ ms.author: kesheth
 
 Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. The autoscaling feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time.
 
-Auto scaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for your FHIR service on demand.
+Autoscaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for your FHIR service on demand.
 
-The autoscale feature adjusts computing resources automatically to optimize service scalability. There is no action required from customers.
-The autoscale feature for FHIR service is available in all regions where the FHIR service is supported.
+The autoscaling feature adjusts computing resources automatically to optimize service scalability. There is no action required from customers.
 
+The autoscaling feature for FHIR service is available in all regions where the FHIR service is supported.
 > [!NOTE]
-> Autoscale feature is subject to the resources availablitity in Azure regions.
+> Autoscaling feature is subject to the resources availability in Azure regions.
 
 ## Autoscaling Policies
 
-Auto scaling policies defined for FHIR service consists of two parts:
+Autoscaling policies defined for FHIR service consists of two parts:
 
 * Scaling Trigger
 
@@ -35,19 +35,24 @@ Auto scaling policies defined for FHIR service consists of two parts:
     There are three factors that determine when the service will be scaled:
 
   * Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
+  
   * Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
   
-* Scaling interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is set to 1 minute.
+* Scaling interval
+    
+    Scaling Interval is used determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If 
+    scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again. Scaling interval is 
+    set to 1 minute.
 
 ## FAQ
 
-### What is the cost of the FHIR service autoscale?  
+### What is the cost to enable autoscaling for FHIR service?  
 
-The autoscale feature incurs no extra costs to customers based on the new API billing model.
+The autoscaling feature incurs no extra costs to customers based on the new API billing model.
 
 ## Next steps
 
-In this article, you've learned about the FHIR service autoscale feature in Azure Health Data Services, for more information about the FHIR service supported features, see
+In this article, you've learned about the FHIR service autoscaling feature in Azure Health Data Services, for more information about the FHIR service supported features, see
 
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-features-supported.md)
