@@ -5,11 +5,16 @@ services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/15/2023
+ms.date: 02/15/2023
 ms.author: kpunjabi
 ---
 
 ## Connect Azure Communication Services with Azure Cognitive Services
+
+>[!IMPORTANT]
+>Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
+>Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
+
 
 Azure Communication Services Call Automation APIs provide developers the ability to steer and control the ACS Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can leverage simple AI powered APIs which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, leverage sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure Cognitive Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
 
@@ -76,3 +81,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 10.  Click Save 
 
 Your Communication Service has now been linked to your Azure Cognitive Service resource. 
+
+## Next Steps
+- Learn about [playing audio](../../concepts/call-automation/play-ai-action.md) to callers using Text-to-Speech.
+- Learn about [gathering user input](../../concepts/call-automation/recognize-ai-action.md) with Speech-to-Text.
