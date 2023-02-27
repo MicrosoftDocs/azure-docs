@@ -213,7 +213,7 @@ To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi an
 
 1. On the STM DevKit MCU, locate the Micro USB port (1), and the black **Reset** button (2). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-u585i-iot-hub/stm-b-u585i.png" alt-text="Photo that that shows key components on the STM DevKit board.":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-u585i-iot-hub/stm-b-u585i.png" alt-text="Photo that shows key components on the STM DevKit board.":::
 
 1. Connect the Micro USB cable to the Micro USB port on the STM DevKit, and then connect it to your computer.
 
