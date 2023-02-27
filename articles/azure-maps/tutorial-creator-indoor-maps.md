@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -43,7 +43,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 >[!IMPORTANT]
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
-> * In the URL examples in this article you will need to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+> * In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Upload a Drawing package
 
@@ -166,7 +166,7 @@ To convert a drawing package:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Conversion Service](/rest/api/maps/v2/conversion/convert) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the uploaded package):
+5. Enter the following URL to the [Conversion Service](/rest/api/maps/v2/conversion/convert) (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0

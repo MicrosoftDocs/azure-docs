@@ -125,9 +125,9 @@ Following are best practices for using App Service.
 [Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) is an example of a PaaS. Like Azure App Service, this technology is designed to support applications that are scalable, reliable, and inexpensive to operate. In the same way that App Service is hosted on virtual machines (VMs), so too is Azure Cloud Services. However, you have more control over the VMs. You can install your own software on VMs that use Azure Cloud Services, and you can access them remotely.
 
 ## Install a web application firewall
-Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
+Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications.
 
-[Web application firewall (WAF)](../../web-application-firewall/afds/afds-overview.md) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [Open Web Application Security Project (OWASP) core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
+[Web Application Firewall (WAF)](../../web-application-firewall/overview.md) provides centralized protection of your web applications from common exploits and vulnerabilities.
 
 ## DDoS protection
 
@@ -154,7 +154,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - [Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Azure Service Bus
-- Web Application Firewalls
+- [Web Application Firewall](../../web-application-firewall/overview.md)
 
 See [Develop secure applications on Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 

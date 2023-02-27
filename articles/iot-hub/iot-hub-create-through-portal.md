@@ -36,7 +36,7 @@ For a complete list of options to update an IoT hub, see the [**az iot hub updat
 
 You can also view or modify the list of shared access policies by choosing **Shared access policies** in the **Security settings** section. These policies define the permissions for devices and services to connect to IoT Hub.
 
-Select **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following screenshot:
+Select **Add shared access policy** to open the **Add shared access policy** page.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following screenshot:
 
 :::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screen capture showing how to add a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
 
@@ -54,64 +54,7 @@ For more detailed information about the access granted by specific permissions, 
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Message routing for an IoT hub
-
-Select **Message routing** under **Hub settings** to see the **Message routing** pane for your IoT hub, where you define routes, custom endpoints, and message enrichments. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage.
-
-### Routes
-
-**Routes** is the first tab on the **Message routing** pane. To add a new route, select **+ Add**. 
-
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-message-routing.png" alt-text="Screen capture showing the 'Message Routing' pane with the '+ Add' button." lightbox="./media/iot-hub-create-through-portal/iot-hub-message-routing.png":::
-
-You see the following screen, which allows you to add a route to your IoT hub.
-
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png" alt-text="Screen capture showing how to add an endpoint to a new route." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png":::
-
-Name your route. The route name must be unique within the list of routes for that hub.
-
-For **Endpoint**, select one from the dropdown list or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, choose **+ Add endpoint** next to the **Endpoint** dropdown and select **Storage**. 
-
-The following screen shows where the storage account and container are specified.
-
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png" alt-text="Screen capture showing how to add a storage endpoint for a route." lightbox="./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png":::
-
-Add an endpoint name in **Endpoint name** if needed. Select **Pick a container** to select the storage account and container. Choose a storage account and a container, then select **Select** to return to the **Add a storage endpoint** pane. Use the defaults for the rest of the fields and **Create** to create the endpoint for the storage account and add it to the routing rules. 
-
-You return to the **Add a route** page. For **Data source**, select Device Telemetry Messages.
-
-Next, add a routing query. In this example, the messages that have an application property called `level` with a value equal to `critical` are routed to the storage account.
-
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-route.png" alt-text="Screen capture showing how to save a new route." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-route.png":::
-
-Select **Save** to save the routing rule. You return to the **Message routing** pane, and your new routing rule is displayed.
-
-### Custom endpoints
-
-If you have a custom endpoint to add, select the **Custom endpoints** tab. You see custom endpoints if they were previously created. From here, you can add new endpoints or delete existing endpoints.
-
-> [!NOTE]
-> If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, select the **Custom endpoints** tab, select the endpoint you want to delete, then choose **Delete**.
-
-You can read more about custom endpoints in [IoT hub endpoints](iot-hub-devguide-endpoints.md).
-
-You can define up to 10 custom endpoints for an IoT hub.
-
-To see a full example of how to use custom endpoints with routing, see [Message routing with IoT Hub](tutorial-routing.md).
-
-## Find a specific IoT hub
-
-Here a few ways to find a specific IoT hub in your subscription:
-
-1. From the Azure homepage, select the **IoT Hub** icon. Find and select your IoT hub from the list.
-
-    :::image type="content" source="./media/iot-hub-create-through-portal/select-iot-hub.png" alt-text="Screen capture showing how to find your IoT hub.":::
-
-1. If you know the resource group to which the IoT hub belongs, choose **Resource groups**, then select the resource group from the list. The resource group screen shows all of the resources in that group, including IoT hubs. Select your hub.
-
-2. Choose **All resources**. On the **All resources** pane, there's a filter that defaults to `Type equals **all**`. Select the filter, uncheck `Select all`. Find `IoT Hub` in the list of resource types for the filter and check it. Select **Apply** to apply the new filter, and the entries are filtered to show only your IoT hubs.
-
-## Delete the IoT hub
+## Delete an IoT hub
 
 To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
 
@@ -121,5 +64,5 @@ To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delet
 
 Learn more about managing Azure IoT Hub:
 
-* [Message routing with IoT Hub](tutorial-routing.md)
+* [Message routing with IoT Hub](how-to-routing-portal.md)
 * [Monitor your IoT hub](monitor-iot-hub.md)

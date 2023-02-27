@@ -21,7 +21,7 @@ Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](
 Application-Insights|[Application Insights for Azure VMs and Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)|Easily monitor your IIS-hosted .NET Framework and .NET Core applications running on Azure VMs and Virtual Machine Scale Sets using a new App Insights Extension.|
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|We've added embedded links to assist with looking up type definitions. (Dependency, Event, Exception, PageView, Request, Trace)|
 Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|Instructions are now available on how to set the http proxy using an environment variable, which overrides the JSON configuration. We've also provided a sample to configure connection string at runtime.|
-Application-Insights|[Application Insights for Java 2.x](app/deprecated-java-2x.md)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement.|
+Application-Insights|[Application Insights for Java 2.x](app/deprecated-java-2x.md)|The Java 2.x retirement notice is available at https://azure.microsoft.com/updates/application-insights-java-2x-retirement .|
 Autoscale|[Diagnostic settings in Autoscale](autoscale/autoscale-diagnostics.md)|Updated and expanded content|
 Autoscale|[Overview of common autoscale patterns](autoscale/autoscale-common-scale-patterns.md)|Clarification of weekend profiles|
 Autoscale|[Autoscale with multiple profiles](autoscale/autoscale-multiprofile.md)|Added clarifications for profile end times|
@@ -182,9 +182,9 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |---|---|
-|[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](./app/java-in-process-agent.md)|New OpenTelemetry `@WithSpan` annotation guidance.|
+|[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](./app/opentelemetry-enable.md?tabs=java)|New OpenTelemetry `@WithSpan` annotation guidance.|
 |[Capture Application Insights custom metrics with .NET and .NET Core](./app/tutorial-asp-net-custom-metrics.md)|Tutorial steps and images have been updated.|
-|[Configuration options - Azure Monitor Application Insights for Java](./app/java-in-process-agent.md)|Connection string guidance updated.|
+|[Configuration options - Azure Monitor Application Insights for Java](./app/opentelemetry-enable.md)|Connection string guidance updated.|
 |[Enable Application Insights for ASP.NET Core applications](./app/tutorial-asp-net-core.md)|Tutorial steps and images have been updated.|
 |[Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](./app/opentelemetry-enable.md)|Our product feedback link at the bottom of each document has been fixed.|
 |[Filter and preprocess telemetry in the Application Insights SDK](./app/api-filtering-sampling.md)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
@@ -323,14 +323,14 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |:---|:---|
-|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table.
+|[Azure Monitor Application Insights Java](app/opentelemetry-enable.md?tabs=java)|OpenTelemetry-based auto-instrumentation for Java applications has an updated Supported Custom Telemetry table.
 |[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)|Clarification has been added that valueCount and itemCount have a minimum value of 1.
 |[Telemetry sampling in Azure Application Insights](app/sampling.md)|Sampling documentation has been updated to warn of the potential impact on alerting accuracy.
 |[Azure Monitor Application Insights Java (redirect to OpenTelemetry)](app/java-in-process-agent-redirect.md)|Java Auto-Instrumentation now redirects to OpenTelemetry documentation.
 |[Azure Application Insights for ASP.NET Core applications](app/asp-net-core.md)|Updated .NET Core FAQ
 |[Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md)|We've linked out to Microsoft Insights components for more information on Properties.
 |[Application Insights SDK support guidance](app/sdk-support-guidance.md)|SDK support guidance has been updated and clarified.
-|[Azure Monitor Application Insights Java](app/java-in-process-agent.md)|Example code has been updated.
+|[Azure Monitor Application Insights Java](app/opentelemetry-enable.md?tabs=java)|Example code has been updated.
 |[IP addresses used by Azure Monitor](app/ip-addresses.md)|The IP/FQDN table has been updated.
 |[Continuous export of telemetry from Application Insights](app/export-telemetry.md)|The continuous export notice has been updated and clarified.
 |[Set up availability alerts with Application Insights](app/availability-alerts.md)|Custom Alert Rule and Alert Frequency sections have been added.
@@ -390,7 +390,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 | [Application Insights logging with .NET](app/ilogger.md) | Connection string sample code has been added.|
 | [Application Insights SDK support guidance](app/sdk-support-guidance.md) | Updated SDK supportability guidance. |
 | [Azure AD authentication for Application Insights](app/azure-ad-authentication.md) | Azure AD authenticated telemetry ingestion has been reached general availability.|
-| [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md).|
+| [Azure Application Insights for JavaScript web apps](app/javascript.md) | Our Java on-premises page has been retired and redirected to [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/opentelemetry-enable.md?tabs=java).|
 | [Azure Application Insights Telemetry Data Model - Telemetry Context](app/data-model-context.md) | Clarified that Anonymous User ID is simply User.Id for easy selection in Intellisense.|
 | [Continuous export of telemetry from Application Insights](app/export-telemetry.md) | On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.|
 | [Dependency Tracking in Azure Application Insights](app/asp-net-dependencies.md) | The Event Hubs Client SDK and ServiceBus Client SDK information has been updated.|

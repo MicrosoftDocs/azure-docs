@@ -2,7 +2,6 @@
 title: Manage Azure RBAC in Kubernetes From Azure
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: jpalma
