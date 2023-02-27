@@ -9,6 +9,7 @@ ms.date: 02/28/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 # Use CORS for resource sharing in Azure Data Manager for Energy Preview
+This document is to help you as user of Azure Data Manager for Energy preview to set up CORS policies.
 
 ## What is CORS?
 
@@ -20,11 +21,11 @@ You can set CORS rules for each Azure Data Manager for Energy Preview instance. 
 
 1.	Create an **Azure Data Manager for Energy Preview** instance.
 2.	Select the **Resource Sharing(CORS)** tab.
-   [![Screenshot of Resource Sharing(CORS) tab while creating Microsoft Energy Data Services](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
+   [![Screenshot of Resource Sharing(CORS) tab while creating Microsoft Energy Data Services.](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
  
 3.	In the Resource Sharing(CORS) tab, select **Allowed Origins**. 
 4.	There can be upto 5 **Allowed Origins** added for a given instance.
-      [![Screenshot of 1 allowed origin selected](media/how-to-enable-cors/enable-cors-2.png)](media/how-to-enable-cors/enable-cors-2.png#lightbox)
+      [![Screenshot of 1 allowed origin selected.](media/how-to-enable-cors/enable-cors-2.png)](media/how-to-enable-cors/enable-cors-2.png#lightbox)
 5. If you explicitly want to have ***(Wildcard)**, then in the allowed origin * can be added.
 6.	If no setting is enabled on CORS page it's defaulted to Wildcard*, allow all. 
 7. The other values of CORS policy like  **Allowed Methods**, **Allowed Headers**, **Exposed Headers**, **Max age in seconds** are set with default values displayed on the screen.
@@ -33,13 +34,12 @@ You can set CORS rules for each Azure Data Manager for Energy Preview instance. 
 9.	An **Azure Data Manager for Energy Preview** instance is created with CORS policy.
 10.	Next, once the instance is created the CORS policy set can be viewed in instance **overview** page.
 11. You can navigate to **Resource Sharing(CORS)** and see that CORS is enabled with required **Allowed Origins**.
- 
-    [![Screenshot of viewing the CORS policy set out](media/how-to-enable-cors/enable-cors-3.png)](media/how-to-enable-cors/enable-cors-3.png#lightbox)
+    [![Screenshot of viewing the CORS policy set out.](media/how-to-enable-cors/enable-cors-3.png)](media/how-to-enable-cors/enable-cors-3.png#lightbox)
 
 ## How are CORS rules evaluated?
 CORS rules are evaluated as follows:
-- First, the origin domain of the request is checked against the domains listed for the AllowedOrigins element. 
-- If the origin domain is included in the list, or all domains are allowed with the wildcard character '*', then rules evaluation proceeds. If the origin domain isn't included, then the request fails.
+1. First, the origin domain of the request is checked against the domains listed for the AllowedOrigins element. 
+2. If the origin domain is included in the list, or all domains are allowed with the wildcard character '*', then rules evaluation proceeds. If the origin domain isn't included, then the request fails.
 
 ## Limitations on CORS policy
 The following limitations apply to CORS rules:
