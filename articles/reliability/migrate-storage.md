@@ -37,7 +37,7 @@ This article describes two basic options for adding availability zone support to
 
 ## Prerequisites
 
-Before making any changes, review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types) to make sure your storage account is eligible for migration or conversion, and to understand the options available to you. Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
+Before making any changes, review the [limitations for changing replication types](../storage/common/redundancy-migration.md#limitations-for-changing-replication-types) to understand your options for migrating or converting your storage account. Many storage accounts can be converted directly to ZRS, while others either require a multi-step process or a manual migration. After reviewing the limitations, choose the right option in this article to convert your storage account based on:
 
 - [Storage account type](../storage/common/redundancy-migration.md#storage-account-type)
 - [Region](../storage/common/redundancy-migration.md#region)
@@ -123,7 +123,7 @@ Follow these steps to request a conversion from Microsoft:
 
     :::image type="content" source="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab." lightbox="../storage/common/media/redundancy-migration/request-live-migration-details-portal.png":::
 
-1. Fill out the additional required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
+1. Fill out the extra required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 ## Option 2: Manual migration
 
