@@ -81,9 +81,9 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
   
       To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
-   - **Device Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Device mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
 
-   - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
+   - **Destination mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
    
    :::image type="content" source="media\device-messages-through-iot-hub\deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\device-messages-through-iot-hub\deploy-template-options.png":::
 

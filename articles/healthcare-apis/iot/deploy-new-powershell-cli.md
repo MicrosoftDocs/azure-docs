@@ -179,17 +179,17 @@ When deployment is completed, the following resources and access roles are creat
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
+ - To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
 
- - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
+ - To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ## Clean up Azure PowerShell resources
 
