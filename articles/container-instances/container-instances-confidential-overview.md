@@ -20,7 +20,7 @@ Confidential containers on Azure Container Instances enable customers to run Lin
 ## Features of confidential containers on Azure Container Instances
 
 ### Lift and shift applications 
-Customers can lift and shift their containerize d Linux applications or build new confidential computing applications without needing to adopt specialized programming models to achieve the benefits of confidentiality in a TEE. 
+Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt specialized programming models to achieve the benefits of confidentiality in a TEE. 
 
 ### Hardware based trusted execution environment 
 Confidential containers on Azure Container Instances are deployed in a container group with a Hyper-V isolated TEE, which includes a memory encryption key that is generated and managed by an AMD SEV-SNP capable processor. Data in use in memory is encrypted with this key to help provide protection against data replay, corruption, remapping, and aliasing-based attacks.  
