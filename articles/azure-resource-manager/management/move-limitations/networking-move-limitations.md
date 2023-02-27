@@ -21,7 +21,7 @@ If you want to move networking resources to a new region, see [Tutorial: Move Az
 When moving a resource, you must also move its dependent resources (for example - public IP addresses, virtual network gateways, all associated connection resources). The virtual network assigned to the AKS instance can also be moved, and local network gateways can be in a different resource group.
 
 > [!WARNING]
-> Please note that the virtual network can be moved, but it breaks the AKS instance that uses it. The only resolution would be to move the virtual network back.
+> Please refrain from moving the virtual network for an AKS cluster. The AKS cluster will stop working if its virtual network is moved.
 
 To move a virtual machine with a network interface card to a new subscription, you must move all dependent resources. Move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
 
