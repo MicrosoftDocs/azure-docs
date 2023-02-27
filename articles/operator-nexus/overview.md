@@ -16,7 +16,7 @@ Operator Nexus supports both Microsoft and a wide variety of partner virtualized
 The platform automates lifecycle management of the infrastructure, including: network fabric, bare metal hosts, and storage appliances, as well as tenant workloads for Container Network Functions and Virtualized Network Functions.
 Operator Nexus meets operators' security, resiliency, observability, and performance requirements to achieve meaningful business results.
 The platform seamlessly integrates compute, network, and storage.
-Operator Nexus is self service and uses the Azure Portal, CLI, SDKs, and other tools to interact with the platform. 
+Operator Nexus is self service and uses the Azure portal, CLI, SDKs, and other tools to interact with the platform. 
 
 <!--- IMG ![Operator Nexus HL overview diagram](Docs/media/hl-architecture.png) IMG --->
 :::image type="content" source="media/hl-architecture.png" alt-text="Figure of Operator Nexus overview.":::
@@ -48,7 +48,7 @@ The service that manages the Operator Nexus infrastructure is hosted in Azure. O
 
 Figure: How Operator Nexus works
 
-1. The management layer of Operator Nexus is built on Azure Resource Manager (ARM), that provides consistent user experience in the Azure Portal and Azure APIs
+1. The management layer of Operator Nexus is built on Azure Resource Manager (ARM), that provides consistent user experience in the Azure portal and Azure APIs
 2. Azure Resource Providers provide modeling and lifecycle management of [Operator Nexus resources](./concepts-resource-types.md) such as bare metal machines, clusters, network devices, etc.
 3. Operator Nexus controllers: Cluster Manager and Network Fabric Controller, are deployed in a managed Virtual Network (VNet) connected to operator's on-premises network. The controllers enable functionalities such as infrastructure bootstrapping, configurations, service upgrades etc.
 4. Operator Nexus is integrated with many Azure services such as Azure Monitor, Azure Container Registry, and Azure Kubernetes Services.
