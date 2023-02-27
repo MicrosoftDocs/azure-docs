@@ -17,7 +17,7 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Create and connect Azure Cognitive Services to your Azure Communication Services resource.
+- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
 
 ## Technical specifications
@@ -68,10 +68,7 @@ Update your applications POM file to use Java 8 or higher.
 
 ## Configure azure SDK dev feed
 
-Since the Call Automation SDK version used in this quickstart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of Call Automation SDK. 
-
 Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
-
 
 ## Add package references
 
