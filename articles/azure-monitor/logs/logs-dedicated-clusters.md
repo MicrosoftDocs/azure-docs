@@ -23,7 +23,7 @@ Capabilities that require dedicated clusters:
 eligible for commitment tier discount.
 - **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resilience automatically. Azure Monitor creates dedicated clusters as availability-zone-enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. You can't alter this setting after creating the cluster. 
 
-    Availability zones aren't currently available in all regions. New clusters you create in supported regions have availability zones enabled by default.
+    Availability zones aren't currently supported in all regions. New clusters you create in supported regions have availability zones enabled by default.
 
 ## Cluster pricing model
 Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
