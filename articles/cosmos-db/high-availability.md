@@ -199,9 +199,6 @@ The following table summarizes the high-availability capabilities of various acc
 
 ***2*** The 1.25 rate applies only to regions in which you enable availability zones.
 
-> [!IMPORTANT]
-> Because of the internal Azure Cosmos DB architecture, using multiple write regions doesn't guarantee write availability during a region outage. The best configuration to achieve high availability during a region outage is a single write region with service-managed failover.
-
 ## Tips for building highly available applications
 
 * Review the expected [behavior of the Azure Cosmos DB SDKs](troubleshoot-sdk-availability.md) during events and which configurations affect it.
