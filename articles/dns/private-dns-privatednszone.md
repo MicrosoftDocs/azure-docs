@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 02/27/2023
 ms.author: greglin
 ---
 
