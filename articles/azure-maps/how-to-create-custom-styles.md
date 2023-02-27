@@ -2,8 +2,8 @@
 title: Create custom styles for indoor maps
 titleSuffix: Azure Maps Creator
 description: Learn how to use Maputnik with Azure Maps Creator to create custom styles for your indoor maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 9/23/2022
 ms.topic: how-to
 ms.service: azure-maps
