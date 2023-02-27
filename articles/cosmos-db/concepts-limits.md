@@ -170,7 +170,7 @@ An Azure Cosmos DB item can represent either a document in a collection, a row i
 
 <sup>1</sup> Large document sizes up to 16MB are supported with Azure Cosmos DB for MongoDB only. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
 
-There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Azure Cosmos DB](model-partition-example.md) for a real-world example, and patterns to manage large items.
+There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Azure Cosmos DB](nosql/model-partition-example.md) for a real-world example, and patterns to manage large items.
 
 ## Per-request limits
 
