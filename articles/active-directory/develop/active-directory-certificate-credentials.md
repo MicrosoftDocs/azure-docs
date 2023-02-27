@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 02/27/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
-ms.custom: contperf-fy21q4, aaddev
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 ---
 
 # Microsoft identity platform application authentication certificate credentials

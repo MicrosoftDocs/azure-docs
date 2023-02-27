@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 02/27/2023
 ms.author: cwerner
-ms.custom: aaddev, contperf-fy21q1, mode-api
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---

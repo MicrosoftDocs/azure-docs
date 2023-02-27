@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 02/27/2023
 ms.author: cwerner
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to learn about acquiring and caching tokens so my app can support authentication and authorization.
 ---
 
