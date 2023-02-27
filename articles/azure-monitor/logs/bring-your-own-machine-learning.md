@@ -22,23 +22,23 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 
 |Monitoring scenario|AIOps capability|Description| 
 |-|-|-|
-|Log data | [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) | Azure Monitor Logs is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data in near real-time. KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. Use KQL to process and analyze your log data directly inside Azure Monitor. 
+|Log data | [Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md) | KQL offers time series analysis and machine learning functions, operators, and plug-ins for generating time series data, anomaly detection, forecasting, root cause analysis, and other capabilities. This lets you process and analyze your log data directly inside Azure Monitor Logs. 
 |Application monitoring|[Application Map Intelligent view](../app/app-map.md) and [Smart detection](../alerts/proactive-diagnostics.md)| Automatically maps dependencies between services and identifies potential root causes of application performance issues.|
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.|
 | Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
 
-## Use native KQL or bring your own machine learning to Azure Monitor Logs
+## Use KQL or bring your own machine learning for analysis and AIOps in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to generate time series data, detect anomalies, forecast, perform root cause analysis, and other capabilities. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to generate time series data, detect anomalies, forecast, and perform root cause analysis inside your Log Analytics workspace. 
 
-Running KQL-based machine learning in Azure Monitor Logs lets you process and analyze your log data directly inside Azure Monitor, provides you with the benefits of:
+Using the native machine learning capabilities of KQL to process and analyze log data in Azure Monitor Logs gives lets you benefit from:
  
 - The power of the Azure Data Explorer platform, running at high scales in a distributed manner, for optimal performance. 
 - Multiple configurable parameters for flexibility and tweaking. 
 - Savings on the costs and overhead of using tools and services outside of Azure Monitor. In other words, you don't need to copy data into memory objects or export data outside of Azure Monitor.
 
-
 ### Limitations
+
 - Limited set of algorithms, function customization, and tweak settings. 
 - Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
 
