@@ -54,7 +54,7 @@ Use any of the following map tools to modify the data shown and how it's display
 |Name  |Description  |
 |---------|---------|
 |**Refresh map**     | Select to refresh the map with updated data. <!--how often does this refresh automatically?-->        |
-| **Notifications** | Select to view [device notifications](#manage-device-notifications-from-an-ot-sensor-device-map). |
+| **Notifications** | Select to view [device notifications](#manage-device-notifications). |
 |**Search by IP / MAC**     | Filter the map to display only devices connected to a specific IP or MAC address.       |
 |**Multicast/broadcast**     | Select to edit the filter that shows or hides multicast and broadcast devices.    By default, multicast and broadcast traffic is hidden.      |
 |**Add filter**  (Last seen)   | Select to filter devices displayed by those shown in a specific time period, from the last five minutes to the last seven days.       |
@@ -125,7 +125,7 @@ Use one of the following options to import and export device data:
     |**Show Alerts** / **Show Events**     |  Opens the **Alerts** or **Event Timeline** tab on the device's details page.   |
     |  **Activity Report**   | Generates an activity report for the device for the selected timespan.        |
     | **Simulate Attack Vectors**    |   Generates an [attack vector simulation](how-to-create-attack-vector-reports.md) for the selected device.      |
-    | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group-from-an-ot-sensor-device-map) with the selected device.        |
+    | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group) with the selected device.        |
     |  **Delete**   |Deletes the device from the inventory.     |
 
 ## Merge devices
@@ -229,7 +229,7 @@ On the on-premises management console, zone maps show all network elements relat
 
 ## Built-in device map groups
 
-The following table lists the device groups available out-of-the-box on the OT sensor **Device map** page. [Create extra, custom groups](#create-a-custom-device-group-from-an-ot-sensor-device-map) as needed for your organization.
+The following table lists the device groups available out-of-the-box on the OT sensor **Device map** page. [Create extra, custom groups](#create-a-custom-device-group) as needed for your organization.
 
 | Group name | Description |
 |--|--|
