@@ -10,7 +10,7 @@ ms.author: gahllevy
 ms.date: 02/07/2023
 ---
 
-# Scaling and Configuring Your Azure Cosmos DB for MongoDB vCore Cluster
+# Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster
 
 Azure Cosmos DB for MongoDB vCore provides seamless scalability and high availability. This document serves as a quick guide for developers who want to learn how to scale and configure their clusters. When changes are made, they are performed live to the cluster without downtime.
 
