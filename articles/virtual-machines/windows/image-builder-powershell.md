@@ -104,7 +104,7 @@ Grant Azure image builder permissions to create images in the specified resource
 1. Create a user identity.
 
    ```azurepowershell-interactive
-   New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+   New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
    ```
 
 1. Store the identity resource and principal IDs in variables.
