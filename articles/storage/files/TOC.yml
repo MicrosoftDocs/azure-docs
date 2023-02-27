@@ -111,6 +111,8 @@
         href: storage-files-identity-ad-ds-mount-file-share.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable Azure AD Kerberos authentication for hybrid accounts
@@ -262,14 +264,20 @@
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot
     items:
-    - name: Troubleshoot Azure Files on Windows (SMB)
-      href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: Troubleshoot Azure Files on Linux (SMB)
-      href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshoot Azure file shares performance
-      href: storage-troubleshooting-files-performance.md
-    - name: Troubleshoot Azure Files on Linux (NFS)
-      href: storage-troubleshooting-files-nfs.md
+    - name: Troubleshoot Azure Files
+      href: files-troubleshoot.md
+    - name: Troubleshoot Azure Files connectivity (SMB)
+      href: files-troubleshoot-smb-connectivity.md
+    - name: Troubleshoot Azure Files authentication (SMB)
+      href: files-troubleshoot-smb-authentication.md
+    - name: Troubleshoot Azure Files performance
+      href: files-troubleshoot-performance.md
+    - name: Troubleshoot general SMB issues on Linux
+      href: files-troubleshoot-linux-smb.md
+    - name: Troubleshoot general NFS issues on Linux
+      href: files-troubleshoot-linux-nfs.md
+    - name: Create file share throttling alerts
+      href: files-troubleshoot-create-alerts.md
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference

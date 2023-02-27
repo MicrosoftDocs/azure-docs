@@ -30,7 +30,7 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 -  **Server Message Block (SMB) protocol**
 
-    SMB is an industry-standard network file-sharing protocol. SMB is also known as Common Internet File System (CIFS). For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB is an industry-standard network file-sharing protocol. For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 

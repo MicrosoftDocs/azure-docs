@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/13/2023
+ms.date: 02/24/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -48,9 +48,9 @@ Each recommendation contains a description, a summary of the value of addressing
 
 Each recommendation provides the same set of details that explain what the recommendation is, why it's important, and how to fix it.
 
-The **Status** of a recommendation can be updated manually or automatically. If all resources are addressed according to the action plan, the status will automatically change to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
+The **Status** of a recommendation can be updated manually or automatically by the system. If all resources are addressed according to the action plan, the status automatically changes to *Completed* the next time the recommendations service runs. The recommendation service runs every 24-48 hours, depending on the recommendation. 
 
-![Screenshot of the Mark as options.](./media/overview-recommendations/recommendations-object.png)
+![Screenshot of the Mark as options.](./media/overview-recommendations/recommendation-mark-as-options.png)
 
 The **Priority** of a recommendation could be low, medium, or high. These values are determined by several factors, such as security implications, health concerns, or potential breaking changes.
 
@@ -86,7 +86,7 @@ The following roles provide *update and read-only* access to recommendations:
 
 The Azure AD recommendations feature is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
 
-Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type, but others require the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
+Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Currently, all recommendations are available in all tenants, regardless of the license type.
 
 ### Recommendations available for all Azure AD tenants
 
@@ -118,17 +118,16 @@ The recommendations listed in the following table are available to all Azure AD 
 
 1. The recommendation service automatically marks the recommendation as complete, but if you need to manually change the status of a recommendation, select **Mark as** from the top of the page and select a status.
 
-    ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/overview-recommendations/recommendations-object.png)
+    ![Screenshot of the Mark as options, to highlight the difference from the resource menu.](./media/overview-recommendations/recommendation-mark-as-options.png)
 
-    - Mark a recommendation as **Completed** if all impacted resources have been addressed.
-        - Active resources may still appear in the list of resources for manually completed recommendations. If the resource is completed, the service will update the status the next time the service runs. 
-        - If the service identifies an active resource for a manually completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
-        - Completing a recommendation is the only action collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
     - Mark a recommendation as **Dismissed** if you think the recommendation is irrelevant or the data is wrong.
-        - Azure AD will ask for a reason why you dismissed the recommendation so we can improve the service.
+        - Azure AD asks for a reason why you dismissed the recommendation so we can improve the service.
     - Mark a recommendation as **Postponed** if you want to address the recommendation at a later time.
-        - The recommendation will become **Active** when the selected date occurs.
+        - The recommendation becomes **Active** when the selected date occurs.
     - You can reactivate a completed or postponed recommendation to keep it top of mind and reassess the resources.
+    - Recommendations change to **Completed** if all impacted resources have been addressed.
+       - If the service identifies an active resource for a completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
+       - Completing a recommendation is the only action collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
 
 Continue to monitor the recommendations in your tenant for changes.
 
