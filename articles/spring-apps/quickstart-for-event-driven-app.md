@@ -52,7 +52,7 @@ RESOURCE_GROUP=EventDrivenAppResourceGroup
 LOCATION=eastus
 SERVICE_BUS_NAME_SPACE=EventDrivenAppServiceBusNamespace
 MANAGED_ENVIRONMENT=EventDrivenAppManagedEnvironment
-AZURE_SPRING_APPS_NAME=event-driven-azure-spring-apps
+AZURE_SPRING_APPS_NAME=event-driven-asa
 APP_NAME=EventDrivenApp
 ```
 If some of above name already been taken in your cloud environment, it will have error when you execute the commands in the following part of this article. If it happens, just set another name and continue.
