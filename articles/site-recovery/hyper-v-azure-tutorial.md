@@ -40,13 +40,11 @@ It's important to prepare the infrastructure before you set up disaster recovery
 1. In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select your vault. In the preceding tutorial, you prepared the **ContosoVMVault** vault.
 1. On the vault command bar, select **Enable Site Recovery**.
 1. On **Site Recovery**, under the **Hyper-V machines to Azure** tile, select **Prepare infrastructure**.
-1. On **Prepare infrastructure**, on the **Deployment planning** tab, complete these steps:
+1. On **Prepare infrastructure**, select the **Deployment planning** tab. For **Deployment planning completed?**, select **I will do it later**.
 
     > [!TIP]
-    > If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the pane. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
+    > For this tutorial, you don't need to use the Deployment Planner. If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the pane. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
   
-   - For this tutorial, you don't need to use the Deployment Planner. For **Deployment planning completed?**, select **I will do it later**.
-
     :::image type="content" source="./media/hyper-v-azure-tutorial/deployment-planning.png" alt-text="Screenshot that shows the Deployment planning pane.":::
 1. Select **Next**.
 
@@ -144,7 +142,6 @@ You can track progress in your Azure portal notifications. When the job finishes
 1. On **Enable replication**, on the **Source environment** tab, select a source location, and then select **Next**.
   
     :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot that shows the source environment pane.":::
-
 1. On the **Target environment** tab, complete these steps:
     1. For **Subscription**, enter or select the subscription.
     1. For **Post-failover resource group**, select the resource group name to fail over to.
