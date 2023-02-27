@@ -48,8 +48,9 @@ To create a large cpu & memory application, you can use the following CLI comman
 az spring app create -g <resource-group-name> -s <service-name> -n <app-name> \
     --cpu 8 --memory 32Gi  
 ```
-
 This command creates an app with cpu set to 8 core and memory set to 32Gi.
+
+---
 
 ## Scale up/down for large cpu & memory application
 
