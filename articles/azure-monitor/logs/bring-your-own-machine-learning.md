@@ -27,7 +27,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.|
 | Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
 
-## Use built-in capabilities or bring your own machine learning to Azure Monitor Logs
+## Use native KQL or bring your own machine learning to Azure Monitor Logs
 
 [Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to generate time series data, detect anomalies, forecast, perform root cause analysis, and other capabilities. 
 
