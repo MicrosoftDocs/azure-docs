@@ -102,7 +102,7 @@ Request body
 
 Azure Batch is available in all Azure regions. However, when a Batch account is created, it must be associated with one specific region. All subsequent operations for that Batch account only apply to that region. For example, pools and associated virtual machines (VMs) are created in the same region as the Batch account.
 
-When designing an application that uses Batch, you must consider the possibility that match Batch may not be available in a region. It's possible to encounter a rare situation where there is a problem with the region as a whole, the entire Batch service in the region, or your specific Batch account.
+When designing an application that uses Batch, you must consider the possibility that Batch may not be available in a region. It's possible to encounter a rare situation where there is a problem with the region as a whole, the entire Batch service in the region, or your specific Batch account.
 
 If the application or solution using Batch must always be available, then it should be designed to either failover to another region or always have the workload split between two or more regions. Both approaches require at least two Batch accounts, with each account located in a different region.
 
