@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 02/20/2023
+ms.date: 02/28/2023
 ms.author: mbender 
 ms.custom: devx-track-azurecli, engagement-fy23
 ---

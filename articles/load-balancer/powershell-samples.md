@@ -15,7 +15,7 @@ ms.custom: seodec18, engagement-fy23
 
 # Azure PowerShell Samples for Load Balancer
 
-The following table includes links to scripts built using Azure PowerShell.
+The following table includes links to scripts utilizing using Azure PowerShell.
 
 | Script | Description |
 |-|-|
