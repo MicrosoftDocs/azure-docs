@@ -27,10 +27,10 @@ In this guide, learn about the different authentication options available in Ser
 
 Select one of the four different authentication options offered by Service Connector to connect your Azure services together:
 
-- System assigned managed identity: provides an automatically managed identity tied to the resource in Azure Active Directory (Azure AD)
-- User assigned managed identity: provides an identity that can be used on multiple resources
-- Connection string: provides one or multiple key-value pairs with secrets or tokens
-- Service principal: creates a service principal that defines the access policy and permissions for the user/application in the Azure AD tenant
+- **System assigned managed identity**: provides an automatically managed identity tied to the resource in Azure Active Directory (Azure AD)
+- **User assigned managed identity**: provides an identity that can be used on multiple resources
+- **Connection string**: provides one or multiple key-value pairs with secrets or tokens
+- **Service principal**: creates a service principal that defines the access policy and permissions for the user/application in the Azure AD tenant
 
 Different authentication options are available for different services:
 
@@ -61,12 +61,82 @@ Different authentication options are available for different services:
 | WebPub Sub                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Confluent Cloud           |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
 
-## System assigned managed identity
+## Review or update authentication configuration
 
+## [System assigned managed identity](#tab/managed-identity)
 
-1. In the Authentication tab, select **Advanced**
-1. 
-:::image type="content" source="./media/manage-authentication/managed-identity-advanced.png" alt-text="Screenshot of the Azure portal, selecting Advanced in the Authentication tab.":::
+When using a system-assigned managed identity, optionally review or update its authentication configuration by following these steps:
+
+1. Select **Advanced** to display more options.
+1. Under **Role**, review the default role selected for your source service or choose another one from the list.
+1. Under **Configuration information**, Service Connector lists a series of configuration settings that will be generated when you create the connection. This list consists of environment variables or application properties. It varies depending on the target resource and authentication method selected. Optionally select the edit button in front of each configuration setting to edit its key.
+1. Select **Done** to confirm. 
+
+    :::image type="content" source="./media/manage-authentication/managed-identity-advanced.png" alt-text="Screenshot of the Azure portal, showing advanced authentication configuration for a system-assigned managed identity.":::
+
+## [User assigned managed identity](#tab/user-assigned-identity)
+
+When using a user-assigned managed identity, review or edit its authentication settings by following these steps:
+
+1. Under **Subscription**, select the Azure subscription that contains your user-assigned managed identity. 
+1. Under **User assigned managed identity**, select the managed identity you want to use.
+
+    :::image type="content" source="./media/manage-authentication/user-assigned-identity-basic.png" alt-text="Screenshot of the Azure portal, showing basic authentication configuration for a user-assigned managed identity.":::
+
+1. Optionally select **Advanced** to display more options.
+   1. Under **Role**, review the default role selected for your source service or choose another one from the list.
+   1. Under **Configuration information**, Service Connector lists a series of configuration settings that will be generated when you create the connection. This list consists of environment variables or application properties and varies depending on the target resource and authentication method selected. Optionally select the edit button in front of each configuration setting to edit its key.
+   1. Select **Done** to confirm. 
+
+    :::image type="content" source="./media/manage-authentication/user-assigned-identity-advanced.png" alt-text="Screenshot of the Azure portal, showing advanced authentication configuration for a user-assigned managed identity.":::
+
+## [Connection string](#tab/connection-string)
+
+When using a connection string, review or edit its authentication settings by following these steps:
+
+1. Optionally select **Store Secret in Key Vault** to save your connection credentials in Azure Key Vault. This option lets you select an existing Key Vault connection from a drop-down list or create a new connection to a new or an existing Key Vault.
+1. Under **Subscription**, select the Azure subscription that contains your user-assigned managed identity. 
+1. Under **User assigned managed identity**, select the managed identity you want to use.
+
+    :::image type="content" source="./media/manage-authentication/connection-string-basic-with-key-vault.png" alt-text="Screenshot of the Azure portal, showing basic authentication configuration to authenticate with a connection-string.":::
+
+1. Optionally select **Advanced** to display more options.
+   1. Under **Configuration information**, Service Connector lists a series of configuration settings that will be generated when you create the connection. This list consists of environment variables or application properties and varies depending on the target resource and authentication method selected. Optionally select the edit button in front of each configuration setting to edit its key.
+   1. Select **Done** to confirm. 
+
+    :::image type="content" source="./media/manage-authentication/connection-string-advanced.png" alt-text="Screenshot of the Azure portal, showing advanced authentication configuration to authenticate with a connection-string.":::
+
+## [Service principal](#tab/service-principal)
+
+When connecting Azure services using a service principal, review or edit authentication settings by following these steps:
+
+1. Choose a service principal by entering an object ID or name and selecting your service principal.
+1. Under **Secret**, enter the secret of the service principal.
+1. Optionally select **Store Secret in Key Vault** to save your connection credentials in Azure Key Vault. This option lets you select an existing Key Vault connection from a drop-down list or create a new connection to a new or an existing Key Vault.
+
+    :::image type="content" source="./media/manage-authentication/service-principal-basic-with-key-vault.png" alt-text="Screenshot of the Azure portal, showing basic authentication configuration to authenticate with a service principal.":::
+
+1. Optionally select **Advanced** to display more options.
+   1. Under **Configuration information**, Service Connector lists a series of configuration settings that will be generated when you create the connection. This list consists of environment variables or application properties and varies depending on the target resource and authentication method selected. Optionally select the edit button in front of each configuration setting to edit its key.
+   1. Select **Done** to confirm. 
+
+    :::image type="content" source="./media/manage-authentication/service-principal-advanced.png" alt-text="Screenshot of the Azure portal, showing advanced authentication configuration to authenticate with a service principal.":::
+
+1. Select **Review + Create** and then **Create** to finalize the creation of the connection.
+
+---
+
+## Check authentication configuration
+
+You can review authentication configuration on the following pages in the Azure portal:
+
+- When creating the connection, select the **Review + Create** tab and check the information listed under **Authentication**.
+
+    :::image type="content" source="./media/manage-authentication/review-authentication.png" alt-text="Screenshot of the Azure portal, showing a summary of connection authentication configuration.":::
+
+- After you've created the connection, in the **Service connector** page, configuration keys are listed.
+    :::image type="content" source="./media/manage-authentication/review-keys-after-creation.png" alt-text="Screenshot of the Azure portal, showing a summary of authentication configuration keys.":::
+
 
 ## Next steps
 
