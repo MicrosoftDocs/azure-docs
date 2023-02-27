@@ -47,7 +47,7 @@ This command will `start` the specified `bareMetalMachineName`.
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On the execution of the `cordon` command,
-Operator Nexus will not schedule any new workloads on the BMM; any attempt to create a workload on a `cordoned`
+Operator Nexus workloads are not scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `false` value.
 On executing the `cordon` command, with the value `true` for the `evacuate`
