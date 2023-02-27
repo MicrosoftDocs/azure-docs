@@ -10,9 +10,9 @@ ms.date: 02/28/2023
 ms.custom: seodec18, mvc, devx-track-js
 ---
 
-# Tutorial: Deploy a Confidential container to Azure Container Instances via Azure portal (preview)
+# Tutorial: Deploy a confidential container to Azure Container Instances via Azure portal (preview)
 
-In this tutorial, you will use Azure portal to deploy a Confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
+In this tutorial, you will use Azure portal to deploy a confidential container to Azure Container Instances with a default confidential computing enforcement policy. After deploying the container, you can browse to the running application. 
 
 :::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png" alt-text="Screenshot of a hello-world application deployed via Azure portal, PNG.":::
 
@@ -22,7 +22,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
 
-## Create a Confidential container on Azure Container Instances 
+## Create a confidential container on Azure Container Instances 
 
 On the Azure portal homepage, select **Create a resource**.
 
@@ -34,16 +34,14 @@ Select **Containers** > **Container Instances**.
 
 On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
 
-On the **Basics** page, choose a subscription and enter the following values for **Resource group**, **Container name**, **Image source**, and **Container image**.
-
 * Resource group: **Create new** > `myresourcegroup`
-* Container name: `myconfidentialcontainer`
+* Container name: `helloworld`
 * Region: One of `West Europe`/`North Europe`/`East US`
 * SKU: `Confidential (default policy)`
 * Image source: **Quickstart images**
-* Container image: `mcr.microsoft.com/azuredocs/aci-cc-helloworld:latest` (Linux)
+* Container image: `mcr.microsoft.com/aci/aci-confidential-helloworld:v1` (Linux)
 
-:::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-portal-select-sku.png" alt-text="Screenshot of the SKU selection of a container group, PNG.":::
+:::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-portal-sku.png" alt-text="Screenshot of the SKU selection of a container group, PNG.":::
 
 > [!NOTE]
 > When deploying confidential containers on Azure Container Instances you will only be able to deploy with a default confidential computing enforcement policy. This policy will only attest the hardware that the container group is running on and not the software components. If you want to attest software components you will need to deploy with a custom confidential computing enforcement policy via an Azure Resource Manager template. See [tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md) for more details.
@@ -56,12 +54,13 @@ When the validation completes, you're shown a summary of the container's setting
 
 When deployment starts, a notification appears that indicates the deployment is in progress. Another notification is displayed when the container group has been deployed.
 
-Open the overview for the container group by navigating to **Resource Groups** > **myresourcegroup** > **myconfidentialcontainer**. Make a note of the **IP** of the container instance and its **Status**.
+Open the overview for the container group by navigating to **Resource Groups** > **myACIRG** > **helloworld**. Make a note of the **IP** of the container instance and its **Status**.
 
-**TO DO** - ADD PICTURE OF IP ADDRESS.
+1. On the **Overview** page, note the **Status** of the instance and its **IP address**.
 
-Once its **Status** is *Running*, navigate to the containers IP address on port 8080 in your browser. 
-*Example*: 00.000.000.00:8080
+    ![Screenshot of overview page for container group instance, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-cce-portal.png)
+
+2. Once its status is *Running*, navigate to the IP address in your browser. 
 
 :::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png" alt-text="Screenshot of the hello world application running, PNG.":::
 
@@ -69,14 +68,15 @@ Congratulations! You have deployed a confidential container on Azure Container I
 
 ## Clean up resources
 
-When you're done with the container, select **Overview** for the *myconfidentialcontainer* container instance, then select **Delete**.
+When you're done with the container, select **Overview** for the *helloworld* container instance, then select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Confidential container on Azure container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the Confidential containers on Azure Container Instances Azure Resource Manager template tutorial. 
+In this tutorial, you created a confidential container on Azure Container instances with a default confidential computing enforcement policy. If you would like to deploy a confidential container group with a custom computing enforcement policy continue to the confidential containers on Azure Container Instances - deploy with Azure Resource Manager template tutorial. 
 
-> [!div class="nextstepaction"]
-> [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
 
-<!-- LINKS - External -->
-[azure-free-account]: https://azure.microsoft.com/free/
+* [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
+* [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
+* [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
+* [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)
+

@@ -12,7 +12,7 @@ ms.custom: seodec18, mvc, devx-track-js
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
 
-Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based trusted execution environment (TEE) with in-memory encryption via Secure Nested Paging. 
+Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based and attested trusted execution environment (TEE), which can protect data in use and provides in-memory encryption via Secure Nested Paging. 
 
 In this article, you'll:
 
@@ -27,12 +27,15 @@ In this article, you'll:
 
 ## Create an ACI container group ARM Template
 
-In this tutorial, you deploy a hello world application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You'll use this ARM template with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for software attestation. In this tutorial, we use this [ARM template](https://acidocs.blob.core.windows.net/documentation/template.json).  
+In this tutorial, you deploy a hello world application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You'll use this ARM template with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for attestation. In this tutorial, we use this [ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA). To view the source code for this application, visit [ACI Confidential Hello World](https://github.com/Azure-Samples/aci-confidential-hello-world).
 
-There are two properties added to the ACI resource definition to make the container group confidential: 
+> [!NOTE] 
+> The ccePolicy parameter of the template is blank and needs to be updated based on the next step of this tutorial. 
 
-1. **sku**: The SKU property enables you to select between Confidential and Standard container group deployments. If this property isn't added, the container group will be deployed as Standard SKU. 
-2. **confidentialComputePropeties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for software attestation of your container group. If this object isn't added to the resource, you'll only receive hardware attestation, and all software is allowed to run within the container group.
+There are two properties added to the Azure Container Instance resource definition to make the container group confidential: 
+
+1. **sku**: The SKU property enables you to select between confidential and standard container group deployments. If this property isn't added, the container group will be deployed as standard SKU. 
+2. **confidentialComputeProperties**: The confidentialComputeProperties object enables you to pass in a custom confidential computing enforcement policy for attestation of your container group. If this object isn't added to the resource there will be no validation of the software components running within the container group.
 
 Use your preferred text editor to save this ARM template on your local machine as **template.json**.
 
@@ -45,28 +48,28 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
     "parameters": {
       "name": {
         "type": "string",
-        "defaultValue": "aci-hello-world",
+        "defaultValue": "helloworld",
         "metadata": {
           "description": "Name for the container group"
         }
       },
       "location": {
         "type": "string",
-        "defaultValue": "eastus2euap",
+        "defaultValue": "North Europe",
         "metadata": {
           "description": "Location for all resources."
         }
       },
       "image": {
         "type": "string",
-        "defaultValue": "acicc.azurecr.io/aci/cc-hello-world:latest",
+        "defaultValue": "mcr.microsoft.com/aci/aci-confidential-helloworld:v1",
         "metadata": {
           "description": "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
         }
       },
       "port": {
         "type": "int",
-        "defaultValue": 8080,
+        "defaultValue": 80,
         "metadata": {
           "description": "Port to open on the container and the public IP address."
         }
@@ -154,30 +157,22 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
 
 ## Create a custom CCE Policy 
 
-With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for software attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see (article to be added)[../../includes/container-instances-tutorial-prerequisites-confidential-containers.md].
+With the ARM template that you've crafted and the Azure CLI confcom extension, you're able to generate a custom CCE policy. the CCE policy is used for attestation. The tool takes the ARM template as an input to generate the policy. The policy enforces the specific container images, environment variables, mounts, and commands, which can then be validated when the container group starts up. For more information on the Azure CLI confcom extension, see [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
 
 
 1. To generate the CCE policy, you'll run the following command using the ARM template as input: 
 
    ```bash
-   az confcom acipolicygen -a .\template.json --print-policy
+   az confcom acipolicygen -a .\template.json 
    ``` 
 
-   When this command completes, you should see a Base 64 encoded string as output. This string is the CCE policy that is added to your ARM template. 
+   When this command completes, you should see a Base 64 string automatically injected into the CCE policy section of your template string as output. This string is the CCE policy that is added to your template will be in the following format. 
 
    ```bash
    cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5ldmVyeQppbXBvcnQgZnV0dXJlLmtleXdvcmRzLmluCgpmcmFnbWVudHMgOj0gWwpdCgpjb250YWluZXJzIDo9IFsKICAgIHsKICAgICAgICAiY29tbWFuZCI6IFsiL3BhdXNlIl0sCiAgICAgICAgImVudl9ydWxlcyI6IFt7InBhdHRlcm4iOiAiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogdHJ1ZX0seyJwYXR0ZXJuIjogIlRFUk09eHRlcm0iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogZmFsc2V9XSwKICAgICAgICAibGF5ZXJzIjogWyIxNmI1MTQwNTdhMDZhZDY2NWY5MmMwMjg2M2FjYTA3NGZkNTk3NmM3NTVkMjZiZmYxNjM2NTI5OTE2OWU4NDE1Il0sCiAgICAgICAgIm1vdW50cyI6IFtdLAogICAgICAgICJleGVjX3Byb2Nlc3NlcyI6IFtdLAogICAgICAgICJzaWduYWxzIjogW10sCiAgICAgICAgImFsbG93X2VsZXZhdGVkIjogZmFsc2UsCiAgICAgICAgIndvcmtpbmdfZGlyIjogIi8iCiAgICB9LApdCmFsbG93X3Byb3BlcnRpZXNfYWNjZXNzIDo9IHRydWUKYWxsb3dfZHVtcF9zdGFja3MgOj0gdHJ1ZQphbGxvd19ydW50aW1lX2xvZ2dpbmcgOj0gdHJ1ZQphbGxvd19lbnZpcm9ubWVudF92YXJpYWJsZV9kcm9wcGluZyA6PSB0cnVlCmFsbG93X3VuZW5jcnlwdGVkX3NjcmF0Y2ggOj0gdHJ1ZQoKCm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQp1bm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQptb3VudF9vdmVybGF5IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnVubW91bnRfb3ZlcmxheSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpjcmVhdGVfY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfaW5fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfZXh0ZXJuYWwgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2h1dGRvd25fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNpZ25hbF9jb250YWluZXJfcHJvY2VzcyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV9tb3VudCA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmdldF9wcm9wZXJ0aWVzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmR1bXBfc3RhY2tzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJ1bnRpbWVfbG9nZ2luZyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpsb2FkX2ZyYWdtZW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNjcmF0Y2hfbW91bnQgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2NyYXRjaF91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJlYXNvbiA6PSB7ImVycm9ycyI6IGRhdGEuZnJhbWV3b3JrLmVycm9yc30K
    ```
 
-1. Copy the string and paste under the **ccePolicy** property in your ARM template. 
-
-   ```ARM
-   "confidentialComputeProperties": {
-       "ccePolicy": "cGFja2FnZSBwb2xpY3kKCmFwaV9zdm4gOj0gIjAuOS4wIgoKaW1wb3J0IGZ1dHVyZS5rZXl3b3Jkcy5ldmVyeQppbXBvcnQgZnV0dXJlLmtleXdvcmRzLmluCgpmcmFnbWVudHMgOj0gWwpdCgpjb250YWluZXJzIDo9IFsKICAgIHsKICAgICAgICAiY29tbWFuZCI6IFsiL3BhdXNlIl0sCiAgICAgICAgImVudl9ydWxlcyI6IFt7InBhdHRlcm4iOiAiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogdHJ1ZX0seyJwYXR0ZXJuIjogIlRFUk09eHRlcm0iLCAic3RyYXRlZ3kiOiAic3RyaW5nIiwgInJlcXVpcmVkIjogZmFsc2V9XSwKICAgICAgICAibGF5ZXJzIjogWyIxNmI1MTQwNTdhMDZhZDY2NWY5MmMwMjg2M2FjYTA3NGZkNTk3NmM3NTVkMjZiZmYxNjM2NTI5OTE2OWU4NDE1Il0sCiAgICAgICAgIm1vdW50cyI6IFtdLAogICAgICAgICJleGVjX3Byb2Nlc3NlcyI6IFtdLAogICAgICAgICJzaWduYWxzIjogW10sCiAgICAgICAgImFsbG93X2VsZXZhdGVkIjogZmFsc2UsCiAgICAgICAgIndvcmtpbmdfZGlyIjogIi8iCiAgICB9LApdCmFsbG93X3Byb3BlcnRpZXNfYWNjZXNzIDo9IHRydWUKYWxsb3dfZHVtcF9zdGFja3MgOj0gdHJ1ZQphbGxvd19ydW50aW1lX2xvZ2dpbmcgOj0gdHJ1ZQphbGxvd19lbnZpcm9ubWVudF92YXJpYWJsZV9kcm9wcGluZyA6PSB0cnVlCmFsbG93X3VuZW5jcnlwdGVkX3NjcmF0Y2ggOj0gdHJ1ZQoKCm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQp1bm1vdW50X2RldmljZSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQptb3VudF9vdmVybGF5IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnVubW91bnRfb3ZlcmxheSA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpjcmVhdGVfY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfaW5fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmV4ZWNfZXh0ZXJuYWwgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2h1dGRvd25fY29udGFpbmVyIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNpZ25hbF9jb250YWluZXJfcHJvY2VzcyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV9tb3VudCA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpwbGFuOV91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmdldF9wcm9wZXJ0aWVzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CmR1bXBfc3RhY2tzIDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJ1bnRpbWVfbG9nZ2luZyA6PSB7ICJhbGxvd2VkIiA6IHRydWUgfQpsb2FkX2ZyYWdtZW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnNjcmF0Y2hfbW91bnQgOj0geyAiYWxsb3dlZCIgOiB0cnVlIH0Kc2NyYXRjaF91bm1vdW50IDo9IHsgImFsbG93ZWQiIDogdHJ1ZSB9CnJlYXNvbiA6PSB7ImVycm9ycyI6IGRhdGEuZnJhbWV3b3JrLmVycm9yc30K"
-   }
-   ```
-
-1. Save your changes to your local copy of the ARM template.
+2. Save the changes to your local copy of the ARM template.
 
 ## Deploy the template
 
@@ -199,19 +194,19 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
    * **Subscription**: select an Azure subscription.
    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-   * **Location**: select a location for the resource group. Example: **West Europe**.
+   * **Location**: select a location for the resource group. Example: **North Europe**.
    * **Name**: accept the generated name for the instance, or enter a name.
-   * **Image**: accept the default image name. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. 
+   * **Image**: accept the default image name. This sample Linux image displays a hardware attestation.
 
    Accept default values for the remaining properties.
 
    Review the terms and conditions. If you agree, select **I agree to the terms and conditions stated above**.
 
-   ![Screenshot of Linux container with public IP template properties, PNG.](media/container-instances-quickstart-template/template-properties.png)
+   ![Screenshot of custom ARM template deployment, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-cce-custom-arm-deployment.png)
 
 1. After the instance has been created successfully, you get a notification:
 
-   ![Screenshot of portal notification for successful deployment, PNG.](media/container-instances-quickstart-template/deployment-notification.png)
+   ![Screenshot of portal notification for successful deployment, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-cce-deployment-succeed.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -221,40 +216,18 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
 1. In the portal, search for Container Instances, and select the container instance you created.
 
-1. On the **Overview** page, note the **Status** of the instance and its **IP address**.
+2. On the **Overview** page, note the **Status** of the instance and its **IP address**.
 
-    ![Screenshot of overview page for container group instance, PNG.](media/container-instances-quickstart-template/aci-overview.png)
+    ![Screenshot of overview page for container group instance, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-cce-portal.png)
 
-2. Once its status is *Running*, navigate to the IP address in your browser. 
+3. Once its status is *Running*, navigate to the IP address in your browser. 
 
-    ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
+    ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png)
 
-## Next steps
+## Next Steps  
 
-Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
+Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
 
-> [!div class="nextstepaction"]
-> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
-
-<!--- IMAGES --->
-[aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
-[aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
-
-<!-- LINKS - External -->
-[aci-helloworld-zip]: https://github.com/Azure-Samples/aci-helloworld/archive/master.zip
-[alpine-linux]: https://alpinelinux.org/
-[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
-[docker-get-started]: https://docs.docker.com/get-started/
-[docker-hub-nodeimage]: https://store.docker.com/images/node
-[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
-[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
-[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
-[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: https://nodejs.org
-
-<!-- LINKS - Internal -->
-[azure-cli-install]: /cli/azure/install-azure-cli
+* [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
+* [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
+* [Confidential Hello World application](https://github.com/Azure-Samples/aci-confidential-hello-world)

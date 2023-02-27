@@ -45,6 +45,12 @@
     items:
     - name: Trigger with Azure Functions
       href: container-instances-tutorial-azure-function-trigger.md
+  - name: Deploy a confidential container group
+    items: 
+    - name: Deploy a confidential container group - Resource Manager
+      href: container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+    - name: Deploy a confidential container group - Portal
+      href: container-instances-tutorial-deploy-confidential-container-default-portal.md 
 - name: Samples
   items:
   - name: Code samples
@@ -67,12 +73,8 @@
        href: container-instances-image-security.md
   - name: Virtual networking
     href: container-instances-virtual-network-concepts.md
-  - name: Confidential containers
-    href: container-instances-confidential-containers-overview.md
-  - name: Confidential computing enforcement policies
-    href: container-instances-cce-policy-concepts.md
-  - name: Generating policies using Azure CLI
-    href: container-instances-confcom-cli-concepts.md
+  - name: Confidential container groups
+    href: container-instances-confidential-overview.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -167,6 +169,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/container
+  - name: Azure CLI confcom extension
+    href: https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md
   - name: REST
     href: /rest/api/container-instances
   - name: PowerShell
