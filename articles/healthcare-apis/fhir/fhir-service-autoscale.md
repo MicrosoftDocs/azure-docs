@@ -9,7 +9,7 @@ ms.date: 06/06/2022
 ms.author: kesheth
 ---
 
-# Autoscaling
+## Autoscaling
 
 Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. The autoscaling feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time.
 
@@ -20,6 +20,8 @@ The autoscale feature for FHIR service is available in all regions where the FHI
 
 > [!NOTE]
 >  Autoscale feature is subject to the resources availablitity in Azure regions.   
+
+## Autoscaling Policies 
 
 Auto scaling policies defined for FHIR service consists of two parts:
 
