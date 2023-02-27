@@ -48,7 +48,7 @@ A workspace environment can be complex and include connected sources, managed so
     | sort by ResourceProvider, ResourceType
     ```
 
-  - *Installed solutions*: Select **Solutions** on the workspace navigation pane for a list of installed solutions.
+  - *Installed solutions*: Select **Legacy solutions** on the workspace navigation pane for a list of installed solutions.
   - *Data collector API*: Data arriving through a [Data Collector API](../logs/data-collector-api.md) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
   - *Linked services*: Workspaces might have linked services to dependent resources such as an Azure Automation account, a storage account, or a dedicated cluster. Remove linked services from your workspace. Reconfigure them manually in the target workspace.
   - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be included in the template. 

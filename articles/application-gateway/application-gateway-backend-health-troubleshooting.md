@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 02/14/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -240,8 +240,8 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 
 1. Sign in to the machine where your application is hosted.
 2. Select Win+R or right-click the **Start** button, and then select **Run**.
-3. Enter `certmgr.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate, typically in `\Certificates - Current User\\Personal\\Certificates\`, and open it.
+3. Enter `certlm.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate, typically in `Certificates - Local Computer\Personal\Certificates`, and open it.
 5. Select the root certificate and then select **View Certificate**.
 6. In the Certificate properties, select the **Details** tab.
 7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
@@ -317,8 +317,8 @@ For Windows:
 
 1. Sign in to the machine where your application is hosted.
 2. Select Win+R or right-click the **Start** button and select **Run**.
-3. Enter **certmgr.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate (typically in `\Certificates - Current User\\Personal\\Certificates`), and open the certificate.
+3. Enter **certlm.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate (typically in `Certificates - Local Computer\Personal\Certificates`), and open the certificate.
 5. On the **Details** tab, check the certificate **Subject**.
 6. Verify the CN of the certificate from the details and enter the same in the host name field of the custom probe or in the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 

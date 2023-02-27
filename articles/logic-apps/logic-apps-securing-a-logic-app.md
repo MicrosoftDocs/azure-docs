@@ -145,7 +145,7 @@ Many triggers and actions have settings to secure inputs, outputs, or both from 
 
 Before using these settings to help you secure this data, review these considerations:
 
-* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
+* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](monitor-workflows-collect-diagnostic-data.md#other-destinations) to that trigger or action for monitoring.
 
 * The [Azure Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.
 
@@ -1271,4 +1271,4 @@ For more information about isolation, review the following documentation:
 
 * [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
 * [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)
