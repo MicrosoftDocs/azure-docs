@@ -110,7 +110,7 @@ Use the following procedure to build and deploy the sample applications.
 
 1. Select **Metrics** in the navigation pane. The Metrics page provides dropdown menus and options from which you will define the charts in this procedure. For all charts, set the **Metric Namespace**, to **azure.applicationinsights**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing the drop down menus and options to define charts and with Metrics highlighted in the navigation pane." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics highlighted in the navigation pane, and with azure-applicationinsights highlighted in the Metric Namespace dropdown menu." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
 
 1. For the first chart, select **resilience4j_circuitbreaker_buffered_calls** for the **Metric** with the **Aggregation** set to **Avg**.
 
