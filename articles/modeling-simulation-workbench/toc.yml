@@ -1,0 +1,55 @@
+items:
+- name: Azure Modeling and Simulation Workbench (preview) documentation
+  href: index.yml
+- name: Overview
+  items: 
+    - name: About Azure Modeling and Simulation Workbench (preview)
+      href: Modeling and Simulation Workbench-overview.md
+- name: Quickstart
+  items: 
+    - name: Create Modeling and Simulation Workbench
+      items: 
+        - name: Portal
+          href: ./quickstart-create-portal.md      
+#- name: Tutorials
+#  items: 
+#    - name: Create Azure Modeling and Simulation Workbench
+#      href: ./tutorial-create-Modeling and Simulation Workbench.md
+#    - name: Use Azure Modeling and Simulation Workbench
+#      href: ./tutorial-use-Modeling and Simulation Workbench.md
+- name: Concepts
+  items: 
+    - name: Workbench
+      href: ./concept-workbench.md
+    - name: Chamber
+      href: ./concept-chamber.md
+    - name: Connector
+      href: ./concept-connector.md
+    - name: Data pipeline
+      href: ./concept-datapipeline.md
+- name: How-to guides
+  items: 
+    - name: Manage chamber
+      items: 
+        - name: Set up license services
+          href: ./howtoguide-licenses.md
+        - name: Upload data
+          href: ./howtoguide-upload-data.md
+        - name: Download data
+          href: ./howtoguide-download-data.md
+        - name: Manage chamber storage
+          href: ./howtoguide-manage-storage.md          
+#        - name: Disaster Recovery
+#          href: ./howtoguide-disaster-recovery.md
+        - name: Troubleshooting
+          href: ./howtoguide-troubleshooting.md
+- name: Reference
+  items: 
+#    - name: Azure CLI
+#      href: /cli/azure/ModSimWorkbench
+#    - name: Azure PowerShell
+#      href: /powershell/module/az.ModSimWorkbench 
+    - name: REST
+      href: /rest/api/ModSimWorkbench
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.ModSimWorkbench/allversions
