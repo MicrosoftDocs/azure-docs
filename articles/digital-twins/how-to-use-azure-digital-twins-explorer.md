@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/22/2023
+ms.date: 02/27/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -147,11 +147,11 @@ Both of these error messages are shown in the screenshot below:
 
 If your Azure Digital Twins instance has [data history](concepts-data-history.md) enabled, you can validate and explore its historized data in Azure Digital Twins Explorer. Follow the steps below to visualize historized data in a chart, or view raw values in a table.
 
-1. From the **Twin Graph** viewer, select a twin that has historized properties to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. 
+1. From the **Twin Graph** viewer, select a twin whose historized properties you want to view to open it in the **Twin Properties** panel. In the top right corner of the panel, select the **Time series** icon to open the **Data history explorer**. 
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/open-data-history.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, highlighting the icon to open the data history explorer." lightbox="media/how-to-use-azure-digital-twins-explorer/open-data-history.png":::
 
-1. A modal will appear for selecting which historical properties to view. The **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
+1. Select the twin name from the left to bring up a modal for choosing which historical properties of the twin to view. The **Twin ID** field will be pre-populated with the twin selection. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png" alt-text="Screenshot of the Data history explorer and a modal asking for twin and property details." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer.png":::    
 
@@ -159,7 +159,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
 
-1. Choose a **Label** for the time series and select **Add**.  
+1. Choose a **Label** for the time series and select **Update**.  
 
 This will load the chart view of the historized values for the chosen property. You can use the tabs above the chart to toggle between the [chart view](#view-history-in-chart) and [table view](#view-history-in-table).
 
