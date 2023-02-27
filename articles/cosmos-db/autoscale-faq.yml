@@ -191,15 +191,15 @@ sections:
           
       - question: Is it still possible to see 429s (throttling/rate limiting) when autoscale is enabled? 
         answer: |
-          Yes. It is possible to see 429s in two scenarios. First, when the overall consumed RU/s exceeds the max RU/s of the database or container, the service will throttle requests accordingly. 
+          Yes. It's possible to see 429s in two scenarios. First, when the overall consumed RU/s exceeds the max RU/s of the database or container, the service will throttle requests accordingly. 
           
-          Second, if there is a hot partition, that is, a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, [choose a good partition key](partitioning-overview.md#choose-partitionkey) that results in an even distribution of both storage and throughput. 
+          Second, if there's a hot partition, that is, a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it's possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, [choose a good partition key](partitioning-overview.md#choose-partitionkey) that results in an even distribution of both storage and throughput. 
           
           For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you'll see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, that exceeds 100% normalized utilization.\
 
-          Note that seeing 429s when using autoscale does not necessarily mean there is an issue with your database or container. In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Learn more about how to [interpret and debug 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
+          Note that seeing 429s when using autoscale doesn't necessarily mean there's an issue with your database or container. In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Learn more about how to [interpret and debug 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
 
-      - question: Is it possible to see normalized RU/s consumption at 100%, but autoscale does not scale to the maximum RU/s?
+      - question: Is it possible to see normalized RU/s consumption at 100%, but autoscale doesn't scale to the maximum RU/s?
         answer: |
           Yes. See the article [Monitor Normalized RU/s](monitor-normalized-request-units.md#normalized-ru-consumption-and-autoscale) for an explanation.
 
