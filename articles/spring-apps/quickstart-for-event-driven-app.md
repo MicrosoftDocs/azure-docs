@@ -121,7 +121,7 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
     ```azurecli-interactive
     az provider register --namespace Microsoft.OperationalInsights
     ```
-4. A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. To create the environment, run the following command:
+4. Create the environment by this command:
     ```azurecli-interactive
     az containerapp env create --name ${MANAGED_ENVIRONMENT}
     ```
