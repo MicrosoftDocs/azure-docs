@@ -135,12 +135,12 @@ items:
     - name: Client-library SDKs
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/how-to-guides/use-client-sdks.md
-    - name: Translate documents in Language Studio
-      displayName: quickstart, how to, interface
-      href: document-translation/language-studio.md
     - name: Quickstart
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage,domain,custom domain
       href: document-translation/quickstarts/get-started-with-rest-api.md
+    - name: Translate documents in Language Studio
+      displayName: quickstart, how to, interface
+      href: document-translation/language-studio.md
     - name: How-to guides
       items:
       - name: Use REST APIs programmatically
