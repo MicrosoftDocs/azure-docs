@@ -469,11 +469,13 @@ az group delete --name $RESOURCE_GROUP
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
 
-* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md) 
+* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md). 
 
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
-* [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
+* [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
+
+* If you need to deploy Azure Container Instances that can pull images from an ACR through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
