@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.date: 02/16/2023
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
@@ -163,13 +163,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 1E48D6ACDD8BCD3290F6E1E33705C7AFAAC0745E3295ED56BEF5AC019C0FD760
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 1E48D6ACDD8BCD3290F6E1E33705C7AFAAC0745E3295ED56BEF5AC019C0FD760
  
 
 ### 3. Run the Azure Migrate installer script

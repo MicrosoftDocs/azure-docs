@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 02/14/2023
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -41,7 +41,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
    * [ASP.NET Core](./asp-net-core.md): Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live Metrics is enabled by default.
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
-   * [Java](./java-in-process-agent.md): Live Metrics is enabled by default.
+   * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
@@ -171,7 +171,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-- **Recommended:** Secure the Live Metrics channel by using [Azure Active Directory (Azure AD) authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication).
+- **Recommended:** Secure the Live Metrics channel by using [Azure Active Directory (Azure AD) authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 - **Legacy (no longer recommended):** Set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section.
 
 > [!NOTE]

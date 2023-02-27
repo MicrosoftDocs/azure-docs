@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/27/2023
+ms.date: 02/22/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -17,44 +17,22 @@ App Service can now automate migration of your App Service Environment v1 and v2
 
 ## Supported scenarios
 
-At this time, App Service Environment migrations to v3 using the migration feature are supported in the following regions:
+At this time, the migration feature doesn't support migrations to App Service Environment v3 in the following regions:
 
 ### Azure Public:
 
-- Australia East
-- Australia Central
-- Australia Southeast
-- Brazil South
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East Asia
-- East US
-- East US 2
-- France Central
-- Germany North
-- Germany West Central
-- Japan East
-- Korea Central
-- Korea South
-- North Central US
-- North Europe
-- Norway East
-- Norway West
-- South Central US
-- South India
-- Southeast Asia
-- Switzerland North
-- Switzerland West
-- UAE North
-- UK South
-- UK West
-- West Central US
-- West Europe
-- West US
-- West US 2
-- West US 3
+- Japan West
+- Jio India West
+- UAE Central
+
+### Azure Government:
+
+- US DoD Central
+
+### Azure China:
+
+- China East 2
+- China North 2
 
 The following App Service Environment configurations can be migrated using the migration feature. The table gives the App Service Environment v3 configuration you'll end up with when using the migration feature based on your existing App Service Environment. All supported App Service Environments can be migrated to a [zone redundant App Service Environment v3](../../availability-zones/migrate-app-service-environment.md) using the migration feature as long as the environment is [in a region that supports zone redundancy](./overview.md#regions). You can [configure zone redundancy](#choose-your-app-service-environment-v3-configurations) during the migration process.
 
@@ -81,10 +59,10 @@ The following are limitations when using the migration feature:
 - If your existing App Service Environment uses a custom domain suffix, you'll have to configure custom domain suffix for your App Service Environment v3 during the migration process. 
   - If you no longer want to use a custom domain suffix, you can remove it once the migration is complete.
 
-App Service Environment v3 doesn't currently support the following features that you may be using with your current App Service Environment. If you require any of these features, don't migrate until they're supported.
+App Service Environment v3 doesn't support the following features that you may be using with your current App Service Environment v1 or v2.
 
-- Monitoring your traffic with Network Watcher or NSG Flow.
 - Configuring an IP-based TLS/SSL binding with your apps.
+- App Service Environment v3 doesn't fall back to Azure DNS if your configured custom DNS servers in the virtual network aren't able to resolve a given name. If this behavior is required, ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers.
 
 The following scenarios aren't supported by the migration feature. See the [manual migration options](migration-alternatives.md) if your App Service Environment falls into one of these categories.
 

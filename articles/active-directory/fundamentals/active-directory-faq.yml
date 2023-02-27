@@ -10,7 +10,7 @@ metadata:
   ms.subservice: fundamentals
   ms.workload: identity
   ms.topic: faq
-  ms.date: 08/17/2022
+  ms.date: 02/15/2023
   ms.author: barclayn
   ms.custom: "it-pro, seodec18"
   ms.collection: M365-identity-device-management
@@ -73,7 +73,7 @@ sections:
       - question: |
           How do I leave a tenant when I'm added as a collaborator?
         answer: |
-          When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization, and Microsoft is working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
+         Information on how to leave tenants where you were added as a collaborator is documented in [Leave an organization as an external user](../external-identities/leave-the-organization.md)
           
           
           

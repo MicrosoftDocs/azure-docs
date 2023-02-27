@@ -76,7 +76,7 @@ To turn-on Azure AD for snapshot ingestion:
 
     1. For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity).
 
-1. Configure and turn on Azure AD in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+1. Configure and turn on Azure AD in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication)
 1. Add the following application setting, used to let Snapshot Debugger agent know which managed identity to use:
 
 For System-Assigned Identity:

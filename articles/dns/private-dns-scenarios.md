@@ -1,6 +1,6 @@
 ---
-title: Scenarios for Private Zones - Azure DNS
-description: In this article, learn about common scenarios for using Azure DNS Private Zones.
+title: Scenarios for Azure Private DNS zones
+description: In this article, learn about common scenarios for using Azure Private DNS zones.
 services: dns
 author: greg-lindsay
 ms.service: dns
@@ -9,9 +9,9 @@ ms.date: 09/27/2022
 ms.author: greglin
 ---
 
-# Azure DNS private zones scenarios
+# Azure Private DNS zones scenarios
 
-Azure DNS Private Zones provide name resolution within a virtual network and between virtual networks. In this article, we'll look at some common scenarios that can benefit using this feature.
+Azure Private DNS zones provide name resolution within a virtual network and between virtual networks. In this article, we'll look at some common scenarios that can benefit using this feature.
 
 ## Scenario: Name resolution scoped to a single virtual network
 
@@ -44,9 +44,9 @@ Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure 
 ![Split Brian resolution](./media/private-dns-scenarios/split-brain-resolution.png)
 
 ## Next steps
-To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
+To learn more about Private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).
 
-Learn how to [create a private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
+Learn how to [create a Private DNS zone](./private-dns-getstarted-powershell.md) in Azure DNS.
 
 Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).
 

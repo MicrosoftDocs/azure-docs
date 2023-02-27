@@ -4,7 +4,7 @@ description: This article provides a list of various actions you can do with Azu
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/22/2022
 ms.author: duau
@@ -49,7 +49,7 @@ When **Caching** is set to **Enabled**, set the following properties:
 
 | Property | Supported values |
 |-------|------------------|
-| Query string caching behavior | <ul><li>**Ignore Query String:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreQueryString`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringCachingBehavior` of `UseQueryString`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreSpecifiedQueryStrings`.</li><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `IncludeSpecifiedQueryStrings`.</li></ul> |
+| Query string caching behavior | <ul><li>**Ignore Query String:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreQueryString`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringCachingBehavior` of `UseQueryString`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreSpecifiedQueryStrings`.</li><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IncludeSpecifiedQueryStrings`.</li></ul> |
 | Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
 | Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door does not perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
 | Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
@@ -470,10 +470,10 @@ Use these settings to control how files get cached for requests that contain que
 
 | Cache behavior |  Description |
 | -------------- | ------------ |
-| Ignore query strings | Once the asset is cached, all ensuing requests ignore the query strings until the cached asset expires. |
-| Cache every unique URL | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache. |
-| Ignore specified query strings | Request URL query strings listed in "Query parameters" setting are ignored for caching. |
-| Include specified query strings | Request URL query strings listed in "Query parameters" setting are used for caching. |
+| Ignore Query String | Once the asset is cached, all ensuing requests ignore the query strings until the cached asset expires. |
+| Use Query String | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache. |
+| Ignore Specified Query Strings | Request URL query strings listed in "Query parameters" setting are ignored for caching. |
+| Include Specified Query Strings | Request URL query strings listed in "Query parameters" setting are used for caching. |
 
 | Additional fields |  Description 
 ------------------|---------------

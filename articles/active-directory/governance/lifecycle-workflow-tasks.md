@@ -175,7 +175,7 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 
 ### Add user to groups
 
-Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task.
 :::image type="content" source="media/lifecycle-workflow-task/add-group-task.png" alt-text="Screenshot of Workflows task: Add user to group task.":::
@@ -249,7 +249,7 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
@@ -323,7 +323,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 
@@ -353,7 +353,7 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 ### Remove user from selected groups
 
-Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-group-task.png" alt-text="Screenshot of Workflows task: Remove user from select groups.":::
@@ -392,7 +392,7 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 
 ### Remove users from all groups
 
-Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and privileged access groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
 
 
 You're able to customize the task name and description for this task in the Azure portal.
@@ -520,7 +520,7 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 
 ### Delete User
 
-Allows cloud-only user accounts to be deleted. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/delete-user-task.png" alt-text="Screenshot of Workflows task: Delete user account.":::
 
 

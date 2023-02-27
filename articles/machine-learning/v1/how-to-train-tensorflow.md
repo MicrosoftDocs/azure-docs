@@ -132,11 +132,11 @@ For more information on compute targets, see the [what is a compute target](../c
 
 ### Define your environment
 
-To define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
+To define the Azure Machine Learning [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure Machine Learning curated environment.
 
 #### Use a curated environment
 
-Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. You can use the latest version of this environment using the `@latest` directive. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
+Azure Machine Learning provides prebuilt, curated environments if you don't want to define your own environment. Azure Machine Learning has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. You can use the latest version of this environment using the `@latest` directive. For more info, see [Azure Machine Learning Curated Environments](../resource-curated-environments.md).
 
 If you want to use a curated environment, the code will be similar to the following example:
 
@@ -168,7 +168,7 @@ tf_env = tf_env.clone(new_name='my-AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda1
 
 #### Create a custom environment
 
-You can also create your own Azure ML environment that encapsulates your training script's dependencies.
+You can also create your own Azure Machine Learning environment that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -182,9 +182,9 @@ dependencies:
   - tensorflow-gpu==2.2.0
 ```
 
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+Create an Azure Machine Learning environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers) for more information.
+By default if no base image is specified, Azure Machine Learning will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure Machine Learning maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers) for more information.
 
 ```python
 tf_env = Environment.from_conda_specification(name='AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu', file_path='./conda_dependencies.yml')
@@ -222,12 +222,12 @@ src = ScriptRunConfig(source_directory=script_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure Machine Learning [dataset](how-to-train-with-datasets.md).
 
 For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> If you were previously using the TensorFlow estimator to configure your TensorFlow training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> If you were previously using the TensorFlow estimator to configure your TensorFlow training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure Machine Learning SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### Submit a run
 
@@ -277,9 +277,9 @@ run.download_files(prefix='outputs/model', output_directory='./model', append_pr
 
 ## Distributed training
 
-Azure Machine Learning also supports multi-node distributed TensorFlow jobs so that you can scale your training workloads. You can easily run distributed TensorFlow jobs and Azure ML will manage the orchestration for you.
+Azure Machine Learning also supports multi-node distributed TensorFlow jobs so that you can scale your training workloads. You can easily run distributed TensorFlow jobs and Azure Machine Learning will manage the orchestration for you.
 
-Azure ML supports running distributed TensorFlow jobs with both Horovod and TensorFlow's built-in distributed training API.
+Azure Machine Learning supports running distributed TensorFlow jobs with both Horovod and TensorFlow's built-in distributed training API.
 
 For more information about distributed training, see the [Distributed GPU training guide](how-to-train-distributed-gpu.md).
 

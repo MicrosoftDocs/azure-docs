@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 08/10/2022
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -79,6 +79,21 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 >```csharp
 >twin.Id = "myRoomId";
 >```
+
+### Create twins in bulk with the Jobs API
+
+You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for twins and bulk jobs.
+
+>[!TIP]
+>The Jobs API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
+
+To import twins in bulk, you'll need to structure your twins (and any other resources included in the bulk import job) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties.
+
+You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+
+[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
 
 ## Get data for a digital twin
 

@@ -16,11 +16,14 @@ In this article, learn how to configure and use Apache JMeter user properties wi
 
 - You want to use the JMX test script in multiple deployment environments with different application endpoints.
 - Your test script needs to accommodate multiple load patterns, such as smoke tests, peak load, or soak tests.
-- You want to override default JMeter behavior by configuring JMeter settings, such as the results file format.
+- You want to override default JMeter behavior by configuring [JMeter settings](https://jmeter.apache.org/usermanual/properties_reference.html), such as the results file format.
 
 Azure Load Testing supports the standard [Apache JMeter properties](https://jmeter.apache.org/usermanual/test_plan.html#properties) and enables you to upload a user properties file. You can configure one user properties file per load test.
 
 Alternately, you can also [use environment variables and secrets in Azure Load Testing](./how-to-parameterize-load-tests.md) to make your tests configurable.
+
+> [!NOTE]
+> Azure Load Testing overrides specific JMeter properties and ignores any values you specify for these properties. Learn more about the list of [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 
 ## Prerequisites
 
@@ -29,12 +32,7 @@ Alternately, you can also [use environment variables and secrets in Azure Load T
 
 ## Add a JMeter user properties file to your load test
 
-You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
-
-You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior.
-
-> [!NOTE]
-> Azure Load Testing overrides specific JMeter properties. Learn more about the list of [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
+You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. Azure Load Testing supports a single JMeter properties file per load test. Additional property files are ignored.
 
 The following code snippet shows an example user properties file that defines three user properties and configures the `jmeter.save.saveservice.thread_name` configuration setting:
 
@@ -126,10 +124,10 @@ Alternately, you also specify properties in the JMeter user interface. The follo
 
   :::image type="content" source="media/how-to-configure-user-properties/jmeter-user-properties.png" alt-text="Screenshot that shows how to reference user properties in the JMeter user interface.":::
 
-You can [download the JMeter errors logs](./how-to-find-download-logs.md) to troubleshoot errors during the load test.
+You can [download the JMeter errors logs](./how-to-troubleshoot-failing-test.md) to troubleshoot errors during the load test.
 
 ## Next steps
 
 - Learn more about [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 - Learn more about [parameterizing a load test by using environment variables and secrets](./how-to-parameterize-load-tests.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
+- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
