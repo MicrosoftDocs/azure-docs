@@ -18,7 +18,7 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 
 | Component        | HDInsight 5.0 | HDInsight 4.0 |
 |------------------|---------------|---------------|
-| Apache Spark     | 3.1.2         | 2.4.4         |
+| Apache Spark     | 3.1.3         | 2.4.4         |
 | Apache Hive      | 3.1.2         | 3.1.2         |
 | Apache Kafka     | 2.4.1         | 2.1.1         |
 | Apache Hadoop    | 3.1.1         | 3.1.1         |
