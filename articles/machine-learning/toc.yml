@@ -72,7 +72,7 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Get started
+    - name: Start with the basics
       items:
         - name: Prepare and explore data
           href: tutorial-explore-data.md
