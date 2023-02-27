@@ -1877,7 +1877,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-checklist-p2.md",
-      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers",
       "redirect_document_id": true
     },
     {
