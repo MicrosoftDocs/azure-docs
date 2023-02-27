@@ -87,7 +87,7 @@ Use the formula to calculate required RU/s.
 
 Keep in mind that this is only an estimate based on data size and that there are other factors that affect the required RU/s.
 
-### I enabled autoscale how can I migrate to manual scale?
+### I enabled autoscale how can I migrate to scaling manually?
 
 A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set it to is: `MAX (400, highest max RU/s ever provisioned / 100, current storage in GB * 40)`, rounded to the nearest 1000 `RU/s`. The numbers used here are different from those used in autoscale.
 
