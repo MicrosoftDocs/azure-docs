@@ -9,11 +9,13 @@ ms.topic: tutorial
 ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
-ms.date: 02/16/2023
+ms.date: 02/27/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
 # Tutorial: Upload, access and explore your data in Azure Machine Learning
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 In this tutorial you learn how to:
 
@@ -36,7 +38,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Set your notebook kernel
 
-1. On the top bar, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
+1. On the top bar above your opened notebook, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
 
 1. If the compute instance is stopped, select **Start compute** and wait until it's running.
 

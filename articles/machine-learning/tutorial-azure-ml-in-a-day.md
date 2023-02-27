@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 02/23/2023
+ms.date: 02/27/2023
 ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -30,11 +30,9 @@ The *training script* handles the data preparation, then trains and registers a 
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
-## Run your notebook
-
-1. On the top bar, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar above your opened notebook, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
 
 1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
