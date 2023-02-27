@@ -71,8 +71,6 @@ In this article, you learn how to:
 
 ## Verify the results
 
-#### [Azure CLI](#tab/azure-cli)
-
 1. Get the Azure resource name in which the lab was created.
 
     ```azurecli
