@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: kvijaykannan 
 ms.author: vkann 
-ms.reviewer: franksolomon
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to

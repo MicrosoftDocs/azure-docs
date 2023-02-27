@@ -209,7 +209,7 @@ When you create a workspace that was deleted in the last 14 days and in [soft-de
 1. If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered including its data, configuration, and connected agents.
 1. Workspace names must be unique for a resource group. If you use a workspace name that already exists, or is soft deleted, an error is returned. To permanently delete your soft-deleted name and create a new workspace with the same name, follow these steps:
 
-   1. [Recover](../logs/delete-workspace.md#recover-workspace) your workspace.
+   1. [Recover](../logs/delete-workspace.md#recover-a-workspace) your workspace.
    1. [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
    1. Create a new workspace by using the same workspace name.
   
