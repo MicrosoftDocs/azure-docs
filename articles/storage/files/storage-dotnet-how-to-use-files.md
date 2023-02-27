@@ -614,7 +614,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ---
 
-If you encounter any problems, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
+If you encounter any problems, refer to [Troubleshoot Azure Files](files-troubleshoot.md).
 
 ## Next steps
 
@@ -628,7 +628,7 @@ For more information about Azure Files, see the following resources:
 ### Tooling support for File storage
 
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
-- [Troubleshoot Azure Files problems in Windows](./storage-troubleshoot-windows-file-connection-problems.md)
+- [Troubleshoot Azure Files](files-troubleshoot.md)
 
 ### Reference
 
