@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps to create store locator web applications'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/03/2022
 ms.topic: tutorial
 ms.service: azure-maps

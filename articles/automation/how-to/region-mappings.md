@@ -1,7 +1,7 @@
 ---
 title: Supported regions for linked Log Analytics workspace
 description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
-ms.date: 01/04/2023
+ms.date: 02/27/2023
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions

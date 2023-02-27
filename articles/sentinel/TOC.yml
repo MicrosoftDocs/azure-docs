@@ -250,6 +250,9 @@
       items:
       - name: Amazon Web Services logs
         href: connect-aws.md
+        items:
+        - name: Send CloudWatch events via Lambda function
+          href: cloudwatch-lambda-function.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
