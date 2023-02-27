@@ -23,7 +23,7 @@ When you use the Virtual Machine Scale Set in the back-end pool of the load bala
   
 ## Load-balancing rules
 
-When you use the vVirtual Machine Scale Set in the back-end pool of the load balancer, the default load-balancing rule is created automatically.
+When you use the Virtual Machine Scale Set in the back-end pool of the load balancer, the default load-balancing rule is created automatically.
 
 ## Virtual Machine Scale Set instance-level IPs
 
