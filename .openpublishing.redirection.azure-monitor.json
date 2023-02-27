@@ -1,5 +1,10 @@
 {
     "redirections": [
+       {
+            "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot.md",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/azure-monitor/best-practices.md",
             "redirect_url": "/azure/azure-monitor/getting-started",
@@ -87,7 +92,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-troubleshoot.md",
-            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot",
             "redirect_document_id": false
         },
         {
