@@ -24,7 +24,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone-end
 
-Here's a more comprehensive list of things you learn in the tutorial:
+Things you learn in the tutorial:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
@@ -35,27 +35,27 @@ Here's a more comprehensive list of things you learn in the tutorial:
 > * Use access tokens from server code
 > * Use access tokens from client (browser) code
 
-You can follow the steps in this tutorial on macOS, Linux, Windows.
+> [!TIP]
+> After completing this scenario, continue to the next procedure to learn how to connect to Azure services as an authenticated user. Common scenarios include accessing Azure Storage or a database as the user who has specific abilities or access to specific tables or files. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
+The authentication in this procedure is provided at the hosting platform layer by Azure App Service. You must deploy the frontend and backend app and configure authentication for this web app to be used successfully. 
 
 :::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the front-end app to the back-end app.":::
 
-The frontend app is configured to be allowed to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. 
+The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. In the next article in this series, the fake profile is replaced with a profile from Microsoft Graph.
 
-This authentication from the frontend to the backend requires changes to the frontend application. The frontend passes the authenticated user access token, injected by App Service, `x-ms-token-aad-access-token`, to the backend as the bearer token. 
+The frontend source code accesses the current authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header injected at runtime. This accessToken is sent to the backend server as the bearerToken to securely access the backend API. 
 
-> [!TIP]
-> After completing this scenario, continue to the next procedure to learn how to connect to Azure services as an authenticated user. Common scenarios for this includes accessing Azure Storage or a database as the user. 
+
 
 ## Prerequisites
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - [Node.js (LTS)](https://nodejs.org/download/)
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-### Clone the sample application 
+## Clone the sample application 
 
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository. 
 
@@ -63,37 +63,55 @@ This authentication from the frontend to the backend requires changes to the fro
     git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
 
-## Create the resource group and app plan
+## Create and deploy apps
 
-1. Create a resource group to manage related resources. 
-
-    ```azurecli-interactive
-    az group create --name myAuthResourceGroup --location "West Europe"
-    ```
+Create the resource group, web app plan, the web app and deploy in a single step.
 
 ::: zone pivot="platform-windows"  
 
-1. Create an App Service plan to manage to web apps.
-    
+1. Change into the frontend web app directory.
+
     ```azurecli-interactive
-    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --location "West Europe"
+    cd frontend
+    ```
+
+1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku B1 --location "West Europe" --os-type Windows --runtime "NODE:16-lts"
+    ```
+
+1. Change into the backend web app directory.
+
+    ```azurecli-interactive
+    cd ../backend
+    ```
+
+1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --sku B1 --location "West Europe" --os-type Windows  --runtime "NODE:18-lts"
     ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-1. Create an App Service plan to manage to web apps.
+1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
     
     ```azurecli-interactive
-    az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --is-linux --location "West Europe"
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku FREE --location "West Europe" --os-type Linux --logs --runtime "NODE:18-lts"
     ```
 
 ::: zone-end
 
-## Deploy apps to Azure
+## Create Active Directory authentication app
 
 In this step, use the Cloud Shell from the Azure portal to create App Service web apps and deploy the two App Service apps.
+
+az ad app create --display-name frontend-diberry-20230227 --sign-in-audience AzureADMyOrg --enable-id-token-issuance true --query appId --output tsv
+
+
 
 ::: zone pivot="platform-windows"  
 
@@ -407,6 +425,11 @@ In the preceding steps, you created Azure resources in a resource group.
     
     ```
 
+## Troubleshooting
+
+az account set --subscription bb881e62-cf77-4d5d-89fb-29d71e930b66
+az configure --defaults group=diberry-app-service-aad
+az webapp list-runtimes
 
 <a name="next"></a>
 ## Next steps
