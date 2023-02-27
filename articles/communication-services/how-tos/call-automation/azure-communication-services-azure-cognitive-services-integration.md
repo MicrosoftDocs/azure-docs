@@ -63,7 +63,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 2. Select Identity tab
 3. Click on "Azure role assignments"
 
-[Screenshot]()
+![ACS role assignment](./media/add-role-acs.png)
 
 4.  Click the "Add role assignment (Preview)" button, which will open the "Add role assignment (Preview)" tab
 5.  Select the "Resource group" for "Scope".
@@ -71,7 +71,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 7.  Select the "Resource Group" containing the Cognitive Service 
 8.  Select the "Role" "Cognitive Services User"
 
-[Screenshot]()
+![ACS role information](./media/acs-roles-cognitiveservices.png)
 
 10.  Click Save 
 
