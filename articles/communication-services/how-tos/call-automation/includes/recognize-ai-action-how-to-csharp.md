@@ -1,0 +1,341 @@
+---
+title: include file
+description: C# recognize ai action how-to
+services: azure-communication-services
+author: Kunaal
+ms.service: azure-communication-services
+ms.subservice: azure-communication-services
+ms.date: 02/15/2023
+ms.topic: include
+ms.topic: include file
+ms.author: kpunjabi
+---
+
+## Prerequisites
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
+- Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
+- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
+
+## Technical specifications
+
+The following parameters are available to customize the Recognize function:
+
+| Parameter | Type|Default (if not specified) | Description | Required or Optional |
+| ------- |--| ------------------------ | --------- | ------------------ |
+| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
+| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
+| InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
+| RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf and choices. | Required |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../articles/cognitive-services/speech-service/how-to-recognize-speech.md#pivots=programming-language-csharp#change-how-silence-is-handled). | Optional |
+| MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
+| StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
+| InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
+| InterruptCallMediaOperation | Bool | True | If this flag is set it will interrupt the current call media operation. For example if any audio is being played it will interrupt that operation and initiate recognize. | Optional |
+| OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
+| Phrases | String | Not set | List of phrases that associate to the label, if any of these are heard it will be considered a successful recognition. | Required | 
+| Tone | String | Not set | The tone to recognize if user decides to press a number instead of using speech. | Optional |
+| Label | String | Not set | The key value for recognition. | Required |
+| Language | String | En-us | The language that will be used for recognizing speech. | Optional |
+
+>[!NOTE] 
+>In situations where both dtmf and speech are in the recognizeInputsType, the recognize action will action on the first input type received, i.e. if the user presses a keypad number first then the recognize action will consider it a dtmf event and continue listening for dtmf tones. If the user speaks first then the recognize action will consider it a speech recognition and listen for voice input. 
+
+## Create a new C# application
+
+In the console window of your operating system, use the `dotnet` command to create a new web application.
+
+```console
+dotnet new web -n MyApplication
+```
+
+## Install the NuGet package
+
+During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+
+## Establish a call
+
+By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
+
+``` csharp
+var callAutomationClient = new CallAutomationClient("<ACS connection string>");
+
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
+    {
+        AzureCognitiveServicesEndpointUrl = new Uri("https://sample-cognitive-service-resource.cognitiveservices.azure.com/") // for Speech-To-Text (choices)
+    };
+    var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
+```
+
+## Call the recognize action
+
+When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
+
+### DTMF 
+``` csharp
+var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
+                var recognizeOptions = new CallMediaRecognizeDtmfOptions(targetParticipant, maxTonesToCollect)
+                {
+                    InterruptCallMediaOperation = true,
+                    InitialSilenceTimeout = TimeSpan.FromSeconds(30),
+                    Prompt = new FileSource(new System.Uri("file://path/to/file")),
+                    InterToneTimeout = TimeSpan.FromSeconds(5),
+                    InterruptPrompt = true,
+                    StopTones = new DtmfTone[] { DtmfTone.Pound },
+                };
+                await _callConnection.GetCallMedia().StartRecognizingAsync(recognizeOptions).ConfigureAwait(false);
+```
+**Note:** If parameters aren't set, the defaults will be applied where possible.
+
+### Speech-To-Text (Choices) 
+``` csharp
+var choices = new List<RecognizeChoice>
+            {
+                new RecognizeChoice("Confirm", new List<string> { "Confirm", "First", "One"})
+                {
+                    Tone = DtmfTone.One
+                },
+                new RecognizeChoice("Cancel", new List<string> { "Cancel", "Second", "Two"})
+                {
+                    Tone = DtmfTone.Two
+                }
+            };
+var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
+           var playSource = new TextSource("Hello, This is a reminder for your appointment at 2 PM, Say Confirm to confirm your appointment or Cancel to cancel the appointment. Thank you!");
+
+            var recognizeOptions =
+                new CallMediaRecognizeChoiceOptions(
+                    targetParticipant: targetParticipant,
+                    recognizeChoices: choices)
+                {
+                    InterruptPrompt = true,
+                    InitialSilenceTimeout = TimeSpan.FromSeconds(5),
+                    Prompt = playSource,
+                    OperationContext = "AppointmentReminderMenu"
+                };
+
+            var response = await _callConnection
+                                    .GetCallMedia()
+                                    .StartRecognizingAsync(recognizeOptions)
+                                    .ConfigureAwait(false);
+```                                    
+**Note:** If parameters aren't set, the defaults will be applied where possible.
+
+# Receiving recognize event updates
+
+Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the previously mentioned events occurs. 
+
+### Example of DTMF *RecognizeCompleted* event:
+``` json
+[
+    {
+        "id": "e9cf1c71-f119-48db-86ca-4f2530a2004d",
+        "source": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
+        "type": "Microsoft.Communication.RecognizeCompleted",
+        "data": {
+            "eventSource": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted",
+            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
+            "resultInformation": {
+                "code": 200,
+                "subCode": 8531,
+                "message": "Action completed, max digits received."
+            },
+            "recognitionType": "dtmf",
+            "collectTonesResult": {
+                "tones": [
+                    "nine",
+                    "eight",
+                    "zero",
+                    "five",
+                    "two"
+                ]
+            },
+            "callConnectionId": "411f0b00-d97f-49ad-a6ff-3f8c05dc64d7",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
+            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
+        },
+        "time": "2022-09-13T00:55:08.2240104+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f0b00-d97f-49ad-a6ff-3f8c05dc64d7/RecognizeCompleted"
+    }
+]
+```
+### Example of Choices *RecognizeCompleted* event:
+``` json
+[
+    {
+        "id": "cf41d1b3-663d-45ab-94d6-7ff130f41839",
+        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+        "type": "Microsoft.Communication.RecognizeCompleted",
+        "data": {
+            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "operationContext": "AppointmentReminderMenu",
+            "resultInformation": {
+                "code": 200,
+                "subCode": 8545,
+                "message": "Action completed, Recognized phrase matches a valid option."
+            },
+            "recognitionType": "choices",
+            "choiceResult": {
+                "label": "Confirm",
+                "recognizedPhrase": "confirm"
+            },
+            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGerteeqwertrtertsdfrYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNk1VxTjNtajc5M2w2eXc/aTyJmU9N45dfg4MDg5MDEyOTMyODg1OTY5",
+            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
+        },
+        "time": "2023-01-10T00:28:56.7369845+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
+    }
+]
+```
+
+### Example of how you can deserialize the *RecognizeCompleted* event:
+``` csharp
+        if (@event is RecognizeCompleted { OperationContext: "AppointmentReminderMenu" })
+        {
+            logger.LogInformation($"RecognizeCompleted event received for call connection id: {@event.CallConnectionId}");
+            var recognizeCompletedEvent = (RecognizeCompleted)@event;
+            string labelDetected = null;
+            string phraseDetected = null;
+            switch (recognizeCompletedEvent.RecognizeResult)
+            {
+                // Take action for Recongition through Choices
+                case ChoiceResult choiceResult:
+                    labelDetected = choiceResult.Label;
+                    phraseDetected = choiceResult.RecognizedPhrase;
+                    //If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected,
+                    // if choice is detected using dtmf tone, phrase will be null
+                    break;
+                //Take action for Recongition through DTMF
+                case CollectTonesResult collectTonesResult: 
+                    var tones = collectTonesResult.Tones;
+                    break;
+
+                default:
+                    logger.LogError($"Unexpected recognize event result identified for connection id: {@event.CallConnectionId}");
+                    break;
+            }
+        }
+```
+
+### Example of DTMF *RecognizeFailed* event:
+``` json
+[
+    {
+        "id": "47d9cb04-7039-427b-af50-aebdd94db054",
+        "source": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
+        "type": "Microsoft.Communication.RecognizeFailed",
+        "data": {
+            "eventSource": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed",
+            "operationContext": "267e33a9-c28e-4ecf-a33e-b3abd9526e32",
+            "resultInformation": {
+                "code": 500,
+                "subCode": 8511,
+                "message": "Action failed, encountered failure while trying to play the prompt."
+            },
+            "callConnectionId": "411f0b00-bb72-4d5b-9524-ae1c29713335",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvQzNuT3lkY3E0VTZCV0gtcG1GNmc1Zz9pPTQmZT02Mzc5ODYwMDMzNDQ2MTA5MzM=",
+            "correlationId": "53be6977-d832-4c42-8527-fb2aa4a78b74"
+        },
+        "time": "2022-09-13T00:55:37.0660233+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f0b00-bb72-4d5b-9524-ae1c29713335/RecognizeFailed"
+    }
+]
+```
+
+### Example of Choices *RecognizeFailed* event: 
+``` json
+[
+    {
+        "id": "264be623-5915-415e-bf06-2165e3fa0a08",
+        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+        "type": "Microsoft.Communication.RecognizeFailed",
+        "data": {
+            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "operationContext": "AppointmentReminderMenu",
+            "resultInformation": {
+                "code": 400,
+                "subCode": 8547,
+                "message": "Action failed, recognized phrase does not match a valid option."
+            },
+            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
+            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
+        },
+        "time": "2023-01-10T00:29:30.300373+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
+    }
+]
+```
+
+### Example of how you can deserialize the *RecognizeFailed* event:
+``` csharp
+if (@event is RecognizeFailed { OperationContext: "AppointmentReminderMenu" })
+        {
+            logger.LogInformation($"RecognizeFailed event received for call connection id: {@event.CallConnectionId}");
+            var recognizeFailedEvent = (RecognizeFailed)@event;
+
+            // Check for time out, and then take action like play audio
+            if (ReasonCode.RecognizeInitialSilenceTimedOut.Equals(recognizeFailedEvent.ReasonCode))
+            {
+                logger.LogInformation($"Recognition timed out for call connection id: {@event.CallConnectionId}");
+                var playSource = new TextSource("No input recieved and recognition timed out, Disconnecting the call. Thank you!");
+                //Play audio for time out
+                await callConnectionMedia.PlayToAllAsync(playSource, new PlayOptions { OperationContext = "ResponseToChoice", Loop = false });
+            }
+
+            //Check for invalid speech or tone detection and take action like playing audio
+            if (ReasonCode.RecognizeSpeechOptionNotMatched.Equals(recognizeFailedEvent.ReasonCode) ||
+            ReasonCode.RecognizeIncorrectToneDetected.Equals(recognizeFailedEvent.ReasonCode))
+            {
+                logger.LogInformation($"Recognition failed for invalid speech or incorrect tone detected, connection id: {@event.CallConnectionId}");
+                var playSource = new TextSource("Invalid speech phrase detected, Disconnecting the call. Thank you!");
+
+                //Play text prompt for speech option not matched
+                await callConnectionMedia.PlayToAllAsync(playSource, new PlayOptions { OperationContext = "ResponseToChoice", Loop = false });
+            }
+        }
+```
+
+### Example of *RecognizeCanceled* event:
+``` json
+[
+    {
+        "id": "d4f2e476-fb8f-43c2-abf8-0981f8e70df9",
+        "source": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+        "type": "Microsoft.Communication.RecognizeCanceled",
+        "data": {
+            "eventSource": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "operationContext": "AppointmentChoiceMenu",
+            "callConnectionId": "411f7000-1831-48f7-95f3-b8ee7470dd41",
+            "serverCallId": "aHR0cHM6Ly9hcGkuZXAtZGV2LnNreXBlLm5ldC9hcGkvdjIvY3AvY29udi1kZXYtMjAwLmNvbnYtZGV2LnNreXBlLm5ldC9jb252L3dIMTZkNkJYU1VxTjNtajc5M2w2eXc/aT0yJmU9NjM4MDg5MDEyOTMyODg1OTY5",
+            "correlationId": "0f40d4ea-2e26-412a-ad43-171411927bf3"
+        },
+        "time": "2023-01-10T00:31:15.3606572+00:00",
+        "specversion": "1.0",
+        "datacontenttype": "application/json",
+        "subject": "calling/callConnections/411f7000-1831-48f7-95f3-b8ee7470dd41"
+    }
+]
+```
+
+### Example of how you can deserialize the *RecognizeCanceled* event:
+``` csharp
+if (@event is RecognizeCanceled { OperationContext: "AppointmentReminderMenu" })
+        {
+            logger.LogInformation($"RecognizeCanceled event received for call connection id: {@event.CallConnectionId}");
+            //Take action on recognize canceled operation
+           await callConnection.HangUpAsync(forEveryone: true);
+        }
+```
