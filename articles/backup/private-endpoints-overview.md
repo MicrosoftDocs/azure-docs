@@ -2,7 +2,7 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 03/01/2023
 ms.custom: devx-track-azurepowershell
 ms.service: backup
 author: jyothisuri
@@ -42,9 +42,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
-
+>Private endpoints are supported with only DPM server 2022, MABS v4, and later.
 
 ## Difference in network connections due to private endpoints
 
