@@ -1,15 +1,16 @@
 ---
-title: Azure Lab Services Quickstart - Create a lab plan by using Azure Resource Manager template (ARM template)
-description: In this quickstart, you'll learn how to create an Azure Lab Services lab plan by using Azure Resource Manager template (ARM template).
+title: Create a lab plan by using Azure Resource Manager template (ARM template)
+titleSuffix: Azure Lab Services
+description: Learn how to create an Azure Lab Services lab plan by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-ms.topic: quickstart
+ms.topic: how-to
 ms.custom: mode-arm
 ms.date: 06/04/2022
 ---
 
-# Quickstart: Create a lab plan using an ARM template
+# Create a lab plan in Azure Lab Services using an ARM template
 
-This quickstart shows you, as the admin, how to use an Azure Resource Manager (ARM) template to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to use an Azure Resource Manager (ARM) template to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -23,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab-plan/).
+The template used in this article is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab-plan/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab-plan/azuredeploy.json":::
 
@@ -63,8 +64,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Clean up resources
 
-Other Lab Services quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-
 When no longer needed, [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
 ), which deletes the lab plan.
 
@@ -80,4 +79,4 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a lab, see:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a lab using an ARM template](quick-create-lab-template.md)
+> [Create a lab using an ARM template](quick-create-lab-template.md)

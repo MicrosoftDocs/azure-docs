@@ -1,15 +1,16 @@
 ---
-title: Azure Lab Services Quickstart - Create a lab by using Azure Resource Manager template (ARM template)
-description: In this quickstart, you'll learn how to create an Azure Lab Services lab by using Azure Resource Manager template (ARM template).
+title: Create a lab by using Azure Resource Manager template (ARM template)
+titleSuffix: Azure Lab Services
+description: Learn how to create an Azure Lab Services lab by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-ms.topic: quickstart
+ms.topic: how-to
 ms.custom: subject-armqs
 ms.date: 05/10/2022
 ---
 
-# Quickstart: Create a lab using an ARM template
+# Create a lab in Azure Lab Services using an ARM template
 
-This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to use an Azure Resource Manager (ARM) template to create a lab.  You learn how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -22,11 +23,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 To complete this quick start, make sure that you have:
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Lab plan.  If you haven't create a lab plan, see [Quickstart: Create a lab plan using an ARM template](quick-create-lab-plan-template.md).
+- Lab plan.  If you haven't create a lab plan, see [Create a lab plan using an ARM template](quick-create-lab-plan-template.md).
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
+The template used in this article is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab-using-lab-plan/azuredeploy.json":::
 

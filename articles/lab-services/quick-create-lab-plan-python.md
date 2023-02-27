@@ -1,15 +1,15 @@
 ---
-title: Azure Lab Services quickstart - Create a lab plan using Python
-description: In this quickstart, you learn how to create an Azure Lab Services lab plan using Python and the Azure Python SDK. 
+title: Create a lab plan using Python
+titleSuffix: Azure Lab Services
+description: Learn how to create an Azure Lab Services lab plan using Python and the Azure Python SDK. 
 author: RogerBestMSFT
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/15/2022
-ms.custom: template-quickstart
 ---
 
-# Quickstart: Create a lab plan using Python and the Azure libraries (SDK) for Python
+# Create a lab plan in Azure Lab Services using Python and the Azure libraries (SDK) for Python
 
-In this article you, as the admin, use Python and the Azure Python SDK to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to use Python and the Azure Python SDK to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ if __name__ == "__main__":
 ```
 ## Next steps
 
-In this QuickStart, you created a resource group and a lab plan.  As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).
+In this article, you created a resource group and a lab plan.  As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a lab using Python and the Azure Python SDK](quick-create-lab-python.md)
+> [Create a lab using Python and the Azure Python SDK](quick-create-lab-python.md)

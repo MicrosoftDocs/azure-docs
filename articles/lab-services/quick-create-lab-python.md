@@ -1,26 +1,26 @@
 ---
-title: Azure Lab Services quickstart - Create a lab using Python
-description: In this quickstart, you learn how to create an Azure Lab Services lab using Python and the Azure Python libraries (SDK).
+title: Create a lab using Python
+titleSuffix: Azure Lab Services
+description: Learn how to create an Azure Lab Services lab using Python and the Azure Python libraries (SDK).
 author: RogerBestMSFT
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/15/2022
-ms.custom: template-quickstart
 ---
 
-# Quickstart: Create a lab using Python and the Azure Python libraries (SDK)
+# Create a lab in Azure Lab Services using Python and the Azure Python libraries (SDK)
 
-In this quickstart, you, as the educator, create a lab using Python and the Azure Python libraries (SDK).  The lab will use the settings from a previously created lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to create a lab using Python and the Azure Python libraries (SDK).  The lab uses the settings from a previously created lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Setup Local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
 - [The requirements.txt can be downloaded from the Azure Python samples](https://github.com/Azure-Samples/azure-samples-python-management/blob/main/samples/labservices/requirements.txt)
-- Lab plan. To create a lab plan, see [Quickstart: Create a lab plan using Python and the Azure Python libraries (SDK)](quick-create-lab-plan-python.md).
+- Lab plan. To create a lab plan, see [Create a lab plan using Python and the Azure Python libraries (SDK)](quick-create-lab-plan-python.md).
 
 ## Create a lab
 
-Before we can create a lab, we need the lab plan object.  In the [previous quickstart](quick-create-lab-plan-python.md), we created a lab plan named `BellowsCollege_labplan` in a resource group named `BellowsCollege_rg`.
+Before you can create a lab, you need the lab plan object.  In the [create a lab plan by using Python](quick-create-lab-plan-python.md), you learn how to create a lab plan named `BellowsCollege_labplan` in a resource group named `BellowsCollege_rg`.
 
 ```python
 # --------------------------------------------------------------------------

@@ -1,14 +1,15 @@
 ---
-title: Azure Lab Services Quickstart - Create a lab using Bicep
-description: In this quickstart, you learn how to create an Azure Lab Services lab using Bicep
-ms.topic: quickstart
+title: Create a lab using Bicep
+titleSuffix: Azure Lab Services
+description: Learn how to create an Azure Lab Services lab by using Bicep.
+ms.topic: how-to
 ms.date: 05/23/2022
 ms.custom: mode-api
 ---
 
-# Quickstart: Create a lab using a Bicep file
+# Create a lab in Azure Lab Services using a Bicep file
 
-In this quickstart, you, as the educator, create a lab using a Bicep file.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+In this article, you learn how to create a lab using a Bicep file.  For a detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -18,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
+The Bicep file used in this article is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab/main.bicep":::
 
@@ -86,7 +87,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine using a Bicep file. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this article, you deployed a simple virtual machine using a Bicep file. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Configure a template VM](how-to-create-manage-template.md)
