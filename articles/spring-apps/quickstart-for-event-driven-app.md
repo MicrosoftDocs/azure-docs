@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard tier
 
-This quickstart explains how to deploy a Spring Boot event driven application to Azure Spring Apps. The sample project is a event driven application that subscribe to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, then handle the message and send another message to another queue named `upper-case`. To simply the app, messaging handle is just convert the message to uppercase. Here is the diagram about the system:
+This quickstart explains how to deploy a Spring Boot event driven application to Azure Spring Apps. The sample project is a event driven application that subscribe to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, then handle the message and send another message to another queue named `upper-case`. To make the app simple, messaging handle is just convert the message to uppercase. Here is the diagram about the system:
 
 :::image type="content" source="media/quickstart-for-event-driven-app/diagram.png" alt-text="Screenshot of Spring event driven app architecture." lightbox="media/quickstart-for-event-driven-app/diagram.png":::
 
