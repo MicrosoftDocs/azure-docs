@@ -193,13 +193,14 @@ az spring app update \
 ```
 
 ## Deploy the app to Azure Spring Apps
-1. Now the cloud environment is ready. Deploy the app by this command:
-    ```azurecli-interactive
-    az spring app deploy \
-        --service ${AZURE_SPRING_APPS_NAME} \
-        --name ${APP_NAME} \
-        --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
-    ```
+
+Now the cloud environment is ready. Deploy the app by this command:
+```azurecli-interactive
+az spring app deploy \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
+```
 
 ## Validate the event driven app
 To check whether the event driven app work well, let's validate it by sending a message to `lower-case` queue and check whether there is a message in `upper-case`.
