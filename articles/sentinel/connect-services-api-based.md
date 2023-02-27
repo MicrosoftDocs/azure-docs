@@ -3,7 +3,7 @@ title: Connect Microsoft Sentinel to other Microsoft services with an API-based 
 description: Learn how to connect Microsoft Sentinel to Microsoft services with API-based connections.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/24/2023
 ms.author: yelevin
 ---
 
@@ -23,15 +23,15 @@ This article presents information that is common to the group of API-based data 
   
   |Data connector  |Licensing, costs, and other prerequisites  |
   |---------|---------|
-  |Azure Active Directory Identity Protection   | <ul><li> [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/) <li>Other charges may apply    </ul>   |
-  |Dynamics 365     | <ul><li> [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<li>Other charges may apply   </ul>    |
+  |Azure Active Directory Identity Protection   | - [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br> - Other charges may apply      |
+  |Dynamics 365     | - [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<br>- At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<br>- Other charges may apply    |
   |Microsoft Defender for Cloud Apps|For Cloud Discovery logs, [enable Microsoft Sentinel as your SIEM in Microsoft Defender for Cloud Apps](/cloud-app-security/siem-sentinel)|
   |Microsoft Defender for Endpoint|Valid license for [Microsoft Defender for Endpoint deployment](/microsoft-365/security/defender-endpoint/production-deployment)|
   |Microsoft Defender for Office 365|Valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2)|
-  |Microsoft Office 365|<ul><li>Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<li>Other charges may apply.</ul>|
-  |Microsoft Power BI|<ul><li>Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<li>Other charges may apply.</ul>|
-  |Microsoft Purview Information Protection|<ul><li>Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<li>Other charges may apply.</ul>|
-  |Microsoft Purview Insider Risk Management (IRM)    | <ul><li> Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft Purview Insider Risk Management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.  <ul>  |
+  |Microsoft Office 365|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
+  |Microsoft Power BI|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
+  |Microsoft Purview Information Protection|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
+  |Microsoft Purview Insider Risk Management (IRM)    |- Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<br>- [Microsoft Purview Insider Risk Management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<br>- [Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector. |
 
 
 

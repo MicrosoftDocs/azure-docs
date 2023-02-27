@@ -250,6 +250,9 @@
       items:
       - name: Amazon Web Services logs
         href: connect-aws.md
+        items:
+        - name: Send CloudWatch events via Lambda function
+          href: cloudwatch-lambda-function.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
@@ -662,8 +665,12 @@
         href: data-connectors/vmware-vcenter.md
       - name: WatchGuard Firebox
         href: data-connectors/watchguard-firebox.md
+      - name: Windows DNS Events via AMA (Preview)
+        href: data-connectors/windows-dns-events-via-ama-preview.md
       - name: Windows Firewall
         href: data-connectors/windows-firewall.md
+      - name: Windows Firewall Events via AMA (Preview)
+        href: data-connectors/windows-firewall-events-via-ama-preview.md
       - name: Windows Forwarded Events
         href: data-connectors/windows-forwarded-events.md
       - name: Windows Security Events via AMA
@@ -724,8 +731,8 @@
         href: connect-syslog.md
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
-    - name: Configure for RDP login detection
-      href: configure-connector-rdp-login-detection.md
+    - name: Configure RDP login detection
+      href: configure-connector-login-detection.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md    
     - name: Create a custom connector
