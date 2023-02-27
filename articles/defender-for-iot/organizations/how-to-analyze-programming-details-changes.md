@@ -18,7 +18,7 @@ Use the **Programming Timeline** tab on your OT network sensor to review program
 Programming activity shown on OT sensors include both *authorized* and *unauthorized* events. Authorized events are performed by devices that are either learned or manually defined as programming devices. Unauthorized events are performed by devices that haven't been learned or manually defined as programming devices.
 
 > [!NOTE]
-> Programming data is available on OT sensors with text based programming protocols such as DeltaV.
+> Programming data is available for devices using text based programming protocols, such as DeltaV.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Sign into the OT sensor console and select **Device map**.
 
-1. In the **Groups** area to the left of the map, select **Filter** > **OT Protocols** > choose a text based programming protocol, such as DeltaV.
+1. In the **Groups** area to the left of the map, select **Filter** > **OT Protocols** > select a text based programming protocol, such as DeltaV.
 
 1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
 
@@ -62,7 +62,7 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Sign into the OT sensor console and select **Device inventory**.
 
-1. Filter the device inventory to show devices with a text based programming protocol, such as DeltaV.
+1. Filter the device inventory to show devices using text based programming protocols, such as DeltaV.
 
 1. Select the device you want to analyze, and then select **View full details** to open the device details page.
 
@@ -78,7 +78,7 @@ Use the event timeline to display a timeline of events in which programming chan
 
 1. Sign into the OT sensor console and select **Event timeline**.
 
-1. Filter the event timeline using keywords for a text based programming protocol, such as **DeltaV**.
+1. Filter the event timeline for devices using text based programming protocols, such as **DeltaV**.
 
 1. Select the event you want to analyze to open the event details pane on the right, and then select **View programming**.
 
