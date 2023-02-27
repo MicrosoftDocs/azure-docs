@@ -43,7 +43,7 @@ This quickstart explains how to deploy a Spring Boot event driven application to
 
 ## Prepare the cloud environment
 
-The main resources needed to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. This section will give you the steps to create these resources. 
+The main resources needed to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. This section will give the steps to create these resources. 
 
 ### 1. Set name for each resource
 To make the steps easier to proceed, let's set the name at the beginning. 
