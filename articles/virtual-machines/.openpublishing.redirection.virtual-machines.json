@@ -4865,6 +4865,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/tag-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-portal.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-template.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-template",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
             "redirect_document_id": false

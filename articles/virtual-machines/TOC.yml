@@ -1842,19 +1842,7 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
-    items:
-    - name: CLI
-      href: tag-cli.md
-      displayname: tag, tagging, tag a vm
-    - name: Portal
-      href: tag-portal.md
-      displayname: tag, tagging, tag a vm
-    - name: PowerShell
-      href: tag-powershell.md
-      displayname: tag, tagging, tag a vm
-    - name: Template
-      href: tag-template.md
-      displayname: tag, tagging, tag a vm
+    href: ../azure-resource-manager/management/tag-resources.md
   - name: Monitor metadata
     displayName: instance metadata service IMDS
     href: instance-metadata-service.md
