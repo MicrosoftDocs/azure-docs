@@ -82,10 +82,12 @@ __Outbound traffic__
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
-  > If a compute instance or compute cluster is configured for no public IP, they can't access the public internet by default. However, they do need to communicate with the resources listed above. To enable outbound communication, you have two possible options:
-  >
-  > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
-  > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
+> If a compute instance or compute cluster is configured for no public IP, it can still send outbound traffic to the internet using the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) Azure provides for VMs. However, if you need outbound access we recommend implementing your own instead of relying on the default. We recommend using one of the following options:
+> 
+> * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
+> * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
+>
+> For more information, see the [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access) article.
 
 ### Recommended configuration for training and deploying models
 

@@ -32,7 +32,7 @@ The following table contains the differences between these configurations:
 | Configuration | With public IP | Without public IP |
 | ----- | ----- | ----- |
 | Inbound traffic | AzureMachineLearning | None |
-| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, it cannot access the public internet since there is no public IP resource.<br>You need a Virtual Network NAT gateway or Firewall to route outbound traffic to required resources on the internet. |
+| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, can access the public internet using the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) provided by Azure.<br>We recommend using a Virtual Network NAT gateway or Firewall instead if you need to route outbound traffic to required resources on the internet. |
 | Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
@@ -131,7 +131,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 
-+ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
++ The [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) provided by Azure allows a no public IP compute to access the public network. However, we recommend using either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic instead.
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
