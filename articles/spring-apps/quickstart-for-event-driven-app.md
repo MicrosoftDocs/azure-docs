@@ -104,7 +104,7 @@ To easier to manage the resources, create a resource group to hold these resourc
 
 ### 4. Create Azure Spring Apps Consumption plan instance
 
-Azure Spring Apps Consumption plan will be used to host the spring event driven app. Let's create an Azure Spring Apps Consumption plan instance and create an app inside it.
+Azure Spring Apps Consumption plan will be used to host the spring event driven app. This section will give steps of creating an Azure Spring Apps Consumption plan instance and creating an app inside it.
 
 #### 4.1. Create a Managed Environment
 A Managed Environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
