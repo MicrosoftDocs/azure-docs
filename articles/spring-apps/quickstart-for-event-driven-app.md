@@ -132,7 +132,8 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
     ```azurecli-interactive
     az extension remove -n spring && \
     az extension add \
-        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl
+        --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.1.11-py3-none-any.whl \
+        --yes
     ```
     Input `y` when a prompt ask you to confirm like this:
     ```text
