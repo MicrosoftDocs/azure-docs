@@ -40,8 +40,7 @@ chatClient.on("chatMessageEdited", (e) => {
 ```javascript
 const messages = chatThreadClient.listMessages();
 for await (const message of messages) {
-    if (message.editedOn == undefined &&
-        message.content?.message == "" &&
+    if (message.content?.message == "" &&
         message.sender?.kind == "microsoftTeamsUser") {
         // Show UI message blocked 
     }
