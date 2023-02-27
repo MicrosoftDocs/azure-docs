@@ -862,7 +862,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: snapshot-debugger/snapshot-debugger-troubleshoot.md
+          href: https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
     - name: Advanced configuration
       items:
       - name: Access control
