@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/17/2023
+ms.date: 02/27/2023
 ms.custom: template-concept, ignite-2022
 ---
 
