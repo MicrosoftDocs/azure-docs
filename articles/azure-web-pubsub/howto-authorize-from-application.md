@@ -107,7 +107,31 @@ To learn more about how to assign and manage Azure role assignments, see these a
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
-## Sample codes
+## Use Postman to get the Azure AD token
+1. Launch Postman
+
+2. For the method, select **GET**.
+
+3. For the **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the **Directory (tenant) ID** value in the **Overview** tab of the application you created earlier.
+
+4. On the **Headers** tab, add **Content-Type** key and `application/x-www-form-urlencoded` for the value.
+
+![Screenshot of the basic info using postman to get the token](./media/get-azure-ad-token-using-postman.png)
+
+5. Switch to the **Body**tab, and add the following keys and values.
+    1. Select **x-www-form-urlencoded**.
+    2. Add `grant_type` key, and type `client_credentials` for the value.
+    3. Add `client_id` key, and paste the value of **Application (client) ID** in the **Overview** tab of the application you created earlier.
+    4. Add `client_secret` key, and paste the value of client secret you noted down earlier.
+    5. Add `resource` key, and type `https://webpubsub.azure.com` for the value.
+
+![Screenshot of the body parameters when using postman to get the token](./media/get-azure-ad-token-using-postman-body.png)
+
+6. Select **Send** to send the request to get the token. You see the token in the `access_token` field. 
+
+![Screenshot of the response token when using postman to get the token](./media/get-azure-ad-token-using-postman-response.png)
+
+## Sample codes using Azure AD auth
 
 We officially support 4 programming languages:
 
