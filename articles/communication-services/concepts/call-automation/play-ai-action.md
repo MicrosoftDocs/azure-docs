@@ -23,7 +23,7 @@ You can leverage the newly announced integration between Azure Communication Ser
 > ACS currently only supports WAV files formatted as mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](../../../../articles/cognitive-services/Speech-Service/how-to-audio-content-creation.md). 
 
 ## Prebuilt Neural Text to Speech voices
-Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. Learn more about [Azure Text-to-Speech voices](../../../../articles/cognitive-services/Speech-Service/language-support.md#text-to-speech).
+Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. Learn more about [Azure Text-to-Speech voices](../../../../articles/cognitive-services/Speech-Service/language-support.md).
 
 ## Common use cases 
 

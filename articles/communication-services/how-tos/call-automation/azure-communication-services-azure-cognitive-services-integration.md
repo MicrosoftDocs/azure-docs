@@ -1,15 +1,15 @@
-
-
 ---
-title: include file
-description: How-to guide for connecting Azure Communication Services with Azure Cognitive Services
-services: azure-communication-services
-author: Kunaal
-ms.topic: how-to
+title: Connect Azure Communication Services to Azure Cognitive Services
+titleSuffix: An Azure Communication Services how-to document
+description: Provides a how-to guide for connecting ACS to Azure Cognitive Services.
+author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
+ms.topic: include
 ms.date: 02/15/2023
 ms.author: kpunjabi
+ms.custom: private_preview
+services: azure-communication-services
 ---
 
 # Connect Azure Communication Services with Azure Cognitive Services

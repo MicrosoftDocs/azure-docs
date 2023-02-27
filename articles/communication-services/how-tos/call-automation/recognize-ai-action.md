@@ -1,5 +1,5 @@
 ---
-title: Gather user input
+title: Gather user voice input
 titleSuffix: An Azure Communication Services how-to document
 description: Prrovides a how-to guide for gathering user input from participants on a call.
 author: kunaal
@@ -12,7 +12,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Gather user input with Recognize action
+# Gather user input with Recognize action and voice input
 
 This guide will help you get started recognizing user input in the forms of DTMF or voice input provided by participants throuhg Azure Communication Services Call Automation SDK.
 
