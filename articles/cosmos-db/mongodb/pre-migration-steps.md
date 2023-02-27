@@ -152,7 +152,7 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
    * In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](../partitioning-overview.md#choose-partitionkey). 
 * Follow the guide for [Data modeling in Azure Cosmos DB](../modeling-data.md) to choose a data model.
 * Follow [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md#optimize-by-provisioning-throughput-at-different-levels) to choose between dedicated and shared throughput for each resource that you will migrate
-* [How to model and partition data on Azure Cosmos DB using a real-world example](../how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decision-making process
+* [How to model and partition data on Azure Cosmos DB using a real-world example](../model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decision-making process
 
 ### Cost of ownership
 
