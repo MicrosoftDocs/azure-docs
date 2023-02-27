@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is vCore-based Azure Cosmos DB for MongoDB?
-      href: mongo-vcore-overview.md
+      href: introduction.md
 - name: Concepts
   items:
     - name: MongoDB feature support
@@ -13,7 +13,7 @@
     - name: Migration options
       href: migration-options.md
     - name: Security
-      href: security-overview.md
+      href: security.md
 - name: How to
   items:
     - name: Create account
