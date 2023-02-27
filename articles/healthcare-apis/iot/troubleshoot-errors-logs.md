@@ -62,7 +62,7 @@ The health checks' names are listed in the following table, and the fixes for an
 
 ### CredentialStore:IsCustomerFacingMiCredentialBundlePresent
 
-**Description**: Checks if a MedTech service’s system-assigned managed identity exists and is enabled.
+**Description**: Checks if a MedTech service’s system-assigned managed identity has been enabled or if a user-assigned managed identity is configured.
 
 **Severity**: Blocking
 
