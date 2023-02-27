@@ -72,7 +72,7 @@ For more information about deploying a Bicep file, see [Deploy resources with Bi
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources.. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources. 
 
 To prevent a resource group and its resources from being deleted, use [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
