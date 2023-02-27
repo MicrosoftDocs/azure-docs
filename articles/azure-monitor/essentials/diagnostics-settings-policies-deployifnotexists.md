@@ -156,6 +156,8 @@ Initiatives are collections of policies. There are three initiatives for Azure M
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
 
+### [Azure portal](#tab/portal)
+
 1. From the policy **Definitions** page, select your scope.
 
 1. Select *Initiative* in the **Definition type** dropdown.
@@ -187,6 +189,46 @@ Your diagnostic setting appears in the list with the default name *setByPolicy-L
 Change the default name in the **Parameters** tab of the **Assign initiative** or policy page by unselecting the **Only show parameters that need input or review** checkbox.
 
 :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+
+### [CLI](#tab/cli)
+TBD
+
+### [PowerShell](#tab/Powershell)
+
+$subscriptionId = "d0567c0b-5849-4a5d-a2eb-5267eae1bbc7";
+Select-AzSubscription $subscriptionId;
+$groupName= "ed-ps-initiative-03";
+$rg = Get-AzResourceGroup -Name $groupName;
+$definition = Get-AzPolicySetDefinition |Where-Object ResourceID -eq /providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5;
+$assignmentName="assign-ps-initiative-03-03";
+$params =  @{"logAnalytics"="/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)/providers/microsoft.operationalinsights/workspaces/ed-psi-02-workspace"}  
+$policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
+
+
+$policyAssignment=New-AzPolicyAssignment -Name $assignmentName  -Scope $rg.ResourceId -PolicySetDefinition $definition -PolicyparameterObject $params -IdentityType 'SystemAssigned' -Location eastus;
+
+
+New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionName Contributor;
+
+
+Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName;
+#$policyAssignment=Get-AzPolicyAssignment -Name $assignmentName -Scope "/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)";
+
+$assignmentState=Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName   
+
+$policyAssignmentId=$assignmentState.PolicyAssignmentId[0]
+
+$policyDefinitionReferenceIds=$assignmentState.PolicyDefinitionReferenceId 
+
+$policyDefinitionReferenceIds | ForEach-Object {
+  $referenceId = $_
+  Start-AzPolicyRemediation -ResourceGroupName $rg.ResourceGroupName  -PolicyAssignmentId $policyAssignmentId   -PolicyDefinitionReferenceId $referenceId -Name "$($rg.ResourceGroupName) remediation $referenceId"
+}
+
+
+Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
+
+
 
 ## Remediation tasks
 
