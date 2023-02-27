@@ -46,10 +46,10 @@ Use the table below to find which model versions are supported by each feature:
 | Language Detection                                  | `2021-11-20`, `2022-10-01*` |
 | Entity Linking                                      | `2021-06-01*`               |
 | Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`               |
-| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*` | 
+| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*`, `2023-01-01-preview**`  | 
 | PII detection for conversations (Preview)           | `2022-05-15-preview**`      |  
 | Question answering                                  | `2021-10-01*`               |
-| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview**` |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview`, `2023-01-01-preview**` |
 | Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*` | 
 | Document summarization - extractive only (preview)     | `2022-08-31-preview**`               |
 
