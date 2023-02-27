@@ -498,7 +498,7 @@ items:
             href: logs/workspace-design.md
           - name: Dedicated clusters
             href: logs/logs-dedicated-clusters.md
-          - name: Availability zones
+          - name: Enhance data and service resiliency
             href: logs/availability-zones.md
         - name: Monitor
           items:
