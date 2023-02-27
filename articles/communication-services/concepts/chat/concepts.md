@@ -2,11 +2,11 @@
 title: Chat concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Chat concepts.
-author: tophpalmer
-manager: chpalm
+author: kaperla
+manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 02/22/2023
+ms.date: 02/27/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
@@ -18,11 +18,11 @@ Azure Communication Services Chat can help you add real-time text communication 
 
 The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:
 
-- **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
+- **Custom Identity and Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) to address communication endpoints. Clients use these identities to authenticate to the Azure service and communicate with each other in `chat threads` you control.
 - **Encryption** - Chat SDKs encrypt traffic and prevents tampering on the wire.
 - **Microsoft Teams Meetings** - Chat SDKs can [join Teams meetings](../../quickstarts/chat/meeting-interop.md) and communicate with Teams chat messages.
 - **Real-time Notifications** - Chat SDKs use efficient persistent connectivity (WebSockets) to receive real-time notifications such as when a remote user is typing. When apps are running in the background, built-in functionality is available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end users of new threads and messages.
-**Service & Bot Extensibility** - REST APIs and server SDKs allow services to send and receive messages. Bots can be added easily with [Azure Bot Framework integration](../../quickstarts/chat/quickstart-botframework-integration.md).
+- **Service & Bot Extensibility** - REST APIs and server SDKs allow services to send and receive messages. It is easy to add bots with [Azure Bot Framework integration](../../quickstarts/chat/quickstart-botframework-integration.md).
 
 
 
@@ -30,19 +30,19 @@ The Chat APIs provide an **auto-scaling** service for persistently stored text a
 
 Chat conversations happen within **chat threads**. Chat threads have the following properties:
 
-- A chat thread is uniquely identified by its `ChatThreadId`. 
+- A chat thread is identified by its `ChatThreadId`. 
 - Chat threads have between zero to 250 users as participants who can send messages to it. 
 - A user can be a part an unlimited number of chat threads. 
 - Only thread participants can send or receive messages, add participants, or remove participants. 
-- Users are automatically added as a participant to any chat threads that they create.
+- Users are added as a participant to any chat threads that they create.
 
 ### User access
-Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
+Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
 ### Chat Data 
-Azure Communication Services stores chat messages for 90 days. Chat thread participants can use `ListMessages` to view  message history for a particular thread, please note that the API will not return messages once the 90 day period has passed. Users that are removed from a chat thread will be able to view previous message history for 90 days but cannot send or receive new messages. To learn more about data being stored by Communication Services, refer to the [data residency and privacy page](../privacy.md).  
+Azure Communication Services stores chat messages for 90 days. Chat thread participants can use `ListMessages` to view  message history for a particular thread, please note that the API does not return messages once the 90 day period has passed. Users that are removed from a chat thread will be able to view previous message history for 90 days but cannot send or receive new messages. To learn more about data being stored by Communication Services, refer to the [data residency and privacy page](../privacy.md).   
 
-For customers that use Virtual appointments, please refer to our Teams interoprability [user privacy] (../interop/guest/privacy#chat-storage) for storage of chat messages in Teams meetings.
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy] (../interop/guest/privacy#chat-storage) for storage of chat messages in Teams meetings.
 
 ### Service limits
 - The maximum number of participants allowed in a chat thread is 250.
@@ -90,7 +90,7 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
 
 ## Push notifications 	
 To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
- - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
+ - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more information, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
  - Connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
     IOS and Android SDK can support the below event:
@@ -105,7 +105,7 @@ To send push notifications for messages missed by your users while they were awa
    - `participantsAdded` - when a user is added as a chat thread participant. 	
    - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
-For more details, see [Push Notifications](../notifications.md).
+For more information, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
 > Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in IOS version 1.3.0.
