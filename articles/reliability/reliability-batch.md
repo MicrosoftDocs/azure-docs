@@ -6,13 +6,13 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.prod: non-product-specific
-ms.date: 10/10/2022
+ms.date: 02/27/2022
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Batch so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
 
-# What is reliability in Azure Batch?
+# Reliability in Azure Batch
 
 This article describes reliability support in Azure Batch and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
 
@@ -28,14 +28,14 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 - For [user subscription mode Batch accounts](../batch/accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To confirm this, call the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `ResourceSkuRestrictions`. If a zone restriction exists, you can submit a support ticket to remove the zone restriction.
 
-- You can't create pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
+- Because InfiniBand doesn't support inter-zone communication, you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
 - Batch maintains parity with Azure on supporting availability zones. To use the zonal option, your pool must be created in a supported Azure region. To use the zonal option, your pool must be created in an [Azure region with availability zone support](az-service-support.md#azure-regions-with-availability-zone-support).
 
 - To allocate your Batch pool across availability zones, the Azure region in which the pool was created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `locationInfo` field of `resourceSku`. Be sure that more than one zone is supported for the requested VM SKU.
 
 
-### Create an Azure Batch pool across Availability Zones
+### Create an Azure Batch pool across availability zones
 
 The following examples show how to create a Batch pool across availability zones.
 
@@ -87,11 +87,11 @@ Request body
 }
 ```
 
+ Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
 
 ### Zone down experience
 
-<!-- Can we provide some guidance to users on what the experience would be during a zone down and what kind of failures they can see before secondary nodes pick up traffic? -->
-
+When a zone is done, the nodes within that zone will become unavailable.
 
 ### Availability zone redeployment and migration
 
@@ -111,9 +111,10 @@ You are responsible for setting up cross-region disaster recovery with Azure Bat
 When providing the ability to failover to an alternate region, all components in a solution must be considered; it's not sufficient to simply have a second Batch account. For example, in most Batch applications, an Azure storage account is required. The storage account and Batch account must be in the same region for acceptable performance.
 
 Consider the following points when designing a solution that can failover:
+
 - Pre-create all required services in each region, such as the Batch account and the storage account. There's often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
 
-- Make sure ahead of time that the appropriate quotas are set on all subscriptions, to allocate the required number of cores using the Batch account.
+- Make sure ahead of time that the [appropriate quotas](/azure/batch/batch-quota-limit) are set for all **user subscription** Batch accounts, to allocate the required number of cores using the Batch account.
 
 - Use templates and/or scripts to automate the deployment of the application in a region.
 
@@ -145,9 +146,6 @@ Make sure [appropriate quotas](../batch/batch-quota-limit.md) are set on all sub
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. To raise a quota, you can request a quota increase at no charge. For more information, see [Request a quota increase](../batch/batch-quota-limit.md#increase-a-quota). 
 
-
-### Additional guidance
-
 #### Storage
 
 You must configure Batch storage to ensure data is backed up cross-region; customer responsibility is the default. Most Batch solutions use Azure Storage for storing [resource files](../batch/resource-files.md) and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account. Storage accounts also store data that is processed and any output data that is generated. Understanding possible data loss across the regions of your service operations is an important consideration. You must also confirm whether data is re-writable or read-only. 
@@ -167,3 +165,8 @@ Capacity planning is another important consideration with storage and should be 
 
 When a storage account is linked to a Batch account, think of it as the autostorage account. An autostorage account is required if you plan to use the [application packages](../batch/batch-application-packages.md) capability, as it is used to store the application package .zip files. It can also be used for [task resource files](../batch/resource-files.md#storage-container-name-autostorage); since the autostorage account is already linked to the Batch account, this avoids the need for shared access signature (SAS) URLs to access the resource files.
 
+## Next steps
+
+
+> [!div class="nextstepaction"]
+> [Resiliency in Azure](/azure/availability-zones/overview)
