@@ -1,13 +1,13 @@
 ---
 title: Internet peering vs. Peering Service
-titleSuffix: Azure
-description: Internet peering vs. Peering Service
+description: Internet peering vs. Peering Service.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
 ms.author: halkazwini
+ms.custom: template-overview
 ---
 
 # Internet peering vs. Peering Service

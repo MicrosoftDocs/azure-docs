@@ -6,14 +6,12 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/13/2022
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
 
 ---
-
-
 
 # Create an image definition and an image version 
 
@@ -325,6 +323,65 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
+## Create an image in one tenant using the source image in another tenant
+
+In the subscription where the source image exists, grant reader permissions to the user. Once the user has reader permission to the source image, login to both accounts (source and target).
+
+You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image.
+
+### [CLI](#tab/cli2)
+
+```azurecli-interactive
+# Set some variables
+tenantID="<tenant ID for the source image>"
+subID="<subscription ID where the image will be creted>"
+sourceImageID="<resource ID of the source image>"
+
+
+# Log in to the tenant where the source image is available
+az login --tenant $tenantID
+
+# Log back in to the subscription where the image will be created and ensure subscription context is set
+az login
+az account set --subscription $subID
+
+# Create the image
+az sig image-version create `
+   --gallery-image-definition myImageDef `
+   --gallery-image-version 1.0.0 `
+   --gallery-name myGallery `
+   --resource-group myResourceGroup `
+   --image-version $sourceImageID
+```
+
+
+### [PowerShell](#tab/powershell2)
+
+```azurepowershell-interactive
+# Set variables 
+$targetSubID = "<subscription ID for the target>"
+$sourceTenantID = "<tenant ID where for the source image>"
+$sourceImageID = "<resource ID of the source image>"
+
+#Login to the subscription where the new image will be created
+Connect-AzAccount -UseDeviceAuthentication -Subscription $targetSubID
+
+# Login to the tenant where the source image is published
+Connect-AzAccount -Tenant $sourceTenantID -UseDeviceAuthentication 
+
+# Set the context of the subscription where the new image will be created
+Set-AzContext -Subscription $targetSubID 
+
+# Create the image version from another image version in a different tenant
+New-AzGalleryImageVersion \
+   -ResourceGroupName myResourceGroup -GalleryName myGallery \
+   -GalleryImageDefinitionName myImageDef \
+   -Location "West US 2" \
+   -Name 1.0.0 \
+   -SourceImageId $sourceImageID
+```
+
+---
 
 ## Next steps
 

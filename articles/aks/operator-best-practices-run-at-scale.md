@@ -2,7 +2,6 @@
 title: Best practices for running Azure Kubernetes Service (AKS) at scale 
 titleSuffix: Azure Kubernetes Service
 description: Learn the AKS cluster operator best practices and special considerations for running large clusters at 500 node scale and beyond 
-services: container-service
 ms.topic: conceptual
 ms.date: 10/04/2022
  

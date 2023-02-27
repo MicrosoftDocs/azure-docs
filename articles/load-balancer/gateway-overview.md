@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 12/28/2021
 ms.topic: conceptual
-ms.custom: ignite-fall-2021
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Gateway Load Balancer

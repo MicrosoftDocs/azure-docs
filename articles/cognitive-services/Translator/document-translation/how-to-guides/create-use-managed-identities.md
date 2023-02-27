@@ -7,11 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 02/09/2023
 ms.author: lajanuar
 ---
 
 # Managed identities for Document Translation
+
+:::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
 > [!IMPORTANT]
 >
@@ -24,7 +26,7 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
-* To grant access to an Azure resource, you need an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
@@ -33,6 +35,7 @@ Managed identities for Azure resources are service principals that create an Azu
 > * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail.
 >
 > * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
+
 
 ## Prerequisites
 
@@ -44,7 +47,7 @@ To get started, you need:
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource with containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You also need to create containers to store and organize your blob data within your storage account.
 
 * **If your storage account is behind a firewall, you must enable the following configuration**: </br>
 
@@ -66,7 +69,7 @@ There are two types of managed identities: **system-assigned** and **user-assign
 
 * The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity is deleted as well.
 
-In the following steps, enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
+In the following steps, we enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
 
 ## Enable a system-assigned managed identity
 
@@ -94,7 +97,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
     :::image type="content" source="../../media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
 
-1. On the Azure role assignments page, choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
+1. On the Azure role assignments page that opened, choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
 
     :::image type="content" source="../../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 

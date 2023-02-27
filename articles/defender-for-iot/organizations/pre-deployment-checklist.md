@@ -2,7 +2,7 @@
 title: OT network pre-deployment checklist
 description: Use this checklist as a worksheet to ensure that your OT network is ready for a Microsoft Defender for IoT deployment.
 ms.date: 02/22/2022
-ms.topic: reference
+ms.topic: checklist
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 title: Configuring Azure Kubernetes Service (AKS) nodes with an HTTP proxy
 description: Use the HTTP proxy configuration feature for Azure Kubernetes Service (AKS) nodes.
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 author: asudbring
 ms.topic: how-to
@@ -107,7 +106,7 @@ In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. I
 
 ## Updating Proxy configurations
 
-Values for *httpProxy*, and *httpsProxy* can't be changed after cluster creation. However, to support rolling CA certs and No Proxy settings, the values for *trustedCa* and *NoProxy* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
+Values for *httpProxy*, and *httpsProxy* can't be changed after cluster creation. However, the values for *trustedCa* and *NoProxy* can be changed and applied to the cluster with the [az aks update][az-aks-update] command. An aks update for *NoProxy* will automatically inject new environment variables into pods with the new *NoProxy* values.  Pods must be rotated for the apps to pick it up.  For components under kubernetes, like containerd and the node itself, this won't take effect until a node image upgrade is performed.
 
 For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action updates the cluster.  Or, you need to add new endpoint urls for your applications to No Proxy:
 
@@ -126,7 +125,6 @@ The HTTP proxy with the Monitoring add-on supports the following configurations:
 The following configurations aren't supported:
 
   - The Custom Metrics and Recommended Alerts features aren't supported when you use a proxy with trusted certificates
-  - Outbound proxy isn't supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 

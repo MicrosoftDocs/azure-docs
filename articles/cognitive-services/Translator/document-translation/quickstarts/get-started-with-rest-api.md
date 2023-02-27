@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2023
+ms.date: 02/10/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -32,7 +32,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) with containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to create containers to store and organize your blob data within your storage account.
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
@@ -66,6 +66,9 @@ The custom domain endpoint is a URL formatted with your resource name, hostname,
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 > * Don't use the Text Translation endpoint found on your Azure portal resource *Keys and Endpoint* page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
+  > [!div class="nextstepaction"]
+  > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites)
+
 ### Retrieve your key and endpoint
 
 Requests to the Translator service require a read-only key and custom endpoint to authenticate access.
@@ -76,9 +79,12 @@ Requests to the Translator service require a read-only key and custom endpoint t
 
 1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
 
-1. The key and endpoint are pasted into the code sample to authenticate your request to the Document Translation service.
+1. You **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint)
 
 ## Create Azure blob storage containers
 
@@ -100,6 +106,9 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
+
+  > [!div class="nextstepaction"]
+  > [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers)
 
 ### Sample document
 
@@ -163,4 +172,4 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 Learn more about Document Translation:
 
 > [!div class="nextstepaction"]
->[Document Translation REST API guide](../reference/rest-api-guide.md) [Language support](../../language-support.md)
+>[Document Translation REST API guide](../reference/rest-api-guide.md) </br></br>[Language support](../../language-support.md)

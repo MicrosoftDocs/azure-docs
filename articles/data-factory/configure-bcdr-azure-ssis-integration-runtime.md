@@ -17,7 +17,7 @@ ms.date: 02/15/2022
 
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure SQL Database/Managed Instance and SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines can be combined as the recommended all-Platform as a Service (PaaS) solution for SQL Server migration. You can deploy your SSIS projects into SSIS catalog database (SSISDB) hosted by Azure SQL Database/Managed Instance and run your SSIS packages on Azure SSIS integration runtime (IR) in ADF or Synapse Pipelines.
 

@@ -18,6 +18,8 @@
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
       href: whats-new-webrtc.md
+    - name: Multimedia redirection (MMR)
+      href: whats-new-multimedia-redirection.md
     - name: Remote Desktop clients
       items:
       - name: Windows Desktop client
@@ -145,7 +147,7 @@
         href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: multimedia-redirection-intro.md
   - name: Security
     items:
@@ -295,7 +297,7 @@
           href: app-attach-azure-portal.md
         - name: Set up MSIX app attach with PowerShell
           href: app-attach-powershell.md
-        - name: Create PowerShell scripts
+        - name: Test and troubleshoot packages
           href: app-attach.md
         - name: Prepare an MSIX image
           href: app-attach-image-prep.md
@@ -323,7 +325,7 @@
       href: watermarking.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
-  - name: Set up multimedia redirection (preview)
+  - name: Set up multimedia redirection
     href: multimedia-redirection.md
   - name: Install language packages
     items:
@@ -413,7 +415,7 @@
     href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
   - name: Teams on Azure Virtual Desktop
     href: troubleshoot-teams.md
