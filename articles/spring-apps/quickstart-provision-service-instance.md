@@ -174,13 +174,49 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
 ::: zone-end
 
-::: zone pivot="tier-standardGen2"
+::: zone pivot="tier-standard-consumption"
 
-The following example shows you how to create a StandardGen2 Azure Spring Apps on top of a Managed Environment.
+The following example shows you how to create a Standard Consumption plan Azure Spring Apps on top of a Managed Environment.
 
-### [Azure portal](#tab/portal)
-TODO
-### [Azure cli](#tab/azure-cli)
+### [Azure portal](#tab/Azure-portal)
+
+The following procedure creates an instance of Azure Spring Apps using the Azure portal.
+
+1. In a new tab, open the [Azure portal](https://portal.azure.com/).
+
+1. From the top search box, search for **Azure Spring Apps**.
+
+1. Select **Azure Spring Apps** from the results.
+
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/quickstart-provision-service-instance/spring-apps-start.png":::
+
+1. On the Azure Spring Apps page, select **Create**.
+
+   :::image type="content" source="media/quickstart-provision-service-instance/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
+
+1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
+
+   - **Subscription**: Select the subscription you want to be billed for this resource.
+   - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
+   - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - **Location**: Select the location for your service instance. For now, the following regions are supported: East US, West Europe, East Asia and Southeast Asia.
+   - Select **Standard Consumption** for the **Pricing tier** option.
+   - **App Environment**: Create a new App Environment or use an existing App Environment. 
+
+      > How to create a new App Environment
+      > 1. Select **Create new** under the App Environment
+      > 2. Fill out the form on the App Environment **Create** page.
+      > :::image type="content" source="media/quickstart-provision-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
+
+>[!NOTE]
+> Optionally, you can also [create an App Environment with your own virtual network](./how-to-create-app-environment-with-existing-virtual-network.md).
+   
+
+   :::image type="content" source="media/quickstart-provision-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/select-app-environment.png":::
+
+1. Select **Review and create**.
+
+### [Azure cli](#tab/Azure-CLI)
 
 ## Prerequisites
 
@@ -241,7 +277,7 @@ To create the environment, run the following command
 ```
 
 
-#### Option 2: Please refer [Create a Managed Environment with your own virtual network](./managed-env-with-vnet.md)
+#### Option 2: Please refer [Create an App Environment with your own virtual network](./how-to-create-app-environment-with-existing-virtual-network.md)
 
 
 ---
@@ -276,7 +312,7 @@ To create the environment, run the following command
         --query id -o tsv)
 ```
 
-4. To deploy a StandardGen2 Azure Spring Apps instance on top of the Container Environment: 
+4. To deploy a Standard Consumption plan Azure Spring Apps instance on top of the Container Environment: 
 Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created
 
 ```azurecli
@@ -288,7 +324,7 @@ Create your Azure Spring Apps instance by specifying the resource id of the Mana
         --location $LOCATION
 ```
 
-5. After the deployment, one additional infra resource group will be created in your subscription to host the underlying resources for the StandardGen2 Azure Spring Apps instance. 
+5. After the deployment, one additional infra resource group will be created in your subscription to host the underlying resources for the Standard Consumption plan Azure Spring Apps instance. 
 The resource group will be named as {MANAGED_ENVIRONMENT}\_SpringApps\_{SPRING_APPS_SERVICE_ID}
 
 ```azurecli
