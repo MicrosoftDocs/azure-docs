@@ -85,7 +85,7 @@ You can also use an integrated development environment to open the folder.
     * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
     * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
 
-The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
+    The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
 ## Step 6: Run the sample app
 
