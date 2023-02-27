@@ -11,9 +11,9 @@ ms.author: kesheth
 
 # Autoscaling
 
-Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. The autoscaling feature for FHIR service is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time.
+Azure Health Data Services provides a managed service for persisting FHIR-compliant healthcare data and interacting with it securely through the API service endpoint. 
 
-Autoscaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for your FHIR service on demand.
+Autoscaling is a capability to dynamically scale your FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscale capability and the process is automated. The capability provides elasticity and enables provisioning of additional instances for customers FHIR service on demand.
 
 The autoscaling feature adjusts computing resources automatically to optimize service scalability. There is no action required from customers.
 
@@ -28,7 +28,7 @@ Autoscaling policies defined for FHIR service consists of two parts:
 * Scaling Trigger
 
     Scaling Trigger describes when scaling of the service will be performed. Conditions that are defined in the trigger are checked periodically to determine     if a service should be scaled or not. All triggers that are currently supported are Average CPU, Max Worker Thread, Average LogWrite, Average data IO.
-
+    
 * Scaling mechanism
 
     Scaling Mechanism describes how scaling will be performed when it is triggered. Mechanism is only applied when the conditions from the trigger are met.
@@ -48,7 +48,7 @@ Autoscaling policies defined for FHIR service consists of two parts:
 
 ### What is the cost to enable autoscaling for FHIR service?  
 
-The autoscaling feature incurs no extra costs to customers based on the new API billing model.
+The autoscaling feature incurs no extra costs to customers.
 
 ## Next steps
 
