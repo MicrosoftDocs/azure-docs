@@ -30,21 +30,7 @@ To perform the procedures in this article, make sure that you have:
 
 ## Access programming data
 
-The **Programming Timeline** tab can be accessed from unauthorized programming alerts, and the **Device map**, **Device inventory**, and **Event timeline** pages in the sensor console.
-
-### Access programming data from an alert
-
-Unauthorized programming alerts are triggered when unauthorized programming devices carry out programming activities.
-
-**To access the programming timeline from an alert**:
-
-1. Sign into the sensor console and go to **Alerts**.
-
-1. Filter the alerts to find the alert you want to analyze.
-
-1. Select the alert to open the alert details pane on the right.
-
-1. Select **Programming** to open the **Programming timeline**.
+The **Programming Timeline** tab can be accessed from unauthorized programming alerts, the **Device map**, the **Device inventory**, and the **Event timeline** in the sensor console.
 
 ### Access programming data from the device map
 
@@ -72,7 +58,21 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
     :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device details page." lightbox="media/analyze-programming/programming-timeline-window-device-inventory.png":::
 
-### Access programming data from an event timeline
+### Access programming data from an alert
+
+Unauthorized programming alerts are triggered when unauthorized programming devices carry out programming activities.
+
+**To access the programming timeline from an alert**:
+
+1. Sign into the sensor console and go to **Alerts**.
+
+1. Filter the alerts to find the alert you want to analyze.
+
+1. Select the alert to open the alert details pane on the right.
+
+1. Select **Programming** to open the **Programming timeline**.
+
+### Access programming data from the event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
@@ -80,7 +80,7 @@ Use the event timeline to display a timeline of events in which programming chan
 
 1. Filter the event timeline for devices using text based programming protocols, such as **DeltaV**.
 
-1. Select the event you want to analyze to open the event details pane on the right, and then select **View programming**.
+1. Select the event you want to analyze to open the event details pane on the right, and then select **Programming timeline**.
 
 ## View programming details
 
