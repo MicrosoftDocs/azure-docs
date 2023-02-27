@@ -172,4 +172,4 @@ if __name__ == "__main__":
 In this article, you created a resource group and a lab plan.  As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).
 
 > [!div class="nextstepaction"]
-> [Create a lab using Python and the Azure Python SDK](quick-create-lab-python.md)
+> [Create a lab using Python and the Azure Python SDK](how-to-create-lab-python.md)

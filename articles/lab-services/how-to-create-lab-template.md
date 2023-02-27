@@ -23,7 +23,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 To complete this quick start, make sure that you have:
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Lab plan.  If you haven't create a lab plan, see [Create a lab plan using an ARM template](quick-create-lab-plan-template.md).
+- Lab plan.  If you haven't create a lab plan, see [Create a lab plan using an ARM template](how-to-create-lab-plan-template.md).
 
 ## Review the template
 
@@ -51,7 +51,7 @@ More Azure Lab Services template samples can be found in [Azure Quickstart Templ
     2. **adminPassword**.  The password for the administrator user for the lab VM.
     3. **labPlanId**.  The resource ID for the lab plan to be used.  The **Id** is listed in the **Properties** page of the lab plan resource in Azure.
 
-        :::image type="content" source="./media/quick-create-lab-template/lab-plan-properties-id.png" alt-text="Screenshot of properties page for lab plan in Azure Lab Services with I D property highlighted.":::
+        :::image type="content" source="./media/how-to-create-lab-template/lab-plan-properties-id.png" alt-text="Screenshot of properties page for lab plan in Azure Lab Services with I D property highlighted.":::
 
 5. Select **Review + create**.
 6. Select **Create**.

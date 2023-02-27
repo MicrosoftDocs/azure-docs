@@ -28,13 +28,13 @@ In this article, you learn how to create a lab using PowerShell and the Azure mo
     Install-Module 'Az.LabServices'
     ```
 
-- Lab plan. To create a lab plan, see [Create a lab plan using PowerShell and the Azure modules](quick-create-lab-plan-powershell.md).
+- Lab plan. To create a lab plan, see [Create a lab plan using PowerShell and the Azure modules](how-to-create-lab-plan-powershell.md).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
 
 ## Create a lab
 
-Before you can create a lab, you need the lab plan resource.  In the [create a lab plan by using PowerShell](quick-create-lab-plan-powershell.md), you learn how to create a lab plan named `ContosoLabPlan` in a resource group named `MyResourceGroup`.
+Before you can create a lab, you need the lab plan resource.  In the [create a lab plan by using PowerShell](how-to-create-lab-plan-powershell.md), you learn how to create a lab plan named `ContosoLabPlan` in a resource group named `MyResourceGroup`.
 
 ```powershell
 $plan = Get-AzLabServicesLabPlan `

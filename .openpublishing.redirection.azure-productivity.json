@@ -104,6 +104,46 @@
       "source_path": "articles/lab-services/quick-create-lab-plan-portal.md",
       "redirect_url": "/azure/lab-services/quick-create-resources",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-bicep.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-bicep",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-bicep.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-bicep",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-powershell.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-python.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-plan-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-powershell.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-python.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-template",
+      "redirect_document_id": true
     }
   ]
 }

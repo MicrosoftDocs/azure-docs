@@ -37,7 +37,7 @@ You use the Azure Lab Services website (https://labs.azure.com) to create labs f
 
 By default, access to lab virtual machines is restricted. For a lab, you can [configure the list of lab users](./how-to-configure-student-usage.md) that have access to the lab.
 
-Get started by [creating a lab using the Azure portal](quick-create-lab-plan-portal.md).
+Get started by [creating a lab using the Azure portal](quick-create-connect-lab.md).
 
 ## Azure Compute Gallery
 

@@ -120,13 +120,13 @@
       - name: Create & manage lab plans (Azure portal)
         href: how-to-manage-lab-plans.md
       - name: Create a lab plan (ARM template)
-        href: quick-create-lab-plan-template.md
+        href: how-to-create-lab-plan-template.md
       - name: Create a lab plan (PowerShell)
-        href: quick-create-lab-plan-powershell.md
+        href: how-to-create-lab-plan-powershell.md
       - name: Create a lab plan (Bicep)
-        href: quick-create-lab-plan-bicep.md
+        href: how-to-create-lab-plan-bicep.md
       - name: Create a lab plan (Python)
-        href: quick-create-lab-plan-python.md
+        href: how-to-create-lab-plan-python.md
     - name: Add a lab creator
       href: add-lab-creator.md
     - name: Configure auto-shutdown settings
@@ -172,13 +172,13 @@
       - name: Create and manage labs (website)
         href: how-to-manage-labs.md
       - name: Create a lab (ARM template)
-        href: quick-create-lab-template.md
+        href: how-to-create-lab-template.md
       - name: Create a lab (PowerShell)
-        href: quick-create-lab-powershell.md
+        href: how-to-create-lab-powershell.md
       - name: Create a lab (Bicep)
-        href: quick-create-lab-bicep.md
+        href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
-        href: quick-create-lab-python.md
+        href: how-to-create-lab-python.md
     - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux

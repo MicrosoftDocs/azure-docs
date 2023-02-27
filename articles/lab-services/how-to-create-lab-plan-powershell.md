@@ -71,4 +71,4 @@ $plan | Remove-AzLabServicesLabPlan
 In this article, you created a resource group and a lab plan.  As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).
 
 > [!div class="nextstepaction"]
-> [Create a lab using PowerShell and the Azure module](quick-create-lab-powershell.md)
+> [Create a lab using PowerShell and the Azure module](how-to-create-lab-powershell.md)
