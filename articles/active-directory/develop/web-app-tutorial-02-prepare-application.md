@@ -14,7 +14,7 @@ ms.date: 02/09/2023
 
 # Tutorial: Prepare an application for authentication
 
-After registration is complete, a .NET web application can be created using an integrated development environment (IDE). This tutorial demonstrates how to create an **ASP.NET Core Web App** using an IDE. You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
+After registration is complete, an ASP.NET web application can be created using an integrated development environment (IDE). This tutorial demonstrates how to create an **ASP.NET Core Web App** using an IDE. You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
 
 In this tutorial:
 
@@ -119,7 +119,7 @@ To make the certificate available to the application, it must be uploaded into t
 
 ## Configure the application for authentication and API reference
 
-The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. As the application will also call into a web API, it must also contain a reference to it.
+The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. *appsettings.json* is a configuration file that is used to store application settings used during run-time. As the application will also call into a web API, it must also contain a reference to it.
 
 1. Open *appsettings.json* and replace the file contents with the following snippet: 
   
