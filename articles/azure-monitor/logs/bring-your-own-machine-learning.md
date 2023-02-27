@@ -27,30 +27,32 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically set alert thresholds based on historical data, and identify anomalies that could indicate service issues.|
 | Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
 
-> [!NOTE]
-> These options use native KQL functions that run inside Azure Monitor. In other words, you don't need to copy data into memory objects or export it outside of Azure Monitor. 
+## Use built-in capabilities or bring your own machine learning to Azure Monitor Logs
+
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform that makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to generate time series data, detect anomalies, forecast, perform root cause analysis, and other capabilities. 
+
+Running KQL-based machine learning in Azure Monitor Logs lets you process and analyze your log data directly inside Azure Monitor, provides you with the benefits of:
+ 
+- The power of the Azure Data Explorer platform, running at high scales in a distributed manner, for optimal performance. 
+- Multiple configurable parameters for flexibility and tweaking. 
+- Savings on the costs and overhead of using tools and services outside of Azure Monitor. In other words, you don't need to copy data into memory objects or export data outside of Azure Monitor.
+
+
+### Limitations
+- Limited set of algorithms, function customization, and tweak settings. 
+- Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
+
+
+You can write your own machine learning by: 
+- Implementing custom machine learning models 
+- Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
+
 
 ### When to Use
 - To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
 - To gain greater flexibility and deeper insights than out-of-the-box insights tools without running custom algorithms or exporting data. 
 - If you don't need to be an expert in data science or programming languages. 
 
-### Benefits
-- The power of the ADX platform, running at high scales in a distributed manner near the data with the most optimal performance. 
-- Flexible functions with multiple configurable parameters. 
-- Savings on the costs and overhead of using tools and services outside of Azure Monitor. 
-
-### Limitations
-- Limited set of algorithms, function customization, and tweak settings. 
-- Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks. 
-
-## Bring your own machine learning into Azure Monitor Logs
-
-You can write your own machine learning by: 
-- Running built-in Kusto Query Language (KQL) plugins and functions (detect anomalies, identify outliers, detect patterns, and time series forecasting)
-- Implementing custom machine learning models 
-
-- Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
 
 
 ### Custom ML Models 
