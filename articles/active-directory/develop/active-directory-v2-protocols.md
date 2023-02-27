@@ -20,7 +20,7 @@ Knowing about OAuth or OpenID Connect (OIDC) at the protocol level is not requir
 
 ## Roles in OAuth 2.0
 
-Four parties are usually involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. Exchanges such as these are often called *authentication flows* or *auth flows*.
+Four parties are usually involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. These exchanges are often called *authentication flows* or *auth flows*.
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
