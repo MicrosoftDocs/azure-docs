@@ -39,7 +39,7 @@ The MedTech service requires device and FHIR destination mappings to perform nor
 
 The MedTech service buffers FHIR Observation resources created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to five minutes. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).
 
-## Why is the MedTech service device message data not showing up in the FHIR service?
+## Why are the device messages added to the event hub not showing up as FHIR Observation resources in the FHIR service?
 
 > [!TIP]
 > Having access to MedTech service logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service.
