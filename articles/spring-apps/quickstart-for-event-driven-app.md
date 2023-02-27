@@ -83,7 +83,7 @@ To easier to manage the resources, create a resource group to hold these resourc
     ```
 5. Set the new created resource group as default resource group.
     ```azurecli-interactive
-    az configure --defaults group=${RESOURCE_GROUP}
+    az configure --defaults group=${RESOURCE_GROUP}5
     ```
 
 ### 3. Create Service Bus instance
@@ -156,28 +156,41 @@ A Managed Environment creates a secure boundary around a group apps. Apps deploy
     ```
 
 #### 4.3. Create an app in Azure Spring Apps
+Create an app in the Azure Spring Apps instance.
+```azurecli-interactive
+az spring app create \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --cpu 1 \
+    --memory 2 \
+    --instance-count 2 \
+    --runtime-version Java_17 \
+    --assign-endpoint true
+```
 
-1. Get connection string of Service Bus namespace.
-    ```azurecli-interactive
-    SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
-        --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-        --name RootManageSharedAccessKey \
-        --query primaryConnectionString \
-        -o tsv)
-    ```
+### 5: Bind Service Bus to app
+Now both Service Bus and app in Azure Spring Apps have been created. But the app can not connect to Service Bus. This section will give steps about how to make the app can connect to Service Bus.
 
-2. Create an app in the Azure Spring Apps instance.
-    ```azurecli-interactive
-    az spring app create \
-        --service ${AZURE_SPRING_APPS_NAME} \
-        --name ${APP_NAME} \
-        --cpu 1 \
-        --memory 2 \
-        --instance-count 2 \
-        --runtime-version Java_17 \
-        --assign-endpoint true \
-        --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING}
-    ```
+#### 5.1. Get connection string
+
+To make the app can connect to the Service Bus, get the Service Bus's connection string first.
+```azurecli-interactive
+SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name RootManageSharedAccessKey \
+    --query primaryConnectionString \
+    -o tsv)
+```
+
+#### 5.2. Set environment variable in app
+
+Provide the connecting string to app by adding an environment variable.
+```azurecli-interactive
+az spring app update \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING}
+```
 
 ## Deploy the app to Azure Spring Apps
 1. Now the cloud environment is ready. Deploy the app by this command:
