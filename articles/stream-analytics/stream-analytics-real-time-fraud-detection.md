@@ -31,7 +31,7 @@ Before you start, make sure you've completed the following steps:
 
 * If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/).
 * Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
-* You'll need a **Power BI** account.
+* You need a **Power BI** account.
 
 [!INCLUDE [event-generator-app](./includes/event-generator-app.md)]
 

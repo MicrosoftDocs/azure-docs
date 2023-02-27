@@ -17,7 +17,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an event hub
 
-Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you'll send data to Azure by using  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you'll send data to Azure by using  [Azure Event Hubs](../../event-hubs/event-hubs-about.md).
 
 Use the following steps to create an event hub and send call data to that event hub:
 
@@ -116,7 +116,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
    |Job name     |  ASATutorial       |   A unique name to identify the event hub namespace.      |
    |Location   |    West US2     |   	Location where the job can be deployed. It's recommended to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.      |
    |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.    |
-   |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.      |
+   |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](../stream-analytics-streaming-unit-consumption.md) article.      |
 4. Use default options on the remaining settings, select **Create**, and wait for the deployment to succeed.
 
    ![Create an Azure Stream Analytics job](media/stream-analytics-real-time-fraud-detection/create-stream-analytics-job.png)
