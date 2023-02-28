@@ -2,7 +2,7 @@
 title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
-author: stevemunk
+author: eriklindeman
 ms.author: eriklind
 ms.date: 2/14/2023
 ms.topic: how-to
@@ -221,7 +221,7 @@ To create a data registry:
 1. Once you have the body of your HTTP request ready, execute the following **HTTP PUT request**:
 
     ```http
-    https://us.atlas.microsoft.com/dataRegistries/{udid}?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/dataRegistries/{udid}?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
     
     ```
 
@@ -322,7 +322,7 @@ Once you've uploaded one or more files to an Azure storage account, created and 
 Use the `udid` to get the content of a file registered in an Azure Maps account:
 
  ```http
-https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key} 
+https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 The contents of the file will appear in the body of the response. For example, a text based GeoJSON file will appear similar to the following example:
