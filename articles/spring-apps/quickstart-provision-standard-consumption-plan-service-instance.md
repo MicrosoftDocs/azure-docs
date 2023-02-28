@@ -1,14 +1,14 @@
 ---
 title: "Quickstart - Provision an Azure Spring Apps Standard Consumption plan service"
 description: Describes creation of an Azure Spring Apps Standard Consumption plan service instance for app deployment.
-author: xuycao
+author: Caoxuyang
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 02/27/2023
 ---
 
-# Quickstart: Provision an Azure Spring Apps service instance
+# Quickstart: Provision an Azure Spring Apps Standard Consumption plan service instance
 
 **This article applies to:** ✔️ Standard Consumption plan ❌ Basic/Standard tier ❌ Enterprise tier
 
@@ -54,7 +54,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 ## Prerequisites
 
-- Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
 ## Step 1: Create a Managed Environment
 

@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 02/27/2023
 ---
 
-# Customer responsibilities for running Azure Spring Apps in a virtual network
+# Customer responsibilities for running Azure Spring Apps Standard Consumption plan in a virtual network
 
-**This article applies to:** ✔️ Standard Consumption plna 
+**This article applies to:** ✔️ Standard Consumption plan ❌ Basic/Standard tier ❌ Enterprise tier
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
