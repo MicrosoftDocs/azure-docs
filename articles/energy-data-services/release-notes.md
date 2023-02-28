@@ -24,6 +24,12 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 <hr width = 100%>
 
 ## February 2023
+
+### Product Access Update
+
+Beginning on February 15, 2023, customers of Microsoft Energy Data Services can search for and provision their instances of the product without a request for access. Customers can go directly to the Azure Marketplace to create an instance under their selected subscription.
+
+
 ### Product Billing Update
 
 Microsoft Energy Data Services will begin billing February 15, 2023. Prices will be based on a fixed per-hour consumption rate at a 50 percent discount during preview. 

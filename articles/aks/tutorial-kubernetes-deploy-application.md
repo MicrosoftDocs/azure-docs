@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Deploy an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using a custom image stored in Azure Container Registry.
-services: container-service
 ms.topic: tutorial
 ms.date: 01/04/2023
 ms.custom: mvc, devx-track-azurepowershell

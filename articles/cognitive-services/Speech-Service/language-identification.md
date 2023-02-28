@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/27/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -102,7 +102,7 @@ For more information, see [supported languages](language-support.md?tabs=languag
 Speech supports both at-start and continuous language identification (LID).
 
 > [!NOTE]
-> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), and Python.
+> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), JavaScript ([for speech to text only](#speech-to-text)),and Python.
 - At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change. With at-start LID, a single language is detected and returned in less than 5 seconds.
 - Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID doesn't support changing languages within the same sentence. For example, if you're primarily speaking Spanish and insert some English words, it will not detect the language change per word. 
 
@@ -197,7 +197,7 @@ recognizer.stop_continuous_recognition()
 You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
 
 > [!NOTE]
-> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, and Python.
+> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, JavaScript, and Python.
 > 
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
