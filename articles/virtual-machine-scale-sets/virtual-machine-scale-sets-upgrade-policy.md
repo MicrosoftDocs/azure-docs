@@ -22,9 +22,9 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 > [!IMPORTANT]
 > Rolling Upgrades with MaxSurge enabled is currently in Public Preview
 
-In this mode, the scale set rolls out the update in batches with an optional pause time between batches. Additionally, when selecting a Rolling Upgrade policy, users can select to enable **MaxSurge** via a true or false flag. When MaxSurge is set to true, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances will be added to the scale set and the old model instances will be removed. This will occur in multiple batches (batch size determined by customer) until all instances are brought up to date. 
+In this mode, the scale set rolls out the update in batches with an optional pause time between batches. Additionally, when selecting a Rolling Upgrade policy, users can select to enable **MaxSurge** via a `true` or `false` flag. When MaxSurge is set to `true`, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances will be added to the scale set and the old model instances will be removed. This will occur in multiple batches (batch size determined by customer) until all instances are brought up to date. 
 
-With MaxSurge set to false, the existing instances in a scale set are brought down to be upgraded. Once the upgrade is complete, the instances will begin taking traffic again. 
+With MaxSurge set to `false`, the existing instances in a scale set are brought down to be upgraded. Once the upgrade is complete, the instances will begin taking traffic again. 
 
 
 ### Manual
@@ -32,8 +32,56 @@ In this mode, you choose when to update the scale set model. Nothing happens aut
 
 
 ## Deploy a new scale set
+When deploying a new scale set, include the Upgrade Policy Mode and set the MaxSurge flag to either `True` or `False`.
+
+### Portal
+
+### CLI
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --orchestration-mode Flexible \
+  --image UbuntuLTS \
+  --upgrade-policy-mode Rolling \
+  --MaxSurge True \
+  --instance-count 2 \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+### PowerShell
+
+```azurepowershell-interactive
+New-AzVmss `
+    -ResourceGroup "myVMSSResourceGroup" `
+    -Name "myScaleSet" ` 
+    -OrchestrationMode "Flexible" `
+    -UpgradePolicyMode "Rolling" `
+    -MaxSurge "True" `
+    -Location "East US" `
+    -InstanceCount "2" `
+    -ImageName "Win2019Datacenter"
+```
+
+### Template
+
 
 ## Update an existing scale set
+
+The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in time. 
+
+### Portal
+
+
+### CLI
+
+
+### PowerShell
+
+
+### Template
  
 To update existing VMs, you must do a "manual upgrade" of each existing VM. You can do this manual upgrade with:
 
