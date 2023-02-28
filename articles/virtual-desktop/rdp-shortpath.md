@@ -139,7 +139,7 @@ All connections begin by establishing a TCP-based [reverse connect transport](ne
 
 1. After RDP establishes the RDP Shortpath transport, all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection move to the new transport.
 
-If your users have both RDP Shortpath for managed network and public networks available to them, then the first-found algorithm will be used, meaning that the user will use whichever connection gets established first for that session. For more information, see [example scenario 4](#scenario-4-3).
+If your users have both RDP Shortpath for managed network and public networks available to them, then the first-found algorithm will be used, meaning that the user will use whichever connection gets established first for that session. For more information, see [example scenario 4](#scenario-4).
 
 > [!IMPORTANT]
 > When using a TCP-based transport, outbound traffic from session host to client is through the Azure Virtual Desktop Gateway. With RDP Shortpath for public networks using STUN, outbound traffic is established directly between session host and client over the internet. This removes a hop which improves latency and end user experience. However, due to the changes in data flow between session host and client where the Gateway is no longer used, there will be standard [Azure egress network charges](https://azure.microsoft.com/pricing/details/bandwidth/) billed in addition per subscription for the internet bandwidth consumed. To learn more about estimating the bandwidth used by RDP, see [RDP bandwidth requirements](rdp-bandwidth.md).
