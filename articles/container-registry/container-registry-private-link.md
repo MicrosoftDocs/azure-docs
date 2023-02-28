@@ -465,6 +465,10 @@ If you created all the Azure resources in the same resource group and no longer 
 az group delete --name $RESOURCE_GROUP
 ```
 
+## Integrating with AKS
+
+Once the private link configuration to the ACR is successfully complete, the registry handles the pull requests through the data endpoints. You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
+
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
@@ -510,3 +514,4 @@ az group delete --name $RESOURCE_GROUP
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com
+[outbound-connection]: /azure/firewall/rule-processing#outbound-connectivity
