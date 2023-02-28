@@ -53,11 +53,6 @@ Azure Private 5G Core Packet Core supports deployments with or without L3 router
 
 Unless your AP5GC Packet core is using NAT, there must be a L3 router configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network.
 
-Layer 2 network separation can be achieved by using VLANs. This has a few key benefits in simplifying L3 network management and improving network security via traffic isolation. VLANs can be configured on ASE port 5 and port 6 independently to separate the following traffic:
-
-- N2 and N3 traffic on ASE port 5
-- N6 traffic for each Data Network on ASE port 6
-
 #### Sample network topologies
 
 There are multiple ways to set up your network for use with AP5GC packet core. The exact setup varies depending on your own needs and hardware. This section provides some sample network topologies.
