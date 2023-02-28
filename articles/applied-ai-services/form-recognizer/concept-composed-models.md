@@ -29,10 +29,16 @@ recommendations: false
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It's useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 * ```Custom form``` and ```Custom template``` models can be composed together into a single composed model.
+
 * With the model compose operation, you can assign up to 200 trained custom models to a single composed model. To analyze a document with a composed model, Form Recognizer first classifies the submitted form, chooses the best-matching assigned model, and returns results.
+
 * For **_custom template models_**, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms may belong to one of several templates.
+
 * The response will include a ```docType``` property to indicate which of the composed models was used to analyze the document.
+
 * For ```Custom neural``` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. Model compose is best suited for scenarios when you have documents of different types being submitted for analysis.
+
+* Pricing is the same whether you are using a composed model or selecting a specific model. Each document is analyzed by only one model. With composed models, the system performs a classification to check which of the composed cusom models should be invoked and invokes the single best model for the document.
 
 ## Compose model limits
 
