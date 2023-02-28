@@ -82,6 +82,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
+| Azure IoT Device Provisioning Service | All public regions |  |  GA   <br/> [Learn how to create a private endpoint for Azure IoT Device Provisioning Service.](../iot-dps/virtual-network-support.md) | 
 |  Azure Digital Twins         | All public regions supported by Azure Digital Twins     |  | Preview <br/> [Learn how to create a private endpoint for Azure Digital Twins.](../api-management/private-endpoint.md)  |
 
 ### Management and Governance
