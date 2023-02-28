@@ -3,10 +3,11 @@ title: Migrate your data
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
 description: TODO&#x0003A; Add a description here that's between 100 and 160 characters and will show up in search results3.
 ms.service: cosmos-db
-ms.subservice: mongodb
+ms.subservice: mongodb-vcore
 ms.topic: how-to
 author: gahl-levy
 ms.author: gahllevy
+ms.reviewer: nayakshweta
 ms.date: 02/07/2023
 ---
 

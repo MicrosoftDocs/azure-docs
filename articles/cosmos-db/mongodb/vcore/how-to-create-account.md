@@ -3,10 +3,11 @@ title: Create a new account
 titleSuffix: Azure Cosmos DB for MongoDB (vCore)
 description: Learn how to create a new Azure Cosmos DB for MongoDB (vCore) account to store databases, collections, and documents.
 ms.service: cosmos-db
-ms.subservice: mongodb
+ms.subservice: mongodb-vcore
 ms.topic: how-to
 author: gahl-levy
 ms.author: gahllevy
+ms.reviewer: nayakshweta
 ms.date: 02/07/2023
 ---
 

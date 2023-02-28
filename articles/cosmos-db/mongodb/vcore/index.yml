@@ -8,11 +8,12 @@ metadata:
   description: Azure Cosmos DB for MongoDB (vCore) makes it easy to create a database with full native MongoDB support.
   services: service
   ms.service: cosmos-db
-  ms.subservice: mongodb
+  ms.subservice: mongodb-vcore
   ms.topic: landing-page
   ms.collection: collection
   author: gahl-levy
   ms.author: gahllevy
+  ms.reviewer: nayakshweta
   ms.date: 02/07/2023
 landingContent:
   - title: Use Azure Cosmos DB for MongoDB (vCore)
