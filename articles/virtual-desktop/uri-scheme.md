@@ -23,7 +23,7 @@ The following table lists the supported clients for use with the URI schemes:
 
 | Client | Version |
 |--|--|
-| [Remote Desktop client for Windows](users/connect-windows.md) | TODO: 1.2.???? |
+| [Remote Desktop client for Windows](users/connect-windows.md) | 1.2.4065 and later |
 
 ## Available URI schemes
 
