@@ -109,7 +109,7 @@ This section outlines supported scenarios.
 
 ### Supported platforms and frameworks
 
-Supported platforms and frameworks are listed here.
+Supported platforms and frameworks are listed below.
 
 #### Azure service integration (portal enablement, Azure Resource Manager deployments)
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
