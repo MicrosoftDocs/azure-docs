@@ -284,6 +284,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 - [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 - [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
+- [What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?](#What-is-the-difference-between-oss-clustering-and-enterprise-clustering-on-enterprise-tier-caches)
 
 ### Can I scale to, from, or within a Premium cache?
 
@@ -372,6 +373,10 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 * If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 * If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
+> [!IMPORTANT]
+> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. [See here](cache-best-practices-scale.md#clustering-on-enterprise) for more information.
+>
+
 ### How are keys distributed in a cluster?
 
 Per the Redis [Keys distribution model](https://redis.io/topics/cluster-spec#keys-distribution-model) documentation: The key space is split into 16,384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
@@ -387,7 +392,7 @@ For sample code about working with clustering and locating keys in the same shar
 
 ### What is the largest cache size I can create?
 
-The largest cache size you can have is 1.2 TB. This result is a clustered P5 cache with 10 shards. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
+The largest cache size you can have is 4.5 TB. This result is a clustered F1500 cache with capacity 9. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 ### Do all Redis clients support clustering?
 
@@ -415,16 +420,29 @@ Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
 ...
 Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 ```
-For TLS, replace `1300N` with `1500N`.
+For TLS, replace `1300N` with `1500N`. For Enterprise and Enterprise Flash caches using OSS clustering, replace `1300N` with `1000N`. 
+
 ### Can I configure clustering for a previously created cache?
+
 Yes. First, ensure that your cache is premium by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you have enabled clustering for the first time.
-   >[!IMPORTANT]
-   >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
+
+>[!IMPORTANT]
+>You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
+
+All Enterprise and Enterprise Flash tier caches are always clustered.
+
 ### Can I configure clustering for a basic or standard cache?
-Clustering is only available for premium caches.
+
+Clustering is only available for Premium, Enterprise, and Enterprise Flash caches.
+
 ### Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
+
 * **Redis Output Cache provider** - no changes required.
 * **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
+### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?
+
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. [See here](cache-best-practices-scale.md#clustering-on-enterprise) for more information.
