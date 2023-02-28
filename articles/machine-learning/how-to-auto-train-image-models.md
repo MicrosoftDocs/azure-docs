@@ -46,12 +46,12 @@ Automated ML supports model training for computer vision tasks like image classi
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-    * Use the following commands to install Azure ML Python SDK v2:
+    * Use the following commands to install Azure Machine Learning Python SDK v2:
        * Uninstall previous preview version:
        ```python
        pip uninstall azure-ai-ml
        ```
-       * Install the Azure ML Python SDK v2:
+       * Install the Azure Machine Learning Python SDK v2:
        ```python
        pip install azure-ai-ml
        ```

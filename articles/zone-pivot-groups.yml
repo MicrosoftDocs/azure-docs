@@ -736,19 +736,19 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
   prompt: Choose a tool or API
   pivots:
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -917,6 +917,17 @@ groups:
   title: App Service platform
   prompt: Choose a hosting platform
   pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-platform-windows-linux-sphere-rtos
+  #CBroad
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-sphere
+    title: Sphere
   - id: platform-linux
     title: Linux
   - id: platform-windows
