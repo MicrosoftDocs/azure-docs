@@ -4,13 +4,16 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 # Deploy an Azure disk pool (preview)
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 This article covers how to deploy and configure an Azure disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
