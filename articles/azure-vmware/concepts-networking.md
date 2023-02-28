@@ -72,7 +72,7 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 |Customer owned public-IP CIDR block or its subnets.||
 
 > [!NOTE]
-> The customer-advertised default route to Azure VMware Solution will not be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
+> The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
 
 ## Limitations
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
