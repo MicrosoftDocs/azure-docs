@@ -83,7 +83,7 @@ You can scale out/in with the following restrictions:
 
 ### [Scale up and down (Basic, Standard, and Premium)](#tab/basic-standard-premium-up-down)
 
-#### Scale using the Azure portal
+#### Scale up and down using the Azure portal
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
@@ -105,19 +105,19 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 >
 
 
-#### Scale using PowerShell
+#### Scale up and down using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5-GB cache.
+You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`or `Sku` properties are modified. The following example shows how to scale a cache named `myCache` to a 6-GB cache in the same tier.
 
 ```powershell
-   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 6GB
 ```
 
 For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
-#### Scale using Azure CLI
+#### Scale up and down using Azure CLI
 
 To scale your Azure Cache for Redis instances using Azure CLI, call the `azure rediscache set` command and pass in the configuration changes you want that include a new size, sku, or cluster size, depending on the scaling operation you wish.
 
@@ -131,7 +131,8 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 
 ### [Scale out and in (Premium only)](#tab/basic-standard-premium-out-in)
 
-#### New cache creation
+#### Create a new cache that is scaled out using clustering
+
 Clustering is enabled  **New Azure Cache for Redis** on the left during cache creation.
 
 1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Besides creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
@@ -197,10 +198,35 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 Increasing the cluster size increases max throughput and cache size. Increasing the cluster size doesn't increase the max. connections available to clients.
 
+#### Scale out and in using PowerShell
+
+You can scale out your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `ShardCount` property is modified. The following example shows how to scale out a cache named `myCache` out to use three shards (i.e. scale out by a factor of three)
+
+```powershell
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -ShardCount 3
+```
+
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+
+#### Scale out and in using Azure CLI
+
+To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis.md#az-redis-update) command and use the `shard-count` property. The following example shows how to scale out a cache named `myCache` to use three shards (i.e. scale out by a factor of three).
+
+```azurecli
+az redis update --cluster-name "myCache" --resource-group "myGroup" --shard-count 3
+```
+
+For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
+
+> [!NOTE]
+> When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+>
+
 > [!NOTE]
 > Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command, so for minimal impact, consider running this operation during non-peak hours. During the migration process, you will see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
 >
 >
+
 
 ---
 
