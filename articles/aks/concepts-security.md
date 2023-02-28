@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 services: container-service
 author: miwithro
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 02/28/2023
 ms.author: miwithro
 ---
 
@@ -15,7 +15,8 @@ Container security protects the entire end-to-end pipeline from build to the app
 The Secure Supply Chain includes the build environment and registry.
 
 Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
-* Provide a complete Authentication and Authorization story.
+
+* Provide a complete authentication and authorization story.
 * Leverage AKS Built-in Azure Policy to secure your applications.
 * End-to-End insight from build through your application with Microsoft Defender for Containers.
 * Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
@@ -39,7 +40,7 @@ This article introduces the core concepts that secure your applications in AKS:
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues. 
+As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues.
 
 ## Registry Security
 
@@ -47,7 +48,7 @@ Assessing the vulnerability state of the image in the Registry will detect drift
 
 ## Cluster security
 
-In AKS, the Kubernetes master components are part of the managed service provided, managed, and maintained by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc.
+In AKS, the Kubernetes master components are part of the managed service provided, managed, and maintained by Microsoft. Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. For information on how Microsoft manages security vulnerabilities and details about releasing security updates for managed pars of an AKS clusters, see [Vulnerability management for Azure Kubernetes Service][microsoft-vulnerability-management-aks].
 
 By default, the Kubernetes API server uses a public IP address and a fully qualified domain name (FQDN). You can limit access to the API server endpoint using [authorized IP ranges][authorized-ip-ranges]. You can also create a fully [private cluster][private-clusters] to limit API server access to your virtual network.
 
@@ -55,7 +56,8 @@ You can control access to the API server using Kubernetes role-based access cont
 
 ## Node security
 
-AKS nodes are Azure virtual machines (VMs) that you manage and maintain. 
+AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
+
 * Linux nodes run an optimized Ubuntu distribution using the `containerd` or Docker container runtime. 
 * Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
@@ -78,12 +80,15 @@ Nightly updates apply security updates to the OS on the node, but the node image
 For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ### Node authorization
+
 Node authorization is a special-purpose authorization mode that specifically authorizes API requests made by kubelets to protect against East-West attacks.  Node authorization is enabled by default on AKS 1.24 + clusters.
 
 ### Node deployment
+
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
 
 ### Node storage
+
 To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, Azure Managed Disks are Premium disks backed by high-performance SSDs. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, Azure Managed Disks are securely replicated within the Azure datacenter.
 
 ### Hostile multi-tenant workloads
@@ -108,7 +113,7 @@ To start the upgrade process, specify one of the [listed available Kubernetes ve
 
 During the upgrade process, AKS nodes are individually cordoned from the cluster to prevent new pods from being scheduled on them. The nodes are then drained and upgraded as follows:
 
-1.  A new node is deployed into the node pool. 
+1. A new node is deployed into the node pool. 
     * This node runs the latest OS image and patches.
 1. One of the existing nodes is identified for upgrade. 
 1. Pods on the identified node are gracefully terminated and scheduled on the other nodes in the node pool.
@@ -135,18 +140,18 @@ To limit network traffic between pods in your cluster, AKS offers support for [K
 
 To protect pods running on AKS leverage [Microsoft Defender for Containers][microsoft-defender-for-containers] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
 
-
 ## Kubernetes Secrets
 
-With a Kubernetes *Secret*, you inject sensitive data into pods, such as access credentials or keys. 
-1. Create a Secret using the Kubernetes API. 
-1. Define your pod or deployment and request a specific Secret. 
+With a Kubernetes *Secret*, you inject sensitive data into pods, such as access credentials or keys.
+
+1. Create a Secret using the Kubernetes API.
+1. Define your pod or deployment and request a specific Secret.
     * Secrets are only provided to nodes with a scheduled pod that requires them.
-    * The Secret is stored in *tmpfs*, not written to disk. 
-1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's tmpfs. 
+    * The Secret is stored in *tmpfs*, not written to disk.
+1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's tmpfs.
    * Secrets are stored within a given namespace and can only be accessed by pods within the same namespace.
 
-Using Secrets reduces the sensitive information defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret. 
+Using Secrets reduces the sensitive information defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret.
 
 > [!NOTE]
 > The raw secret manifest files contain the secret data in base64 format (see the [official documentation][secret-risks] for more details). Treat these files as sensitive information, and never commit them to source control.
@@ -194,3 +199,4 @@ For more information on core Kubernetes and AKS concepts, see:
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
 [node-image-upgrade]: node-image-upgrade.md
+[microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
