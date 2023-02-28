@@ -192,10 +192,10 @@ Use the [Set-AzureADMSServicePrincipal](/powershell/module/azuread/set-azureadms
 
 Given the values
 
-	• Attribute set: Engineering
-	• Attribute: Project
-	• Attribute data type: String
-	• Attribute value: "Baker"
+- Attribute set: Engineering
+- Attribute: Project
+- Attribute data type: String
+- Attribute value: "Baker"
 
 ```powershell
 #Retrieve the servicePrincipal
@@ -273,10 +273,10 @@ Use the [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-
 
 Given the values
 
-	• Attribute set: Engineering
-	• Attribute: Project
-	• Attribute data type: Collection of Strings
-	• Attribute value: Baker"
+- Attribute set: Engineering
+- Attribute: Project
+- Attribute data type: String
+- Attribute value: "Baker"
 
 ```http
 PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}

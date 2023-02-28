@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2
@@ -122,6 +122,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
 
 To manage app consent policies, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
+You need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
 ## List existing app consent policies
 
 It's a good idea to start by getting familiar with the existing app consent policies in your organization:
