@@ -225,6 +225,14 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
+        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          href: trusted-access-feature.md
         - name: Connect to cluster nodes
           href: node-access.md
         - name: Create virtual nodes
@@ -349,6 +357,8 @@
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
+            - name: Isolate pod compute resources
+              href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
             - name: Use pod security policies (preview)

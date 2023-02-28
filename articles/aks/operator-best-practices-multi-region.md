@@ -1,14 +1,13 @@
 ---
 title: Best practices for AKS business continuity and disaster recovery
 description: Learn a cluster operator's best practices to achieve maximum uptime for your applications, providing high availability and preparing for disaster recovery in Azure Kubernetes Service (AKS).
-services: container-service
-author: lastcoolnameleft
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: thfalgou
 ms.custom: fasttrack-edit
 #Customer intent: As an AKS cluster operator, I want to plan for business continuity or disaster recovery to help protect my cluster from region problems.
 ---
+
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)
 
 As you manage clusters in Azure Kubernetes Service (AKS), application uptime becomes important. By default, AKS provides high availability by using multiple nodes in a [Virtual Machine Scale Set (VMSS)](../virtual-machine-scale-sets/overview.md). But these multiple nodes don’t protect your system from a region failure. To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery.
