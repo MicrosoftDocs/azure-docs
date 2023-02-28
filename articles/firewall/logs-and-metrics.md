@@ -153,7 +153,7 @@ The following metrics are available for Azure Firewall:
 
     Unit: count
 
-- **Data processed** - Sum of data traversing the firewall in a given time window.
+- **Data processed** - Sum of data traversing the firewall in a given time window. (also includes denied traffic)
 
     Unit: bytes
 
