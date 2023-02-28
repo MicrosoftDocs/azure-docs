@@ -27,6 +27,46 @@ This Azure region should be used in the `Location` field of the Cluster Manager 
 
 Install latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
 
+### Sign in to your Azure account and select your subscription
+
+To begin your configuration, sign in to your Azure account. You can use the following examples to connect:
+
+```azurecli
+az login
+```
+
+Check the subscriptions for the account.
+
+```azurecli
+az account list
+```
+
+Select the subscription for which you want to create a Cluster Manager. This subscription will be used across all Operator Nexus resources.
+
+```azurecli
+az account set --subscription "<subscription ID>"
+```
+
+## Register providers for Network Cloud
+
+You can skip this step if your subscription is already registered with the Microsoft.NetworkCloud Resource Provider. Otherwise, proceed with the following steps:
+
+In Azure CLI, enter the following commands:
+
+```azurecli
+az provider register --namespace Microsoft.NetworkCloud
+```
+
+Monitor the registration process. Registration may take up to 10 minutes.
+
+```azurecli
+az provider show -n Microsoft.NetworkCloud -o table
+```
+
+Once registered, you should see the RegistrationState state for the namespace change to Registered.
+
+If you've already registered, you can verify using the `show` command.
+
 ## Global arguments
 
 Some arguments that are available for every Azure CLI command
