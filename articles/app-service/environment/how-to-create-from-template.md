@@ -54,7 +54,7 @@ The basic Resource Manager template that creates an App Service Environment look
 
 In addition to the core properties, there are other configuration options that you can use to configure your App Service Environment.
 
-* *name*: Required. This parameter defines a unique App Service Environment name. 
+* *name*: Required. This parameter defines a unique App Service Environment name. The name must be no more than 36 characters.
 * *virtualNetwork -> id*: Required. Specifies the resource ID of the subnet. Subnet must be empty and delegated to Microsoft.Web/hostingEnvironments
 * *internalLoadBalancingMode*: Required. In most cases, set this property to "Web, Publishing", which means both HTTP/HTTPS traffic and FTP traffic is on an internal VIP (Internal Load Balancer). If this property is set to "None", all traffic remains on the public VIP (External Load Balancer).
 * *zoneRedundant*: Optional. Defines with true/false if the App Service Environment will be deployed into Availability Zones (AZ). For more information, see [zone redundancy](./zone-redundancy.md).
@@ -78,7 +78,7 @@ parameterPath="PATH/azuredeploy.parameters.json"
 az deployment group create --resource-group "YOUR-RG-NAME-HERE" --template-file $templatePath --parameters $parameterPath
 ```
 
-It takes about two hours for the App Service Environment to be created.
+It can take more than one hour for the App Service Environment to be created.
 
 ## Next steps
 

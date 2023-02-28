@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CMMC Level 3 (Azure Government)
 description: Details of the CMMC Level 3 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/05/2023
+ms.date: 02/28/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -10,7 +10,7 @@ ms.custom: generated
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
 definition maps to **compliance domains** and **controls** in CMMC Level 3 (Azure Government).
 For more information about this compliance standard, see
-[CMMC Level 3](https://www.acq.osd.mil/cmmc/documentation.html). To understand
+[CMMC Level 3](https://dodcio.defense.gov/CMMC/). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 

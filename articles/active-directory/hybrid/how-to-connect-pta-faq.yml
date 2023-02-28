@@ -12,7 +12,7 @@ metadata:
   ms.workload: identity
   ms.tgt_pltfrm: na
   ms.topic: faq
-  ms.date: 06/09/2020
+  ms.date: 02/08/2023
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ sections:
       - question: |
           Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
         answer: |
-          Yes, sign-in using a non-UPN value, such as an alternate email, is supported for both pass-through authentication (PTA) and password hash sync (PHS). For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
+          Yes, both pass-through authentication (PTA) and password hash sync (PHS) support sign-in using a non-UPN value, such as an alternate email. For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
           
       - question: |
           Does password hash synchronization act as a fallback to Pass-through Authentication?
@@ -51,7 +51,7 @@ sections:
       - question: |
           What happens when I switch from password hash synchronization to Pass-through Authentication?
         answer: |
-          When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
+          When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. All users' password hashes that are previously synchronized by password hash synchronization remain stored on Azure AD.
 
       - question: |
           Can I install an Azure AD Application Proxy connector on the same server as a Pass-through Authentication Agent?
@@ -70,25 +70,25 @@ sections:
           The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AzureADConnect-Agent -> Updater -> Admin). 
          
          
-          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Pass-through Authentication agent: Version release history](./reference-connect-pta-version-history.md).
+          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you can't wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Pass-through Authentication agent: Version release history](./reference-connect-pta-version-history.md).
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You will find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
-          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
-          - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
+          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs.
+          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
+          - Run the installer. The upgrade process is quick and doesn't require providing any credentials and the Agent won't be re-registered.
 
       - question: |
           What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
         answer: |
           If you have configured [password writeback](../authentication/concept-sspr-writeback.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
           
-          If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
+          If you haven't configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
       - question: |
-          The user logs on to Azure AD with his credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
+          The user logs on to Azure AD with credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
         answer: |
-          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
+          The password expiry doesn't trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user is able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
           [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
@@ -114,7 +114,7 @@ sections:
           Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
           
           If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
-          - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
+          - Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This allows you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
           - On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
           - Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
           
@@ -138,7 +138,7 @@ sections:
       - question: |
           Do I have to manually renew certificates used by Pass-through Authentication Agents?
         answer: |
-          The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
+          The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There's no need to manually renew these certificates. You can clean up older expired certificates as required.
           
       - question: |
           How do I remove a Pass-through Authentication Agent?
@@ -150,7 +150,7 @@ sections:
       - question: |
           I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
         answer: |
-          If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
+          If you're migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our [quickstart guide](how-to-connect-pta-quick-start.md).
           
       - question: |
           Can I use Pass-through Authentication in a multi-forest Active Directory environment?
@@ -160,18 +160,18 @@ sections:
       - question: |
           Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
         answer: |
-          No, installing multiple Pass-through Authentication Agents ensures only [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). It does not provide deterministic load balancing between the Authentication Agents. Any Authentication Agent (at random) can process a particular user sign-in request.
+          No, installing multiple Pass-through Authentication Agents ensures only [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). It doesn't provide deterministic load balancing between the Authentication Agents. Any Authentication Agent (at random) can process a particular user sign-in request.
           
       - question: |
           How many Pass-through Authentication Agents do I need to install?
         answer: |
-          Installing multiple Pass-through Authentication Agents ensures [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
+          Installing multiple Pass-through Authentication Agents ensures [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). But, it doesn't provide deterministic load balancing between the Authentication Agents.
           
           Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
           
           To estimate network traffic, use the following sizing guidance:
-          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; i.e., data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
-          - Each response has a payload size of 1K bytes; i.e., data from the Authentication Agent to Azure AD.
+          - Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; that is, data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
+          - Each response has a payload size of 1K bytes; that is, data from the Authentication Agent to Azure AD.
           
           For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
           
@@ -181,7 +181,7 @@ sections:
       - question: |
           Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
         answer: |
-          It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing it this way ensures that you don't get locked out of your tenant.
+          It's recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing it this way ensures that you don't get locked out of your tenant.
           
       - question: |
           How can I disable Pass-through Authentication?
@@ -226,12 +226,13 @@ additionalContent: |
 
   ## Next steps
 
-  - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
+  - [Current limitations](how-to-connect-pta-current-limitations.md): Learn the scenarios that are supported and the ones that are not.
   - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-  - [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+  - [Migrate your apps to Azure AD](../manage-apps/migration-resources.md): Resources to help you migrate application access and authentication to Azure AD.
   - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
   - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
   - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
   - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
+  - [Hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.
   - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
   - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.

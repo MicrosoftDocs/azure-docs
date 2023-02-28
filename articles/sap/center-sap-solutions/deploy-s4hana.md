@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/22/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -25,6 +25,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
 - A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
+- Availability of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used for "Deployer VM".
 
 ## Deployment types
 
@@ -134,6 +135,28 @@ There are three deployment options that you can select for your infrastructure, 
         The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
         Azure Center for SAP solutions automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
+
+1. Select **Next: Visualize Architecture**.
+
+1. In the **Visualize Architecture** tab, visualize the architecture of the VIS that you're deploying.
+
+    1. To view the visualization, make sure to configure all the inputs listed on the tab.
+
+    1. Optionally, click and drag resources or containers to move them around visually.
+
+    1. Click on **Reset** to reset the visualization to its default state. That is, revert any changes you may have made to the position of resources or containers.
+
+    1. Click on **Scale to fit** to reset the visualization to its default zoom level.
+
+    1. Click on **Zoom in** to zoom into the visualization.
+
+    1. Click on **Zoom out** to zoom out of the visualization.
+
+    1. Click on **Download JPG** to export the visualization as a JPG file.
+
+    1. Click on **Feedback** to share your feedback on the visualization experience.
+
+        The visualization doesn't represent all resources for the VIS that you're deploying, for instance it doesn't represent disks and NICs.
 
     1. Select **Next: Tags**.
 

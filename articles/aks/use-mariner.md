@@ -2,7 +2,6 @@
 
 title: Use the Mariner container host on Azure Kubernetes Service (AKS)
 description: Learn how to use the Mariner container host on Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.custom: ignite-2022
 ms.date: 12/08/2022
@@ -49,13 +48,10 @@ Mariner is available for use in the same regions as AKS.
 
 Mariner currently has the following limitations:
 
-* Mariner doesn't yet have image SKUs for GPU, ARM64, SGX, or FIPS.
-* Mariner doesn't yet have FedRAMP, FIPS, or CIS certification.
+* Image SKUs for SGX and FIPS are not available. 
+* It doesn't meet the [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final) compliance requirements and [Center for Internet Security (CIS)](https://www.cisecurity.org/) certification.
 * Mariner can't yet be deployed through the Azure portal.
 * Qualys, Trivy, and Microsoft Defender for Containers are the only vulnerability scanning tools that support Mariner today.
-* The Mariner container host is a Gen 2 image. Mariner doesn't plan to offer a Gen 1 SKU.
-* Node configurations aren't yet supported.
-* Mariner isn't yet supported in GitHub actions.
 * Mariner doesn't support AppArmor. Support for SELinux can be manually configured.
 * Some addons, extensions, and open-source integrations may not be supported yet on Mariner. Azure Monitor, Grafana, Helm, Key Vault, and Container Insights are supported.
 

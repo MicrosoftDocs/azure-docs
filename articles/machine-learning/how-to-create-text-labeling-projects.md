@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create a project to label text using the data labeling tool. Specify either a single label or multiple labels to apply to each piece of text.
 author: kvijaykannan 
 ms.author: vkann 
-ms.reviewer: franksolomon
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to

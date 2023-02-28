@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Pilot Azure AD Connect cloud sync for an existing synced AD forest
+title: Tutorial - Migrate to Azure AD Connect cloud sync for an existing synced AD forest
 description: Learn how to pilot cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 services: active-directory
 author: billmath
@@ -7,16 +7,19 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2023
+ms.date: 01/23/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 
-# Pilot cloud sync for an existing synced AD forest
+# Migrate to Azure AD Connect cloud sync for an existing synced AD forest
 
-This tutorial walks you through piloting cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
+This tutorial walks you through how you would migrate to cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.  
+
+> [!NOTE]
+> This article provides information for a basic migration and you should review the [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
 ![Diagram that shows the Azure AD Connect cloud sync flow.](media/tutorial-migrate-aadc-aadccp/diagram-2.png)
 
@@ -24,23 +27,21 @@ This tutorial walks you through piloting cloud sync for a test Active Directory 
 
 Before you try this tutorial, consider the following items:
 
-1. Ensure that you're familiar with basics of cloud sync.
-
-1. Ensure that you're running Azure AD Connect sync version 1.4.32.0 or later and have configured the sync rules as documented. 
-
-1. When piloting, you'll be removing a test OU or group from Azure AD Connect sync scope. Moving objects out of scope leads to deletion of those objects in Azure AD.
+ 1. Ensure that you're familiar with basics of cloud sync.
+ 2. Ensure that you're running Azure AD Connect sync version 1.4.32.0 or later and have configured the sync rules as documented.
+ 3. When piloting, you'll be removing a test OU or group from Azure AD Connect sync scope. Moving objects out of scope leads to deletion of those objects in Azure AD.  
 
     - User objects, the objects in Azure AD are soft-deleted and can be restored. 
     - Group objects, the objects in Azure AD are hard-deleted and can't be restored. 
-    
-    A new link type has been introduced in Azure AD Connect sync, which will prevent the deletion in a piloting scenario.
+ 
+     A new link type has been introduced in Azure AD Connect sync, which will prevent the deletion in a piloting scenario.
 
-1. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud sync hard matches the objects.
+ 4. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud sync hard matches the objects.
 
    > [!NOTE]
    > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects.
 
-1. This configuration is for advanced scenarios. Ensure that you follow the steps documented in this tutorial precisely.
+ 5. This configuration is for advanced scenarios. Ensure that you follow the steps documented in this tutorial precisely.
 
 ## Prerequisites
 
@@ -48,12 +49,15 @@ The following are prerequisites required for completing this tutorial
 
 - A test environment with Azure AD Connect sync version 1.4.32.0 or later
 - An OU or group that is in scope of sync and can be used the pilot. We recommend starting with a small set of objects.
-- A server running Windows Server 2012 R2 or later that will host the provisioning agent.
+- A server running Windows Server 2016 or later that will host the provisioning agent.
 - Source anchor for Azure AD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
 
 ## Update Azure AD Connect
 
 As a minimum, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. To update Azure AD Connect sync, complete the steps in [Azure AD Connect: Upgrade to the latest version](../hybrid/how-to-upgrade-previous-version.md).  
+
+## Back up your Azure AD Connect configuration
+Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can role-back.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
 
 ## Stop the scheduler
 
@@ -67,6 +71,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 >If you are running your own custom scheduler for Azure AD Connect sync, then please disable the scheduler.
 
 ## Create custom user inbound rule
+In the Azure AD Connect Synchronization Rules editor, you need to create an inbound sync rule that filters out users in the OU you identified previously.  The inbound sync rule is a join rule with a target attribute of cloudNoFlow.  This rule tells Azure AD Connect not to synchronize attributes for these users.  For more information, see [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
  1. Launch the synchronization editor from the application menu in desktop as shown below:
  
@@ -106,6 +111,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 Same steps need to be followed for all object types (user, group and contact). Repeat steps per configured AD Connector / per AD forest.
 
 ## Create custom user outbound rule
+You'll also need an outbound sync rule with a link type of JoinNoFlow and the scoping filter that has the cloudNoFlow attribute set to True.  This rule tells Azure AD Connect not to synchronize attributes for these users. For more information, see [Migrating to cloud sync](migrate-azure-ad-connect-to-cloud-sync.md) documentation before attempting to migrate your production environment.
 
  1. Select **Outbound** from the drop-down list for Direction and select **Add rule**.
 
@@ -147,46 +153,38 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 Use the following steps to configure provisioning:
 
-1. Sign-in to the Azure AD portal.
-2. Select **Azure Active Directory**
-3. Select **Azure AD Connect**
-4. Select **Manage cloud sync**
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2.  On the left, select **Azure AD Connect**.
+ 3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX cloud sync screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
+ 
+ 4. Select **New configuration**.
+ :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
+ 5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
+ 
+ :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration." lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
-    ![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)
+ 6.  The **Get started** screen will open.  
 
-5. Select **New Configuration**
+  :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen." lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
-    ![Screenshot of Azure AD Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
+ 7.  On the **Get started** screen, click either **Add scoping filters** next to the **Add scoping filters** icon or on the click **Scoping filters** on the left under **Manage**.
 
-6. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
+   :::image type="content" source="media/how-to-configure/new-ux-configure-5.png" alt-text="Screenshot of scoping filters." lightbox="media/how-to-configure/new-ux-configure-5.png":::
+ 
+ 8. Select the scoping filter. For this tutorial select:
+     - **Selected organizational units**: Scopes the configuration to apply to specific OUs. 
+ 9. In the box, enter "OU=CPUsers,DC=contoso,DC=com".
+ 
+   :::image type="content" source="media/tutorial-migrate-aadc-aadccp/configure-1.png" alt-text="Screenshot of the scoping filter." lightbox="media/tutorial-migrate-aadc-aadccp/configure-1.png":::
+ 
+ 10.  Click **Add**. Click **Save**.
 
-    ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure-2.png)
 
-7. Under **Configure**, select **All users** to change the scope of the configuration rule.
 
-    ![Screenshot of Configure screen with "All users" highlighted next to "Scope users".](media/how-to-configure/scope-2.png)
-    
-8. On the right, change the scope to include the specific OU you created "OU=CPUsers,DC=contoso,DC=com".
 
-    ![Screenshot of the Scope users screen highlighting the scope changed to the OU you created.](media/tutorial-existing-forest/scope-2.png)
-    
-9. Select **Done** and **Save**.
-10. The scope should now be set to one organizational unit.
-
-    ![Screenshot of Configure screen with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope-3.png)
-
-## Verify users are provisioned by cloud sync
-
-You'll now verify that the users that you had in our on-premises directory have been synchronized and now exist in out Azure AD tenant.  This process may take a few hours to complete.  To verify users are provisioning by cloud sync, follow these steps:
-
-1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
-2. On the left, select **Azure Active Directory**
-3. Select on **Azure AD Connect**
-4. Select on **Manage cloud sync**
-5. Select on **Logs** button
-6. Search for a username to confirm that the user is provisioned by cloud sync
-
-Additionally, you can verify that the user and group exist in Azure AD.
+ 
 
 ## Start the scheduler
 

@@ -32,8 +32,8 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
    |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
-   |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
-   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 devices per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 devices per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 devices per network and 10 RAN connections. </br> G3 - 3 Gbps per site, 300 devices per network and unlimited RAN connections. </br> G4 - 4 Gbps per site, 400 devices per network and unlimited RAN connections. </br> G5 - 5 Gbps per site, 500 devices per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 devices per network and unlimited RAN connections.|**Instance details: Site plan**|
+   |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 activated SIMs per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 activated SIMs per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 activated SIMs per network and 10 RAN connections. </br> G3 - 3 Gbps per site, 300 activated SIMs per network and unlimited RAN connections. </br> G4 - 4 Gbps per site, 400 activated SIMs per network and unlimited RAN connections. </br> G5 - 5 Gbps per site, 500 activated SIMs per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 activated SIMs per network and unlimited RAN connections.|**Instance details: Site plan**|
 
 ## Collect packet core configuration values
 
@@ -80,7 +80,7 @@ If you want to configure diagnostics package gathering during site creation, see
 
 ## Choose the authentication method for local monitoring tools
 
-Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
@@ -100,7 +100,7 @@ If you don't want to provide a custom HTTPS certificate at this stage, you don't
 If you want to provide a custom HTTPS certificate at site creation, follow the steps below.
 
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
-   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
+   1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
 
       - Be signed by a globally known and trusted CA.
       - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).

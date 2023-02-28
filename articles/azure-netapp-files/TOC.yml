@@ -13,7 +13,7 @@
   items:
   - name: Set up Azure NetApp Files and create an NFS volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-# - name: Tutorials
+# - name: Tutorials 
 # - name: Samples
 - name: Concepts
   items:
@@ -45,6 +45,10 @@
       href: volume-hard-quota-guidelines.md
     - name: Regional capacity quota
       href: regional-capacity-quota.md
+    - name: Understand default and individual user and group quotas
+      href: default-individual-user-group-quotas-introduction.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
@@ -237,6 +241,8 @@
         href: configure-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Configure customer-managed keys 
+        href: configure-customer-managed-keys.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -253,6 +259,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+      - name: Manage default and individual user and group quotas for a volume
+        href: manage-default-individual-user-group-quotas.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
