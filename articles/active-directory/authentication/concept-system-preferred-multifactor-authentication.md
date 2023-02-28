@@ -24,10 +24,6 @@ System-preferred MFA is a Microsoft managed setting, which is a [tristate policy
 
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system will always determine and present the most secure method they have registered. 
 
-If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
-
-For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page will appear and they will need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
-
 ## Enable system-preferred MFA
 
 To enable system-preferred MFA in advance, you'll need to choose a single target group for the schema configuration, as shown in the following example. 
@@ -38,8 +34,8 @@ By default, system-preferred MFA is [Microsoft managed](concept-authentication-d
 
 | Property | Type | Description |
 |----------|------|-------------|
-| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA. |
-| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA.|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group from system-preferred MFA,which can be a dynamic or nested group.|
+| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for system-preferred MFA,,which can be a dynamic or nested group.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
 ### Feature target properties
@@ -89,7 +85,7 @@ Content-Type: application/json
 
 ## Known issues
 
-- FIDO2 security key isn't supported on iOS mobile devices. This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
+- [FIDO2 security key isn't supported on iOS mobile devices](https://learn.microsoft.com/en-us/azure/active-directory/develop/support-fido2-authentication#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
 
 ## Common questions
 
@@ -119,6 +115,18 @@ When a user signs in, the authentication process checks which authentication met
 
 System-preferred MFA has no affect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users will not see any change to their sign-in experience.
 
+### What if the most secure MFA method is not avaiable? 
+
+If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
+
+For example, let's say an end user misplaces their FIDO2 security key. When they try to sign in without their security key, they can click **I can't use my security key right now** and continue to sign in by using another method, like a time-based one-time password (TOTP). After sign-in, their Security info page will appear and they will need to remove their FIDO2 security key registration. They can register the method again later if they find their FIDO2 security key.  
+
+### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
+
+The system-preferred MFA also applies for users who are enabled for MFA push notifications in the legacy MFA policy.
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
+
 ## Next steps
 
-[Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
+* [How to run a registration campaign to set up Microsoft Authenticator](how-to-mfa-registration-campaign.md)
