@@ -71,9 +71,9 @@ uname -r
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions in this article are for the Azure CLI.
+* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace `<your-resource-group>` and `<your-storage-account>` then run the following script:
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - make sure your firewall or ISP isn't blocking TCP port 445 from the client machine.  Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -96,7 +96,7 @@ uname -r
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
-    If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
+    If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
 ## Mount the Azure file share on-demand with mount
 When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
@@ -133,7 +133,7 @@ storageAccountKey=$(az storage account keys list \
     --account-name $storageAccountName \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
+sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 3.0](#tab/smb30)
@@ -150,7 +150,7 @@ storageAccountKey=$(az storage account keys list \
     --account-name $storageAccountName \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 2.1](#tab/smb21)
@@ -167,14 +167,14 @@ storageAccountKey=$(az storage account keys list \
     --account-name $storageAccountName \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
+sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 ---
 
-You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
 
-You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
+You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
 When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
@@ -233,7 +233,7 @@ sudo mkdir -p $mntPath
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
 > [!Tip]
-> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the CIFS mount options to avoid sending byte range lock requests to the server.
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -323,11 +323,12 @@ After you've created the file share snapshot, following these instructions to mo
    
 6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
 
-If the mount fails, see [Troubleshoot Azure Files problems in Linux (SMB)](storage-troubleshoot-linux-file-connection-problems.md).
+If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](files-troubleshoot-smb-connectivity.md).
 
 ## Next steps
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
-- [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot general SMB issues on Linux](files-troubleshoot-linux-smb.md)
+- [Troubleshoot general NFS issues on Linux](files-troubleshoot-linux-nfs.md)

@@ -38,7 +38,7 @@ Each virtual machine instance in NVadsA10v5-series comes with a GRID license. Th
 | Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 8 | 4 | 2 / 10000 |
 | Standard_NV18ads_A10_v5 |18 |220 |720 | 1/2 | 12 | 8 | 4 / 20000 |
 | Standard_NV36ads_A10_v5 |36 |440 |720 | 1 | 24 | 16 | 4 / 40000 |
-| Standard_NV36adms_A10_v5 |36 |880 |720 | 1 | 24 | 32 | 8 / 80000 |
+| Standard_NV36adms_A10_v5 |36 |880 |1400 | 1 | 24 | 32 | 8 / 80000 |
 | Standard_NV72ads_A10_v5 |72 |880 |1400 | 2 | 48 | 32 | 8 / 80000 |
 
 <sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology

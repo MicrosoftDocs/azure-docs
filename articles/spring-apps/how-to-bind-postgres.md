@@ -49,7 +49,7 @@ Use the following steps to prepare your project.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
-### [Using a passwordless connection with a managed identity for flexible server](#tab/Passwordlessflex)
+### [Service Connector for flexible server](#tab/Passwordlessflex)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -71,7 +71,7 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Using a passwordless connection with a managed identity for single server](#tab/Passwordlesssingle)
+### [Service Connector for single server](#tab/Passwordlesssingle)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -93,9 +93,9 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Using admin credentials](#tab/Secrets)
+### [Service Connector with password](#tab/Secrets)
 
-Use the following steps to bind your app.
+Use the following steps to bind your app using a secret.
 
 1. Note the admin username and password of your Azure Database for PostgreSQL account.
 

@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/28/2022
+ms.date: 02/27/2022
 ms.author: aahi
 ---
 
@@ -221,6 +221,9 @@ Below is a sample command to set file/directory ownership.
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
+
+---
+
 ## Usage records
 
 When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST endpoint to generate a report about service usage.

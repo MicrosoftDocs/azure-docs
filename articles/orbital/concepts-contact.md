@@ -52,7 +52,7 @@ If you don't know the pass timings, or which sites are available, then you can u
 |Portal| Yes | Yes | Custom pass timings not possible. You have to use the results of the query|
 |API | Yes | Yes| Custom pass timings possible. |
 
-See [how-to schedule a contact](schedule-contact.md) for the Portal method. The API can also be used to create a contact. See the API docs (link to API docs) for this method.
+See [how-to schedule a contact](schedule-contact.md) for the Portal method. The API can also be used to create a contact. See the [API docs](https://learn.microsoft.com/rest/api/orbital/) for this method.
 
 ## Next steps
 

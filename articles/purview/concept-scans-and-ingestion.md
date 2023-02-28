@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 02/14/2023
 ms.custom: ignite-fall-2021
 ---
 
