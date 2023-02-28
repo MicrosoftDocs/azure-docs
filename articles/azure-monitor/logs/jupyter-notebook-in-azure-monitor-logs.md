@@ -1,6 +1,6 @@
 ---
-title: Run custom code on data in Azure Monitor Logs using Jupyter Notebook
-description: Learn how to use KQL machine learning tools for time series analysis and anomaly detection in Azure Monitor Log Analytics. 
+title: Train and evaluate a regression model for detecting anomalies in Azure Monitor Logs by using Jupyter Notebook
+description: This tutorial shows how to use Jupyter Notebook to explore data and fit a custom machine learning algorithm to detect anomalies in Azure Monitor Logs. 
 ms.service: azure-monitor
 ms.topic: tutorial 
 author: guywild
@@ -11,14 +11,24 @@ ms.date: 02/28/2023
 # Customer intent:  As a data analyst, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
 
 ---
-# Run custom code on data in Azure Monitor Logs using Jupyter Notebook
-
+# Train your own regression model for detecting anomalies in Azure Monitor Logs by using Jupyter Notebook
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
+
+In this tutorial, we'll demonstrate how you can create a machine learning model that detects anomalies, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). Instead of using the native machine learning capabilities of KQL, you'll train and evaluate a regression model for detecting anomalies in Azure Monitor Logs on your own. 
+
+This provides you with a number of advantages:
+
+- While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
+
+## Tools used
 
 Use Jupyter Notebook to: 
 - Run custom code on data in Azure Monitor Logs using your web browser, which lets you get started quickly without needing to install Python or other tools on your local computer. . 
 - Work with log data at big scales either by using in-memory processing using the [pandas library](https://pandas.pydata.org/) for data tables, and [PySpark DataFrames](https://spark.apache.org/docs/latest/api/python/index.html), or by exporting data to external services.  
+
+
+by using Jupyter Notebook 
 
 ## Benefits 
 
