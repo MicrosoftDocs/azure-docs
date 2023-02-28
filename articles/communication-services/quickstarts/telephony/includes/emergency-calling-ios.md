@@ -51,7 +51,7 @@ NavigationView {
 
 ## Specify the country or region
 
-Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](azure/communication-services/concepts/telephony/emergency-calling-concept).  
+Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](/azure/communication-services/concepts/telephony/emergency-calling-concept).  
 
 In your *ContentView.swift* file, replace your code with the following snippet in the `onAppear` method for `NavigationView`:
 

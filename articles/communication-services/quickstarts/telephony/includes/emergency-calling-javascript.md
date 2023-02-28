@@ -61,7 +61,7 @@ Replace the code in *index.html* with the following snippet. It adds a new butto
 
 ## Specify the country or region
 
-Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](azure/communication-services/concepts/telephony/emergency-calling-concept).
+Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](/azure/communication-services/concepts/telephony/emergency-calling-concept).
 
 In your *client.js* file, add the following code to retrieve the emergency button that you created in *index.html*:
 

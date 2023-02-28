@@ -75,7 +75,7 @@ Replace the code in *app/src/main/res/layout/activity_main.xml* with the followi
 
 ## Specify the country or region
 
-Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](azure/communication-services/concepts/telephony/emergency-calling-concept).
+Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](/azure/communication-services/concepts/telephony/emergency-calling-concept).
 
 In your *MainActivity.java* file, add the following code to your `onCreate` method to retrieve the emergency button that you created in *activity_main.xml*:
 
