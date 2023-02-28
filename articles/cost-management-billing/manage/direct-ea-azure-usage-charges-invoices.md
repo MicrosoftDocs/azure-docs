@@ -84,7 +84,7 @@ Here's how the example now appears in the Azure portal.
 > - There's no change to the process when there are:
 >     - Adjustment charges
 >     - Back-dated credits
->     - Discounts.
+>     - Discounts.  
 >     The preceding items result in bill regeneration. The regenerated bill shows the new refund billing process.
 
 #### Common refunded overage credits questions
