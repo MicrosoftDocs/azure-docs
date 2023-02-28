@@ -11,8 +11,9 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/14/2023
+ms.date: 02/21/2023
 ms.author: gunnarc
+ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS

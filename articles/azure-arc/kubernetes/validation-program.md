@@ -18,6 +18,7 @@ The following Microsoft-provided Kubernetes distributions and infrastructure pro
 | Cluster API Provider on Azure            | Release version: [0.4.12](https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/tag/v0.4.12); Kubernetes version: [1.18.2](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.2) |
 | AKS on Azure Stack HCI                   | Release version: [December 2020 Update](https://github.com/Azure/aks-hci/releases/tag/AKS-HCI-2012); Kubernetes version: [1.18.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.8) |
 | K8s on Azure Stack Edge                  | Release version: Azure Stack Edge 2207 (2.2.2037.5375); Kubernetes version: [1.22.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.22.6) |
+| AKS Edge Essentials                  | Release version [1.0.406.0]( https://github.com/Azure/AKS-Edge/releases/tag/1.0.406.0); Kubernetes version [1.24.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.24.3) |
 
 The following providers and their corresponding Kubernetes distributions have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
 

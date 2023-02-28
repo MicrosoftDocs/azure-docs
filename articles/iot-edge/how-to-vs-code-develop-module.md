@@ -101,12 +101,12 @@ Install prerequisites specific to the language you're developing in:
 
 # [Java](#tab/java)
 
-- Install [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- Install [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 - Install [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
 # [Node.js](#tab/node)
 
-- Install [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
+- Install [Node.js](https://nodejs.org). Install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 # [Python](#tab/python)
 
@@ -124,7 +124,7 @@ Install prerequisites specific to the language you're developing in:
 
 ---
 
-To test your module on a device, you'll need:
+To test your module on a device:
 
 - An active IoT Hub with at least one IoT Edge device.
 - A physical IoT Edge device or a virtual device. To create a virtual device in Azure, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md).
@@ -197,7 +197,7 @@ After solution creation, there are four items within the solution:
 
 - A **.vscode** folder contains configuration file *launch.json*.
 - A **modules** folder has subfolders for each module. Within the subfolder for each module, the *module.json* file controls how modules are built and deployed.
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, you'll need to set an Azure Container Registry username and password. For example,
+- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. For example,
 
     ```env
     CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
@@ -223,23 +223,23 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/new-solution.png" alt-text="Screenshot of how to run a new IoT Edge solution.":::
 
 1. Browse to the folder where you want to create the new solution and then select **Select folder**.
 1. Enter a name for your solution.
 1. Select a module template for your preferred development language to be the first module in the solution.
 1. Enter a name for your module. Choose a name that's unique within your container registry.
-1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
+1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use sign in server from your registry's settings. The sign-in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
-   ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository.":::
 
 Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
 There are four items within the solution:
 
 - A **.vscode** folder contains debug configurations.
-- A **modules** folder has subfolders for each module.  Within the folder for each module there's a file, **module.json** that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container registry from localhost to a remote registry. At this point, you only have one module. But you can add more if needed
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, you'll need to set an Azure Container Registry username and password. For example,
+- A **modules** folder has subfolders for each module. Within the folder for each module, there's a file called **module.json** that controls how modules are built and deployed. You need to modify this file to change the module deployment container registry from a localhost to a remote registry. At this point, you only have one module. But you can add more if needed
+- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. For example,
 
     ```env
     CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
@@ -305,7 +305,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 ::: zone-end
 
-## Add additional modules
+## Add more modules
 
 To add more modules to your solution, change to *module* directory.
 
@@ -410,7 +410,7 @@ The default module code that comes with the solution is located at the following
 
 # [C\#](#tab/csharp)
 
-modules/*&lt;your module name&gt;*/**Program.cs**
+modules/*&lt;your module name&gt;*/**ModuleBackgroundService.cs**
 
 # [Azure Functions](#tab/azfunctions)
 
@@ -433,7 +433,7 @@ modules/*&lt;your module name&gt;*/**main.py**
 
 ---
 
-The sample modules are designed so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipes it to IoT Hub.
+The sample modules allow you to build the solution, push to your container registry, and deploy to a device. This process lets you start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipes it to IoT Hub.
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
@@ -455,7 +455,7 @@ In the Visual Studio Code integrated terminal, change the directory to the ***&l
 dotnet build
 ```
 
-Open the file `Program.cs` and add a breakpoint.
+Open the file `ModuleBackgroundService.cs` and add a breakpoint.
 
 Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
@@ -500,11 +500,11 @@ Debugging in attach mode isn't supported for C or Python.
 
 # [C\# / Azure Functions / Node.js / Java](#tab/csharp+azfunctions+node+java)
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages are piped to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages go to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
 Currently, debugging in attach mode is supported only as follows:
 
-- C# modules, including those for Azure Functions, support debugging in Linux amd64 containers
+- C# modules, including modules for Azure Functions, support debugging in Linux amd64 containers
 - Node.js modules support debugging in Linux amd64 and arm32v7 containers, and Windows amd64 containers
 - Java modules support debugging in Linux amd64 and arm32v7 containers
 
@@ -517,21 +517,21 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
+1. You can see the successful set up of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
 
 ### Build and run container for debugging and debug in attach mode
 
-1. Open your module file (`Program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
+1. Open your module file (`ModuleBackgroundService.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
+   :::image type="content" source="media/how-to-vs-code-develop-module/view-log.png" alt-text="Screenshot of the Watch Variables.":::
 
 1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
 1. Select **Start Debugging** or press **F5**. Select the process to attach to.
 
-1. In Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. In Visual Studio Code Debug view, you see the variables in the left panel.
 
 1. To stop the debugging session, first select the Stop button or press **Shift + F5**, and then select **Azure IoT Edge: Stop IoT Edge Simulator** from the command palette.
 
@@ -552,7 +552,7 @@ In each module folder, there are several Docker files for different container ty
 When you debug modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
 
 - Set up your IoT Edge device, build your IoT Edge modules with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
-- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
+- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. You can find this file in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
 - Use Remote SSH debugging to attach to the container on the remote machine.
 
 ### Build and deploy your module to an IoT Edge device
@@ -561,7 +561,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
 
 ::: zone pivot="iotedge-dev-cli"
 
-1. If you're using an Azure Container Registry to store your module image, you'll need to add your credentials to **deployment.debug.template.json** in the *edgeAgent* settings. For example,
+1. If you're using an Azure Container Registry to store your module image, add your credentials to **deployment.debug.template.json** in the *edgeAgent* settings. For example:
 
     ```json
     "modulesContent": {
@@ -591,7 +591,7 @@ In Visual Studio Code, open the *deployment.debug.template.json* deployment mani
     "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
     ```
     
-    For example, the *filtermodule* configuration should be similar to the following:
+    For example, the *filtermodule* configuration should be similar to:
     
     ```json
     "filtermodule": {
@@ -685,7 +685,7 @@ Open the module file for your development language and add a breakpoint:
 
 # [C\#](#tab/csharp)
 
-Add your breakpoint to the file `Program.cs`.
+Add your breakpoint to the file `ModuleBackgroundService.cs`.
 
 # [Azure Functions](#tab/azfunctions)
 
@@ -715,9 +715,9 @@ To enable Visual Studio Code remote debugging, install the [Remote Development e
 
 For details on how to use Remote SSH debugging in Visual Studio Code, see [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
 
-In the Visual Studio Code Debug view, select the debug configuration file for your module. By default, the **.debug** Dockerfile, module's container `createOptions` settings, and `launch.json` file are configured to use *localhost*.
+In the Visual Studio Code Debug view, select the debug configuration file for your module. By default, the **.debug** Dockerfile, module's container `createOptions` settings, and the `launch.json` file use *localhost*.
 
-Select **Start Debugging** or select **F5**. Select the process to attach to. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
+Select **Start Debugging** or select **F5**. Select the process to attach to. In the Visual Studio Code Debug view, you see variables in the left panel.
 
 ## Debug using Docker Remote SSH
 
@@ -726,7 +726,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 ### Configure Docker SSH tunneling
 
 1. Follow the steps in [Docker SSH tunneling](https://code.visualstudio.com/docs/containers/ssh#_set-up-ssh-tunneling) to configure SSH tunneling on your development computer. SSH tunneling requires public/private key pair authentication and a Docker context defining the remote device endpoint.
-1. Connecting to Docker requires root-level privileges. Follow the steps in [Manage docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall) to allow connection to the Docker daemon on the remote device. When you're finished debugging, you may want to remove your user from the Docker group.
+1. Connecting to Docker requires root-level privileges. Follow the steps in [Manage docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall) to allow connection to the Docker daemon on the remote device. When you finish debugging, you may want to remove your user from the Docker group.
 1. In Visual Studio Code, use the Command Palette (Ctrl+Shift+P) to issue the *Docker Context: Use* command to activate the Docker context pointing to the remote machine. This command causes both Visual Studio Code and Docker CLI to use the remote machine context.
 
     > [!TIP]
@@ -738,7 +738,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
     docker ps
     ```
     
-    The output should list the containers running on the remote device similar to the following:
+    The output should list the containers running on the remote device similar:
     
     ```output
     PS C:\> docker ps        
@@ -751,7 +751,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
                                            edgeAgent
     ```
 
-1. In the *.vscode* directory, add a new configuration to **launch.json** by opening the file in Visual Studio Code. Select **Add configuration** then choose the matching remote attach template for your module. For example, the following configuration is for .NET Core. Change the value for the *-H* parameter in *PipeArgs* to your device DNS name or IP address.
+1. In the *.Visual Studio Code* directory, add a new configuration to **launch.json** by opening the file in Visual Studio Code. Select **Add configuration** then choose the matching remote attach template for your module. For example, the following configuration is for .NET Core. Change the value for the *-H* parameter in *PipeArgs* to your device DNS name or IP address.
 
     ```json
     "configurations": [
@@ -786,7 +786,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 
 1. In Visual Studio Code Debug view, select the debug configuration *Remote Debug IoT Edge Module (.NET Core)*.
 1. Select **Start Debugging** or select **F5**. Select the process to attach to.
-1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. In the Visual Studio Code Debug view, you see the variables in the left panel.
 1. In Visual Studio Code, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 

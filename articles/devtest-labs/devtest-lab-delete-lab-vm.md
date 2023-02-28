@@ -19,6 +19,9 @@ When you create a VM in a lab, DevTest Labs automatically creates resources for 
 - The VM's key vault in the lab's resource group.
 - Any availability set, load balancer, or public IP address in the VM's resource group. These resources are shared by multiple VMs in a resource group.
 
+> [!CAUTION]
+> Deleting VMs and labs is permanent, and cannot be undone.
+
 To delete a VM from a lab:
 
 1. On the lab's **Overview** page in the Azure portal, find the VM you want to delete in the list under **My virtual machines**.
@@ -33,7 +36,8 @@ To delete a VM from a lab:
    - Select the VM name in the list, and then on the VM's **Overview** page, select **Delete** from the top menu.
      ![Screenshot of the Delete button on the V M Overview page.](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
-1. On the **Are you sure you want to delete it?** page, select **Delete**.
+1. On the **Are you sure you want to delete it?** page, select **Delete**.</br>
+   The deletion of the VM, it's network interface, and it's associated OS disks is permanent, and cannot be undone.
 
    ![Screenshot of the V M deletion confirmation page.](media/devtest-lab-delete-lab-vm/select-lab.png) 
 
@@ -58,7 +62,8 @@ To delete a lab:
 
    ![Screenshot of the Delete button on the lab Overview page.](media/devtest-lab-delete-lab-vm/delete-button.png)
 
-1. On the **Are you sure you want to delete it?** page, under **Type the lab name**, type the lab name, and then select **Delete**.
+1. On the **Are you sure you want to delete it?** page, under **Type the lab name**, type the lab name, and then select **Delete**.</br>
+   The deletion of the lab and all it's resources is permanent, and cannot be undone.
 
    ![Screenshot of the lab deletion confirmation page.](media/devtest-lab-delete-lab-vm/confirm-delete.png) 
 

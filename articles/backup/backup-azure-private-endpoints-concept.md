@@ -86,7 +86,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by 
+For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using: 
 
 - Azure Private DNS zones
 - Custom DNS
@@ -99,7 +99,7 @@ If you've configured a DNS proxy server, using third-party proxy servers or fire
 
 The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and Azure AD to 168.63.129.16.
 
-:::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-inline.png" alt-text="Diagram showing the use of Azure firewall as DNS proxy to redirect the domain name queries." lightbox="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-expanded.png":::
+:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-inline.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-expanded.png":::
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 
@@ -109,7 +109,7 @@ The private endpoint for Recovery Services is associated with a network interfac
 
 When the workload backup extensions are installed on the virtual machine registered to a Recovery Services vault with a private endpoint, the extension attempts connection on the private URL of the Azure Backup services `<vault_id>.<azure_backup_svc>.privatelink.<geo>.backup.windowsazure.com`.
 
-If the private URL isn't resolving, it tries the public URL `<azure_backup_svc>.<geo>.backup.windowsazure.com`. If the public network access for Recovery Services vault is configured to *Allow from all networks*, the Recovery Services vault allows the requests coming from the extension over public URLs. If the public network access for Recovery Services vault is configured to *Deny*, the recovery services vault denies the requests coming from the extension over public URLs.
+If the private URL doesn't resolve, it tries the public URL `<azure_backup_svc>.<geo>.backup.windowsazure.com`. If the public network access for Recovery Services vault is configured to *Allow from all networks*, the Recovery Services vault allows the requests coming from the extension over public URLs. If the public network access for Recovery Services vault is configured to *Deny*, the recovery services vault denies the requests coming from the extension over public URLs.
 
 >[!Note]
 >In the above domain names, `<geo>` determines the region code (for example, eus for East US and ne for North Europe). For more information on the region codes, see the following list:
@@ -119,9 +119,9 @@ If the private URL isn't resolving, it tries the public URL `<azure_backup_svc>.
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
 >- [US Gov](/azure/azure-government/documentation-government-developer-guide)
 
-These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with the Azure Backup service over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting the backup and restore operations on the vault. We recommend that public network access is set to *Deny* along with private endpoint setup. As the extension and agent attempt the private URL first, the `*.privatelink.<geo>.backup.windowsazure.com` URL should resolve the corresponding private IP associated with the private endpoint.
+These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with the Azure Backup service over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting the backup and restore operations on the vault. We recommend that public network access is set to *Deny* along with private endpoint setup. As the extension and agent attempt the private URL first, the `*.privatelink.<geo>.backup.windowsazure.com` DNS resolution of the URL should return the corresponding private IP associated with the private endpoint.
 
-There are multiple solutions for DNS resolution
+There are multiple solutions for DNS resolution:
 
 - Azure Private DNS zones
 - Custom DNS
@@ -130,18 +130,27 @@ There are multiple solutions for DNS resolution
 
 When the private endpoint for Recovery Services vaults is created via the Azure portal with the *Integrate with private DNS zone* option, the required DNS entries for private IP addresses for the Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically when the resource is allocated. In other solutions, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
-For the manual management of DNS records after the VM discovery for communication channel - blob or queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+For the manual management of DNS records after the VM discovery for communication channel - blob or queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](backup-azure-private-endpoints-configure-manage.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](backup-azure-private-endpoints-configure-manage.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 
-The private IP addresses for the FQDNs can be found in the private endpoint pane for the private endpoint created for the Recovery Services vault.
+The private IP addresses for the FQDNs can be found in **DNS configuration** pane for the private endpoint created for the Recovery Services vault.
 
 The following diagram shows how the resolution works when using a private DNS zone to resolve these private service FQDNs.
 
-:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-inline.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-expanded.png":::
+:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-inline.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-expanded.png":::
 
 The workload extension running on Azure VM requires connection to at least two storage accounts endpoints - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to at least one storage account endpoint that is used for storing backup data.
 
 For a private endpoint enabled vault, the Azure Backup service creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network.
-In addition to the Azure Backup cloud services, the workload extension and agent require connectivity to the Azure Storage accounts and Azure Active Directory.
+In addition to the Azure Backup cloud services, the workload extension and agent require connectivity to the Azure Storage accounts and Azure Active Directory (Azure AD).
+
+As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). Recovery Services vault searches for private DNS zones in the resource groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault; otherwise, you must create them manually.
+
+>[!Note]
+>Integration with private DNS zone present in different subscriptions is unsupported in this experience.
+
+The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
+
+:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
 
 ## Next steps
 
