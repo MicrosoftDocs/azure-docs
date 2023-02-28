@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
-services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 
