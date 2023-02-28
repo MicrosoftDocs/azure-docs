@@ -58,6 +58,8 @@ Defender for IoT's device inventory supports the following device classes:
 
 *Unclassified* devices are devices that don't have an out-of-the-box category defined.
 
+<!--how to add in about transient devices?-->
+
 ## Unauthorized devices
 
 When you're first working with Defender for IoT, during the learning period just after deploying a sensor, all devices detected are identified as *authorized* devices.
