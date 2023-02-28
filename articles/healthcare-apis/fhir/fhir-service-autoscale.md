@@ -38,7 +38,7 @@ There are three factors that determine when the service will be scaled:
   
 ** Scaling Interval is used to determine how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. Scaling trigger will not be checked before scaling interval expires, which is to set to 1 minute for FHIR service.
 
-We ask customer to not push all requests at the same time, but instead, adopt a linear growth until the expected push rate.
+To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
 
 ## FAQ
 
