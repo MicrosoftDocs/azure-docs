@@ -76,12 +76,12 @@ You can also use an integrated development environment to open the folder.
 1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
 
     ```python
-    TENANT_NAME=<tenant name>
+    TENANT_ID=<tenant id>
     CLIENT_ID=<client id>
     CLIENT_SECRET=<client secret>
     ```
 
-    * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
+    * Set the value of `TENANT_ID` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
     * Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
     * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
     
