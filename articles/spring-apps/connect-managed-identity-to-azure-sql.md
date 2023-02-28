@@ -77,8 +77,9 @@ Configure your app deployed to Azure Spring to connect to an SQL Database with a
    ```azurecli
    az spring connection create sql \
        --resource-group $SPRING_APP_RESOURCE_GROUP \
-       --service $Spring_APP_SERVICE_NAME \
-       --app $APP_NAME --deployment $DEPLOYMENT_NAME \
+       --service $SPRING_APP_SERVICE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
        --target-resource-group $SQL_RESOURCE_GROUP \
        --server $SQL_SERVER_NAME \
        --database $DATABASE_NAME \
