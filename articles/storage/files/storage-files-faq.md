@@ -116,7 +116,7 @@ ms.topic: conceptual
     Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. For detailed instructions, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
    > [!Note]  
-   > In a multi-forest setup, don't use Windows Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) instead.
+   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) instead.
 
    
 * <a id="ad-aad-smb-files"></a>
