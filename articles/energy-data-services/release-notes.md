@@ -37,6 +37,9 @@ Microsoft Energy Data Services will begin billing February 15, 2023. Prices will
 - No charges for storage, data transfers or compute overage during preview.
 
 
+### Enable Resource sharing (CORS)
+CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin. With this feature you can set CORS rules for each Azure Data Manager for Energy instance. When you set CORS rules for the instance it gets applied automatically across all the services and storage accounts linked with Microsoft Energy Data services.[Learn more.]( ../energy-data-services/how-to-enable-CORS.md)
+
 ## January 2023
 
 ### Managed Identity Support 
