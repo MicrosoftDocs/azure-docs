@@ -76,6 +76,23 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 * AllowedVmSizesInLab
 * LabVmsShutdown
 
+## Create a role to allow users to do a specific task
+
+This example script that creates the role **DevTest Labs Advanced User**, which has permission to start and stop all VMs in the lab:
+
+```powershell
+    $policyRoleDef = Get-AzRoleDefinition "DevTest Labs User"
+    $policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*')
+    $policyRoleDef.Id = $null
+    $policyRoleDef.Name = "DevTest Labs Advanced User"
+    $policyRoleDef.IsCustom = $true
+    $policyRoleDef.AssignableScopes.Clear()
+    $policyRoleDef.AssignableScopes.Add("/subscriptions/<subscription Id>")
+    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action")
+    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action")
+    $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef 
+``` 
+
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
