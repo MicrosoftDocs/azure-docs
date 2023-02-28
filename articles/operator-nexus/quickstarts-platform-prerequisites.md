@@ -1,5 +1,5 @@
 ---
-title: "Operator Nexus: Platform deployment pre-requisites"
+title: "Operator Nexus: Platform pre-requisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
 author: surajmb #Required; your GitHub user alias, with correct capitalization.
 ms.author: surmb #Required; microsoft alias of author; optional team alias.
@@ -9,23 +9,21 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: deploy Operator Nexus platform software prerequisites
+# Quickstart: Operator Nexus platform prerequisites
 
 You'll need to complete the prerequisites before you can deploy the
-Operator Nexus platform software. Some of these steps may take
-weeks to months and, thus, a review of these prerequisites may prove beneficial.
+Operator Nexus platform. Some of these steps may take
+extended amounts of time, thus, a review of these prerequisites may prove beneficial.
 
 In subsequent deployments of Operator Nexus instances, you can skip to creating the on-premises
-network fabric and the cluster. An instance of Network fabric Controller can support up to 32
-Operator Nexus instances.
+network fabric and the cluster. 
 
 ## Prerequisites
 
 You need to be familiar with the Operator Nexus [key features](./overview.md#key-features)
 and [platform components](./concepts-resource-types.md).
 
-The prerequisite activities have been split among activities you'll perform in Azure and on
-your premises that may require some data gathering.
+The prerequisite activities have been split among activities you'll perform in Azure and on-premises that may require some data gathering.
 
 ### Azure prerequisites
 
@@ -149,23 +147,23 @@ you'll first need to create a Network fabric Controller and then a (Network Clou
  ip a # verify loopback, NET1, NET2
 ```
 
-## Set up Pure storage
+## Set up storage array
 
-1. Operator needs to install the Pure hardware as specified by the BOM and rack elevation within the Aggregation Rack.
-2. Operator will need to provide the Pure Technician with information, in order for the Pure Technician to arrive on-site to configure the appliance.
-3. Required location-specific data that will be shared with Pure Technician:
+1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation within the Aggregation Rack.
+2. Operator will need to provide the storage array Technician with information, in order for the storage array Technician to arrive on-site to configure the appliance.
+3. Required location-specific data that will be shared with storage array technician:
    - Customer Name:
    - Physical Inspection Date:
    - Chassis Serial Number:
-   - Pure Array Hostname:
+   - Storage array Array Hostname:
    - CLLI code (Common Language location identifier):
    - Installation Address:
    - FIC/Rack/Grid Location:
-4. Data provided to the Operator and shared with Pure Technician, which will be common to all installations:
+4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
    - Purity Code Level: 6.1.14
    - Array Time zone: UTC
    - DNS Server IP Address: 172.27.255.201
-   - DNS Domain Suffix: not set by Operator during setup
+   - DNS Domain Suffix: not set by operator during setup
    - NTP Server IP Address or FQDN: 172.27.255.212
    - Syslog Primary: 172.27.255.210
    - Syslog Secondary: 172.27.255.211

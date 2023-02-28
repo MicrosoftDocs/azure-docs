@@ -6,14 +6,14 @@ author: halkazwini
 ms.service: peering-service
 ms.topic: conceptual
 ms.workload: Infrastructure-services
-ms.date: 02/01/2023
+ms.date: 02/28/2023
 ms.author: halkazwini
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
 
 # Peering Service partners
 
-Microsoft has partnered with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Microsoft has partnered with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers globally to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 This article provides information on the connectivity providers that are partnered with Microsoft to offer Azure Peering Service connection to customers.
 
@@ -23,6 +23,7 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
+| [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |Europe|
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
