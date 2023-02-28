@@ -42,7 +42,7 @@ Typically the thread creator and participants have same level of access to the t
 ### Chat Data 
 Azure Communication Services stores chat messages for 90 days. Chat thread participants can use `ListMessages` to view  message history for a particular thread.  However, the API does not return messages once the 90 day period has passed. Users that are removed from a chat thread are able to view previous message history for 90 days but cannot send or receive new messages. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
 
-For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy#chat-storage) for storage of chat messages in Teams meetings.
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](/azure/communication-services/concepts/interop/guest/privacy#chat-storage) for storage of chat messages in Teams meetings.
 
 ### Service limits
 - The maximum number of participants allowed in a chat thread is 250.
