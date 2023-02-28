@@ -1,7 +1,6 @@
 ---
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
-services: container-service
 ms.topic: how-to
 ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
@@ -20,7 +19,7 @@ This lack of persistence also applies to the resize operation, thus, resizing AK
 
 ## Example resources
 
-Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
+Assume you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
 
 :::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named node pool 1, is shown.":::
 

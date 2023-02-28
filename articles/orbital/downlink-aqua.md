@@ -139,7 +139,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | **Region** | Select **West US 2**. |
    | **Minimum viable contact duration** | Enter **PT1M**. |
    | **Minimum elevation** | Enter **5.0**. |
-   | **Auto track configuration** | Select **Disabled**. |
+   | **Auto track configuration** | Select **X-band**. |
    | **Event Hubs Namespace** | Select an Azure Event Hubs namespace to which you'll send telemetry data for your contacts. You must select a subscription before you can select an Event Hubs namespace. |
    | **Event Hubs Instance** | Select an Event Hubs instance that belongs to the previously selected namespace. This field appears only if you select an Event Hubs namespace first. |
 
@@ -165,6 +165,9 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 9. Select **Create**.
 
 ## Schedule a contact with Aqua and save the downlinked data
+
+   > [!NOTE]
+   > Check [public satellite schedules](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=14) to understand if there may be public broadcast outages. Azure Orbital Ground Station does not control the public satellites and cannot guarantee availability of data during the pass.
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select **AQUA**.

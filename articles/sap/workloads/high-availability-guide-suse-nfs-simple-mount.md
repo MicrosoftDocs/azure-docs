@@ -10,6 +10,7 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -248,7 +249,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
 - The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model). 
 - Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
-- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/storage-troubleshooting-files-performance.md).
+- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 - For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files is not supported.
 - If your SAP system has a heavy load of batch jobs, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For details, see [Job log in the database][2360818].     
 - Deploy a separate `sapmnt` share for each SAP system.
@@ -257,7 +258,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 - Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [scalability and performance targets for storage accounts](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 - In general,  don't consolidate the shares for more than *five* SAP systems in a single storage account. This guideline helps you avoid exceeding the storage account limits and simplifies performance analysis.   
 - In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-- We recommend that you deploy on SLES 15 SP2 or later to benefit from [NFS client improvements](../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).     
+- We recommend that you deploy on SLES 15 SP2 or later to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).     
 - Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
 - If you're deploying your VMs across availability zones, use a [storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS. 
 - Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.  

@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: reference
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ---
 
 # Naming conventions for SAP automation framework

@@ -103,6 +103,8 @@ items:
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
     href: /graph/api/resources/directoryaudit
+  - name: Azure AD recommendations API reference
+    href: /graph/api/resources/recommendations-api-overview
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities
@@ -155,3 +157,4 @@ items:
       href: recommendation-renew-expiring-application-credential.md
     - name: Renew expiring service principal credentials (preview)
       href: recommendation-renew-expiring-service-principal-credential.md
+

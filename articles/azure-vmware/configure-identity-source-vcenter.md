@@ -249,6 +249,20 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
+## Rotate an existing external identity source account's username and/or password
+
+1. Use the [Get-ExternalIdentitySources](configure-identity-source-vcenter.md#list-external-identity) run command to pull current populated values.
+
+1. Run [Remove-ExternalIdentitySource](configure-identity-source-vcenter.md#remove-existing-external-identity-sources) and provide DomainName of External Identity source you'd like to rotate.
+> [!IMPORTANT]
+> If you do not provide a DomainName, all external identity sources will be removed.
+
+1. Run [New-LDAPSIdentitySource](configure-identity-source-vcenter.md#add-active-directory-over-ldap-with-ssl) or [New-LDAPIdentitySource](configure-identity-source-vcenter.md#add-active-directory-over-ldap) depending on your configuration. 
+
+>[!NOTE]
+>There is work to make this an easier process than it is today with a new run command.
+>[PR with VMware](https://github.com/vmware/PowerCLI-Example-Scripts/pull/604)
+
 ## Next steps
 
 Now that you've learned about how to configure LDAP and LDAPS, you can learn more about:

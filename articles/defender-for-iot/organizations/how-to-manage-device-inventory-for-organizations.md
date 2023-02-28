@@ -7,29 +7,24 @@ ms.topic: how-to
 
 # Manage your device inventory from the Azure portal
 
-Use the **Device inventory** page in the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
+Use the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
 For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
-
-> [!NOTE]
-> The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> Alternately, view device inventory from a [specific sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 
 ## View the device inventory
 
 To view detected devices in the **Device inventory** page in the Azure portal, go to **Defender for IoT** > **Device inventory**.
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-page.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-page.png":::
 
 Use any of the following options to modify or filter the devices shown:
 
 |Option  |Steps  |
 |---------|---------|
 | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
-|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
+|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Network location (Preview)** filter is on by default. |
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
-| **Group devices** | From the **Group by** above the gird, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
+| **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
@@ -98,14 +93,15 @@ The following device fields are supported for editing in the **Device inventory*
 |---------|---------|
 | **General information** | |
 |**Name** | Mandatory. Supported for editing only when editing a single device. |
-|**Authorized Device**     |Toggle on or off as needed as device security changes.         |
+|**Authorized device**     |Toggle on or off as needed as device security changes.         |
 |**Description**     |  Enter a meaningful description for the device.       |
 |**Location**     |   Enter a meaningful location for the device.      |
 |**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
-|**Business Function**     | Enter a meaningful description of the device's business function.        |
-|**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
-|**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
+|**Business function**     | Enter a meaningful description of the device's business function.        |
+|**Hardware model**     |   Select the device's hardware model from the dropdown menu.      |
+|**Hardware vendor**     | Select the device's hardware vendor from the dropdown menu.        |
 |**Firmware**      |   Device the device's firmware name and version. You can either select the **delete** button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+| **Purdue level** | The Purdue level in which the device exists. |
 |**Tags**     | Enter meaningful tags for the device. Select the **delete**  button to delete an existing tag, or select **+ Add** to add a new one.         |
 | **Settings** |
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
@@ -137,6 +133,36 @@ In the **Device inventory** page, select the device you want to delete, and then
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
+## Merge duplicate devices
+
+You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
+
+Examples of this scenario might include a laptop with both WiFi and a physical network card, a switch with multiple interfaces, an HMI with four network cards, or a single workstation with multiple network cards.
+
+> [!NOTE]
+> Once the devices are merged, they cannot be unmerged. To unmerge devices, you'll need to delete the merged device and wait for it to be rediscovered by the sensors as it was originally.
+
+**To manually merge devices**:
+
+1. In the **Device inventory** page, select two or more devices you would like to merge, and then select **Merge** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-icon.png" border="false"::: in the toolbar at the top of the page.
+You can merge up to 10 devices at a time, if all selected devices are in the same zone or site.
+
+    OT devices can only be merged with other OT devices. Enterprise IoT devices and devices detected by Microsoft Defender for Endpoint agents can be merged with other Enterprise IoT or Defender for Endpoint devices.
+
+1. In the **Merge** pane, select one of the following:
+
+    - Select **Merge** to merge the selected devices and return to the device inventory page.
+
+    - Select **Merge & View** to merge the devices and open the merged device details.
+
+    For example:
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory." lightbox="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png":::
+
+A success message appears at the top right confirming that the devices have been merged into a single, unique device.
+
+The merged device that is now listed in the grid retains the details of the device with the most recent activity or an update to its identifying details.
+
 ## Device inventory column reference
 
 The following table describes the device properties shown in the **Device inventory** page on the Azure portal.
@@ -144,7 +170,7 @@ The following table describes the device properties shown in the **Device invent
 | Parameter | Description |
 |--|--|
 | **Application** | The application that exists on the device. |
-|**Authorized Device**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
+|**Authorization**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
 |**Business Function**     | Editable. Describes the device's business function.        |
 | **Class** | Editable. The class of the device. <br>Default: `IoT`|
 | **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
@@ -158,7 +184,6 @@ The following table describes the device properties shown in the **Device invent
 | **IPv4 Address** | The IPv4 address of the device. |
 | **IPv6 Address** | The IPv6 address of the device. |
 | **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
 | **Location** | Editable. The physical location of the device. |
 | **MAC Address** | The MAC address of the device. |
 | **Model** | The device's model. |
@@ -173,7 +198,7 @@ The following table describes the device properties shown in the **Device invent
 | **Programming time** | The last time the device was programmed.  |
 | **Protocols** | The protocols that the device uses. |
 | **Purdue level** | Editable. The Purdue level in which the device exists. |
-| **Scanner** | Whether the device performs scanning-like activities in the network. |
+| **Scanner device** | Whether the device performs scanning-like activities in the network. |
 | **Sensor** | The sensor the device is connected to.  |
 | **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|
 | **Slots** | The number of slots the device has.  |
