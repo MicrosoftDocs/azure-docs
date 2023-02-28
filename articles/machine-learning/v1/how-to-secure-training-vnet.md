@@ -33,7 +33,7 @@ The following table contains the differences between these configurations:
 | Configuration | With public IP | Without public IP |
 | ----- | ----- | ----- |
 | Inbound traffic | AzureMachineLearning | None |
-| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, can access the public network using the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) provided by Azure.<br>We recommend using a Virtual Network NAT gateway or Firewall instead if you need to route outbound traffic to required resources on the internet. |
+| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, it should not be able to access the internet. If it can access the internet, then Azure has enabled [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) in an NSG. We **don't recommend** using the default outbound access.<br>If you need outbound access to the internet, we recommend using a Virtual Network NAT gateway or Firewall instead if you need to route outbound traffic to required resources on the internet. |
 | Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.

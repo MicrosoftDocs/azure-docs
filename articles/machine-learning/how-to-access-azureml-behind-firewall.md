@@ -82,7 +82,7 @@ __Outbound traffic__
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
-> If a compute instance or compute cluster is configured for no public IP, it can still send outbound traffic to the public network using the [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) Azure provides for VMs. However, if you need outbound access we recommend implementing your own instead of relying on the default. We recommend using one of the following options:
+> If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, Azure has enabled [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) in an NSG. We **don't recocmmend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
 > 
 > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
 > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.

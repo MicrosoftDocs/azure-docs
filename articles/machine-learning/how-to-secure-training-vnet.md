@@ -131,7 +131,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 
-+ The [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) provided by Azure allows a no public IP compute to access the public network. However, we recommend using either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic instead.
++ By default, a compute instance/cluster configured for no public IP doesn't have outbound access to the internet. If you *can* access the internet from it, it is because Azure has enabled [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) in an NSG. However, we **don't recommend** using the default outbound access. If you need outbound access to the internet, we recommend using either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic instead.
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
