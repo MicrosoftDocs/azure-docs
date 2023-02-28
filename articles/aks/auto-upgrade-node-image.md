@@ -9,13 +9,13 @@ ms.date: 02/03/2023
 
 # Automatically upgrade Azure Kubernetes Service cluster node operating system images (preview)
 
-AKS now supports an exclusive channel, dedicated to control the Node level OS security updates. This channel referred to as NodeOSupgrade channel works in tandem with the existing [Autoupgrade][Autoupgrade] channel which is used for Kubernetes version upgrades. 
+AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel, referred to as the node OS auto-upgrade channel, works in tandem with the existing [Autoupgrade][auto-upgrade] channel which is used for Kubernetes version upgrades. 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Why use node OS auto-upgrade
 
-This channel is exclusively meant to control Node OS security updates. You can use this channel to disable [unattended upgrades][unattended-upgrades] and can now put a maintenance schedule without worrying about [Kured][kured] for security patches, provided you choose two of the below options - SecurityPatch or NodeImage . You can now run Node image upgrades in tandem with major Kubernetes auto upgrade channels like Stable, Rapid etc using this channel.  
+This channel is exclusively meant to control node OS security updates. You can use this channel to disable [unattended upgrades][unattended-upgrades]. You can schedule maintenance without worrying about [Kured][kured] for security patches, provided you choose either the `SecurityPatch` or `NodeImage` options for `nodeOSUpgradeChannel`. By using this channel, you can run node image upgrades in tandem with Kubernetes version auto-upgrade channels like `Stable` and `Rapid`.
 
 ## Prerequisites
 
@@ -97,4 +97,4 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 [upgrade-aks-cluster]: upgrade-cluster.md
 [unattended-upgrades]: https://help.ubuntu.com/community/AutomaticSecurityUpdates
 [Autoupgrade]: auto-upgrade-cluster.md
-[kured]: https://learn.microsoft.com/en-us/azure/aks/node-updates-kured
+[kured]: node-updates-kured.md
