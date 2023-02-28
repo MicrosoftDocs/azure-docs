@@ -16,16 +16,16 @@ ms.author: zehangzheng
 - The capability to dial an emergency number and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
 - Microsoft uses country/region codes according to the ISO 3166-1 alpha-2 standard.
 - Supported ISO codes are US (United States), PR (Puerto Rico), CA (Canada), and GB (United Kingdom) only.
-- If you don't provide the country/region ISO code to the SDK, Microsoft uses the IP address to determine the country or region of the caller.
+- If you don't provide the country/region ISO code to the Azure Communication Services Calling SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
-  If the IP address can't provide reliable geolocation (for example, the user is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK.
+  If the IP address can't provide reliable geolocation (for example, the user is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Calling SDK.
 - If users are dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
 - Azure Communication Services direct routing is currently in public preview and not intended for production workloads. Emergency dialing is out of scope for Azure Communication Services direct routing.
 - For information about billing for the emergency service in Azure Communication Services, see the [pricing page](https://azure.microsoft.com/pricing/details/communication-services/).
 
 ## Set up a button for testing
 
-Replace the code in *app/src/main/res/layout/activity_main.xml* with following snippet. It adds a new button for testing emergency calls.
+Replace the code in *app/src/main/res/layout/activity_main.xml* with the following snippet. It adds a new button for testing emergency calls.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -125,7 +125,7 @@ private void emergencyCall() {
 > [!IMPORTANT]
 > 933 is a test call service. You can use it to test emergency calling services without interrupting live 911 emergency call services. 911 must be dialed in actual emergency situations.
 
-## Run the app
+## Run the app and place a call
 
 :::image type="content" source="../media/emergency-calling/emergency-calling-android-app.png" alt-text="Screenshot of a completed Android calling application.":::
 
