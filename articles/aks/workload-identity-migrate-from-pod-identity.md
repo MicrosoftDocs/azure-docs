@@ -120,7 +120,7 @@ If your application is using managed identity and still relies on IMDS to get an
 To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You inject the following [annotation][pod-annotations] values to use the sidecar in your pod specification:
 
 * `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
-* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8080`.
+* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8000`.
 
 When a pod with the above annotations is created, the Azure Workload Identity mutating webhook automatically injects the init-container and proxy sidecar to the pod spec.
 
@@ -148,7 +148,7 @@ spec:
       runAsUser: 0
     env:
     - name: PROXY_PORT
-      value: "8080"
+      value: "8000"
   containers:
   - name: nginx
     image: nginx:alpine
@@ -157,7 +157,7 @@ spec:
   - name: proxy
     image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
     ports:
-    - containerPort: 8080
+    - containerPort: 8000
 ```
 
 This configuration applies to any configuration where a pod is being created. After updating or deploying your application, you can verify the pod is in a running state using the [kubectl describe pod][kubectl-describe] command. Replace the value `podName` with the image name of your deployed pod.
