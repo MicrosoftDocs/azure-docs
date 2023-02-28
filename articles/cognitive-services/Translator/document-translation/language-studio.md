@@ -48,8 +48,8 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. If you're using the Language Studio for the first time, a **Select an Azure resource** pop-up screen will appear. Make the following selections:
 
-   * **Azure directory**
-   * **Azure subscription**
+   * **Azure directory**.
+   * **Azure subscription**.
    * **Resource type**. Choose **Translator**.
    * **Resource name**. The resource you select must have [**managed identity enabled**](how-to-guides/create-use-managed-identities.md).
 
