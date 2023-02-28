@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 07/21/2022
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
@@ -49,7 +49,13 @@ If you're working with a cloud-connected sensor, any edits you make in the senso
 
 **To edit device details**:
 
-1. Select one or more devices in the grid, and then select **View full details** in the pane on the right.
+1. Select a device in the grid, and then select **Edit** from the command bar.
+
+1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
+
+You can also open the edit pane from the device details page:
+
+1. Select a device in the grid, and then select **View full details** in the pane on the right.
 
 1. In the device details page, select **Edit Properties**.
 
@@ -91,11 +97,11 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 **To merge devices from the device inventory:**
 
-1. Use the SHIFT key to select two devices from the inventory, and then right-click one of them.
+1. Select the devices you wish to merge in the grid, and then select **Merge** from the command bar at the top of the page.
 
-1. Select **Merge** to merge the devices. This can take up to 2 minutes to complete.
+1. In the **Merge** pane on the right, select which device's attributes should remain, and enter a meaningful name for your merged device, and then select **Merge**.
 
-1. When the **Set merge device attributes** dialog appears, enter a meaningful name for your merged device, and then select **Save**.
+A confirmation message will appear on the top right.
 
 ## View inactive devices
 
@@ -120,14 +126,17 @@ You may want to delete devices from your device inventory, such as if they've be
 
 Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
-**To delete a single device**:
+**To delete one or more devices**:
 
-You can delete a single device when they’ve been inactive for more than 10 minutes.
+You can delete a device when they’ve been inactive for more than 10 minutes.
 
-1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
-1. At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the command bar at the top of the page.
 
-**To delete all inactive devices**
+1. At the prompt, select **COnfirm** to confirm that you want to delete the device from Defender for IoT.
+
+A confirmation message will appear on the top right.
+
+**To delete all inactive devices**:
 
 This procedure is supported for the *cyberx* and admin users only.
 
