@@ -21,7 +21,7 @@ March 2023 test release is now available.
 |`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`kafkas.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4|
-|`monitors.arcdata.microsoft.com`| v1beta1, v1, v2| 
+|`monitors.arcdata.microsoft.com`| v1beta1, v1, v2|
 |`postgresqls.arcdata.microsoft.com`| v1beta1, v1beta2, v1beta3, v1beta4, v1beta5|
 |`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
 |`redis.arcdata.microsoft.com`| v1beta1|
