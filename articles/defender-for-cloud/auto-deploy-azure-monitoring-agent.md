@@ -40,7 +40,7 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
-    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings for server service plan ." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings for server service plan." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
 
 1. Enable deployment of the Azure Monitor Agent:
 
