@@ -143,7 +143,7 @@ You can also edit the run list table to select multiple runs and display either 
 
 ### View and download log files for a run 
 
-Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
+Log files are an essential resource for debugging the Azure Machine Learning workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Experiments** tab.
 1. Select the runID for a specific run.

@@ -12,11 +12,6 @@ ms.custom: devx-track-azurepowershell
 
 Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md).
 
-Other articles about managing resource groups:
-
-- [Manage Azure resource groups by using the Azure portal](manage-resources-portal.md)
-- [Manage Azure resource groups by using Azure CLI](manage-resources-cli.md)
-
 ## What is a resource group
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
@@ -77,7 +72,7 @@ For more information about deploying a Bicep file, see [Deploy resources with Bi
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources.. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources. 
 
 To prevent a resource group and its resources from being deleted, use [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
