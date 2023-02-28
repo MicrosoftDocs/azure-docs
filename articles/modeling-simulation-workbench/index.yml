@@ -8,7 +8,7 @@ metadata:
   description: Documentation for creating and managing Azure Modeling and Simulation Workbench (preview).
   ms.author: lynnar
   ms.reviewer: yochu
-  ms.service: Modeling and Simulation Workbench <!---TODO service slug assigned to your service by ACOM.--->
+  ms.service: modeling-simulation-workbench
   ms.topic: index
   ms.date: 01/01/2023
 
@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Modeling and Simulation Workbench?
-            url: Modeling and Simulation Workbench-overview.md
+            url: ./modelingandsimulationworkbench-overview.md
       - linkListType: concept
         links:
           - text: Modeling and Simulation Workbench
@@ -41,7 +41,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create Modeling and Simulation Workbench-Portal
-            url: ../quickstart-create-portal.md
+            url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
           - text: Set up license services

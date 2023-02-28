@@ -22,9 +22,6 @@ ms.date: 01/01/2023
 
 - FLEXlm license file for a software vendor requiring license. (You need to buy the license for production environment from vendors like Synopsys, Cadence, Siemens, or Ansys.)
 
-> [!div class="mx-imgBorder"]
-   > ![Screenshot of the Azure portal global search showing where you select the Modeling and Simulation Workbench service](./media/quickstart-install-application/browse-resource1.png)
-
 ## Upload/ update license for FlexLM based tools
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
@@ -43,7 +40,7 @@ ms.date: 01/01/2023
 1. Select a **Modeling and Simulation Workbench Chamber** which you've created, from the left side menu, and choose the chamber where you want to upload the license info, from the resource list.
 1. In the menu for the chamber, select **Connector** blade on the left of the screen in the Settings section.
 1. On the Connector **Overview** page, click on **Add License** to open the Add license window.
-1. Provide the License Key URL for the license file, using format https://<keyVaultName>.vault.azure.net/secrets/<secretName>/<secretGuid>, and click **Add**.
+1. Provide the License Key URL for the license file, using format https://&lt;keyVaultName&gt;.vault.azure.net/secrets/&lt;secretName&gt;/&lt;secretGuid&gt;, and click **Add**.
 1. NOTE: When you add a new license key, the Remote Desktop service will be updated, causing possible interruptions to active remote desktop sessions.
 
 ## Next steps

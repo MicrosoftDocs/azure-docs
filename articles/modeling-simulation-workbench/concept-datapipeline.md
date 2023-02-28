@@ -39,7 +39,7 @@ Users with access to the chamber can extract data from the chamber via the data 
 
 Choose an article to know more:
 
-- [How to manage chamber](./howtoguide-manage-chamber.md)
+- [How to manage chamber licenses](./howtoguide-licenses.md)
 
 - [Chamber REST API documentation](./rest/api/Modeling and Simulation Workbench)
 

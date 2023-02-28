@@ -54,14 +54,14 @@ As a Chamber Admin, perform the following steps to request a file to be download
 
 1. From the Chamber you are downloading data from, choose **File** from under **Data Pipeline**
 
-1. Select the file you want to download from the resource list located on the right. Files will be named "mount-private-datain-<filename>"
+1. Select the file you want to download from the resource list located on the right. Files will be named "mount-private-datain-&lt;filename&gt;"
 
 1. In the file overview section, note the data pipeline direction needs to be **outbound**, click on the **Request download** option.
 
 1. Type in a reason, and click **File Request**
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Azure portal manage screen showing how to select Approved Action](./media/howtoguide-download-data/filerequestdownload.png)
+   > ![Screenshot of the Azure portal manage screen showing how to request file download](./media/howtoguide-download-data/filerequestdownload.png)
 
 ## Approve download
 
