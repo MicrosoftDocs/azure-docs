@@ -12,7 +12,8 @@ ms.custom:
 ---
 # Upgrade Policies for Virtual Machine Scale Sets
 
-Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are:
+Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are Automatic, Rolling and Manual. 
+
 
 ### Automatic 
 In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. Upgrade Policy using Automatic is only suggested to be used on dev/test deployments. 
@@ -26,12 +27,11 @@ In this mode, the scale set rolls out the update in batches with an optional pau
 
 With MaxSurge set to `false`, the existing instances in a scale set are brought down to be upgraded. Once the upgrade is complete, the instances will begin taking traffic again. 
 
-
 ### Manual
 In this mode, you choose when to update the scale set model. Nothing happens automatically to the existing VMs when changes occur to the scale model.
 
+## Setting the Upgrade Policy
 
-## Deploy a new scale set
 When deploying a new scale set, include the Upgrade Policy Mode and set the MaxSurge flag to either `True` or `False`.
 
 ### Portal
@@ -68,7 +68,7 @@ New-AzVmss `
 ### Template
 
 
-## Update an existing scale set
+## Changing the Upgrade Policy
 
 The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in time. 
 
@@ -83,7 +83,7 @@ The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in
 
 ### Template
 
-## Perform Manual Upgrades
+## Performing Manual Upgrades
  
 If you have the Upgrade Policy set to manual, you need to perform manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
 
@@ -91,50 +91,59 @@ If you have the Upgrade Policy set to manual, you need to perform manual upgrade
 > While upgrading, the instances may be restarted.
 
 
-- REST API with [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
+### REST API 
+Using [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
 
-    ```rest
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
-    ```
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+```
 
-- Azure PowerShell with [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
+### PowerShell 
+Using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
-    ```powershell
-    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
-    ```
+```powershell
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+```
 
-- Azure CLI with [az vmss update-instances](/cli/azure/vmss)
+## CLI
+Using [az vmss update-instances](/cli/azure/vmss)
 
-    ```azurecli
-    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
-    ```
-
+```azurecli
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+```
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
+## Exceptions to Upgrade Policy
+
 There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
-- REST API with [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
+### REST API 
+Using [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
 
-    ```rest
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
-    ```
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+```
 
-- Azure PowerShell with [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
+### PowerShell 
+Using [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
-    ```powershell
-    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
-    ```
+```powershell
+Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+```
 
-- Azure CLI with [az vmss reimage](/cli/azure/vmss):
+### CLI 
+Using [az vmss reimage](/cli/azure/vmss):
 
-    ```azurecli
-    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
-    ```
+> [!NOTE]
+> The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
-   > [!NOTE]
-   > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
+```azurecli
+az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+```
+
+
 
 
 ## Next steps
