@@ -23,7 +23,7 @@ For example, automated ML generates the following charts based on experiment typ
 | ----------------------------------------------------------- | --------------------------------------------------------|
 | [Confusion matrix](#confusion-matrix)                       | [Residuals histogram](#residuals)                       |
 | [Receiver operating characteristic (ROC) curve](#roc-curve) | [Predicted vs. true](#predicted-vs-true)                |
-| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon (preview)](#forecast-horizon) |
+| [Precision-recall (PR) curve](#precision-recall-curve)      | [Forecast horizon](#forecast-horizon) |
 | [Lift curve](#lift-curve)                                   |                                                         |
 | [Cumulative gains curve](#cumulative-gains-curve)           |                                                         |
 | [Calibration curve](#calibration-curve)                     |                     
