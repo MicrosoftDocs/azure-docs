@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/23/2023
+ms.date: 02/27/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +34,7 @@ To automate provisioning to an application, it requires building and integrating
 1. [Build a SCIM endpoint](#build-a-scim-endpoint) - An endpoint must be SCIM 2.0-compatible to integrate with the Azure AD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
 
-1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. If your organization uses a third-party application to implement a profile of SCIM 2.0 that Azure AD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
+1. [Integrate your SCIM endpoint](#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service) with the Azure AD Provisioning Service. Azure AD supports several third-party applications that implement SCIM 2.0. If you use one of these apps, then you can quickly automate both provisioning and deprovisioning of users and groups.
 
 
 1. [Optional] [Publish your application to the Azure AD application gallery](#publish-your-application-to-the-azure-ad-application-gallery) - Make it easy for customers to discover your application and easily configure provisioning. 
@@ -61,9 +61,9 @@ To design your schema, follow these steps:
 
 1. List the attributes your application requires, then categorize as attributes needed for authentication (for example, loginName and email). Attributes are needed to manage the user lifecycle (for example, status / active), and all other attributes needed for the application to work (for example, manager, tag).
 
-1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example below for an extension to the user to allow provisioning a user `tag`.
+1. Check if the attributes are already defined in the **core** user schema or **enterprise** user schema. If not, you must define an extension to the user schema that covers the missing attributes. See example for an extension to the user to allow provisioning a user `tag`.
 
-1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown below for the `tags` property.
+1. Map SCIM attributes to the user attributes in Azure AD. If one of the attributes you've defined in your SCIM endpoint doesn't have a clear counterpart on the Azure AD user schema, guide the tenant administrator to extend their schema, or use an extension attribute as shown in the example for the `tags` property.
 
 The following table lists an example of required attributes:
 
@@ -178,11 +178,11 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Create users, and optionally also groups|[Section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
 |Modify users or groups with PATCH requests|[Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner.|
 |Retrieve a known resource for a user or group created earlier|[Section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
-|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
+|Query users or groups|[Section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved with their `id` and queried with their `username` and `externalId`, and groups are queried with `displayName`.|
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|Section [3.4.2.2](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2)|
 |Support listing users and paginating|[Section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user shouldn't be returned is when it's hard deleted from the application.|
-|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover more attributes.|
+|Support the /Schemas endpoint|[Section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint is used to discover more attributes.|
 |Accept a single bearer token for authentication and authorization of Azure AD to your application.||
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
@@ -246,7 +246,7 @@ The following diagram shows the group deprovisioning sequence:
 This article provides example SCIM requests emitted by the Azure Active Directory (Azure AD) Provisioning Service and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Azure AD user provisioning service emits the operations described in the example, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
 
@@ -899,7 +899,7 @@ All services must use X.509 certificates generated using cryptographic keys of s
 
 **Cipher Suites**
 
-All services must be configured to use the following cipher suites, in the exact order specified below. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
+All services must be configured to use the following cipher suites, in the exact order specified in the example. If you only have an RSA certificate, installed the ECDSA cipher suites don't have any effect. </br>
 
 TLS 1.2 Cipher Suites minimum bar:
 
@@ -1360,7 +1360,7 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
-> * Support the OAuth authorization code grant or a long lived token as described below (Required)
+> * Support the OAuth authorization code grant or a long lived token as described in the example (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
 > * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
