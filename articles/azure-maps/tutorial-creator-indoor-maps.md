@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/28/2022
 ms.topic: tutorial
 ms.service: azure-maps

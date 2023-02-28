@@ -66,6 +66,11 @@
       "redirect_document_id": true
     }, 
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/how-to-model-partition-example.md",
+      "redirect_url": "/azure/cosmos-db/nosql/model-partition-example",
+      "redirect_document_id": true
+    }, 
+    {
       "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-nodejs-samples.md",
       "redirect_url": "/azure/cosmos-db/nosql/samples-nodejs",
       "redirect_document_id": true
