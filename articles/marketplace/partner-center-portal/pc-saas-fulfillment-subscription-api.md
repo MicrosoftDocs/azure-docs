@@ -357,7 +357,7 @@ This API retrieves all plans for a SaaS offer identified by the `subscriptionId`
 
 This call returns a list of plans available for that customer in addition to the one already purchased.  The list can be presented to an end user on the publisher site.  An end user can change the subscription plan to any one of the plans in the returned list.  Changing the plan to one not in the list will fail.
 
-### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>&planId=<planId>`
+### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -365,7 +365,6 @@ This call returns a list of plans available for that customer in addition to the
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Use 2018-08-31.  |
 |  `subscriptionId`    |  The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API. |
-|  `planId`  (Optional)     |Pass planId if you want to filter the response to this plan only. |
 
 *Request headers:*
 
@@ -384,49 +383,35 @@ Returns a list of all available plans for an existing SaaS subscription includin
 Response body example:
 
 
-```json
 
+
+
+
+```json
 {
-    "plans": [
-        {
-            "planId": "string",
-            "displayName": "string",
-            "isPrivate": "bool",
-            "description": "string",
-            "minQuantity": "int",
-            "maxQuantity": "int",
-            "hasFreeTrials": "bool",
-            "isPricePerSeat": "bool",
-            "isStopSell": "bool",
-            "market": "string",
-            "planComponents": {
-                "recurrentBillingTerms": [
-                    {
-                        "currency": "string",
-                        "price": "decimal",
-                        "termUnit": "string",
-                        "termDescription": "string",
-                        "meteredQuantityIncluded": [
-                            {
-                                "dimensionId": "string",
-                                "units": "string"
-                            }
-                        ]
-                    }
-                ],
-                "meteringDimensions": [
-                    {
-                        "id": "string",
-                        "currency": "string",
-                        "pricePerUnit": "decimal",
-                        "unitOfMeasure": "string",
-                        "displayName": "string"
-                    }
-                ]
-            }
-        }
-    ]
-}
+      "planId": "Platinum001",
+      "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
+      "isPrivate": true, //true or false
+      "description": "plan description",
+          "minQuantity": 5,
+          "maxQuantity": 100,
+          "hasFreeTrials": false,
+          "isPricePerSeat": true,
+          "isStopSell": false,
+          "market": "US",
+    },
+    {
+      "planId": "gold",
+      "displayName": "Gold plan for Contoso",
+      "isPrivate": false, //true or false
+      "description": "gold plan details.",
+          "minQuantity": 1,
+          "maxQuantity": 5,
+          "hasFreeTrials": false,
+          "isPricePerSeat": true,
+          "isStopSell": false,
+          "market": "US",
+    }
 
 ```
 
@@ -642,5 +627,9 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).
+
+
+
+
 
 
