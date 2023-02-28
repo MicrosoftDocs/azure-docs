@@ -448,11 +448,11 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 ### The run completes but doesn't move or delete some blobs
 
-Depending on the size and number of objects in a storage account, more than one run might be required to process all of the objects. You can also check the Storage Diagnostic Logs to see if the operations are being performed by the Life Cycle policy. 
+Depending on the size and the number of objects that are in a storage account, more than one run might be required to process all of the objects. You can also check the storage resource logs to see if the operations are being performed by the lifecycle management policy. 
 
-### I do not see capacity changes although the Policy is executing and deleting the blobs
+### I don't see capacity changes even though the policy is executing and deleting the blobs
 
-Please check if data proctection features like soft delete or versioning is enabled on the storage account. Although the policy is deleting the blobs, they might tend to exist in soft deleted or older versioned state, based on the feature configured. 
+Check to see if data protection features such as soft delete or versioning are enabled on the storage account. Even if the policy is deleting the blobs, those blobs might still exist in a soft deleted state or as an older version depending on how these features are configured. 
 
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
