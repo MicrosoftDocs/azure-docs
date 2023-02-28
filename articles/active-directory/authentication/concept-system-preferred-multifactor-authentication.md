@@ -123,7 +123,7 @@ For example, let's say an end user misplaces their FIDO2 security key. When they
 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
-The system-preferred MFA also applies for users who are enabled for MFA push notifications in the legacy MFA policy.
+The system-preferred MFA also applies for users who are enabled for MFA in the legacy MFA policy.
 :::image type="content" border="true" source="./media/how-to-mfa-number-match/mfa-legacy-settings.png" alt-text="Screenshot of legacy MFA settings.":::
 
 ## Next steps
