@@ -60,7 +60,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Fix**:
 - If you're deploying a MedTech service using an ARM template, correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
-- If you're deploying a MedTech service using the Azure portal, correct the errors in the mapping JSON provided in the [**Device mapping** tab](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-new-config#configure-the-device-mapping-tab).
+- If you're deploying a MedTech service using the Azure portal, correct the errors in the mapping JSON provided in the [**Device mapping** tab](deploy-new-config.md#configure-the-device-mapping-tab).
 
 ### fullyQualifiedEventHubNamespace is null, empty, or formatted incorrectly
 

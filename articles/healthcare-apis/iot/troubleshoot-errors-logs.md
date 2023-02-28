@@ -226,7 +226,7 @@ The template’s type and line with the error are specified in the error message
 
 * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
 
-* If you're deploying a MedTech service using an ARM template, ensure that the MedTech service resource in the ARM template has an identity property containing the type value of "SystemAssigned" (see example ARM template in the azuredeploy.json file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
+* If you're deploying a MedTech service using an ARM template, ensure that the MedTech service resource in the ARM template has an identity property containing the type value of "SystemAssigned" (see example ARM template in the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
 
 ### MultipleResourceFoundException
 
@@ -280,7 +280,7 @@ The expression and line with the error are specified in the error message.
 
 **Description**: A template in the device mapping doesn't have a matching template with the same type within the FHIR destination mapping. The template’s type is specified in the error message.
 
-**Severity**: Blocking
+**Severity**: Non-blocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same `typeName` value within the FHIR destination mapping.
 
