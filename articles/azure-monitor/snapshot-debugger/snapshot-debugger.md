@@ -46,7 +46,7 @@ The following environments are supported:
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) aren't supported.
 
-If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
 ## Grant permissions
 
