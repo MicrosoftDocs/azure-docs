@@ -6,13 +6,13 @@ ms.topic: tutorial
 author: guywild
 ms.author: guywild
 ms.reviewer: ilanawaitser
-ms.date: 25/01/2023
+ms.date: 02/28/2023
 
 # Customer intent:  As a data analyst, I want to use to run custom code on data in Azure Monitor Logs using Jupyter Notebook to gain insights without having to export data outside of Azure Monitor.
 
 ---
 # Run custom code on data in Azure Monitor Logs using Jupyter Notebook
- 
+
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
@@ -74,8 +74,14 @@ In this tutorial, you learn how to:
 
 1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/en-us/python/api/overview/azure/monitor-query-readme?view=azure-python), which lets you execute read-only queries on data in your Log Analytics workspace. 
 1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK. 
-1. Install Plotly, a popular Python visualization package.
+1. Install [Plotly](https://plotly.com/python/), a popular Python visualization package.
 
+ ## Connect to your workspace
+
+1. Authenticate using `DefaultAzureCredential` from the `azure-identity` package.
+1. Define your variables and functions.
+1. 
+1. 
     Guy - show the screenshot from Anomalies_CL table (maybe to start the screenshot from AnomalyTimeGenerated, and not to show TimeGenerated which shows current date - it might confuse)
 
  
