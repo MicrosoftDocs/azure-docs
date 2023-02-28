@@ -3,7 +3,7 @@ title: "LastPass Enterprise - Reporting (Polling CCP) connector for Microsoft Se
 description: "Learn how to install the connector LastPass Enterprise - Reporting (Polling CCP) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

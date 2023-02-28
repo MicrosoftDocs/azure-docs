@@ -3,7 +3,7 @@ title: "Microsoft 365 Insider Risk Management connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft 365 Insider Risk Management to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -20,7 +20,7 @@ Insider risk policies allow you to:
 This solution produces alerts that can be seen by Office customers in the Insider Risk Management solution in Microsoft 365 Compliance Center.
 [Learn More](https://aka.ms/OfficeIRMConnector) about Insider Risk Management.
 
-These alerts can be imported into Microsoft Sentinel with this connector, allowing you to see, investigate, and respond to them in a broader organizational threat context.
+These alerts can be imported into Microsoft Sentinel with this connector, allowing you to see, investigate, and respond to them in a broader organizational threat context. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223721&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

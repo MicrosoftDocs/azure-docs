@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 02/21/2023
+ms.date: 02/28/2023
 ms.author: cwatson
 ---
 
@@ -118,6 +118,7 @@ Data connectors are available as part of the following offerings:
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
+- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama-preview.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
@@ -148,6 +149,10 @@ Data connectors are available as part of the following offerings:
 ## Cognni
 
 - [Cognni](data-connectors/cognni.md)
+
+## CohesityDev
+
+- [Cohesity (using Azure Function)](data-connectors/cohesity-using-azure-function.md)
 
 ## Contrast Security
 
@@ -195,6 +200,13 @@ Data connectors are available as part of the following offerings:
 ## Digital Shadows
 
 - [Digital Shadows Searchlight (using Azure Function)](data-connectors/digital-shadows-searchlight-using-azure-function.md)
+
+## Dynatrace
+
+- [Dynatrace Attacks](data-connectors/dynatrace-attacks.md)
+- [Dynatrace Audit Logs](data-connectors/dynatrace-audit-logs.md)
+- [Dynatrace Problems](data-connectors/dynatrace-problems.md)
+- [Dynatrace Runtime Vulnerabilities](data-connectors/dynatrace-runtime-vulnerabilities.md)
 
 ## Elastic
 
@@ -306,6 +318,7 @@ Data connectors are available as part of the following offerings:
 ## Lookout, Inc.
 
 - [Lookout (using Azure Function)](data-connectors/lookout-using-azure-function.md)
+- [Lookout Cloud Security for Microsoft Sentinel (using Azure Function)](data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md)
 
 ## MarkLogic
 
@@ -368,6 +381,7 @@ Data connectors are available as part of the following offerings:
 ## Microsoft Corporation
 
 - [Azure Firewall](data-connectors/azure-firewall.md)
+- [Dynamics365](data-connectors/dynamics365.md)
 
 ## Microsoft Corporation - sentinel4github
 
@@ -404,6 +418,10 @@ Data connectors are available as part of the following offerings:
 ## Nginx
 
 - [NGINX HTTP Server](data-connectors/nginx-http-server.md)
+
+## Noname Gate, Inc.
+
+- [Noname Security for Microsoft Sentinel](data-connectors/noname-security-for-microsoft-sentinel.md)
 
 ## Nozomi Networks
 
@@ -463,7 +481,7 @@ Data connectors are available as part of the following offerings:
 ## Proofpoint
 
 - [Proofpoint On Demand Email Security (using Azure Function)](data-connectors/proofpoint-on-demand-email-security-using-azure-function.md)
-- [Proofpoint TAP](data-connectors/proofpoint-tap.md)
+- [Proofpoint TAP (using Azure Function)](data-connectors/proofpoint-tap-using-azure-function.md)
 
 ## Pulse Secure
 

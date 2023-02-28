@@ -349,6 +349,8 @@
         href: data-connectors/cisco-application-centric-infrastructure.md
       - name: Cisco ASA
         href: data-connectors/cisco-asa.md
+      - name: Cisco ASA/FTD via AMA (Preview)
+        href: data-connectors/cisco-asa-ftd-via-ama-preview.md
       - name: Cisco Duo Security (using Azure Function)
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
@@ -379,6 +381,8 @@
         href: data-connectors/cloudflare-preview-using-azure-function.md
       - name: Cognni
         href: data-connectors/cognni.md
+      - name: Cohesity (using Azure Function)
+        href: data-connectors/cohesity-using-azure-function.md
       - name: Common Event Format (CEF)
         href: data-connectors/common-event-format-cef.md
       - name: Common Event Format (CEF) via AMA
@@ -409,6 +413,16 @@
         href: data-connectors/digital-shadows-searchlight-using-azure-function.md
       - name: DNS
         href: data-connectors/dns.md
+      - name: Dynamics365
+        href: data-connectors/dynamics365.md
+      - name: Dynatrace Attacks
+        href: data-connectors/dynatrace-attacks.md
+      - name: Dynatrace Audit Logs
+        href: data-connectors/dynatrace-audit-logs.md
+      - name: Dynatrace Problems
+        href: data-connectors/dynatrace-problems.md
+      - name: Dynatrace Runtime Vulnerabilities
+        href: data-connectors/dynatrace-runtime-vulnerabilities.md
       - name: Elastic Agent (Standalone)
         href: data-connectors/elastic-agent-standalone.md
       - name: ESET PROTECT
@@ -489,6 +503,8 @@
         href: data-connectors/lastpass-enterprise-reporting-polling-ccp.md
       - name: Lookout (using Azure Function)
         href: data-connectors/lookout-using-azure-function.md
+      - name: Lookout Cloud Security for Microsoft Sentinel (using Azure Function)
+        href: data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md
       - name: MarkLogic Audit
         href: data-connectors/marklogic-audit.md
       - name: McAfee ePolicy Orchestrator (ePO)
@@ -537,6 +553,8 @@
         href: data-connectors/netwrix-auditor-formerly-stealthbits-privileged-activity-manager.md
       - name: NGINX HTTP Server
         href: data-connectors/nginx-http-server.md
+      - name: Noname Security for Microsoft Sentinel
+        href: data-connectors/noname-security-for-microsoft-sentinel.md
       - name: Nozomi Networks N2OS
         href: data-connectors/nozomi-networks-n2os.md
       - name: NXLog AIX Audit
@@ -579,8 +597,8 @@
         href: data-connectors/postgresql-events.md
       - name: Proofpoint On Demand Email Security (using Azure Function)
         href: data-connectors/proofpoint-on-demand-email-security-using-azure-function.md
-      - name: Proofpoint TAP
-        href: data-connectors/proofpoint-tap.md
+      - name: Proofpoint TAP (using Azure Function)
+        href: data-connectors/proofpoint-tap-using-azure-function.md
       - name: Pulse Connect Secure
         href: data-connectors/pulse-connect-secure.md
       - name: Qualys VM KnowledgeBase (using Azure Function)

@@ -3,7 +3,7 @@ title: "Cisco Duo Security (using Azure Function) connector for Microsoft Sentin
 description: "Learn how to install the connector Cisco Duo Security (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
