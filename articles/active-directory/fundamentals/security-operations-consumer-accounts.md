@@ -63,7 +63,7 @@ From the Azure portal, you can view Azure AD Audit logs and download as comma se
 
 * **Microsoft Sentinel** – security analytics with security information and event management (SIEM) capabilities
   * [What is Microsoft Sentinel?](../../sentinel/overview.md)
-* **Sigma rules** - an open standard for writing rules and templates that automated management tools can use to parse log files. If there are Sigma templates for our recommended search criteria, we added a link to the Sigma repo. The Sigma templates aren't written, tested, or managed by Microsoft. The repo and templates are created, and collected, by the IT security community.
+* **Sigma rules** - an open standard for writing rules and templates that automated management tools can use to parse log files. If there are Sigma templates for our recommended search criteria, we added a link to the Sigma repo. Microsoft doesn't write, test, or manage Sigma templates. The repo and templates are created, and collected, by the IT security community.
   * [SigmaHR/sigma](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)
 * **Azure Monitor** – automated monitoring and alerting of various conditions. Create or use workbooks to combine data from different sources.
   * [Azure Monitor overview](../../azure-monitor/overview.md)
@@ -75,7 +75,7 @@ From the Azure portal, you can view Azure AD Audit logs and download as comma se
 * **Identity Protection** - detect risk on workload identities across sign-in behavior and offline indicators of compromise
   * [Securing workload identities with Identity Protection](..//identity-protection/concept-workload-identity-risk.md)
 
-Use the remainder of the article for recommendations on what to monitor and alert. The following tables are organized by threat type. See links to pre-built solutions or samples following the table. Build alerts using the previously mentioned tools.
+Use the remainder of the article for recommendations on what to monitor and alert. Refer to the tables, organized by threat type. See links to pre-built solutions or samples following the table. Build alerts using the previously mentioned tools.
 
 ## Consumer accounts
 
@@ -124,7 +124,7 @@ Identity Provider deleted by non-approved actors | High | Azure AD Access Review
 | Redirect URI configuration changes | High | Azure AD logs | Service-Core Directory<br>Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress | Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are **not** unique to the application, URIs that point to a domain you don't control. |
 | Changes to AppID URI | High | Azure AD logs | Service-Core Directory<br>Category-ApplicationManagement<br>Activity: Update Application<br>Activity: Update Service principal | Look for AppID URI modifications, such as adding, modifying, or removing the URI. |
 | Changes to application ownership | Medium | Azure AD logs | Service-Core Directory<br>Category-ApplicationManagement<br>Activity: Add owner to application | Look for instances of users added as application owners outside normal change management activities. |
-| Changes to log-out URL | Low | Azure AD logs | Service-Core Directory<br>Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle | Look for modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.
+| Changes to sign out URL | Low | Azure AD logs | Service-Core Directory<br>Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle | Look for modifications to a sign out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.
 
 ## Infrastructure
 
