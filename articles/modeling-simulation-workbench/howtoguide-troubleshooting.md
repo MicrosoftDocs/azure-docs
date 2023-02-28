@@ -27,7 +27,7 @@ ms.date: 01/01/2023
 If you have trouble accessing the remote desktop dashboard URL provided for your chamber's connector, you need to check and validate your network access as setup with the chamber's connector.
 
 - If connector is configured for Azure ExpressRoute or VPN gateway, you need to be accessing the remote desktop dashboard URL from a computer in that network.
-- if connector is configured for Public IP, you need to be accessing the remote desktop dashboard URL from an IP address, which has been allow-listed for the connector.
+- If connector is configured for Public IP, you need to be accessing the remote desktop dashboard URL from an IP address, which has been allow-listed for the connector.
 
 ### Blue sign in screen
 
@@ -47,7 +47,7 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
 1. Check license file to see if it has expired or not. 1. `INCREMENT <feature> <cdslmd|mgcld|snpslmd|ansyslmd|...> <version> <expirationdate> <seats> ...` or `FEATURE <feature> <cdslmd|mgcld|snpslmd|ansyslmd|...> <version> <expirationdate> <seats> ...`
 1. If licenses are unexpired, restart license server from the Azure portal. Check if license file can be checked out. <!---TODO Add screenshot from within chamber showing how command or output of how to check out license file. Or sample code/command line call to check out license --->
 1. If not, reupload the original license file from the license provider. Make sure no edits were made to the file provided by the license provider prior to uploading. See [how to upload license](./howtoguide-licenses.md)
-1. Run 'lmstat' command to check the status of the license server, if it is running try to check out your license file. <!---TODO Add screenshot of lmstat output without any proprietary information--->
+1. Run 'lmstat' command to check the status of the license server, if it is running try to check out your license file. These activities would be performed within the chamber linux environment. <!---TODO Add screenshot of lmstat output without any proprietary information--->
 1. If the issue persists, contact your Microsoft account representative.
 
 ## Data pipeline troubleshooting

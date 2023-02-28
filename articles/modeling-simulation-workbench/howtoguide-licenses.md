@@ -31,7 +31,7 @@ ms.date: 01/01/2023
 1. On the License **Overview** page, take note of the FLEXlm host ID or VM UUID as appropriate, you'll need this value to acquire a vendor's license file for this chamber.
 1. Once vendor license file is acquired, on the License **Overview** page, click on **Update** to open update license window. Click on **Enable** to enable the service and upload the license file, choosing it from your storage space.
 1. In the **Update License** blade on the left of the screen, click the **Update** button to activate your license service.
-1. NOTE: The update action will apply the new license to the license service, causing a restart and would affect any actively running jobs.
+1. NOTE: The update action will apply the new license to the license service, causing a restart and may affect any actively running jobs.
 
 ## Upload/update license key for connector remote desktop access
 

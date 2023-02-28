@@ -15,7 +15,7 @@ ms.date: 01/01/2023
 This article explains how to download data from a chamber.
 <!--- SCREENSHOT OF CHAMBER --->
 
-This guide shows you how to use the Azure portal to upload files to a Modeling and Simulation Workbench chamber.
+This guide shows you how to use the Azure portal to download files from a Modeling and Simulation Workbench chamber.
 
 The process to download data is a 'two key approvals' process. You will need both a Chamber Admin, and your organizations Workbench Owner to complete this process.
 

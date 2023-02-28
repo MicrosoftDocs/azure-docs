@@ -21,9 +21,9 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
 - The Azure account must have permission to manage resource providers and to manage resources for the subscription. The permission is included in the Contributor and Owner roles.
 
 - The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
-  - [Application administrator](../active-directory/roles/permissions-reference#application-administrator)
-  - [Application developer](../active-directory/roles/permissions-reference#application-developer)
-  - [Cloud application administrator](../active-directory/roles/permissions-reference#cloud-application-administrator)
+  - [Application administrator](/azure/active-directory/roles/permissions-reference#application-administrator)
+  - [Application developer](/azure/active-directory/roles/permissions-reference#application-developer)
+  - [Cloud application administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator)
   
 - An Azure AD tenant.
 
@@ -45,7 +45,7 @@ Registering your application establishes a trust relationship between Modeling a
 
 Follow these steps to create the app registration:
 
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter ![img](../active-directory/develop/media/common/portal-directory-subscription-filter.png) in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter ![img](/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png) in the top menu to switch to the tenant in which you want to register the application.
 
 1. Search for and select **Azure Active Directory**.
 
@@ -59,13 +59,13 @@ Follow these steps to create the app registration:
 
 1. Select **Register** to complete the initial app registration.
 
-   :::image type="content" source="../active-directory/develop/media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
+   :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser, showing the Register an application pane.":::
 
 Take note of the properties in the next steps:
 
 - **Application (client) ID**: Microsoft identity platform unique identifier for the application. Make sure to save the **Application (client) ID** somewhere to be available to store in your Key Vault created in the next section.
 
-   :::image type="content" source="../active-directory/develop/media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing the application overview pane.":::
+   :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing the application overview pane.":::
 
 ### Add a client secret
 
@@ -98,12 +98,12 @@ Take note of the properties in the next steps:
 
    - In **Access policy**, select **Azure role-based access control** under **Permission model**.
 
-      :::image type="content" source="../key-vault/media/rbac/image-1.png" alt-text="Enable Azure RBAC permissions - new vault":::
+      :::image type="content" source="/azure/key-vault/media/rbac/image-1.png" alt-text="Enable Azure RBAC permissions - new vault":::
 
    - Leave the other options to their defaults.
 1. After providing the information as instructed, select **Create**.
 
-   :::image type="content" source="../key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
+   :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
 ### Key Vault role assignment
 
@@ -153,15 +153,15 @@ Take note of the properties in the next steps:
 
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
-   :::image type="content" source="../azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="search subscriptions":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="search subscriptions":::
 
 1. Select the subscription you want to view.
 
-   :::image type="content" source="../azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="select subscriptions":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="select subscriptions":::
 
 1. On the left menu, under **Settings**, select **Resource providers**.
 
-   :::image type="content" source="../azure-resource-manager/management/media/resource-providers-and-types/select-resource-providers.png" alt-text="select resource providers":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-resource-providers.png" alt-text="select resource providers":::
 
 1. Select the *Microsoft.ModSimWorkbench* resource provider, and select **Register**.
 

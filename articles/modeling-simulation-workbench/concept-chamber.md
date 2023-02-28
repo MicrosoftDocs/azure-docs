@@ -16,7 +16,7 @@ ms.date: 01/01/2023
 
 For the Azure Modeling and Simulation Workbench user, the chamber component offers a full-featured, secure, isolated, and optimized environment for running HPC applications and workloads. The environment is secured and isolated by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [connector](./concept-connector.md) exists per chamber, supporting protocols established through VPN, Azure Express Route, or Network Access Control Lists.
 
-In Azure Modeling and Simulation Workbench, the term chamber describes a group of connected computers (nodes) working together as a single system. Only provisioned users can access the chamber environment. User provisioning is done at the chamber component utilizing IAM [(Access Control)](../role-based-access-control/role-assignments-portal) Cross-team and/or cross-organization individuals can collaborate on the same projects through the chambers. Multifactor (MFA) authentication enabled through Azure AD enhances your organizations security and is recommended.
+In Azure Modeling and Simulation Workbench, the term chamber describes a group of connected computers (nodes) working together as a single system. Only provisioned users can access the chamber environment. User provisioning is done at the chamber component utilizing IAM [(Access Control)](/azure/role-based-access-control/role-assignments-portal) Cross-team and/or cross-organization individuals can collaborate on the same projects through the chambers. Multifactor (MFA) authentication enabled through Azure AD enhances your organizations security and is recommended.
 
 - Chambers offer optimized infrastructure, allowing users to choose from varied VM sizes, storage options, and compute resources to constitute workloads.
 - Chambers enable a pre-config environment for license server access and full-featured workload tools.
@@ -57,9 +57,9 @@ Right-sizing can be done to reduce the Azure spend by identifying idle and under
 
 1. By stopping unused workloads and chambers.
 
-1. By managing the size and pricing tier of chamber storages.
+1. By managing the size and performance tier of chamber storages.
 
-Know more about reducing service costs using [Azure Advisor](../advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing). You can also review best practices to [right-size VMs](../cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms) here.
+Know more about reducing service costs using [Azure Advisor](/azure/advisor/advisor-cost-recommendations#optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing). You can also review best practices to [right-size VMs](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs#best-practice-right-size-vms) here.
 
 ## Next steps
 

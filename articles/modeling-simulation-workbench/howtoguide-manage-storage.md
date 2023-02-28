@@ -17,7 +17,7 @@ This article explains how to manage chamber storage.
 
 This guide shows you how to use the Azure portal to manage chamber storage within a Modeling and Simulation Workbench chamber.
 
-You'll need to be a Chamber Admin or your organizations Workbench Owner to complete this process.
+You'll need to be a Chamber Admin or your organization's Workbench Owner to complete this process.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ As a Chamber User or a Chamber Admin, perform the following steps.
 
 1. Select the storage instance you would like to manage.
 
-1. In the storage overview section, note the options to: resize, retier, and delete.
+1. In the storage overview section, note the options to: resize, change tier, and delete.
 
 <!--    [!div class="mx-imgBorder"]
    ![Screenshot of the Azure portal chamber storage overview screen](./media/howtoguide-manage-storage/storageoverview.png)
@@ -61,9 +61,9 @@ As a Chamber Admin, you can resize your storage to increase or decrease the stor
   > Azure Net App Files Quota availability per region and customer subscription is limited.
   > Work with your account manager to request an increase in storage quota.
 
-### Change the pricing tier for your chamber storage
+### Change the performance tier for your chamber storage
 
-As a Chamber Admin, you can change the pricing tier for your storage.
+As a Chamber Admin, you can change the performance tier for your storage.
 
-- You can set storage pricing tier to a 'higher' pricing tier at any time, for example, from standard to premium, or premium to ultra is allowed.
-- You can set the storage pricing tier to a 'lower' tier, for example, from ultra to premium or premium to standard, after the cool-down period. The Azure Net App Files cool-down period is one week from time storage was created, or from the time the storage tier was last increased.
+- You can set storage performance tier to a 'higher' performance tier at any time, for example, from standard to premium, or premium to ultra is allowed.
+- You can set the storage performance tier to a 'lower' tier, for example, from ultra to premium or premium to standard, after the cool-down period. The Azure Net App Files cool-down period is one week from time storage was created, or from the time the storage tier was last increased.
