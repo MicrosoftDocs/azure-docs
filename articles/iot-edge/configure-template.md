@@ -3,7 +3,7 @@ title: Configure IoT Edge using the config.toml file
 description: This article shows you how to configure the config.toml file for IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/02/2023
+ms.date: 02/27/2023
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -15,7 +15,13 @@ This article shows settings and options for configuring the IoT Edge *config.tom
 
 A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device.
 
-## Device names
+> [!IMPORTANT]
+> The hostname, parent_hostname, and trust_bundle_cert parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
+>
+
+## Hostname
+
+To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network.
 
 For the **hostname**, replace **my-device** with your device name to override the default hostname of the device. The value can be an IP address or a fully qualified domain name (FQDN). Use this setting as the gateway hostname on a IoT Edge gateway device.
 
@@ -23,27 +29,33 @@ For the **hostname**, replace **my-device** with your device name to override th
 hostname = "my-device"
 ```
 
-If you have a nested device, use the **parent_hostname**. Replace **my-parent-device** with the name of your parent device.
+## Parent hostname
+
+Parent hostname is used when the IoT Edge device is nested. Every downstream IoT Edge device needs to specify a **parent_hostname** parameter to identify its parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child device, it needs both parameters.
+
+Replace **my-parent-device** with the name of your parent device. Use a hostname shorter than 64 characters that's the character limit for a server certificate common name.
 
 ```toml
 parent_hostname = "my-parent-device"
 ```
 
+For more information about setting the *parent_hostname* parameter, see [Connect Azure IoT Edge devices together to create a hierarchy](how-to-connect-downstream-iot-edge-device.md#update-downstream-configuration-file).
+
 ## Trust bundle certificate
 
-If you have any trusted CA certificates required for Edge module communication, use the **trust_bundle_cert** field and replace the URI filepath with your own.
+Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as trust bundle. If you are using a trust bundle, update the **trust_bundle_cert** parameter with the file URI to the root CA certificate on your device.
 
 ```toml
-trust_bundle_cert = "file:///var/secrets/trust-bundle.pem"
+trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
 ```
+
+For more information about the IoT Edge trust bundle, see [Manage trusted root CA](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
 
 ## Elevated Docker Permissions Flag
 
-Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** field of the docker **HostConfig** are allowed.
+Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
 
-In a future release, this will be disabled by default and the flag will be required to run as privileged.
-
-If no modules require privileged or additional capabilities, use **allow_elevated_docker_permissions** to improve the security of the device.
+If no modules require privileged or extra capabilities, use **allow_elevated_docker_permissions** to improve the security of the device.
 
 ```toml
 allow_elevated_docker_permissions = false
@@ -53,27 +65,29 @@ allow_elevated_docker_permissions = false
 
 ### Optional auto reprovisioning mode
 
-This property specifies the conditions under which the device attempts to automatically reprovision with the cloud. It's ignored if the device has been provisioned manually. One of the following values can be set:
+This property specifies the conditions that the device attempts to automatically reprovision with Azure IoT. It's ignored if the device has been provisioned manually. One of the following values can be set:
 
-| Mode | What each mode does|
-|--------------------------|-|
+| Mode | Description |
+|------|-------------|
 | Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. |
-| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. |
+| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
 | OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
 
-For example: 
+For example:
 
 ```toml
 auto_reprovisioning_mode = Dynamic
 ```
 
+For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
 ## Cloud Timeout and Retry Behavior
 
-These settings control the timeout and retries for cloud operations, such as communication with DPS during provisioning or IoT Hub for module identity creation.
+These settings control the timeout and retries for cloud operations, such as communication with Device Provisioning Service (DPS) during provisioning or IoT Hub for module identity creation.
 
-The `cloud_timeout_sec` field is the deadline (in seconds) for a network request (such as an HTTP request) to these cloud services. A response from the cloud must be received before this deadline, or the request will fail as timed out.
+The **cloud_timeout_sec** parameter is the deadline in seconds for a network request to cloud services. For example, an HTTP request. A response from the cloud service must be received before this deadline, or the request fails as a timeout.
 
-The `cloud_retries` field controls how many times a request may be retried should it fail. The client will always send at least one attempt, so its value will be the number of retries after the first attempt should that fail (for example, `cloud_retries = 2` means that the client will make a total of 3 attempts).
+The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of 3 attempts).
 
 ```toml
 cloud_timeout_sec = 10
@@ -89,7 +103,7 @@ You can provision with a connection string, symmetric key, X.509 certificate, id
 ```toml
 [provisioning]
 source = "manual"
-connection_string = "HostName=example.azure-devices.net;DeviceId=my-device;SharedAccessKey=YXppb3QtaWRlbnRpdHktc2VydmljZXxhemlvdC1pZGU="
+connection_string = "HostName=example.azure-devices.net;DeviceId=my-device;SharedAccessKey=<Shared access key>"
 ```
 
 ### Manual provisioning with symmetric key
@@ -98,8 +112,8 @@ connection_string = "HostName=example.azure-devices.net;DeviceId=my-device;Share
 [provisioning.authentication]
 method = "sas"
 
-device_id_pk = { value = "YXppb3QtaWRlbnRpdHktc2VydmljZXxhemlvdC1pZGU=" }     # inline key (base64), or...
-device_id_pk = { uri = "file:///var/secrets/device-id.key" }                  # file URI, or...
+device_id_pk = { value = "<Shared access key>" }     # inline key (base64), or...
+device_id_pk = { uri = "file:///var/aziot/secrets/device-id.key" }            # file URI, or...
 device_id_pk = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" } # PKCS#11 URI
 ```
 
@@ -115,31 +129,13 @@ device_id = "my-device"
 method = "x509"
 ```
 
-### Identity certificate private key
-
-```toml
-identity_pk = "file:///var/secrets/device-id.key.pem"              # file URI, or...
-identity_pk = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" # PKCS#11 URI
-```
-
-### Identity certificate
-
-```toml
-identity_cert = "file:///var/secrets/device-id.pem"                # file URI, or...
-[provisioning.authentication.identity_cert]                        # dynamically issued via...
-method = "est"                                                     # - EST
-method = "local_ca"                                                # - a local CA
-common_name = "my-device"                                          # with the given common name, or...
-subject = { L = "AQ", ST = "Antarctica", CN = "my-device" }        # with the given DN fields
-```
-
 ### DPS provisioning with symmetric key
 
 ```toml
 [provisioning]
 source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net"
-id_scope = "0ab1234C5D6"
+id_scope = "<DPS-ID-SCOPE>"
 
 # Use to send a custom payload during DPS registration
 payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
@@ -148,8 +144,8 @@ payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json"
 method = "symmetric_key"
 registration_id = "my-device"
 
-symmetric_key = { value = "YXppb3QtaWRlbnRpdHktc2VydmljZXxhemlvdC1pZGVudGl0eS1zZXJ2aWNlfGF6aW90LWlkZW50aXR5LXNlcg==" } # inline key (base64), or...
-symmetric_key = { uri = "file:///var/secrets/device-id.key" }                                                          # file URI, or...
+symmetric_key = { value = "<Device symmetric key>" } # inline key (base64), or...
+symmetric_key = { uri = "file:///var/aziot/secrets/device-id.key" }                                                          # file URI, or...
 symmetric_key = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" }    
 ```
 
@@ -159,7 +155,7 @@ symmetric_key = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" }
 [provisioning]
 source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net/"
-id_scope = "0ab1234C5D6"
+id_scope = "<DPS-ID-SCOPE>"
 
 # Use to send a custom payload during DPS registration
  payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
@@ -167,15 +163,32 @@ id_scope = "0ab1234C5D6"
 [provisioning.attestation]
 method = "x509"
 registration_id = "my-device"
+```
 
+### Identity certificate private key
+
+```toml
+identity_pk = "file:///var/aziot/secrets/device-id.key.pem"        # file URI, or...
+identity_pk = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" # PKCS#11 URI
+```
+
+### Identity certificate
+
+```toml
+identity_cert = "file:///var/aziot/certs/device-id.pem"     # file URI, or...
+[provisioning.authentication.identity_cert]                 # dynamically issued via...
+method = "est"                                              # - EST
+method = "local_ca"                                         # - a local CA
+common_name = "my-device"                                   # with the given common name, or...
+subject = { L = "AQ", ST = "Antarctica", CN = "my-device" } # with the given DN fields
 ```
 
 ### Enable automatic renewal of the device ID certificate
 
-Auto-renewal requires a known certificate issuance method. This generally means that 'method' is either 'est' or 'local_ca'.
+Autorenewal requires a known certificate issuance method. This means that 'method' is either 'est' or 'local_ca'.
 
 >[!IMPORTANT]
-> Only enable auto-renewal if this device is configured for CA-based DPS enrollment. Using auto-renewal for an individual enrollment will cause the device to be unable to reprovision.
+> Only enable autorenewal if this device is configured for CA-based DPS enrollment. Using autorenewal for an individual enrollment causes the device to be unable to reprovision.
 
 ```toml
 [provisioning.attestation.identity_cert.auto_renew]
@@ -190,7 +203,7 @@ retry = "4%"
 [provisioning]
 source = "dps"
 global_endpoint = "https://global.azure-devices-provisioning.net"
-id_scope = "0ab1234C5D6"
+id_scope = "<DPS-ID-SCOPE>"
 
 # Use to send a custom payload during DPS registration
 payload = { uri = "file:///var/secrets/aziot/identityd/dps-additional-data.json" }
@@ -208,7 +221,7 @@ If you configured any dynamically issued certs, choose your corresponding issuan
 
 ```toml
 [cert_issuance.est]
-trusted_certs = ["file:///var/secrets/est-id-ca.pem",]
+trusted_certs = ["file:///var/aziot/certs/est-id-ca.pem",]
 
 [cert_issuance.est.auth]
 username = "estuser"
@@ -218,22 +231,22 @@ password = "estpwd"
 ### EST ID cert already on device
 
 ```toml
-identity_cert = "file:///var/secrets/est-id.pem"
+identity_cert = "file:///var/aziot/certs/est-id.pem"
 
-identity_pk = "file:///var/secrets/est-id.key.pem"            # file URI, or...
+identity_pk = "file:///var/aziot/secrets/est-id.key.pem"      # file URI, or...
 identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 ```
 
 ### EST ID cert requested via EST bootstrap ID cert
 
 ```toml
-bootstrap_identity_cert = "file:///var/secrets/est-bootstrap-id.pem"
+bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
 
-bootstrap_identity_pk = "file:///var/secrets/est-bootstrap-id.key.pem"            # file URI, or...
+bootstrap_identity_pk = "file:///var/aziot/secrets/est-bootstrap-id.key.pem"      # file URI, or...
 bootstrap_identity_pk = "pkcs11:slot-id=0;object=est-bootstrap-id?pin-value=1234" # PKCS#11 URI
 
-Controls the renewal of EST identity certs. These certs are issued by the EST server after
-initial authentication with the bootstrap cert and managed by Certificates Service.
+# The following parameters control the renewal of EST identity certs. These certs are issued by the EST server after initial authentication with the bootstrap cert and managed by Certificates Service.
+
 [cert_issuance.est.identity_auto_renew]
 rotate_key = true
 threshold = "80%"
@@ -247,36 +260,15 @@ default = "https://example.org/.well-known/est"
 
 ```toml
 [cert_issuance.local_ca]
-cert = "file:///var/secrets/local-ca.pem"
+cert = "file:///var/aziot/certs/local-ca.pem"
 
-pk = "file:///var/secrets/local-ca.key.pem"            # file URI, or...
+pk = "file:///var/aziot/secrets/local-ca.key.pem"      # file URI, or...
 pk = "pkcs11:slot-id=0;object=local-ca?pin-value=1234" # PKCS#11 URI
-```
-
-## Trusted Platform Module (TPM)
-
-If special configuration is required for the TPM when using DPS TPM provisioning, use any of the following relevant sections.
-
-This is a TCTI loader string. See "TCG TSS 2.0 TPM Command Transmission Interface (TCTI) API Specification" section 3.5 for an overview of acceptable TCTI loader strings. By default, this is "device". Setting this to the empty string will cause the TCTI loader library to try loading a predefined set of TCTI modules in order.
-
-For more information, see [tctildr-dl.c](https://github.com/tpm2-software/tpm2-tss/blob/3.1.1/src/tss2-tcti/tctildr-dl.c#L28-L59).
-
-```toml
-[tpm]
-tcti = "swtpm:port=2321"
-
-# The TPM index at which to persist the DPS authentication key. The index is taken as an offset from the base address for persistent objects (0x81000000), and must lie in the range 0x00_00_00--0x7F_FF_FF. The default value is 0x00_01_00.
-auth_key_index = "0x00_01_00"
-
-# Authorization values for use of the endorsement and owner hierarchies, if necessary. By default, these are empty strings.
-[tpm.hierarchy_authorization]
-endorsement = "hello"
-owner = "world"
 ```
 
 ## PKCS#11
 
-If you used any PKCS#11 URIs, use the following fields and replace the values with your PKCS#11 configuration.
+If you used any PKCS#11 URIs, use the following parameters and replace the values with your PKCS#11 configuration.
 
 ```toml
 [aziot_keys]
@@ -289,8 +281,7 @@ pkcs11_base_slot = "pkcs11:slot-id=0?pin-value=1234"
 If you need to override the parameters of the default Edge Agent module, use this section and replace the values with your own.
 
 > [!NOTE] 
-> The `agent.config.createOptions` field is specified as a TOML inline table. This format looks similar to JSON but it's not JSON.
-For more information, see [Inline Table](https://toml.io/en/v1.0.0#inline-table) of the TOML v1.0.0 documentation.
+> The `agent.config.createOptions` parameter is specified as a TOML inline table. This format looks like JSON but it's not JSON. For more information, see [Inline Table](https://toml.io/en/v1.0.0#inline-table) of the TOML v1.0.0 documentation.
 
 ```toml
 [agent]
@@ -338,16 +329,15 @@ max_retries = "infinite"   # the string "infinite" or a positive integer. Defaul
 
 ## Edge CA certificate
 
-If you have your own Edge CA certificate that will issue all your module certificates, use one of these sections and replace the values with
-your own.
+If you have your own Edge CA certificate that issues all your module certificates, use one of these sections and replace the values with your own. For more information about using an EST server, see [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
 ### Edge CA certificate loaded from a file
 
 ```toml
 [edge_ca]
-cert = "file:///var/secrets/edge-ca.pem"                # file URI
+cert = "file:///var/aziot/certs/edge-ca.pem"            # file URI
 
-pk = "file:///var/secrets/edge-ca.key.pem"              # file URI, or...
+pk = "file:///var/aziot/secrets/edge-ca.key.pem"        # file URI, or...
 pk = "pkcs11:slot-id=0;object=edge%20ca?pin-value=1234" # PKCS#11 URI
 ```
 
@@ -360,7 +350,7 @@ method = "est"
 
 ### Optional EST configuration for issuing the Edge CA certificate
 
-If not set, the defaults in [cert_issuance.est] will be used.
+If not set, the defaults in [cert_issuance.est] is used.
 
 ```toml
 common_name = "aziot-edge CA"
@@ -374,18 +364,18 @@ password = "estpwd"
 ### EST ID cert already on device
 
 ```toml
-identity_cert = "file:///var/secrets/est-id.pem"
+identity_cert = "file:///var/aziot/certs/est-id.pem"
 
-identity_pk = "file:///var/secrets/est-id.key.pem"            # file URI, or...
+identity_pk = "file:///var/aziot/secrets/est-id.key.pem"      # file URI, or...
 identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 ```
 
 ### EST ID cert requested via EST bootstrap ID cert
 
 ```toml
-bootstrap_identity_cert = "file:///var/secrets/est-bootstrap-id.pem"
+bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
 
-bootstrap_identity_pk = "file:///var/secrets/est-bootstrap-id.key.pem"            # file URI, or...
+bootstrap_identity_pk = "file:///var/aziot/secrets/est-bootstrap-id.key.pem"      # file URI, or...
 bootstrap_identity_pk = "pkcs11:slot-id=0;object=est-bootstrap-id?pin-value=1234" # PKCS#11 URI
 ```
 
@@ -402,23 +392,24 @@ common_name = "aziot-edge CA"
 expiry_days = 90
 ```
 
-## Edge CA certificate (Quickstart)
+## Edge CA quickstart certificates
 
-If you don't have your own Edge CA certificate used to issue all module certificates, use this section and set the number of days for the lifetime of the auto-generated self-signed Edge CA certificate. Defaults to 90 days.
+If you don't have your own Edge CA certificate used to issue all module certificates, use this section and set the number of days for the lifetime of the autogenerated self-signed Edge CA certificate. Expiration defaults to 90 days.
 
 > [!CAUTION]
-> This setting is NOT recommended for production usage. Please configure your own Edge CA certificate in the Edge CA certificate sections.
+> This setting is **NOT recommended for production usage**. Please configure your own Edge CA certificate in the Edge CA certificate sections.
 
 ```toml
 [edge_ca]
 auto_generated_edge_ca_expiry_days = 90
 ```
 
-## Edge CA certificate auto-renewal
+## Edge CA certificate autorenewal
 
-Manage auto-renewal of the Edge CA certificate. Generally, this applies when the Edge CA is configured as Quickstart or when the Edge CA has an issuance `method` set. Edge CA certs loaded from files generally cannot be auto-renewed as the Edge runtime won't have enough information to renew them.
+This setting manages autorenewal of the Edge CA certificate. This applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime won't have enough information to renew them.
 
-Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal cannot be guaranteed, so if random module restarts are unacceptable for your use case, disable auto-renewal.
+> [!IMPORTANT]
+> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal.
 
 ```toml
 [edge_ca.auto_renew]
@@ -429,14 +420,14 @@ retry = "4%"
 
 ## Image garbage collection
 
-If you need to override the default image garbage collection configuration, uncomment this section and replace the values in this section with your own.
+If you need to override the default image garbage collection configuration, use this section and replace the values in this section with your own.
 
-| Parameter | What it does |
+| Parameter | Description |
 |--------------------------|
-| `enabled` | Whether image garbage collection runs or not |
-| `cleanup_recurrence` | How frequently you want the image garbage collection to run |
-| `image_age_cleanup_threshold` |  The "age" of unused images, after which they will be cleaned up |
-| `cleanup_time` | 24-hour HH:MM format dictate when the cleanup job runs |
+| `enabled` | Runs image garbage collection |
+| `cleanup_recurrence` | How often you want the image garbage collection to run |
+| `image_age_cleanup_threshold` | The *age* of unused images. Images older than the threshold are removed |
+| `cleanup_time` | 24-hour HH:MM format. When the cleanup job runs |
 
 ```toml
 [image_garbage_collection]
