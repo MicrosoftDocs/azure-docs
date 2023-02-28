@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -476,7 +476,9 @@ Choose one of the following mount options to convert file permissions to DACLs o
 
 - Use a default (recommended), such as **file_mode=<>,dir_mode=<>**. File permissions specified as **file_mode** and **dir_mode** are only enforced within the client. The server enforces access control based on the file's or directory's security descriptor.
 - Specify **modefromsid,idsfromsid** so that access control is done only on the client. The server won't enforce any access control with this mount option.
-- Specify **cifsacl,noperm** so permissions are visible to Linux apps and can be set, but are only enforced on the server. When using **noperm**, permission checking is only done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL. Use **cifsacl** if you want permissions to be enforced on both client and server.
+- Specify **cifsacl** so permissions are visible to Linux apps and can be set, and are enforced on both client and server. 
+
+You can also specify the **noperm** mount option if you want permission checking to only be done on the server. Otherwise, permission checking is done on both the client with the mode bits and the server with the ACL.
 
 #### File ownership
 
