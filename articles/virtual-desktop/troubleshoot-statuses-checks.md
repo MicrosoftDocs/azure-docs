@@ -3,7 +3,7 @@ title: Azure Virtual Desktop session host statuses and health checks
 description: How to troubleshoot the failed session host statuses and failed health checks
 author: jakejohnson-21
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: jakejohnson
 manager: rkiran
 ---
