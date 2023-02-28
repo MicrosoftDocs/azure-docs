@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/01/2022
+ms.date: 02/28/2023
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -81,6 +81,7 @@ The following sections provide information about properties that are used to def
 The Azure Data Lake Storage Gen2 connector supports the following authentication types. See the corresponding sections for details:
 
 - [Account key authentication](#account-key-authentication)
+- [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
 - [System-assigned managed identity authentication](#managed-identity)
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
@@ -124,6 +125,84 @@ To use storage account key authentication, the following properties are supporte
     }
 }
 ```
+### Shared access signature authentication
+
+A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. 
+
+You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method.
+
+For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-sas-overview.md).
+
+> [!NOTE]
+>- The service now supports both *service shared access signatures* and *account shared access signatures*. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures](../storage/common/storage-sas-overview.md).
+>- In later dataset configurations, the folder path is the absolute path starting from the container level. You need to configure one aligned with the path in your SAS URI.
+
+The following properties are supported for using shared access signature authentication:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The `type` property must be set to `AzureBlobFS` (suggested)| Yes |
+| sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as `SecureString` to store it securely. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+>[!NOTE]
+>If you're using the `AzureStorage` type linked service, it's still supported as is. But we suggest that you use the new `AzureDataLakeStorageGen2` linked service type going forward.
+
+**Example:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store the account key in Azure Key Vault**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.windows.net/>"
+            },
+            "sasToken": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+When you create a shared access signature URI, consider the following points:
+
+- Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used.
+- Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
+- The URI should be created at the right container or blob based on the need. A shared access signature URI to a blob allows the data factory or Synapse pipeline to access that particular blob. A shared access signature URI to a Blob storage container allows the data factory or Synapse pipeline to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
 
 ### Service principal authentication
 
