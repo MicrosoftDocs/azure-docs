@@ -187,7 +187,6 @@ SELECT [ROLLBACK] FROM [dbo].[__migration_status]
 WHERE STEP in (5,7,8) ORDER BY STEP DESC;
 ```
   
-
 ## Error code: 2042 - PreCopyStepsCompletedDuringCancel 
 
 - **Message**: `Pre Copy steps finished successfully before canceling completed. Target database Foreign keys and temporal tables have been altered. Schema migration may be required again for future migrations. Target server: <Target Server>, Target database: <Target Database>.`
@@ -200,7 +199,6 @@ WHERE STEP in (5,7,8) ORDER BY STEP DESC;
 SELECT [ROLLBACK] FROM [dbo].[__migration_status]  
 WHERE STEP in (3,4,6);
 ```
-  
 
 ## Error code: 2043 - CreateContainerFailed
 
@@ -209,6 +207,7 @@ WHERE STEP in (3,4,6);
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
+
 
 ## Error code: 2056 - SqlInfoValidationFailed
 
@@ -250,6 +249,29 @@ WHERE STEP in (3,4,6);
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
 
 - **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
+
+## Error code: Ext_RestoreSettingsError
+
+- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.;The remote server returned an error: (403) Forbidden
+
+- **Cause**: Target is unable to connect to blob storage.
+
+- **Recommendation**: Confirm that target network settings allow access to blob storage. For example, if migrating to SQL VM, ensure that outbound connections on VM are not being blocked.
+
+
+- **Message**: Failed to create restore job.;Unable to read blobs in storage container, exception: The remote name could not be resolved.
+
+- **Cause**: Target is unable to connect to blob storage.
+
+- **Recommendation**: Confirm that target network settings allow access to blob storage. For example, if migrating to SQL VM, ensure that outbound connections on VM are not being blocked.
+
+
+- **Message**: Migration for Database <Database Name> failed with error 'Migration cannot be completed because provided backup file name <Backup File Name> should be the last restore backup file <Last Restore Backup File Name>'.
+
+- **Cause**: Most recent backup was not specified in backup settings.
+
+- **Recommendation**: Specify most recent backup file name in backup settings and retry operation.
 
 
 ## Azure SQL Database limitations 
