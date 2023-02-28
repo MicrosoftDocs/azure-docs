@@ -24,22 +24,22 @@ Users with access to the chamber can bring data into the chamber via AzCopy and 
 
 Users with access to the chamber can extract data from the chamber via the data pipeline through a series of steps.
 
-1. Identify file to extract. The process is triggered by placing the file to extract into a designated area within the chamber. The copied file will be detected by the data pipeline and a files object will be created. The file creation activity is traceable in the logs, and will enable the next step of the data pipeline.
+1. Identify file to extract. The process is triggered by placing the file to extract into a designated area within the chamber. This can be performed by a Chamber Admin or a Chamber User. The copied file will be detected by the data pipeline and a files object will be created. The file creation activity is traceable in the logs, and will enable the next step of the data pipeline.
 
 1. Request file to extract. A Chamber Admin can review files in the data pipeline and for data out files, request to extract a file from the chamber. This operation will trigger the creation of a files request object. The request to extract activity is traceable in the logs, and will enable the next step of the data pipeline.
 
 1. Approve/Reject file request. The file request object can only be approved or rejected for extraction by the Workbench Owner. In addition, the user approving the extraction can't be the same user who requested to extract the data, and must be a Workbench Owner vs Chamber Admin or Chamber User.
 
-1. Download file to extract. If a file is approved for extraction, a download URI can be obtained from the file requests object, and copied out of the chamber using AzCopy.
+1. Download file to extract. If a file is approved for extraction, a download URI can be obtained from the file requests object, and copied out of the chamber using AzCopy. Note the URI has an expiration timestamp, you must complete the download within the expiration time frame, or request a new download URI.
 
   > [!NOTE]
   > the larger files take longer to be available to download after being approved, and to download using AzCopy, take note of the expiry on the download URI and request a new one if the expiry window has expired.
 
 ## Next steps
 
-Choose an article to know more:
+- [What's Next - How to manage chamber licenses](./howtoguide-licenses.md)
 
-- [How to manage chamber licenses](./howtoguide-licenses.md)
+Choose an article to know more:
 
 - [Chamber REST API documentation](./rest/api/Modeling and Simulation Workbench)
 

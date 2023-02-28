@@ -54,7 +54,7 @@ As a Chamber Admin, perform the following steps to request a file to be download
 
 1. From the Chamber you are downloading data from, choose **File** from under **Data Pipeline**
 
-1. Select the file you want to download from the resource list located on the right. Files will be named "mount-private-datain-&lt;filename&gt;"
+1. Select the file you want to download from the resource list located on the right. Files will be named "mount-private-datain-\<filename\>"
 
 1. In the file overview section, note the data pipeline direction needs to be **outbound**, click on the **Request download** option.
 

@@ -22,7 +22,7 @@ ms.date: 01/01/2023
 
 - FLEXlm license file for a software vendor requiring license. (You need to buy the license for production environment from vendors like Synopsys, Cadence, Siemens, or Ansys.)
 
-## Upload/ update license for FlexLM based tools
+## Upload/update license for FLEXlm based tools
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to provision from the resource list.
@@ -33,14 +33,14 @@ ms.date: 01/01/2023
 1. In the **Update License** blade on the left of the screen, click the **Update** button to activate your license service.
 1. NOTE: The update action will apply the new license to the license service, causing a restart and would affect any actively running jobs.
 
-## Upload/ update license key for connector remote desktop access
+## Upload/update license key for connector remote desktop access
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to provision from the resource list.
 1. Select a **Modeling and Simulation Workbench Chamber** which you've created, from the left side menu, and choose the chamber where you want to upload the license info, from the resource list.
 1. In the menu for the chamber, select **Connector** blade on the left of the screen in the Settings section.
 1. On the Connector **Overview** page, click on **Add License** to open the Add license window.
-1. Provide the License Key URL for the license file, using format https://&lt;keyVaultName&gt;.vault.azure.net/secrets/&lt;secretName&gt;/&lt;secretGuid&gt;, and click **Add**.
+1. Provide the License Key URL for the license file, using format https://\<keyVaultName\>.vault.azure.net/secrets/\<secretName\>/\<secretGuid\>, and click **Add**.
 1. NOTE: When you add a new license key, the Remote Desktop service will be updated, causing possible interruptions to active remote desktop sessions.
 
 ## Next steps
