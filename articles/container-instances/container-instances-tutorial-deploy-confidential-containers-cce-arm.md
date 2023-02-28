@@ -27,7 +27,7 @@ In this article, you'll:
 
 ## Create an ACI container group ARM Template
 
-In this tutorial, you deploy a hello world application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You'll use this ARM template with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for attestation. In this tutorial, we use this [ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA). To view the source code for this application, visit [ACI Confidential Hello World](aka.ms/ccacihelloworld).
+In this tutorial, you deploy a hello world application that generates a hardware attestation report. You start by creating an ARM template with a container group resource to define the properties of this application. You'll use this ARM template with the Azure CLI confcom tooling to generate a confidential computing enforcement (CCE) policy for attestation. In this tutorial, we use this [ARM template](https://raw.githubusercontent.com/Azure-Samples/aci-confidential-hello-world/main/template.json?token=GHSAT0AAAAAAB5B6SJ7VUYU3G6MMQUL7KKKY7QBZBA). To view the source code for this application, visit [ACI Confidential Hello World](https://aka.ms/ccacihelloworld).
 
 > [!NOTE] 
 > The ccePolicy parameter of the template is blank and needs to be updated based on the next step of this tutorial. 
@@ -230,4 +230,4 @@ Now that you have deployed a confidential container group on ACI, you can learn 
 
 * [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
-* [Confidential Hello World application](aka.ms/ccacihelloworld)
+* [Confidential Hello World application](https://aka.ms/ccacihelloworld)

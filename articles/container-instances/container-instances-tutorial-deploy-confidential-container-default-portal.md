@@ -78,5 +78,5 @@ In this tutorial, you created a confidential container on Azure Container instan
 * [Azure Container Instances Azure Resource Manager template tutorial](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
 * [Confidential computing enforcement policies overview](./container-instances-confidential-overview.md)
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
-* [Confidential Hello World application](aka.ms/ccacihelloworld)
+* [Confidential Hello World application](https://aka.ms/ccacihelloworld)
 
