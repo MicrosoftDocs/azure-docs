@@ -26,7 +26,7 @@ All this is possible with one-click where enterprises can access a secure soluti
 BYO Cognitive Services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the BYO option and provide the URL to the Cognitive Services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
 > Note:
-> This integration is only supported in limited regions, for more information about which regions are supported please view the limitations section at the bottom of this document.
+> This integration is only supported in limited regions for Azure Cognitive Services, for more information about which regions are supported please view the limitations section at the bottom of this document. It is also recommended that when you're creating a new Azure Cognitive Service resource that you create a Multi-service Cognitive Service resource.
 
 ## Common use cases
 
@@ -88,7 +88,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 Your Communication Service has now been linked to your Azure Cognitive Service resource. 
 
-## Limitations
+## Azure Cognitive Services regions supported
 
 This integration between Azure Communication Services and Azure Cognitive Services is only supported in the following regions at this point in time:
 - westus
