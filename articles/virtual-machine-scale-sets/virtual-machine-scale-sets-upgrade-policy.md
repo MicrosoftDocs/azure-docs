@@ -14,9 +14,12 @@ ms.custom:
 
 Scale sets have an Upgrade Policy that determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes in the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole. The three modes for the upgrade policy are Automatic, Rolling and Manual. 
 
+>[!NOTE]
+> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+
 
 ### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. Upgrade Policy using Automatic is only suggested to be used on dev/test deployments. 
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
 
 ### Rolling
 
@@ -34,8 +37,6 @@ In this mode, you choose when to update the scale set model. Nothing happens aut
 
 When deploying a new scale set, include the Upgrade Policy Mode and set the MaxSurge flag to either `True` or `False`.
 
-### Portal
-
 ### CLI
 
 ```azurecli-interactive
@@ -45,7 +46,7 @@ az vmss create \
   --orchestration-mode Flexible \
   --image UbuntuLTS \
   --upgrade-policy-mode Rolling \
-  --MaxSurge True \
+  --max-surge True \
   --instance-count 2 \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -72,9 +73,6 @@ New-AzVmss `
 
 The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in time. 
 
-### Portal
-
-
 ### CLI
 ```azurecli-interactive
 az vmss update
@@ -97,14 +95,12 @@ If you have the Upgrade Policy set to manual, you need to perform manual upgrade
 > [!NOTE]
 > While upgrading, the instances may be restarted.
 
+## CLI
+Using [az vmss update-instances](/cli/azure/vmss)
 
-### REST API 
-Using [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+```azurecli
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
-
 ### PowerShell 
 Using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
@@ -112,15 +108,12 @@ Using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstanc
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
-## CLI
-Using [az vmss update-instances](/cli/azure/vmss)
+### REST API 
+Using [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
 
-```azurecli
-az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
 ```
-
->[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ## Exceptions to Upgrade Policy
 
