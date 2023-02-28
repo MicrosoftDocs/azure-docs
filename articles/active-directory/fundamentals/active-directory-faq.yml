@@ -176,7 +176,7 @@ sections:
           We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
       - question: |
-          Certain (common) passwords get rejected with the messages 'this password has been used to many times', does this refer to passwords used in the current active directory?
+          Certain (common) passwords get rejected with the messages 'this password has been used too many times', does this refer to passwords used in the current active directory?
         answer: |
           This refers to passwords that are globally common, such as any variants of "Password" and "123456".
 
