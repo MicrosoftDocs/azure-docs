@@ -199,7 +199,7 @@ To enable full studio functionality, see [Use Azure Machine Learning studio in a
 
 ### Limitations
 
-[ML-assisted data labeling](../how-to-create-image-labeling-projects.md#use-machine-learning-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
+[ML-assisted data labeling](../how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
 
 > [!TIP]
 > As long as it is not the default storage account, the account used by data labeling can be secured behind the virtual network. 

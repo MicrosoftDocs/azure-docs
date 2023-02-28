@@ -139,9 +139,9 @@ To directly upload your data:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, the **ML assisted labeling** page can trigger automatic machine learning models. Machine learning-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
+To accelerate labeling tasks, the **ML assisted labeling** page can trigger automatic machine learning models. Machine learning (ML)-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
 
-To use machine learning-assisted labeling:
+To use ML-assisted labeling:
 
 1. Select **Enable ML assisted labeling**.
 1. Select the **Dataset language** for the project. This list shows all languages that the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) supports.
@@ -151,7 +151,7 @@ To use machine learning-assisted labeling:
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data that's used to train the model lands in that class.
 
-To train the text DNN model that machine learning-assisted labeling uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
+To train the text DNN model that ML-assisted labeling uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
 
 The number of labeled items that's required to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. The variance depends on many factors, including the number of label classes and the label distribution.
 
@@ -160,7 +160,7 @@ When you use consensus labeling, the consensus label is used for training.
 Because the final labels still rely on input from the labeler, this technology is sometimes called *human-in-the-loop* labeling.
 
 > [!NOTE]
-> Machine learning-assisted data labeling doesn't support default storage accounts that are secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for machine learning-assisted data labeling. The non-default storage account can be secured behind the virtual network.
+> ML-assisted data labeling doesn't support default storage accounts that are secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network.
 
 ### Pre-labeling
 
@@ -188,14 +188,14 @@ A distribution of the labels for completed tasks is shown below the chart. In so
 
 A distribution of labelers and how many items they've labeled also are shown.
 
-The middle section shows a table that has a queue of unassigned tasks. When machine learning-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
+The middle section shows a table that has a queue of unassigned tasks. When ML-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
 
-When machine learning-assisted labeling is on, this section also shows:
+When ML-assisted labeling is on, this section also shows:
 
 * Tasks that contain clustered items in the queue.
 * Tasks that contain pre-labeled items in the queue.
 
-Additionally, when machine learning-assisted labeling is enabled, you can scroll down to see the machine learning-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
+Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
 
 ### Data
 
@@ -228,7 +228,7 @@ View and change details of your project. On this tab, you can:
 * View details of the storage container that's used to store labeled outputs in your project.
 * Add labels to your project.
 * Edit instructions you give to your labels.
-* Change settings for machine learning-assisted labeling and kick off a labeling task.
+* Change settings for ML-assisted labeling and kick off a labeling task.
 
 ### Access for labelers
 
@@ -238,7 +238,7 @@ View and change details of your project. On this tab, you can:
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
-## Start a machine learning-assisted labeling task
+## Start an ML-assisted labeling task
 
 [!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
 
