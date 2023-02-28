@@ -5,7 +5,8 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 03/08/2022
+ms.custom: engagement-fy23
+ms.date: 02/28/2023
 
 --- 
 
@@ -125,7 +126,7 @@ Once the deployment is complete, you'll see a note in the output of the command 
 
 In the Azure portal, under **Settings**, go to **Configuration** and check if **Zone redundancy** is listed as enabled or disabled.
 
-   :::image type="content" source="media/quickstart-portal/configuration.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
+   :::image type="content" source="media/zone-redundancy/configuration-status.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
 
 ## Next steps
 
