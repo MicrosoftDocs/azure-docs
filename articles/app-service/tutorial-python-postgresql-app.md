@@ -417,6 +417,8 @@ Azure App Service captures all messages output to the console to help you diagno
 
 :::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
+Learn more about logging in Python in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python]).
+
 -----
 
 :::row:::
