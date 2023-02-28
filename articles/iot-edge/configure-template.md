@@ -1,6 +1,6 @@
 ---
-title: Configure IoT Edge using the config.toml file
-description: This article shows you how to configure the config.toml file for IoT Edge.
+title: Configure IoT Edge device settings
+description: This article shows you how to configure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
 ms.date: 02/27/2023
@@ -9,9 +9,9 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Configure IoT Edge using the config.toml file
+# Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file found in the `/etc/aziot` directory on an IoT Edge device. IoT Edge uses the *config.toml* to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
+This article shows settings and options for configuring the IoT Edge *config.toml* file found in the `/etc/aziot` directory on an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the `config.toml` file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
 A template containing all options can be found in the *config.toml.template* file within the `/etc/aziot` directory on an IoT Edge device.
 
@@ -43,7 +43,7 @@ For more information about setting the *parent_hostname* parameter, see [Connect
 
 ## Trust bundle certificate
 
-Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as trust bundle. If you are using a trust bundle, update the **trust_bundle_cert** parameter with the file URI to the root CA certificate on your device.
+Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as trust bundle. If you're using a trust bundle, update the **trust_bundle_cert** parameter with the file URI to the root CA certificate on your device.
 
 ```toml
 trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
@@ -69,7 +69,7 @@ This property specifies the conditions that the device attempts to automatically
 
 | Mode | Description |
 |------|-------------|
-| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. |
+| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is the default. |
 | AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
 | OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
 
@@ -87,7 +87,7 @@ These settings control the timeout and retries for cloud operations, such as com
 
 The **cloud_timeout_sec** parameter is the deadline in seconds for a network request to cloud services. For example, an HTTP request. A response from the cloud service must be received before this deadline, or the request fails as a timeout.
 
-The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of 3 attempts).
+The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of three attempts.
 
 ```toml
 cloud_timeout_sec = 10
@@ -185,7 +185,7 @@ subject = { L = "AQ", ST = "Antarctica", CN = "my-device" } # with the given DN 
 
 ### Enable automatic renewal of the device ID certificate
 
-Autorenewal requires a known certificate issuance method. This means that 'method' is either 'est' or 'local_ca'.
+Autorenewal requires a known certificate issuance method. Set **method** to either 'est' or 'local_ca'.
 
 >[!IMPORTANT]
 > Only enable autorenewal if this device is configured for CA-based DPS enrollment. Using autorenewal for an individual enrollment causes the device to be unable to reprovision.
@@ -350,7 +350,7 @@ method = "est"
 
 ### Optional EST configuration for issuing the Edge CA certificate
 
-If not set, the defaults in [cert_issuance.est] is used.
+If not set, the defaults in [cert_issuance.est] are used.
 
 ```toml
 common_name = "aziot-edge CA"
@@ -406,7 +406,7 @@ auto_generated_edge_ca_expiry_days = 90
 
 ## Edge CA certificate autorenewal
 
-This setting manages autorenewal of the Edge CA certificate. This applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime won't have enough information to renew them.
+This setting manages autorenewal of the Edge CA certificate. Autorenewal applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime doesn't have enough information to renew them.
 
 > [!IMPORTANT]
 > Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal.
