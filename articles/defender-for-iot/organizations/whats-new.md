@@ -40,7 +40,7 @@ For more information, see <!--fix xref-->[Defender for IoT device inventory](htt
 
 The following enhancements were added to the OT sensor's device inventory in version 22.3.6:
 
-- A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor. Edit device details directly from the device inventory page on the OT sensor console using the new **Edit** button in the command bar at the top of the page.
+- A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor. Edit device details directly from the device inventory page on the OT sensor console using the new **Edit** button in the toolbar at the top of the page.
 - The OT sensor now supports [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) simultaneously.
 - The procedures for [merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages that appear when the action has completed. 
 
