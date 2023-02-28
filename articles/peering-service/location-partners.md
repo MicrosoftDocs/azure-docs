@@ -24,6 +24,7 @@ The table in this article provides information on the Peering Service connectivi
 | **Partners** | **Market**|
 |-----------|---------|
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
+| [AMS-IX] (https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |Europe|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
