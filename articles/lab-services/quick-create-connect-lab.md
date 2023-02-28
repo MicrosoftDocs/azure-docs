@@ -138,6 +138,8 @@ You can now explore and experiment within the lab virtual machine.
 
 [!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
 
+[!INCLUDE [Troubleshoot region restriction](./includes/lab-services-troubleshoot-region-restriction.md)]
+
 ## Next steps
 
 You've successfully created a lab virtual machine for experimenting inside the VM. You created a lab plan in the Azure portal and added a lab from the Azure Lab Services website. You then published the lab to create the lab VM, and connect to it with remote desktop.
