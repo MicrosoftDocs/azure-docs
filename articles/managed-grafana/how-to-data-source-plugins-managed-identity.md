@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 1/12/2022
+ms.date: 1/12/2023
 ---
 
 # How to configure data sources for Azure Managed Grafana
