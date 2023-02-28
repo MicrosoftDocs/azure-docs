@@ -417,8 +417,6 @@ Azure App Service captures all messages output to the console to help you diagno
 
 :::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
-Learn more about logging in Python in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python]).
-
 -----
 
 :::row:::
@@ -440,6 +438,8 @@ Learn more about logging in Python in the series on [setting up Azure Monitor fo
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-stream-diagnostic-logs-2.png":::
     :::column-end:::
 :::row-end:::
+
+Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python]).
 
 ## 7. Clean up resources
 
