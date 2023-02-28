@@ -155,7 +155,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 1. Paste in this sample into file *staticwebapp.database.config.json* you generated.
 
-    ```json
+```json
 {
   "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
   "data-source": {
