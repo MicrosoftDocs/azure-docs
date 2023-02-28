@@ -88,7 +88,7 @@ In the project's root directory, follow these steps:
 
 1. Create an `.env` file in the root folder of the project using `.env.sample.b2c` as a guide.
 
-    ```python
+    ```shell
     FLASK_DEBUG=True
     TENANT_NAME=<tenant id>
     CLIENT_ID=<client id>
