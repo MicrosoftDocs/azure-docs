@@ -226,9 +226,8 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 ## Next steps
 For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../virtual-machines/linux/tutorial-virtual-network.md) tutorials.
 
-There are also tutorials on how to load balance VMs and create highly available applications for [Windows](../virtual-machines/windows/tutorial-load-balancer.md) or [Linux](../virtual-machines/linux/tutorial-load-balancer.md).
+There are also quickstarts on how to load balance VMs and create highly available applications using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)
 
-- Learn how to configure [user-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 - Learn how to configure [VNet to VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md).
 - Learn more about [Virtual machine network bandwidth](../virtual-network/virtual-machine-network-throughput.md).
