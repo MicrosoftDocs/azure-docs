@@ -1,5 +1,5 @@
 ---
-title: Assign, update, list, or remove custom security attributes for an application (Preview) - Azure Active Directory
+title: Manage custom security attributes for an application (Preview) - Azure Active Directory
 description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: omondiatieno
@@ -14,7 +14,7 @@ zone_pivot_groups: enterprise-apps-all
 
 ---
 
-# Assign, update, list, or remove custom security attributes for an application (Preview)
+# Manage custom security attributes for an application (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -34,7 +34,11 @@ To assign or remove custom security attributes for an application in your Azure 
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles don't have permissions to read, define, or assign custom security attributes.
 
-## Assign custom security attributes to an application
+## Assign, update, list, or remove  custom attributes for an application
+
+Learn how to work with custom attributes for applications in Azure AD.
+### Assign custom security attributes to an application
+
 
 :::zone pivot="portal"
 
@@ -64,7 +68,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 1. When finished, select **Save** to assign the custom security attributes to the application.
 
-## Update custom security attribute assignment values for an application
+### Update custom security attribute assignment values for an application
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -82,7 +86,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 1. When finished, select **Save**.
 
-## Filter applications based on custom security attributes
+### Filter applications based on custom security attributes
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
@@ -106,7 +110,7 @@ You can filter the list of custom security attributes assigned to applications o
 
 1. To apply the filter, select **Apply**.
 
-## Remove custom security attribute assignments from applications
+### Remove custom security attribute assignments from applications
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -123,11 +127,11 @@ You can filter the list of custom security attributes assigned to applications o
 :::zone-end
 
 :::zone pivot="aad-powershell"
-## PowerShell
+### PowerShell
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
 
-## Assign a custom security attribute with a multi-string value to an application (service principal)
+### Assign a custom security attribute with a multi-string value to an application (service principal)
 
 Use the [Set-AzureADMSServicePrincipal](/powershell/module/azuread/set-azureadmsserviceprincipal) command to assign a custom security attribute with a multi-string value to an application (service principal).
 
@@ -147,7 +151,7 @@ $attributes = @{
 Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributes
 ```
 
-## Update a custom security attribute with a multi-string value for an application (service principal)
+### Update a custom security attribute with a multi-string value for an application (service principal)
 
 Provide the new set of attribute values that you would like to reflect on the application. In this example, we're adding one more value for project attribute.
 
@@ -167,7 +171,7 @@ $attributesUpdate = @{
 Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributesUpdate 
 ```
 
-## Get the custom security attribute assignments for an application (service principal)
+### Get the custom security attribute assignments for an application (service principal)
 
 Use the [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadmsserviceprincipal) command to get the custom security attribute assignments for an application (service principal).
 
@@ -182,7 +186,7 @@ Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select 
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use Microsoft Graph PowerShell. The following commands can be used to manage assignments.
 
-## Assign a custom security attribute with a multi-string value to an application (service principal)
+### Assign a custom security attribute with a multi-string value to an application (service principal)
 
 Use the [Set-AzureADMSServicePrincipal](/powershell/module/azuread/set-azureadmsserviceprincipal) command to assign a custom security attribute with a multi-string value to an application (service principal).
 
@@ -210,7 +214,7 @@ ProjectDate ="Baker"
 Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $params
 ```
 
-## Update a custom security attribute with a multi-string value for an application (service principal)
+### Update a custom security attribute with a multi-string value for an application (service principal)
 
 Provide the new set of attribute values that you would like to reflect on the application. In this example, we're adding one more value for project attribute.
 
@@ -229,7 +233,7 @@ Project =@(
 Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $params
 ```
 
-## Filter applications based on custom security attributes
+### Filter applications based on custom security attributes
 
 This example filters a list of applications with a custom security attribute assignment that equals the specified value.
 
@@ -237,7 +241,7 @@ This example filters a list of applications with a custom security attribute ass
 Get-MgServicePrincipal -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Engineering/Project eq 'Baker'" -ConsistencyLevel eventual
 ```
 
-## Remove custom security attribute assignments from applications
+### Remove custom security attribute assignments from applications
 
 In this example, we remove a custom security attribute assignment that supports multiple values. 
 
@@ -257,13 +261,13 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 :::zone-end
 
-:::zone pivot="ms-graph
+:::zone pivot="ms-graph"
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
 For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
-## Assign a custom security attribute with a multi-string value to an application (service principal)
+### Assign a custom security attribute with a multi-string value to an application (service principal)
 
 Use the [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) API to assign a custom security attribute with a string value to an application.
 
@@ -291,7 +295,7 @@ Content-type: application/json
 }
 ```
 
-## Update a custom security attribute with a multi-string value for an application (service principal)
+### Update a custom security attribute with a multi-string value for an application (service principal)
 
 Provide the new set of attribute values that you would like to reflect on the application. In this example, we're adding one more value for project attribute.
 
@@ -312,7 +316,7 @@ Content-type: application/json
 }
 ```
 
-## Filter applications based on custom security attributes
+### Filter applications based on custom security attributes
 
 This example filters a list of applications with a custom security attribute assignment that equals the specified value.
 
@@ -320,7 +324,7 @@ This example filters a list of applications with a custom security attribute ass
 GET https://graph.microsoft.com/beta/servicePrincipals?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Engineering/Project eq 'Baker'ConsistencyLevel: eventual
 ```
 
-## Remove custom security attribute assignments from an application
+### Remove custom security attribute assignments from an application
 
 In this example, we remove a custom security attribute assignment that supports multiple values. 
 
