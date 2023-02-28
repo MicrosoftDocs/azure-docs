@@ -20,7 +20,7 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
-You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal. Both these methods deploy a pooled host pool, not a personal host pool.
+You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal. Both these methods deploy a pooled host pool.
 
 # [Manual deployment](#tab/manual-deployment)
 
@@ -101,7 +101,7 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
 
         `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-        rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
     
-    1. In **Token Expiration Time**, enter host pool token expiration. If left blank, the default is the current UTC time.
+    1. In **Token Expiration Time**, enter the host pool token expiration. If left blank, the template automatically takes the current UTC time as the default value.
     
     1. In **Tags**, enter values for tags in the following format:
     
@@ -162,7 +162,7 @@ To create a profile container using a file share:
 
 You can add new session hosts to an existing host pool that was created either manually or using the custom template.
 
-To get started, select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplatecreatega) button.
+To get started, select the [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/avdarmtemplateaddga) button.
 
 The custom template opens in the Azure portal. To find all the relevant custom templates, see [Quick Deploy templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/HCI/HybridCompute) on GitHub.
 
