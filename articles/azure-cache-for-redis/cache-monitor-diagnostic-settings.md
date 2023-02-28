@@ -245,7 +245,7 @@ az monitor diagnostic-settings create
 
 ## Contents of the Connection Logs
 
-### Basic, Standard, and Premium tiers
+### [Connection Log Contents for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 These fields and properties appear in the `ConnectedClientList` log category. In **Azure Monitor**, logs are collected in the `ACRConnectedClientList` table under the resource provider name of `MICROSOFT.CACHE`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
@@ -291,8 +291,10 @@ If you send your logs to a storage account, the contents of the logs look like t
     "operationName": "Microsoft.Cache/ClientList"
 }
 ```
+---
 
-### Enterprise and Enterprise Flash tiers (preview)
+### [Connection Log Contents for Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+
 These fields and properties appear in the `Connection events` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
@@ -348,6 +350,8 @@ And the log for an auth event will look like this:
         }
     }
 ```
+
+---
 
 ## Log Analytics Queries
 
