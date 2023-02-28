@@ -1,7 +1,7 @@
 ---
-title: Quickstart - create a conversations language understanding project
+title: Quickstart - create a conversational language understanding project
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with Conversational Language Understanding
+description: Quickly start building an AI model to extract information and predict the intentions of utterances.
 services: cognitive-services
 author: aahill
 manager: nitinme

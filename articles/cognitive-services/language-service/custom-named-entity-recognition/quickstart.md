@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Custom named entity recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started using Custom Named Entity Recognition (NER) with Language Studio
+description: Quickly get started using Custom Named Entity Recognition (NER)
 services: cognitive-services
 author: aahill
 manager: nitinme
