@@ -46,7 +46,7 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If you're using the Language Studio for the first time, a **Select an Azure resource** pop-up screen will appear. Make the following selections:
+1. If you're using the Language Studio for the first time, a **Select an Azure resource** pop-up screen appears. Make the following selections:
 
    * **Azure directory**.
    * **Azure subscription**.

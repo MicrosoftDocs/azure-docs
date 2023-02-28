@@ -116,7 +116,7 @@ For this project, you need a **source document** uploaded to your **source conta
 
 ## HTTP request
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents are listed in your target container.
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
 
 ### Headers
 
