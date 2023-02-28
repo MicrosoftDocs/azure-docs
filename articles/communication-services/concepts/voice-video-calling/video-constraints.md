@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Video Constraints
+# Video constraints
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
@@ -21,7 +21,7 @@ The Video Constraints API is a powerful tool that enables developers to control 
 
 Another benefit of the Video Constraints API is that it enables developers to optimize the video call for different devices. For example, if a user is using an older device with limited processing power, developers can set constraints on the video resolution to ensure that the video call runs smoothly on that device
 
-Currently ACS supports setting the maximum video resolution that a client will send. The maximum resolution is set at the start of the call and is static throughout the entirity of the call. The sender max video resolution constraint is supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser.
+Currently ACS supports setting the maximum video resolution that a client will send. The maximum resolution is set at the start of the call and is static throughout the entire call. The sender max video resolution constraint is supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser.
 
 > [!NOTE]
 > Video Constraints is currently supported only for our JavaScript / Web SDK, and is available starting in version [1.11.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-beta.1) of the Calling SDK.
@@ -29,8 +29,8 @@ Currently ACS supports setting the maximum video resolution that a client will s
 > [!NOTE]
 > Future versions of the Video Contraint API will allow enhanced ability by giving control to set the maximum FPS and bitrate, as well as the ability to enforce the video constraint at different points of a call (and not just at the start of a video call).
 
-## Using Video Constraints
-The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within CallOptions when you make a call, accept a call, or join a call. You will also have to specify `localVideoStreams` in `videoOptions`. Do note that constraints doesn't work if you join a call with audio only option and turn on the camera later.
+## Using video constraints
+The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within CallOptions when you make a call, accept a call, or join a call. You will also have to specify `localVideoStreams` in `videoOptions`. Do note that constraints don't work if you join a call with audio only option and turn on the camera later.
 
 ```javascript
 const callOptions = {
@@ -74,7 +74,7 @@ export declare type MediaConstraintRange = {
 };
 ```
 
-### Sender Max Video Resolution Constraint
+### Sender max video resolution constraint
 
 With sender max video resolution constraint, you can limit the max video resolution of the sending stream. The value you have to provide for this constraint is `height`.
 
