@@ -210,7 +210,7 @@ To check whether the event driven app work well, let's validate it by sending a 
 ## Clean up resources
 To avoid unnecessary cost, use the following commands to delete the resource group.
 ```azurecli-interactive
-az group delete --name ${RESOURCE_GROUP}
+az group delete --name ${RESOURCE_GROUP} --yes
 ```
 
 ## Next steps
