@@ -3699,7 +3699,67 @@
         "source_path_from_root": "/articles/machine-learning/how-to-trigger-published-pipelines.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-trigger-published-pipeline",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-fairness-aml.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-fairness-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-interpretability-aml.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-interpretability-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-track-designer-experiments.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-track-designer-experiments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-execute-r-script.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-execute-r-script",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-overview.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-experiment.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-experiment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-integrate-with-client-app.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-integrate-with-client-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-rebuild-web-service.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-rebuild-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/migrate-register-dataset.md",
+        "redirect_url": "/azure/machine-learning/v1/migrate-register-dataset",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-change-storage-access-key.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-change-storage-access-key",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-high-availability-machine-learning.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-high-availability-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/overview-what-happened-to-workbench.md",
+        "redirect_url": "/azure/machine-learning/v1/overview-what-happened-to-workbench",
+        "redirect_document_id": true
     }
-    
+]
 ]
 }
