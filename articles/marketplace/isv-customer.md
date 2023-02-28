@@ -83,6 +83,7 @@ Use this page to define private offer terms, notification contacts, and pricing 
    
 > [!NOTE]
 > Customers can find their billing account ID in 3 ways. 1) Customer can scan their account using the [private offer pre-check functionality](/marketplace/private-offers-pre-check), and export the report with billing account ID included. 2) In the **[Azure portal](https://aka.ms/PrivateOfferAzurePortal)** under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 3) If the customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription > **Properties** (or Billing Properties) > **Billing Account ID**. See **[Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts)**.
+
 :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
 ![Screenshot showing subscription name properties.](media/isv-customer/subscription-name-properties.png)
