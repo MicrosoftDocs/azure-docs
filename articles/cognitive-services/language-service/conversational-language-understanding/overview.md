@@ -1,7 +1,7 @@
 ---
 title: Conversational Language Understanding - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Conversational Language Understanding.
+description: Customize an AI model to predict the intentions of utterances, and extract important information from them.
 services: cognitive-services
 author: aahill
 manager: nitinme
