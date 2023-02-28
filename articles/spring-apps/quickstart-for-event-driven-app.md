@@ -207,12 +207,6 @@ To check whether the event driven app work well, let's validate it by sending a 
 1. Check whether there is a new message send to `upper-case` queue. You can refer to [Peek a message](/azure/service-bus-messaging/explorer#peek-a-message) to get more information about how to do this.
 
 
-## Clean up resources
-To avoid unnecessary cost, use the following commands to delete the resource group.
-```azurecli-interactive
-az group delete --name ${RESOURCE_GROUP} --yes
-```
-
 ## Next steps
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 - [Spring on Azure](/azure/developer/java/spring/)
