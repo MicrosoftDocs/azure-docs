@@ -13,10 +13,10 @@ Container security protects the entire end-to-end pipeline from build to the app
 
 The Secure Supply Chain includes the build environment and registry.
 
-Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+Kubernetes includes security components, such as *pod security standards* and *Secrets*. Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
 
 * Provide a complete authentication and authorization story.
-* Leverage AKS Built-in Azure Policy to secure your applications.
+* Apply AKS Built-in Azure Policy to secure your applications.
 * End-to-End insight from build through your application with Microsoft Defender for Containers.
 * Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
 * Provide secure pod traffic and access to sensitive credentials.
@@ -25,11 +25,11 @@ This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues.
+As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that breaks development. It's about looking at the **Vendor Status** to segment based on vulnerabilities that are actionable by the development teams. Also use **Grace Periods** to allow developers time to remediate identified issues.
 
 ## Registry Security
 
-Assessing the vulnerability state of the image in the Registry will detect drift and will also catch images that didn't come from your build environment. Use [Notary V2](https://github.com/notaryproject/notaryproject) to attach signatures to your images to ensure deployments are coming from a trusted location.
+Assessing the vulnerability state of the image in the Registry detects drift and also catches images that didn't come from your build environment. Use [Notary V2](https://github.com/notaryproject/notaryproject) to attach signatures to your images to ensure deployments are coming from a trusted location.
 
 ## Cluster security
 
@@ -50,7 +50,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 
 > [!NOTE]
 > AKS clusters using:
-> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> * Kubernetes version 1.19 and greater for Linux node pools use `containerd` as its container runtime. Using `containerd` with Windows Server 2019 node pools is currently in preview. For more information, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
 > * Kubernetes prior to v1.19 for Linux node pools use Docker as its container runtime. For Windows Server 2019 node pools, Docker is the default container runtime.
 
 For more information about the security upgrade process for Linux and Windows worker nodes, see [Security patching nodes][aks-vulnerability-management-nodes].
@@ -106,7 +106,7 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 To filter virtual network traffic flow, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. You create services with load balancers, port mappings, or ingress routes. AKS automatically modifies the network security group for traffic flow.
 
-If you provide your own subnet for your AKS cluster (whether using Azure CNI or Kubenet), **do not** modify the NIC-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Make sure they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
+If you provide your own subnet for your AKS cluster (whether using Azure CNI or Kubenet), **do not** modify the NIC-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Verify they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
 
 ### Kubernetes network policy
 
@@ -114,7 +114,7 @@ To limit network traffic between pods in your cluster, AKS offers support for [K
 
 ## Application Security
 
-To protect pods running on AKS leverage [Microsoft Defender for Containers][microsoft-defender-for-containers] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
+To protect pods running on AKS, consider [Microsoft Defender for Containers][microsoft-defender-for-containers] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
 
 ## Kubernetes Secrets
 
@@ -124,15 +124,15 @@ With a Kubernetes *Secret*, you inject sensitive data into pods, such as access 
 1. Define your pod or deployment and request a specific Secret.
     * Secrets are only provided to nodes with a scheduled pod that requires them.
     * The Secret is stored in *tmpfs*, not written to disk.
-1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's tmpfs.
-   * Secrets are stored within a given namespace and can only be accessed by pods within the same namespace.
+1. When you delete the last pod on a node requiring a Secret, the Secret is deleted from the node's *tmpfs*.
+   * Secrets are stored within a given namespace and are only accessible from pods within the same namespace.
 
 Using Secrets reduces the sensitive information defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret.
 
 > [!NOTE]
 > The raw secret manifest files contain the secret data in base64 format (see the [official documentation][secret-risks] for more details). Treat these files as sensitive information, and never commit them to source control.
 
-Kubernetes secrets are stored in etcd, a distributed key-value store. Etcd store is fully managed by AKS and [data is encrypted at rest within the Azure platform][encryption-atrest]. 
+Kubernetes secrets are stored in etcd, a distributed key-value store. AKS fully manages the Etcd store and [data is encrypted at rest within the Azure platform][encryption-atrest].
 
 ## Next steps
 
