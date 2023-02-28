@@ -38,7 +38,7 @@ You can open your database in Power BI desktop from Azure portal with a few clic
 5. Select a database from the drop down, for example *contactsdb* and then select **Get started**. 
 6. Download the Power BI desktop file *contactsdb.pbids*. 
 
-   :::image type="content" source="./media/connect-with-powerbi-desktop/use-azure-db-for-mysql-with-power-bi-desktop.png" alt-text="Screenshot of viewing Power BI in Azure portal to connect to the database.":::
+   :::image type="content" source="./media/connect-with-powerbi-desktop/download-powerbi-desktop-file-for-database.png" alt-text="Screenshot of downloading Power BI file for the database.":::
    
 7. Open the file in Power BI desktop.
 8. Switch to **Database** tab to provide the username and password for your database server. **Note Windows authentication is not supported for Azure database for MySQL Flexible Server.**
