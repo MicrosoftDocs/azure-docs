@@ -373,7 +373,7 @@ public class QueueTriggerDemo {
 ::: zone pivot="programming-language-python"  
 ## Decorators
 
-_Applies only to the Python v2 programming model_
+_Applies only to the Python v2 programming model._
 
 For Python v2 functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
 
@@ -387,11 +387,13 @@ For Python functions defined by using function.json, see the Configuration secti
 ::: zone-end                   
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
-
-::: zone pivot="programming-language-python" 
-_Applies only to the Python v1 programming model_
 ::: zone-end
 
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
 |function.json property | Description|
