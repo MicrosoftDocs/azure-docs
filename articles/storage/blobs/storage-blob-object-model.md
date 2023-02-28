@@ -1,7 +1,7 @@
 ---
 title: Understand the Blob Storage object model
 titleSuffix: Azure Storage
-description: Get started developing a Python application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
+description: Understand the Blob Storage object model and how to work with data resources using the SDK. This article explores resource types and what happens when application code uses the Azure Blob Storage client libraries to interact with these various resources.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -135,3 +135,6 @@ The following package contains the classes used to work with Blob Storage data r
 
 ---
 
+## Next steps
+
+Working with Azure resources using the SDK begins with creating a client instance. To learn more about client object creation and management, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
