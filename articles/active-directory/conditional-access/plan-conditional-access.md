@@ -66,7 +66,7 @@ Will this policy apply to any application, user action, or authentication contex
 
 *	What application(s) will the policy apply to?
 *	What user actions will be subject to this policy?
-*	What authentication contexts does this policy will be applied to?
+*	What authentication contexts will this policy be applied to?
 
 **Conditions**
 
