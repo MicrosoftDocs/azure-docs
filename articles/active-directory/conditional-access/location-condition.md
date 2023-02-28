@@ -21,6 +21,9 @@ Conditional Access policies are at their most basic an if-then statement combini
 
 ![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
+> [!IMPORTANT]
+> [IPv6 is coming to Azure Active Directory (Azure AD)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/ipv6-coming-to-azure-ad/ba-p/2967451). We will begin introducing IPv6 support into Azure AD services in a phased approach, starting March 31, 2023. Organizations that use named locations in Conditional Access or Identity Protection must [take action to avoid possible service impact](/troubleshoot/azure/active-directory/azure-ad-ipv6-support#what-does-my-organization-have-to-do).
+
 Organizations can use this location for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
