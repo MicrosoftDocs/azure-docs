@@ -28,11 +28,11 @@ landingContent:
         links:
           - text: Modeling and Simulation Workbench
             url: ./concept-workbench.md
-          - text: Modeling and Simulation Workbench chamber
+          - text: Chamber
             url: ./concept-chamber.md
-          - text: Modeling and Simulation Workbench connector
+          - text: Connector
             url: ./concept-connector.md
-          - text: Modeling and Simulation Workbench data pipeline
+          - text: Data Pipeline
             url: ./concept-datapipeline.md
 
   # Card: Get started
