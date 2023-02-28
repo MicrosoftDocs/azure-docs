@@ -31,12 +31,12 @@ Click on + Add diagnostic setting
 ![Screenshot that shows how to enable diagnostics for aks cluster](https://user-images.githubusercontent.com/17014671/221720712-31409209-0860-4bd5-b6f6-39967d96eb4c.png)
 
 ### Diagnostic setting
-1 Give a name to the Diagnostic setting
-2 Select Kubernetes Audit under Categories
-3 Choose Send to Log Analytics workspace under Destination details
-4 Select the subscription for the Log Analytics workspace
-5 Choose the Log Analytics workspace to send the logs
-6 Save the settings
+1.  Give a name to the Diagnostic setting
+2.  Select Kubernetes Audit under Categories
+3.  Choose Send to Log Analytics workspace under Destination details
+4.  Select the subscription for the Log Analytics workspace
+5.  Choose the Log Analytics workspace to send the logs
+6.  Save the settings
 
 
 ![Screenshot that shows how to enable diagnostics for aks cluster](https://user-images.githubusercontent.com/17014671/221721006-02f5f7f6-3e1c-40cc-a26a-9d24297a4235.png)
