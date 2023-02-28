@@ -418,7 +418,7 @@ directCommands:
     syntax: swa deploy --env production
 - uid: swa_db
   name: swa db
-  summary: Configure database connection settings
+  summary: Use [Data API builder](https://github.com/Azure/data-api-builder) to configure database connection settings.
   description: >-
     Use `swa db init` to generate a sample *staticwebapp.database.config.json* file.
   syntax: >-

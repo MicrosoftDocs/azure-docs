@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ---
 
 # Connecting to a database with Azure Static Web Apps (preview)

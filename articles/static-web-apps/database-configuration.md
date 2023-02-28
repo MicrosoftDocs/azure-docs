@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 02/28/2023
 ---
 
 # Database connection configuration in Azure Static Web Apps (preview)
@@ -126,6 +126,16 @@ data_api_location: "db-config" # Folder holding the staticwebapps.database.confi
 
 > [!NOTE]
 > The `data_api_location` definition must immediately follow the `output_location` definition.
+
+## Configure database connectivity
+
+Azure Static Web Apps must have network access to your database for database connections to work. Additionally, to use an Azure database for local development, you need to configure your database to allow requests from your own IP address. The following are generic steps that apply to all databases. For specific steps for your database type, refer to the above links.
+
+- Go to your database in the [Azure portal](https://portal.azure.com).
+- Go to the Networking tab.
+- Under the Firewall rules section, select **Add your client IPv4 address**. This ensures that you can use this database for your local development.
+- Select the **Allow Azure services and resources to access this server** checkbox. This ensures that your deployed Static Web Apps resource can access your database.
+- Select **Save**.
 
 ## Connect a database
 
