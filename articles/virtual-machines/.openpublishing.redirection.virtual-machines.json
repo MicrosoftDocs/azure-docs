@@ -4890,6 +4890,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-vm-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/upload-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
             "redirect_document_id": false
