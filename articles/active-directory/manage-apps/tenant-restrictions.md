@@ -236,7 +236,7 @@ Following the recommendation from Google, Microsoft client apps ignore user cert
 
 For such environments that can't break and inspect traffic to add the tenant restrictions parameters onto the header, other features of Azure AD can provide protection. The following list provides more information on such Azure AD features.
 
-- [Conditional Access: Only allow use of managed/compliant devices](https:/mem/intune/protect/conditional-access-intune-common-ways-use#device-based-conditional-access)
+- [Conditional Access: Only allow use of managed/compliant devices](/mem/intune/protect/conditional-access-intune-common-ways-use#device-based-conditional-access)
 - [Conditional Access: Manage access for guest/external users](/microsoft-365/security/office-365-security/identity-access-policies-guest-access)
 - [B2B Collaboration: Restrict outbound rules by Cross-tenant access for the same tenants listed in the parameter "Restrict-Access-To-Tenants"](../external-identities/cross-tenant-access-settings-b2b-collaboration.md)
 - [B2B Collaboration: Restrict invitations to B2B users to the same domains listed in the "Restrict-Access-To-Tenants" parameter](../external-identities/allow-deny-list.md)
