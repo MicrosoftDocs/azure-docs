@@ -112,7 +112,7 @@ To learn more, go to Azure PowerShell command [New-AzVmss](/powershell/module/az
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSrestON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
 
@@ -137,7 +137,7 @@ This process ensures the placement for the Capacity Reservations and Scale Set i
 
 - **Automatic Upgrade** – In this mode, the scale set VM instances are automatically associated with the Capacity Reservation group without any further action from you. When the scale set VMs are reallocated, they start consuming the reserved capacity.
 - **Rolling Upgrade** – In this mode, scale set VM instances are associated with the Capacity Reservation group without any further action from you. However, they are updated in batches with an optional pause time between them. When the scale set VMs are reallocated, they start consuming the reserved capacity.
-- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is attached to a Capacity Reservation group. You will need to update to each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is attached to a Capacity Reservation group. You will need to update to each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md).
 
 ### [API](#tab/api2)
 
