@@ -220,22 +220,25 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Blocking
 
-**Fix**: The fix depends on the type of managed identity that you'd like to use. (The difference between a system-assigned and a user-assigned managed identity can be reviewed at [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). **Note**: The MedTech service only supports one identity, either a system-assigned managed identity or a single user-assigned managed identity identity.
+**Fix**: The fix depends on the type of managed identity that you'd like to use. The difference between a system-assigned and a user-assigned managed identity can be reviewed at [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). **Note**: The MedTech service supports only one identity: either a system-assigned managed identity or a single user-assigned managed identity.  
 
 If you'd like to use a system-assigned managed identity:
-  1. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing the `type` value of `"SystemAssigned"` (see example ARM template in the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
-  2. On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure the following:
-      * The system-assigned managed identity’s **Status** is set to **On**.
-      * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+
+1. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing the `type` value of `"SystemAssigned"` (see example ARM template in the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
+
+2. On the Azure portal, go to the **Identity** blade of your MedTech service, go to the **System assigned** tab, and ensure the following:
+   * The **Status** is set to **On**.
+   * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity. If not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub). 
 
 If you'd like to use a user-assigned managed identity:
-  1. Create a user-assigned managed identity [using the Azure portal](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or [using an ARM template](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
-  2. Assign the user-assigned managed identity to your MedTech service by deploying the MedTech service using an ARM template that's similar to [this example](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm#assign-a-user-assigned-managed-identity-to-an-azure-vm). Your MedTech service resource in the ARM template should have an `identity` property containing 1) the `type` value of `"userAssigned"` and 2) a `userAssignedIdentities` value that includes your user-assigned managed identity's name.
-  3. On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure that the system-assigned managed identity’s **Status** is set to **Off**.
-  4.  On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service's user-assigned managed identity (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub), but use the user-assigned managed identity instead of the system-assigned managed identity).
 
-> [!NOTE]
->
+1. Ensure that you have a user-assigned managed identity. If not, create one using the [Azure portal](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or an [ARM template](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
+
+2. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing 1) the `type` value of `"userAssigned"` and 2) a `userAssignedIdentities` value that includes your user-assigned managed identity's name (see example at [Assign a user-assigned managed identity to an Azure VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm#assign-a-user-assigned-managed-identity-to-an-azure-vm)).
+
+3. On the Azure portal, go to the **Identity** blade of your MedTech service, go to the **User assigned** tab, and ensure that your user-assigned managed identity is shown. If not, add your user-assigned managed identity (see example at [Assign a user-assigned managed identity to an existing VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#assign-a-user-assigned-managed-identity-to-an-existing-vm)).
+
+4. On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service's user-assigned managed identity (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub), but use the user-assigned managed identity instead of the system-assigned managed identity).
 
 ### MultipleResourceFoundException
 
