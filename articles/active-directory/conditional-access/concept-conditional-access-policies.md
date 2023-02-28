@@ -36,7 +36,7 @@ All policies are enforced in two phases:
    - Use the session details gathered in phase 1 to identify any requirements that haven't been met. 
    - If there's a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
    - The user will be prompted to complete more grant control requirements that weren't satisfied during phase 1 in the following order, until policy is satisfied:  
-      1. [Multifactor Authentication​](concept-conditional-access-grant.md#require-multi-factor-authentication)
+      1. [Multifactor Authentication​](concept-conditional-access-grant.md#require-multifactor-authentication)
       2. [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
       3. [Hybrid Azure AD joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
       4. [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
