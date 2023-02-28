@@ -82,8 +82,14 @@ The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in
 
 
 ### Template
+
+## Perform Manual Upgrades
  
-To update existing VMs, you must do a "manual upgrade" of each existing VM. You can do this manual upgrade with:
+If you have the Upgrade Policy set to manual, you need to perform manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
+
+> [!NOTE]
+> While upgrading, the instances may be restarted.
+
 
 - REST API with [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
 
@@ -103,15 +109,11 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-   > [!NOTE]
-   > The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
-
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
-There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
+There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
 - REST API with [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
 
@@ -133,9 +135,6 @@ There is one type of modification to global scale set properties that does not f
 
    > [!NOTE]
    > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
-
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
-
 
 
 ## Next steps
