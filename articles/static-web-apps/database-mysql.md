@@ -215,7 +215,7 @@ Before moving on to the next step, review the following table that explains diff
 
 With the static web app configured to connect to the database, you can now verify the connection.
 
-[!INCLUDE [Database connection  - client code](../../includes/static-web-apps/static-web-apps-database-connection-client-code.md)]
+[!INCLUDE [Database connection  - client code](../../includes/static-web-apps-database-connection-client-code.md)]
 
 ## Clean up resources
 
