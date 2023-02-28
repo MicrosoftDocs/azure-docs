@@ -76,15 +76,15 @@ You can also use an integrated development environment to open the folder.
 1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
 
     ```python
+    TENANT_NAME=<tenant name>
     CLIENT_ID=<client id>
     CLIENT_SECRET=<client secret>
-    TENANT_ID=<tenant id>
     ```
 
+    * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
     * Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
     * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
-    * Set the value of `TENANT_NAME` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
-
+    
     The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
 ## Step 6: Run the sample app
