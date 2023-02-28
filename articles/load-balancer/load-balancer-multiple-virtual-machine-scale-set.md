@@ -1,6 +1,6 @@
 ---
 title: Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer 
-description: learn how to configure multiple Virtual Machine Scale Set instances behind a single Azure load Balancer 
+description: learn how to configure multiple Virtual Machine Scale Set instances behind a single Azure load Balancer.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer

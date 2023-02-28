@@ -18,7 +18,7 @@ Azure Machine Learning designer components (Designer) allow users to create mach
 
 This reference content provides background on each of the custom components (v2) available in Azure Machine Learning designer.
 
-You can navigate to Custom components in AzureML Studio as shown in the following image.
+You can navigate to Custom components in Azure Machine Learning Studio as shown in the following image.
 
 :::image type="content" source="media/designer-new-pipeline.png" alt-text="Diagram showing the Designer UI for selecting a custom component.":::
 

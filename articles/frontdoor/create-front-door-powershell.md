@@ -1,8 +1,7 @@
 ---
-title: 'Create an Azure Front Door Standard/Premium with Azure PowerShell'
-description: Learn how to create an Azure Front Door Standard/Premium with Azure PowerShell. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - Azure PowerShell'
+description: Learn how to create an Azure Front Door Standard/Premium using Azure PowerShell. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 services: front-door
-documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
@@ -10,9 +9,7 @@ ms.date: 06/28/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell, mode-api
-
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium - Azure PowerShell

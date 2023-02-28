@@ -19,12 +19,9 @@ The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from
 This article shows you how to enable the folder sharing between the Windows host OS and the EFLOW virtual machine. 
 
 ## Prerequisites
-- Azure IoT Edge for Linux on Windows 1.3.1.02092 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- Azure IoT Edge for Linux on Windows 1.4.4 LTS update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
 - A machine with an x64/x86 processor.
-- Windows 11 Sun Valley 2 (build 22621) or higher. To get Windows SV2 update, you must be part of Windows Insider Program. For more information, see [Getting started with the Windows Insider Program](https://insider.windows.com/getting-started). After installation, you can verify your build version by running `winver` at the command prompt.
-
->[!NOTE]
->We plan to include support for Windows 10 21H2 (version 19044) version, Windows Server 2019/2022, and ARM64 processors in the upcoming months. 
+- Windows 10/11 (21H2) or higher with [November 2022](https://support.microsoft.com/en-us/topic/november-15-2022-kb5020030-os-builds-19042-2311-19043-2311-19044-2311-and-19045-2311-preview-237a9048-f853-4e29-a3a2-62efdbea95e2) update applied.
 
 If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy and provision EFLOW.
 
@@ -32,7 +29,7 @@ If you don't have an EFLOW device ready, you should create one before continuing
 
 The Azure IoT Edge for Linux on Windows file and folder sharing mechanism is implemented using [virtiofs](https://virtio-fs.gitlab.io/) technology. *Virtiofs* is a shared file system that lets virtual machines access a directory tree on the host OS. Unlike other approaches, it's designed to offer local file system semantics and performance. *Virtiofs* isn't a network file system repurposed for virtualization. It's designed to take advantage of the locality of virtual machines and the hypervisor. It takes advantage of the virtual machine's co-location with the hypervisor to avoid overhead associated with network file systems.
 
-![Windows folder shared with the EFLOW virtual machine using Virtio-FS technology](media/how-to-share-windows-folder-to-vm/folder-sharing-virtiofs.png)
+:::image type="content" source="media/how-to-share-windows-folder-to-vm/folder-sharing-virtiofs.png" alt-text="Screenshot of a Windows folder shared with the EFLOW virtual machine using Virtio-FS technology.":::
 
 Only Windows folders can be shared to the EFLOW Linux VM and not the other way. Also, for security reasons, when setting the folder sharing mechanism, the user must provide a _root folder_ and all the shared folders must be under that _root folder_. 
 
@@ -46,17 +43,20 @@ Before starting with the adding and removing share mechanisms, let's define four
 ## Add shared folders
 The following steps provide example EFLOW PowerShell commands to share one or more Windows host OS folders with the EFLOW virtual machine. 
 
+>[!NOTE]
+>If you're using Windows 10, ensure to reboot your Windows host OS after your fresh MSI instlalation or update before adding the Windows shared folders to the EFLOW VM.
+
 1. Start by creating a new root shared folder. Go to **File Explorer** and choose a location for the *root folder* and create the folder. 
 
-    For example, create a *root folder* under _C:\Shared_ named **EFLOW-Shared**.
+   For example, create a *root folder* under _C:\Shared_ named **EFLOW-Shared**.
 
-    ![Windows root folder](media/how-to-share-windows-folder-to-vm/root-folder.png)
+   :::image type="content" source="media/how-to-share-windows-folder-to-vm/root-folder.png" alt-text="Screenshot of the Windows root folder.":::
 
 1. Create one or more *shared folders* to be shared with the EFLOW virtual machine. Shared folders should be created under the *root folder* from the previous step. 
 
-    For example, create two folders one named **Read-Access** and one named **Read-Write-Access**. 
+   For example, create two folders one named **Read-Access** and one named **Read-Write-Access**. 
 
-    ![Windows shared folders](media/how-to-share-windows-folder-to-vm/shared-folders.png)
+   :::image type="content" source="media/how-to-share-windows-folder-to-vm/shared-folders.png" alt-text="Screenshot of Windows shared folders.":::
 
 1. Within the _Read-Access_ shared folder, create a sample file that we'll later read inside the EFLOW virtual machine.
 

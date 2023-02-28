@@ -89,6 +89,8 @@
       href: sentinel-solutions-catalog.md
     - name: Manage custom content with repositories
       href: ci-cd-custom-content.md
+    - name: OOTB content centralization changes
+      href: sentinel-content-centralize.md
   - name: Collect data
     items:
     - name: Data collection methods
@@ -248,6 +250,9 @@
       items:
       - name: Amazon Web Services logs
         href: connect-aws.md
+        items:
+        - name: Send CloudWatch events via Lambda function
+          href: cloudwatch-lambda-function.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud

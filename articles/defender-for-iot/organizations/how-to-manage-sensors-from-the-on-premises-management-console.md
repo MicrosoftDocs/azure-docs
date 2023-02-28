@@ -53,30 +53,6 @@ You can define the following sensor system settings from the management console:
 
 1. Select **Save**.
 
-## Update threat intelligence packages
-
-The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content.
-
-You can manually upload this file in the Azure portal and automatically update it to sensors.
-
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
-
-**To update the threat intelligence data:**
-
-1. Go to the Defender for IoT **Updates** page.
-
-1. Download and save the file.
-
-1. Sign in to the management console.
-
-1. On the side menu, select **System Settings**.
-
-1. Select the sensors that should receive the update in the **Sensor Engine Configuration** section.  
-
-1. In the **Select Threat Intelligence Data** section, select the plus sign (**+**).
-
-1. Upload the package that you downloaded from the Defender for IoT **Updates** page.
-
 ## Understand sensor disconnection events
 
 The **Site Manager** window displays disconnection information if sensors disconnect from their assigned on-premises management console. The following sensor disconnection information is available:
@@ -283,5 +259,5 @@ For more information, see:
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Update OT system software](update-ot-software.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
 - [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

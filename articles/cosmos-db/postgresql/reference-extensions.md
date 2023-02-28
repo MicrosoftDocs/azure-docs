@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 02/25/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -25,6 +25,8 @@ PostgreSQL extensions must be installed in your database before you can use them
 > ```sql
 > SELECT create_extension('postgis');
 > ```
+>
+> To remove an extension installed this way, use `drop_extension()`.
 
 Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Cosmos DB for PostgreSQL.
 
@@ -39,7 +41,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.8 | 11.1.4 | 11.1.4 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.8 | 11.1.5 | 11.2.0 |
 
 ### Data types extensions
 

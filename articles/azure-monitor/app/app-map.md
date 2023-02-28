@@ -245,8 +245,8 @@ For the [official definitions](https://github.com/Microsoft/ApplicationInsights-
 ```
 
 Alternatively, *cloud role instance* can be helpful for scenarios where a cloud role name tells you the problem is somewhere in your web front end. But you might be running multiple load-balanced servers across your web front end. Being able to drill in a layer deeper via Kusto queries and knowing if the issue is affecting all web front-end servers or instances or just one can be important.
-intelligent view
-A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
+
+Intelligent view A scenario when you might want to override the value for cloud role instance could be if your app is running in a containerized environment. In this case, just knowing the individual server might not be enough information to locate a specific issue.
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 

@@ -615,7 +615,7 @@ If you are still using Flux v1, we recommend migrating to Flux v2 as soon as pos
 
 To migrate to using Flux v2 in the same clusters where you've been using Flux v1, you first need to delete all Flux v1 `sourceControlConfigurations` from the clusters. Because Flux v2 has a fundamentally different architecture, the `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in a cluster.
 
-Removing Flux v1 `sourceControlConfigurations` will not stop any applications that are running on the clusters. However, When you remove Flux v1 configurations and then deploy Flux v2 configurations:
+Removing Flux v1 `sourceControlConfigurations` will not stop any applications that are running on the clusters. However, during the period when Flux v1 configuration is removed and Flux v2 extension is not yet fully deployed, expect that:
 
 * If there are new changes in the application manifests stored in a Git repository, these will not be pulled during the migration, and the application version deployed on the cluster will be stale.
 * If there are unintended changes in the cluster state and it deviates from the desired state specified in source Git repository, the cluster will not be able to self-heal.
