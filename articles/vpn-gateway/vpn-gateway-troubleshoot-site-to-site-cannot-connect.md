@@ -101,7 +101,8 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
     ```
 
 > [!Note]
-> Basic SKU VPN gateways do not reply to health probe. They are not recommended for [production workloads](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#workloads).
+> Basic SKU VPN gateways do not reply to health probe.
+> They are not recommended for [production workloads](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#workloads).
 
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 
