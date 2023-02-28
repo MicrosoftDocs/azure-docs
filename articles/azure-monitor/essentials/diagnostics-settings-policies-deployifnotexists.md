@@ -107,7 +107,7 @@ Select your subscription and set your resource group
     $rg = Get-AzResourceGroup -Name <resource groups name>    
 ```
 
-1. Get the policy defintiion and configure the parameters for the policy. In the example below we assign the policy to send keyVault logs to a Log Analytics workspace
+1. Get the policy definition and configure the parameters for the policy. In the example below we assign the policy to send keyVault logs to a Log Analytics workspace
 ```azurepowershell
   $definition = Get-AzPolicyDefinition |Where-Object Name -eq 6b359d8f-f88d-4052-aa7c-32015963ecc1
   $params =  @{"logAnalytics"="/subscriptions/<subscriptionID/resourcegroups/<resourcgroup>/providers/microsoft.operationalinsights/workspaces/<log anlaytics workspace name>"}  
@@ -171,13 +171,13 @@ For more information on remediation tasks, see [Remediate non-compliant resource
 ## Assign initiatives
 
 Initiatives are collections of policies. There are three initiatives for Azure Monitor Diagnostics settings:
-+ [Enable audit category group resource logging for supported resources to Event Hub](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
++ [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
 + [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
 + [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2Fd0567c0b-5849-4a5d-a2eb-5267eae1bbc7%22%5D)
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal1)
 
 1. From the policy **Definitions** page, select your scope.
 
@@ -211,26 +211,23 @@ Change the default name in the **Parameters** tab of the **Assign initiative** o
 
 :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
 
-### [CLI](#tab/cli)
-TBD
-
-### [PowerShell](#tab/Powershell)
+### [PowerShell](#tab/Powershell1)
 
 
-1. Set up your environemnt variables
+1. Set up your environment variables
     ```azurepowershell
     # Set up  your environment variables.
     $subscriptionId = <your subscription ID>;
     $rg = Get-AzResourceGroup -Name <your resource group name>;
     Select-AzSubscription $subscriptionId;
-    $logAnlayticsWorskspaceId=</subscriptions/$subscriptionId/resourcegroups/$rg.ResourceGroupName/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>>;
+    $logAnlayticsWorskspaceId=</subscriptions/$subscriptionId/resourcegroups/$rg.ResourceGroupName/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>;
     ```    
-1. Get the initiative defintion. In this example we'll use Initiative *Enable audit category group resource logging for supported resources to `
+1. Get the initiative definition. In this example, we'll use Initiative *Enable audit category group resource logging for supported resources to `
 Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5"
     ```azurepowershell
     $definition = Get-AzPolicySetDefinition |Where-Object ResourceID -eq /providers/Microsoft.Authorization/policySetDefinitions/f5b29bc4-feca-4cc6-a58a-772dd5e290a5;
     ```
-1. Set an assignment name and configure parameters. For this initiative, the parameters include the Log Analytics workspace id.
+1. Set an assignment name and configure parameters. For this initiative, the parameters include the Log Analytics workspace ID.
     ```azurepowershell
     $assignmentName=<your assignment name>;
     $params =  @{"logAnalytics"="/subscriptions/$subscriptionId/resourcegroups/$($rg.ResourceGroupName)/providers/microsoft.operationalinsights/workspaces/<your log analytics workspace>"}  
