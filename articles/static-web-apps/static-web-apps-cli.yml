@@ -420,13 +420,12 @@ directCommands:
   name: swa db
   summary: Configure database connection settings
   description: >-
-    Use `swa db --init` to generate a sample *staticwebapp.database.config.json* file.
+    Use `swa db init` to generate a sample *staticwebapp.database.config.json* file.
   syntax: >-
-    swa db
-      --init
+    swa db init
   examples:
   - summary: Generate a sample database connection configuration file.
-    syntax: swa db --init
+    syntax: swa db init
   optionalParameters:
   - name: --app-location, -a <PATH>
     summary: the folder containing the source code of the front-end application. Default is `.`.

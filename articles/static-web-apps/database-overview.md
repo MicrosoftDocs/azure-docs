@@ -14,7 +14,7 @@ The Azure Static Web Apps database connection feature allows you to access a dat
 
 Once you create a connection between your web application and database, you can manipulate data with full CRUD operations.
 
-Based on the [Azure Data API Builder](https://github.com/Azure/data-api-builder), Azure Static Web Apps takes REST and GraphQL requests and converts them to database queries.
+Based on the [Data API builder](https://github.com/Azure/data-api-builder), Azure Static Web Apps takes REST and GraphQL requests and converts them to database queries.
 
 Features supported by database connections include:
 

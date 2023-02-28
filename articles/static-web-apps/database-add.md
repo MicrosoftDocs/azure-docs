@@ -44,9 +44,9 @@ Azure Static Web Apps must have network access to your database for database con
 
 1. Under the *Public access* tab, next to *Public network access*, select **Selected networks**.
 
-1. Under the *Firewall rules* section, select the **Add your client IPv4 address** button.
+1. Under the *Firewall rules* section, select the **Add your client IPv4 address** button. This ensures that you can use this database for your local development.
 
-1. Under the *Exceptions* section, select the **Allow Azure services and resources to access this server** checkbox.
+1. Under the *Exceptions* section, select the **Allow Azure services and resources to access this server** checkbox. This ensures that your deployed Static Web Apps resource can access your database.
 
 1. Select **Save**.
 
@@ -155,44 +155,50 @@ Next, create the configuration file that your static web app uses to interface w
 
 1. Paste in this sample into file *staticwebapp.database.config.json* you generated.
 
-    ```json
-    { 
-        "$schema": "dab.draft-01.schema.json", 
-        "data-source": { 
-          "database-type": "mssql", 
-          "connection-string": "@env('DATABASE_CONNECTION_STRING')" 
-        }, 
-        "runtime": { 
-          "rest": { 
-            "path": "/api" 
-          }, 
-          "graphql": { 
-            "path": "/graphql" 
-          }, 
-          "host": { 
-            "mode": "development", 
-            "cors": { 
-              "origins": ["http://localhost:4280"], 
-              "allow-credentials": true 
-            }, 
-            "authentication": { 
-              "provider": "StaticWebApps" 
-            } 
-          } 
-        }, 
-        "entities": { 
-          "Person": { 
-            "source": "dbo.MyTestPersonTable", 
-            "permissions": [ 
-              { 
-                "actions": ["*"], 
-                "role": "anonymous" 
-              }
-            ], 
-          }, 
-        } 
-      } 
-    ```
+```json
+{
+  "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "options": {
+      "set-session-context": false 
+    },
+    "connection-string": "@env('DATABASE_CONNECTION_STRING')"
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/rest"
+    },
+    "graphql": {
+      "allow-introspection": true,
+      "enabled": true,
+      "path": "/graphql"
+    },
+    "host": {
+      "mode": "production",
+      "cors": {
+        "origins": ["http://localhost:4280"],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      }
+    }
+  },
+  "entities": {
+    "Person": {
+      "source": "dbo.MyTestPersonTable",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    }
+  }
+}
+
 
 Before moving on to the next step, review the following table that explains different aspects of the configuration file.
 
@@ -277,7 +283,7 @@ Add the following code between the `script` tags in *index.html*.
 
 ```javascript
 async function list() {
-  const endpoint = 'http://localhost:4280/data-api/api/person';
+  const endpoint = '/data-api/rest/Person';
   const response = await fetch(endpoint);
   const data = await response.json();
   console.table(data.value);
@@ -306,7 +312,7 @@ async function list() {
         }
       }`;
       
-  const endpoint = "http://localhost:4280/data-api/graphql";
+  const endpoint = "/data-api/graphql";
   const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -347,7 +353,7 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function get() {
   const id = 1;
-  const endpoint = `http://localhost:4280/data-api/api/person/Id`;
+  const endpoint = `/data-api/rest/Person/Id`;
   const response = await fetch(`${endpoint}/${id}`);
   const result = await response.json();
   console.table(result.value);
@@ -384,7 +390,7 @@ async function get() {
     },
   };
 
-  const endpoint = "http://localhost:4280/data-api/graphql";
+  const endpoint = "/data-api/graphql";
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -427,7 +433,7 @@ async function update() {
     Name: "Molly"
   };
 
-  const endpoint = 'http://localhost:4280/data-api/api/person/Id';
+  const endpoint = '/data-api/rest/Person/Id';
   const response = await fetch(`${endpoint}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -474,7 +480,7 @@ async function update() {
     } 
   };
 
-  const endpoint = "http://localhost:4280/data-api/graphql";
+  const endpoint = "/data-api/graphql";
   const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -517,7 +523,7 @@ async function create() {
     Name: "Pedro"
   };
 
-  const endpoint = `http://localhost:4280/data-api/api/person/`;
+  const endpoint = `/data-api/rest/Person/`;
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -560,7 +566,7 @@ async function create() {
     } 
   };
   
-  const endpoint = "http://localhost:4280/data-api/graphql";
+  const endpoint = "/data-api/graphql";
   const result = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -599,7 +605,7 @@ Add the following code between the `script` tags in *index.html*.
 ```javascript
 async function del() {
   const id = 3;
-  const endpoint = 'http://localhost:4280/data-api/api/person/Id';
+  const endpoint = '/data-api/rest/Person/Id';
   const response = await fetch(`${endpoint}/${id}`, {
     method: "DELETE"
   });
@@ -641,7 +647,7 @@ async function del() {
     }
   };
 
-  const endpoint = "http://localhost:4280/data-api/graphql";
+  const endpoint = "/data-api/graphql";
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
