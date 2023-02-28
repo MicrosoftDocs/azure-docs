@@ -66,7 +66,7 @@ Scaling Mechanism describes how scaling will be performed when it is triggered. 
 ** Upper load threshold is a value that determines when the service will be scaled out, depending on scaling trigger.
 ** Scaling Interval is used to determine how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. Scaling trigger will not be checked before scaling interval expires, which is to set to 1 minute for Azure API for FHIR.
 
-We ask customer to not push all requests at the same time, but instead, adopt a linear growth until the expected push rate.
+To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
 
 ## FAQ
 
