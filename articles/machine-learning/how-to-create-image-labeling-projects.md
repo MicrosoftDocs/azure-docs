@@ -235,7 +235,7 @@ If your project uses consensus labeling, review images that have no consensus:
 
 1. Select the **Data** tab.
 1. On the left menu, select  **Review labels**.
-1. On the top-right corner, select **All filters**.
+1. On the project command bar, select **All filters**.
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
 
@@ -295,7 +295,7 @@ After you export your labeled data to an Azure Machine Learning dataset, you can
 
 |Issue  |Resolution  |
 |---------|---------|
-|To create a zero-size label on the top-left corner, select the Esc key when you label for object detection. Label submission in this state fails.|To delete it, select the crossmark next to the label.|
+|To create a zero-size label, select the Esc key when you label for object detection. Label submission in this state fails.|To delete the label, select the **X** delete icon next to the label.|
 
 ## Next steps
 

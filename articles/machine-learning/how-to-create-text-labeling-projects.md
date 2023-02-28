@@ -205,7 +205,7 @@ If your project uses consensus labeling, review items that have no consensus:
 
 1. Select the **Data** tab.
 1. On the left menu, select  **Review labels**.
-1. On the top-right corner, select **All filters**.
+1. On the project command bar, select **All filters**.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
@@ -254,7 +254,7 @@ For all project types except **Text Named Entity Recognition**, you can export l
 For **Text Named Entity Recognition** projects, you can export label data as:
 
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top-right corner of Azure Machine Learning studio appears. Select that notification to see a link to the file.
+* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification is shown in the Azure Machine Learning studio global controls. Select that notification to see a link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
 

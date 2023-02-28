@@ -11,7 +11,7 @@ During the data labeling process, you might want to add more labels to classify 
 To add one or more labels to a project:
 
 1. On the main **Data Labeling** page, select the project.
-1. In the command bar, toggle **Running** to **Paused** to stop labeling activity.
+1. On the project command bar, toggle the status from **Running** to **Paused** to stop labeling activity.
 1. Select the **Details** tab.
 1. In the list on the left, select **Label categories**.
 1. Modify your labels.
