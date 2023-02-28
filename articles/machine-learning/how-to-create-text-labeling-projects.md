@@ -12,15 +12,15 @@ ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021
 ---
 
-# Create a text labeling project and export labels
+# Set up a text labeling project and export labels
 
 In Azure Machine Learning, learn how to create and run data labeling projects to label text data. Specify either a single label or multiple labels to apply to each text item.
 
-You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
+You can also use the data labeling tool in Machine Learning to [create an image labeling project](how-to-create-image-labeling-projects.md).
 
 ## Text labeling capabilities
 
-Azure Machine Learning data labeling serves as a tool to create, manage, and monitor data labeling projects. You can:
+Azure Machine Learning data labeling is a tool you can use to create, manage, and monitor data labeling projects. Use it to:
 
 - Coordinate data, labels, and team members to efficiently manage labeling tasks.
 - Track progress and maintain the queue of incomplete labeling tasks.
@@ -28,7 +28,7 @@ Azure Machine Learning data labeling serves as a tool to create, manage, and mon
 - Review and export the labeled data as an Azure Machine Learning dataset.
 
 > [!IMPORTANT]
-> Text data must be available in an Azure Blob Storage datastore. If you don't have an existing datastore, you can upload files when you create a project.
+> The text data you work with in the Machine Learning data labeling tool must be available in an Azure Blob Storage datastore. If you don't have an existing datastore, you can upload your data files to a new datastore when you create a project.
 
 These data formats are available for text data:
 
@@ -37,21 +37,29 @@ These data formats are available for text data:
 
 ## Prerequisites
 
+You use these items to set up text labeling in Machine Learning:
+
 [!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
 
 ## Create a text labeling project
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-1. To create a project, select **Add project**. Enter a name for the project. You can't reuse the project name, even if the project is deleted in the future.
+1. To create a project, select **Add project**.
 
-1. To create a text labeling project, select **Text**.
+1. For **Project name**, enter a name for the project.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
+   You can't reuse the project name, even if you delete the project.
 
-    * For projects that involve the application of only a *single label* from a set of labels to each piece of text, select **Text Classification Multi-class**.
-    * For projects that involve the application of *one or more* labels from a set of labels to each piece of text, select **Text Classification Multi-label**.
-    * For projects that involve the application of labels to individual text words or multiple text words in each entry, select **Text Named Entity Recognition**.
+1. To create a text labeling project, for **Media type**, select **Text**.
+
+1. For **Labeling task type**, select an option for your scenario:
+
+    * To apply only a *single label* to each piece of text from a set of labels, select **Text Classification Multi-class**.
+    * To apply *one or more* labels to each piece of text from a set of labels, select **Text Classification Multi-label**.
+    * To apply labels to individual text words or to multiple text words in each entry, select **Text Named Entity Recognition**.
+
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-creation-wizard.png" alt-text="Screenshot that shows creating a labeling project for text labeling.":::
 
 1. Select **Next** to continue.
 
@@ -70,9 +78,9 @@ If you already created a dataset that contains your data, select it in the **Sel
 
 In many cases, you can upload local files. However, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) provides a faster and more robust way to transfer a large amount of data. We recommend Storage Explorer as the default way to move files.
 
-To create a dataset from data that you've already stored in Azure Blob Storage:
+To create a dataset from data that's already stored in Blob Storage:
 
-1. Select **Create** .
+1. Select **Create**.
 1. For **Name**, enter a name for your dataset. Optionally, enter a description.
 1. Choose the **Dataset type**:
     * If you're using a *.csv* or *.tsv* file and each row contains a response, select **Tabular**.
@@ -97,12 +105,12 @@ To directly upload your data:
     * If you're using separate *.txt* files for each response, select **File**.
 1. Select **Next**.
 1. Select **From local files**, and then select **Next**.
-1. (Optional) Select a datastore. The default uploads to the default blob store (*workspaceblobstore*) of your Machine Learning workspace.
+1. (Optional) Select a datastore. The default uploads to the default blob store (*workspaceblobstore*) for your Machine Learning workspace.
 1. Select **Next**.
 1. Select **Upload** > **Upload files** or **Upload** > **Upload folder** to select the local files or folders to upload.
 1. Find your files or folder in the browser window, and then select **Open**.
 1. Continue to select **Upload** until you specify all of your files and folders.
-1. Optionally select the **Overwrite if already exists** check box. Verify the list of files and folders.
+1. Optionally select the **Overwrite if already exists** checkbox. Verify the list of files and folders.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings, or select **Create** to create the dataset.
 1. Finally, select the data asset you created.
@@ -112,7 +120,7 @@ To directly upload your data:
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
-> Projects that use tabular (*.csv* or *.tsv*) dataset input have incremental refresh available to them. However, this only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
+> Projects that use tabular (*.csv* or *.tsv*) dataset input can use incremental refresh. But incremental refresh only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
 
 ## Specify label categories
 
@@ -131,7 +139,7 @@ To directly upload your data:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, the **ML-assisted labeling** page can trigger automatic machine learning models. Machine language (ML)-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
+To accelerate labeling tasks, the **ML assisted labeling** page can trigger automatic machine learning (ML) models. ML-assisted labeling can handle both file (*.txt*) and tabular (*.csv*) text data inputs.
 
 To use ML-assisted labeling:
 
@@ -143,22 +151,22 @@ To use ML-assisted labeling:
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data that's used to train the model lands in that class.
 
-To train the text DNN model that ML-assist uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are first concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
+To train the text DNN model that ML-assisted labeling uses, the input text per training example is limited to approximately the first 128 words in the document. For tabular input, all text columns are concatenated before this limit is applied. This practical limit allows the model training to complete in a reasonable amount of time. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words. The limit pertains only to what the model internally uses during the training process.
 
 The number of labeled items that's required to start assisted labeling isn't a fixed number. This number can vary significantly from one labeling project to another. The variance depends on many factors, including the number of label classes and the label distribution.
 
 When you use consensus labeling, the consensus label is used for training.
 
-Because the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+Because the final labels still rely on input from the labeler, this technology is sometimes called *human-in-the-loop* labeling.
 
 > [!NOTE]
-> ML-assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML-assisted data labelling. The non-default storage account can be secured behind the virtual network.
+> ML-assisted data labeling doesn't support default storage accounts that are secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network.
 
 ### Pre-labeling
 
 After you submit enough labels for training, the trained model is used to predict tags. The labeler now sees pages that show predicted labels already present on each item. The task then involves reviewing these predictions and correcting any mislabeled items before page submission. 
 
-After you train the machine learning model on your manually labeled data, the model is evaluated on a test set of manually labeled items. The evaluation helps determine the model's accuracy at different confidence thresholds. The evaluation process sets a confidence threshold beyond which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions that are more confident than the threshold are used for pre-labeling.
+After you train the ML model on your manually labeled data, the model is evaluated on a test set of manually labeled items. The evaluation helps determine the model's accuracy at different confidence thresholds. The evaluation process sets a confidence threshold beyond which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items that have predictions that are more confident than the threshold are used for pre-labeling.
 
 ## Initialize the text labeling project
 
@@ -176,7 +184,7 @@ The **Dashboard** tab shows the labeling task progress.
 
 The progress charts show how many items have been labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
 
-A distribution of the labels for completed tasks is shown below the chart. In some project types, an item can have multiple labels. The total number of labels can exceed the total number items.
+A distribution of the labels for completed tasks is shown below the chart. In some project types, an item can have multiple labels. The total number of labels can exceed the total number of items.
 
 A distribution of labelers and how many items they've labeled also are shown.
 
@@ -187,13 +195,13 @@ When ML-assisted labeling is on, this section also shows:
 * Tasks that contain clustered items in the queue.
 * Tasks that contain pre-labeled items in the queue.
 
-Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
+Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the ML runs.
 
 ### Data
 
-On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
+On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see data that's incorrectly labeled, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
 
-If your project uses consensus labeling, you should review items that have no consensus:
+If your project uses consensus labeling, review items that have no consensus:
 
 1. Select the **Data** tab.
 1. On the left menu, select  **Review labels**.
@@ -246,7 +254,7 @@ For all project types except **Text Named Entity Recognition**, you can export l
 For **Text Named Entity Recognition** projects, you can export label data as:
 
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top-right corner appears. Select that notification to see a link to the file.
+* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification on the top-right corner of Azure Machine Learning studio appears. Select that notification to see a link to the file.
 
     :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
 
@@ -254,7 +262,7 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
-## Troubleshooting
+## Troubleshoot issues
 
 [!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
 
