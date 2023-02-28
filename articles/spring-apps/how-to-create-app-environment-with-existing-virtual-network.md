@@ -148,7 +148,7 @@ An App Environment creates a secure boundary around a group apps. Apps deployed 
 ```
 
 > [!NOTE]
-> You can create an internal App Environment that doesn't use a public static IP, only internal IP addresses available in the custom VNET. Please refer: [Create an Internal App Environment](https://learn.microsoft.com/en-us/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment)
+> You can create an internal App Environment that doesn't use a public static IP, only internal IP addresses available in the custom VNET. Please refer: [Create an Internal App Environment](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-cli#create-an-environment)
 
 The following table describes the parameters used in `containerapp env create`.
 

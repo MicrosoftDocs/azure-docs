@@ -1,7 +1,7 @@
 ---
 title:  "Customer responsibilities running Azure Spring Apps Standard Consumption plan in a virtual network"
 description: This article describes customer responsibilities running Azure Spring Apps Standard Consumption plan in a virtual network.
-author: xuycao
+author: Caoxuyang
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: conceptual
