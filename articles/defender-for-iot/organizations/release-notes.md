@@ -38,6 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
+| 22.3.6 | 02/2023 | Patch | 01/2024 |
 | 22.3.5 | 01/2023 | Patch | 12/2023 |
 | 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
@@ -90,6 +91,25 @@ Maintain your sensors and on-premises management consoles, for activities like b
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
+### 22.3.5
+
+**Release date**: 01/2023
+
+**Supported until**: 12/2023
+
+<!--draft, needs better descriptions and links-->
+- Support for transient devices
+- Auto-resolved notifications
+- Device data retention updated to 90 days
+- Merging and deleting devices now include confirmation messages
+- Support for deleting multiple devices
+- An enhanced editing device details process
+- Updated VLAN data calculation
+- Enhanced UI for uploading an SSL/TLS certificate
+- Activation files for cloud-connected sensors no longer expire
+- Severity of all Suspicion of Malicious Activity alerts updated from ? to ?
+- Configuration for a DNS allowlist to resolve IP addresses to domains
 
 ## Versions 22.3.x
 

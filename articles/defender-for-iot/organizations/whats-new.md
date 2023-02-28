@@ -19,8 +19,62 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files for cloud-connected sensors no longer expire](#activation-files-for-cloud-connected-sensors-no-longer-expire)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated device VLAN calculation](#updated-device-vlan-calculation)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Configuration for DNS allowlists](#configuration-for-dns-allowlists)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br>- [Device data retention updates](#device-data-retention-updates)<br><br>**Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
+### Support for transient devices
+
+<!--placeholder. What does this actually mean? Batami.-->
+### UI enhancements when uploading SSL/TLS certificates
+
+<!--placeholder. Sensor and CM? What exactly changed? Change heading to match. Shereen.-->
+
+### Activation files for cloud-connected sensors no longer expire
+
+<!--placeholder. what exactly does this mean? Shereen.-->
+
+### UI enhancements for managing the device inventory
+
+<!--yonina-->
+
+The following enhancements were added to the OT sensor's device inventory in version 22.3.6:
+
+- A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor <!--what exactly is the change?-->
+- The OT sensor now supports [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) simultaneously
+- The procedures for [merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages
+
+For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+
+### Updated device VLAN calculation
+
+<!--what does this mean? is this heading correct? Yonina.-->
+
+### Updated severity for all Suspicion of Malicious Activity alerts
+
+All alerts with the **Suspicion of Malicious Activity** category now have an alert of <!--Critical?-->.
+
+For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
+
+### Configuration for DNS allowlists
+
+The OT sensor now allows the *support* user to configure a DNS allowlist that resolves IP addresses to domains.
+
+Then, all users can view the list of IP addresses that are resolved to domains in the OT sensor's data mining report.
+
+For more information, see:
+
+- <!--add xref to procedure>
+- [Create data mining queries](how-to-create-data-mining-queries.md)
+
+### Automatically resolved device notifications
+
+Selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days. 
+
+<!--add xref-->
+
+### Device data retention updates
+
+<!--what is the update? Clarify heading. Yonina.>
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
