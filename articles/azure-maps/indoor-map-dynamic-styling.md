@@ -1,8 +1,8 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps

@@ -35,14 +35,14 @@ By the end of this article, you'll be able to:
 
 ## Prerequisites
 
-### Source tenant
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 - Azure AD Premium P1 or P2 license
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
 - [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization
 - [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
 
-### Target tenant
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 - Azure AD Premium P1 or P2 license
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings

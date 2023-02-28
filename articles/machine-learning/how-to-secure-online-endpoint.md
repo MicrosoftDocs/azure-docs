@@ -29,7 +29,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and `ml` extension or the AzureML Python SDK v2. For more information, see the following articles:
+* You must install and configure the Azure CLI and `ml` extension or the Azure Machine Learning Python SDK v2. For more information, see the following articles:
 
     * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
     * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).

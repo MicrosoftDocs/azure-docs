@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-availability-sets.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-availability-sets.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-load-balancer",
             "redirect_document_id": false
@@ -4845,6 +4855,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/virtual-machines/overview#service-disruptions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false
@@ -4852,6 +4867,26 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/high-performance-computing.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-portal.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-template.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-template",
             "redirect_document_id": false
         },
         {

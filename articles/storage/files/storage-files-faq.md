@@ -200,6 +200,5 @@ ms.topic: conceptual
     Currently, this configuration is not supported for an Azure file share. For more information about how to set this up for Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
-* [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Troubleshoot Azure Files](files-troubleshoot.md)
 * [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)

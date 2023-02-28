@@ -22,7 +22,7 @@ Azure Machine Learning workspaces are MLflow-compatible, which means they can ac
 However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
 
 > [!IMPORTANT]
-> When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
+> When running on Azure Compute (Azure Machine Learning Notebooks, Jupyter notebooks hosted on Azure Machine Learning Compute Instances, or jobs running on Azure Machine Learning compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ logging.getLogger("azure").setLevel(logging.DEBUG)
 All MLflow runs are logged to the active experiment. By default, runs are logged to an experiment named `Default` that is automatically created for you. You can configure the experiment where tracking is happening.
 
 > [!TIP]
-> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
+> When submitting jobs using Azure Machine Learning CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 
 # [MLflow SDK](#tab/mlflow)

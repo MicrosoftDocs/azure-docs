@@ -98,7 +98,7 @@ Azure SQL bindings for Azure Functions aren't available for the v3 version of th
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.  Learn more about determining the runtime in Azure regions from the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 
 ## Install bundle
@@ -124,17 +124,6 @@ You can add the preview extension bundle by adding or replacing the following co
 Azure SQL bindings for Azure Functions aren't available for the v3 version of the functions runtime.
 
 ---
-
-## Configure Python Worker
-
-Currently, you will need to update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings. Locally, this is set in the `local.settings.json` file as seen below:
-
-```json
-"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
-```
-
-Support for Python durable functions with SQL bindings isn't yet available.
-
 
 ::: zone-end
 
