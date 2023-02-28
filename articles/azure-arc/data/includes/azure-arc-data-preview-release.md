@@ -9,7 +9,7 @@ ms.date: 12/7/2022
 <!--
 At this time, a test or preview build is not available for the next release.
 --->
-February 2023 preview release is now available.
+March 2023 test release is now available.
 
 |Component|Value|
 |-----------|-----------|
