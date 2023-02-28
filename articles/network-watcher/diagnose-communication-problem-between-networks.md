@@ -17,9 +17,9 @@ ms.custom: template-tutorial, engagement-fy23
 
 Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway allows you to create multiple connections to on-premises VPN devices and Azure VPN gateways. For more information about the number of connections that you can create with each VPN gateway SKU, see [Gateway SKUs](../../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Whenever you need to troubleshoot an issue with a VPN gateway or one of its connections, you can use Azure Network Watcher VPN troubleshoot to help you checking the VPN gateway or its connections to find and resolve the problem in easy and simple steps.
 
-This tutorial helps you connect two virtual networks via VPN gateways using VNet-to-VNet connections and use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot a connectivity issue that's preventing the two virtual networks from communicating with each other. Once you find the issue and resolve it, you check the connectivity between the two virtual networks to verify the problem was resolved. 
+This tutorial helps you use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue that's preventing two virtual networks from communicating with each other. These two virtual networks are connected via VPN gateways using VNet-to-VNet connections.
 
-In this tutorial, you learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Create virtual networks
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
