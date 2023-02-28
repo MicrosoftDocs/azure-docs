@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
+  ms.date: 02/27/2023 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -54,6 +54,10 @@ landingContent:
             url: custom-event-quickstart-portal.md
           - text: Send events from a private container registry
             url: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
+          - text: Handle SMS and delivery report events
+            url: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
+          - text: Route Azure Cache for Redis events to web endpoint
+            url: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
   # Card
   - title: Tutorials
     linkLists:
@@ -108,7 +112,7 @@ landingContent:
             url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card
-  - title: Customizations
+  - title: Custom topics
     linkLists:
       - linkListType: quickstart
         links:
@@ -124,6 +128,32 @@ landingContent:
             url: post-to-custom-topic.md
           - text: Map custom fields to Event Grid schema
             url: input-mappings.md
+
+  # Card
+  - title: Partner topics
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Partner Events overview (Customers)
+            url: partner-events-overview.md
+          - text: Partner Events overview (Partners)
+            url: partner-events-overview-for-partners.md
+          - text: Auth0 as an event source
+            url: auth0-overview.md
+          - text: Graph API as an event source
+            url: partner-events-graph-api.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard as a partner
+            url: onboard-partner.md
+          - text: Subscribe to partner events
+            url: subscribe-to-partner-events.md
+          - text: Subscribe to SAP events
+            url: subscribe-to-sap-events.md
+          - text: Subscribe to Tribal Group events
+            url: subscribe-to-tribal-group-events.md
+          - text: Subscribe to Microsoft Graph API events
+            url: subscribe-to-graph-api-events.md
 
   # Card
   - title: Event Grid on Kubernetes
