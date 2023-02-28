@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Understand the Blob Storage object model
 
-As you build applications to work with data resources in Azure Blob Storage, your code will primarily connect to and and interact with three resource types: storage account, containers, and blobs. This article explains these different resource types and shows how they relate to one another. It also explores what happens when application code uses the Azure Blob Storage client libraries to interact with these various resources.
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. This article explains the purpose of these different resource types and shows how they relate to one another. It also shows how application code uses the Azure Blob Storage client libraries to interact with these various resources.
 
 ## Blob Storage resource types
 
@@ -67,11 +67,13 @@ For more information about naming blobs, see [Naming and Referencing Containers,
 
 ## Interact with data resources using the Azure SDK
 
-The Azure REST API consists of service endpoints that support sets of HTTP operations, or methods. These operations allow access to create, retrieve, update, or delete data resources in the service. The Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
+The Azure REST API consists of service endpoints that support sets of HTTP operations, or methods. These operations allow access to create, retrieve, update, or delete data resources in the service. 
+
+While you could work directly with the resources via REST API calls, the Azure SDKs contain libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar programming language paradigms. The SDKs are designed to simplify interactions between your application and Azure resources.
 
 ## [.NET](#tab/dotnet)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following tables list the basic classes per language:
+In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
 
 | Class | Description |
 | --- | --- |
@@ -89,7 +91,7 @@ The following packages contain the classes used to work with Blob Storage data r
 
 ## [Java](#tab/java)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following tables list the basic classes per language:
+In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
 
 | Class | Description |
 | --- | --- |
@@ -107,7 +109,7 @@ The following packages contain the classes used to work with Blob Storage data r
 
 ## [JavaScript](#tab/javascript)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following tables list the basic classes per language:
+In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
 
 | Class | Description |
 | --- | --- |
@@ -121,7 +123,7 @@ The following package contains the classes used to work with Blob Storage data r
 
 ## [Python](#tab/python)
 
-In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following tables list the basic classes per language:
+In the Azure Blob Storage client libraries, each resource type is represented by one or more associated classes. The following table lists the basic classes with a brief description:
 
 | Class | Description |
 | --- | --- |
