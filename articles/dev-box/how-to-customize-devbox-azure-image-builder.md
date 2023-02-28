@@ -97,7 +97,7 @@ The next step is to use Azure VM Image Builder and Azure PowerShell to create an
     Install-Module -Name Az.ManagedServiceIdentity 
      
     # Create an identity 
-    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName 
+    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
      
     $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id 
     $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
