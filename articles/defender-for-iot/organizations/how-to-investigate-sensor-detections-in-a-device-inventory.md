@@ -127,11 +127,11 @@ Deleted devices are removed from the **Device map** and the device inventories o
 
 **To delete one or more devices**:
 
-You can delete a device when its been inactive for more than 10 minutes.
+You can delete a device when it's been inactive for more than 10 minutes.
 
 1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-1. At the prompt, select **COnfirm** to confirm that you want to delete the device from Defender for IoT.
+1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
 
 A confirmation message appears at the top right.
 
