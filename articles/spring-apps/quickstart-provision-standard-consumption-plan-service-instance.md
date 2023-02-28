@@ -40,13 +40,13 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
       > How to create a new App Environment
       > 1. Select **Create new** under the App Environment
       > 2. Fill out the form on the App Environment **Create** page.
-      > :::image type="content" source="media/quickstart-provision-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
+      > :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/create-app-env.png" alt-text="Screenshot of Azure portal showing Create App Environment blade.":::
 
 >[!NOTE]
 > Optionally, you can also [create an App Environment with your own virtual network](./how-to-create-app-environment-with-existing-virtual-network.md).
    
 
-   :::image type="content" source="media/quickstart-provision-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-service-instance/select-app-environment.png":::
+   :::image type="content" source="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-stardard-consumption-plan-service-instance/select-app-environment.png":::
 
 1. Select **Review and create**.
 
