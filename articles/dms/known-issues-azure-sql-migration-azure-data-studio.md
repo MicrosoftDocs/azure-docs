@@ -267,7 +267,7 @@ WHERE STEP in (3,4,6);
 - **Recommendation**: Confirm that target network settings allow access to blob storage. For example, if migrating to SQL VM, ensure that outbound connections on VM are not being blocked.
 
 
-- **Message**: Migration for Database <Database Name> failed with error 'Migration cannot be completed because provided backup file name <Backup File Name> should be the last restore backup file <Last Restore Backup File Name>'.
+- **Message**: `Migration for Database <Database Name> failed with error 'Migration cannot be completed because provided backup file name <Backup File Name> should be the last restore backup file <Last Restore Backup File Name>'`.
 
 - **Cause**: Most recent backup was not specified in backup settings.
 
