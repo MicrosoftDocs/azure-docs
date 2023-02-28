@@ -40,12 +40,16 @@ If this is not the case, we suggest you start with one of the following articles
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means to include a reference to it in your `.csproj` file and building the project.
+
+The Extension package to install depends on the .NET worker you are using:
+- For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
+- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
 
 You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
 ```cmd
-func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
+func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
