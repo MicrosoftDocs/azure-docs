@@ -1,7 +1,7 @@
 ---
 title: Gather user voice input
 titleSuffix: An Azure Communication Services how-to document
-description: Prrovides a how-to guide for gathering user input from participants on a call.
+description: Provides a how-to guide for gathering user input from participants on a call.
 author: kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -14,7 +14,7 @@ zone_pivot_groups: acs-csharp-java
 
 # Gather user input with Recognize action and voice input
 
-This guide will help you get started recognizing user input in the forms of DTMF or voice input provided by participants throuhg Azure Communication Services Call Automation SDK.
+This guide helps you get started recognizing user input in the forms of DTMF or voice input provided by participants through Azure Communication Services Call Automation SDK.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Recognize action using AI with .NET](./includes/recognize-ai-action-how-to-csharp.md)]
@@ -32,9 +32,9 @@ This guide will help you get started recognizing user input in the forms of DTMF
 |RecognizeCompleted|200|8545|Action completed, speech option matched.|
 |RecognizeCompleted|200|8514|Action completed as stop tone was detected.|
 |RecognizeCompleted|400|8508|Action failed, the operation was canceled.|
-|RecognizeFailed|400|8510|Action failed, initial silence timeout reached|
+|RecognizeFailed|400|8510|Action failed, initial silence time out reached|
 |RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
-|RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
+|RecognizeFailed|400|8532|Action failed, inter-digit silence time out reached.|
 |RecognizeFailed|400|8547|Action failed, speech option not matched.|
 |RecognizeFailed|500|8534|Action failed, incorrect tone entered.|
 |RecognizeFailed|500|9999|Unspecified error.|

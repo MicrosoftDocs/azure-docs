@@ -9,6 +9,7 @@ ms.topic: include
 ms.date: 02/15/2023
 ms.author: kpunjabi
 ms.custom: private_preview
+ms.custom: references_regions
 services: azure-communication-services
 ---
 
@@ -25,7 +26,7 @@ All this is possible with one-click where enterprises can access a secure soluti
 
 BYO Cognitive Services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the BYO option and provide the URL to the Cognitive Services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
-> Note:
+> [!NOTE]
 > This integration is only supported in limited regions for Azure Cognitive Services, for more information about which regions are supported please view the limitations section at the bottom of this document. It is also recommended that when you're creating a new Azure Cognitive Service resource that you create a Multi-service Cognitive Service resource.
 
 ## Common use cases
@@ -35,7 +36,7 @@ BYO Cognitive Services can be easily integrated into any application regardless 
 With the ability to, connect your Cognitive Services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Cognitive Services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Cognitive services that are bespoke to your domain and region through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
 ## Run time flow
-![Run time flow](./media/run-time-flow.png)
+[![Run time flow](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
 
 ## Azure portal experience
 You can also configure and bind your Communication Services and Cognitive Services through the Azure portal. 
@@ -44,9 +45,9 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 1. Navigate to your ACS Resource in the Azure portal
 2. Select the Identity tab.
-3. Enable system assigned identity.  This action will begin the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
+3. Enable system assigned identity.  This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
 
-![Enable managed identiy](./media/enable-system-identity.png)
+[![Enable managed identiy](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
 
 ### Option 1: Add role from Azure Cognitive Services in the Azure portal
 1. Navigate to your Azure Cognitive Service resource.
@@ -54,27 +55,27 @@ You can also configure and bind your Communication Services and Cognitive Servic
 3. Click the "+ Add" button.
 4. Select "Add role assignments" from the menu
 
-![Add role from IAM](./media/add-role.png)
+[![Add role from IAM](./media/add-role.png)](./media/add-role.png#lightbox)
 
 5. Choose the "Cognitive Services User" role to assign, then click "Next".
 
-![Cognitive Services user](./media/cognitive-services-user.png)
+[![Cognitive Services user](./media/cognitive-service-user.png)](./media/cognitive-service-user.png#lightbox)
 
 6. For the field "Assign access to" choose the "User, group or service principal".
 7. Press "+ Select members" and a side tab opens.
 8. Choose your Azure Communication Services subscription from the "Subscriptions" drop down menu and click "Select".
 
-![Select ACS resource](./media/select-acs-resource.png)
+[![Select ACS resource](./media/select-acs-resource.png)](./media/select-acs-resource.png#lightbox)
 
 9. Click “Review + assign”, this assigns the role to the managed identity.
 
 ### Option 2: Add role through ACS Identity tab
 
-1. Navigate to your ACS resource in the Azure Portal
+1. Navigate to your ACS resource in the Azure portal
 2. Select Identity tab
 3. Click on "Azure role assignments"
 
-![ACS role assignment](./media/add-role-acs.png)
+[![ACS role assignment](./media/add-role-acs.png)](./media/add-role-acs.png#lightbox)
 
 4.  Click the "Add role assignment (Preview)" button, which opens the "Add role assignment (Preview)" tab
 5.  Select the "Resource group" for "Scope".
@@ -82,7 +83,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 7.  Select the "Resource Group" containing the Cognitive Service 
 8.  Select the "Role" "Cognitive Services User"
 
-![ACS role information](./media/acs-roles-cognitiveservices.png)
+[![ACS role information](./media/acs-roles-cognitive-services.png)](./media/acs-roles-cognitive-services.png#lightbox)
 
 10.  Click Save 
 
@@ -94,8 +95,8 @@ This integration between Azure Communication Services and Azure Cognitive Servic
 - westus
 - westus2
 - westus3
-- eastuse
-- astus2
+- eastus
+- eastus2
 - centralus
 - northcentralus
 - southcentralus
