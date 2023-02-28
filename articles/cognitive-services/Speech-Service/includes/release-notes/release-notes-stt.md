@@ -37,6 +37,10 @@ ms.author: eur
   - **java**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
   - **javascript**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
 
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for the `de-AT` locales.
+
 ### January 2023 release
 
 #### Custom Speech
