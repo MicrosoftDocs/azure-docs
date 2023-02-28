@@ -15,9 +15,6 @@ ms.topic: tutorial
 
 You can use Azure Database Migration Service and the Azure SQL Migration extension to assess, get right-sized Azure recommendations and migrate databases from an on-premises SQL Server to Azure SQL. As part of the post-migration tasks, we're introducing a new user experience with an independent workflow you can use to migrate logins (preview) and server roles from your on-premises source SQL Server to the Azure SQL target.
 
-> [!NOTE]  
-> The option to migrate SQL Server logins to Azure SQL targets by using Azure Data Studio is currently in preview. This new migration experience is only available by using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
-
 This login migration experience automates manual tasks such as the synchronization of logins with their corresponding user mappings and replicating server/securable permissions and server roles.
 
 > [!IMPORTANT]  

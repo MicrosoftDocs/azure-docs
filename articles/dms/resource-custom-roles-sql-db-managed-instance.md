@@ -145,4 +145,4 @@ To assign a role to users/APP ID, open the Azure portal, perform the following s
 
 ## Next steps
 
-* Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](/data-migration/).

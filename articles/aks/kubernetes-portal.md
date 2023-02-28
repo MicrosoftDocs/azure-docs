@@ -1,7 +1,6 @@
 ---
 title: Access Kubernetes resources from the Azure portal
 description: Learn how to interact with Kubernetes resources to manage an Azure Kubernetes Service (AKS) cluster from the Azure portal.
-services: container-service
 ms.topic: article
 ms.date: 12/16/2020
 ---

@@ -1,8 +1,8 @@
 ---
 title: Request elevation data using the Azure Maps Elevation service
 description: Learn how to request elevation data using the Azure Maps Elevation service.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -44,7 +44,7 @@ To request elevation data in raster tile format using the Postman app:
     ```
 
     >[!Important]
-    >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+    >For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 5. Select the **Send** button.
 
@@ -78,7 +78,7 @@ To create the request:
 
 3. Enter a **Request name** for the request.
 
-4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
@@ -107,7 +107,7 @@ To create the request:
     }
     ```
 
-6. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+6. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0
@@ -153,7 +153,7 @@ To create the request:
 
 3. Enter a **Request name**.
 
-4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key):
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
@@ -243,7 +243,7 @@ To create the request:
     }
     ```
 
-9. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+9. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&samples=5
@@ -288,7 +288,7 @@ To create the request:
 
 3. Enter a **Request name**.
 
-4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3

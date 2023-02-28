@@ -42,15 +42,15 @@ The following two types of errors are classified as **user errors**:
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming auto-forwarded messages are included in this metric. And, for the premium tier, they aren't included.  | Entity name|
 |Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. The outgoing auto-forwarded messages aren't included in this metric. | Entity name|
-| Messages| No | Count | Average | Count of messages in a queue/topic. | Entity name |
-| Active Messages| No | Count | Average | Count of active messages in a queue/topic. | Entity name |
+| Messages | No | Count | Average | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. | Entity name |
+| Active Messages| No | Count | Average | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. | Entity name |
 | Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
 | Scheduled messages| No | Count | Average | Count of scheduled messages in a queue/topic. | Entity name |
 |Completed Messages| Yes | Count | Total | The number of messages completed over a specified period. | Entity name|
 | Abandoned Messages| Yes | Count | Total | The number of messages abandoned over a specified period. | Entity name|
 | Size | No | Bytes | Average | Size of an entity (queue or topic) in bytes. | Entity name | 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 
 ### Connection metrics
@@ -100,15 +100,15 @@ Operational log entries include elements listed in the following table:
 
 | Name | Description |
 | ------- | ------- |
-| ActivityId | Internal ID, used to identify the specified activity |
-| EventName | Operation name |
-| ResourceId | Azure Resource Manager resource ID |
-| SubscriptionId | Subscription ID |
-| EventTimeString | Operation time |
-| EventProperties | Operation properties |
-| Status | Operation status |
-| Caller | Caller of operation (the Azure portal or management client) |
-| Category | OperationalLogs |
+| `ActivityId` | Internal ID, used to identify the specified activity |
+| `EventName` | Operation name |
+| `ResourceId` | Azure Resource Manager resource ID |
+| `SubscriptionId` | Subscription ID |
+| `EventTimeString` | Operation time |
+| `EventProperties` | Operation properties |
+| `Status` | Operation status |
+| `Caller` | Caller of operation (the Azure portal or management client) |
+| `Category` | OperationalLogs |
 
 Here's an example of an operational log JSON string:
 
@@ -136,10 +136,10 @@ The following management operations are captured in operational logs:
 
 | Scope | Operation|
 |-------| -------- |
-| Namespace | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
-| Queue | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
-| Topic | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
-| Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
+| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
+| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
+| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
+| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
 
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
@@ -149,14 +149,14 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 
 | Name | Description |
 | ---  | ----------- | 
-| SubscriptionId | Azure subscription ID |
-| NamespaceName | Namespace name |
-| IPAddress | IP address of a client connecting to the Service Bus service |
-| Action | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
-| Reason | Provides a reason why the action was done |
-| Count | Number of occurrences for the given action |
-| ResourceId | Azure Resource Manager resource ID. |
-| Category | ServiceBusVNetConnectionEvent |
+| `SubscriptionId` | Azure subscription ID |
+| `NamespaceName` | Namespace name |
+| `IPAddress` | IP address of a client connecting to the Service Bus service |
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| `Reason` | Provides a reason why the action was done |
+| `Count` | Number of occurrences for the given action |
+| `ResourceId` | Azure Resource Manager resource ID. |
+| `Category` | ServiceBusVNetConnectionEvent |
 
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
@@ -197,7 +197,7 @@ Name | Description
 `NetworkType` | Type of the network access: `Public` or`Private`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 
-`Properties` | Metadata that are specific to the data plane operation. 
+`Properties` | Metadata that is specific to the data plane operation. 
 `Category` | Log category
 
 Here's an example of a runtime audit log entry:

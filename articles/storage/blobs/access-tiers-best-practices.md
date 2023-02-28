@@ -32,7 +32,7 @@ Choosing the most optimal tier up front can reduce costs. If you change the tier
 
 - For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). 
 
-- For offline data movement to the desired tier, see [Azure Data Box](/products/databox/).
+- For offline data movement to the desired tier, see [Azure Data Box](https://azure.microsoft.com/products/databox/).
 
 ## Move data into the most cost-efficient access tiers
 

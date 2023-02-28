@@ -3,14 +3,14 @@ title: Roles and resource access control
 titleSuffix: Azure AD B2C
 description: Learn how to use roles to control resource access.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/25/2021
-ms.author: kengaderdus
+ms.date: 02/24/2023
+ms.author: godonnell
 ms.subservice: B2C
 ---
 # Roles and resource access control
