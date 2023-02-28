@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 02/27/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -75,7 +75,7 @@ Use the following steps to import the PowerShell module and sign in to the devic
 1. Import the PowerShell module.
 
    ```azurepowershell
-   Import-Module "<Local path to PowerShell module>"\ZtpRestHelpers.psm1
+   Import-Module "<Local path to PowerShell module>"\PowerShellBasedConfiguration.psm1
    ```
 
 1. Sign in to the device using the `Set-Login` cmdlet. First-time sign-in requires a password reset using `NewPassword`.
@@ -187,7 +187,7 @@ Run the following cmdlets in PowerShell:
 Once a config.json file has been created, as shown in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
 > [!NOTE]
-> Use a config.json file that meets the needs of your organization. [Sample config.json files are available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
+> Use a config.json file that meets the needs of your organization. [Sample JSON files are available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/PowerShellBasedConfiguration/).
 
 This sequence of PowerShell cmdlets signs in to the device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
@@ -257,9 +257,10 @@ Run the following cmdlets in PowerShell:
 
 This sequence of PowerShell cmdlets signs in to a two-node device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
-Run the following cmdlets in PowerShell:
+> [!NOTE]
+> Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices. 
 
-===Start > new from test===
+Run the following cmdlets in PowerShell:
 
 1. Sign in to the device.
 
@@ -974,6 +975,9 @@ Use the following steps to sign in to the device and run device diagnostics to v
    ```
 
 ## Set the virtual IP configuration on a two-node device
+
+> [!NOTE]
+> Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices.
 
 For Azure consistent services and NFS, define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. 
 
