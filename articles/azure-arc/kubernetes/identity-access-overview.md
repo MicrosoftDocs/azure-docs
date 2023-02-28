@@ -1,7 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes identity and access overview"
-ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 02/24/2023
+ms.date: 02/28/2023
 ms.topic: conceptual
 description: "Understand identity and access options for Arc-enabled Kubernetes clusters."
 ---
@@ -35,4 +34,5 @@ For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptua
 ## Next steps
 
 - Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](/azure/aks/concepts-identity).
-- - Deploy and manage [cluster extensions](extensions.md).
+- Learn about [Cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
+- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)
