@@ -22,7 +22,7 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 
 This tutorial helps you use Azure Network Watcher NSG flow log capability to log a virtual machine's network traffic that flows through the [network security group (NSG)](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
-In this tutorial, you learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network and a Bastion host
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. f you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 
-In this section, you create a virtual network (**myVNet**).
+In this section, you create **myVNet** virtual network.
 
 1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
@@ -56,7 +56,7 @@ In this section, you create a virtual network (**myVNet**).
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | Name | Enter *myVNet1*. |
+    | Name | Enter *myVNet*. |
     | Region | Select **East US**. |
 
 1. Select the **IP Addresses** tab, or select **Next: IP Addresses** button at the bottom of the page.
@@ -76,7 +76,7 @@ In this section, you create a virtual network (**myVNet**).
     | Setting | Value |
     | --- | --- |
     | Bastion name | Enter *myBastionHost*. |
-    | AzureBastionSubnet address space | Enter *10.0.3.0/24*. |
+    | AzureBastionSubnet address space | Enter *10.0.1.0/24*. |
     | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
 
 1. Select the **Review + create** tab or select the **Review + create** button.
@@ -85,7 +85,7 @@ In this section, you create a virtual network (**myVNet**).
 
 ## Create a virtual machine
 
-In this section, you create a virtual machine (**myVM**).
+In this section, you create **myVM** virtual machine.
 
 1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
 
@@ -129,7 +129,7 @@ In this section, you create a virtual machine (**myVM**).
 
 8. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myVM**.  
 
-9. Select **Connect**, then select **Bastion**.
+9. Select **Connect** then select **Bastion**.
 
 10. Enter the username and password that you created in the previous steps. Leave **Open in new browser tab** checked.
 
@@ -137,7 +137,7 @@ In this section, you create a virtual machine (**myVM**).
 
 ## Register Insights provider
 
-NSG flow logging requires the **Microsoft.Insights** provider. To check its status, complete the following steps:
+NSG flow logging requires the **Microsoft.Insights** provider. To check its status, follow these steps:
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
 
@@ -145,15 +145,15 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Select **Resource providers** under **Settings** of your subscription.
 
-1. Enter *insights* in the filter box.
+1. Enter *insight* in the filter box.
 
-1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select **Microsoft.Insights** provider then select **Register**.
+1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
     :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
 
 ## Create a storage account
 
-In this section, you create a storage account that's used to store the flow logs.
+In this section, you create a storage account to use it to store the flow logs.
 
 1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
@@ -167,7 +167,7 @@ In this section, you create a storage account that's used to store the flow logs
     | **Instance details** |  |
     | Storage account name | Enter a unique name. This tutorial uses **mynwstorageaccount**. |
     | Region | Select **(US) East US**. The storage account must be in the same region as the virtual machine and its network security group. |
-    | Performance | Select **Standard**. |
+    | Performance | Select **Standard**. NSG flow logs only support Standard-tier storage accounts. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
 
 1. Select the **Review** tab or select the **Review** button at the bottom.
@@ -192,10 +192,10 @@ In this section, you create an NSG flow log that's saved into the storage accoun
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your Azure subscription. The subscription of your virtual machine and its network security group. |
-    | Network Security Group | Select **+ Select NSG**. <br> Select **myVM-nsg**, and then select **Confirm selection**. |
+    | Network Security Group | Select **+ Select NSG**. <br> Select **myVM-nsg**. <br> Select **Confirm selection**. |
     | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**.
     | **Instance details** |   |
-    | Subscription | Select your Azure subscription. The subscription of the storage account that you want to store the logs into. |
+    | Subscription | Select your Azure subscription. The subscription of the storage account. |
     | Storage Accounts | Select the storage account you created in the previous steps. This tutorial uses **mynwstorageaccount**. |
     | Retention (days) | Enter a retention time for the logs. This tutorial uses **1** day. |
 
@@ -211,7 +211,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. Go back to your browser tab of **myVM** virtual machine.
 
-1. In **myVM**, open Microsoft Edge and to `www.bing.com`.
+1. In **myVM**, open Microsoft Edge and go to `www.bing.com`.
 
 ## Download flow log
 
@@ -235,7 +235,7 @@ In this section, you go to the storage account you previously selected and downl
 
 ## View flow log
 
-Open the downloaded `PT1H.json` file using a text editor of your choice. The following example is a section taken from the downloaded `PT1H.json` file:
+Open the downloaded `PT1H.json` file using a text editor of your choice. The following example is a section taken from the downloaded `PT1H.json` file, which shows a flow processed by the rule **DefaultRule_AllowInternetOutBound**.
 
 ```json
 {
