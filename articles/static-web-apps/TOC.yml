@@ -156,7 +156,15 @@
         - name: Nuxt.js
           href: deploy-nuxtjs.md
     - name: Add a database connection
-      href: database-add.md
+      items:
+      - name: Azure Cosmos DB 
+        href: database-azure-cosmosdb.md
+      - name: Azure SQL
+        href: database-azure-sql.md
+      - name: MySQL
+        href: database-mysql.md
+      - name: PostgreSQL
+        href: database-postgresql.md
     - name: Add a database with Mongoose.js and Azure Cosmos DB
       href: add-mongoose.md
     - name: Publish with an ARM template

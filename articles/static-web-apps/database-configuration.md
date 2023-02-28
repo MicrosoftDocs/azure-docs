@@ -44,46 +44,48 @@ If you're using Azure Cosmos DB with GraphQL, then you also need to provide a [`
 The following sample configuration file shows you how to connect to an Azure SQL database and expose both REST and GraphQL endpoints.
 
 ```json
-{ 
-    "$schema": "dab.draft-01.schema.json", 
-    "data-source": { 
-      "database-type": "mssql", 
-      "connection-string": "@env(DATABASE_CONNECTION_STRING)" 
-    }, 
-    "runtime": { 
-      "rest": { 
-        "path": "/api" 
-      }, 
-      "graphql": { 
-        "path": "/graphql" 
-      }, 
-      "host": { 
-        "mode": "development", 
-        "cors": { 
-          "origins": ["http://localhost:4280"], 
-          "allow-credentials": true 
-        }, 
-        "authentication": { 
-          "provider": "StaticWebApps" 
-        } 
-      } 
-    }, 
-    "entities": { 
-      "Person": { 
-        "source": "dbo.MyTestPersonTable", 
-        "permissions": [ 
-          { 
-            "actions": ["*"], 
-            "role": "admin" 
-          }, 
-          { 
-            "actions": ["read"], 
-            "role": "anonymous" 
-          } 
-        ], 
-      }, 
-    } 
-  } 
+{
+  "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "options": {
+      "set-session-context": false 
+    },
+    "connection-string": "@env('DATABASE_CONNECTION_STRING')"
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/rest"
+    },
+    "graphql": {
+      "allow-introspection": true,
+      "enabled": true,
+      "path": "/graphql"
+    },
+    "host": {
+      "mode": "production",
+      "cors": {
+        "origins": ["http://localhost:4280"],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      }
+    }
+  },
+  "entities": {
+    "Person": {
+      "source": "dbo.MyTestPersonTable",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    }
+  }
+}
 ```
 
 | Property | Description |
@@ -147,5 +149,9 @@ Linking a database to your static web app establishes the production connection 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Add a database to your static web app](database-add.md)
+Add a database to your static web app using one of the following databases:
+
+- [Azure Cosmos DB](database-azure-cosmosdb.md)
+- [Azure SQL](database-azure-sql.md)
+- [MySQL](database-mysql.md)
+- [PostgreSQL](database-postgresql.md)
