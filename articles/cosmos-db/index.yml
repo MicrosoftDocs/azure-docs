@@ -27,9 +27,9 @@ highlightedContent:
     - title: Distributed NoSQL databases
       itemType: concept
       url: distributed-nosql.md
-    - title: Distributed relational databases
-      itemType: concept
-      url: distributed-relational.md
+    - title: Q&amp;A
+      itemType: reference
+      url: /answers/tags/187/azure-cosmos-db
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md
@@ -99,62 +99,14 @@ additionalContent:
               url: table/index.yml
         - title: PostgreSQL
           links:
+            - text: Distributed relational databases
+              url: distributed-relational.md
             - text: Connect and run SQL commands using Python
               url: postgresql/quickstart-app-stacks-python.md
             - text: Distribute and modify tables
               url: postgresql/howto-modify-distributed-tables.md
-            - text: Design a multi-tenant database
-              url: postgresql/tutorial-design-database-multi-tenant.md
             - text: See more >
               url: postgresql/index.yml
-    - title: Data Migration
-      items:
-        - title: Migration options
-          links:
-            - text: CQL shell, Spark – API for Cassandra
-              url: cassandra/migrate-data.md
-            - text: Azure Database Migration Service – API for MongoDB
-              url: ../dms/tutorial-mongodb-cosmos-db.md
-        - title: Migration guides
-          links:
-            - text: Oracle DB to Azure Cosmos DB API for NoSQL using Striim
-              url: cosmosdb-sql-api-migrate-data-striim.md
-            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Striim
-              url: cassandra/migrate-data-striim.md
-            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Arcion
-              url: cassandra/oracle-migrate-cosmos-db-arcion.md
-            - text: Apache Cassandra to Azure Cosmos DB using Arcion
-              url: cassandra/migrate-data-arcion.md
-            - text: Migrate 100's TBs of data
-              url: migrate.md
-    - title: Training &amp; certification
-      items:
-        - title: Create an API for NoSQL application
-          links:
-            - text: Build a .NET app
-              url: /training/modules/build-dotnet-app-cosmos-db-sql-api/
-            - text: Build a Node.js app
-              url: /training/modules/build-node-cosmos-app-vscode/
-            - text: Build a Java app
-              url: /training/modules/build-cosmos-db-java-app/
-            - text: See more >
-              url: /training/browse/?resource_type=module&products=azure-cosmos-db
-        - title: Work with API for PostgreSQL
-          links:
-            - text: Model data
-              url: /training/modules/model-data-azure-cosmos-db-postgresql/
-            - text: Ingest and query data
-              url: /training/modules/ingest-query-data-using-azure-cosmos-db-for-postgresql/
-            - text: Extend PostgreSQL functionality using extensions
-              url: /training/modules/extend-the-functionality-of-azure-cosmos-db-for-postgresql-using-extensions/
-            - text: See more >
-              url: /training/paths/azure-cosmos-db-for-postgresql/
-        - title: Certifications
-          links:
-            - text: Microsoft Certified &colon; Azure Cosmos DB Developer Specialty
-              url: /certifications/azure-cosmos-db-developer-specialty/
-            - text: Microsoft Certified &colon; Azure Developer Associate
-              url: /certifications/azure-developer/
     - title: Concepts
       items:
         - title: Explore core concepts
@@ -183,3 +135,51 @@ additionalContent:
               url: synapse-link-use-cases.md
             - text: Configure Azure Synapse Link
               url: configure-synapse-link.md
+    - title: Training &amp; certification
+      items:
+        - title: Create an API for NoSQL application
+          links:
+            - text: Build a .NET app
+              url: /training/modules/build-dotnet-app-cosmos-db-sql-api/
+            - text: Build a Node.js app
+              url: /training/modules/build-node-cosmos-app-vscode/
+            - text: Build a Java app
+              url: /training/modules/build-cosmos-db-java-app/
+            - text: See more >
+              url: /training/browse/?resource_type=module&products=azure-cosmos-db
+        - title: Work with API for PostgreSQL
+          links:
+            - text: Model data
+              url: /training/modules/model-data-azure-cosmos-db-postgresql/
+            - text: Ingest and query data
+              url: /training/modules/ingest-query-data-using-azure-cosmos-db-for-postgresql/
+            - text: Extend PostgreSQL functionality using extensions
+              url: /training/modules/extend-the-functionality-of-azure-cosmos-db-for-postgresql-using-extensions/
+            - text: See more >
+              url: /training/paths/azure-cosmos-db-for-postgresql/
+        - title: Certifications
+          links:
+            - text: Microsoft Certified &colon; Azure Cosmos DB Developer Specialty
+              url: /certifications/azure-cosmos-db-developer-specialty/
+            - text: Microsoft Certified &colon; Azure Developer Associate
+              url: /certifications/azure-developer/
+    - title: Data Migration
+      items:
+        - title: Migration options
+          links:
+            - text: CQL shell, Spark – API for Cassandra
+              url: cassandra/migrate-data.md
+            - text: Azure Database Migration Service – API for MongoDB
+              url: ../dms/tutorial-mongodb-cosmos-db.md
+        - title: Migration guides
+          links:
+            - text: Oracle DB to Azure Cosmos DB API for NoSQL using Striim
+              url: cosmosdb-sql-api-migrate-data-striim.md
+            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Striim
+              url: cassandra/migrate-data-striim.md
+            - text: Oracle DB to Azure Cosmos DB API for Cassandra using Arcion
+              url: cassandra/oracle-migrate-cosmos-db-arcion.md
+            - text: Apache Cassandra to Azure Cosmos DB using Arcion
+              url: cassandra/migrate-data-arcion.md
+            - text: Migrate 100's TBs of data
+              url: migrate.md
