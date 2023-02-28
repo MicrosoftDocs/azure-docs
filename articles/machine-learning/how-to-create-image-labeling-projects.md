@@ -247,7 +247,7 @@ If your project uses consensus labeling, review images that have no consensus:
 
     :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
 
-1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the **Consensus label (preview)** option.
+1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the top choice, **Consensus label (preview)**.
 
 ### Details tab
 
