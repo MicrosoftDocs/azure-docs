@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 02/17/2023
 ---
 > [!div class="op_single_selector"]
-> * [CLI](../articles/iot-hub/twin-getstarted-cli.md)
+> * [CLI](../articles/iot-hub/twin-get-started-cli.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
