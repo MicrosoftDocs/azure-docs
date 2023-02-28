@@ -56,7 +56,7 @@ Azure Cosmos DB is a multi-model database service that lets you quickly create a
 
 :::image type="content" source="../media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos DB account entities" border="false":::
 
-For more information about databases, containers, and items, see [Azure Cosmos DB resource model](../account-databases-containers-items.md). A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*.
+For more information about databases, containers, and items, see [Azure Cosmos DB resource model](../resource-model.md). A few important properties are defined at the level of the container, among them *provisioned throughput* and *partition key*.
 
 The provisioned throughput is measured in Request Units (*RUs*) which have a monetary price and are a substantial determining factor in the operating cost of the account. You can select provisioned throughput at per-container granularity or per-database granularity. However, you should prefer container-level throughput specification. For more information, see [Introduction to provisioned throughput in Azure Cosmos DB](../set-throughput.md).
 
