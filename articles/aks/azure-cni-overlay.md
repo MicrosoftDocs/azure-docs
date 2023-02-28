@@ -144,7 +144,7 @@ az aks create -n $clusterName -g $resourceGroup --location $location --network-p
 
 To update an existing cluster to use Azure CNI overlay, there are a couple prerequisites:
 
-1. The cluster must be an Azure CNI v1 cluster.
+1. The cluster must use Azure CNI without the pod subnet feature.
 1. The cluster is _not_ using network policies.
 1. The Overlay Pod CIDR needs to be an address range that _does not_ overlap with the existing cluster's VNet.
 
