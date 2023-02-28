@@ -270,7 +270,7 @@ The comma-separated information for **flowTuples** is as follows:
 | ------------ | -------------------- | ----------  |
 | 1677455097 | Time stamp | The time stamp of when the flow occurred in UNIX EPOCH format. In the previous example, the date converts to February 26, 2023 11:44:57 PM UTC/GMT. |
 | 10.0.0.4 | Source IP address | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you previously created.
-| 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is IP address of `www.bing.com`. Since the traffic was destined outside Azure, the rule named **DefaultRule_AllowInternetOutBound** processed the flow. |
+| 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is the IP address of `www.bing.com`. Since the traffic is destined outside Azure, the security rule **DefaultRule_AllowInternetOutBound** processed the flow. |
 | 49982 | Source port | The source port that the flow originated from. |
 | 443 | Destination port | The destination port that the flow was destined to. |
 | T | Protocol | The protocol of the flow. T: TCP. |
