@@ -62,15 +62,11 @@ The recognize action can be used for many reasons, below are a few examples of h
 
 ## Sample architecture for gathering user input in a call with voice recognition
 
-![Recognize AI Action](./media/recognize-ai.png)
+![Recognize AI Action](./media/recognize-ai-flow.png)
 
 ## Sample architecture for gathering user input in a call
 
 ![Recognize Action](./media/recognize-flow.png)
-
-## What's coming up next for Recognize action
-
-As we invest more into this functionality, we recommend developers sign up to our TAP program that allows you to get early access to the newest feature releases. Over the coming months the recognize action will add in new capabilities that use our integration with Azure Cognitive Services to provide AI capabilities such as plain Speech-To-Text instead of pre-defined choices. With these, you can improve customer interactions and recognize voice inputs from participants on the call. 
 
 ## Next steps
 
