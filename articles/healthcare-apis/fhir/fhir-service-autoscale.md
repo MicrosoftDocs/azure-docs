@@ -21,7 +21,7 @@ The autoscaling feature for FHIR service is available in all regions where the F
 > [!NOTE]
 > Autoscaling feature is subject to the resources availability in Azure regions.
 
-## Autoscaling Policies at Compute level
+## Autoscale at Compute level
 
 * Scaling Trigger
 
@@ -29,14 +29,7 @@ Scaling Trigger describes when scaling of the service will be performed. Conditi
     
 * Scaling mechanism
 
-Scaling Mechanism describes how scaling will be performed when it's triggered. Mechanism is only applied when the conditions from the trigger are met.
-There are three factors that determine when the service will be scaled:
-
-** Lower load threshold is a value that determines when the service will be scaled in. If the average load of all instances is lower than 20% of CPU usage then the service will be scaled in.
-
-** Upper load threshold is a value that determines when the service will be scaled out. If the average load of all instances is higher than 70% of CPU usage then the service will be scaled out.
-  
-** Scaling Interval is used to determine how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. Scaling trigger will not be checked before scaling interval expires, which is to set to 1 minute for FHIR service.
+The scaling mechanism will only be applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger will not be evaluated again until the scaling interval has expired, which is set to one minute for FHIR service.
 
 To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
 
