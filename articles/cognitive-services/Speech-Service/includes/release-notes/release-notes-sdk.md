@@ -6,7 +6,7 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
-### Speech SDK 1.26.0: Feburary 2023 release
+### Speech SDK 1.26.0: February 2023 release
 
 ### Breaking changes
 
@@ -30,7 +30,8 @@ ms.author: eur
 
 #### Samples
 
-* Fix for Swift iOS sample ([custom issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
+* Fix for Swift iOS sample ([customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
+
 
 ### Speech SDK 1.25.0: January 2023 release
 
