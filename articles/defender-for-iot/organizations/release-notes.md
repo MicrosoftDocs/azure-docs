@@ -105,7 +105,6 @@ To understand whether a feature is supported in your sensor version, check the r
 - Merging and deleting devices now include confirmation messages
 - Support for deleting multiple devices
 - An enhanced editing device details process
-- Updated VLAN data calculation
 - Enhanced UI for uploading an SSL/TLS certificate
 - Activation files for cloud-connected sensors no longer expire
 - Severity of all Suspicion of Malicious Activity alerts updated from ? to ?
