@@ -26,16 +26,16 @@ However, if you are working outside of Azure Machine Learning (like your local m
 
 ## Prerequisites
 
-You will need the following prerequisites to follow this tutorial:
+You need the following prerequisites to follow this tutorial:
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 
 ## Configure MLflow tracking URI
 
-To connect MLflow to an Azure Machine Learning workspace you will need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
+To connect MLflow to an Azure Machine Learning workspace, you need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [mlflow-configure-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -43,13 +43,13 @@ Once the tracking is set, you'll also need to configure how the authentication n
 
 The Azure Machine Learning plugin for MLflow supports several authentication mechanisms through the package `azure-identity`, which is installed as a dependency for the plugin `azureml-mlflow`. The following authentication methods are tried one by one until one of them succeeds:
 
-1. __Environment__: it will read account information specified via environment variables and use it to authenticate.
-1. __Managed Identity__: If the application is deployed to an Azure host with Managed Identity enabled, it will authenticate with it.  
-1. __Azure CLI__: if a user has signed in via the Azure CLI `az login` command, it will authenticate as that user.
-1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it will authenticate as that user.
-1. __Interactive browser__: it will interactively authenticate a user via the default browser.
+1. __Environment__: it reads account information specified via environment variables and use it to authenticate.
+1. __Managed Identity__: If the application is deployed to an Azure host with Managed Identity enabled, it authenticates with it.  
+1. __Azure CLI__: if a user has signed in via the Azure CLI `az login` command, it authenticates as that user.
+1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it authenticates as that user.
+1. __Interactive browser__: it interactively authenticates a user via the default browser.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [mlflow-configure-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
@@ -90,6 +90,34 @@ export MLFLOW_EXPERIMENT_NAME="experiment_with_mlflow"
 ```
 
 ---
+
+## Non-public Azure Clouds support
+
+The Azure Machine Learning plugin for MLflow is configured by default to work with the global Azure cloud. However, you can configure the Azure cloud you are using by setting the environment variable `AZUREML_CURRENT_CLOUD`.
+
+# [MLflow SDK](#tab/mlflow)
+
+```Python
+import os
+
+os.environ["AZUREML_CURRENT_CLOUD"] = "AzureChinaCloud"
+```
+
+# [Using environment variables](#tab/environ)
+
+```bash
+export AZUREML_CURRENT_CLOUD="AzureChinaCloud"
+```
+
+---
+
+You can identify the cloud you are using with the following Azure CLI command:
+
+```bash
+az cloud list
+```
+
+The current cloud has the value `IsActive` set to `True`.
 
 ## Next steps
 
