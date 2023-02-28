@@ -45,7 +45,7 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
 
 ### Use Azure Resource Manager Template Deployment task
 
-Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
+Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Manager Template Deployment task](https://learn.microsoft.com/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
 ```yml
 trigger:
@@ -78,7 +78,7 @@ steps:
     deploymentName: 'DeployPipelineTemplate'
 ```
 
-For the descriptions of the task inputs, see [Azure Resource Manager Template Deployment task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
+For the descriptions of the task inputs, see [Azure Resource Manager Template Deployment task](/azure/devops/pipelines/tasks/reference/azure-resource-manager-template-deployment-v3).
 
 Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 
