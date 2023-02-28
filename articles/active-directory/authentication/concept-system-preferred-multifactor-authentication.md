@@ -115,7 +115,7 @@ When a user signs in, the authentication process checks which authentication met
 
 System-preferred MFA doesn't affect users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users don't see any change to their sign-in experience.
 
-### What if the most secure MFA method is not available? 
+### What if the most secure MFA method isn't available? 
 
 If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they're redirected to their Security info page to remove the registration of the authentication method that isn't available. 
 
