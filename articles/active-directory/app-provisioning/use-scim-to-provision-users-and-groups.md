@@ -166,7 +166,7 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 
 ## Understand the Azure AD SCIM implementation
 
-To support a SCIM 2.0 user management API, this section describes how the Azure AD Provisioning Service is implemented and shows how to model your SCIM protocol request handling and responses.
+The Azure AD Provisioning Services is designed to support a SCIM 2.0 user management API.
 
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
