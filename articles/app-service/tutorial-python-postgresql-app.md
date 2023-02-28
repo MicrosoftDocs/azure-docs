@@ -519,15 +519,15 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 - Django validates the HTTP_HOST header in incoming requests. The sample code uses the [`WEBSITE_HOSTNAME` environment variable in App Service](reference-app-settings.md#app-environment) to add the app's domain name to Django's [ALLOWED_HOSTS](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6-8" highlight="3":::
 
 - Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="14":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-16" highlight="14":::
 
     Then the static file settings are configured according to the Django documentation.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="25-26":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 

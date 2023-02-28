@@ -63,7 +63,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema named `changefeed`. Don't use this schema, as it is reserved for system use.
 * Source tables with collations that are unsupported by dedicated SQL pools, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
-    * Additionally, some Thai language collations are currently supported by Azure Synapse Link for SQL. These unsupported collations include:
+    * Additionally, some Thai language collations are currently not supported by Azure Synapse Link for SQL. These unsupported collations include:
         *    Thai100CaseInsensitiveAccentInsensitiveKanaSensitive
         *    Thai100CaseInsensitiveAccentSensitiveSupplementaryCharacters
         *    Thai100CaseSensitiveAccentInsensitiveKanaSensitive
@@ -71,6 +71,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
         *    Thai100CaseSensitiveAccentSensitiveKanaSensitive
         *    Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters
         *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
+    * Currently, the collation **Latin1_General_BIN2** is not supported as there is a known issue where the link cannot be stopped nor underlying tables could be removed from replication.
 * Single row updates (including off-page storage) of > 370 MB are not supported.
 * Currently, if the primary key column(s) of the table are not the first columns in the table, and columns to the left of primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
 

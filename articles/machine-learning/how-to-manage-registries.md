@@ -1,7 +1,7 @@
 ---
 title: Create and manage registries (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, Azure portal and AzureML Studio 
+description: Learn how create registries with the CLI, Azure portal and Azure Machine Learning Studio 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -22,7 +22,7 @@ Azure Machine Learning entities can be grouped into two broad categories:
 
 Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-AzureML registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+Azure Machine Learning registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
@@ -82,11 +82,11 @@ Run the registry create command.
 
 `az ml registry create --file registry.yml`
 
-# [AzureML studio](#tab/studio)
+# [Azure Machine Learning studio](#tab/studio)
 
-You can create registries in AzureML studio using the following steps:
+You can create registries in Azure Machine Learning studio using the following steps:
 
-1. In the [AzureML studio](https://ml.azure.com), select the __Registries__, and then __Manage registries__. Select __+ Create registry__.
+1. In the [Azure Machine Learning studio](https://ml.azure.com), select the __Registries__, and then __Manage registries__. Select __+ Create registry__.
 
     > [!TIP]
     > If you are in a workspace, navigate to the global UI by clicking your organization or tenant name in the navigation pane to find the __Registries__ entry.  You can also go directly there by navigating to [https://ml.azure.com/registries](https://ml.azure.com/registries).

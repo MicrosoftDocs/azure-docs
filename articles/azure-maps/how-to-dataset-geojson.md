@@ -1,8 +1,8 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -29,7 +29,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 >[!IMPORTANT]
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
-> - In the URL examples in this article you will need to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Create dataset using the GeoJSON package
 

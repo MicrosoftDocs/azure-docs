@@ -2,7 +2,6 @@
 title: Reset the credentials for a cluster
 titleSuffix: Azure Kubernetes Service
 description: Learn how update or reset the service principal or Azure AD Application credentials for an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
 ms.date: 03/11/2019
 
@@ -41,7 +40,7 @@ To check the expiration date of your service principal, use the [az ad sp creden
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id "$SP_ID" --query "[].endDateTime" -o tsv
+az ad app credential list --id "$SP_ID" --query "[].endDateTime" -o tsv
 ```
 
 ### Reset the existing service principal credential
@@ -59,7 +58,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 With a variable set that contains the service principal ID, now reset the credentials using [az ad sp credential reset][az-ad-sp-credential-reset]. The following example lets the Azure platform generate a new secure secret for the service principal. This new secure secret is also stored as a variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --id "$SP_ID" --query password -o tsv)
+SP_SECRET=$(az ad app credential reset --id "$SP_ID" --query password -o tsv)
 ```
 
 Now continue on to [update AKS cluster with new service principal credentials](#update-aks-cluster-with-new-service-principal-credentials). This step is necessary for the Service Principal changes to reflect on the AKS cluster.
