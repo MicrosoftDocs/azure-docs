@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Receive SMS
+title: Quickstart - Receive and Reply to SMS
 titleSuffix: Azure Communication Services
 description: "In this quickstart, you'll learn how to receive an SMS message by using Azure Communication Services."
 author: ddematheu2
@@ -13,7 +13,7 @@ ms.subservice: sms
 zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 
-# Quickstart: Receive SMS
+# Quickstart: Receive and Reply to SMS
 
 Azure Communication Services SMS capabilities provide developers options to consume SMS received events. The events are posted to Azure Event Grid which provides out of the box integrations to process those using webhooks, Azure Functions, Power Automate / Logic App connectors, and more.
 
@@ -21,7 +21,7 @@ Once received, SMS messages can be processed to respond to them or to simply log
 
 In this QuickStart, we will focus on showcasing the processing of SMS received events through Azure Functions using Event Grid triggers and no-code connectors for Power Automate / Logic Apps.
 
-The SMS received event generated when an SMS is sent to an Azure Communication Services phone number is formatted in the following way:
+The `SMSReceived` event generated when an SMS is sent to an Azure Communication Services phone number is formatted in the following way:
 
 ```json
 [{
