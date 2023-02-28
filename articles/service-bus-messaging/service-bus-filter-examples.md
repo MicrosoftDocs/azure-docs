@@ -2,7 +2,7 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 02/28/2023
 ms.devlang: csharp
 ---
 
