@@ -20,8 +20,9 @@ Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highl
 
 For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
-> [!NOTE]
-> The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+
+[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
 
 ## Why use Managed HSM?
 
