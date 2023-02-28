@@ -58,27 +58,27 @@ In the sidebar menu, look under the section **SAP resources**:
 
 ## Default Instance Numbers
 
-If you've deployed an SAP system using Azure Center for SAP solutions, below shows the default values of instance numbers configured during deployment :
+If you've deployed an SAP system using Azure Center for SAP solutions, the following list shows the default values of instance numbers configured during deployment:
 
 - Distributed Systems [HA and non-HA systems]
-1. ASCS Instance Number - 00
-2. ERS Instance Number - 01
-3. DB Instance Number - 00
-4. APP Instance Number - 00
+   - ASCS Instance Number - 00
+   - ERS Instance Number - 01
+   - DB Instance Number - 00
+   - APP Instance Number - 00
 
 
 - Single Server Systems 
-1. ASCS Instance Number - 01
-3. DB Instance Number - 00
-4. APP Instance Number - 02
+   - ASCS Instance Number - 01
+   - DB Instance Number - 00
+   - APP Instance Number - 02
 
 
 ## Connect to SAP Application
 
-To connect to and manage SAP Application, you can use following credentials :
+To connect to and manage SAP Application, you can use the following credentials:
 
-1. User : DDIC or RFC_USER or SAP*
-2. Client ID : 000
+ - User : DDIC or RFC_USER or SAP*
+ - Client ID : 000
 
 
 ## Connect to HANA database
