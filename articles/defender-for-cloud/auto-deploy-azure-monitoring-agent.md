@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 02/28/2023
 ms.custom: template-how-to, ignite-2022
 ---
 
@@ -40,12 +40,12 @@ To deploy the Azure Monitor Agent with Defender for Cloud:
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
-    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="screenshot showing selecting settings for server service plan ." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/select-server-setting.png" alt-text="Screenshot showing selecting settings for server service plan ." lightbox="media/auto-deploy-azure-monitoring-agent/select-server-setting.png":::
 
 1. Enable deployment of the Azure Monitor Agent:
 
     1. For the **Log Analytics agent/Azure Monitor Agent**, select the **On** status.
-        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="screenshot showing turning on status for Log Analytics/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
+        :::image type="content" source="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing turning on status for Log Analytics/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/turn-on-azure-monitor-agent-auto-provision.png":::
 
         In the Configuration column, you can see the enabled agent type. When you enable Defender plans, Defender for Cloud decides which agent to provision based on your environment. In most cases, the default is the Log Analytics agent.
 
@@ -95,7 +95,7 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 1. For the **Log Analytics agent/Azure Monitor Agent**, select **Edit configuration**.
 
-    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png" alt-text="screenshot showing where to select edit configuration for Log Analytics agent/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
+    :::image type="content" source="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png" alt-text="Screenshot showing where to select edit configuration for Log Analytics agent/Azure Monitor Agent." lightbox="media/auto-deploy-azure-monitoring-agent/configure-azure-monitor-agent-auto-provision.png":::
 
 1. Select **Custom workspace**, and select the workspace that you want to send data to.
 
