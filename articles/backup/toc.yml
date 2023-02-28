@@ -436,8 +436,10 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 (and later) protection matrix
+      - name: MABS V4 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
+      - name: MABS V3 UR1 (and later)
+        href: microsoft-azure-backup-server-protection-v3-ur1.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
