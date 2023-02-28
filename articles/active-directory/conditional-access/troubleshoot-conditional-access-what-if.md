@@ -52,7 +52,7 @@ At any point, you can select **Reset** to clear any criteria input and return to
 
 ### Policies that will apply
 
-This list will show which Conditional Access policies would apply given the conditions. The list will include both the grant and session controls that apply including those from policies in report-only mode. Examples include requiring multi-factor authentication to access a specific application. 
+This list will show which Conditional Access policies would apply given the conditions. The list will include both the grant and session controls that apply including those from policies in report-only mode. Examples include requiring multifactor authentication to access a specific application. 
 
 ### Policies that will not apply
 
@@ -75,4 +75,4 @@ This test could be expanded to incorporate other data points to narrow the scope
 * [What is Conditional Access report-only mode?](concept-conditional-access-report-only.md)
 * [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
-* [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [How it works: Azure AD Multifactor Authentication](../authentication/concept-mfa-howitworks.md)

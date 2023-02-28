@@ -2,8 +2,8 @@
 title: Azure Maps service geographic scope
 titleSuffix: Microsoft Azure Maps
 description: Learn about Azure Maps service's geographic mappings
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 04/18/2022
 ms.topic: conceptual
 ms.service: azure-maps
