@@ -50,7 +50,6 @@ Azure Private 5G Core Packet Core supports deployments with or without L3 router
 - It is possible to connect ASE port 5 to RAN nodes directly (back-to-back) or via an L2 switch. When using this topology, it is required to configure the eNodeB/gNodeB address as the default gateway in the ASE network interface configuration.
 - Similarly, it is possible to connect ASE port 6 to your core network via an L2 switch. When using this topology, it is required to set up an application or an arbitrary address on the subnet as gateway on the ASE side.  
 - Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it - Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it as the gateway in ASE configuration.
-.
 
 Unless your AP5GC Packet core is using NAT, there must be a L3 router configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network.
 
