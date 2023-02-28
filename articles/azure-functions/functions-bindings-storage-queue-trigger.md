@@ -15,9 +15,6 @@ The queue storage trigger runs a function as messages are added to Azure Queue s
 ::: zone pivot="programming-language-python"  
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
-> [!IMPORTANT]   
-> The Python v2 programming model is currently in preview. 
-
 # [v2](#tab/python-v2)
 The Python v2 programming model lets you to define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
 
@@ -27,7 +24,10 @@ The Python v1 programming model requires you to define bindings in a separate fu
 ---
 
 This article supports both programming models. 
-::: zone-end  
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview.  
+::: zone-end   
 
 ## Example
 
