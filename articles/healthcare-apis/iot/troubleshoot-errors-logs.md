@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: jasteppe
 ---
 
@@ -38,7 +38,7 @@ This property represents the operation being performed by the MedTech service wh
 |OperationName|Description|
 |-------------|-----------|
 |Normalization|The data flow stage where the device message gets normalized.|
-|FHIRConversion|The data flow stage where the grouped-normalized data is transformed into a FHIR Observation resource.|
+|FHIRConversion|The data flow stage where the grouped-normalized data is transformed into an Observation resource.|
 
 > [!NOTE]
 > To learn about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
@@ -190,7 +190,7 @@ Also, on the Azure portal, go to the **Device mapping** blade of your MedTech se
 
 ### InvalidQuantityFhirValueException
 
-**Description**: The value with a Quantity FHIR data type is invalid (for example, it may be in a format that isn’t supported). The value with the error is specified in the error message.
+**Description**: The value with a Quantity resource data type is invalid (for example, it may be in a format that isn’t supported). The value with the error is specified in the error message.
 
 **Severity**: Non-blocking
 
@@ -220,13 +220,22 @@ The template’s type and line with the error are specified in the error message
 
 **Severity**: Blocking
 
-**Fix**: On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure the following: 
+**Fix**: The fix depends on the type of managed identity that you'd like to use. (The difference between a system-assigned and a user-assigned managed identity can be reviewed at [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). **Note**: The MedTech service only supports one identity, either a system-assigned managed identity or a single user-assigned managed identity identity.
 
-* The system-assigned managed identity’s **Status** is set to **On**.
+If you'd like to use a system-assigned managed identity:
+  1. If you're deploying a MedTech service using an ARM template, ensure that your MedTech service resource in the ARM template has an `identity` property containing the `type` value of `"SystemAssigned"` (see example ARM template in the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
+  2. On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure the following:
+      * The system-assigned managed identity’s **Status** is set to **On**.
+      * The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
 
-* The **Azure role assignments** show that your event hub has an **Azure Event Hubs Data Receiver** role assigned to your MedTech service’s system-assigned managed identity (if not, follow these [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub)).
+If you'd like to use a user-assigned managed identity:
+  1. Create a user-assigned managed identity [using the Azure portal](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or [using an ARM template](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
+  2. Assign the user-assigned managed identity to your MedTech service by deploying the MedTech service using an ARM template that's similar to [this example](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm#assign-a-user-assigned-managed-identity-to-an-azure-vm). Your MedTech service resource in the ARM template should have an `identity` property containing 1) the `type` value of `"userAssigned"` and 2) a `userAssignedIdentities` value that includes your user-assigned managed identity's name.
+  3. On the Azure portal, go to the **Identity** blade of your MedTech service, and ensure that the system-assigned managed identity’s **Status** is set to **Off**.
+  4.  On the Azure portal, go to your event hub, and assign the **Azure Event Hubs Data Receiver** role to your MedTech service's user-assigned managed identity (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-device-message-event-hub), but use the user-assigned managed identity instead of the system-assigned managed identity).
 
-* If you're deploying a MedTech service using an ARM template, ensure that the MedTech service resource in the ARM template has an identity property containing the type value of "SystemAssigned" (see example ARM template in the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub)).
+> [!NOTE]
+>
 
 ### MultipleResourceFoundException
 
@@ -246,7 +255,7 @@ The template’s type and line with the error are specified in the error message
 
 ### PatientDeviceMismatchException
 
-**Description**: A FHIR Device resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
+**Description**: A Device resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
 **Severity**: Non-blocking
 

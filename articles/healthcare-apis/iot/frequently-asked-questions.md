@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: jasteppe
 ---
 
@@ -29,17 +29,17 @@ To learn more about the MedTech service open-source projects, see [Open-source p
 
 ## What versions of FHIR does the MedTech service support?
 
-The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491).
+The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) standard.
 
 ## Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
-The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on the device message data. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
+The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device message data into Observation resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
 
 ## How long does it take for device message data to show up in the FHIR service?
 
-The MedTech service buffers FHIR Observation resources created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to five minutes. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).
+The MedTech service buffers Observation resources created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of Observation resources to the FHIR service up to five minutes. To learn how the MedTech service transforms device message data into Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).
 
-## Why are the device messages added to the event hub not showing up as FHIR Observation resources in the FHIR service?
+## Why are the device messages added to the event hub not showing up as Observation resources in the FHIR service?
 
 > [!TIP]
 > Having access to MedTech service logs is essential for troubleshooting and assessing the overall health and performance of your MedTech service.
@@ -60,7 +60,7 @@ The MedTech service buffers FHIR Observation resources created during the transf
 
 ## Does the MedTech service perform backups of device messages?
 
-No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. (Event hubs can be deployed in [three different service tiers](/azure/event-hubs/event-hubs-quotas?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days.) If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
+No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. Event hubs can be deployed in [three different service tiers](/azure/event-hubs/event-hubs-quotas?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
 
 To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) 
 
