@@ -30,6 +30,8 @@
       href: manage-ddos-protection-portal-ip.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
+    - name: CLI
+      href: manage-ddos-protection-cli-ip.md
       expanded: true
 
 - name: Tutorials
