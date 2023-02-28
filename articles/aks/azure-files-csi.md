@@ -41,6 +41,7 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
 |requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
+|networkEndpointType | Specify network endpoint type for the storage account created by driver. If `privateEndpoint` is specified, a private endpoint will be created for the storage account. For other cases, a service endpoint will be created by default. | "",`privateEndpoint`| No | "" |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
 |tags | [tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |

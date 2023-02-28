@@ -21,7 +21,7 @@ sections:
       - question: |
           Am I billed for Azure Monitor logs on the workspaces created by Defender for Cloud?
         answer: |
-          As explained in the [pricing and billing FAQ](enhanced-security-features-overview.md#faq---pricing-and-billing), there is a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
+          As explained in the [pricing and billing FAQ](plan-defender-for-servers-data-workspace.md#log-analytics-pricing-faq), there is a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
 
           Workspaces created by Defender for Cloud, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Defender for Cloud billing is always based on your Defender for Cloud security policy and the solutions installed on a workspace:
           

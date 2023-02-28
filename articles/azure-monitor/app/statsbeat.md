@@ -46,7 +46,8 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
 | Switzerland               | Switzerland West       | 
-
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 #### [Node](#tab/eu-node)
 
@@ -63,7 +64,9 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Norway                    | Norway West            | 
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
-| Switzerland               | Switzerland West       | 
+| Switzerland               | Switzerland West       |
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 #### [Python](#tab/eu-python)
 
@@ -80,7 +83,9 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Norway                    | Norway West            | 
 | Sweden                    | Sweden Central         | 
 | Switzerland               | Switzerland North      |
-| Switzerland               | Switzerland West       | 
+| Switzerland               | Switzerland West       |
+| United Kingdom            | United Kingdom South   |
+| United Kingdom            | United Kingdom West    |
 
 
 ---

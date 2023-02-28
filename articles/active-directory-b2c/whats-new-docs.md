@@ -80,7 +80,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Manage your Azure Active Directory B2C tenant](tenant-management-manage-administrator.md)
 - [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
 - [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 - [Roles and resource access control](roles-resource-access-control.md)
@@ -188,7 +188,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
 - [Azure Active Directory B2C service limits and restrictions](service-limits.md)
 - [Localization string IDs](localization-string-ids.md)
-- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Manage your Azure Active Directory B2C tenant](tenant-management-manage-administrator.md)
 - [Page layout versions](page-layout.md)
 - [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md)
 - [Azure Active Directory B2C: What's new](whats-new-docs.md)

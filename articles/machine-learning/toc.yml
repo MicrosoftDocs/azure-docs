@@ -156,6 +156,9 @@
                 - name: Forecasting methods
                   displayName: auto ML, time series, forecasting, methods
                   href: concept-automl-forecasting-methods.md
+                - name: Deep learning models
+                  displayName: auto ML, time series, forecasting, deep learning, TCN
+                  href: concept-automl-forecasting-deep-learning.md
                 - name: Model sweeping and selection
                   displayName: auto ML, time series, forecasting, model selection, sweeping
                   href: concept-automl-forecasting-sweeping.md
@@ -584,7 +587,7 @@
                 - name: Deploy a MLflow model with an online endpoint
                   displayName: ncd, no code deploy, no-code deployment
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Deploy a custom container with an online endpoint
+                - name: Use a custom container to deploy a model to an online endpoint
                   href: how-to-deploy-custom-container.md
                 - name: Use online endpoints in studio
                   href: how-to-use-managed-online-endpoint-studio.md
