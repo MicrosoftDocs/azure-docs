@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 # Deprovision an Azure disk pool (preview)
 
 > [!IMPORTANT]
-> Disk pools are being retired soon. If you're looking for a similar solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 This article covers the deletion process for an Azure disk pool (preview) and how to disable iSCSI support.
 

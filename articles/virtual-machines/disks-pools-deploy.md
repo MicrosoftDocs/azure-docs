@@ -13,7 +13,7 @@ ms.devlang: azurecli
 # Deploy an Azure disk pool (preview)
 
 > [!IMPORTANT]
-> Disk pools are being retired soon. If you're looking for a similar solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 This article covers how to deploy and configure an Azure disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
