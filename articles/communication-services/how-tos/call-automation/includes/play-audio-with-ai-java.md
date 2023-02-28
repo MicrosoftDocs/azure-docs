@@ -59,7 +59,7 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-callautomation</artifactId>
-  <version>1.0.0-alpha.20230210.2</version>
+  <version>1.0.0-alpha.20230228.1</version>
 </dependency>
 ```
 
@@ -113,9 +113,37 @@ To play audio using Text-To-Speech through Azure Cognitive Services you need to 
 ```java
 var playSource = new TextSource();
 playSource.setText("some text to play");
+
+//you can provide SourceLocale and VoiceGender as one option for playing audio
 playSource.setSourceLocale("en-US");
 playSource.setVoiceGender(GenderType.M);
-playSource.setVoiceName("LULU");
+```
+
+```java
+var playSource = new TextSource();
+playSource.setText("Welcome to Contoso");
+
+//you can provide VoiceName
+playSource.setVoiceName("en-US-ElizabethNeural");
+```
+Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
+
+## Play audio to all participants
+
+In this scenario audio is played to all participants on the call.
+
+``` java
+var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
+
+var playOptions = new PlayOptions()
+    .setLoop(false)
+    .setOperationContext("operationContext");
+
+var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
+    playSource,
+    playOptions
+).block();
+assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
 
 ## Play audio to a specific participant
@@ -138,23 +166,6 @@ var playResponse = callConnection.getCallMediaAsync().playWithResponse(
 assertEquals(202, playResponse.getStatusCode()); // The request was accepted
 ```
 
-## Play audio to all participants
-
-In this scenario audio is played to all participants on the call.
-
-``` java
-var callConnection = callAutomationAsyncClient.getCallConnectionAsync(<callConnectionId>);
-
-var playOptions = new PlayOptions()
-    .setLoop(false)
-    .setOperationContext("operationContext");
-
-var playResponse = callConnection.getCallMediaAsync().playToAllWithResponse(
-    playSource,
-    playOptions
-).block();
-assertEquals(202, playResponse.getStatusCode()); // The request was accepted
-```
 
 ## Handle play action event updates 
 
