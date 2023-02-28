@@ -60,7 +60,7 @@ Scaling Trigger describes when scaling of the service will be performed. Conditi
 
 * Scaling mechanism
 
-The scaling mechanism will only be applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger will not be evaluated again until the scaling interval has expired, which is set to one minute for Azure API for FHIR.
+The scaling mechanism is applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger won't be evaluated again until the scaling interval has expired, which is set to one minute for Azure API for FHIR.
 
 To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
 
