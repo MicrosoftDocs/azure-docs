@@ -36,7 +36,7 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 ## Differences Between Azure Cache for Redis Tiers
 
 Implementation of connection logs is slightly different between tiers:
-- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (sucessful and failed) are not logged in these tiers.  
+- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events are not logged in these tiers.  
 - **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. This allows every connection, disconnection, and authentication event to be logged, including failed authentication events. 
 
 The connection logs produced look similar between the tiers, but have some differences. The two formats are shown in more detail below.  
@@ -54,9 +54,12 @@ The connection logs produced look similar between the tiers, but have some diffe
 - Enabling connection logs may cause a small performance degredation to the cache instance.
 
 ### Enterprise and Enterprise Flash tiers
-- When using **OSS Cluster Policy**, logs will be emitted from each node. When using **Enterprise Cluster Policy**, only the nodes being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
+- When using **OSS Cluster Policy**, logs will be emitted from each data node. When using **Enterprise Cluster Policy**, only the node being used as a proxy will emit logs. Both versions will still cover all connections to the cache. This is just an architectural difference.  
 - Data loss (i.e. missing a connection event) is rare, but possible. It is typically caused by networking issues. 
-- Disconnection logs do not appear for clients using the redis-cli and redis-benchmark tools to connect to a cache instance.
+- Disconnection logs do not appear in a few cases:
+   - For clients using the redis-cli and redis-benchmark tools to connect to a cache instance.
+   - Some disconnection logs may be missing when using the StackExchange.Redis library when using SSL
+   - Disconnection logs may get missed udring a failover event.
 - Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set up to be 10 days, and a connection event occured 15 days ago, that connection will still exist but the log for that connection will not have been retained.
 - If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
 - All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
@@ -115,6 +118,8 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information on the right.
 
     **FRAN--need a new picture here**
+    
+---
 
 ## Enable connection logging using the REST API
 
@@ -199,6 +204,9 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 }
 
 ```
+
+---
+
 ## Enable Connection Logging using Azure CLI
 
 ### [Azure CLI with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
@@ -227,6 +235,8 @@ az monitor diagnostic-settings create
     --logs '[{"category": "ConnectionEvents","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]'    
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
 ```
+
+---
 
 ## Contents of the Connection Logs
 
@@ -289,8 +299,8 @@ These fields and properties appear in the `Connection events` log category. In *
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
 | `properties` | n/a | The contents of this field are described in the rows that follow. |
 | `eventEpochTime` | `EventEpochTime` | The timestamp in UNIX epoch format |
-| `clientIP` | `ClientIP` | The Redis client IP address. |
-| `privateLinkIpv6` | `PrivateLinkIPv6` | The Redis client private link IPv6 address (if applicable). |
+| `clientIP` | `ClientIP` | The Redis client IP address. (if using Azure storage, this will either be in IPv4 or IPv6 format based on cache type) |
+| `privateLinkIpv6` | `PrivateLinkIPv6` | The Redis client private link IPv6 address (only emmited if applicable and using log analytics). |
 | `id` | `ConnectionId` | Unique connection ID assigned by Redis. |
 | `eventType` |  `EventType` | Type of connection event (new_conn, auth, or close_conn). |
 | `eventStatus` |  `EventStatus` | Results of an authentication request as a status code (only applicable for authentication event). |
@@ -420,6 +430,7 @@ REDConnectionEvents
 | where EventType == "auth" and EventStatus != 2 and EventStatus != 8 and EventStatus != 7
 | project ClientIp, EventStatus, ConnectionId
 ```
+---
 
 ## Next steps
 
