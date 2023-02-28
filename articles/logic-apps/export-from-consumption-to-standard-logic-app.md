@@ -167,6 +167,10 @@ Some exported logic app workflows require post-export remediation steps to run o
 
 If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference link to the integration account that contains the required artifacts. For more information, review [Link integration account to a Standard logic app](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
+### Batch actions and settings
+
+If you export actions that uses Batch based on an Integration account with multiple configuration, you will have to manually configure your batch action with the correct values. For more invormation, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver)
+
 ## Project folder structure
 
 After the export process finishes, your Standard logic app project contains new folders and files alongside most others in a [typical Standard logic app project](create-single-tenant-workflows-visual-studio-code.md).
