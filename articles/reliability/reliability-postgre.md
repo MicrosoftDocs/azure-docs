@@ -41,16 +41,29 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 ### Prerequisites
 
+#### Zone redundancy
+
 - The **zone-redundancy** option is only available in a [regions that support availability zones](../postgresql/flexible-server/overview.md#azure-regions).
 
-- The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server.  
+Zone-redundancy zones are **not** supported for the following:
 
-### Pricing
+- Azure Database for PostgreSQL – Single Server SKU.  
+- Burstable compute tier.
+- Regions with single-zone availability
+
+#### Zonal
+
+- The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server. 
+
+
+### SLA
 
 -  **Zone-Redundancy** model offers uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
 -  **Zonal** model offers uptime [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
+### Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
 
+To learn how to create an Azure Database for PostgreSQL - Flexible Server, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 ## Disaster recovery: cross region failover
 
