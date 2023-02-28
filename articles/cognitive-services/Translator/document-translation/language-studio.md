@@ -18,7 +18,7 @@ recommendations: false
 
 ## Prerequisites
 
-If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, created an Azure Blob storage account, you can skip this section to[**Get started**](#get-started) right away.
+If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, created an Azure Blob storage account, you can skip this section and [**Get started**](#get-started) right away.
 
 > [!NOTE]
 >
@@ -46,9 +46,14 @@ Now that you've completed the prerequisites, let's start translating documents!
 
 1. Navigate to [Language Studio](https://language.cognitive.azure.com/home).
 
-1. If you're using the Language Studio for the first time, select your Azure directory, Azure subscription, and Translator resource:
+1. If you're using the Language Studio for the first time, a **Select an Azure resource** pop-up screen will appear. Make the following selections:
 
-   :::image type="content" source="media/language-studio/choose-language-resource.png" alt-text="Screenshot of the language studio choose your resource dialog window.":::
+   * **Azure directory**
+   * **Azure subscription**
+   * **Resource type**. Choose **Translator**.
+   * **Resource name**. The resource you select must have [**managed identity enabled**](how-to-guides/create-use-managed-identities.md).
+
+   :::image type="content" source="media/language-studio/choose-azure-resource.png" alt-text="Screenshot of the language studio choose your Azure resource dialog window.":::
 
     > [!TIP]
     > You can update your selected directory and resource by selecting the Translator settings icon located in the left navigation section.
