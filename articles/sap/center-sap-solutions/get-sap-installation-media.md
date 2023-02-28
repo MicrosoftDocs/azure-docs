@@ -241,7 +241,7 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 1909 SPS 03:
 
-        1. [S41909SPS03_v0011ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
+        1. [S41909SPS03_v0011ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
 
         1. [HANA_2_00_059_v0004ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
 
@@ -251,9 +251,9 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 2020 SPS 03:
 
-        1. [S42020SPS03_v0003ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
+        1. [S42020SPS03_v0003ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
 
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
         1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
 
@@ -261,9 +261,9 @@ Next, upload the SAP software files to the storage account:
 	
     1. For S/4HANA 2021 ISS 00:
 
-        1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
+        1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
 
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
 
         1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
 
@@ -277,75 +277,75 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 1909 SPS 03:
         
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/HANA_2_00_055_v1_install.rsp.j2)
         
-        1. [S41909SPS03_v0011ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-app-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-app-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-dbload-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-dbload-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-ers-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-ers-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-generic-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-generic-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-pas-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-pas-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scs-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scs-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scsha-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-scsha-inifile-param.j2)
         
-        1. [S41909SPS03_v0011ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-web-inifile-param.j2)
+        1. [S41909SPS03_v0011ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/templates/S41909SPS03_v0011ms-web-inifile-param.j2)
     	
     1. For S/4HANA 2020 SPS 03:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/HANA_2_00_055_v1_install.rsp.j2)
     	
-        1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/HANA_2_00_install.rsp.j2)
+        1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/HANA_2_00_install.rsp.j2)
     	
-        1. [S42020SPS03_v0003ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-app-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-app-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-dbload-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-dbload-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-ers-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-ers-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-generic-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-generic-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-pas-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-pas-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scs-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scs-inifile-param.j2)
     	
-        1. [S42020SPS03_v0003ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scsha-inifile-param.j2)
+        1. [S42020SPS03_v0003ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scsha-inifile-param.j2)
     	
     1. For S/4HANA 2021 ISS 00:
     	
-        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_055_v1_install.rsp.j2)
+        1. [HANA_2_00_055_v1_install.rsp.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_055_v1_install.rsp.j2)
     	
-        1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_install.rsp.j2)
+        1. [HANA_2_00_install.rsp.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/HANA_2_00_install.rsp.j2)
     	
-        1. [NW_ABAP_ASCS_S4HANA2021.CORE.HDB.AB](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_ASCS_S4HANA2021.CORE.HDB.ABAP_Distributed.params)
+        1. [NW_ABAP_ASCS_S4HANA2021.CORE.HDB.AB](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_ASCS_S4HANA2021.CORE.HDB.ABAP_Distributed.params)
     	
-        1. [NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
+        1. [NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_CI-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
     	
-        1. [NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
+        1. [NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/NW_ABAP_DB-S4HANA2021.CORE.HDB.ABAP_Distributed.params)
     	
-        1. [NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params)
+        1. [NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/NW_DI-S4HANA2021.CORE.HDB.PD_Distributed.params)
     	
-        1. [NW_Users_Create-GENERIC.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/NW_Users_Create-GENERIC.HDB.PD_Distributed.params)
+        1. [NW_Users_Create-GENERIC.HDB.PD_Distributed.params](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/NW_Users_Create-GENERIC.HDB.PD_Distributed.params)
     	
-        1. [S4HANA_2021_ISS_v0001ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-app-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-app-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-app-inifile-param.j2)
     	
-        1. [S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-dbload-inifile-param.j2)
     	
-        1. [S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2)	
+        1. [S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-ers-inifile-param.j2)	
     	
-        1. [S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-generic-inifile-param.j2)
     	
-        1. [S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-pas-inifile-param.j2)
     	
-        1. [S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2)	
+        1. [S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scs-inifile-param.j2)	
     	
-        1. [S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-scsha-inifile-param.j2)
     	
-        1. [S4HANA_2021_ISS_v0001ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/sap-automation/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-web-inifile-param.j2)
+        1. [S4HANA_2021_ISS_v0001ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-web-inifile-param.j2)
 
 1. Upload all the files that you downloaded to the **templates** folder.
 
@@ -355,7 +355,7 @@ Next, upload the SAP software files to the storage account:
 
     1. For S/4HANA 1909 SPS 03:
 
-        1. [S41909SPS03_v0011ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
+        1. [S41909SPS03_v0011ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
     
         1. [HANA_2_00_059_v0004ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
     
@@ -366,9 +366,9 @@ Next, upload the SAP software files to the storage account:
     
     1. For S/4HANA 2020 SPS 03: 
 
-        1. [S42020SPS03_v0003ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
+        1. [S42020SPS03_v0003ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S42020SPS03_v0003ms/S42020SPS03_v0003ms.yaml)
     
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
         1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
         
@@ -376,9 +376,9 @@ Next, upload the SAP software files to the storage account:
 	
     1. For S/4HANA 2021 ISS 00:
 
-        1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/experimental/deploy/ansible/BOM-catalog/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
+        1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
     
-        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/sap-automation/blob/main/deploy/ansible/BOM-catalog/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
+        1. [HANA_2_00_064_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_064_v0001ms/HANA_2_00_064_v0001ms.yaml)
     
         1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
         
