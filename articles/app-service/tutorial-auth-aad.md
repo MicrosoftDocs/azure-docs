@@ -4,34 +4,27 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 02/13/2023
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
+# Requires non-internal subscription - internal subscriptons doesn't provide permission to correctly configure AAD apps
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses a ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 ::: zone-end
 
-![Simple authentication and authorization](./media/tutorial-auth-aad/simple-auth.png)
-
-It also shows you how to secure a multi-tiered app, by accessing a secured back-end API on behalf of the authenticated user, both [from server code](#call-api-securely-from-server-code) and [from browser code](#call-api-securely-from-browser-code).
-
-![Advanced authentication and authorization](./media/tutorial-auth-aad/advanced-auth.png)
-
-These are only some of the possible authentication and authorization scenarios in App Service. 
-
-Here's a more comprehensive list of things you learn in the tutorial:
+Things you learn in the tutorial:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
@@ -42,220 +35,138 @@ Here's a more comprehensive list of things you learn in the tutorial:
 > * Use access tokens from server code
 > * Use access tokens from client (browser) code
 
-You can follow the steps in this tutorial on macOS, Linux, Windows.
+> [!TIP]
+> After completing this scenario, continue to the next procedure to learn how to connect to Azure services as an authenticated user. Common scenarios include accessing Azure Storage or a database as the user who has specific abilities or access to specific tables or files. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+The authentication in this procedure is provided at the hosting platform layer by Azure App Service. You must deploy the frontend and backend app and configure authentication for this web app to be used successfully. 
+
+:::image type="content" source="./media/tutorial-auth-aad/front-end-app-service-to-back-end-app-service-authentication.png" alt-text="Conceptual diagram show the authentication flow from the web user to the front-end app to the back-end app.":::
+
+The frontend app is configured to securely use the backend API. The frontend application provides a Microsoft sign-in for the user, then allows the user to get their _fake_ profile from the backend. In the next article in this series, the fake profile is replaced with a profile from Microsoft Graph.
+
+The frontend source code accesses the current authenticated `accessToken` from the App Service `x-ms-token-aad-access-token` header injected at runtime. This accessToken is sent to the backend server as the bearerToken to securely access the backend API. 
+
+
 
 ## Prerequisites
 
-To complete this tutorial:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- <a href="https://git-scm.com/" target="_blank">Install Git</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+- [Node.js (LTS)](https://nodejs.org/download/)
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Create local .NET Core app
+## Clone the sample application 
 
-In this step, you set up the local .NET Core project. You use the same project to deploy a back-end API app and a front-end web app.
-
-### Clone and run the sample application
-
-1. Run the following commands to clone the sample repository and run it.
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/dotnet-core-api
-    cd dotnet-core-api
-    dotnet run
+    git clone https://github.com/Azure-Samples/js-e2e-web-app-easy-auth-app-to-app
     ```
-    
-1. Navigate to `http://localhost:5000` and try adding, editing, and removing todo items. 
 
-    ![ASP.NET Core API running locally](./media/tutorial-auth-aad/local-run.png)
+## Create and deploy apps
 
-1. To stop ASP.NET Core, press `Ctrl+C` in the terminal.
-
-1. Make sure the default branch is `main`.
-
-    ```bash
-    git branch -m main
-    ```
-    
-    > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
-
-## Deploy apps to Azure
-
-In this step, you deploy the project to two App Service apps. One is the front-end app and the other is the back-end app.
-
-### Configure a deployment user
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
-
-### Create Azure resources
+Create the resource group, web app plan, the web app and deploy in a single step.
 
 ::: zone pivot="platform-windows"  
 
-In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
+1. Change into the frontend web app directory.
 
-```azurecli-interactive
-az group create --name myAuthResourceGroup --location "West Europe"
-az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
-```
+    ```azurecli-interactive
+    cd frontend
+    ```
+
+1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku FREE --location "West Europe" --os-type Windows --runtime "NODE:16-lts"
+    ```
+
+1. Change into the backend web app directory.
+
+    ```azurecli-interactive
+    cd ../backend
+    ```
+
+1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --sku B1 --location "West Europe" --os-type Windows  --runtime "NODE:16-lts"
+    ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in Azure App Service](quickstart-dotnetcore.md).
+1. Change into the frontend web app directory.
 
-```azurecli-interactive
-az group create --name myAuthResourceGroup --location "West Europe"
-az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --is-linux
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
-```
+    ```azurecli-interactive
+    cd frontend
+    ```
+
+1. Create and deploy the frontend web app. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name frontend-<ABC> --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:16-lts"
+    ```
+
+1. Change into the backend web app directory.
+
+    ```azurecli-interactive
+    cd ../backend
+    ```
+
+1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<ABC>` with a unique set of initials or numbers. 
+
+    ```azurecli-interactive
+    az webapp up --resource-group myAuthResourceGroup --name backend-<ABC> --sku B1 --location "West Europe" --os-type Linux  --runtime "NODE:16-lts"
+    ```
 
 ::: zone-end
 
-> [!NOTE]
-> Save the URLs of the Git remotes for your front-end app and back-end app, which are shown in the output from `az webapp create`.
->
+## Configure app setting
 
-### Push to Azure from Git
+The frontend application needs to the know the URL of the backend application for API requests. Use the following Azure CLI command to configure the app setting.
 
-1. Since you're deploying the `main` branch, you need to set the default deployment branch for your two App Service apps to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)). In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. 
+```azurecli-interactive
+az webapp config appsettings set --resource-group myAuthResourceGroup --name <front-end-app-name> --settings BACKEND_URL=<back-end-app-name>
+```
+
+## Call the backend
+
+Browse to the frontend app and return the _fake_ profile from the backend. This action validates that the frontend is successfully requesting the profile from the backend, and the backend is returning the profile. 
+
+1. Use the Azure CLI command to open a web browser. Replace the name with your own app name, such as `frontend-<ABC>`.
 
     ```azurecli-interactive
-    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
-    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
+    az webapp browse --name frontend-<ABC>
     ```
 
-1. Back in the _local terminal window_, run the following Git commands to deploy to the back-end app. Replace _\<deploymentLocalGitUrl-of-back-end-app>_ with the URL of the Git remote that you saved from [Create Azure resources](#create-azure-resources). When prompted for credentials by Git Credential Manager, make sure that you enter [your deployment credentials](deploy-configure-credentials.md), not the credentials you use to sign in to the Azure portal.
+1. Select the `Profile` link. 
+1. View the _fake_ profile returned from the backend web app. 
 
-    ```bash
-    git remote add backend <deploymentLocalGitUrl-of-back-end-app>
-    git push backend main
-    ```
+## Configure authentication
 
-1. In the local terminal window, run the following Git commands to deploy the same code to the front-end app. Replace _\<deploymentLocalGitUrl-of-front-end-app>_ with the URL of the Git remote that you saved from [Create Azure resources](#create-azure-resources).
+In this step, you enable authentication and authorization for the two apps. You use Azure Active Directory as the identity provider. 
 
-    ```bash
-    git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
-    git push frontend main
-    ```
+You also configure the front-end app to: 
 
-### Browse to the apps
+- Grant the front-end app access to the back-end app
+- Configure App Service to return a usable token
+- Use the token in your code.
 
-Navigate to the following URLs in a browser and see the two apps working.
-
-```
-http://<back-end-app-name>.azurewebsites.net
-http://<front-end-app-name>.azurewebsites.net
-```
-
-:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app.":::
-
-> [!NOTE]
-> If your app restarts, you may have noticed that new data has been erased. This behavior by design because the sample ASP.NET Core app uses an in-memory database.
->
->
-
-## Call back-end API from front end
-
-In this step, you point the front-end app's server code to access the back-end API. Later, you enable authenticated access from the front end to the back end.
-
-### Modify front-end code
-
-1. In the local repository, open _Controllers/TodoController.cs_. At the beginning of the `TodoController` class, add the following lines and replace _\<back-end-app-name>_ with the name of your back-end app:
-
-    ```cs
-    private static readonly HttpClient _client = new HttpClient();
-    private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
-    ```
-
-1. Find the method that's decorated with `[HttpGet]` and replace the code inside the curly braces with:
-
-    ```cs
-    var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo");
-    return JsonConvert.DeserializeObject<List<TodoItem>>(data);
-    ```
-
-    The first line makes a `GET /api/Todo` call to the back-end API app.
-
-1. Next, find the method that's decorated with `[HttpGet("{id}")]` and replace the code inside the curly braces with:
-
-    ```cs
-    var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo/{id}");
-    return Content(data, "application/json");
-    ```
-
-    The first line makes a `GET /api/Todo/{id}` call to the back-end API app.
-
-1. Next, find the method that's decorated with `[HttpPost]` and replace the code inside the curly braces with:
-
-    ```cs
-    var response = await _client.PostAsJsonAsync($"{_remoteUrl}/api/Todo", todoItem);
-    var data = await response.Content.ReadAsStringAsync();
-    return Content(data, "application/json");
-    ```
-
-    The first line makes a `POST /api/Todo` call to the back-end API app.
-
-1. Next, find the method that's decorated with `[HttpPut("{id}")]` and replace the code inside the curly braces with:
-
-    ```cs
-    var res = await _client.PutAsJsonAsync($"{_remoteUrl}/api/Todo/{id}", todoItem);
-    return new NoContentResult();
-    ```
-
-    The first line makes a `PUT /api/Todo/{id}` call to the back-end API app.
-
-1. Next, find the method that's decorated with `[HttpDelete("{id}")]` and replace the code inside the curly braces with:
-
-    ```cs
-    var res = await _client.DeleteAsync($"{_remoteUrl}/api/Todo/{id}");
-    return new NoContentResult();
-    ```
-
-    The first line makes a `DELETE /api/Todo/{id}` call to the back-end API app.
-
-1. Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
-
-    ```bash
-    git add .
-    git commit -m "call back-end API"
-    git push frontend main
-    ```
-
-### Check your changes
-
-1. Navigate to `http://<front-end-app-name>.azurewebsites.net` and add a few items, such as `from front end 1` and `from front end 2`.
-
-1. Navigate to `http://<back-end-app-name>.azurewebsites.net` to see the items added from the front-end app. Also, add a few items, such as `from back end 1` and `from back end 2`, then refresh the front-end app to see if it reflects the changes.
-
-    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
-
-## Configure auth
-
-In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
-
-You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
+For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
 
 ### Enable authentication and authorization for back-end app
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app.
 
-    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
-
-1. In your back-end app's left menu, select **Authentication**, and then click **Add identity provider**.
+1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-1. Accept the default settings and click **Add**.
+1. Accept the default settings and select **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
@@ -267,20 +178,37 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app. However, stay on the **Authentication** page for the front-end app because you'll use it in the next step.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, *you still can't access the data from the back-end app*, because the back-end app now requires Azure Active Directory sign-in from the front-end app. You need to do three things:
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
 
-- Grant the front end access to the back end
+    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a back-end app's management page selected.":::
+
+1. In your back-end app's left menu, select **Authentication**, and then select **Add identity provider**.
+
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+
+1. Accept the default settings and select **Add**.
+
+    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
+
+1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+
+    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
+
+
+### Grant front-end app access to back end
+
+Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. To complete the authentication, you need to do three things:
+
+- Grant the frontend app access to the back-end app
 - Configure App Service to return a usable token
-- Use the token in your code
+- Use the token in your code.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
-### Grant front-end app access to back end
-
-Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
+In this step, you **grant the front-end app access to the backend app** on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
 1. In the **Authentication** page for the front-end app, select your front-end app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
@@ -302,7 +230,7 @@ authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 
-The commands effectively adds a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
+The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT token that includes the back end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
@@ -329,53 +257,6 @@ Your apps are now configured. The front end is now ready to access the back end 
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-## Call API securely from server code
-
-In this step, you enable your previously modified server code to make authenticated calls to the back-end API.
-
-Your front-end app now has the required permission and also adds the back end's client ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request (see [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)).
-
-> [!NOTE]
-> These headers are injected for all supported languages. You access them using the standard pattern for each respective language.
-
-1. In the local repository, open _Controllers/TodoController.cs_ again. Under the `TodoController(TodoContext context)` constructor, add the following code:
-
-    ```cs
-    public override void OnActionExecuting(ActionExecutingContext context)
-    {
-        base.OnActionExecuting(context);
-    
-        _client.DefaultRequestHeaders.Accept.Clear();
-        _client.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);
-    }
-    ```
-
-    This code adds the standard HTTP header `Authorization: Bearer <access-token>` to all remote API calls. In the ASP.NET Core MVC request execution pipeline, `OnActionExecuting` executes just before the respective action does, so each of your outgoing API call now presents the access token.
-
-1. Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
-
-    ```bash
-    git add .
-    git commit -m "add authorization header for server code"
-    git push frontend main
-    ```
-
-1. Sign in to `https://<front-end-app-name>.azurewebsites.net` again. At the user data usage agreement page, click **Accept**.
-
-    You should now be able to create, read, update, and delete data from the back-end app as before. The only difference now is that both apps are now secured by App Service authentication and authorization, including the service-to-service calls.
-
-Congratulations! Your server code is now accessing the back-end data on behalf of the authenticated user.
-
-## Call API securely from browser code
-
-In this step, you point the front-end Angular.js app to the back-end API. This way, you learn how to retrieve the access token and make API calls to the back-end app with it.
-
-While the server code has access to request headers, client code can access `GET /.auth/me` to get the same access tokens (see [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)).
-
-> [!TIP]
-> This section uses the standard HTTP methods to demonstrate the secure HTTP calls. However, you can use [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) to help simplify the Angular.js application pattern.
->
 
 ### Configure CORS
 
@@ -385,83 +266,164 @@ In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp co
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'
 ```
 
-This step is not related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
+This step isn't related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-### Point Angular.js app to back-end API
+## Call the authenticated backend
 
-1. In the local repository, open _wwwroot/index.html_.
-
-1. In Line 51, set the `apiEndpoint` variable to the HTTPS URL of your back-end app (`https://<back-end-app-name>.azurewebsites.net`). Replace _\<back-end-app-name>_ with your app name in App Service.
-
-1. In the local repository, open _wwwroot/app/scripts/todoListSvc.js_ and see that `apiEndpoint` is prepended to all the API calls. Your Angular.js app is now calling the back-end APIs. 
-
-### Add access token to API calls
-
-1. In _wwwroot/app/scripts/todoListSvc.js_, above the list of API calls (above the line `getItems : function(){`), add the following function to the list:
+Use the App Service injected `x-ms-token-aad-access-token` header to programmatically access the user's accessToken.
 
     ```javascript
-    setAuth: function (token) {
-        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-    },
+    // Frontend - get access token from injected header
+    let accessToken = req.headers['x-ms-token-aad-access-token'];
+    console.log(`/get-profile:accessToken= ${accessToken}`);
+    if (!accessToken) {
+        return res.render(`${__dirname}/views/profile`, { error: 'Client: No access token found' });
+    }
     ```
 
-    This function is called to set the default `Authorization` header with the access token. You call it in the next step.
-
-1. In the local repository, open _wwwroot/app/scripts/app.js_ and find the following code:
-
-    ```javascript
-    $routeProvider.when("/Home", {
-        controller: "todoListCtrl",
-        templateUrl: "/App/Views/TodoList.html",
-    }).otherwise({ redirectTo: "/Home" });
-    ```
-
-1. Replace the entire code block with the following code:
-
-    ```javascript
-    $routeProvider.when("/Home", {
-        controller: "todoListCtrl",
-        templateUrl: "/App/Views/TodoList.html",
-        resolve: {
-            token: ['$http', 'todoListSvc', function ($http, todoListSvc) {
-                return $http.get('/.auth/me').then(function (response) {
-                    todoListSvc.setAuth(response.data[0].access_token);
-                    return response.data[0].access_token;
-                });
-            }]
-        },
-    }).otherwise({ redirectTo: "/Home" });
-    ```
-
-    The new change adds the `resolve` mapping that calls `/.auth/me` and sets the access token. It makes sure you have the access token before instantiating the `todoListCtrl` controller. That way all API calls by the controller includes the token.
-
-### Deploy updates and test
-
-1. Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+1. The local backend app in Visual Studio Code.
 
     ```bash
-    git add .
-    git commit -m "add authorization header for Angular"
-    git push frontend main
+    cd ../backend && code .
     ```
 
-1. Navigate to `https://<front-end-app-name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
+    ```javascript
+    // Backend - get remote profile
+    const bearerToken =
+    req.headers['Authorization'] || req.headers['authorization'];
+    console.log(`bearerToken: ${bearerToken}`);
+    
+    const accessToken = bearerToken.split(' ')[1];
+    console.log(`accessToken: ${accessToken}`);
+    
+    function validAccessToken(accessToken) {
+        // access token validation removed for brevity
+        return true;
+    }
+    
+    // headers, bearerToken, and env returned for debugging only
+    if (accessToken && validAccessToken(accessToken)) {
+        return res.status(200).json({
+            route: '/profile success',
+            profile: {
+                displayName: 'John Doe',
+            },
+            headers: req.headers, //
+            bearerToken,
+            env: process.env,
+            error: null,
+        });
+    } else {
+        return res.status(200).json({
+            route: '/profile failure - empty or invalid accessToken',
+            profile: null,
+            headers: req.headers, //
+            bearerToken,
+            env: process.env,
+            error: 'empty or invalid accessToken',
+        });
+    }
+    ```
 
-Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
+## Browse to the apps
+
+1. Use the frontend web site in a browser. The URL is in the formate of `https://<FRONTEND-APP-NAME>.azurewebsites.net/`.
+1. The browser requests your authentication to the web app. Complete the authentication.
+1. After authentication completes, the frontend application returns the home page of the app.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-home-page.png" alt-text="Screenshot of web browser showing frontend application after successfully completing authentication.":::
+
+1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
+1. The backend end responds with the _fake_ hard-coded profile name: `John Doe`.
+
+    :::image type="content" source="./media/tutorial-auth-aad/app-profile.png" alt-text="Screenshot of web browser showing frontend application after successfully getting fake profile from backend app.":::
 
 ## When access tokens expire
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
+## Frequently asked questions
+
+**How do I test this authentication on my local development machine?**
+
+The authentication in this procedure is provided at the hosting platform layer by Azure App Service. There's no equivalent emulator. You must deploy the frontend and backend app and configuration authentication for each in order to use the authentication. 
+
+
+
+## Troubleshooting
+
+The frontend and backend app both have `debug` routes to help debug the authentication when this application doesn't return the fake profile.
+
+### Did the application source code deploy correctly to each web app?
+
+1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
+1. In the new browser tab, select **Browse Directory -> Site wwwroot**.
+1. Verify the following are in the directory:
+
+    * package.json
+    * node_modules.tar.gz
+    * /src/index.js 
+
+1. Verify the package.json's `name` property is the same as the web name, either `front-end` or `api-b`.
+
+### Did the application start correctly
+
+Both the web apps should return something when the home page is requested. If you can't reach `/debug` on a web app, the app didn't start correctly. Review the error logs for that web app. 
+
+1. In the Azure portal for the web app, select **Development Tools -> Advanced Tools**, then select **Go ->**. This opens a new browser tab or window. 
+1. In the new browser tab, select **Browse Directory -> Deployment Logs**.
+1. Review each log to find any reported issues. 
+
+### Is the front-end web app configured correctly?
+
+In the front-end app, verify the **Settings -> Configuration** has app settings it needs
+
+* BACKEND_URL: the URL of the API (b) app, such as `https://backend.azurewebsites.net/get-profile`
+* SCM_DO_BUILD_DURING_DEPLOYMENT: true
+
+### Does the front-end web app have a valid and correctly scoped token?
+
+Each web site has a `/debug` route to help with this. 
+
+Use the debug route to verify the front-end web app has a token.
+
+1. Verify that the token isn't expired. The debug route decodes the `exp` property in the token in another property `IsExpired`. This value should be false.
+1. Verify that the token has the correct scope: The debug route displays the `scp` property for the scope. This value should be `user_impersonation`.
+
+The `/debug` route also displays the HTTP headers and the environment variables, if you need them. 
+
+### Does the back-end web app return an empty profile `{}`? 
+
+1. Refresh your front-end app's user token with a route like: `https://frontend.azurewebsites.net/.auth/refresh`.
+1. Retry to get your profile from the API server with a route like: `https://frontend.azurewebsites.net/get-profile`
+
+### Is the front-end web app able to talk to the back-end web app?
+
+Because the client web app calls the API web app from server source code, this isn't something you can see in the browser network traffic. The back-end web app returns any errors to the client web app.
+
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. 
 
-```azurecli-interactive
-az group delete --name myAuthResourceGroup
-```
+1. Delete the resource group by running the following command in the Cloud Shell. This command may take a minute to run.
 
-This command may take a minute to run.
+
+    ```azurecli-interactive
+    az group delete --name myAuthResourceGroup
+    ```
+
+
+2. Delete app registrations
+
+    ```azurecli-interactive
+    
+    ```
+
+## Troubleshooting
+
+az account set --subscription bb881e62-cf77-4d5d-89fb-29d71e930b66
+az configure --defaults group=diberry-app-service-aad
+az webapp list-runtimes
 
 <a name="next"></a>
 ## Next steps
