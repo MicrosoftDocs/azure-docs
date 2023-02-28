@@ -66,8 +66,8 @@ ACI provides fast and easy deployments, flexible resource allocation, and pay pe
 
 * [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md) 
 * [Confidential sidecar containers](https://github.com/microsoft/confidential-sidecar-containers)
-* [Confidential hello world application](https://github.com/Azure-Samples/aci-confidential-hello-world)
-* [Machine learning inference demo](https://github.com/microsoft/confidential-ai)
+* [Confidential hello world application](aka.ms/ccacihelloworld)
+* [Machine learning inference demo](aka.ms/ccaciinference)
 
 ## Next Steps 
 
