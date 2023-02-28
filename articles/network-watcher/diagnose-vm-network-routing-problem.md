@@ -44,6 +44,8 @@ In this section, you create a virtual network.
 
 1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
 
+    :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
+
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
