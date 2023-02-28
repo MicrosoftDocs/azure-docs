@@ -18,7 +18,7 @@ For the sake of simplicity, this tutorial shows you how to use an Azure database
 > [!NOTE]
 > This tutorial shows how to use PostgreSQL. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmosdb.md), [Azure SQL](database-azure-sql.md), or [MySQL](database-mysql.md) tutorials.
 
-:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
+:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from PostgreSQL selection in the developer tools console window.":::
 
 In this tutorial, you learn to:
 

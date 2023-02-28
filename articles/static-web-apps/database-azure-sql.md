@@ -18,7 +18,7 @@ For the sake of simplicity, this tutorial shows you how to use an Azure database
 > [!NOTE]
 > This tutorial shows how to use Azure SQL. If you would like to use another database, refer to the [Azure Cosmos DB](database-azure-cosmosdb.md), [MySQL](database-mysql.md), or [PostgreSQL](database-postgresql.md) tutorials.
 
-:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from database selection in the developer tools console window.":::
+:::image type="content" source="media/database-add/static-web-apps-database-connections-list.png" alt-text="Web browser showing results from Azure SQL in the developer tools console window.":::
 
 In this tutorial, you learn to:
 
