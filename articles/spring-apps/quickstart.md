@@ -200,7 +200,7 @@ Use the following steps to provision a service instance.
        --resource-group ${RESOURCE_GROUP} \
        --location $LOCATION
     ```
-1. A **Managed Environment** creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview). To create the environment, run the following command
+1. An Azure Container App environment creates a secure boundary around a group apps. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview). To create the environment, run the following command
 
     ```azurecli-interactive
     az containerapp env create \
@@ -217,7 +217,7 @@ Use the following steps to provision a service instance.
         --query id -o tsv)
     ```
 
-1. Use the following command to create an Azure Spring Apps service instance.The StandardGen2 Azure Spring Apps instance is built on top of the Container Environment: Create your Azure Spring Apps instance by specifying the resource id of the Managed Environment you just created
+1. Use the following command to create an Azure Spring Apps service instance.The StandardGen2 Azure Spring Apps instance is built on top of the Container Environment: Create your Azure Spring Apps instance by specifying the resource id of the ACA Environment you just created:
 
     ```azurecli-interactive
     az spring create \
@@ -234,7 +234,7 @@ An [**App**](/azure/spring-apps/concept-understand-app-and-deployment) is an abs
 </br>
 ![Apps and Deployments](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 </br>
-Use the following command to specify the app name on Azure Spring Apps and allocate required resources.
+Use the following command to specify the app name on Azure Spring Apps and allocate required resources:
 
     ```azurecli-interactive
     az spring app create \
@@ -246,6 +246,7 @@ Use the following command to specify the app name on Azure Spring Apps and alloc
       --instance-count 2 \
       --assign-endpoint true
     ```
+
 Azure Spring Apps will create an empty welcome application, and you can find the appliction url in the field `properties.url`.
 
 :::image type="content" source="media/quickstart/bannerapp.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/bannerapp.png":::
