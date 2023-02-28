@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## February 2022
 
-* Conversational language understanding and Orchestration workflow is now available in the following regions in the sovereign cloud:
+* Conversational language understanding and Orchestration workflow is now available in the following regions in the sovereign cloud for China:
   * China East 2 (Authoring and Prediction)
   * China North 2 (Prediction)
 * New model evaluation updates for Conversational language understanding and Orchestration workflow.
