@@ -31,11 +31,8 @@ BYO Cognitive Services can be easily integrated into any application regardless 
 
 With the ability to, connect your Cognitive Services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Cognitive Services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Cognitive services that are bespoke to your domain and region through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
-## Developer setup flow
-![Developer flow for connection](./media/azure-cognitive-services-flow.png)
-
 ## Run time flow
-![Run time flow](./media/azure-communication-integration-flow.png)
+![Run time flow](./media/run-time-flow.png)
 
 ## Azure portal experience
 You can also configure and bind your Communication Services and Cognitive Services through the Azure portal. 
