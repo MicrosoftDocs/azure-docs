@@ -79,7 +79,7 @@ __Outbound traffic__
 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
 | `MicrosoftContainerRegistry.<region>` | 443 | Access docker images provided by Microsoft. |
 | `Frontdoor.FirstParty` | 443 | Access docker images provided by Microsoft. |
-| `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. |
+| `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
   > If a compute instance or compute cluster is configured for no public IP, they can't access the public internet by default. However, they do need to communicate with the resources listed above. To enable outbound communication, you have two possible options:
@@ -184,7 +184,7 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | `*.vscode.dev`<br>`*.vscode-unpkg.net`<br>`*.vscode-cdn.net`<br>`*.vscodeexperiments.azureedge.net`<br>`default.exp-tas.com` | Required to access vscode.dev (Visual Studio Code for the Web) |
 | `code.visualstudio.com` | Required to download and install VS Code desktop. This host isn't required for VS Code Web. |
 | `update.code.visualstudio.com`<br>`*.vo.msecnd.net` | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
-| `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure ML extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
+| `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure Machine Learning extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
 | `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Scenario: Third party firewall
@@ -425,7 +425,7 @@ For information on restricting access to models deployed to AKS, see [Restrict e
 
 __Monitoring, metrics, and diagnostics__
 
-To support logging of metrics and other monitoring information to Azure Monitor and Application Insights, allow outbound traffic to the following hosts:
+If you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace, you must allow outbound traffic to the following hosts:
 
 > [!NOTE]
 > The information logged to these hosts is also used by Microsoft Support to be able to diagnose any problems you run into with your workspace.
