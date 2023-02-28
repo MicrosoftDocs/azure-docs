@@ -7,10 +7,12 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/28/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
 author: msmbaldwin
+ms.collection:
+  - zerotrust-services
+
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
 ---
@@ -20,8 +22,9 @@ Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highl
 
 For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
-> [!NOTE]
-> The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+
+[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
 
 ## Why use Managed HSM?
 
@@ -62,3 +65,4 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 - [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

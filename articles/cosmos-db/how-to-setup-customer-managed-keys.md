@@ -653,7 +653,7 @@ No, there's no charge to enable this feature.
 
 All the data stored in your Azure Cosmos DB account is encrypted with the customer-managed keys, except for the following metadata:
 
-- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-db-account)
+- The names of your Azure Cosmos DB [accounts, databases, and containers](./resource-model.md#elements-in-an-azure-cosmos-db-account)
 
 - The names of your [stored procedures](./stored-procedures-triggers-udfs.md)
 

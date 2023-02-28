@@ -1,7 +1,6 @@
 ---
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.author: allensu

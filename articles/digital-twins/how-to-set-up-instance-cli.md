@@ -158,7 +158,7 @@ az dt identity remove --dt-name <name-of-existing-instance> --resource-group <re
 
 ### Considerations for disabling managed identities
 
-It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](concepts-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
 To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-create-endpoints.md) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
 

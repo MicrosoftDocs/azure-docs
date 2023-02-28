@@ -4,13 +4,16 @@ description: Troubleshoot issues with Azure disk pools. Learn about common failu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot Azure disk pools (preview)
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 This article lists some common failure codes related to Azure disk pools (preview). It also provides possible resolutions and some clarity on disk pool statuses.
 

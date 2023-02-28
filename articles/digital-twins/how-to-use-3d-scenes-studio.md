@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/07/2022
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -135,7 +135,7 @@ This will open the **New element** panel where you can fill in element informati
 
 A *primary twin* is the main digital twin counterpart for an element. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
 
-In the **New element** panel, the **Primary twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. 
+In the **New element** panel, the **Primary twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Primary twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png":::
 
@@ -284,7 +284,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png" alt-text="Screenshots showing the notification text being entered on the value widget dialog, and how the widget appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png":::
 
-* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-use-data-history.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
+* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-create-data-history-connection.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
     
     The widget will fill the **Connection string** field automatically, by targeting data in the Azure Data Explorer instance that's already connected to this Azure Digital Twins instance.
 
