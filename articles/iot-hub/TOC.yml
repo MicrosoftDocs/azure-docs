@@ -354,7 +354,7 @@
           items:
             - name: CLI
               displayName: device twins
-              href: twin-getstarted-cli.md
+              href: twin-get-started-cli.md
             - name: .NET
               displayName: device twins
               href: iot-hub-csharp-csharp-twin-getstarted.md
