@@ -51,11 +51,13 @@ az communication bind-cognitive-service --name “{Azure Communication resource 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ``` csharp
-AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
-answerCallOptions.setAzureCognitiveServicesEndpointUrl("https://sample-cognitive-service-resource.cognitiveservices.azure.com/");
-Response<AnswerCallResult> answerCallResult = callAutomationClient
-                                               .answerCallWithResponse(answerCallOptions)
-                                               .block();
+var callAutomationClient = new CallAutomationClient("<ACS connection string>");
+
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
+    {
+        AzureCognitiveServicesEndpointUrl = new Uri("https://sample-cognitive-service-resource.cognitiveservices.azure.com/")
+    };
+    var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
 ```
 
 ## Play Audio
