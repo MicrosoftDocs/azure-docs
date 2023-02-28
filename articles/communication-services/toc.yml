@@ -243,6 +243,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Video constraints
+        href: concepts/voice-video-calling/video-constraints.md
       - name: Customizing the video background
         href: concepts/voice-video-calling/video-effects.md
       - name: Pre-Call diagnostics

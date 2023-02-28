@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -21,6 +21,14 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2023
 
+* The [Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) features are now generally available (GA).
+
+    You no longer need to register the features before using them.
+
+* The `Vaults` API is deprecated starting with Azure NetApp Files REST API version 2022-09-01.  
+
+    Enabling backup of volumes doesn't require the `Vaults` API. REST API users can use `PUT` and `PATCH` [Volumes API](/rest/api/netapp/volumes) to enable backup for a volume.
+    
 * [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) (Preview)
 
     Azure NetApp Files volumes provide flexible, large and scalable storage shares for applications and users. Storage capacity and consumption by users is only limited by the size of the volume. In some scenarios, you may want to limit this storage consumption of users and groups within the volume. With Azure NetApp Files volume user and group quotas, you can now do so. User and/or group quotas enable you to restrict the storage space that a user or group can use within a specific Azure NetApp Files volume. You can choose to set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can set default (same for all users) or individual group quotas.
