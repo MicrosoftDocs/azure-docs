@@ -43,7 +43,7 @@ In this section, you create two virtual networks that you connect later using vi
 
 ### Create first virtual network
 
-1. In the search box at the top of the portal, enter *virtual network*. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
     :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -89,7 +89,7 @@ In this section, you create a storage account, then you create a container in it
 
 If you have a storage account that you want to use, you can skip the following steps and go to [Create VPN gateways](#create-vpn-gateways).
 
-1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
@@ -104,15 +104,11 @@ If you have a storage account that you want to use, you can skip the following s
     | Performance | Select **Standard**. |
     | Redundancy | Select **Locally-redundant storage (LRS)**. |
 
-1. Select the **Networking** tab, or select **Next: Advanced** and then **Next: Networking** button at the bottom of the page.
-
-1. Under **Network connectivity**, select **Enable public access from all networks**.
-
 1. Select the **Review** tab or select the **Review** button.
 
 1. Review the settings, and then select **Create**.
 
-1. Select **Go to resource** to go to the **Overview** page of **mynwstorageaccount**.
+1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **mynwstorageaccount**.
 
 1. Under **Data storage**, select **Containers**.
 
@@ -131,7 +127,7 @@ In this section, you create two VPN gateways that will be used to connect the tw
 
 ### Create first VPN gateway
 
-1. In the search box at the top of the portal, enter *virtual network gateway*. Select **Virtual network gateways** in the search results.
+1. In the search box at the top of the portal, enter *virtual network gateways*. Select **Virtual network gateways** in the search results.
 
 1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 
