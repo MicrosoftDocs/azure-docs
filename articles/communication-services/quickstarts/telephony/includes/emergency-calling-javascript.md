@@ -112,7 +112,7 @@ Use `webpack-dev-server` to build and run your app. Run the following command to
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and go to `http://localhost:8080/`. The completed JavaScript calling app appears.
+Open your browser and go to `http://localhost:8080/`. The completed web app appears.
 
 :::image type="content" source="../media/emergency-calling/emergency-calling-web-app.png" alt-text="Screenshot of a completed JavaScript calling application.":::
 

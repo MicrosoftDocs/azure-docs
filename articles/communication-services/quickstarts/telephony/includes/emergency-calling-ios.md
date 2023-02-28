@@ -116,4 +116,4 @@ func emergencyCall() {
 
 :::image type="content" source="../media/emergency-calling/emergency-calling-ios-app.png" alt-text="Screenshot of a completed iOS calling application.":::
 
-Build and run your app on the iOS simulator by selecting **Product** > **Run** or by using the (&#8984;+R) keyboard shortcut. You can place a call to 933 by selecting the **933 Test Call** button.
+Build and run your app on the iOS simulator by selecting **Product** > **Run** or by using the &#8984;+R keyboard shortcut. You can place a call to 933 by selecting the **933 Test Call** button.
