@@ -274,7 +274,7 @@ The custom route with prefix 0.0.0.0/0 overrode Azure default route and caused a
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 

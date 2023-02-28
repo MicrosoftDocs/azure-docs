@@ -4855,6 +4855,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/virtual-machines/overview#service-disruptions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false

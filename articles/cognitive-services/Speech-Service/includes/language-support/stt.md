@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 02/01/2023
+ms.date: 02/23/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -37,7 +37,7 @@ ms.author: eur
 | `cs-CZ` | Czech (Czechia) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
 | `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
-| `de-AT` | German (Austria) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
+| `de-AT` | German (Austria) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `de-CH` | German (Switzerland) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `de-DE` | German (Germany) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `el-GR` | Greek (Greece) | Plain text |
@@ -116,7 +116,7 @@ ms.author: eur
 | `ms-MY` | Malay (Malaysia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `mt-MT` | Maltese (Malta) | Plain text |
 | `my-MM` | Burmese (Myanmar) | Plain text |
-| `nb-NO` | Norwegian (Bokmål, Norway) | Audio + human-labeled transcript<br/><br/>Plain text |
+| `nb-NO` | Norwegian Bokmål (Norway) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ne-NP` | Nepali (Nepal) | Plain text |
 | `nl-BE` | Dutch (Belgium) | Plain text |
 | `nl-NL` | Dutch (Netherlands) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
