@@ -6,8 +6,9 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 02/28/2023
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 
 ---
 # Configure failover of multiple IP addresses with Azure Site Recovery
@@ -20,7 +21,8 @@ Today, Site Recovery automatically configures the failover of the Primary IP Con
 
 Site Recovery automatically configures the failover of your Primary IP Configuration when you Enable Replication for the VM. Secondary IP Configurations need to be manually configured after the Enable Replication completes. For this you need a protected VM that has one or more Secondary IP Configurations.
 
-Follow the steps as outlined:
+**Follow these steps:**
+
 1. Navigate to the **Network** blade on the Replicated Items page.
 
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-tab.png" alt-text="Replicated Items Blade":::
@@ -46,6 +48,7 @@ Now, for each IP Configuration that you've added, you can configure the values f
 
 
 ## Next steps
+
 - Learn more about [Traffic Manager with Azure Site Recovery](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
 - Learn more about Traffic Manager [routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 - Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

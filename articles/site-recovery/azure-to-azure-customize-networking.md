@@ -6,8 +6,9 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/01/2021
+ms.date: 02/28/2023
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 
 ---
 # Customize networking configurations of the target Azure VM
@@ -79,3 +80,8 @@ Network security group:
 
 > [!WARNING]
 > If the target VM is associated with an availability set, then you need to associate the public IP and internal load balancer of the same SKU with that of the other VM's public IP and internal load balancer in the availability set. If you don't, failover might not succeed.
+
+## Next steps
+
+- Review [networking guidance](./azure-to-azure-about-networking.md) for Azure VM disaster recovery.
+- [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.

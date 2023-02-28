@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/25/2021
+ms.date: 02/28/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 
@@ -27,14 +27,14 @@ Map networks as follows:
 
 1. In **Site Recovery Infrastructure**, click **+Network Mapping**.
 
-    ![ Create a network mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png" alt-text="Create a network mapping" lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png":::
 
 3. In **Add network mapping**, select the source and target locations. In our example, the source VM is running in the East Asia region, and replicates to the Southeast Asia region.
 
-    ![Select source and target](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png" alt-text="Select source and target" lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png":::
 3. Now create a network mapping in the opposite direction. In our example, the source will now be Southeast Asia, and the target will be East Asia.
 
-    ![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png" alt-text="Add network mapping pane - Select source and target locations for the target network" lightbox="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png":::
 
 
 ## Map networks when you enable replication
@@ -59,8 +59,7 @@ The subnet of the target VM is selected based on the name of the subnet of the s
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
 - You can modify the target subnet in the **Network** settings for the VM.
 
-    ![Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text="Network compute properties window" lightbox="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png":::
 
 ## Set up IP addressing for target VMs
 
