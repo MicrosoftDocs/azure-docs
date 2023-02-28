@@ -18,7 +18,7 @@ recommendations: false
 
 ## Prerequisites
 
-If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, created an Azure Blob storage account, you can skip this section to[**Get started**](#get-started) right away.
+If you or an administrator have previously setup a Translator resource with a **system-assigned managed identity**, enabled a **Storage Blob Data Contributor** role assignment, and created an Azure Blob storage account, you can skip this section to[**Get started**](#get-started) right away.
 
 > [!NOTE]
 >
