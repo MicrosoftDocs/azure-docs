@@ -127,8 +127,6 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 >
 
----
-
 ### [Scale out and in (Premium only)](#tab/basic-standard-premium-out-in)
 
 #### Create a new cache that is scaled out using clustering
