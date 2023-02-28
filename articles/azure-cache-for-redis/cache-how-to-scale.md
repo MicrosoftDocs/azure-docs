@@ -285,6 +285,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 - [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 - [What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?](#What-is-the-difference-between-oss-clustering-and-enterprise-clustering-on-enterprise-tier-caches)
+- [How many shards do Enterprise tier caches use?](#how-many-shards-do-enterprise-tier-caches-use)
 
 ### Can I scale to, from, or within a Premium cache?
 
@@ -443,6 +444,10 @@ Clustering is only available for Premium, Enterprise, and Enterprise Flash cache
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
-### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise-tier caches?
+### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
 OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. [See here](cache-best-practices-scale.md#clustering-on-enterprise) for more information.
+
+### How many shards do Enterprise tier caches use?
+
+Unlike Basic, Standard, and Premium tier caches, Enterprise and Enterprise Flash caches can take advantage of mulitple shards on a single node. View the [Enterprise tier best practices](cache-best-practices-scale.md#sharding-and-cpu-utilization) page for more information. 
