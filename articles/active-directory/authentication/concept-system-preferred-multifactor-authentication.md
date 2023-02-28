@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 ## Known issues
 
-- [FIDO2 security key isn't supported on iOS mobile devices](https://learn.microsoft.com/en-us/azure/active-directory/develop/support-fido2-authentication#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
+- [FIDO2 security key isn't supported on iOS mobile devices](../develop/support-fido2-authentication.md#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on iOS devices. 
 
 ## Common questions
 
@@ -115,7 +115,7 @@ When a user signs in, the authentication process checks which authentication met
 
 System-preferred MFA has no affect on users who sign in by using Active Directory Federation Services (AD FS) or Network Policy Server (NPS) extension. Those users will not see any change to their sign-in experience.
 
-### What if the most secure MFA method is not avaiable? 
+### What if the most secure MFA method is not available? 
 
 If the user doesn't have that have the most secure method available, they can sign in with another method. After sign-in, they are redirected to their Security info page to remove the registration of the authentication method that isn't available. 
 
@@ -124,7 +124,7 @@ For example, let's say an end user misplaces their FIDO2 security key. When they
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
 The system-preferred MFA also applies for users who are enabled for MFA push notifications in the legacy MFA policy.
-:::image type="content" border="true" source="./media/how-to-mfa-number-match/mfa-legacy-settings.png" alt-text="Legacy MFA settings.":::
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/mfa-legacy-settings.png" alt-text="Screenshot of legacy MFA settings.":::
 
 ## Next steps
 
