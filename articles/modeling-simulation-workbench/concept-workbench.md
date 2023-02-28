@@ -22,7 +22,7 @@ A workbench hosts Azure resources in a closed environment of virtual machines, s
 
 Multiple teams can work on shared projects within a workbench using Modeling and Simulation Workbench's collaborative and secure design environment.
 
-The chamber and connector will have its own admin that manages the space, the components, and its users. Authorized users will be able to access and modify systems and transform the components and services as per their project requirements. High-performance VMs can be decommissioned after use owing to the sizeable investment involved in keeping them running.
+The chamber and connector have its own admin that manages the space, the components, and its users. Authorized users are able to access and modify systems and transform the components and services as per their project requirements. High-performance VMs can be decommissioned after use owing to the sizeable investment involved in keeping them running.
 
 ## Workbench infrastructure
 
@@ -42,9 +42,9 @@ Key storage components work together to provide high performance for HPC workflo
 
 The Azure virtual network enables over-provisioned network resources with high bandwidth and low latency. Network quality and throughput impacts job runtime drastically. Azure offers built-in, custom options for fast, scalable, and secure connectivity aided by its wide and private optical-fiber capacity, enabling low-latency access globally. Azure also offers accelerated networking to reduce the number of hops and deliver improved performance.
 
-- [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction) - The network service creates private connections between the infrastructure on-premises without traversing the public internet. The service offers immense reliability, quicker speeds, and lower latencies than regular internet connections.
+- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - The network service creates private connections between the infrastructure on-premises without traversing the public internet. The service offers immense reliability, quicker speeds, and lower latencies than regular internet connections.
 
-- [Azure VPN](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway, sending encrypted traffic between an Azure virtual network and an on-premises network over the public network.
+- [Azure VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway, sending encrypted traffic between an Azure virtual network and an on-premises network over the public network.
 
 - Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Azure Active Directory](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users.
 

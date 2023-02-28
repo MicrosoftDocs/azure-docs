@@ -27,7 +27,7 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
   
 - An Azure AD tenant.
 
-- Sample OpenText Exceed TurboX license key.
+- OpenText Exceed TurboX license key.
 
   > [!IMPORTANT]
   >
@@ -234,7 +234,7 @@ Take note of the properties in the next steps:
 
 1. Select **Access control (IAM)** from the left side menu of **myFirstChamber**.
 
-1. Select **Add** > **Add role assignment**. If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+1. Select **Add** > **Add role assignment**. If you don't have permissions to assign roles, the Add role assignment option is disabled.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command":::
 

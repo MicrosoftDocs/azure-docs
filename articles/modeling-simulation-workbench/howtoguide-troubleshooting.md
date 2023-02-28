@@ -1,6 +1,6 @@
 ---
 title: How to Troubleshoot Modeling and Simulation Workbench issues
-description: In this How-to guide, you'll learn how to troubleshoot some issues with a Modeling and Simulation Workbench deployment.
+description: In this How-to guide, you learn how to troubleshoot some issues with a Modeling and Simulation Workbench deployment.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -17,7 +17,7 @@ ms.date: 01/01/2023
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to provision from the resource list.
 1. In the menu for the workbench, select **Activity log** blade on the left of the screen.
-1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you'll find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which will provide a [Log Analytics tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
+1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which provides a [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
 1. NOTE: the lifetime of these logs is 30 days. If you want to retain logs longer, click on the **Export Activity Logs** option to access options available to you.
 
 ## Remote desktop connection troubleshooting
@@ -47,7 +47,7 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
 1. Check license file to see if it has expired or not. 1. `INCREMENT <feature> <cdslmd|mgcld|snpslmd|ansyslmd|...> <version> <expirationdate> <seats> ...` or `FEATURE <feature> <cdslmd|mgcld|snpslmd|ansyslmd|...> <version> <expirationdate> <seats> ...`
 1. If licenses are unexpired, restart license server from the Azure portal. Check if license file can be checked out. <!---TODO Add screenshot from within chamber showing how command or output of how to check out license file. Or sample code/command line call to check out license --->
 1. If not, reupload the original license file from the license provider. Make sure no edits were made to the file provided by the license provider prior to uploading. See [how to upload license](./howtoguide-licenses.md)
-1. Run 'lmstat' command to check the status of the license server, if it is running try to check out your license file. These activities would be performed within the chamber linux environment. <!---TODO Add screenshot of lmstat output without any proprietary information--->
+1. Run 'lmstat' command to check the status of the license server, if it's running try to check out your license file. These activities would be performed within the chamber linux environment. <!---TODO Add screenshot of lmstat output without any proprietary information--->
 1. If the issue persists, contact your Microsoft account representative.
 
 ## Data pipeline troubleshooting
@@ -68,8 +68,8 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
 
 ### Unable to approve data download request
 
-1. You must be a Workbench Owner to approve a data download request. A Workbench Owner will have Subscription Owner or Subscription Contributor role assigned to them.
-1. You cannot be the same user who requested the download. See [approve download](./howtoguide-download-data.md).
+1. You must be a Workbench Owner to approve a data download request. A Workbench Owner has Subscription Owner or Subscription Contributor role assigned to them.
+1. You can't be the same user who requested the download. See [approve download](./howtoguide-download-data.md).
 
 ### Data download from chamber not working
 

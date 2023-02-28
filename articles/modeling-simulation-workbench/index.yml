@@ -65,7 +65,7 @@ landingContent:
 #            url: /cli/azure/ModSimWorkbench
 #          - text: Azure PowerShell
 #            url: /powershell/module/az.MModSimWorkbench        
-          - text: REST
-            url: /rest/api/ModSimWorkbench
+#          - text: REST
+#            url: /rest/api/ModSimWorkbench
           - text: Resource Manager template
             url: /azure/templates/microsoft.ModSimWorkbench/allversions

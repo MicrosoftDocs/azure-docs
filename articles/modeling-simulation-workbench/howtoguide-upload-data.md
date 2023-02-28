@@ -22,7 +22,7 @@ Get started with Azure Modeling and Simulation Workbench (preview) to run your d
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Modeling and Simulation Design Workbench installed with at least one chamber
 - User must be provisioned as a Chamber Admin or Chamber User
-- [AzCopy](https://learn.microsoft.com/azure/storage/common/storage-ref-azcopy) installed on machine, which has access to the configured network for the target chamber. Only machines that are on the specified network path for the chamber can upload files.
+- [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on machine, which has access to the configured network for the target chamber. Only machines that are on the specified network path for the chamber can upload files.
 
 ## Sign in to Azure portal
 
@@ -42,7 +42,7 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
 1. Using the AzCopy command, upload your file. for example, `azcopy copy <sourceFilePath> <uploadURL>`
 
-1. The customer will be able to see the uploaded file resource with source filename under **Chamber | Data Pipeline | File**.
+1. The customer is able to see the uploaded file resource with source filename under **Chamber | Data Pipeline | File**.
 
 1. Chamber Admin and chamber users can access the uploaded file from within the chamber by accessing the path: */mount/private/datain*.
 

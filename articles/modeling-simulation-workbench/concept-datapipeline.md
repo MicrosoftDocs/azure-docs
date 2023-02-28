@@ -20,13 +20,13 @@ The data pipeline enables users to bring data into the [chamber](./concept-chamb
 
 ## Data Pipeline features
 
-Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token. This token can be acquired from the chamber component. The user can then utilize AzCopy to move data into the data pipeline endpoint. The chamber will recognize the data pipeline request and move the file into the chamber, in addition, the data pipeline will make visible within the chamber a files object representing the data in file request for traceability.
+Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token. This token can be acquired from the chamber component. The user can then utilize AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and move the file into the chamber, in addition, the data pipeline makes visible within the chamber a files object representing the data in file request for traceability.
 
 Users with access to the chamber can extract data from the chamber via the data pipeline through a series of steps.
 
-1. Identify file to extract. The process is triggered by placing the file to extract into a designated area within the chamber. This can be performed by a Chamber Admin or a Chamber User. The copied file will be detected by the data pipeline and a files object will be created. The file creation activity is traceable in the logs, and will enable the next step of the data pipeline.
+1. Identify file to extract. The process is triggered by placing the file to extract into a designated area within the chamber. Copying file to data pipeline data out folder can be performed by a Chamber Admin or a Chamber User. The copied file will be detected by the data pipeline and a files object is created. The file creation activity is traceable in the logs, and will enable the next step of the data pipeline.
 
-1. Request file to extract. A Chamber Admin can review files in the data pipeline and for data out files, request to extract a file from the chamber. This operation will trigger the creation of a files request object. The request to extract activity is traceable in the logs, and will enable the next step of the data pipeline.
+1. Request file to extract. A Chamber Admin can review files in the data pipeline and for data out files, request to extract a file from the chamber. This operation triggers the creation of a files request object. The request to extract activity is traceable in the logs, and will enable the next step of the data pipeline.
 
 1. Approve/Reject file request. The file request object can only be approved or rejected for extraction by the Workbench Owner. In addition, the user approving the extraction can't be the same user who requested to extract the data, and must be a Workbench Owner vs Chamber Admin or Chamber User.
 

@@ -17,7 +17,7 @@ This article explains how to manage chamber storage.
 
 This guide shows you how to use the Azure portal to manage chamber storage within a Modeling and Simulation Workbench chamber.
 
-You'll need to be a Chamber Admin or your organization's Workbench Owner to complete this process.
+You need to be a Chamber Admin or your organization's Workbench Owner to complete this process.
 
 ## Prerequisites
 

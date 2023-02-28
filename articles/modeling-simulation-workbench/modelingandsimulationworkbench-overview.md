@@ -30,7 +30,7 @@ The Azure Modeling and Simulation Workbench supports a wide variety of VM sizes 
 
 ## Storage capabilities in Azure Modeling and Simulation Workbench
 
-Storage (both private within chamber, and shared) is persistent with high availability throughout the lifecycle of a Modeling and Simulation Workbench, which includes all customer data and customizations. Users will also have ability to scale the storage capacity and performance as per their needs. Every component of a workload can benefit from a tightly integrated secure, intelligent, and fully managed platform, from computing and data management to security, networking, and workload management.
+Storage (both private within chamber, and shared) is persistent with high availability throughout the lifecycle of a Modeling and Simulation Workbench, which includes all customer data and customizations. Users also have the ability to scale the storage capacity and performance tier as per their needs. Every component of a workload can benefit from a tightly integrated secure, intelligent, and fully managed platform, from computing and data management to security, networking, and workload management.
 
 ## Next steps
 

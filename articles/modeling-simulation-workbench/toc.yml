@@ -4,7 +4,7 @@ items:
 - name: Overview
   items: 
     - name: About Azure Modeling and Simulation Workbench (preview)
-      href: Modeling and Simulation Workbench-overview.md
+      href: modelingandsimulationworkbench-overview.md
 - name: Quickstart
   items: 
     - name: Create Modeling and Simulation Workbench
@@ -49,7 +49,7 @@ items:
 #      href: /cli/azure/ModSimWorkbench
 #    - name: Azure PowerShell
 #      href: /powershell/module/az.ModSimWorkbench 
-    - name: REST
-      href: /rest/api/ModSimWorkbench
+#    - name: REST
+#      href: /rest/api/ModSimWorkbench
     - name: Resource Manager template
       href: /azure/templates/microsoft.ModSimWorkbench/allversions
