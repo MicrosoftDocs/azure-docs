@@ -76,10 +76,17 @@ The Upgrade Policy for a Virtual Machine Scale Set can be change at any point in
 
 
 ### CLI
-
+```azurecli-interactive
+az vmss update
+```
 
 ### PowerShell
 
+```azurepowershell-interactive
+Set-AzVmssRollingUpgradePolicy -VirtualMachineScaleSet $vmss -MaxBatchInstancePercent 40 -MaxUnhealthyInstancePercent 35 -MaxUnhealthyUpgradedInstancePercent 30 -PauseTimeBetweenBatches "PT30S" -MaxSurge "True"
+
+Update-AzVMSS 
+```
 
 ### Template
 
