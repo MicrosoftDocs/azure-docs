@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub release notes and version history
 
-Device Update for IoT Hub is an Azure service designed to work with an on-device agent built from the open-source Device Update for IoT Hub project hosted on GitHub. All new agent releases are made available under the [Releases section](https://github.com/Azure/iot-hub-device-update/releases) of the Github repository. Contributions, feature requests, and bug reports can also be filed on the [open-source Device Update for IoT Hub repository](https://github.com/Azure/iot-hub-device-update).
+Device Update for IoT Hub is an Azure service designed to work with an on-device agent built from the open-source Device Update for IoT Hub project hosted on GitHub. All new agent releases are made available under the [Releases section](https://github.com/Azure/iot-hub-device-update/releases) of the GitHub repository. Contributions, feature requests, and bug reports can also be filed on the [open-source Device Update for IoT Hub repository](https://github.com/Azure/iot-hub-device-update).
 
 ## Detailed release notes for "February 2023 Release"
 
