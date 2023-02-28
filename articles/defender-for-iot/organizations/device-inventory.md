@@ -56,9 +56,10 @@ Defender for IoT's device inventory supports the following device classes:
 |**Network devices**     |  Switches, routers, controllers, or access points        |
 |**OT devices**     | Industrial and operational devices, such as PLCs, historian devices, HMIs, scales, pneumatic devices, or packaging systems        |
 
-*Unclassified* devices are devices that don't have an out-of-the-box category defined.
+A *transient* device type indicates a device that was connected to the network for a very short time before disconnecting. We recommend investigating these devices carefully to understand their impact on your network.
 
-<!--how to add in about transient devices?-->
+*Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
+
 
 ## Unauthorized devices
 
