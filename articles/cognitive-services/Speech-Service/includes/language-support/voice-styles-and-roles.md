@@ -27,22 +27,23 @@ ms.author: eur
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|Not supported|
 |pt-BR-FranciscaNeural|`calm`|Not supported|
 |zh-CN-XiaohanNeural<sup>5</sup>|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Not supported|
-|zh-CN-XiaomengNeural<sup>1,5</sup>|`chat`|Not supported|
+|zh-CN-XiaomengNeural<sup>5</sup>|`chat`|Not supported|
 |zh-CN-XiaomoNeural<sup>5</sup>|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|`Boy`, `Girl`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `YoungAdultFemale`, `YoungAdultMale`|
 |zh-CN-XiaoruiNeural<sup>5</sup>|`angry`, `calm`, `fearful`, `sad`|Not supported|
 |zh-CN-XiaoshuangNeural<sup>5</sup>|`chat`|Not supported|
 |zh-CN-XiaoxiaoNeural<sup>5</sup>|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `friendly`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Not supported|
 |zh-CN-XiaoxuanNeural<sup>5</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|`Boy`, `Girl`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `YoungAdultFemale`, `YoungAdultMale`|
-|zh-CN-XiaoyiNeural<sup>1,5</sup>|`affectionate`, `angry`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Not supported|
-|zh-CN-XiaozhenNeural<sup>1,5</sup>|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
-|zh-CN-YunfengNeural<sup>1,5</sup>|`angry`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
-|zh-CN-YunhaoNeural<sup>1,2,5</sup>|`advertisement-upbeat`|Not supported|
-|zh-CN-YunjianNeural<sup>1,3,4,5</sup>|`narration-relaxed`, `sports-commentary`, `sports-commentary-excited`|Not supported|
-|zh-CN-YunxiaNeural<sup>1,5</sup>|`angry`, `calm`, `cheerful`, `fearful`, `sad`|Not supported|
+|zh-CN-XiaoyiNeural<sup>5</sup>|`affectionate`, `angry`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Not supported|
+|zh-CN-XiaozhenNeural<sup>5</sup>|`angry`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
+|zh-CN-YunfengNeural<sup>5</sup>|`angry`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `sad`, `serious`|Not supported|
+|zh-CN-YunhaoNeural<sup>2,5</sup>|`advertisement-upbeat`|Not supported|
+|zh-CN-YunjianNeural<sup>3,4,5</sup>|`narration-relaxed`, `sports-commentary`, `sports-commentary-excited`|Not supported|
+|zh-CN-YunxiaNeural<sup>5</sup>|`angry`, `calm`, `cheerful`, `fearful`, `sad`|Not supported|
 |zh-CN-YunxiNeural<sup>5</sup>|`angry`, `assistant`, `chat`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `newscast`, `sad`, `serious`|`Boy`, `Narrator`, `YoungAdultMale`|
 |zh-CN-YunyangNeural<sup>5</sup>|`customerservice`, `narration-professional`, `newscast-casual`|Not supported|
 |zh-CN-YunyeNeural<sup>5</sup>|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|`Boy`, `Girl`, `OlderAdultFemale`, `OlderAdultMale`, `SeniorFemale`, `SeniorMale`, `YoungAdultFemale`, `YoungAdultMale`|
-|zh-CN-YunzeNeural<sup>1,5</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|`OlderAdultMale`, `SeniorMale`|
+|zh-CN-YunzeNeural<sup>5</sup>|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `documentary-narration`, `fearful`, `sad`, `serious`|`OlderAdultMale`, `SeniorMale`|
+
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
