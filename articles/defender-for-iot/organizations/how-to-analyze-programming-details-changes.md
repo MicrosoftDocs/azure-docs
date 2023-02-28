@@ -1,7 +1,7 @@
 ---
 title: Analyze programming details and changes on an OT sensor - Microsoft Defender for IoT
 description: Discover suspicious programming activity by investigating programming events occurring on your network devices.
-ms.date: 02/27/2023
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
@@ -30,7 +30,7 @@ To perform the procedures in this article, make sure that you have:
 
 ## Access programming data
 
-The **Programming Timeline** tab can be accessed from unauthorized programming alerts, the **Device map**, the **Device inventory**, and the **Event timeline** in the sensor console.
+The **Programming Timeline** tab can be accessed from the **Device map**, **Device inventory**, and **Event timeline** pages in the sensor console.
 
 ### Access programming data from the device map
 
@@ -58,20 +58,6 @@ The **Programming Timeline** tab can be accessed from unauthorized programming a
 
     :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device details page." lightbox="media/analyze-programming/programming-timeline-window-device-inventory.png":::
 
-### Access programming data from an alert
-
-Unauthorized programming alerts are triggered when unauthorized programming devices carry out programming activities.
-
-**To access the programming timeline from an alert**:
-
-1. Sign into the sensor console and go to **Alerts**.
-
-1. Filter the alerts to find the alert you want to analyze.
-
-1. Select the alert to open the alert details pane on the right.
-
-1. Select **Programming** to open the **Programming timeline**.
-
 ### Access programming data from the event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
@@ -86,21 +72,21 @@ Use the event timeline to display a timeline of events in which programming chan
 
 The **Programming Timeline** tab shows details about each device that was programmed. Select an event and a file to view full programming details on the right. In the **Programming Timeline** tab:
 
-- The **Recent Events** area lists the 50 most recent events detected by the OT sensor. Hover over an event and select the star to mark the event as an **Important** event.
+- The **Recent Events** area lists the 50 most recent events detected by the OT sensor. Hover over an event period select the star to mark the event as an **Important** event.
 
 - The **Files** area lists programming files detected for the selected device. The OT sensor can display a maximum of 300 files per device, where each file has a maximum size of 15 MB. The **Files** area lists each file's name and size, and one of the following statuses to indicate the programming event that occurred:
 
   - **Added**: The programming file was added to the endpoint
-  - **Updated**: The programming file was updated on endpoint
+  - **Updated**: The programming file was updated on the endpoint
   - **Deleted**: The programming file was removed from the endpoint
   - **Unknown**: No changes were detected for the programming file
 
-- When a programming file is opened on the right, the device that was programmed is listed as the *programmed asset*. Multiple devices may have made programming changes on the device. Details about any devices that made changes are listed as *programming assets*, including the hostname, when the change was made, and the user that was signed in to the device at the time.
+- When a programming file is opened on the right, the device that was programmed is listed as the *programmed asset*. Multiple devices may have made programming changes on the device. Devices that made changes are listed as the *programming assets*, and details include the hostname, when the change was made, and the user that was signed in to the device at the time.
 
 > [!TIP]
 > Select the :::image type="icon" source="media/analyze-programming/download-icon.png" border="false"::: download button to download a copy of the currently displayed programming file.
 
-For example: 
+For example:
 
 :::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of viewing programming details in programming timeline." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
