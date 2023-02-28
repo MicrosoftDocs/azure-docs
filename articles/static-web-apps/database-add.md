@@ -199,7 +199,6 @@ Next, create the configuration file that your static web app uses to interface w
   }
 }
 
-    ```
 
 Before moving on to the next step, review the following table that explains different aspects of the configuration file.
 
