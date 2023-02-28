@@ -1,4 +1,16 @@
+---
+title: "Create App Environment with existing Virtual Network"
+description: Describes creation of App Environment with existing Virtual Network.
+author: Caoxuyang
+ms.author: xuycao
+ms.service: spring-apps
+ms.topic: article
+ms.date: 02/27/2023
+---
+
 # Create App Environment with existing Virtual Network
+
+**This article applies to:** ✔️ Standard Consumption plan ❌ Basic/Standard tier ❌ Enterprise tier
 
 The following example shows you how to create an App Environment in an existing virtual network.
 
@@ -48,7 +60,7 @@ The following procedure creates an App Environment using the Azure portal.
 
 ## Prerequisites
 
-- Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.28.0 or higher.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
 ## Setup
 
