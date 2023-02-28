@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 02/19/2023
+ms.date: 02/28/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -22,6 +22,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
+| Deprecation of App Service language monitoring policies | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | August 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
@@ -72,6 +73,22 @@ You can learn more about [Microsoft Defender for Endpoint onboarding options](in
 You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
 
 Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
+
+### Deprecation of App Service language monitoring policies
+
+The following App Service language monitoring policies are set to be deprecated because they are only scoped to Linux apps. Additionally, their monitoring capabilities are not fully accurate. This has led to false-negatives and inaccurate compliance scores.
+
+| Policy name | Policy ID |
+|--|--|
+| [App Service apps that use Java should use the latest 'Java version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) | 496223c3-ad65-4ecd-878a-bae78737e9ed |
+| [App Service apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) | 7008174a-fd10-4ef0-817e-fc820a951d73 |
+| [Function apps that use Java should use the latest 'Java version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) | 9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc |
+| [Function apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) | 7238174a-fd10-4ef0-817e-fc820a951d73 |
+| [App Service apps that use PHP should use the latest 'PHP version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3)| 7261b898-8a84-4db8-9e04-18527132abb3 |
+
+Customers that rely on these policies to check for the latest language version for their App Services, need to find a different solution to confirm that their apps are using the intended language version. 
+
+Defender for Cloud will be adding built-in policies that will allow customers to specify the language version their apps are using, which in some cases may not even be the latest version. The new policies will have similar names to the ones that are being deprecated, however the text will change from `use the latest` to `use a specified`.  
 
 ### Multiple changes to identity recommendations
 
