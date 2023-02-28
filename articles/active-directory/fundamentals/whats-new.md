@@ -70,45 +70,31 @@ For more information, see:
 
 ---
 
-### General Availability - Microsoft cloud settings for Azure AD B2B
+### Public Preview - Azure AD PIM + Conditional Access integration
 
 **Type:** New feature   
-**Service category:** B2B                  
-**Product capability:** B2B/B2C             
+**Service category:** Privileged Identity Management                    
+**Product capability:** Privileged Identity Management               
 
-Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
+Now you can require users who are eligible for a role to satisfy Conditional Access policy requirements for activation: use specific authentication method enforced through Authentication Strengths, activate from Intune compliant device, comply with Terms of Use, and use 3rd party MFA and satisfy location requirements.
 
-- Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
-
-
-For more information Microsoft cloud settings for B2B collaboration, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+For more information, see: [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md).
 
 
 ---
 
-### Public Preview - New My Groups Experience
+### General Availability - More information on why a sign-in was flagged as "unfamiliar"
 
 **Type:** Changed feature   
-**Service category:** Group Management                  
-**Product capability:** End User Experiences            
+**Service category:** Identity Protection                    
+**Product capability:** Identity Security & Protection           
 
-A new and improved My Groups experience is now available at [myaccount.microsoft.com/groups](https://myaccount.microsoft.com/groups). This experience replaces the existing My Groups experience at [mygroups.microsoft.com](https://mygroups.microsoft.com) in May. For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
+Unfamiliar sign-in properties risk detection now provides risk reasons as to which properties are unfamiliar for customers to better investigate that risk. 
 
+Identity Protection now surfaces the unfamiliar properties in the Azure portal on UX and in API as *Additional Info* with a user-friendly description explaining that *the following properties are unfamiliar for this sign-in of the given user*. 
 
----
+There is no additional work to enable this feature, the unfamiliar properties will be shown by default. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
 
-### General Availability - Number Matching for Microsoft Authenticator notifications
-
-**Type:** Plan for change      
-**Service category:** Microsoft Authenticator App                 
-**Product capability:** User Authentication             
-
-Microsoft Authenticator app’s number matching feature has been generally available since Nov 2022. If you haven't already leveraged the rollout controls, via the Azure portal and MSGraph APIs, to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
-
-If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services roll out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
-
-For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md).
 
 ---
 
