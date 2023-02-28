@@ -103,8 +103,8 @@ filter.Properties["prop2"] = "xyz";
 
 
 > [!NOTE]
-> All filters evaluate message properties. Filters can't evaluate the message body.
-> Complex filter rules require processing capacity. In particular, the use of SQL filter rules cause lower overall message throughput at the subscription, topic, and namespace level. Whenever possible, applications should choose correlation filters over SQL-like filters because they're much more efficient in processing and have less impact on throughput.
+> - All filters evaluate message properties. Filters can't evaluate the message body.
+> - Complex filter rules require processing capacity. In particular, the use of SQL filter rules cause lower overall message throughput at the subscription, topic, and namespace level. Whenever possible, applications should choose correlation filters over SQL-like filters because they're much more efficient in processing and have less impact on throughput.
 
 ## Actions
 With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the `SQL UPDATE` statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
@@ -126,7 +126,9 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 
 ## Usage patterns
 
-- **Broadcast** pattern: The simplest usage scenario for a topic is that every subscription gets a copy of each message sent to a topic, which enables a broadcast pattern.
+- **Broadcast** pattern
+
+    The simplest usage scenario for a topic is that every subscription gets a copy of each message sent to a topic, which enables a broadcast pattern.
 - **Partitioning** pattern
 
     Partitioning uses filters to distribute messages across several existing topic subscriptions in a predictable and **mutually exclusive** manner. The partitioning pattern is used when a system is scaled out to handle many different contexts in functionally identical compartments that each hold a subset of the overall data; for example, customer profile information. With partitioning, a publisher submits the message into a topic without requiring any knowledge of the partitioning model. The message then is moved to the correct subscription from which it can then be retrieved by the partition's message handler.
@@ -134,11 +136,9 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 
     Routing uses filters to distribute messages across topic subscriptions in a predictable fashion, but **not necessarily exclusive**. In conjunction with the [auto forwarding](service-bus-auto-forwarding.md) feature, topic filters can be used to create complex routing graphs within a Service Bus namespace for message distribution within an Azure region. With Azure Functions or Azure Logic Apps acting as a bridge between Azure Service Bus namespaces, you can create complex global topologies with direct integration into line-of-business applications.
     
-## Examples
-For more examples, see [Service Bus filter examples](service-bus-filter-examples.md).
-
 > [!NOTE]
-> Because the Azure portal now supports Service Bus Explorer functionality, subscription filters can be created or edited from the portal. 
+> - For more examples, see [Service Bus filter examples](service-bus-filter-examples.md).
+> - Because the Azure portal now supports Service Bus Explorer functionality, subscription filters can be created or edited from the portal. 
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
