@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Content Delivery Network (CDN) global can serve content to China users with point-of-presence (POP) locations near China or any POP that provides the best performance to requests originating from China. However, if China is a significant market for your customers and they need fast performance, consider using Azure CDN China instead.
 
-Azure CDN China differs from Azure CDN global in that it delivers content from POP's inside of China by partnering with many local providers. Due to Chinese compliance and regulation, you must register a separate subscription to use Azure CDN China and your websites need to have an ICP license. The portal and API experience to enable and manage content delivery is identical between Azure CDN global and Azure CDN China.
+Azure CDN China differs from Azure CDN global in that it delivers content from POPs inside of China by partnering with many local providers. Due to Chinese compliance and regulation, you must register a separate subscription to use Azure CDN China and your websites need to have an ICP license. The portal and API experience to enable and manage content delivery is identical between Azure CDN global and Azure CDN China.
 
 ## Comparison of Azure CDN global and Azure CDN China
 
